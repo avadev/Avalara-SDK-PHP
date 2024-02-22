@@ -1,46 +1,51 @@
 {
-    "name": "avalaratest/avalara_test_sdk",
-    "description": "API for evaluating transactions against direct-to-consumer Beverage Alcohol shipping regulations.  This API is currently in beta.",
-    "keywords": [
-        "openapitools",
-        "openapi-generator",
-        "openapi",
-        "php",
-        "sdk",
-        "rest",
-        "api"
-    ],
-    "homepage": "https://openapi-generator.tech",
-    "license": "unlicense",
-    "authors": [
-        {
-            "name": "OpenAPI-Generator contributors",
-            "homepage": "https://openapi-generator.tech"
-        }
-    ],
-    "require": {
-        "php": "^7.3 || ^8.0",
-        "ext-curl": "*",
-        "ext-json": "*",
-        "ext-mbstring": "*",
-        "guzzlehttp/guzzle": "^7.3",
-        "guzzlehttp/psr7": "^1.7 || ^2.0",
-        "php-ds/php-ds": "^1.4",
-        "psr/log": "^3.0"
-    },
-    "require-dev": {
-        "phpunit/phpunit": "^8.0 || ^9.0",
-        "friendsofphp/php-cs-fixer": "^2.12",
-        "vlucas/phpdotenv": "^5.4",
-        "monolog/monolog": "^3.2"
-    },
-    "autoload": {
-        "psr-4": { "Avalara\\SDK\\" : "lib/" }
-    },
-    "autoload-dev": {
-        "psr-4": { "Avalara\\SDK\\Test\\" : "test/" }
-    },
-    "scripts": {
-        "test": "php -d xdebug.profiler_enable=on vendor/bin/phpunit"
+  "name": "avalaratest/avalara_test_sdk",
+  "description": "API for evaluating transactions against direct-to-consumer Beverage Alcohol shipping regulations.  This API is currently in beta.",
+  "keywords": [
+    "openapitools",
+    "openapi-generator",
+    "openapi",
+    "php",
+    "sdk",
+    "rest",
+    "api"
+  ],
+  "homepage": "https://openapi-generator.tech",
+  "license": "unlicense",
+  "authors": [
+    {
+      "name": "OpenAPI-Generator contributors",
+      "homepage": "https://openapi-generator.tech"
     }
+  ],
+  "require": {
+    "php": "^7.3 || ^8.0",
+    "ext-curl": "*",
+    "ext-json": "*",
+    "ext-mbstring": "*",
+    "guzzlehttp/guzzle": "^7.3",
+    "guzzlehttp/psr7": "^1.7 || ^2.0",
+    "php-ds/php-ds": "^1.4",
+    "psr/log": "^3.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^8.0 || ^9.0",
+    "friendsofphp/php-cs-fixer": "^2.12",
+    "vlucas/phpdotenv": "^5.4",
+    "monolog/monolog": "^3.2",
+    "guzzlehttp/promises": "^1.4"
+  },
+  "autoload": {
+    "psr-4": {
+      "Avalara\\SDK\\": "lib/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Avalara\\SDK\\Test\\": "test/"
+    }
+  },
+  "scripts": {
+    "test": "php -d xdebug.profiler_enable=on vendor/bin/phpunit"
+  }
 }
