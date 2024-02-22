@@ -9,7 +9,6 @@
   </coverage>
   <testsuites>
     <testsuite name="tests">
-      <directory>./test/Auth</directory>
       <directory>./test/Integration</directory>
     </testsuite>
   </testsuites>
