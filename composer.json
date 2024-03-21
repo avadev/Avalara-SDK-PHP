@@ -1,5 +1,5 @@
 {
-  "name": "avalaratest/avalara_test_sdk",
+  "name": "avalara/avalara_sdk",
   "description": "API for evaluating transactions against direct-to-consumer Beverage Alcohol shipping regulations.  This API is currently in beta.",
   "keywords": [
     "openapitools",

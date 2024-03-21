@@ -6,32 +6,46 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
-    
-    - name: Update Composer.json
-      run: composer update
+      - uses: actions/checkout@v2
 
-    - name: Validate composer.json and composer.lock
-      run: composer validate --strict
+      - name: Update Composer.json
+        run: composer update
 
-    - name: Cache Composer packages
-      id: composer-cache
-      uses: actions/cache@v2
-      with:
-        path: vendor
-        key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
-        restore-keys: |
-          ${{ runner.os }}-php-
+      - name: Validate composer.json and composer.lock
+        run: composer validate --strict
 
-    - name: Install dependencies
-      run: composer install --prefer-dist --no-progress
-  
-    - name: Run test suite
-      run: USERNAME="${{ secrets.API_USERNAME }}" PASSWORD="${{ secrets.API_PASSWORD }}" composer run-script test
-      
-    - name: Publish Package
-      run: curl -XPOST -H'content-type:application/json' 'https://packagist.org/api/update-package?username=jwenger100&apiToken=${{ secrets.PACKAGIST_API_TOKEN }}' -d'{"repository":{"url":"https://github.com/avasachinbaijal/AvaTax-REST-V3-PHP-SDK"}}'
+      - name: Cache Composer packages
+        id: composer-cache
+        uses: actions/cache@v2
+        with:
+          path: vendor
+          key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-php-
+
+      - name: Install dependencies
+        run: composer install --prefer-dist --no-progress
+
+      - name: Retrieve bearer token
+        id: get_bearer_token
+        run: |
+          response=$(curl -X POST ${{secrets.OKTA_ACCESS_TOKEN_URL}}/connect/token \
+            -H "Content-Type: application/x-www-form-urlencoded" \
+            -d "grant_type=client_credentials&client_id=${{secrets.OKTA_CLIENT_ID}}&client_secret=${{secrets.OKTA_CLIENT_SECRET}}")
+          token=$(echo $response | jq -r '.access_token')
+          echo "BEARER_TOKEN=${token}" >> $GITHUB_ENV
+
+      - name: Create .env file
+        run: |
+          echo "BEARER_TOKEN=${{ env.BEARER_TOKEN }}" > .env
+
+      - name: Run test suite
+        run: composer run-script test
+        env:
+          BEARER_TOKEN: ${{ env.BEARER_TOKEN }}
+
+      - name: Publish Package
+        run: curl -XPOST -H'content-type:application/json' 'https://packagist.org/api/update-package?username=${{ secrets.PACKAGIST_USERNAME }}&apiToken=${{ secrets.PACKAGIST_API_TOKEN }}' -d'{"repository":{"url":"https://github.com/avadev/Avalara-SDK-PHP"}}'
