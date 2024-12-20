@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  Avalara\SDK
+ * @package  Avalara\\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -23,7 +23,7 @@
  * An API that supports sending data for an E-Invoicing compliance use-case.
  *
  * @category   Avalara client libraries
- * @package    Avalara\SDK\API\EInvoicing\V1
+ * @package    Avalara\\SDK\API\\EInvoicing\\V1
  * @author     Sachin Baijal <sachin.baijal@avalara.com>
  * @author     Jonathan Wenger <jonathan.wenger@avalara.com>
  * @copyright  2004-2022 Avalara, Inc.
@@ -39,17 +39,17 @@
  * Do not edit the class manually.
  */
 
-namespace Avalara\SDK\Model\EInvoicing\V1;
+namespace Avalara\\SDK\Model\\EInvoicing\\V1;
 
 use \ArrayAccess;
-use \Avalara\SDK\ObjectSerializer;
-use \Avalara\SDK\Model\ModelInterface;
+use \Avalara\\SDK\ObjectSerializer;
+use \Avalara\\SDK\Model\ModelInterface;
 /**
  * DocumentStatusResponse Class Doc Comment
  *
  * @category Class
  * @description Returns the current document ID and status
- * @package  Avalara\SDK
+ * @package  Avalara\\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -75,7 +75,7 @@ class DocumentStatusResponse implements ModelInterface, ArrayAccess, \JsonSerial
     protected static $openAPITypes = [
         'id' => 'string',
         'status' => 'string',
-        'events' => '\Avalara\SDK\Model\EInvoicing\V1\StatusEvent[]'
+        'events' => '\Avalara\\SDK\Model\\EInvoicing\\V1\StatusEvent[]'
     ];
 
     /**
@@ -268,7 +268,7 @@ class DocumentStatusResponse implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets status
      *
-     * @param string|null $status Status of the transaction: <br> 'Pending' <br> 'Failed' <br> 'Complete'
+     * @param string|null $status Status of the document
      *
      * @return self
      */
@@ -282,7 +282,7 @@ class DocumentStatusResponse implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets events
      *
-     * @return \Avalara\SDK\Model\EInvoicing\V1\StatusEvent[]|null
+     * @return \Avalara\\SDK\Model\\EInvoicing\\V1\StatusEvent[]|null
      */
     public function getEvents()
     {
@@ -292,7 +292,7 @@ class DocumentStatusResponse implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets events
      *
-     * @param \Avalara\SDK\Model\EInvoicing\V1\StatusEvent[]|null $events events
+     * @param \Avalara\\SDK\Model\\EInvoicing\\V1\StatusEvent[]|null $events events
      *
      * @return self
      */

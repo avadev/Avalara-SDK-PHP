@@ -19,7 +19,7 @@
  * An API that supports sending data for an E-Invoicing compliance use-case.
  *
  * @category   Avalara client libraries
- * @package    Avalara\SDK\API\EInvoicing\V1
+ * @package    Avalara\\SDK\API\\EInvoicing\\V1
  * @author     Sachin Baijal <sachin.baijal@avalara.com>
  * @author     Jonathan Wenger <jonathan.wenger@avalara.com>
  * @copyright  2004-2022 Avalara, Inc.
@@ -31,7 +31,7 @@
 
 
 
-namespace Avalara\SDK\API\EInvoicing\V1;
+namespace Avalara\\SDK\API\\EInvoicing\\V1;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -40,12 +40,12 @@ use GuzzleHttp\Exception\ConnectException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use Avalara\SDK\ApiClient;
-use Avalara\SDK\ApiException;
-use Avalara\SDK\Configuration;
-use Avalara\SDK\HeaderSelector;
-use Avalara\SDK\ObjectSerializer;
-use Avalara\SDK\Utils\LogObject;
+use Avalara\\SDK\ApiClient;
+use Avalara\\SDK\ApiException;
+use Avalara\\SDK\Configuration;
+use Avalara\\SDK\HeaderSelector;
+use Avalara\\SDK\ObjectSerializer;
+use Avalara\\SDK\Utils\LogObject;
 
 class DataInputFieldsApi
 {
@@ -119,13 +119,13 @@ class DataInputFieldsApi
     /**
      * Operation getDataInputFields
      *
-     * Returns the mandatory and conditional invoice or creditnote input fields for different country mandates
+     * Returns the optionality of document fields for different country mandates
      *
      * @param GetDataInputFieldsRequest The request parameters for the API call.
      *
-     * @throws \Avalara\SDK\ApiException on non-2xx response
+     * @throws \Avalara\\SDK\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Avalara\SDK\Model\EInvoicing\V1\DataInputFieldsResponse|\Avalara\SDK\Model\EInvoicing\V1\ForbiddenError|\Avalara\SDK\Model\EInvoicing\V1\InternalServerError
+     * @return \Avalara\\SDK\Model\\EInvoicing\\V1\DataInputFieldsResponse|\Avalara\\SDK\Model\\EInvoicing\\V1\ForbiddenError|\Avalara\\SDK\Model\\EInvoicing\\V1\InternalServerError
      */
     public function getDataInputFields($request_parameters)
     {
@@ -136,13 +136,13 @@ class DataInputFieldsApi
     /**
      * Operation getDataInputFieldsWithHttpInfo
      *
-     * Returns the mandatory and conditional invoice or creditnote input fields for different country mandates
+     * Returns the optionality of document fields for different country mandates
      *
      * @param GetDataInputFieldsRequest The request parameters for the API call.
      *
-     * @throws \Avalara\SDK\ApiException on non-2xx response
+     * @throws \Avalara\\SDK\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Avalara\SDK\Model\EInvoicing\V1\DataInputFieldsResponse|\Avalara\SDK\Model\EInvoicing\V1\ForbiddenError|\Avalara\SDK\Model\EInvoicing\V1\InternalServerError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Avalara\\SDK\Model\\EInvoicing\\V1\DataInputFieldsResponse|\Avalara\\SDK\Model\\EInvoicing\\V1\ForbiddenError|\Avalara\\SDK\Model\\EInvoicing\\V1\InternalServerError, HTTP status code, HTTP response headers (array of strings)
      */
     public function getDataInputFieldsWithHttpInfo($request_parameters, $isRetry = false)
     {
@@ -198,7 +198,7 @@ class DataInputFieldsApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Avalara\SDK\Model\EInvoicing\V1\DataInputFieldsResponse' === '\SplFileObject') {
+                    if ('\Avalara\\SDK\Model\\EInvoicing\\V1\DataInputFieldsResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -206,12 +206,12 @@ class DataInputFieldsApi
                     $logObject->populateResponseInfo($content, $response);
                     $this->client->logger->info(json_encode($logObject));
                     return [
-                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\DataInputFieldsResponse', []),
+                        ObjectSerializer::deserialize($content, '\Avalara\\SDK\Model\\EInvoicing\\V1\DataInputFieldsResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 403:
-                    if ('\Avalara\SDK\Model\EInvoicing\V1\ForbiddenError' === '\SplFileObject') {
+                    if ('\Avalara\\SDK\Model\\EInvoicing\\V1\ForbiddenError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -219,12 +219,12 @@ class DataInputFieldsApi
                     $logObject->populateResponseInfo($content, $response);
                     $this->client->logger->info(json_encode($logObject));
                     return [
-                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\ForbiddenError', []),
+                        ObjectSerializer::deserialize($content, '\Avalara\\SDK\Model\\EInvoicing\\V1\ForbiddenError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 500:
-                    if ('\Avalara\SDK\Model\EInvoicing\V1\InternalServerError' === '\SplFileObject') {
+                    if ('\Avalara\\SDK\Model\\EInvoicing\\V1\InternalServerError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -232,13 +232,13 @@ class DataInputFieldsApi
                     $logObject->populateResponseInfo($content, $response);
                     $this->client->logger->info(json_encode($logObject));
                     return [
-                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\InternalServerError', []),
+                        ObjectSerializer::deserialize($content, '\Avalara\\SDK\Model\\EInvoicing\\V1\InternalServerError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Avalara\SDK\Model\EInvoicing\V1\DataInputFieldsResponse';
+            $returnType = '\Avalara\\SDK\Model\\EInvoicing\\V1\DataInputFieldsResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -257,7 +257,7 @@ class DataInputFieldsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Avalara\SDK\Model\EInvoicing\V1\DataInputFieldsResponse',
+                        '\Avalara\\SDK\Model\\EInvoicing\\V1\DataInputFieldsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -265,7 +265,7 @@ class DataInputFieldsApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Avalara\SDK\Model\EInvoicing\V1\ForbiddenError',
+                        '\Avalara\\SDK\Model\\EInvoicing\\V1\ForbiddenError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -273,7 +273,7 @@ class DataInputFieldsApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Avalara\SDK\Model\EInvoicing\V1\InternalServerError',
+                        '\Avalara\\SDK\Model\\EInvoicing\\V1\InternalServerError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -286,7 +286,7 @@ class DataInputFieldsApi
     /**
      * Operation getDataInputFieldsAsync
      *
-     * Returns the mandatory and conditional invoice or creditnote input fields for different country mandates
+     * Returns the optionality of document fields for different country mandates
      *
      * @param GetDataInputFieldsRequest The request parameters for the API call.
      *
@@ -306,7 +306,7 @@ class DataInputFieldsApi
     /**
      * Operation getDataInputFieldsAsyncWithHttpInfo
      *
-     * Returns the mandatory and conditional invoice or creditnote input fields for different country mandates
+     * Returns the optionality of document fields for different country mandates
      *
      * @param GetDataInputFieldsRequest The request parameters for the API call.
      *
@@ -316,7 +316,7 @@ class DataInputFieldsApi
     public function getDataInputFieldsAsyncWithHttpInfo($request_parameters, $isRetry = false)
     {
         $logObject = new LogObject($this->client->logRequestAndResponse);
-        $returnType = '\Avalara\SDK\Model\EInvoicing\V1\DataInputFieldsResponse';
+        $returnType = '\Avalara\\SDK\Model\\EInvoicing\\V1\DataInputFieldsResponse';
         $request = $this->getDataInputFieldsRequest($request_parameters);
         $logObject->populateRequestInfo($request);
         return $this->client
@@ -458,12 +458,12 @@ class DataInputFieldsApi
         }
 
         // header params
-        $headerParams['avalara-version'] = '1.0';
+        $headerParams['avalara-version'] = '1.2';
         if ($avalara_version !== null) {
             $headerParams['avalara-version'] = ObjectSerializer::toHeaderValue($avalara_version);
         }
         // header params
-        $headerParams['avalara-version'] = '1.0';
+        $headerParams['avalara-version'] = '1.2';
         if ($x_avalara_client !== null) {
             $headerParams['X-Avalara-Client'] = ObjectSerializer::toHeaderValue($x_avalara_client);
         }
@@ -533,7 +533,7 @@ class DataInputFieldsApi
      * Represents the Request object for the GetDataInputFields API
      *
      * @param  string $avalara_version The HTTP Header meant to specify the version of the API intended to be used (required)
-     * @param  string $x_avalara_client You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a \&quot;Fingerprint\&quot; (optional)
+     * @param  string $x_avalara_client You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a fingerprint. (optional)
      * @param  string $filter Filter by field name and value. This filter only supports &lt;code&gt;eq&lt;/code&gt; and &lt;code&gt;contains&lt;/code&gt;. Refer to [https://developer.avalara.com/avatax/filtering-in-rest/](https://developer.avalara.com/avatax/filtering-in-rest/) for more information on filtering. (optional)
      * @param  float $top If nonzero, return no more than this number of results. Used with &lt;code&gt;$skip&lt;/code&gt; to provide pagination for large datasets. Unless otherwise specified, the maximum number of records that can be returned from an API call is 1,000 records. (optional)
      * @param  float $skip If nonzero, skip this number of results before returning data. Used with &lt;code&gt;$top&lt;/code&gt; to provide pagination for large datasets. (optional)

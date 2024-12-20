@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  Avalara\SDK
+ * @package  Avalara\\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -23,7 +23,7 @@
  * An API that supports sending data for an E-Invoicing compliance use-case.
  *
  * @category   Avalara client libraries
- * @package    Avalara\SDK\API\EInvoicing\V1
+ * @package    Avalara\\SDK\API\\EInvoicing\\V1
  * @author     Sachin Baijal <sachin.baijal@avalara.com>
  * @author     Jonathan Wenger <jonathan.wenger@avalara.com>
  * @copyright  2004-2022 Avalara, Inc.
@@ -39,16 +39,16 @@
  * Do not edit the class manually.
  */
 
-namespace Avalara\SDK\Model\EInvoicing\V1;
+namespace Avalara\\SDK\Model\\EInvoicing\\V1;
 
 use \ArrayAccess;
-use \Avalara\SDK\ObjectSerializer;
-use \Avalara\SDK\Model\ModelInterface;
+use \Avalara\\SDK\ObjectSerializer;
+use \Avalara\\SDK\Model\ModelInterface;
 /**
  * Mandate Class Doc Comment
  *
  * @category Class
- * @package  Avalara\SDK
+ * @package  Avalara\\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -78,8 +78,8 @@ class Mandate implements ModelInterface, ArrayAccess, \JsonSerializable
         'description' => 'string',
         'supported_by_partner_api' => 'bool',
         'mandate_format' => 'string',
-        'input_data_formats' => '\Avalara\SDK\Model\EInvoicing\V1\InputDataFormats[]',
-        'workflow_ids' => '\Avalara\SDK\Model\EInvoicing\V1\WorkflowIds[]'
+        'input_data_formats' => '\Avalara\\SDK\Model\\EInvoicing\\V1\InputDataFormats[]',
+        'workflow_ids' => '\Avalara\\SDK\Model\\EInvoicing\\V1\WorkflowIds[]'
     ];
 
     /**
@@ -273,7 +273,7 @@ class Mandate implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets mandate_id
      *
-     * @param string|null $mandate_id Mandate UUID
+     * @param string|null $mandate_id The `mandateId` is comprised of the country code, mandate type, and the network or regulation type (for example, AU-B2G-PEPPOL). Keep in mind the following when specifying a `mandateId`. - A country can have multiple mandate types (B2C, B2B, B2G). - A entity/company can opt in for multiple mandates. - A `mandateId` is the combination of country + mandate type + network/regulation.
      *
      * @return self
      */
@@ -297,7 +297,7 @@ class Mandate implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets country_mandate
      *
-     * @param string|null $country_mandate Country mandate name
+     * @param string|null $country_mandate **[LEGACY]** This field is retained for backward compatibility. It is recommended to use `mandateId` instead. The `countryMandate` similar to the `mandateId` is comprised of the country code, mandate type, and the network or regulation type (for example, AU-B2G-PEPPOL).
      *
      * @return self
      */
@@ -407,7 +407,7 @@ class Mandate implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets input_data_formats
      *
-     * @return \Avalara\SDK\Model\EInvoicing\V1\InputDataFormats[]|null
+     * @return \Avalara\\SDK\Model\\EInvoicing\\V1\InputDataFormats[]|null
      */
     public function getInputDataFormats()
     {
@@ -417,7 +417,7 @@ class Mandate implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets input_data_formats
      *
-     * @param \Avalara\SDK\Model\EInvoicing\V1\InputDataFormats[]|null $input_data_formats Format and version used when inputting the data
+     * @param \Avalara\\SDK\Model\\EInvoicing\\V1\InputDataFormats[]|null $input_data_formats Format and version used when inputting the data
      *
      * @return self
      */
@@ -431,7 +431,7 @@ class Mandate implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets workflow_ids
      *
-     * @return \Avalara\SDK\Model\EInvoicing\V1\WorkflowIds[]|null
+     * @return \Avalara\\SDK\Model\\EInvoicing\\V1\WorkflowIds[]|null
      */
     public function getWorkflowIds()
     {
@@ -441,7 +441,7 @@ class Mandate implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets workflow_ids
      *
-     * @param \Avalara\SDK\Model\EInvoicing\V1\WorkflowIds[]|null $workflow_ids Workflow ID list
+     * @param \Avalara\\SDK\Model\\EInvoicing\\V1\WorkflowIds[]|null $workflow_ids Workflow ID list
      *
      * @return self
      */

@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  Avalara\SDK
+ * @package  Avalara\\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -23,7 +23,7 @@
  * An API that supports sending data for an E-Invoicing compliance use-case.
  *
  * @category   Avalara client libraries
- * @package    Avalara\SDK\API\EInvoicing\V1
+ * @package    Avalara\\SDK\API\\EInvoicing\\V1
  * @author     Sachin Baijal <sachin.baijal@avalara.com>
  * @author     Jonathan Wenger <jonathan.wenger@avalara.com>
  * @copyright  2004-2022 Avalara, Inc.
@@ -39,17 +39,17 @@
  * Do not edit the class manually.
  */
 
-namespace Avalara\SDK\Model\EInvoicing\V1;
+namespace Avalara\\SDK\Model\\EInvoicing\\V1;
 
 use \ArrayAccess;
-use \Avalara\SDK\ObjectSerializer;
-use \Avalara\SDK\Model\ModelInterface;
+use \Avalara\\SDK\ObjectSerializer;
+use \Avalara\\SDK\Model\ModelInterface;
 /**
  * DocumentSummary Class Doc Comment
  *
  * @category Class
  * @description Displays a summary of information about the document
- * @package  Avalara\SDK
+ * @package  Avalara\\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -78,6 +78,8 @@ class DocumentSummary implements ModelInterface, ArrayAccess, \JsonSerializable
         'status' => 'string',
         'supplier_name' => 'string',
         'customer_name' => 'string',
+        'document_type' => 'string',
+        'document_version' => 'string',
         'document_number' => 'string',
         'document_date' => 'string',
         'flow' => 'string',
@@ -100,6 +102,8 @@ class DocumentSummary implements ModelInterface, ArrayAccess, \JsonSerializable
         'status' => null,
         'supplier_name' => null,
         'customer_name' => null,
+        'document_type' => null,
+        'document_version' => null,
         'document_number' => null,
         'document_date' => null,
         'flow' => null,
@@ -141,6 +145,8 @@ class DocumentSummary implements ModelInterface, ArrayAccess, \JsonSerializable
         'status' => 'status',
         'supplier_name' => 'supplierName',
         'customer_name' => 'customerName',
+        'document_type' => 'documentType',
+        'document_version' => 'documentVersion',
         'document_number' => 'documentNumber',
         'document_date' => 'documentDate',
         'flow' => 'flow',
@@ -161,6 +167,8 @@ class DocumentSummary implements ModelInterface, ArrayAccess, \JsonSerializable
         'status' => 'setStatus',
         'supplier_name' => 'setSupplierName',
         'customer_name' => 'setCustomerName',
+        'document_type' => 'setDocumentType',
+        'document_version' => 'setDocumentVersion',
         'document_number' => 'setDocumentNumber',
         'document_date' => 'setDocumentDate',
         'flow' => 'setFlow',
@@ -181,6 +189,8 @@ class DocumentSummary implements ModelInterface, ArrayAccess, \JsonSerializable
         'status' => 'getStatus',
         'supplier_name' => 'getSupplierName',
         'customer_name' => 'getCustomerName',
+        'document_type' => 'getDocumentType',
+        'document_version' => 'getDocumentVersion',
         'document_number' => 'getDocumentNumber',
         'document_date' => 'getDocumentDate',
         'flow' => 'getFlow',
@@ -252,6 +262,8 @@ class DocumentSummary implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['status'] = $data['status'] ?? null;
         $this->container['supplier_name'] = $data['supplier_name'] ?? null;
         $this->container['customer_name'] = $data['customer_name'] ?? null;
+        $this->container['document_type'] = $data['document_type'] ?? null;
+        $this->container['document_version'] = $data['document_version'] ?? null;
         $this->container['document_number'] = $data['document_number'] ?? null;
         $this->container['document_date'] = $data['document_date'] ?? null;
         $this->container['flow'] = $data['flow'] ?? null;
@@ -346,7 +358,7 @@ class DocumentSummary implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets status
      *
-     * @param string|null $status The transaction status: <br> 'Pending' <br> 'Failed' <br> 'Complete'
+     * @param string|null $status The Document status
      *
      * @return self
      */
@@ -406,6 +418,54 @@ class DocumentSummary implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets document_type
+     *
+     * @return string|null
+     */
+    public function getDocumentType()
+    {
+        return $this->container['document_type'];
+    }
+
+    /**
+     * Sets document_type
+     *
+     * @param string|null $document_type The document type
+     *
+     * @return self
+     */
+    public function setDocumentType($document_type)
+    {
+        $this->container['document_type'] = $document_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets document_version
+     *
+     * @return string|null
+     */
+    public function getDocumentVersion()
+    {
+        return $this->container['document_version'];
+    }
+
+    /**
+     * Sets document_version
+     *
+     * @param string|null $document_version The document version
+     *
+     * @return self
+     */
+    public function setDocumentVersion($document_version)
+    {
+        $this->container['document_version'] = $document_version;
+
+        return $this;
+    }
+
+    /**
      * Gets document_number
      *
      * @return string|null
@@ -418,7 +478,7 @@ class DocumentSummary implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets document_number
      *
-     * @param string|null $document_number The invoice document number
+     * @param string|null $document_number The document number
      *
      * @return self
      */
@@ -442,7 +502,7 @@ class DocumentSummary implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets document_date
      *
-     * @param string|null $document_date The invoice issue date
+     * @param string|null $document_date The document issue date
      *
      * @return self
      */
@@ -466,7 +526,7 @@ class DocumentSummary implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets flow
      *
-     * @param string|null $flow The invoice direction, where issued = `out` and received = `in`
+     * @param string|null $flow The document direction, where issued = `out` and received = `in`
      *
      * @return self
      */
@@ -490,7 +550,7 @@ class DocumentSummary implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets country_code
      *
-     * @param string|null $country_code The two-letter ISO-3166 country code for the country where the e-invoice is being submitted
+     * @param string|null $country_code The two-letter ISO-3166 country code for the country where the document is being submitted
      *
      * @return self
      */
@@ -538,7 +598,7 @@ class DocumentSummary implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets interface
      *
-     * @param string|null $interface The interface where the invoice data is sent
+     * @param string|null $interface The interface where the document is sent
      *
      * @return self
      */
@@ -562,7 +622,7 @@ class DocumentSummary implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets receiver
      *
-     * @param string|null $receiver The invoice recipient based on the interface
+     * @param string|null $receiver The document recipient based on the interface
      *
      * @return self
      */

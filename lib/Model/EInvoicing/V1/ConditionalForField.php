@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  Avalara\SDK
+ * @package  Avalara\\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -23,7 +23,7 @@
  * An API that supports sending data for an E-Invoicing compliance use-case.
  *
  * @category   Avalara client libraries
- * @package    Avalara\SDK\API\EInvoicing\V1
+ * @package    Avalara\\SDK\API\\EInvoicing\\V1
  * @author     Sachin Baijal <sachin.baijal@avalara.com>
  * @author     Jonathan Wenger <jonathan.wenger@avalara.com>
  * @copyright  2004-2022 Avalara, Inc.
@@ -39,17 +39,17 @@
  * Do not edit the class manually.
  */
 
-namespace Avalara\SDK\Model\EInvoicing\V1;
+namespace Avalara\\SDK\Model\\EInvoicing\\V1;
 
 use \ArrayAccess;
-use \Avalara\SDK\ObjectSerializer;
-use \Avalara\SDK\Model\ModelInterface;
+use \Avalara\\SDK\ObjectSerializer;
+use \Avalara\\SDK\Model\ModelInterface;
 /**
  * ConditionalForField Class Doc Comment
  *
  * @category Class
  * @description Mandates for which this field is conditional
- * @package  Avalara\SDK
+ * @package  Avalara\\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -74,7 +74,7 @@ class ConditionalForField implements ModelInterface, ArrayAccess, \JsonSerializa
       */
     protected static $openAPITypes = [
         'country_mandate' => 'string',
-        'required_when' => '\Avalara\SDK\Model\EInvoicing\V1\RequiredWhenField[]'
+        'required_when' => '\Avalara\\SDK\Model\\EInvoicing\\V1\RequiredWhenField[]'
     ];
 
     /**
@@ -252,7 +252,7 @@ class ConditionalForField implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets required_when
      *
-     * @return \Avalara\SDK\Model\EInvoicing\V1\RequiredWhenField[]|null
+     * @return \Avalara\\SDK\Model\\EInvoicing\\V1\RequiredWhenField[]|null
      */
     public function getRequiredWhen()
     {
@@ -262,7 +262,7 @@ class ConditionalForField implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets required_when
      *
-     * @param \Avalara\SDK\Model\EInvoicing\V1\RequiredWhenField[]|null $required_when Array of scenarios which describe when a particular field is conditional for a country mandate
+     * @param \Avalara\\SDK\Model\\EInvoicing\\V1\RequiredWhenField[]|null $required_when Array of scenarios which describe when a particular field is conditional for a country mandate
      *
      * @return self
      */

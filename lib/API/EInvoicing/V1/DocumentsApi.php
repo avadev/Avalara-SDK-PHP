@@ -19,7 +19,7 @@
  * An API that supports sending data for an E-Invoicing compliance use-case.
  *
  * @category   Avalara client libraries
- * @package    Avalara\SDK\API\EInvoicing\V1
+ * @package    Avalara\\SDK\API\\EInvoicing\\V1
  * @author     Sachin Baijal <sachin.baijal@avalara.com>
  * @author     Jonathan Wenger <jonathan.wenger@avalara.com>
  * @copyright  2004-2022 Avalara, Inc.
@@ -31,7 +31,7 @@
 
 
 
-namespace Avalara\SDK\API\EInvoicing\V1;
+namespace Avalara\\SDK\API\\EInvoicing\\V1;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -40,12 +40,12 @@ use GuzzleHttp\Exception\ConnectException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use Avalara\SDK\ApiClient;
-use Avalara\SDK\ApiException;
-use Avalara\SDK\Configuration;
-use Avalara\SDK\HeaderSelector;
-use Avalara\SDK\ObjectSerializer;
-use Avalara\SDK\Utils\LogObject;
+use Avalara\\SDK\ApiClient;
+use Avalara\\SDK\ApiException;
+use Avalara\\SDK\Configuration;
+use Avalara\\SDK\HeaderSelector;
+use Avalara\\SDK\ObjectSerializer;
+use Avalara\\SDK\Utils\LogObject;
 
 class DocumentsApi
 {
@@ -123,9 +123,9 @@ class DocumentsApi
      *
      * @param DownloadDocumentRequest The request parameters for the API call.
      *
-     * @throws \Avalara\SDK\ApiException on non-2xx response
+     * @throws \Avalara\\SDK\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \SplFileObject|\Avalara\SDK\Model\EInvoicing\V1\ForbiddenError|\Avalara\SDK\Model\EInvoicing\V1\NotFoundError|\Avalara\SDK\Model\EInvoicing\V1\BadDownloadRequest
+     * @return \SplFileObject|\Avalara\\SDK\Model\\EInvoicing\\V1\ForbiddenError|\Avalara\\SDK\Model\\EInvoicing\\V1\NotFoundError|\Avalara\\SDK\Model\\EInvoicing\\V1\BadDownloadRequest
      */
     public function downloadDocument($request_parameters)
     {
@@ -140,9 +140,9 @@ class DocumentsApi
      *
      * @param DownloadDocumentRequest The request parameters for the API call.
      *
-     * @throws \Avalara\SDK\ApiException on non-2xx response
+     * @throws \Avalara\\SDK\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \SplFileObject|\Avalara\SDK\Model\EInvoicing\V1\ForbiddenError|\Avalara\SDK\Model\EInvoicing\V1\NotFoundError|\Avalara\SDK\Model\EInvoicing\V1\BadDownloadRequest, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SplFileObject|\Avalara\\SDK\Model\\EInvoicing\\V1\ForbiddenError|\Avalara\\SDK\Model\\EInvoicing\\V1\NotFoundError|\Avalara\\SDK\Model\\EInvoicing\\V1\BadDownloadRequest, HTTP status code, HTTP response headers (array of strings)
      */
     public function downloadDocumentWithHttpInfo($request_parameters, $isRetry = false)
     {
@@ -211,7 +211,7 @@ class DocumentsApi
                         $response->getHeaders()
                     ];
                 case 403:
-                    if ('\Avalara\SDK\Model\EInvoicing\V1\ForbiddenError' === '\SplFileObject') {
+                    if ('\Avalara\\SDK\Model\\EInvoicing\\V1\ForbiddenError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -219,12 +219,12 @@ class DocumentsApi
                     $logObject->populateResponseInfo($content, $response);
                     $this->client->logger->info(json_encode($logObject));
                     return [
-                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\ForbiddenError', []),
+                        ObjectSerializer::deserialize($content, '\Avalara\\SDK\Model\\EInvoicing\\V1\ForbiddenError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 404:
-                    if ('\Avalara\SDK\Model\EInvoicing\V1\NotFoundError' === '\SplFileObject') {
+                    if ('\Avalara\\SDK\Model\\EInvoicing\\V1\NotFoundError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -232,12 +232,12 @@ class DocumentsApi
                     $logObject->populateResponseInfo($content, $response);
                     $this->client->logger->info(json_encode($logObject));
                     return [
-                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\NotFoundError', []),
+                        ObjectSerializer::deserialize($content, '\Avalara\\SDK\Model\\EInvoicing\\V1\NotFoundError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 406:
-                    if ('\Avalara\SDK\Model\EInvoicing\V1\BadDownloadRequest' === '\SplFileObject') {
+                    if ('\Avalara\\SDK\Model\\EInvoicing\\V1\BadDownloadRequest' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -245,7 +245,7 @@ class DocumentsApi
                     $logObject->populateResponseInfo($content, $response);
                     $this->client->logger->info(json_encode($logObject));
                     return [
-                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\BadDownloadRequest', []),
+                        ObjectSerializer::deserialize($content, '\Avalara\\SDK\Model\\EInvoicing\\V1\BadDownloadRequest', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -278,7 +278,7 @@ class DocumentsApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Avalara\SDK\Model\EInvoicing\V1\ForbiddenError',
+                        '\Avalara\\SDK\Model\\EInvoicing\\V1\ForbiddenError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -286,7 +286,7 @@ class DocumentsApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Avalara\SDK\Model\EInvoicing\V1\NotFoundError',
+                        '\Avalara\\SDK\Model\\EInvoicing\\V1\NotFoundError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -294,7 +294,7 @@ class DocumentsApi
                 case 406:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Avalara\SDK\Model\EInvoicing\V1\BadDownloadRequest',
+                        '\Avalara\\SDK\Model\\EInvoicing\\V1\BadDownloadRequest',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -433,17 +433,17 @@ class DocumentsApi
 
 
         // header params
-        $headerParams['avalara-version'] = '1.0';
+        $headerParams['avalara-version'] = '1.2';
         if ($avalara_version !== null) {
             $headerParams['avalara-version'] = ObjectSerializer::toHeaderValue($avalara_version);
         }
         // header params
-        $headerParams['avalara-version'] = '1.0';
+        $headerParams['avalara-version'] = '1.2';
         if ($accept !== null) {
             $headerParams['Accept'] = ObjectSerializer::toHeaderValue($accept);
         }
         // header params
-        $headerParams['avalara-version'] = '1.0';
+        $headerParams['avalara-version'] = '1.2';
         if ($x_avalara_client !== null) {
             $headerParams['X-Avalara-Client'] = ObjectSerializer::toHeaderValue($x_avalara_client);
         }
@@ -517,15 +517,380 @@ class DocumentsApi
     }
 
     /**
+     * Operation fetchDocuments
+     *
+     * Fetch the inbound document from a tax authority
+     *
+     * @param FetchDocumentsRequest The request parameters for the API call.
+     *
+     * @throws \Avalara\\SDK\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \Avalara\\SDK\Model\\EInvoicing\\V1\DocumentFetch|\Avalara\\SDK\Model\\EInvoicing\\V1\ForbiddenError|\Avalara\\SDK\Model\\EInvoicing\\V1\InternalServerError
+     */
+    public function fetchDocuments($request_parameters)
+    {
+        list($response) = $this->fetchDocumentsWithHttpInfo($request_parameters);
+        return $response;
+    }
+
+    /**
+     * Operation fetchDocumentsWithHttpInfo
+     *
+     * Fetch the inbound document from a tax authority
+     *
+     * @param FetchDocumentsRequest The request parameters for the API call.
+     *
+     * @throws \Avalara\\SDK\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \Avalara\\SDK\Model\\EInvoicing\\V1\DocumentFetch|\Avalara\\SDK\Model\\EInvoicing\\V1\ForbiddenError|\Avalara\\SDK\Model\\EInvoicing\\V1\InternalServerError, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function fetchDocumentsWithHttpInfo($request_parameters, $isRetry = false)
+    {
+        $logObject = new LogObject($this->client->logRequestAndResponse);
+        //OAuth2 Scopes
+        $requiredScopes = "";
+        $request = $this->fetchDocumentsRequest($request_parameters);
+        $logObject->populateRequestInfo($request);
+
+        try {
+            try {
+                $response = $this->client->send_sync($request, []);
+            } catch (RequestException $e) {
+                $statusCode = $e->getCode();
+                if (($statusCode == 401 || $statusCode == 403) && !$isRetry) {
+                    $this->client->refreshAuthToken($e->getRequest() ? $e->getRequest()->getHeaders() : null, $requiredScopes);
+                    list($response) = $this->fetchDocumentsWithHttpInfo($request_parameters, true);
+                    return $response;
+                }
+                $logObject->populateErrorInfo($e->getResponse());
+                $this->client->logger->error(json_encode($logObject));
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                $logObject->populateErrorMessage($e->getCode(), $e->getMessage());
+                $this->client->logger->error(json_encode($logObject));
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }         
+            
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\Avalara\\SDK\Model\\EInvoicing\\V1\DocumentFetch' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+                    $logObject->populateResponseInfo($content, $response);
+                    $this->client->logger->info(json_encode($logObject));
+                    return [
+                        ObjectSerializer::deserialize($content, '\Avalara\\SDK\Model\\EInvoicing\\V1\DocumentFetch', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 403:
+                    if ('\Avalara\\SDK\Model\\EInvoicing\\V1\ForbiddenError' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+                    $logObject->populateResponseInfo($content, $response);
+                    $this->client->logger->info(json_encode($logObject));
+                    return [
+                        ObjectSerializer::deserialize($content, '\Avalara\\SDK\Model\\EInvoicing\\V1\ForbiddenError', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\Avalara\\SDK\Model\\EInvoicing\\V1\InternalServerError' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+                    $logObject->populateResponseInfo($content, $response);
+                    $this->client->logger->info(json_encode($logObject));
+                    return [
+                        ObjectSerializer::deserialize($content, '\Avalara\\SDK\Model\\EInvoicing\\V1\InternalServerError', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\Avalara\\SDK\Model\\EInvoicing\\V1\DocumentFetch';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+            }
+            $logObject->populateResponseInfo($content, $response);
+            $this->client->logger->info(json_encode($logObject));
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Avalara\\SDK\Model\\EInvoicing\\V1\DocumentFetch',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Avalara\\SDK\Model\\EInvoicing\\V1\ForbiddenError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Avalara\\SDK\Model\\EInvoicing\\V1\InternalServerError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation fetchDocumentsAsync
+     *
+     * Fetch the inbound document from a tax authority
+     *
+     * @param FetchDocumentsRequest The request parameters for the API call.
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function fetchDocumentsAsync($request_parameters)
+    {
+        return $this->fetchDocumentsAsyncWithHttpInfo($request_parameters)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation fetchDocumentsAsyncWithHttpInfo
+     *
+     * Fetch the inbound document from a tax authority
+     *
+     * @param FetchDocumentsRequest The request parameters for the API call.
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function fetchDocumentsAsyncWithHttpInfo($request_parameters, $isRetry = false)
+    {
+        $logObject = new LogObject($this->client->logRequestAndResponse);
+        $returnType = '\Avalara\\SDK\Model\\EInvoicing\\V1\DocumentFetch';
+        $request = $this->fetchDocumentsRequest($request_parameters);
+        $logObject->populateRequestInfo($request);
+        return $this->client
+            ->send_async($request, [])
+            ->then(
+                function ($response) use ($returnType, $logObject) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+                    $logObject->populateResponseInfo($content, $response);
+                    $this->client->logger->info(json_encode($logObject));
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) use ($request_parameters, $isRetry, $request, $logObject) {
+                    //OAuth2 Scopes
+                    $requiredScopes = "";
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    if (($statusCode == 401 || $statusCode == 403) && !$isRetry) {
+                        $this->client->refreshAuthToken($request->getHeaders(), $requiredScopes);
+                        return $this->fetchDocumentsAsyncWithHttpInfo($request_parameters, true)
+                            ->then(
+                                function ($response) {
+                                    return $response[0];
+                                }
+                            );
+                    }
+                    $logObject->populateErrorInfo($response);
+                    $this->client->logger->error(json_encode($logObject));
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'fetchDocuments'
+     *
+     * @param FetchDocumentsRequest The request parameters for the API call.
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function fetchDocumentsRequest($request_parameters)
+    {
+        //OAuth2 Scopes
+        $requiredScopes = "";
+        
+        $avalara_version = $request_parameters->getAvalaraVersion();
+        $fetch_documents_request = $request_parameters->getFetchDocumentsRequest();
+        $x_avalara_client = $request_parameters->getXAvalaraClient();
+
+        // verify the required parameter 'avalara_version' is set
+        if ($avalara_version === null || (is_array($avalara_version) && count($avalara_version) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $avalara_version when calling fetchDocuments'
+            );
+        }
+        // verify the required parameter 'fetch_documents_request' is set
+        if ($fetch_documents_request === null || (is_array($fetch_documents_request) && count($fetch_documents_request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $fetch_documents_request when calling fetchDocuments'
+            );
+        }
+
+        $resourcePath = '/einvoicing/documents/$fetch';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // header params
+        $headerParams['avalara-version'] = '1.2';
+        if ($avalara_version !== null) {
+            $headerParams['avalara-version'] = ObjectSerializer::toHeaderValue($avalara_version);
+        }
+        // header params
+        $headerParams['avalara-version'] = '1.2';
+        if ($x_avalara_client !== null) {
+            $headerParams['X-Avalara-Client'] = ObjectSerializer::toHeaderValue($x_avalara_client);
+        }
+
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; ; {$this->client->config->getMachineName()}";
+
+        $headers['X-Avalara-Client']=$clientId;
+
+        // for model (json/xml)
+        if (isset($fetch_documents_request)) {
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($fetch_documents_request));
+            } else {
+                $httpBody = $fetch_documents_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
+            }
+        }
+
+        $headers = $this->client->applyAuthToRequest($headers, $requiredScopes);
+
+        $defaultHeaders = [];
+        
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
+        return new Request(
+            'POST',
+            $this->client->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation getDocumentList
      *
      * Returns a summary of documents for a date range
      *
      * @param GetDocumentListRequest The request parameters for the API call.
      *
-     * @throws \Avalara\SDK\ApiException on non-2xx response
+     * @throws \Avalara\\SDK\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Avalara\SDK\Model\EInvoicing\V1\DocumentListResponse|\Avalara\SDK\Model\EInvoicing\V1\BadRequest|\Avalara\SDK\Model\EInvoicing\V1\ForbiddenError
+     * @return \Avalara\\SDK\Model\\EInvoicing\\V1\DocumentListResponse|\Avalara\\SDK\Model\\EInvoicing\\V1\BadRequest|\Avalara\\SDK\Model\\EInvoicing\\V1\ForbiddenError
      */
     public function getDocumentList($request_parameters)
     {
@@ -540,9 +905,9 @@ class DocumentsApi
      *
      * @param GetDocumentListRequest The request parameters for the API call.
      *
-     * @throws \Avalara\SDK\ApiException on non-2xx response
+     * @throws \Avalara\\SDK\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Avalara\SDK\Model\EInvoicing\V1\DocumentListResponse|\Avalara\SDK\Model\EInvoicing\V1\BadRequest|\Avalara\SDK\Model\EInvoicing\V1\ForbiddenError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Avalara\\SDK\Model\\EInvoicing\\V1\DocumentListResponse|\Avalara\\SDK\Model\\EInvoicing\\V1\BadRequest|\Avalara\\SDK\Model\\EInvoicing\\V1\ForbiddenError, HTTP status code, HTTP response headers (array of strings)
      */
     public function getDocumentListWithHttpInfo($request_parameters, $isRetry = false)
     {
@@ -598,7 +963,7 @@ class DocumentsApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Avalara\SDK\Model\EInvoicing\V1\DocumentListResponse' === '\SplFileObject') {
+                    if ('\Avalara\\SDK\Model\\EInvoicing\\V1\DocumentListResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -606,12 +971,12 @@ class DocumentsApi
                     $logObject->populateResponseInfo($content, $response);
                     $this->client->logger->info(json_encode($logObject));
                     return [
-                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\DocumentListResponse', []),
+                        ObjectSerializer::deserialize($content, '\Avalara\\SDK\Model\\EInvoicing\\V1\DocumentListResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\Avalara\SDK\Model\EInvoicing\V1\BadRequest' === '\SplFileObject') {
+                    if ('\Avalara\\SDK\Model\\EInvoicing\\V1\BadRequest' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -619,12 +984,12 @@ class DocumentsApi
                     $logObject->populateResponseInfo($content, $response);
                     $this->client->logger->info(json_encode($logObject));
                     return [
-                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\BadRequest', []),
+                        ObjectSerializer::deserialize($content, '\Avalara\\SDK\Model\\EInvoicing\\V1\BadRequest', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 403:
-                    if ('\Avalara\SDK\Model\EInvoicing\V1\ForbiddenError' === '\SplFileObject') {
+                    if ('\Avalara\\SDK\Model\\EInvoicing\\V1\ForbiddenError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -632,13 +997,13 @@ class DocumentsApi
                     $logObject->populateResponseInfo($content, $response);
                     $this->client->logger->info(json_encode($logObject));
                     return [
-                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\ForbiddenError', []),
+                        ObjectSerializer::deserialize($content, '\Avalara\\SDK\Model\\EInvoicing\\V1\ForbiddenError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Avalara\SDK\Model\EInvoicing\V1\DocumentListResponse';
+            $returnType = '\Avalara\\SDK\Model\\EInvoicing\\V1\DocumentListResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -657,7 +1022,7 @@ class DocumentsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Avalara\SDK\Model\EInvoicing\V1\DocumentListResponse',
+                        '\Avalara\\SDK\Model\\EInvoicing\\V1\DocumentListResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -665,7 +1030,7 @@ class DocumentsApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Avalara\SDK\Model\EInvoicing\V1\BadRequest',
+                        '\Avalara\\SDK\Model\\EInvoicing\\V1\BadRequest',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -673,7 +1038,7 @@ class DocumentsApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Avalara\SDK\Model\EInvoicing\V1\ForbiddenError',
+                        '\Avalara\\SDK\Model\\EInvoicing\\V1\ForbiddenError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -716,7 +1081,7 @@ class DocumentsApi
     public function getDocumentListAsyncWithHttpInfo($request_parameters, $isRetry = false)
     {
         $logObject = new LogObject($this->client->logRequestAndResponse);
-        $returnType = '\Avalara\SDK\Model\EInvoicing\V1\DocumentListResponse';
+        $returnType = '\Avalara\\SDK\Model\\EInvoicing\\V1\DocumentListResponse';
         $request = $this->getDocumentListRequest($request_parameters);
         $logObject->populateRequestInfo($request);
         return $this->client
@@ -894,12 +1259,12 @@ class DocumentsApi
         }
 
         // header params
-        $headerParams['avalara-version'] = '1.0';
+        $headerParams['avalara-version'] = '1.2';
         if ($avalara_version !== null) {
             $headerParams['avalara-version'] = ObjectSerializer::toHeaderValue($avalara_version);
         }
         // header params
-        $headerParams['avalara-version'] = '1.0';
+        $headerParams['avalara-version'] = '1.2';
         if ($x_avalara_client !== null) {
             $headerParams['X-Avalara-Client'] = ObjectSerializer::toHeaderValue($x_avalara_client);
         }
@@ -971,9 +1336,9 @@ class DocumentsApi
      *
      * @param GetDocumentStatusRequest The request parameters for the API call.
      *
-     * @throws \Avalara\SDK\ApiException on non-2xx response
+     * @throws \Avalara\\SDK\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Avalara\SDK\Model\EInvoicing\V1\DocumentStatusResponse|\Avalara\SDK\Model\EInvoicing\V1\ForbiddenError|\Avalara\SDK\Model\EInvoicing\V1\NotFoundError
+     * @return \Avalara\\SDK\Model\\EInvoicing\\V1\DocumentStatusResponse|\Avalara\\SDK\Model\\EInvoicing\\V1\ForbiddenError|\Avalara\\SDK\Model\\EInvoicing\\V1\NotFoundError
      */
     public function getDocumentStatus($request_parameters)
     {
@@ -988,9 +1353,9 @@ class DocumentsApi
      *
      * @param GetDocumentStatusRequest The request parameters for the API call.
      *
-     * @throws \Avalara\SDK\ApiException on non-2xx response
+     * @throws \Avalara\\SDK\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Avalara\SDK\Model\EInvoicing\V1\DocumentStatusResponse|\Avalara\SDK\Model\EInvoicing\V1\ForbiddenError|\Avalara\SDK\Model\EInvoicing\V1\NotFoundError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Avalara\\SDK\Model\\EInvoicing\\V1\DocumentStatusResponse|\Avalara\\SDK\Model\\EInvoicing\\V1\ForbiddenError|\Avalara\\SDK\Model\\EInvoicing\\V1\NotFoundError, HTTP status code, HTTP response headers (array of strings)
      */
     public function getDocumentStatusWithHttpInfo($request_parameters, $isRetry = false)
     {
@@ -1046,7 +1411,7 @@ class DocumentsApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Avalara\SDK\Model\EInvoicing\V1\DocumentStatusResponse' === '\SplFileObject') {
+                    if ('\Avalara\\SDK\Model\\EInvoicing\\V1\DocumentStatusResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -1054,12 +1419,12 @@ class DocumentsApi
                     $logObject->populateResponseInfo($content, $response);
                     $this->client->logger->info(json_encode($logObject));
                     return [
-                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\DocumentStatusResponse', []),
+                        ObjectSerializer::deserialize($content, '\Avalara\\SDK\Model\\EInvoicing\\V1\DocumentStatusResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 403:
-                    if ('\Avalara\SDK\Model\EInvoicing\V1\ForbiddenError' === '\SplFileObject') {
+                    if ('\Avalara\\SDK\Model\\EInvoicing\\V1\ForbiddenError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -1067,12 +1432,12 @@ class DocumentsApi
                     $logObject->populateResponseInfo($content, $response);
                     $this->client->logger->info(json_encode($logObject));
                     return [
-                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\ForbiddenError', []),
+                        ObjectSerializer::deserialize($content, '\Avalara\\SDK\Model\\EInvoicing\\V1\ForbiddenError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 404:
-                    if ('\Avalara\SDK\Model\EInvoicing\V1\NotFoundError' === '\SplFileObject') {
+                    if ('\Avalara\\SDK\Model\\EInvoicing\\V1\NotFoundError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -1080,13 +1445,13 @@ class DocumentsApi
                     $logObject->populateResponseInfo($content, $response);
                     $this->client->logger->info(json_encode($logObject));
                     return [
-                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\NotFoundError', []),
+                        ObjectSerializer::deserialize($content, '\Avalara\\SDK\Model\\EInvoicing\\V1\NotFoundError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Avalara\SDK\Model\EInvoicing\V1\DocumentStatusResponse';
+            $returnType = '\Avalara\\SDK\Model\\EInvoicing\\V1\DocumentStatusResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1105,7 +1470,7 @@ class DocumentsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Avalara\SDK\Model\EInvoicing\V1\DocumentStatusResponse',
+                        '\Avalara\\SDK\Model\\EInvoicing\\V1\DocumentStatusResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1113,7 +1478,7 @@ class DocumentsApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Avalara\SDK\Model\EInvoicing\V1\ForbiddenError',
+                        '\Avalara\\SDK\Model\\EInvoicing\\V1\ForbiddenError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1121,7 +1486,7 @@ class DocumentsApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Avalara\SDK\Model\EInvoicing\V1\NotFoundError',
+                        '\Avalara\\SDK\Model\\EInvoicing\\V1\NotFoundError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1164,7 +1529,7 @@ class DocumentsApi
     public function getDocumentStatusAsyncWithHttpInfo($request_parameters, $isRetry = false)
     {
         $logObject = new LogObject($this->client->logRequestAndResponse);
-        $returnType = '\Avalara\SDK\Model\EInvoicing\V1\DocumentStatusResponse';
+        $returnType = '\Avalara\\SDK\Model\\EInvoicing\\V1\DocumentStatusResponse';
         $request = $this->getDocumentStatusRequest($request_parameters);
         $logObject->populateRequestInfo($request);
         return $this->client
@@ -1244,7 +1609,7 @@ class DocumentsApi
             );
         }
 
-        $resourcePath = '/einvoicing/document/{documentId}/status';
+        $resourcePath = '/einvoicing/documents/{documentId}/status';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1253,12 +1618,12 @@ class DocumentsApi
 
 
         // header params
-        $headerParams['avalara-version'] = '1.0';
+        $headerParams['avalara-version'] = '1.2';
         if ($avalara_version !== null) {
             $headerParams['avalara-version'] = ObjectSerializer::toHeaderValue($avalara_version);
         }
         // header params
-        $headerParams['avalara-version'] = '1.0';
+        $headerParams['avalara-version'] = '1.2';
         if ($x_avalara_client !== null) {
             $headerParams['X-Avalara-Client'] = ObjectSerializer::toHeaderValue($x_avalara_client);
         }
@@ -1338,9 +1703,9 @@ class DocumentsApi
      *
      * @param SubmitDocumentRequest The request parameters for the API call.
      *
-     * @throws \Avalara\SDK\ApiException on non-2xx response
+     * @throws \Avalara\\SDK\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Avalara\SDK\Model\EInvoicing\V1\DocumentSubmitResponse|\Avalara\SDK\Model\EInvoicing\V1\DocumentSubmissionError|\Avalara\SDK\Model\EInvoicing\V1\ForbiddenError
+     * @return \Avalara\\SDK\Model\\EInvoicing\\V1\DocumentSubmitResponse|\Avalara\\SDK\Model\\EInvoicing\\V1\DocumentSubmissionError|\Avalara\\SDK\Model\\EInvoicing\\V1\ForbiddenError
      */
     public function submitDocument($request_parameters)
     {
@@ -1355,9 +1720,9 @@ class DocumentsApi
      *
      * @param SubmitDocumentRequest The request parameters for the API call.
      *
-     * @throws \Avalara\SDK\ApiException on non-2xx response
+     * @throws \Avalara\\SDK\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Avalara\SDK\Model\EInvoicing\V1\DocumentSubmitResponse|\Avalara\SDK\Model\EInvoicing\V1\DocumentSubmissionError|\Avalara\SDK\Model\EInvoicing\V1\ForbiddenError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Avalara\\SDK\Model\\EInvoicing\\V1\DocumentSubmitResponse|\Avalara\\SDK\Model\\EInvoicing\\V1\DocumentSubmissionError|\Avalara\\SDK\Model\\EInvoicing\\V1\ForbiddenError, HTTP status code, HTTP response headers (array of strings)
      */
     public function submitDocumentWithHttpInfo($request_parameters, $isRetry = false)
     {
@@ -1413,7 +1778,7 @@ class DocumentsApi
 
             switch($statusCode) {
                 case 201:
-                    if ('\Avalara\SDK\Model\EInvoicing\V1\DocumentSubmitResponse' === '\SplFileObject') {
+                    if ('\Avalara\\SDK\Model\\EInvoicing\\V1\DocumentSubmitResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -1421,12 +1786,12 @@ class DocumentsApi
                     $logObject->populateResponseInfo($content, $response);
                     $this->client->logger->info(json_encode($logObject));
                     return [
-                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\DocumentSubmitResponse', []),
+                        ObjectSerializer::deserialize($content, '\Avalara\\SDK\Model\\EInvoicing\\V1\DocumentSubmitResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\Avalara\SDK\Model\EInvoicing\V1\DocumentSubmissionError' === '\SplFileObject') {
+                    if ('\Avalara\\SDK\Model\\EInvoicing\\V1\DocumentSubmissionError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -1434,12 +1799,12 @@ class DocumentsApi
                     $logObject->populateResponseInfo($content, $response);
                     $this->client->logger->info(json_encode($logObject));
                     return [
-                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\DocumentSubmissionError', []),
+                        ObjectSerializer::deserialize($content, '\Avalara\\SDK\Model\\EInvoicing\\V1\DocumentSubmissionError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 403:
-                    if ('\Avalara\SDK\Model\EInvoicing\V1\ForbiddenError' === '\SplFileObject') {
+                    if ('\Avalara\\SDK\Model\\EInvoicing\\V1\ForbiddenError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -1447,13 +1812,13 @@ class DocumentsApi
                     $logObject->populateResponseInfo($content, $response);
                     $this->client->logger->info(json_encode($logObject));
                     return [
-                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\ForbiddenError', []),
+                        ObjectSerializer::deserialize($content, '\Avalara\\SDK\Model\\EInvoicing\\V1\ForbiddenError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Avalara\SDK\Model\EInvoicing\V1\DocumentSubmitResponse';
+            $returnType = '\Avalara\\SDK\Model\\EInvoicing\\V1\DocumentSubmitResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1472,7 +1837,7 @@ class DocumentsApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Avalara\SDK\Model\EInvoicing\V1\DocumentSubmitResponse',
+                        '\Avalara\\SDK\Model\\EInvoicing\\V1\DocumentSubmitResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1480,7 +1845,7 @@ class DocumentsApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Avalara\SDK\Model\EInvoicing\V1\DocumentSubmissionError',
+                        '\Avalara\\SDK\Model\\EInvoicing\\V1\DocumentSubmissionError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1488,7 +1853,7 @@ class DocumentsApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Avalara\SDK\Model\EInvoicing\V1\ForbiddenError',
+                        '\Avalara\\SDK\Model\\EInvoicing\\V1\ForbiddenError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1531,7 +1896,7 @@ class DocumentsApi
     public function submitDocumentAsyncWithHttpInfo($request_parameters, $isRetry = false)
     {
         $logObject = new LogObject($this->client->logRequestAndResponse);
-        $returnType = '\Avalara\SDK\Model\EInvoicing\V1\DocumentSubmitResponse';
+        $returnType = '\Avalara\\SDK\Model\\EInvoicing\\V1\DocumentSubmitResponse';
         $request = $this->submitDocumentRequest($request_parameters);
         $logObject->populateRequestInfo($request);
         return $this->client
@@ -1627,12 +1992,12 @@ class DocumentsApi
 
 
         // header params
-        $headerParams['avalara-version'] = '1.0';
+        $headerParams['avalara-version'] = '1.2';
         if ($avalara_version !== null) {
             $headerParams['avalara-version'] = ObjectSerializer::toHeaderValue($avalara_version);
         }
         // header params
-        $headerParams['avalara-version'] = '1.0';
+        $headerParams['avalara-version'] = '1.2';
         if ($x_avalara_client !== null) {
             $headerParams['X-Avalara-Client'] = ObjectSerializer::toHeaderValue($x_avalara_client);
         }
@@ -1712,7 +2077,7 @@ class DocumentsApi
      * @param  string $avalara_version The HTTP Header meant to specify the version of the API intended to be used (required)
      * @param  string $accept This header indicates the MIME type of the document (required)
      * @param  string $document_id The unique ID for this document that was returned in the POST /einvoicing/document response body (required)
-     * @param  string $x_avalara_client You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a \&quot;Fingerprint\&quot; (optional)
+     * @param  string $x_avalara_client You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a fingerprint. (optional)
      */
 class DownloadDocumentRequest {
     private $avalara_version;
@@ -1753,10 +2118,47 @@ class DownloadDocumentRequest {
 }
 
     /**
+     * Represents the Request object for the FetchDocuments API
+     *
+     * @param  string $avalara_version The HTTP Header meant to specify the version of the API intended to be used (required)
+     * @param  \Avalara\\SDK\Model\\EInvoicing\\V1\FetchDocumentsRequest $fetch_documents_request fetch_documents_request (required)
+     * @param  string $x_avalara_client You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a fingerprint. (optional)
+     */
+class FetchDocumentsRequest {
+    private $avalara_version;
+    private $fetch_documents_request;
+    private $x_avalara_client;
+
+    public function __construct() {
+    }
+    public function getAvalaraVersion() {
+        return $this->avalara_version;
+    }
+
+    public function setAvalaraVersion($avalara_version) {
+        $this->avalara_version = $avalara_version;
+    }
+    public function getFetchDocumentsRequest() {
+        return $this->fetch_documents_request;
+    }
+
+    public function setFetchDocumentsRequest($fetch_documents_request) {
+        $this->fetch_documents_request = $fetch_documents_request;
+    }
+    public function getXAvalaraClient() {
+        return $this->x_avalara_client;
+    }
+
+    public function setXAvalaraClient($x_avalara_client) {
+        $this->x_avalara_client = $x_avalara_client;
+    }
+}
+
+    /**
      * Represents the Request object for the GetDocumentList API
      *
      * @param  string $avalara_version The HTTP Header meant to specify the version of the API intended to be used (required)
-     * @param  string $x_avalara_client You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a \&quot;Fingerprint\&quot; (optional)
+     * @param  string $x_avalara_client You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a fingerprint. (optional)
      * @param  \DateTime $start_date Start date of documents to return. This defaults to the previous month. (optional)
      * @param  \DateTime $end_date End date of documents to return. This defaults to the current date. (optional)
      * @param  string $flow Optionally filter by document direction, where issued &#x3D; &#x60;out&#x60; and received &#x3D; &#x60;in&#x60; (optional)
@@ -1857,7 +2259,7 @@ class GetDocumentListRequest {
      *
      * @param  string $avalara_version The HTTP Header meant to specify the version of the API intended to be used (required)
      * @param  string $document_id The unique ID for this document that was returned in the POST /einvoicing/documents response body (required)
-     * @param  string $x_avalara_client You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a \&quot;Fingerprint\&quot; (optional)
+     * @param  string $x_avalara_client You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a fingerprint. (optional)
      */
 class GetDocumentStatusRequest {
     private $avalara_version;
@@ -1893,9 +2295,9 @@ class GetDocumentStatusRequest {
      * Represents the Request object for the SubmitDocument API
      *
      * @param  string $avalara_version The HTTP Header meant to specify the version of the API intended to be used (required)
-     * @param  \Avalara\SDK\Model\EInvoicing\V1\SubmitDocumentMetadata $metadata metadata (required)
-     * @param  \Avalara\SDK\Model\EInvoicing\V1\SubmitDocumentData $data data (required)
-     * @param  string $x_avalara_client You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a \&quot;Fingerprint\&quot; (optional)
+     * @param  \Avalara\\SDK\Model\\EInvoicing\\V1\SubmitDocumentMetadata $metadata metadata (required)
+     * @param  object $data The document to be submitted, as indicated by the metadata fields &#39;dataFormat&#39; and &#39;dataFormatVersion&#39; (required)
+     * @param  string $x_avalara_client You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a fingerprint. (optional)
      */
 class SubmitDocumentRequest {
     private $avalara_version;
