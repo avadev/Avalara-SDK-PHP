@@ -81,7 +81,7 @@ Name | Type | Description  | Notes
 ## `fetchDocuments()`
 
 ```php
-fetchDocuments($avalara_version, $fetch_documents_request, $x_avalara_client): \Avalara\\SDK\Model\\EInvoicing\\V1\DocumentFetch
+fetchDocuments($avalara_version, $document_fetch_request, $x_avalara_client): \Avalara\\SDK\Model\\EInvoicing\\V1\DocumentFetch
 ```
 
 Fetch the inbound document from a tax authority
@@ -107,11 +107,11 @@ $client = new \Avalara\SDK\ApiClient($config);
 $apiInstance = new Avalara\\SDK\Api\DocumentsApi($client);
 
 $avalara_version = 1.2; // string | The HTTP Header meant to specify the version of the API intended to be used
-$fetch_documents_request = new \Avalara\\SDK\Model\\EInvoicing\\V1\FetchDocumentsRequest(); // \Avalara\\SDK\Model\\EInvoicing\\V1\FetchDocumentsRequest
+$document_fetch_request = new \Avalara\\SDK\Model\\EInvoicing\\V1\DocumentFetchRequest(); // \Avalara\\SDK\Model\\EInvoicing\\V1\DocumentFetchRequest
 $x_avalara_client = John's E-Invoicing-API Client; // string | You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a fingerprint.
 
 try {
-    $result = $apiInstance->fetchDocuments($avalara_version, $fetch_documents_request, $x_avalara_client);
+    $result = $apiInstance->fetchDocuments($avalara_version, $document_fetch_request, $x_avalara_client);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DocumentsApi->fetchDocuments: ', $e->getMessage(), PHP_EOL;
@@ -123,7 +123,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **avalara_version** | **string**| The HTTP Header meant to specify the version of the API intended to be used |
- **fetch_documents_request** | [**\Avalara\\SDK\Model\\EInvoicing\\V1\FetchDocumentsRequest**](../Model/FetchDocumentsRequest.md)|  |
+ **document_fetch_request** | [**\Avalara\\SDK\Model\\EInvoicing\\V1\DocumentFetchRequest**](../Model/DocumentFetchRequest.md)|  |
  **x_avalara_client** | **string**| You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a fingerprint. | [optional]
 
 ### Return type

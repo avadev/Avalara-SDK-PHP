@@ -780,7 +780,7 @@ class DocumentsApi
         $requiredScopes = "";
         
         $avalara_version = $request_parameters->getAvalaraVersion();
-        $fetch_documents_request = $request_parameters->getFetchDocumentsRequest();
+        $document_fetch_request = $request_parameters->getDocumentFetchRequest();
         $x_avalara_client = $request_parameters->getXAvalaraClient();
 
         // verify the required parameter 'avalara_version' is set
@@ -789,10 +789,10 @@ class DocumentsApi
                 'Missing the required parameter $avalara_version when calling fetchDocuments'
             );
         }
-        // verify the required parameter 'fetch_documents_request' is set
-        if ($fetch_documents_request === null || (is_array($fetch_documents_request) && count($fetch_documents_request) === 0)) {
+        // verify the required parameter 'document_fetch_request' is set
+        if ($document_fetch_request === null || (is_array($document_fetch_request) && count($document_fetch_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $fetch_documents_request when calling fetchDocuments'
+                'Missing the required parameter $document_fetch_request when calling fetchDocuments'
             );
         }
 
@@ -832,11 +832,11 @@ class DocumentsApi
         $headers['X-Avalara-Client']=$clientId;
 
         // for model (json/xml)
-        if (isset($fetch_documents_request)) {
+        if (isset($document_fetch_request)) {
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($fetch_documents_request));
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($document_fetch_request));
             } else {
-                $httpBody = $fetch_documents_request;
+                $httpBody = $document_fetch_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -2121,12 +2121,12 @@ class DownloadDocumentRequest {
      * Represents the Request object for the FetchDocuments API
      *
      * @param  string $avalara_version The HTTP Header meant to specify the version of the API intended to be used (required)
-     * @param  \Avalara\\SDK\Model\\EInvoicing\\V1\FetchDocumentsRequest $fetch_documents_request fetch_documents_request (required)
+     * @param  \Avalara\\SDK\Model\\EInvoicing\\V1\DocumentFetchRequest $document_fetch_request document_fetch_request (required)
      * @param  string $x_avalara_client You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a fingerprint. (optional)
      */
 class FetchDocumentsRequest {
     private $avalara_version;
-    private $fetch_documents_request;
+    private $document_fetch_request;
     private $x_avalara_client;
 
     public function __construct() {
@@ -2138,12 +2138,12 @@ class FetchDocumentsRequest {
     public function setAvalaraVersion($avalara_version) {
         $this->avalara_version = $avalara_version;
     }
-    public function getFetchDocumentsRequest() {
-        return $this->fetch_documents_request;
+    public function getDocumentFetchRequest() {
+        return $this->document_fetch_request;
     }
 
-    public function setFetchDocumentsRequest($fetch_documents_request) {
-        $this->fetch_documents_request = $fetch_documents_request;
+    public function setDocumentFetchRequest($document_fetch_request) {
+        $this->document_fetch_request = $document_fetch_request;
     }
     public function getXAvalaraClient() {
         return $this->x_avalara_client;
