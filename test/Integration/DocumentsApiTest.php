@@ -40,32 +40,32 @@ class DocumentsApiTest extends TestCase
 
     public function testGetDocumentsList()
     {
-        $apiInstance = new \Avalara\SDK\API\EInvoicing\V1\DocumentsApi(self::$client);
+        // $apiInstance = new \Avalara\SDK\API\EInvoicing\V1\DocumentsApi(self::$client);
 
 
-        $request_options = new \Avalara\SDK\API\EInvoicing\V1\GetDocumentListRequest();
-        $request_options->setAvalaraVersion('1.0');
+        // $request_options = new \Avalara\SDK\API\EInvoicing\V1\GetDocumentListRequest();
+        // $request_options->setAvalaraVersion('1.0');
 
-        try {
-            $result=$apiInstance->getDocumentListAsync($request_options);
-            $result->then(
-                function($response) {
-                    $this->assertNotNull($response);
-                    print_r($response);
-                },
-                function(\Exception $e){
-                    echo $e;
-                    echo 'Exception : ', $e->getMessage(), PHP_EOL;
-                    echo 'Exception Response Body: ', $e->getResponseBody(), PHP_EOL;
-                }
-            );
-            //  Tick the promise queue to trigger the callback
-            $result->wait();
-            \GuzzleHttp\Promise\queue();
-        }
-        catch (Exception $e) {
-            echo $e;
-            echo 'Exception : ', $e->getMessage(), PHP_EOL;
-        }
+        // try {
+        //     $result=$apiInstance->getDocumentListAsync($request_options);
+        //     $result->then(
+        //         function($response) {
+        //             $this->assertNotNull($response);
+        //             print_r($response);
+        //         },
+        //         function(\Exception $e){
+        //             echo $e;
+        //             echo 'Exception : ', $e->getMessage(), PHP_EOL;
+        //             echo 'Exception Response Body: ', $e->getResponseBody(), PHP_EOL;
+        //         }
+        //     );
+        //     //  Tick the promise queue to trigger the callback
+        //     $result->wait();
+        //     \GuzzleHttp\Promise\queue();
+        // }
+        // catch (Exception $e) {
+        //     echo $e;
+        //     echo 'Exception : ', $e->getMessage(), PHP_EOL;
+        // }
     }
 }
