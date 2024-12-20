@@ -18,6 +18,7 @@
       "homepage": "https://openapi-generator.tech"
     }
   ],
+  "version": "24.12.10",
   "require": {
     "php": "^7.3 || ^8.0",
     "ext-curl": "*",
