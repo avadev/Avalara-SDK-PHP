@@ -317,7 +317,7 @@ $apiInstance = new Avalara\\SDK\Api\DocumentsApi($client);
 
 $avalara_version = 1.2; // string | The HTTP Header meant to specify the version of the API intended to be used
 $metadata = new \Avalara\\SDK\Model\\EInvoicing\\V1\SubmitDocumentMetadata(); // \Avalara\\SDK\Model\\EInvoicing\\V1\SubmitDocumentMetadata
-$data = array('key' => new \stdClass); // object | The document to be submitted, as indicated by the metadata fields 'dataFormat' and 'dataFormatVersion'
+$data = 'data_example'; // string | The document to be submitted, as indicated by the metadata fields 'dataFormat' and 'dataFormatVersion'
 $x_avalara_client = John's E-Invoicing-API Client; // string | You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a fingerprint.
 
 try {
@@ -334,7 +334,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **avalara_version** | **string**| The HTTP Header meant to specify the version of the API intended to be used |
  **metadata** | [**\Avalara\\SDK\Model\\EInvoicing\\V1\SubmitDocumentMetadata**](../Model/SubmitDocumentMetadata.md)|  |
- **data** | [**object**](../Model/object.md)| The document to be submitted, as indicated by the metadata fields &#39;dataFormat&#39; and &#39;dataFormatVersion&#39; |
+ **data** | **string**| The document to be submitted, as indicated by the metadata fields &#39;dataFormat&#39; and &#39;dataFormatVersion&#39; |
  **x_avalara_client** | **string**| You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a fingerprint. | [optional]
 
 ### Return type

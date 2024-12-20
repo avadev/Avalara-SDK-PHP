@@ -2296,7 +2296,7 @@ class GetDocumentStatusRequest {
      *
      * @param  string $avalara_version The HTTP Header meant to specify the version of the API intended to be used (required)
      * @param  \Avalara\\SDK\Model\\EInvoicing\\V1\SubmitDocumentMetadata $metadata metadata (required)
-     * @param  object $data The document to be submitted, as indicated by the metadata fields &#39;dataFormat&#39; and &#39;dataFormatVersion&#39; (required)
+     * @param  string $data The document to be submitted, as indicated by the metadata fields &#39;dataFormat&#39; and &#39;dataFormatVersion&#39; (required)
      * @param  string $x_avalara_client You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a fingerprint. (optional)
      */
 class SubmitDocumentRequest {
