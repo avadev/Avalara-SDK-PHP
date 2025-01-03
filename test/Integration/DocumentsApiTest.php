@@ -44,7 +44,6 @@ class DocumentsApiTest extends TestCase
 
 
         $request_options = new \Avalara\SDK\API\EInvoicing\V1\GetDocumentListRequest();
-        $request_options->setAvalaraVersion('1.0');
 
         try {
             $result=$apiInstance->getDocumentListAsync($request_options);

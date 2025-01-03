@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **field_id** | **string** | Field ID | [optional]
 **applicable_document_roots** | **object[]** |  | [optional]
 **path** | **string** | Path to this field | [optional]
-**name_space** | **string** | Namespace of this field | [optional]
+**namespace** | **string** | Namespace of this field | [optional]
 **field_name** | **string** | Field name | [optional]
 **example_or_fixed_value** | **string** | An example of the content for this field | [optional]
 **accepted_values** | **object** | An object representing the acceptable values for this field | [optional]

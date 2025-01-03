@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**at_record_set_count** | **float** | Total count of results | [optional]
+**at_recordset_count** | **float** | Total count of results | [optional]
 **at_next_link** | **string** |  | [optional]
 **value** | [**\Avalara\SDK\Model\EInvoicing\V1\Mandate[]**](Mandate.md) | Mandates schema | [optional]
 

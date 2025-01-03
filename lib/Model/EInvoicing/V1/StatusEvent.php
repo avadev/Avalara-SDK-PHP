@@ -13,7 +13,7 @@
 /*
  * AvaTax Software Development Kit for PHP
  *
- * (c) 2004-2022 Avalara, Inc.
+ * (c) 2004-2025 Avalara, Inc.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -26,9 +26,8 @@
  * @package    Avalara\SDK\API\EInvoicing\V1
  * @author     Sachin Baijal <sachin.baijal@avalara.com>
  * @author     Jonathan Wenger <jonathan.wenger@avalara.com>
- * @copyright  2004-2022 Avalara, Inc.
+ * @copyright  2004-2025 Avalara, Inc.
  * @license    https://www.apache.org/licenses/LICENSE-2.0
- * @version    
  * @link       https://github.com/avadev/AvaTax-REST-V3-PHP-SDK
 
  */
@@ -74,7 +73,9 @@ class StatusEvent implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'event_date_time' => 'string',
-        'message' => 'string'
+        'message' => 'string',
+        'response_key' => 'string',
+        'response_value' => 'string'
     ];
 
     /**
@@ -86,7 +87,9 @@ class StatusEvent implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPIFormats = [
         'event_date_time' => null,
-        'message' => null
+        'message' => null,
+        'response_key' => null,
+        'response_value' => null
     ];
 
     /**
@@ -117,7 +120,9 @@ class StatusEvent implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $attributeMap = [
         'event_date_time' => 'eventDateTime',
-        'message' => 'message'
+        'message' => 'message',
+        'response_key' => 'responseKey',
+        'response_value' => 'responseValue'
     ];
 
     /**
@@ -127,7 +132,9 @@ class StatusEvent implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $setters = [
         'event_date_time' => 'setEventDateTime',
-        'message' => 'setMessage'
+        'message' => 'setMessage',
+        'response_key' => 'setResponseKey',
+        'response_value' => 'setResponseValue'
     ];
 
     /**
@@ -137,7 +144,9 @@ class StatusEvent implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $getters = [
         'event_date_time' => 'getEventDateTime',
-        'message' => 'getMessage'
+        'message' => 'getMessage',
+        'response_key' => 'getResponseKey',
+        'response_value' => 'getResponseValue'
     ];
 
     /**
@@ -199,6 +208,8 @@ class StatusEvent implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $this->container['event_date_time'] = $data['event_date_time'] ?? null;
         $this->container['message'] = $data['message'] ?? null;
+        $this->container['response_key'] = $data['response_key'] ?? null;
+        $this->container['response_value'] = $data['response_value'] ?? null;
     }
 
     /**
@@ -269,6 +280,54 @@ class StatusEvent implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setMessage($message)
     {
         $this->container['message'] = $message;
+
+        return $this;
+    }
+
+    /**
+     * Gets response_key
+     *
+     * @return string|null
+     */
+    public function getResponseKey()
+    {
+        return $this->container['response_key'];
+    }
+
+    /**
+     * Sets response_key
+     *
+     * @param string|null $response_key The type of number or acknowledgement returned by the tax authority (if applicable). For example, it could be an identification key, acknowledgement code, or any other relevant identifier.
+     *
+     * @return self
+     */
+    public function setResponseKey($response_key)
+    {
+        $this->container['response_key'] = $response_key;
+
+        return $this;
+    }
+
+    /**
+     * Gets response_value
+     *
+     * @return string|null
+     */
+    public function getResponseValue()
+    {
+        return $this->container['response_value'];
+    }
+
+    /**
+     * Sets response_value
+     *
+     * @param string|null $response_value The corresponding value associated with the response key. This value is provided by the tax authority in response to the event.
+     *
+     * @return self
+     */
+    public function setResponseValue($response_value)
+    {
+        $this->container['response_value'] = $response_value;
 
         return $this;
     }

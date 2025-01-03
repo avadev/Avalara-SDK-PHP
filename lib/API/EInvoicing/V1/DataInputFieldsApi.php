@@ -9,7 +9,7 @@
 /*
  * AvaTax Software Development Kit for PHP
  *
- * (c) 2004-2022 Avalara, Inc.
+ * (c) 2004-2025 Avalara, Inc.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -22,9 +22,8 @@
  * @package    Avalara\SDK\API\EInvoicing\V1
  * @author     Sachin Baijal <sachin.baijal@avalara.com>
  * @author     Jonathan Wenger <jonathan.wenger@avalara.com>
- * @copyright  2004-2022 Avalara, Inc.
+ * @copyright  2004-2025 Avalara, Inc.
  * @license    https://www.apache.org/licenses/LICENSE-2.0
- * @version    
  * @link       https://github.com/avadev/AvaTax-REST-V3-PHP-SDK
 
  */
@@ -80,7 +79,7 @@ class DataInputFieldsApi
     private function setConfiguration($client): void
     {
         $this->verifyAPIClient($client);
-        $client->setSdkVersion("");
+        $client->setSdkVersion("24.12.0");
         $this->headerSelector = new HeaderSelector(); 
         $this->client = $client;
     }
@@ -119,7 +118,7 @@ class DataInputFieldsApi
     /**
      * Operation getDataInputFields
      *
-     * Returns the mandatory and conditional invoice or creditnote input fields for different country mandates
+     * Returns the optionality of document fields for different country mandates
      *
      * @param GetDataInputFieldsRequest The request parameters for the API call.
      *
@@ -136,7 +135,7 @@ class DataInputFieldsApi
     /**
      * Operation getDataInputFieldsWithHttpInfo
      *
-     * Returns the mandatory and conditional invoice or creditnote input fields for different country mandates
+     * Returns the optionality of document fields for different country mandates
      *
      * @param GetDataInputFieldsRequest The request parameters for the API call.
      *
@@ -286,7 +285,7 @@ class DataInputFieldsApi
     /**
      * Operation getDataInputFieldsAsync
      *
-     * Returns the mandatory and conditional invoice or creditnote input fields for different country mandates
+     * Returns the optionality of document fields for different country mandates
      *
      * @param GetDataInputFieldsRequest The request parameters for the API call.
      *
@@ -306,7 +305,7 @@ class DataInputFieldsApi
     /**
      * Operation getDataInputFieldsAsyncWithHttpInfo
      *
-     * Returns the mandatory and conditional invoice or creditnote input fields for different country mandates
+     * Returns the optionality of document fields for different country mandates
      *
      * @param GetDataInputFieldsRequest The request parameters for the API call.
      *
@@ -458,12 +457,12 @@ class DataInputFieldsApi
         }
 
         // header params
-        $headerParams['avalara-version'] = '1.0';
+        $headerParams['avalara-version'] = '1.2';
         if ($avalara_version !== null) {
             $headerParams['avalara-version'] = ObjectSerializer::toHeaderValue($avalara_version);
         }
         // header params
-        $headerParams['avalara-version'] = '1.0';
+        $headerParams['avalara-version'] = '1.2';
         if ($x_avalara_client !== null) {
             $headerParams['X-Avalara-Client'] = ObjectSerializer::toHeaderValue($x_avalara_client);
         }
@@ -480,7 +479,7 @@ class DataInputFieldsApi
                 []
             );
         }
-        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; ; {$this->client->config->getMachineName()}";
+        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 24.12.0; {$this->client->config->getMachineName()}";
 
         $headers['X-Avalara-Client']=$clientId;
 
@@ -533,7 +532,7 @@ class DataInputFieldsApi
      * Represents the Request object for the GetDataInputFields API
      *
      * @param  string $avalara_version The HTTP Header meant to specify the version of the API intended to be used (required)
-     * @param  string $x_avalara_client You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a \&quot;Fingerprint\&quot; (optional)
+     * @param  string $x_avalara_client You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a fingerprint. (optional)
      * @param  string $filter Filter by field name and value. This filter only supports &lt;code&gt;eq&lt;/code&gt; and &lt;code&gt;contains&lt;/code&gt;. Refer to [https://developer.avalara.com/avatax/filtering-in-rest/](https://developer.avalara.com/avatax/filtering-in-rest/) for more information on filtering. (optional)
      * @param  float $top If nonzero, return no more than this number of results. Used with &lt;code&gt;$skip&lt;/code&gt; to provide pagination for large datasets. Unless otherwise specified, the maximum number of records that can be returned from an API call is 1,000 records. (optional)
      * @param  float $skip If nonzero, skip this number of results before returning data. Used with &lt;code&gt;$top&lt;/code&gt; to provide pagination for large datasets. (optional)
@@ -552,7 +551,7 @@ class GetDataInputFieldsRequest {
     public function __construct() {
     }
     public function getAvalaraVersion() {
-        return $this->avalara_version;
+        return $this->avalara_version ?? '1.2';
     }
 
     public function setAvalaraVersion($avalara_version) {

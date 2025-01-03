@@ -13,7 +13,7 @@
 /*
  * AvaTax Software Development Kit for PHP
  *
- * (c) 2004-2022 Avalara, Inc.
+ * (c) 2004-2025 Avalara, Inc.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -26,9 +26,8 @@
  * @package    Avalara\SDK\API\EInvoicing\V1
  * @author     Sachin Baijal <sachin.baijal@avalara.com>
  * @author     Jonathan Wenger <jonathan.wenger@avalara.com>
- * @copyright  2004-2022 Avalara, Inc.
+ * @copyright  2004-2025 Avalara, Inc.
  * @license    https://www.apache.org/licenses/LICENSE-2.0
- * @version    
  * @link       https://github.com/avadev/AvaTax-REST-V3-PHP-SDK
 
  */
@@ -273,7 +272,7 @@ class Mandate implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets mandate_id
      *
-     * @param string|null $mandate_id Mandate UUID
+     * @param string|null $mandate_id The `mandateId` is comprised of the country code, mandate type, and the network or regulation type (for example, AU-B2G-PEPPOL). Keep in mind the following when specifying a `mandateId`. - A country can have multiple mandate types (B2C, B2B, B2G). - A entity/company can opt in for multiple mandates. - A `mandateId` is the combination of country + mandate type + network/regulation.
      *
      * @return self
      */
@@ -297,7 +296,7 @@ class Mandate implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets country_mandate
      *
-     * @param string|null $country_mandate Country mandate name
+     * @param string|null $country_mandate **[LEGACY]** This field is retained for backward compatibility. It is recommended to use `mandateId` instead. The `countryMandate` similar to the `mandateId` is comprised of the country code, mandate type, and the network or regulation type (for example, AU-B2G-PEPPOL).
      *
      * @return self
      */

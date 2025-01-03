@@ -13,7 +13,7 @@
 /*
  * AvaTax Software Development Kit for PHP
  *
- * (c) 2004-2022 Avalara, Inc.
+ * (c) 2004-2025 Avalara, Inc.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -26,9 +26,8 @@
  * @package    Avalara\SDK\API\EInvoicing\V1
  * @author     Sachin Baijal <sachin.baijal@avalara.com>
  * @author     Jonathan Wenger <jonathan.wenger@avalara.com>
- * @copyright  2004-2022 Avalara, Inc.
+ * @copyright  2004-2025 Avalara, Inc.
  * @license    https://www.apache.org/licenses/LICENSE-2.0
- * @version    
  * @link       https://github.com/avadev/AvaTax-REST-V3-PHP-SDK
 
  */
@@ -73,7 +72,7 @@ class MandatesResponse implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'at_record_set_count' => 'float',
+        'at_recordset_count' => 'float',
         'at_next_link' => 'string',
         'value' => '\Avalara\SDK\Model\EInvoicing\V1\Mandate[]'
     ];
@@ -86,7 +85,7 @@ class MandatesResponse implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'at_record_set_count' => null,
+        'at_recordset_count' => null,
         'at_next_link' => null,
         'value' => null
     ];
@@ -118,7 +117,7 @@ class MandatesResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'at_record_set_count' => '@recordSetCount',
+        'at_recordset_count' => '@recordsetCount',
         'at_next_link' => '@nextLink',
         'value' => 'value'
     ];
@@ -129,7 +128,7 @@ class MandatesResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'at_record_set_count' => 'setAtRecordSetCount',
+        'at_recordset_count' => 'setAtRecordsetCount',
         'at_next_link' => 'setAtNextLink',
         'value' => 'setValue'
     ];
@@ -140,7 +139,7 @@ class MandatesResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'at_record_set_count' => 'getAtRecordSetCount',
+        'at_recordset_count' => 'getAtRecordsetCount',
         'at_next_link' => 'getAtNextLink',
         'value' => 'getValue'
     ];
@@ -202,7 +201,7 @@ class MandatesResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['at_record_set_count'] = $data['at_record_set_count'] ?? null;
+        $this->container['at_recordset_count'] = $data['at_recordset_count'] ?? null;
         $this->container['at_next_link'] = $data['at_next_link'] ?? null;
         $this->container['value'] = $data['value'] ?? null;
     }
@@ -232,25 +231,25 @@ class MandatesResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets at_record_set_count
+     * Gets at_recordset_count
      *
      * @return float|null
      */
-    public function getAtRecordSetCount()
+    public function getAtRecordsetCount()
     {
-        return $this->container['at_record_set_count'];
+        return $this->container['at_recordset_count'];
     }
 
     /**
-     * Sets at_record_set_count
+     * Sets at_recordset_count
      *
-     * @param float|null $at_record_set_count Total count of results
+     * @param float|null $at_recordset_count Total count of results
      *
      * @return self
      */
-    public function setAtRecordSetCount($at_record_set_count)
+    public function setAtRecordsetCount($at_recordset_count)
     {
-        $this->container['at_record_set_count'] = $at_record_set_count;
+        $this->container['at_recordset_count'] = $at_recordset_count;
 
         return $this;
     }
