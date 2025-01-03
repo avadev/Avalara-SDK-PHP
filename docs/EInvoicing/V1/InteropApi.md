@@ -1,4 +1,4 @@
-# Avalara\\SDK\InteropApi
+# Avalara\SDK\InteropApi
 
 All URIs are relative to https://api.sbx.avalara.com/einvoicing.
 
@@ -10,7 +10,7 @@ Method | HTTP request | Description
 ## `submitInteropDocument()`
 
 ```php
-submitInteropDocument($document_type, $interchange_type, $avalara_version, $x_avalara_client, $x_correlation_id, $file_name): \Avalara\\SDK\Model\\EInvoicing\\V1\SubmitInteropDocument202Response
+submitInteropDocument($document_type, $interchange_type, $avalara_version, $x_avalara_client, $x_correlation_id, $file_name): \Avalara\SDK\Model\EInvoicing\V1\SubmitInteropDocument202Response
 ```
 
 Submit a document
@@ -33,7 +33,7 @@ $config = new \Avalara\SDK\Configuration()
 
 $client = new \Avalara\SDK\ApiClient($config);
 
-$apiInstance = new Avalara\\SDK\Api\InteropApi($client);
+$apiInstance = new Avalara\SDK\Api\InteropApi($client);
 
 $document_type = 'document_type_example'; // string | Type of the document being uploaded. Partners will be configured in Avalara system to send only certain types of documents.
 $interchange_type = 'interchange_type_example'; // string | Type of interchange (codes in Avalara system that uniquely identifies a type of interchange). Partners will be configured in Avalara system to send documents belonging to certain types of interchanges.
@@ -63,7 +63,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Avalara\\SDK\Model\\EInvoicing\\V1\SubmitInteropDocument202Response**](../Model/SubmitInteropDocument202Response.md)
+[**\Avalara\SDK\Model\EInvoicing\V1\SubmitInteropDocument202Response**](../Model/SubmitInteropDocument202Response.md)
 
 ### Authorization
 

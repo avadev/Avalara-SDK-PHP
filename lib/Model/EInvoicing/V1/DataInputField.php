@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  Avalara\\SDK
+ * @package  Avalara\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -13,7 +13,7 @@
 /*
  * AvaTax Software Development Kit for PHP
  *
- * (c) 2004-2022 Avalara, Inc.
+ * (c) 2004-2025 Avalara, Inc.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -23,12 +23,11 @@
  * An API that supports sending data for an E-Invoicing compliance use-case.
  *
  * @category   Avalara client libraries
- * @package    Avalara\\SDK\API\\EInvoicing\\V1
+ * @package    Avalara\SDK\API\EInvoicing\V1
  * @author     Sachin Baijal <sachin.baijal@avalara.com>
  * @author     Jonathan Wenger <jonathan.wenger@avalara.com>
- * @copyright  2004-2022 Avalara, Inc.
+ * @copyright  2004-2025 Avalara, Inc.
  * @license    https://www.apache.org/licenses/LICENSE-2.0
- * @version    
  * @link       https://github.com/avadev/AvaTax-REST-V3-PHP-SDK
 
  */
@@ -39,17 +38,17 @@
  * Do not edit the class manually.
  */
 
-namespace Avalara\\SDK\Model\\EInvoicing\\V1;
+namespace Avalara\SDK\Model\EInvoicing\V1;
 
 use \ArrayAccess;
-use \Avalara\\SDK\ObjectSerializer;
-use \Avalara\\SDK\Model\ModelInterface;
+use \Avalara\SDK\ObjectSerializer;
+use \Avalara\SDK\Model\ModelInterface;
 /**
  * DataInputField Class Doc Comment
  *
  * @category Class
  * @description The Data Input Field
- * @package  Avalara\\SDK
+ * @package  Avalara\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -84,10 +83,10 @@ class DataInputField implements ModelInterface, ArrayAccess, \JsonSerializable
         'documentation_link' => 'string',
         'description' => 'string',
         'is_segment' => 'bool',
-        'required_for' => '\Avalara\\SDK\Model\\EInvoicing\\V1\DataInputFieldRequiredFor',
-        'conditional_for' => '\Avalara\\SDK\Model\\EInvoicing\\V1\ConditionalForField[]',
-        'not_used_for' => '\Avalara\\SDK\Model\\EInvoicing\\V1\DataInputFieldNotUsedFor',
-        'optional_for' => '\Avalara\\SDK\Model\\EInvoicing\\V1\DataInputFieldOptionalFor'
+        'required_for' => '\Avalara\SDK\Model\EInvoicing\V1\DataInputFieldRequiredFor',
+        'conditional_for' => '\Avalara\SDK\Model\EInvoicing\V1\ConditionalForField[]',
+        'not_used_for' => '\Avalara\SDK\Model\EInvoicing\V1\DataInputFieldNotUsedFor',
+        'optional_for' => '\Avalara\SDK\Model\EInvoicing\V1\DataInputFieldOptionalFor'
     ];
 
     /**
@@ -570,7 +569,7 @@ class DataInputField implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets required_for
      *
-     * @return \Avalara\\SDK\Model\\EInvoicing\\V1\DataInputFieldRequiredFor|null
+     * @return \Avalara\SDK\Model\EInvoicing\V1\DataInputFieldRequiredFor|null
      */
     public function getRequiredFor()
     {
@@ -580,7 +579,7 @@ class DataInputField implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets required_for
      *
-     * @param \Avalara\\SDK\Model\\EInvoicing\\V1\DataInputFieldRequiredFor|null $required_for required_for
+     * @param \Avalara\SDK\Model\EInvoicing\V1\DataInputFieldRequiredFor|null $required_for required_for
      *
      * @return self
      */
@@ -594,7 +593,7 @@ class DataInputField implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets conditional_for
      *
-     * @return \Avalara\\SDK\Model\\EInvoicing\\V1\ConditionalForField[]|null
+     * @return \Avalara\SDK\Model\EInvoicing\V1\ConditionalForField[]|null
      */
     public function getConditionalFor()
     {
@@ -604,7 +603,7 @@ class DataInputField implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets conditional_for
      *
-     * @param \Avalara\\SDK\Model\\EInvoicing\\V1\ConditionalForField[]|null $conditional_for conditional_for
+     * @param \Avalara\SDK\Model\EInvoicing\V1\ConditionalForField[]|null $conditional_for conditional_for
      *
      * @return self
      */
@@ -618,7 +617,7 @@ class DataInputField implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets not_used_for
      *
-     * @return \Avalara\\SDK\Model\\EInvoicing\\V1\DataInputFieldNotUsedFor|null
+     * @return \Avalara\SDK\Model\EInvoicing\V1\DataInputFieldNotUsedFor|null
      */
     public function getNotUsedFor()
     {
@@ -628,7 +627,7 @@ class DataInputField implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets not_used_for
      *
-     * @param \Avalara\\SDK\Model\\EInvoicing\\V1\DataInputFieldNotUsedFor|null $not_used_for not_used_for
+     * @param \Avalara\SDK\Model\EInvoicing\V1\DataInputFieldNotUsedFor|null $not_used_for not_used_for
      *
      * @return self
      */
@@ -642,7 +641,7 @@ class DataInputField implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets optional_for
      *
-     * @return \Avalara\\SDK\Model\\EInvoicing\\V1\DataInputFieldOptionalFor|null
+     * @return \Avalara\SDK\Model\EInvoicing\V1\DataInputFieldOptionalFor|null
      */
     public function getOptionalFor()
     {
@@ -652,7 +651,7 @@ class DataInputField implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets optional_for
      *
-     * @param \Avalara\\SDK\Model\\EInvoicing\\V1\DataInputFieldOptionalFor|null $optional_for optional_for
+     * @param \Avalara\SDK\Model\EInvoicing\V1\DataInputFieldOptionalFor|null $optional_for optional_for
      *
      * @return self
      */

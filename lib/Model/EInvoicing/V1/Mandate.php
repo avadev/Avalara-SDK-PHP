@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  Avalara\\SDK
+ * @package  Avalara\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -13,7 +13,7 @@
 /*
  * AvaTax Software Development Kit for PHP
  *
- * (c) 2004-2022 Avalara, Inc.
+ * (c) 2004-2025 Avalara, Inc.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -23,12 +23,11 @@
  * An API that supports sending data for an E-Invoicing compliance use-case.
  *
  * @category   Avalara client libraries
- * @package    Avalara\\SDK\API\\EInvoicing\\V1
+ * @package    Avalara\SDK\API\EInvoicing\V1
  * @author     Sachin Baijal <sachin.baijal@avalara.com>
  * @author     Jonathan Wenger <jonathan.wenger@avalara.com>
- * @copyright  2004-2022 Avalara, Inc.
+ * @copyright  2004-2025 Avalara, Inc.
  * @license    https://www.apache.org/licenses/LICENSE-2.0
- * @version    
  * @link       https://github.com/avadev/AvaTax-REST-V3-PHP-SDK
 
  */
@@ -39,16 +38,16 @@
  * Do not edit the class manually.
  */
 
-namespace Avalara\\SDK\Model\\EInvoicing\\V1;
+namespace Avalara\SDK\Model\EInvoicing\V1;
 
 use \ArrayAccess;
-use \Avalara\\SDK\ObjectSerializer;
-use \Avalara\\SDK\Model\ModelInterface;
+use \Avalara\SDK\ObjectSerializer;
+use \Avalara\SDK\Model\ModelInterface;
 /**
  * Mandate Class Doc Comment
  *
  * @category Class
- * @package  Avalara\\SDK
+ * @package  Avalara\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -78,8 +77,8 @@ class Mandate implements ModelInterface, ArrayAccess, \JsonSerializable
         'description' => 'string',
         'supported_by_partner_api' => 'bool',
         'mandate_format' => 'string',
-        'input_data_formats' => '\Avalara\\SDK\Model\\EInvoicing\\V1\InputDataFormats[]',
-        'workflow_ids' => '\Avalara\\SDK\Model\\EInvoicing\\V1\WorkflowIds[]'
+        'input_data_formats' => '\Avalara\SDK\Model\EInvoicing\V1\InputDataFormats[]',
+        'workflow_ids' => '\Avalara\SDK\Model\EInvoicing\V1\WorkflowIds[]'
     ];
 
     /**
@@ -407,7 +406,7 @@ class Mandate implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets input_data_formats
      *
-     * @return \Avalara\\SDK\Model\\EInvoicing\\V1\InputDataFormats[]|null
+     * @return \Avalara\SDK\Model\EInvoicing\V1\InputDataFormats[]|null
      */
     public function getInputDataFormats()
     {
@@ -417,7 +416,7 @@ class Mandate implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets input_data_formats
      *
-     * @param \Avalara\\SDK\Model\\EInvoicing\\V1\InputDataFormats[]|null $input_data_formats Format and version used when inputting the data
+     * @param \Avalara\SDK\Model\EInvoicing\V1\InputDataFormats[]|null $input_data_formats Format and version used when inputting the data
      *
      * @return self
      */
@@ -431,7 +430,7 @@ class Mandate implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets workflow_ids
      *
-     * @return \Avalara\\SDK\Model\\EInvoicing\\V1\WorkflowIds[]|null
+     * @return \Avalara\SDK\Model\EInvoicing\V1\WorkflowIds[]|null
      */
     public function getWorkflowIds()
     {
@@ -441,7 +440,7 @@ class Mandate implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets workflow_ids
      *
-     * @param \Avalara\\SDK\Model\\EInvoicing\\V1\WorkflowIds[]|null $workflow_ids Workflow ID list
+     * @param \Avalara\SDK\Model\EInvoicing\V1\WorkflowIds[]|null $workflow_ids Workflow ID list
      *
      * @return self
      */

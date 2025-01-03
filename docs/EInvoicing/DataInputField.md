@@ -15,9 +15,9 @@ Name | Type | Description | Notes
 **documentation_link** | **string** | An example of the content for this field | [optional]
 **description** | **string** | A description of this field | [optional]
 **is_segment** | **bool** | Is this a segment of the schema | [optional]
-**required_for** | [**\Avalara\\SDK\Model\\EInvoicing\\V1\DataInputFieldRequiredFor**](DataInputFieldRequiredFor.md) |  | [optional]
-**conditional_for** | [**\Avalara\\SDK\Model\\EInvoicing\\V1\ConditionalForField[]**](ConditionalForField.md) |  | [optional]
-**not_used_for** | [**\Avalara\\SDK\Model\\EInvoicing\\V1\DataInputFieldNotUsedFor**](DataInputFieldNotUsedFor.md) |  | [optional]
-**optional_for** | [**\Avalara\\SDK\Model\\EInvoicing\\V1\DataInputFieldOptionalFor**](DataInputFieldOptionalFor.md) |  | [optional]
+**required_for** | [**\Avalara\SDK\Model\EInvoicing\V1\DataInputFieldRequiredFor**](DataInputFieldRequiredFor.md) |  | [optional]
+**conditional_for** | [**\Avalara\SDK\Model\EInvoicing\V1\ConditionalForField[]**](ConditionalForField.md) |  | [optional]
+**not_used_for** | [**\Avalara\SDK\Model\EInvoicing\V1\DataInputFieldNotUsedFor**](DataInputFieldNotUsedFor.md) |  | [optional]
+**optional_for** | [**\Avalara\SDK\Model\EInvoicing\V1\DataInputFieldOptionalFor**](DataInputFieldOptionalFor.md) |  | [optional]
 
 [[Back to Model list]](../../../README.md#models) [[Back to API list]](../../../README.md#endpoints) [[Back to README]](../../../README.md)

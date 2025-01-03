@@ -10,6 +10,6 @@ Name | Type | Description | Notes
 **created** | **\DateTime** | Timestamp when the batch search was created | [optional]
 **last_modified** | **\DateTime** | Timestamp when the batch search was created | [optional]
 **status** | **string** | Status of the batch search | [optional]
-**error** | [**\Avalara\\SDK\Model\\EInvoicing\\V1\ErrorResponse**](ErrorResponse.md) |  | [optional]
+**error** | [**\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse**](ErrorResponse.md) |  | [optional]
 
 [[Back to Model list]](../../../README.md#models) [[Back to API list]](../../../README.md#endpoints) [[Back to README]](../../../README.md)
