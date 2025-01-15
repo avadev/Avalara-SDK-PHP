@@ -6,8 +6,6 @@ namespace Avalara\SDK\Test\Integration;
 use \Avalara\SDK\Test;
 use \Avalara\SDK\Configuration;
 use \Avalara\SDK\ApiClient;
-use \Avalara\SDK\API\IAMDS\UserApi;
-use \Avalara\SDK\Model\IAMDS\User;
 use PHPUnit\Framework\TestCase;
 use \GuzzleHttp\Promise\queue;
 use Dotenv\Dotenv;
