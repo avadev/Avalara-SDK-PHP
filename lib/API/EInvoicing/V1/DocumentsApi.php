@@ -79,7 +79,7 @@ class DocumentsApi
     private function setConfiguration($client): void
     {
         $this->verifyAPIClient($client);
-        $client->setSdkVersion("24.12.0");
+        $client->setSdkVersion("24.12.11");
         $this->headerSelector = new HeaderSelector(); 
         $this->client = $client;
     }
@@ -432,17 +432,14 @@ class DocumentsApi
 
 
         // header params
-        $headerParams['avalara-version'] = '1.2';
         if ($avalara_version !== null) {
             $headerParams['avalara-version'] = ObjectSerializer::toHeaderValue($avalara_version);
         }
         // header params
-        $headerParams['avalara-version'] = '1.2';
         if ($accept !== null) {
             $headerParams['Accept'] = ObjectSerializer::toHeaderValue($accept);
         }
         // header params
-        $headerParams['avalara-version'] = '1.2';
         if ($x_avalara_client !== null) {
             $headerParams['X-Avalara-Client'] = ObjectSerializer::toHeaderValue($x_avalara_client);
         }
@@ -467,7 +464,7 @@ class DocumentsApi
                 []
             );
         }
-        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 24.12.0; {$this->client->config->getMachineName()}";
+        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 24.12.11; {$this->client->config->getMachineName()}";
 
         $headers['X-Avalara-Client']=$clientId;
 
@@ -804,12 +801,10 @@ class DocumentsApi
 
 
         // header params
-        $headerParams['avalara-version'] = '1.2';
         if ($avalara_version !== null) {
             $headerParams['avalara-version'] = ObjectSerializer::toHeaderValue($avalara_version);
         }
         // header params
-        $headerParams['avalara-version'] = '1.2';
         if ($x_avalara_client !== null) {
             $headerParams['X-Avalara-Client'] = ObjectSerializer::toHeaderValue($x_avalara_client);
         }
@@ -826,7 +821,7 @@ class DocumentsApi
                 ['application/json']
             );
         }
-        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 24.12.0; {$this->client->config->getMachineName()}";
+        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 24.12.11; {$this->client->config->getMachineName()}";
 
         $headers['X-Avalara-Client']=$clientId;
 
@@ -1258,12 +1253,10 @@ class DocumentsApi
         }
 
         // header params
-        $headerParams['avalara-version'] = '1.2';
         if ($avalara_version !== null) {
             $headerParams['avalara-version'] = ObjectSerializer::toHeaderValue($avalara_version);
         }
         // header params
-        $headerParams['avalara-version'] = '1.2';
         if ($x_avalara_client !== null) {
             $headerParams['X-Avalara-Client'] = ObjectSerializer::toHeaderValue($x_avalara_client);
         }
@@ -1280,7 +1273,7 @@ class DocumentsApi
                 []
             );
         }
-        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 24.12.0; {$this->client->config->getMachineName()}";
+        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 24.12.11; {$this->client->config->getMachineName()}";
 
         $headers['X-Avalara-Client']=$clientId;
 
@@ -1617,12 +1610,10 @@ class DocumentsApi
 
 
         // header params
-        $headerParams['avalara-version'] = '1.2';
         if ($avalara_version !== null) {
             $headerParams['avalara-version'] = ObjectSerializer::toHeaderValue($avalara_version);
         }
         // header params
-        $headerParams['avalara-version'] = '1.2';
         if ($x_avalara_client !== null) {
             $headerParams['X-Avalara-Client'] = ObjectSerializer::toHeaderValue($x_avalara_client);
         }
@@ -1647,7 +1638,7 @@ class DocumentsApi
                 []
             );
         }
-        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 24.12.0; {$this->client->config->getMachineName()}";
+        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 24.12.11; {$this->client->config->getMachineName()}";
 
         $headers['X-Avalara-Client']=$clientId;
 
@@ -1991,12 +1982,10 @@ class DocumentsApi
 
 
         // header params
-        $headerParams['avalara-version'] = '1.2';
         if ($avalara_version !== null) {
             $headerParams['avalara-version'] = ObjectSerializer::toHeaderValue($avalara_version);
         }
         // header params
-        $headerParams['avalara-version'] = '1.2';
         if ($x_avalara_client !== null) {
             $headerParams['X-Avalara-Client'] = ObjectSerializer::toHeaderValue($x_avalara_client);
         }
@@ -2021,7 +2010,7 @@ class DocumentsApi
                 ['multipart/form-data']
             );
         }
-        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 24.12.0; {$this->client->config->getMachineName()}";
+        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 24.12.11; {$this->client->config->getMachineName()}";
 
         $headers['X-Avalara-Client']=$clientId;
 
