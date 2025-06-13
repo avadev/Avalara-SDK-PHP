@@ -73,6 +73,7 @@ class DocumentSummary implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'id' => 'string',
+        'company_id' => 'string',
         'process_date_time' => 'string',
         'status' => 'string',
         'supplier_name' => 'string',
@@ -97,6 +98,7 @@ class DocumentSummary implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPIFormats = [
         'id' => null,
+        'company_id' => null,
         'process_date_time' => null,
         'status' => null,
         'supplier_name' => null,
@@ -140,6 +142,7 @@ class DocumentSummary implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $attributeMap = [
         'id' => 'id',
+        'company_id' => 'companyId',
         'process_date_time' => 'processDateTime',
         'status' => 'status',
         'supplier_name' => 'supplierName',
@@ -162,6 +165,7 @@ class DocumentSummary implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $setters = [
         'id' => 'setId',
+        'company_id' => 'setCompanyId',
         'process_date_time' => 'setProcessDateTime',
         'status' => 'setStatus',
         'supplier_name' => 'setSupplierName',
@@ -184,6 +188,7 @@ class DocumentSummary implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $getters = [
         'id' => 'getId',
+        'company_id' => 'getCompanyId',
         'process_date_time' => 'getProcessDateTime',
         'status' => 'getStatus',
         'supplier_name' => 'getSupplierName',
@@ -257,6 +262,7 @@ class DocumentSummary implements ModelInterface, ArrayAccess, \JsonSerializable
     public function __construct(array $data = null)
     {
         $this->container['id'] = $data['id'] ?? null;
+        $this->container['company_id'] = $data['company_id'] ?? null;
         $this->container['process_date_time'] = $data['process_date_time'] ?? null;
         $this->container['status'] = $data['status'] ?? null;
         $this->container['supplier_name'] = $data['supplier_name'] ?? null;
@@ -316,6 +322,30 @@ class DocumentSummary implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setId($id)
     {
         $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets company_id
+     *
+     * @return string|null
+     */
+    public function getCompanyId()
+    {
+        return $this->container['company_id'];
+    }
+
+    /**
+     * Sets company_id
+     *
+     * @param string|null $company_id Unique identifier that represents the company within the system.
+     *
+     * @return self
+     */
+    public function setCompanyId($company_id)
+    {
+        $this->container['company_id'] = $company_id;
 
         return $this;
     }

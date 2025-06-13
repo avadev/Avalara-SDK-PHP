@@ -75,6 +75,8 @@ class SubmitDocumentMetadata implements ModelInterface, ArrayAccess, \JsonSerial
         'workflow_id' => 'string',
         'data_format' => 'string',
         'data_format_version' => 'string',
+        'output_data_format' => 'string',
+        'output_data_format_version' => 'string',
         'country_code' => 'string',
         'country_mandate' => 'string'
     ];
@@ -90,6 +92,8 @@ class SubmitDocumentMetadata implements ModelInterface, ArrayAccess, \JsonSerial
         'workflow_id' => null,
         'data_format' => null,
         'data_format_version' => null,
+        'output_data_format' => null,
+        'output_data_format_version' => null,
         'country_code' => null,
         'country_mandate' => null
     ];
@@ -124,6 +128,8 @@ class SubmitDocumentMetadata implements ModelInterface, ArrayAccess, \JsonSerial
         'workflow_id' => 'workflowId',
         'data_format' => 'dataFormat',
         'data_format_version' => 'dataFormatVersion',
+        'output_data_format' => 'outputDataFormat',
+        'output_data_format_version' => 'outputDataFormatVersion',
         'country_code' => 'countryCode',
         'country_mandate' => 'countryMandate'
     ];
@@ -137,6 +143,8 @@ class SubmitDocumentMetadata implements ModelInterface, ArrayAccess, \JsonSerial
         'workflow_id' => 'setWorkflowId',
         'data_format' => 'setDataFormat',
         'data_format_version' => 'setDataFormatVersion',
+        'output_data_format' => 'setOutputDataFormat',
+        'output_data_format_version' => 'setOutputDataFormatVersion',
         'country_code' => 'setCountryCode',
         'country_mandate' => 'setCountryMandate'
     ];
@@ -150,6 +158,8 @@ class SubmitDocumentMetadata implements ModelInterface, ArrayAccess, \JsonSerial
         'workflow_id' => 'getWorkflowId',
         'data_format' => 'getDataFormat',
         'data_format_version' => 'getDataFormatVersion',
+        'output_data_format' => 'getOutputDataFormat',
+        'output_data_format_version' => 'getOutputDataFormatVersion',
         'country_code' => 'getCountryCode',
         'country_mandate' => 'getCountryMandate'
     ];
@@ -214,6 +224,8 @@ class SubmitDocumentMetadata implements ModelInterface, ArrayAccess, \JsonSerial
         $this->container['workflow_id'] = $data['workflow_id'] ?? null;
         $this->container['data_format'] = $data['data_format'] ?? null;
         $this->container['data_format_version'] = $data['data_format_version'] ?? null;
+        $this->container['output_data_format'] = $data['output_data_format'] ?? null;
+        $this->container['output_data_format_version'] = $data['output_data_format_version'] ?? null;
         $this->container['country_code'] = $data['country_code'] ?? null;
         $this->container['country_mandate'] = $data['country_mandate'] ?? null;
     }
@@ -325,6 +337,54 @@ class SubmitDocumentMetadata implements ModelInterface, ArrayAccess, \JsonSerial
     public function setDataFormatVersion($data_format_version)
     {
         $this->container['data_format_version'] = $data_format_version;
+
+        return $this;
+    }
+
+    /**
+     * Gets output_data_format
+     *
+     * @return string|null
+     */
+    public function getOutputDataFormat()
+    {
+        return $this->container['output_data_format'];
+    }
+
+    /**
+     * Sets output_data_format
+     *
+     * @param string|null $output_data_format Specifies the format of the output document to be generated for the recipient. This format should be chosen based on the recipient's preferences or requirements as defined by applicable e-invoicing regulations. When not specified for mandates that don't require a specific output format, the system will use the default format defined for that mandate.
+     *
+     * @return self
+     */
+    public function setOutputDataFormat($output_data_format)
+    {
+        $this->container['output_data_format'] = $output_data_format;
+
+        return $this;
+    }
+
+    /**
+     * Gets output_data_format_version
+     *
+     * @return string|null
+     */
+    public function getOutputDataFormatVersion()
+    {
+        return $this->container['output_data_format_version'];
+    }
+
+    /**
+     * Sets output_data_format_version
+     *
+     * @param string|null $output_data_format_version Specifies the version of the selected output document format
+     *
+     * @return self
+     */
+    public function setOutputDataFormatVersion($output_data_format_version)
+    {
+        $this->container['output_data_format_version'] = $output_data_format_version;
 
         return $this;
     }

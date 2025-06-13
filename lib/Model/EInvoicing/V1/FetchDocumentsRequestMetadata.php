@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  Avalara\\SDK
+ * @package  Avalara\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -13,7 +13,7 @@
 /*
  * AvaTax Software Development Kit for PHP
  *
- * (c) 2004-2022 Avalara, Inc.
+ * (c) 2004-2025 Avalara, Inc.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -23,12 +23,11 @@
  * An API that supports sending data for an E-Invoicing compliance use-case.
  *
  * @category   Avalara client libraries
- * @package    Avalara\\SDK\API\\EInvoicing\\V1
+ * @package    Avalara\SDK\API\EInvoicing\V1
  * @author     Sachin Baijal <sachin.baijal@avalara.com>
  * @author     Jonathan Wenger <jonathan.wenger@avalara.com>
- * @copyright  2004-2022 Avalara, Inc.
+ * @copyright  2004-2025 Avalara, Inc.
  * @license    https://www.apache.org/licenses/LICENSE-2.0
- * @version    
  * @link       https://github.com/avadev/AvaTax-REST-V3-PHP-SDK
 
  */
@@ -39,16 +38,16 @@
  * Do not edit the class manually.
  */
 
-namespace Avalara\\SDK\Model\\EInvoicing\\V1;
+namespace Avalara\SDK\Model\EInvoicing\V1;
 
 use \ArrayAccess;
-use \Avalara\\SDK\ObjectSerializer;
-use \Avalara\\SDK\Model\ModelInterface;
+use \Avalara\SDK\ObjectSerializer;
+use \Avalara\SDK\Model\ModelInterface;
 /**
  * FetchDocumentsRequestMetadata Class Doc Comment
  *
  * @category Class
- * @package  Avalara\\SDK
+ * @package  Avalara\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -75,6 +74,8 @@ class FetchDocumentsRequestMetadata implements ModelInterface, ArrayAccess, \Jso
         'workflow_id' => 'string',
         'data_format' => 'string',
         'data_format_version' => 'float',
+        'output_data_format' => 'string',
+        'output_data_format_version' => 'float',
         'country_code' => 'string',
         'country_mandate' => 'string'
     ];
@@ -90,6 +91,8 @@ class FetchDocumentsRequestMetadata implements ModelInterface, ArrayAccess, \Jso
         'workflow_id' => 'string',
         'data_format' => 'string',
         'data_format_version' => 'number',
+        'output_data_format' => 'string',
+        'output_data_format_version' => 'number',
         'country_code' => 'string',
         'country_mandate' => 'string'
     ];
@@ -124,6 +127,8 @@ class FetchDocumentsRequestMetadata implements ModelInterface, ArrayAccess, \Jso
         'workflow_id' => 'workflowId',
         'data_format' => 'dataFormat',
         'data_format_version' => 'dataFormatVersion',
+        'output_data_format' => 'outputDataFormat',
+        'output_data_format_version' => 'outputDataFormatVersion',
         'country_code' => 'countryCode',
         'country_mandate' => 'countryMandate'
     ];
@@ -137,6 +142,8 @@ class FetchDocumentsRequestMetadata implements ModelInterface, ArrayAccess, \Jso
         'workflow_id' => 'setWorkflowId',
         'data_format' => 'setDataFormat',
         'data_format_version' => 'setDataFormatVersion',
+        'output_data_format' => 'setOutputDataFormat',
+        'output_data_format_version' => 'setOutputDataFormatVersion',
         'country_code' => 'setCountryCode',
         'country_mandate' => 'setCountryMandate'
     ];
@@ -150,6 +157,8 @@ class FetchDocumentsRequestMetadata implements ModelInterface, ArrayAccess, \Jso
         'workflow_id' => 'getWorkflowId',
         'data_format' => 'getDataFormat',
         'data_format_version' => 'getDataFormatVersion',
+        'output_data_format' => 'getOutputDataFormat',
+        'output_data_format_version' => 'getOutputDataFormatVersion',
         'country_code' => 'getCountryCode',
         'country_mandate' => 'getCountryMandate'
     ];
@@ -214,6 +223,8 @@ class FetchDocumentsRequestMetadata implements ModelInterface, ArrayAccess, \Jso
         $this->container['workflow_id'] = $data['workflow_id'] ?? null;
         $this->container['data_format'] = $data['data_format'] ?? null;
         $this->container['data_format_version'] = $data['data_format_version'] ?? null;
+        $this->container['output_data_format'] = $data['output_data_format'] ?? null;
+        $this->container['output_data_format_version'] = $data['output_data_format_version'] ?? null;
         $this->container['country_code'] = $data['country_code'] ?? null;
         $this->container['country_mandate'] = $data['country_mandate'] ?? null;
     }
@@ -235,6 +246,12 @@ class FetchDocumentsRequestMetadata implements ModelInterface, ArrayAccess, \Jso
         }
         if ($this->container['data_format_version'] === null) {
             $invalidProperties[] = "'data_format_version' can't be null";
+        }
+        if ($this->container['output_data_format'] === null) {
+            $invalidProperties[] = "'output_data_format' can't be null";
+        }
+        if ($this->container['output_data_format_version'] === null) {
+            $invalidProperties[] = "'output_data_format_version' can't be null";
         }
         if ($this->container['country_code'] === null) {
             $invalidProperties[] = "'country_code' can't be null";
@@ -325,6 +342,54 @@ class FetchDocumentsRequestMetadata implements ModelInterface, ArrayAccess, \Jso
     public function setDataFormatVersion($data_format_version)
     {
         $this->container['data_format_version'] = $data_format_version;
+
+        return $this;
+    }
+
+    /**
+     * Gets output_data_format
+     *
+     * @return string
+     */
+    public function getOutputDataFormat()
+    {
+        return $this->container['output_data_format'];
+    }
+
+    /**
+     * Sets output_data_format
+     *
+     * @param string $output_data_format Specifies the format of the output document to be generated for the recipient. This format should be chosen based on the recipient's preferences or requirements as defined by applicable e-invoicing regulations. When not specified for mandates that don't require a specific output format, the system will use the default format defined for that mandate.
+     *
+     * @return self
+     */
+    public function setOutputDataFormat($output_data_format)
+    {
+        $this->container['output_data_format'] = $output_data_format;
+
+        return $this;
+    }
+
+    /**
+     * Gets output_data_format_version
+     *
+     * @return float
+     */
+    public function getOutputDataFormatVersion()
+    {
+        return $this->container['output_data_format_version'];
+    }
+
+    /**
+     * Sets output_data_format_version
+     *
+     * @param float $output_data_format_version Specifies the version of the selected output document format
+     *
+     * @return self
+     */
+    public function setOutputDataFormatVersion($output_data_format_version)
+    {
+        $this->container['output_data_format_version'] = $output_data_format_version;
 
         return $this;
     }

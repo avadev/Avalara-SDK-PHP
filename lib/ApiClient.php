@@ -104,23 +104,13 @@ class ApiClient
         $this->config = $config;
         $this->environment = $this->config->getEnvironment();
         
-        if (strtolower($this->environment)=="sandbox"){
-            $this->config->setHost('https://api.sbx.avalara.com');
-        }
-        elseif(strtolower($this->environment)=="qa"){
-            $this->config->setHost("https://superapi.qa.avalara.io");
-        }
-        elseif(strtolower($this->environment)=="production"){
-            $this->config->setHost("https://api.avalara.com");
-        }
-        elseif(strtolower($this->environment)=="test"){
+        // Environment validation only - URL setting is now handled by microservice-aware getBasePath method
+        if(strtolower($this->environment)=="test"){
             if (is_null($this->config->getTestBasePath())) {
                 throw new ApiException("TestBasePath must be passed into the config object when environment=\"test\".");
-            } else {
-                $this->config->setHost($this->config->getTestBasePath());
             }
         }
-        else{
+        elseif(!in_array(strtolower($this->environment), ['sandbox', 'qa', 'production', 'dev'])){
             throw new ApiException("Environment is not set correctly.");
         }
 

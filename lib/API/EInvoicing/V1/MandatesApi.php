@@ -79,7 +79,7 @@ class MandatesApi
     private function setConfiguration($client): void
     {
         $this->verifyAPIClient($client);
-        $client->setSdkVersion("24.12.11");
+        $client->setSdkVersion("25.6.0");
         $this->headerSelector = new HeaderSelector(); 
         $this->client = $client;
     }
@@ -120,7 +120,7 @@ class MandatesApi
      *
      * Returns document field information for a country mandate, a selected document type, and its version
      *
-     * @param GetMandateDataInputFieldsRequest The request parameters for the API call.
+     * @param GetMandateDataInputFieldsRequestSdk The request parameters for the API call.
      *
      * @throws \Avalara\SDK\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -137,7 +137,7 @@ class MandatesApi
      *
      * Returns document field information for a country mandate, a selected document type, and its version
      *
-     * @param GetMandateDataInputFieldsRequest The request parameters for the API call.
+     * @param GetMandateDataInputFieldsRequestSdk The request parameters for the API call.
      *
      * @throws \Avalara\SDK\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -329,7 +329,7 @@ class MandatesApi
      *
      * Returns document field information for a country mandate, a selected document type, and its version
      *
-     * @param GetMandateDataInputFieldsRequest The request parameters for the API call.
+     * @param GetMandateDataInputFieldsRequestSdk The request parameters for the API call.
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -349,7 +349,7 @@ class MandatesApi
      *
      * Returns document field information for a country mandate, a selected document type, and its version
      *
-     * @param GetMandateDataInputFieldsRequest The request parameters for the API call.
+     * @param GetMandateDataInputFieldsRequestSdk The request parameters for the API call.
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -410,7 +410,7 @@ class MandatesApi
     /**
      * Create request for operation 'getMandateDataInputFields'
      *
-     * @param GetMandateDataInputFieldsRequest The request parameters for the API call.
+     * @param GetMandateDataInputFieldsRequestSdk The request parameters for the API call.
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -510,7 +510,7 @@ class MandatesApi
                 []
             );
         }
-        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 24.12.11; {$this->client->config->getMachineName()}";
+        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.6.0; {$this->client->config->getMachineName()}";
 
         $headers['X-Avalara-Client']=$clientId;
 
@@ -550,9 +550,10 @@ class MandatesApi
         );
 
         $query = \GuzzleHttp\Psr7\Query::build($queryParams);
+        $baseUrl = $this->client->config->getBasePath('EInvoicing');
         return new Request(
             'GET',
-            $this->client->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $baseUrl . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -563,7 +564,7 @@ class MandatesApi
      *
      * List country mandates that are supported by the Avalara E-Invoicing platform
      *
-     * @param GetMandatesRequest The request parameters for the API call.
+     * @param GetMandatesRequestSdk The request parameters for the API call.
      *
      * @throws \Avalara\SDK\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -580,7 +581,7 @@ class MandatesApi
      *
      * List country mandates that are supported by the Avalara E-Invoicing platform
      *
-     * @param GetMandatesRequest The request parameters for the API call.
+     * @param GetMandatesRequestSdk The request parameters for the API call.
      *
      * @throws \Avalara\SDK\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -751,7 +752,7 @@ class MandatesApi
      *
      * List country mandates that are supported by the Avalara E-Invoicing platform
      *
-     * @param GetMandatesRequest The request parameters for the API call.
+     * @param GetMandatesRequestSdk The request parameters for the API call.
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -771,7 +772,7 @@ class MandatesApi
      *
      * List country mandates that are supported by the Avalara E-Invoicing platform
      *
-     * @param GetMandatesRequest The request parameters for the API call.
+     * @param GetMandatesRequestSdk The request parameters for the API call.
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -832,7 +833,7 @@ class MandatesApi
     /**
      * Create request for operation 'getMandates'
      *
-     * @param GetMandatesRequest The request parameters for the API call.
+     * @param GetMandatesRequestSdk The request parameters for the API call.
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -941,7 +942,7 @@ class MandatesApi
                 []
             );
         }
-        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 24.12.11; {$this->client->config->getMachineName()}";
+        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.6.0; {$this->client->config->getMachineName()}";
 
         $headers['X-Avalara-Client']=$clientId;
 
@@ -981,9 +982,10 @@ class MandatesApi
         );
 
         $query = \GuzzleHttp\Psr7\Query::build($queryParams);
+        $baseUrl = $this->client->config->getBasePath('EInvoicing');
         return new Request(
             'GET',
-            $this->client->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $baseUrl . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -999,7 +1001,7 @@ class MandatesApi
      * @param  string $document_version Select the document version of the documentType (You may obtain the supported documentVersion from the GET /mandates endpoint) (required)
      * @param  string $x_avalara_client You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a fingerprint. (optional)
      */
-class GetMandateDataInputFieldsRequest {
+class GetMandateDataInputFieldsRequestSdk {
     private $avalara_version;
     private $mandate_id;
     private $document_type;
@@ -1009,7 +1011,7 @@ class GetMandateDataInputFieldsRequest {
     public function __construct() {
     }
     public function getAvalaraVersion() {
-        return $this->avalara_version ?? '1.2';
+        return $this->avalara_version ?? '1.3';
     }
 
     public function setAvalaraVersion($avalara_version) {
@@ -1056,7 +1058,7 @@ class GetMandateDataInputFieldsRequest {
      * @param  bool $count When set to true, the count of the collection is also returned in the response body. (optional)
      * @param  bool $count_only When set to true, only the count of the collection is returned (optional)
      */
-class GetMandatesRequest {
+class GetMandatesRequestSdk {
     private $avalara_version;
     private $x_avalara_client;
     private $filter;
@@ -1068,7 +1070,7 @@ class GetMandatesRequest {
     public function __construct() {
     }
     public function getAvalaraVersion() {
-        return $this->avalara_version ?? '1.2';
+        return $this->avalara_version ?? '1.3';
     }
 
     public function setAvalaraVersion($avalara_version) {

@@ -51,6 +51,18 @@ class Configuration
     public $FALLBACK_TOKEN_URL = 'https://identity.avalara.com/connect/token';
     public $FALLBACK_DEVICE_AUTHORIZATION_URL = 'https://identity.avalara.com/connect/token';
 
+    // Official URL of EInvoicing Service (Production by Environment)
+    public $EINVOICING_SERVICE_PRODUCTION_URL = 'https://api.avalara.com';
+    public $EINVOICING_SERVICE_SANDBOX_URL = 'https://api.sbx.avalara.com';
+    public $EINVOICING_SERVICE_QA_URL = 'https://superapi.qa.avalara.io';
+    public $EINVOICING_SERVICE_DEV_URL = 'https://superapi.dev.avalara.io';
+
+    // Official URL of A1099 Service (Production by Environment)
+    public $A1099_SERVICE_PRODUCTION_URL = 'https://api.avalara.com/avalara1099';
+    public $A1099_SERVICE_SANDBOX_URL = 'https://api.sbx.avalara.com/avalara1099';
+    public $A1099_SERVICE_QA_URL = 'https://api-ava1099.gamma.qa.us-west-2.aws.avalara.io';
+    public $A1099_SERVICE_DEV_URL = 'https://api-ava1099.gamma.dev.us-west-2.aws.avalara.io';
+
     /**
      * @var Configuration
      */
@@ -219,6 +231,57 @@ class Configuration
         $this->tempFolderPath = sys_get_temp_dir();
         $this->logOptions = new LogOptions();
     }
+
+    /**
+     * Returns base URL for specified operation based on server settings and microservice
+     *
+     * @param string $microservice Microservice name (EInvoicing, A1099, or none)
+     * @return string Base URL for the microservice
+     */
+    public function getBasePath($microservice = 'none')
+    {
+        $environment = strtolower($this->environment);
+        
+        if ($environment == 'test' && empty($this->testBasePath)) {
+            throw new \InvalidArgumentException("TestBasePath must be configured to run in test environment mode.");
+        }
+
+        switch ($microservice) {
+            case 'EInvoicing':
+                switch ($environment) {
+                    case 'production':
+                        return $this->EINVOICING_SERVICE_PRODUCTION_URL;
+                    case 'sandbox':
+                        return $this->EINVOICING_SERVICE_SANDBOX_URL;
+                    case 'qa':
+                        return $this->EINVOICING_SERVICE_QA_URL;
+                    case 'dev':
+                        return $this->EINVOICING_SERVICE_DEV_URL;
+                    case 'test':
+                        return $this->testBasePath;
+                    default:
+                        throw new \InvalidArgumentException('Environment not configured correctly, Acceptable values are "production", "sandbox", "qa", "dev", and "test".');
+                }
+            case 'A1099':
+                switch ($environment) {
+                    case 'production':
+                        return $this->A1099_SERVICE_PRODUCTION_URL;
+                    case 'sandbox':
+                        return $this->A1099_SERVICE_SANDBOX_URL;
+                    case 'qa':
+                        return $this->A1099_SERVICE_QA_URL;
+                    case 'dev':
+                        return $this->A1099_SERVICE_DEV_URL;
+                    case 'test':
+                        return $this->testBasePath;
+                    default:
+                        throw new \InvalidArgumentException('Environment not configured correctly, Acceptable values are "production", "sandbox", "qa", "dev", and "test".');
+                }
+            case 'none':
+                throw new \InvalidArgumentException('Microservice not configured correctly, Acceptable values are "EInvoicing", "A1099", and "none".');
+        }
+    }
+
     /**
      * Sets API key
      *
@@ -556,29 +619,6 @@ class Configuration
     }
 
     /**
-     * Sets the host
-     *
-     * @param string $host Host
-     *
-     * @return $this
-     */
-    public function setHost($host)
-    {
-        $this->host = $host;
-        return $this;
-    }
-
-    /**
-     * Gets the host
-     *
-     * @return string Host
-     */
-    public function getHost()
-    {
-        return $this->host;
-    }
-
-    /**
      * Sets log options
      *
      * @param LogOptions logOptions
@@ -797,4 +837,14 @@ class Configuration
                 return $this->QA_OPENID_CONFIG_URL;
         }
     }
+}
+
+/**
+ * Microservice enumeration
+ */
+class AvalaraMicroservice
+{
+    const EINVOICING = 'EInvoicing';
+    const A1099 = 'A1099';
+    const NONE = 'none';
 }

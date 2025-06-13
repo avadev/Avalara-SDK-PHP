@@ -79,7 +79,7 @@ class TradingPartnersApi
     private function setConfiguration($client): void
     {
         $this->verifyAPIClient($client);
-        $client->setSdkVersion("24.12.11");
+        $client->setSdkVersion("25.6.0");
         $this->headerSelector = new HeaderSelector(); 
         $this->client = $client;
     }
@@ -120,15 +120,16 @@ class TradingPartnersApi
      *
      * Creates a batch search and performs a batch search in the directory for participants in the background.
      *
-     * @param BatchSearchParticipantsRequest The request parameters for the API call.
+     * @param BatchSearchParticipantsRequestSdk The request parameters for the API call.
      *
      * @throws \Avalara\SDK\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return void
+     * @return \Avalara\SDK\Model\EInvoicing\V1\BatchSearchParticipants202Response|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse
      */
     public function batchSearchParticipants($request_parameters)
     {
-        $this->batchSearchParticipantsWithHttpInfo($request_parameters);
+        list($response) = $this->batchSearchParticipantsWithHttpInfo($request_parameters);
+        return $response;
     }
 
     /**
@@ -136,11 +137,11 @@ class TradingPartnersApi
      *
      * Creates a batch search and performs a batch search in the directory for participants in the background.
      *
-     * @param BatchSearchParticipantsRequest The request parameters for the API call.
+     * @param BatchSearchParticipantsRequestSdk The request parameters for the API call.
      *
      * @throws \Avalara\SDK\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Avalara\SDK\Model\EInvoicing\V1\BatchSearchParticipants202Response|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function batchSearchParticipantsWithHttpInfo($request_parameters, $isRetry = false)
     {
@@ -157,7 +158,8 @@ class TradingPartnersApi
                 $statusCode = $e->getCode();
                 if (($statusCode == 401 || $statusCode == 403) && !$isRetry) {
                     $this->client->refreshAuthToken($e->getRequest() ? $e->getRequest()->getHeaders() : null, $requiredScopes);
-                    $this->batchSearchParticipantsWithHttpInfo($request_parameters, true);
+                    list($response) = $this->batchSearchParticipantsWithHttpInfo($request_parameters, true);
+                    return $response;
                 }
                 $logObject->populateErrorInfo($e->getResponse());
                 $this->client->logger->error(json_encode($logObject));
@@ -193,10 +195,98 @@ class TradingPartnersApi
                 );
             }
 
-            return [null, $statusCode, $response->getHeaders()];
+            switch($statusCode) {
+                case 202:
+                    if ('\Avalara\SDK\Model\EInvoicing\V1\BatchSearchParticipants202Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+                    $logObject->populateResponseInfo($content, $response);
+                    $this->client->logger->info(json_encode($logObject));
+                    return [
+                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\BatchSearchParticipants202Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+                    $logObject->populateResponseInfo($content, $response);
+                    $this->client->logger->info(json_encode($logObject));
+                    return [
+                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+                    $logObject->populateResponseInfo($content, $response);
+                    $this->client->logger->info(json_encode($logObject));
+                    return [
+                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 403:
+                    if ('\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+                    $logObject->populateResponseInfo($content, $response);
+                    $this->client->logger->info(json_encode($logObject));
+                    return [
+                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+                    $logObject->populateResponseInfo($content, $response);
+                    $this->client->logger->info(json_encode($logObject));
+                    return [
+                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\Avalara\SDK\Model\EInvoicing\V1\BatchSearchParticipants202Response';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+            }
+            $logObject->populateResponseInfo($content, $response);
+            $this->client->logger->info(json_encode($logObject));
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
+                case 202:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Avalara\SDK\Model\EInvoicing\V1\BatchSearchParticipants202Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
@@ -239,7 +329,7 @@ class TradingPartnersApi
      *
      * Creates a batch search and performs a batch search in the directory for participants in the background.
      *
-     * @param BatchSearchParticipantsRequest The request parameters for the API call.
+     * @param BatchSearchParticipantsRequestSdk The request parameters for the API call.
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -259,7 +349,7 @@ class TradingPartnersApi
      *
      * Creates a batch search and performs a batch search in the directory for participants in the background.
      *
-     * @param BatchSearchParticipantsRequest The request parameters for the API call.
+     * @param BatchSearchParticipantsRequestSdk The request parameters for the API call.
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -267,15 +357,25 @@ class TradingPartnersApi
     public function batchSearchParticipantsAsyncWithHttpInfo($request_parameters, $isRetry = false)
     {
         $logObject = new LogObject($this->client->logRequestAndResponse);
-        $returnType = '';
+        $returnType = '\Avalara\SDK\Model\EInvoicing\V1\BatchSearchParticipants202Response';
         $request = $this->batchSearchParticipantsRequest($request_parameters);
         $logObject->populateRequestInfo($request);
         return $this->client
             ->send_async($request, [])
             ->then(
                 function ($response) use ($returnType, $logObject) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+                    $logObject->populateResponseInfo($content, $response);
                     $this->client->logger->info(json_encode($logObject));
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
                 },
                 function ($exception) use ($request_parameters, $isRetry, $request, $logObject) {
                     //OAuth2 Scopes
@@ -310,7 +410,7 @@ class TradingPartnersApi
     /**
      * Create request for operation 'batchSearchParticipants'
      *
-     * @param BatchSearchParticipantsRequest The request parameters for the API call.
+     * @param BatchSearchParticipantsRequestSdk The request parameters for the API call.
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -419,7 +519,7 @@ class TradingPartnersApi
                 ['multipart/form-data']
             );
         }
-        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 24.12.11; {$this->client->config->getMachineName()}";
+        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.6.0; {$this->client->config->getMachineName()}";
 
         $headers['X-Avalara-Client']=$clientId;
 
@@ -459,9 +559,10 @@ class TradingPartnersApi
         );
 
         $query = \GuzzleHttp\Psr7\Query::build($queryParams);
+        $baseUrl = $this->client->config->getBasePath('EInvoicing');
         return new Request(
             'POST',
-            $this->client->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $baseUrl . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -472,7 +573,7 @@ class TradingPartnersApi
      *
      * Download batch search results in a csv file.
      *
-     * @param DownloadBatchSearchReportRequest The request parameters for the API call.
+     * @param DownloadBatchSearchReportRequestSdk The request parameters for the API call.
      *
      * @throws \Avalara\SDK\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -489,7 +590,7 @@ class TradingPartnersApi
      *
      * Download batch search results in a csv file.
      *
-     * @param DownloadBatchSearchReportRequest The request parameters for the API call.
+     * @param DownloadBatchSearchReportRequestSdk The request parameters for the API call.
      *
      * @throws \Avalara\SDK\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -681,7 +782,7 @@ class TradingPartnersApi
      *
      * Download batch search results in a csv file.
      *
-     * @param DownloadBatchSearchReportRequest The request parameters for the API call.
+     * @param DownloadBatchSearchReportRequestSdk The request parameters for the API call.
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -701,7 +802,7 @@ class TradingPartnersApi
      *
      * Download batch search results in a csv file.
      *
-     * @param DownloadBatchSearchReportRequest The request parameters for the API call.
+     * @param DownloadBatchSearchReportRequestSdk The request parameters for the API call.
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -762,7 +863,7 @@ class TradingPartnersApi
     /**
      * Create request for operation 'downloadBatchSearchReport'
      *
-     * @param DownloadBatchSearchReportRequest The request parameters for the API call.
+     * @param DownloadBatchSearchReportRequestSdk The request parameters for the API call.
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -831,7 +932,7 @@ class TradingPartnersApi
                 []
             );
         }
-        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 24.12.11; {$this->client->config->getMachineName()}";
+        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.6.0; {$this->client->config->getMachineName()}";
 
         $headers['X-Avalara-Client']=$clientId;
 
@@ -871,9 +972,10 @@ class TradingPartnersApi
         );
 
         $query = \GuzzleHttp\Psr7\Query::build($queryParams);
+        $baseUrl = $this->client->config->getBasePath('EInvoicing');
         return new Request(
             'GET',
-            $this->client->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $baseUrl . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -884,11 +986,11 @@ class TradingPartnersApi
      *
      * Get the batch search details for a given id.
      *
-     * @param GetBatchSearchDetailRequest The request parameters for the API call.
+     * @param GetBatchSearchDetailRequestSdk The request parameters for the API call.
      *
      * @throws \Avalara\SDK\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Avalara\SDK\Model\EInvoicing\V1\BatchSearch|\Avalara\SDK\Model\EInvoicing\V1\BatchSearchListResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse
+     * @return \Avalara\SDK\Model\EInvoicing\V1\BatchSearch|\Avalara\SDK\Model\EInvoicing\V1\BatchSearchListResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse
      */
     public function getBatchSearchDetail($request_parameters)
     {
@@ -901,11 +1003,11 @@ class TradingPartnersApi
      *
      * Get the batch search details for a given id.
      *
-     * @param GetBatchSearchDetailRequest The request parameters for the API call.
+     * @param GetBatchSearchDetailRequestSdk The request parameters for the API call.
      *
      * @throws \Avalara\SDK\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Avalara\SDK\Model\EInvoicing\V1\BatchSearch|\Avalara\SDK\Model\EInvoicing\V1\BatchSearchListResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Avalara\SDK\Model\EInvoicing\V1\BatchSearch|\Avalara\SDK\Model\EInvoicing\V1\BatchSearchListResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getBatchSearchDetailWithHttpInfo($request_parameters, $isRetry = false)
     {
@@ -986,6 +1088,19 @@ class TradingPartnersApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
+                case 404:
+                    if ('\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+                    $logObject->populateResponseInfo($content, $response);
+                    $this->client->logger->info(json_encode($logObject));
+                    return [
+                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
                 case 403:
                     if ('\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
@@ -1046,6 +1161,14 @@ class TradingPartnersApi
                     );
                     $e->setResponseObject($data);
                     break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
@@ -1072,7 +1195,7 @@ class TradingPartnersApi
      *
      * Get the batch search details for a given id.
      *
-     * @param GetBatchSearchDetailRequest The request parameters for the API call.
+     * @param GetBatchSearchDetailRequestSdk The request parameters for the API call.
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1092,7 +1215,7 @@ class TradingPartnersApi
      *
      * Get the batch search details for a given id.
      *
-     * @param GetBatchSearchDetailRequest The request parameters for the API call.
+     * @param GetBatchSearchDetailRequestSdk The request parameters for the API call.
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1153,7 +1276,7 @@ class TradingPartnersApi
     /**
      * Create request for operation 'getBatchSearchDetail'
      *
-     * @param GetBatchSearchDetailRequest The request parameters for the API call.
+     * @param GetBatchSearchDetailRequestSdk The request parameters for the API call.
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -1222,7 +1345,7 @@ class TradingPartnersApi
                 []
             );
         }
-        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 24.12.11; {$this->client->config->getMachineName()}";
+        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.6.0; {$this->client->config->getMachineName()}";
 
         $headers['X-Avalara-Client']=$clientId;
 
@@ -1262,9 +1385,10 @@ class TradingPartnersApi
         );
 
         $query = \GuzzleHttp\Psr7\Query::build($queryParams);
+        $baseUrl = $this->client->config->getBasePath('EInvoicing');
         return new Request(
             'GET',
-            $this->client->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $baseUrl . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -1275,11 +1399,11 @@ class TradingPartnersApi
      *
      * List all batch searches that were previously submitted.
      *
-     * @param ListBatchSearchesRequest The request parameters for the API call.
+     * @param ListBatchSearchesRequestSdk The request parameters for the API call.
      *
      * @throws \Avalara\SDK\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Avalara\SDK\Model\EInvoicing\V1\BatchSearchListResponse|\Avalara\SDK\Model\EInvoicing\V1\BatchSearchListResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse
+     * @return \Avalara\SDK\Model\EInvoicing\V1\BatchSearchListResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\BatchSearchListResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse
      */
     public function listBatchSearches($request_parameters)
     {
@@ -1292,11 +1416,11 @@ class TradingPartnersApi
      *
      * List all batch searches that were previously submitted.
      *
-     * @param ListBatchSearchesRequest The request parameters for the API call.
+     * @param ListBatchSearchesRequestSdk The request parameters for the API call.
      *
      * @throws \Avalara\SDK\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Avalara\SDK\Model\EInvoicing\V1\BatchSearchListResponse|\Avalara\SDK\Model\EInvoicing\V1\BatchSearchListResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Avalara\SDK\Model\EInvoicing\V1\BatchSearchListResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\BatchSearchListResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function listBatchSearchesWithHttpInfo($request_parameters, $isRetry = false)
     {
@@ -1361,6 +1485,19 @@ class TradingPartnersApi
                     $this->client->logger->info(json_encode($logObject));
                     return [
                         ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\BatchSearchListResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+                    $logObject->populateResponseInfo($content, $response);
+                    $this->client->logger->info(json_encode($logObject));
+                    return [
+                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -1429,6 +1566,14 @@ class TradingPartnersApi
                     );
                     $e->setResponseObject($data);
                     break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
@@ -1463,7 +1608,7 @@ class TradingPartnersApi
      *
      * List all batch searches that were previously submitted.
      *
-     * @param ListBatchSearchesRequest The request parameters for the API call.
+     * @param ListBatchSearchesRequestSdk The request parameters for the API call.
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1483,7 +1628,7 @@ class TradingPartnersApi
      *
      * List all batch searches that were previously submitted.
      *
-     * @param ListBatchSearchesRequest The request parameters for the API call.
+     * @param ListBatchSearchesRequestSdk The request parameters for the API call.
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1544,7 +1689,7 @@ class TradingPartnersApi
     /**
      * Create request for operation 'listBatchSearches'
      *
-     * @param ListBatchSearchesRequest The request parameters for the API call.
+     * @param ListBatchSearchesRequestSdk The request parameters for the API call.
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -1658,7 +1803,7 @@ class TradingPartnersApi
                 []
             );
         }
-        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 24.12.11; {$this->client->config->getMachineName()}";
+        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.6.0; {$this->client->config->getMachineName()}";
 
         $headers['X-Avalara-Client']=$clientId;
 
@@ -1698,9 +1843,10 @@ class TradingPartnersApi
         );
 
         $query = \GuzzleHttp\Psr7\Query::build($queryParams);
+        $baseUrl = $this->client->config->getBasePath('EInvoicing');
         return new Request(
             'GET',
-            $this->client->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $baseUrl . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -1711,7 +1857,7 @@ class TradingPartnersApi
      *
      * Returns a list of participants matching the input query.
      *
-     * @param SearchParticipantsRequest The request parameters for the API call.
+     * @param SearchParticipantsRequestSdk The request parameters for the API call.
      *
      * @throws \Avalara\SDK\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1728,7 +1874,7 @@ class TradingPartnersApi
      *
      * Returns a list of participants matching the input query.
      *
-     * @param SearchParticipantsRequest The request parameters for the API call.
+     * @param SearchParticipantsRequestSdk The request parameters for the API call.
      *
      * @throws \Avalara\SDK\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1920,7 +2066,7 @@ class TradingPartnersApi
      *
      * Returns a list of participants matching the input query.
      *
-     * @param SearchParticipantsRequest The request parameters for the API call.
+     * @param SearchParticipantsRequestSdk The request parameters for the API call.
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1940,7 +2086,7 @@ class TradingPartnersApi
      *
      * Returns a list of participants matching the input query.
      *
-     * @param SearchParticipantsRequest The request parameters for the API call.
+     * @param SearchParticipantsRequestSdk The request parameters for the API call.
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2001,7 +2147,7 @@ class TradingPartnersApi
     /**
      * Create request for operation 'searchParticipants'
      *
-     * @param SearchParticipantsRequest The request parameters for the API call.
+     * @param SearchParticipantsRequestSdk The request parameters for the API call.
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -2133,7 +2279,7 @@ class TradingPartnersApi
                 []
             );
         }
-        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 24.12.11; {$this->client->config->getMachineName()}";
+        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.6.0; {$this->client->config->getMachineName()}";
 
         $headers['X-Avalara-Client']=$clientId;
 
@@ -2173,9 +2319,10 @@ class TradingPartnersApi
         );
 
         $query = \GuzzleHttp\Psr7\Query::build($queryParams);
+        $baseUrl = $this->client->config->getBasePath('EInvoicing');
         return new Request(
             'GET',
-            $this->client->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $baseUrl . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -2192,7 +2339,7 @@ class TradingPartnersApi
      * @param  string $x_avalara_client You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a \&quot;Fingerprint\&quot; (optional)
      * @param  string $x_correlation_id The caller can use this as an identifier to use as a correlation id to trace the call. (optional)
      */
-class BatchSearchParticipantsRequest {
+class BatchSearchParticipantsRequestSdk {
     private $avalara_version;
     private $name;
     private $notification_email;
@@ -2203,7 +2350,7 @@ class BatchSearchParticipantsRequest {
     public function __construct() {
     }
     public function getAvalaraVersion() {
-        return $this->avalara_version ?? '1.2';
+        return $this->avalara_version ?? '1.3';
     }
 
     public function setAvalaraVersion($avalara_version) {
@@ -2254,7 +2401,7 @@ class BatchSearchParticipantsRequest {
      * @param  string $x_avalara_client You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a \&quot;Fingerprint\&quot; (optional)
      * @param  string $x_correlation_id The caller can use this as an identifier to use as a correlation id to trace the call. (optional)
      */
-class DownloadBatchSearchReportRequest {
+class DownloadBatchSearchReportRequestSdk {
     private $avalara_version;
     private $id;
     private $x_avalara_client;
@@ -2263,7 +2410,7 @@ class DownloadBatchSearchReportRequest {
     public function __construct() {
     }
     public function getAvalaraVersion() {
-        return $this->avalara_version ?? '1.2';
+        return $this->avalara_version ?? '1.3';
     }
 
     public function setAvalaraVersion($avalara_version) {
@@ -2300,7 +2447,7 @@ class DownloadBatchSearchReportRequest {
      * @param  string $x_avalara_client You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a \&quot;Fingerprint\&quot; (optional)
      * @param  string $x_correlation_id The caller can use this as an identifier to use as a correlation id to trace the call. (optional)
      */
-class GetBatchSearchDetailRequest {
+class GetBatchSearchDetailRequestSdk {
     private $avalara_version;
     private $id;
     private $x_avalara_client;
@@ -2309,7 +2456,7 @@ class GetBatchSearchDetailRequest {
     public function __construct() {
     }
     public function getAvalaraVersion() {
-        return $this->avalara_version ?? '1.2';
+        return $this->avalara_version ?? '1.3';
     }
 
     public function setAvalaraVersion($avalara_version) {
@@ -2350,7 +2497,7 @@ class GetBatchSearchDetailRequest {
      * @param  string $order_by The $orderBy query parameter specifies the field and sorting direction for ordering the result set. The value is a string that combines a field name and a sorting direction (asc for ascending or desc for descending), separated by a space. (optional)
      * @param  string $x_correlation_id The caller can use this as an identifier to use as a correlation id to trace the call. (optional)
      */
-class ListBatchSearchesRequest {
+class ListBatchSearchesRequestSdk {
     private $avalara_version;
     private $x_avalara_client;
     private $filter;
@@ -2363,7 +2510,7 @@ class ListBatchSearchesRequest {
     public function __construct() {
     }
     public function getAvalaraVersion() {
-        return $this->avalara_version ?? '1.2';
+        return $this->avalara_version ?? '1.3';
     }
 
     public function setAvalaraVersion($avalara_version) {
@@ -2433,7 +2580,7 @@ class ListBatchSearchesRequest {
      * @param  string $order_by The $orderBy query parameter specifies the field and sorting direction for ordering the result set. The value is a string that combines a field name and a sorting direction (asc for ascending or desc for descending), separated by a space. (optional)
      * @param  string $x_correlation_id The caller can use this as an identifier to use as a correlation id to trace the call. (optional)
      */
-class SearchParticipantsRequest {
+class SearchParticipantsRequestSdk {
     private $avalara_version;
     private $search;
     private $x_avalara_client;
@@ -2447,7 +2594,7 @@ class SearchParticipantsRequest {
     public function __construct() {
     }
     public function getAvalaraVersion() {
-        return $this->avalara_version ?? '1.2';
+        return $this->avalara_version ?? '1.3';
     }
 
     public function setAvalaraVersion($avalara_version) {
