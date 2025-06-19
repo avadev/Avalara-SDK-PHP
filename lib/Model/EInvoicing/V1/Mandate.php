@@ -47,6 +47,7 @@ use \Avalara\SDK\Model\ModelInterface;
  * Mandate Class Doc Comment
  *
  * @category Class
+ * @description An object representing the country mandate
  * @package  Avalara\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -75,9 +76,14 @@ class Mandate implements ModelInterface, ArrayAccess, \JsonSerializable
         'country_mandate' => 'string',
         'country_code' => 'string',
         'description' => 'string',
-        'supported_by_partner_api' => 'bool',
+        'supported_by_elrapi' => 'bool',
         'mandate_format' => 'string',
+        'e_invoicing_flow' => 'string',
+        'e_invoicing_flow_documentation_link' => 'string',
+        'get_invoice_available_media_type' => 'string[]',
+        'supports_inbound_digital_document' => 'string',
         'input_data_formats' => '\Avalara\SDK\Model\EInvoicing\V1\InputDataFormats[]',
+        'output_data_formats' => '\Avalara\SDK\Model\EInvoicing\V1\OutputDataFormats[]',
         'workflow_ids' => '\Avalara\SDK\Model\EInvoicing\V1\WorkflowIds[]'
     ];
 
@@ -93,9 +99,14 @@ class Mandate implements ModelInterface, ArrayAccess, \JsonSerializable
         'country_mandate' => null,
         'country_code' => null,
         'description' => null,
-        'supported_by_partner_api' => null,
+        'supported_by_elrapi' => null,
         'mandate_format' => null,
+        'e_invoicing_flow' => null,
+        'e_invoicing_flow_documentation_link' => null,
+        'get_invoice_available_media_type' => null,
+        'supports_inbound_digital_document' => null,
         'input_data_formats' => null,
+        'output_data_formats' => null,
         'workflow_ids' => null
     ];
 
@@ -130,9 +141,14 @@ class Mandate implements ModelInterface, ArrayAccess, \JsonSerializable
         'country_mandate' => 'countryMandate',
         'country_code' => 'countryCode',
         'description' => 'description',
-        'supported_by_partner_api' => 'supportedByPartnerAPI',
+        'supported_by_elrapi' => 'supportedByELRAPI',
         'mandate_format' => 'mandateFormat',
+        'e_invoicing_flow' => 'eInvoicingFlow',
+        'e_invoicing_flow_documentation_link' => 'eInvoicingFlowDocumentationLink',
+        'get_invoice_available_media_type' => 'getInvoiceAvailableMediaType',
+        'supports_inbound_digital_document' => 'supportsInboundDigitalDocument',
         'input_data_formats' => 'inputDataFormats',
+        'output_data_formats' => 'outputDataFormats',
         'workflow_ids' => 'workflowIds'
     ];
 
@@ -146,9 +162,14 @@ class Mandate implements ModelInterface, ArrayAccess, \JsonSerializable
         'country_mandate' => 'setCountryMandate',
         'country_code' => 'setCountryCode',
         'description' => 'setDescription',
-        'supported_by_partner_api' => 'setSupportedByPartnerApi',
+        'supported_by_elrapi' => 'setSupportedByElrapi',
         'mandate_format' => 'setMandateFormat',
+        'e_invoicing_flow' => 'setEInvoicingFlow',
+        'e_invoicing_flow_documentation_link' => 'setEInvoicingFlowDocumentationLink',
+        'get_invoice_available_media_type' => 'setGetInvoiceAvailableMediaType',
+        'supports_inbound_digital_document' => 'setSupportsInboundDigitalDocument',
         'input_data_formats' => 'setInputDataFormats',
+        'output_data_formats' => 'setOutputDataFormats',
         'workflow_ids' => 'setWorkflowIds'
     ];
 
@@ -162,9 +183,14 @@ class Mandate implements ModelInterface, ArrayAccess, \JsonSerializable
         'country_mandate' => 'getCountryMandate',
         'country_code' => 'getCountryCode',
         'description' => 'getDescription',
-        'supported_by_partner_api' => 'getSupportedByPartnerApi',
+        'supported_by_elrapi' => 'getSupportedByElrapi',
         'mandate_format' => 'getMandateFormat',
+        'e_invoicing_flow' => 'getEInvoicingFlow',
+        'e_invoicing_flow_documentation_link' => 'getEInvoicingFlowDocumentationLink',
+        'get_invoice_available_media_type' => 'getGetInvoiceAvailableMediaType',
+        'supports_inbound_digital_document' => 'getSupportsInboundDigitalDocument',
         'input_data_formats' => 'getInputDataFormats',
+        'output_data_formats' => 'getOutputDataFormats',
         'workflow_ids' => 'getWorkflowIds'
     ];
 
@@ -229,9 +255,14 @@ class Mandate implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['country_mandate'] = $data['country_mandate'] ?? null;
         $this->container['country_code'] = $data['country_code'] ?? null;
         $this->container['description'] = $data['description'] ?? null;
-        $this->container['supported_by_partner_api'] = $data['supported_by_partner_api'] ?? null;
+        $this->container['supported_by_elrapi'] = $data['supported_by_elrapi'] ?? null;
         $this->container['mandate_format'] = $data['mandate_format'] ?? null;
+        $this->container['e_invoicing_flow'] = $data['e_invoicing_flow'] ?? null;
+        $this->container['e_invoicing_flow_documentation_link'] = $data['e_invoicing_flow_documentation_link'] ?? null;
+        $this->container['get_invoice_available_media_type'] = $data['get_invoice_available_media_type'] ?? null;
+        $this->container['supports_inbound_digital_document'] = $data['supports_inbound_digital_document'] ?? null;
         $this->container['input_data_formats'] = $data['input_data_formats'] ?? null;
+        $this->container['output_data_formats'] = $data['output_data_formats'] ?? null;
         $this->container['workflow_ids'] = $data['workflow_ids'] ?? null;
     }
 
@@ -356,25 +387,25 @@ class Mandate implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets supported_by_partner_api
+     * Gets supported_by_elrapi
      *
      * @return bool|null
      */
-    public function getSupportedByPartnerApi()
+    public function getSupportedByElrapi()
     {
-        return $this->container['supported_by_partner_api'];
+        return $this->container['supported_by_elrapi'];
     }
 
     /**
-     * Sets supported_by_partner_api
+     * Sets supported_by_elrapi
      *
-     * @param bool|null $supported_by_partner_api Indicates whether this mandate supported by the partner API
+     * @param bool|null $supported_by_elrapi Indicates whether this mandate supported by the ELR API
      *
      * @return self
      */
-    public function setSupportedByPartnerApi($supported_by_partner_api)
+    public function setSupportedByElrapi($supported_by_elrapi)
     {
-        $this->container['supported_by_partner_api'] = $supported_by_partner_api;
+        $this->container['supported_by_elrapi'] = $supported_by_elrapi;
 
         return $this;
     }
@@ -404,6 +435,102 @@ class Mandate implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets e_invoicing_flow
+     *
+     * @return string|null
+     */
+    public function getEInvoicingFlow()
+    {
+        return $this->container['e_invoicing_flow'];
+    }
+
+    /**
+     * Sets e_invoicing_flow
+     *
+     * @param string|null $e_invoicing_flow The type of e-invoicing flow for this mandate
+     *
+     * @return self
+     */
+    public function setEInvoicingFlow($e_invoicing_flow)
+    {
+        $this->container['e_invoicing_flow'] = $e_invoicing_flow;
+
+        return $this;
+    }
+
+    /**
+     * Gets e_invoicing_flow_documentation_link
+     *
+     * @return string|null
+     */
+    public function getEInvoicingFlowDocumentationLink()
+    {
+        return $this->container['e_invoicing_flow_documentation_link'];
+    }
+
+    /**
+     * Sets e_invoicing_flow_documentation_link
+     *
+     * @param string|null $e_invoicing_flow_documentation_link Link to the documentation for this mandate's e-invoicing flow
+     *
+     * @return self
+     */
+    public function setEInvoicingFlowDocumentationLink($e_invoicing_flow_documentation_link)
+    {
+        $this->container['e_invoicing_flow_documentation_link'] = $e_invoicing_flow_documentation_link;
+
+        return $this;
+    }
+
+    /**
+     * Gets get_invoice_available_media_type
+     *
+     * @return string[]|null
+     */
+    public function getGetInvoiceAvailableMediaType()
+    {
+        return $this->container['get_invoice_available_media_type'];
+    }
+
+    /**
+     * Sets get_invoice_available_media_type
+     *
+     * @param string[]|null $get_invoice_available_media_type List of available media types for downloading invoices for this mandate
+     *
+     * @return self
+     */
+    public function setGetInvoiceAvailableMediaType($get_invoice_available_media_type)
+    {
+        $this->container['get_invoice_available_media_type'] = $get_invoice_available_media_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets supports_inbound_digital_document
+     *
+     * @return string|null
+     */
+    public function getSupportsInboundDigitalDocument()
+    {
+        return $this->container['supports_inbound_digital_document'];
+    }
+
+    /**
+     * Sets supports_inbound_digital_document
+     *
+     * @param string|null $supports_inbound_digital_document Indicates whether this mandate supports inbound digital documents
+     *
+     * @return self
+     */
+    public function setSupportsInboundDigitalDocument($supports_inbound_digital_document)
+    {
+        $this->container['supports_inbound_digital_document'] = $supports_inbound_digital_document;
+
+        return $this;
+    }
+
+    /**
      * Gets input_data_formats
      *
      * @return \Avalara\SDK\Model\EInvoicing\V1\InputDataFormats[]|null
@@ -423,6 +550,30 @@ class Mandate implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setInputDataFormats($input_data_formats)
     {
         $this->container['input_data_formats'] = $input_data_formats;
+
+        return $this;
+    }
+
+    /**
+     * Gets output_data_formats
+     *
+     * @return \Avalara\SDK\Model\EInvoicing\V1\OutputDataFormats[]|null
+     */
+    public function getOutputDataFormats()
+    {
+        return $this->container['output_data_formats'];
+    }
+
+    /**
+     * Sets output_data_formats
+     *
+     * @param \Avalara\SDK\Model\EInvoicing\V1\OutputDataFormats[]|null $output_data_formats Lists the supported output document formats for the country mandate. For countries where specifying an output document format is required (e.g., France), this array will contain the applicable formats. For other countries where output format selection is not necessary, the array will be empty.
+     *
+     * @return self
+     */
+    public function setOutputDataFormats($output_data_formats)
+    {
+        $this->container['output_data_formats'] = $output_data_formats;
 
         return $this;
     }

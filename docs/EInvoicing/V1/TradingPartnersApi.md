@@ -14,7 +14,7 @@ Method | HTTP request | Description
 ## `batchSearchParticipants()`
 
 ```php
-batchSearchParticipants($avalara_version, $name, $notification_email, $file, $x_avalara_client, $x_correlation_id)
+batchSearchParticipants($avalara_version, $name, $notification_email, $file, $x_avalara_client, $x_correlation_id): \Avalara\SDK\Model\EInvoicing\V1\BatchSearchParticipants202Response
 ```
 
 Creates a batch search and performs a batch search in the directory for participants in the background.
@@ -47,7 +47,8 @@ $x_avalara_client = John's E-Invoicing-API Client; // string | You can freely us
 $x_correlation_id = f3f0d19a-01a1-4748-8a58-f000d0424f43; // string | The caller can use this as an identifier to use as a correlation id to trace the call.
 
 try {
-    $apiInstance->batchSearchParticipants($avalara_version, $name, $notification_email, $file, $x_avalara_client, $x_correlation_id);
+    $result = $apiInstance->batchSearchParticipants($avalara_version, $name, $notification_email, $file, $x_avalara_client, $x_correlation_id);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TradingPartnersApi->batchSearchParticipants: ', $e->getMessage(), PHP_EOL;
 }
@@ -66,7 +67,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**\Avalara\SDK\Model\EInvoicing\V1\BatchSearchParticipants202Response**](../Model/BatchSearchParticipants202Response.md)
 
 ### Authorization
 
@@ -156,7 +157,7 @@ getBatchSearchDetail($avalara_version, $id, $x_avalara_client, $x_correlation_id
 
 Get the batch search details for a given id.
 
-Get the batch search details for a given id.
+This endpoint provides a detailed information for a specific batch search based on a given ID. It is ideal for tracking the progress of a previously initiated batch search operation.
 
 ### Example
 
@@ -223,7 +224,7 @@ listBatchSearches($avalara_version, $x_avalara_client, $filter, $count, $top, $s
 
 List all batch searches that were previously submitted.
 
-Retrieves all batch searches performed by the user.
+This endpoint provides a way to retrieve a comprehensive list of all batch search operations that have been previously submitted. This endpoint returns details about each batch search, such as their id, status, created date and associated metadata, allowing users to easily view past batch search requests. It's particularly useful for tracking the progress of a previously initiated batch search operations.
 
 ### Example
 
@@ -298,7 +299,7 @@ searchParticipants($avalara_version, $search, $x_avalara_client, $count, $filter
 
 Returns a list of participants matching the input query.
 
-Returns a list of participants matching the input query.
+This endpoint provides a list of trading partners that match a specified input query. The search is performed based on various filters, search text, and other relevant parameters.
 
 ### Example
 

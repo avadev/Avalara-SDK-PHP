@@ -47,6 +47,7 @@ use \Avalara\SDK\Model\ModelInterface;
  * RequiredWhenField Class Doc Comment
  *
  * @category Class
+ * @description Mandates for which this field is required
  * @package  Avalara\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

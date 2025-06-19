@@ -1,0 +1,48 @@
+# # W8BenFormResponse
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**name** | **string** | The name of the individual or entity associated with the form. | [optional]
+**citizenship_country** | **string** | The country of citizenship. | [optional]
+**residence_address** | **string** | The residential address of the individual or entity. | [optional]
+**residence_city** | **string** | The city of residence. | [optional]
+**residence_state** | **string** | The state of residence. | [optional]
+**residence_zip** | **string** | The ZIP code of the residence. | [optional]
+**residence_country** | **string** | The country of residence. | [optional]
+**residence_is_mailing** | **bool** | Indicates whether the residence address is the mailing address. | [optional]
+**mailing_address** | **string** | The mailing address. | [optional]
+**mailing_city** | **string** | The city of the mailing address. | [optional]
+**mailing_state** | **string** | The state of the mailing address. | [optional]
+**mailing_zip** | **string** | The ZIP code of the mailing address. | [optional]
+**mailing_country** | **string** | The country of the mailing address. | [optional]
+**tin_type** | **string** | The type of TIN provided. | [optional]
+**tin** | **string** | The taxpayer identification number (TIN). | [optional]
+**foreign_tin_not_required** | **bool** | Indicates whether a foreign TIN is not required. | [optional]
+**foreign_tin** | **string** | The foreign taxpayer identification number (TIN). | [optional]
+**reference_number** | **string** | A reference number for the form. | [optional]
+**birthday** | **\DateTime** | The birthday of the individual associated with the form. | [optional]
+**treaty_country** | **string** | The country for which the treaty applies. | [optional]
+**treaty_article** | **string** | The specific article of the treaty being claimed. | [optional]
+**treaty_reasons** | **string** | The reasons for claiming treaty benefits. | [optional]
+**withholding_rate** | **string** | The withholding rate applied as per the treaty. | [optional]
+**income_type** | **string** | The type of income covered by the treaty. | [optional]
+**signer_name** | **string** | The name of the signer of the form. | [optional]
+**signer_capacity** | **string** | The capacity in which the signer is signing the form. | [optional]
+**id** | **string** | The unique identifier for the form. | [optional]
+**type** | **string** | The form type. | [optional]
+**entry_status** | **string** | The form status. | [optional]
+**entry_status_date** | **\DateTime** | The timestamp for the latest status update. | [optional]
+**reference_id** | **string** | A reference identifier for the form. | [optional]
+**company_id** | **string** | The ID of the associated company. | [optional]
+**display_name** | **string** | The display name associated with the form. | [optional]
+**email** | **string** | The email address of the individual associated with the form. | [optional]
+**archived** | **bool** | Indicates whether the form is archived. | [optional]
+**signature** | **string** | The signature of the form. | [optional]
+**signed_date** | **\DateTime** | The date the form was signed. | [optional]
+**e_delivery_consented_at** | **\DateTime** | The date when e-delivery was consented. | [optional]
+**created_at** | **\DateTime** | The creation date of the form. | [optional]
+**updated_at** | **\DateTime** | The last updated date of the form. | [optional]
+
+[[Back to Model list]](../../../README.md#models) [[Back to API list]](../../../README.md#endpoints) [[Back to README]](../../../README.md)

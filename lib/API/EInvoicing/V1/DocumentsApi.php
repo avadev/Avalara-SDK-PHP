@@ -79,7 +79,7 @@ class DocumentsApi
     private function setConfiguration($client): void
     {
         $this->verifyAPIClient($client);
-        $client->setSdkVersion("24.12.11");
+        $client->setSdkVersion("25.6.0");
         $this->headerSelector = new HeaderSelector(); 
         $this->client = $client;
     }
@@ -120,7 +120,7 @@ class DocumentsApi
      *
      * Returns a copy of the document
      *
-     * @param DownloadDocumentRequest The request parameters for the API call.
+     * @param DownloadDocumentRequestSdk The request parameters for the API call.
      *
      * @throws \Avalara\SDK\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -137,7 +137,7 @@ class DocumentsApi
      *
      * Returns a copy of the document
      *
-     * @param DownloadDocumentRequest The request parameters for the API call.
+     * @param DownloadDocumentRequestSdk The request parameters for the API call.
      *
      * @throws \Avalara\SDK\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -308,7 +308,7 @@ class DocumentsApi
      *
      * Returns a copy of the document
      *
-     * @param DownloadDocumentRequest The request parameters for the API call.
+     * @param DownloadDocumentRequestSdk The request parameters for the API call.
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -328,7 +328,7 @@ class DocumentsApi
      *
      * Returns a copy of the document
      *
-     * @param DownloadDocumentRequest The request parameters for the API call.
+     * @param DownloadDocumentRequestSdk The request parameters for the API call.
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -389,7 +389,7 @@ class DocumentsApi
     /**
      * Create request for operation 'downloadDocument'
      *
-     * @param DownloadDocumentRequest The request parameters for the API call.
+     * @param DownloadDocumentRequestSdk The request parameters for the API call.
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -464,7 +464,7 @@ class DocumentsApi
                 []
             );
         }
-        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 24.12.11; {$this->client->config->getMachineName()}";
+        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.6.0; {$this->client->config->getMachineName()}";
 
         $headers['X-Avalara-Client']=$clientId;
 
@@ -504,9 +504,10 @@ class DocumentsApi
         );
 
         $query = \GuzzleHttp\Psr7\Query::build($queryParams);
+        $baseUrl = $this->client->config->getBasePath('EInvoicing');
         return new Request(
             'GET',
-            $this->client->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $baseUrl . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -517,7 +518,7 @@ class DocumentsApi
      *
      * Fetch the inbound document from a tax authority
      *
-     * @param FetchDocumentsRequest The request parameters for the API call.
+     * @param FetchDocumentsRequestSdk The request parameters for the API call.
      *
      * @throws \Avalara\SDK\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -534,7 +535,7 @@ class DocumentsApi
      *
      * Fetch the inbound document from a tax authority
      *
-     * @param FetchDocumentsRequest The request parameters for the API call.
+     * @param FetchDocumentsRequestSdk The request parameters for the API call.
      *
      * @throws \Avalara\SDK\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -684,7 +685,7 @@ class DocumentsApi
      *
      * Fetch the inbound document from a tax authority
      *
-     * @param FetchDocumentsRequest The request parameters for the API call.
+     * @param FetchDocumentsRequestSdk The request parameters for the API call.
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -704,7 +705,7 @@ class DocumentsApi
      *
      * Fetch the inbound document from a tax authority
      *
-     * @param FetchDocumentsRequest The request parameters for the API call.
+     * @param FetchDocumentsRequestSdk The request parameters for the API call.
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -765,7 +766,7 @@ class DocumentsApi
     /**
      * Create request for operation 'fetchDocuments'
      *
-     * @param FetchDocumentsRequest The request parameters for the API call.
+     * @param FetchDocumentsRequestSdk The request parameters for the API call.
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -776,7 +777,7 @@ class DocumentsApi
         $requiredScopes = "";
         
         $avalara_version = $request_parameters->getAvalaraVersion();
-        $document_fetch_request = $request_parameters->getDocumentFetchRequest();
+        $fetch_documents_request = $request_parameters->getFetchDocumentsRequest();
         $x_avalara_client = $request_parameters->getXAvalaraClient();
 
         // verify the required parameter 'avalara_version' is set
@@ -785,10 +786,10 @@ class DocumentsApi
                 'Missing the required parameter $avalara_version when calling fetchDocuments'
             );
         }
-        // verify the required parameter 'document_fetch_request' is set
-        if ($document_fetch_request === null || (is_array($document_fetch_request) && count($document_fetch_request) === 0)) {
+        // verify the required parameter 'fetch_documents_request' is set
+        if ($fetch_documents_request === null || (is_array($fetch_documents_request) && count($fetch_documents_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $document_fetch_request when calling fetchDocuments'
+                'Missing the required parameter $fetch_documents_request when calling fetchDocuments'
             );
         }
 
@@ -821,16 +822,16 @@ class DocumentsApi
                 ['application/json']
             );
         }
-        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 24.12.11; {$this->client->config->getMachineName()}";
+        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.6.0; {$this->client->config->getMachineName()}";
 
         $headers['X-Avalara-Client']=$clientId;
 
         // for model (json/xml)
-        if (isset($document_fetch_request)) {
+        if (isset($fetch_documents_request)) {
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($document_fetch_request));
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($fetch_documents_request));
             } else {
-                $httpBody = $document_fetch_request;
+                $httpBody = $fetch_documents_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -867,9 +868,10 @@ class DocumentsApi
         );
 
         $query = \GuzzleHttp\Psr7\Query::build($queryParams);
+        $baseUrl = $this->client->config->getBasePath('EInvoicing');
         return new Request(
             'POST',
-            $this->client->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $baseUrl . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -880,7 +882,7 @@ class DocumentsApi
      *
      * Returns a summary of documents for a date range
      *
-     * @param GetDocumentListRequest The request parameters for the API call.
+     * @param GetDocumentListRequestSdk The request parameters for the API call.
      *
      * @throws \Avalara\SDK\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -897,7 +899,7 @@ class DocumentsApi
      *
      * Returns a summary of documents for a date range
      *
-     * @param GetDocumentListRequest The request parameters for the API call.
+     * @param GetDocumentListRequestSdk The request parameters for the API call.
      *
      * @throws \Avalara\SDK\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1047,7 +1049,7 @@ class DocumentsApi
      *
      * Returns a summary of documents for a date range
      *
-     * @param GetDocumentListRequest The request parameters for the API call.
+     * @param GetDocumentListRequestSdk The request parameters for the API call.
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1067,7 +1069,7 @@ class DocumentsApi
      *
      * Returns a summary of documents for a date range
      *
-     * @param GetDocumentListRequest The request parameters for the API call.
+     * @param GetDocumentListRequestSdk The request parameters for the API call.
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1128,7 +1130,7 @@ class DocumentsApi
     /**
      * Create request for operation 'getDocumentList'
      *
-     * @param GetDocumentListRequest The request parameters for the API call.
+     * @param GetDocumentListRequestSdk The request parameters for the API call.
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -1273,7 +1275,7 @@ class DocumentsApi
                 []
             );
         }
-        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 24.12.11; {$this->client->config->getMachineName()}";
+        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.6.0; {$this->client->config->getMachineName()}";
 
         $headers['X-Avalara-Client']=$clientId;
 
@@ -1313,9 +1315,10 @@ class DocumentsApi
         );
 
         $query = \GuzzleHttp\Psr7\Query::build($queryParams);
+        $baseUrl = $this->client->config->getBasePath('EInvoicing');
         return new Request(
             'GET',
-            $this->client->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $baseUrl . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -1326,7 +1329,7 @@ class DocumentsApi
      *
      * Checks the status of a document
      *
-     * @param GetDocumentStatusRequest The request parameters for the API call.
+     * @param GetDocumentStatusRequestSdk The request parameters for the API call.
      *
      * @throws \Avalara\SDK\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1343,7 +1346,7 @@ class DocumentsApi
      *
      * Checks the status of a document
      *
-     * @param GetDocumentStatusRequest The request parameters for the API call.
+     * @param GetDocumentStatusRequestSdk The request parameters for the API call.
      *
      * @throws \Avalara\SDK\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1493,7 +1496,7 @@ class DocumentsApi
      *
      * Checks the status of a document
      *
-     * @param GetDocumentStatusRequest The request parameters for the API call.
+     * @param GetDocumentStatusRequestSdk The request parameters for the API call.
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1513,7 +1516,7 @@ class DocumentsApi
      *
      * Checks the status of a document
      *
-     * @param GetDocumentStatusRequest The request parameters for the API call.
+     * @param GetDocumentStatusRequestSdk The request parameters for the API call.
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1574,7 +1577,7 @@ class DocumentsApi
     /**
      * Create request for operation 'getDocumentStatus'
      *
-     * @param GetDocumentStatusRequest The request parameters for the API call.
+     * @param GetDocumentStatusRequestSdk The request parameters for the API call.
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -1638,7 +1641,7 @@ class DocumentsApi
                 []
             );
         }
-        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 24.12.11; {$this->client->config->getMachineName()}";
+        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.6.0; {$this->client->config->getMachineName()}";
 
         $headers['X-Avalara-Client']=$clientId;
 
@@ -1678,9 +1681,10 @@ class DocumentsApi
         );
 
         $query = \GuzzleHttp\Psr7\Query::build($queryParams);
+        $baseUrl = $this->client->config->getBasePath('EInvoicing');
         return new Request(
             'GET',
-            $this->client->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $baseUrl . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -1691,7 +1695,7 @@ class DocumentsApi
      *
      * Submits a document to Avalara E-Invoicing API
      *
-     * @param SubmitDocumentRequest The request parameters for the API call.
+     * @param SubmitDocumentRequestSdk The request parameters for the API call.
      *
      * @throws \Avalara\SDK\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1708,7 +1712,7 @@ class DocumentsApi
      *
      * Submits a document to Avalara E-Invoicing API
      *
-     * @param SubmitDocumentRequest The request parameters for the API call.
+     * @param SubmitDocumentRequestSdk The request parameters for the API call.
      *
      * @throws \Avalara\SDK\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1858,7 +1862,7 @@ class DocumentsApi
      *
      * Submits a document to Avalara E-Invoicing API
      *
-     * @param SubmitDocumentRequest The request parameters for the API call.
+     * @param SubmitDocumentRequestSdk The request parameters for the API call.
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1878,7 +1882,7 @@ class DocumentsApi
      *
      * Submits a document to Avalara E-Invoicing API
      *
-     * @param SubmitDocumentRequest The request parameters for the API call.
+     * @param SubmitDocumentRequestSdk The request parameters for the API call.
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1939,7 +1943,7 @@ class DocumentsApi
     /**
      * Create request for operation 'submitDocument'
      *
-     * @param SubmitDocumentRequest The request parameters for the API call.
+     * @param SubmitDocumentRequestSdk The request parameters for the API call.
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -2010,7 +2014,7 @@ class DocumentsApi
                 ['multipart/form-data']
             );
         }
-        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 24.12.11; {$this->client->config->getMachineName()}";
+        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.6.0; {$this->client->config->getMachineName()}";
 
         $headers['X-Avalara-Client']=$clientId;
 
@@ -2050,9 +2054,10 @@ class DocumentsApi
         );
 
         $query = \GuzzleHttp\Psr7\Query::build($queryParams);
+        $baseUrl = $this->client->config->getBasePath('EInvoicing');
         return new Request(
             'POST',
-            $this->client->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $baseUrl . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -2067,7 +2072,7 @@ class DocumentsApi
      * @param  string $document_id The unique ID for this document that was returned in the POST /einvoicing/document response body (required)
      * @param  string $x_avalara_client You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a fingerprint. (optional)
      */
-class DownloadDocumentRequest {
+class DownloadDocumentRequestSdk {
     private $avalara_version;
     private $accept;
     private $document_id;
@@ -2076,7 +2081,7 @@ class DownloadDocumentRequest {
     public function __construct() {
     }
     public function getAvalaraVersion() {
-        return $this->avalara_version ?? '1.2';
+        return $this->avalara_version ?? '1.3';
     }
 
     public function setAvalaraVersion($avalara_version) {
@@ -2109,29 +2114,29 @@ class DownloadDocumentRequest {
      * Represents the Request object for the FetchDocuments API
      *
      * @param  string $avalara_version The HTTP Header meant to specify the version of the API intended to be used (required)
-     * @param  \Avalara\SDK\Model\EInvoicing\V1\DocumentFetchRequest $document_fetch_request document_fetch_request (required)
+     * @param  \Avalara\SDK\Model\EInvoicing\V1\FetchDocumentsRequest $fetch_documents_request fetch_documents_request (required)
      * @param  string $x_avalara_client You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a fingerprint. (optional)
      */
-class FetchDocumentsRequest {
+class FetchDocumentsRequestSdk {
     private $avalara_version;
-    private $document_fetch_request;
+    private $fetch_documents_request;
     private $x_avalara_client;
 
     public function __construct() {
     }
     public function getAvalaraVersion() {
-        return $this->avalara_version ?? '1.2';
+        return $this->avalara_version ?? '1.3';
     }
 
     public function setAvalaraVersion($avalara_version) {
         $this->avalara_version = $avalara_version;
     }
-    public function getDocumentFetchRequest() {
-        return $this->document_fetch_request;
+    public function getFetchDocumentsRequest() {
+        return $this->fetch_documents_request;
     }
 
-    public function setDocumentFetchRequest($document_fetch_request) {
-        $this->document_fetch_request = $document_fetch_request;
+    public function setFetchDocumentsRequest($fetch_documents_request) {
+        $this->fetch_documents_request = $fetch_documents_request;
     }
     public function getXAvalaraClient() {
         return $this->x_avalara_client;
@@ -2156,7 +2161,7 @@ class FetchDocumentsRequest {
      * @param  float $top If nonzero, return no more than this number of results. Used with &lt;code&gt;$skip&lt;/code&gt; to provide pagination for large datasets. Unless otherwise specified, the maximum number of records that can be returned from an API call is 200 records. (optional)
      * @param  string $skip If nonzero, skip this number of results before returning data. Used with &lt;code&gt;$top&lt;/code&gt; to provide pagination for large datasets. (optional)
      */
-class GetDocumentListRequest {
+class GetDocumentListRequestSdk {
     private $avalara_version;
     private $x_avalara_client;
     private $start_date;
@@ -2171,7 +2176,7 @@ class GetDocumentListRequest {
     public function __construct() {
     }
     public function getAvalaraVersion() {
-        return $this->avalara_version ?? '1.2';
+        return $this->avalara_version ?? '1.3';
     }
 
     public function setAvalaraVersion($avalara_version) {
@@ -2249,7 +2254,7 @@ class GetDocumentListRequest {
      * @param  string $document_id The unique ID for this document that was returned in the POST /einvoicing/documents response body (required)
      * @param  string $x_avalara_client You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a fingerprint. (optional)
      */
-class GetDocumentStatusRequest {
+class GetDocumentStatusRequestSdk {
     private $avalara_version;
     private $document_id;
     private $x_avalara_client;
@@ -2257,7 +2262,7 @@ class GetDocumentStatusRequest {
     public function __construct() {
     }
     public function getAvalaraVersion() {
-        return $this->avalara_version ?? '1.2';
+        return $this->avalara_version ?? '1.3';
     }
 
     public function setAvalaraVersion($avalara_version) {
@@ -2284,10 +2289,10 @@ class GetDocumentStatusRequest {
      *
      * @param  string $avalara_version The HTTP Header meant to specify the version of the API intended to be used (required)
      * @param  \Avalara\SDK\Model\EInvoicing\V1\SubmitDocumentMetadata $metadata metadata (required)
-     * @param  string $data The document to be submitted, as indicated by the metadata fields &#39;dataFormat&#39; and &#39;dataFormatVersion&#39; (required)
+     * @param  object $data The document to be submitted, as indicated by the metadata fields &#39;dataFormat&#39; and &#39;dataFormatVersion&#39; (required)
      * @param  string $x_avalara_client You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a fingerprint. (optional)
      */
-class SubmitDocumentRequest {
+class SubmitDocumentRequestSdk {
     private $avalara_version;
     private $metadata;
     private $data;
@@ -2296,7 +2301,7 @@ class SubmitDocumentRequest {
     public function __construct() {
     }
     public function getAvalaraVersion() {
-        return $this->avalara_version ?? '1.2';
+        return $this->avalara_version ?? '1.3';
     }
 
     public function setAvalaraVersion($avalara_version) {

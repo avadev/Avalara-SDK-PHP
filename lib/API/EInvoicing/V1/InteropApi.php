@@ -79,7 +79,7 @@ class InteropApi
     private function setConfiguration($client): void
     {
         $this->verifyAPIClient($client);
-        $client->setSdkVersion("24.12.11");
+        $client->setSdkVersion("25.6.0");
         $this->headerSelector = new HeaderSelector(); 
         $this->client = $client;
     }
@@ -120,7 +120,7 @@ class InteropApi
      *
      * Submit a document
      *
-     * @param SubmitInteropDocumentRequest The request parameters for the API call.
+     * @param SubmitInteropDocumentRequestSdk The request parameters for the API call.
      *
      * @throws \Avalara\SDK\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -137,7 +137,7 @@ class InteropApi
      *
      * Submit a document
      *
-     * @param SubmitInteropDocumentRequest The request parameters for the API call.
+     * @param SubmitInteropDocumentRequestSdk The request parameters for the API call.
      *
      * @throws \Avalara\SDK\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -329,7 +329,7 @@ class InteropApi
      *
      * Submit a document
      *
-     * @param SubmitInteropDocumentRequest The request parameters for the API call.
+     * @param SubmitInteropDocumentRequestSdk The request parameters for the API call.
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -349,7 +349,7 @@ class InteropApi
      *
      * Submit a document
      *
-     * @param SubmitInteropDocumentRequest The request parameters for the API call.
+     * @param SubmitInteropDocumentRequestSdk The request parameters for the API call.
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -410,7 +410,7 @@ class InteropApi
     /**
      * Create request for operation 'submitInteropDocument'
      *
-     * @param SubmitInteropDocumentRequest The request parameters for the API call.
+     * @param SubmitInteropDocumentRequestSdk The request parameters for the API call.
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -513,7 +513,7 @@ class InteropApi
                 ['multipart/form-data']
             );
         }
-        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 24.12.11; {$this->client->config->getMachineName()}";
+        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.6.0; {$this->client->config->getMachineName()}";
 
         $headers['X-Avalara-Client']=$clientId;
 
@@ -553,9 +553,10 @@ class InteropApi
         );
 
         $query = \GuzzleHttp\Psr7\Query::build($queryParams);
+        $baseUrl = $this->client->config->getBasePath('EInvoicing');
         return new Request(
             'POST',
-            $this->client->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $baseUrl . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -572,7 +573,7 @@ class InteropApi
      * @param  string $x_correlation_id The caller can use this as an identifier to use as a correlation id to trace the call. (optional)
      * @param  \SplFileObject $file_name The file to be uploaded (e.g., UBL XML, CII XML). (optional)
      */
-class SubmitInteropDocumentRequest {
+class SubmitInteropDocumentRequestSdk {
     private $document_type;
     private $interchange_type;
     private $avalara_version;
@@ -597,7 +598,7 @@ class SubmitInteropDocumentRequest {
         $this->interchange_type = $interchange_type;
     }
     public function getAvalaraVersion() {
-        return $this->avalara_version ?? '1.2';
+        return $this->avalara_version ?? '1.3';
     }
 
     public function setAvalaraVersion($avalara_version) {

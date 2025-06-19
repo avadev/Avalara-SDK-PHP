@@ -47,6 +47,7 @@ use \Avalara\SDK\Model\ModelInterface;
  * ErrorResponse Class Doc Comment
  *
  * @category Class
+ * @description Structure for reporting errors encountered during API operations, including title, status, and detailed message.
  * @package  Avalara\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

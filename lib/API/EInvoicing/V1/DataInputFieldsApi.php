@@ -79,7 +79,7 @@ class DataInputFieldsApi
     private function setConfiguration($client): void
     {
         $this->verifyAPIClient($client);
-        $client->setSdkVersion("24.12.11");
+        $client->setSdkVersion("25.6.0");
         $this->headerSelector = new HeaderSelector(); 
         $this->client = $client;
     }
@@ -120,7 +120,7 @@ class DataInputFieldsApi
      *
      * Returns the optionality of document fields for different country mandates
      *
-     * @param GetDataInputFieldsRequest The request parameters for the API call.
+     * @param GetDataInputFieldsRequestSdk The request parameters for the API call.
      *
      * @throws \Avalara\SDK\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -137,7 +137,7 @@ class DataInputFieldsApi
      *
      * Returns the optionality of document fields for different country mandates
      *
-     * @param GetDataInputFieldsRequest The request parameters for the API call.
+     * @param GetDataInputFieldsRequestSdk The request parameters for the API call.
      *
      * @throws \Avalara\SDK\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -287,7 +287,7 @@ class DataInputFieldsApi
      *
      * Returns the optionality of document fields for different country mandates
      *
-     * @param GetDataInputFieldsRequest The request parameters for the API call.
+     * @param GetDataInputFieldsRequestSdk The request parameters for the API call.
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -307,7 +307,7 @@ class DataInputFieldsApi
      *
      * Returns the optionality of document fields for different country mandates
      *
-     * @param GetDataInputFieldsRequest The request parameters for the API call.
+     * @param GetDataInputFieldsRequestSdk The request parameters for the API call.
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -368,7 +368,7 @@ class DataInputFieldsApi
     /**
      * Create request for operation 'getDataInputFields'
      *
-     * @param GetDataInputFieldsRequest The request parameters for the API call.
+     * @param GetDataInputFieldsRequestSdk The request parameters for the API call.
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -477,7 +477,7 @@ class DataInputFieldsApi
                 []
             );
         }
-        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 24.12.11; {$this->client->config->getMachineName()}";
+        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.6.0; {$this->client->config->getMachineName()}";
 
         $headers['X-Avalara-Client']=$clientId;
 
@@ -517,9 +517,10 @@ class DataInputFieldsApi
         );
 
         $query = \GuzzleHttp\Psr7\Query::build($queryParams);
+        $baseUrl = $this->client->config->getBasePath('EInvoicing');
         return new Request(
             'GET',
-            $this->client->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $baseUrl . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -537,7 +538,7 @@ class DataInputFieldsApi
      * @param  bool $count When set to true, the count of the collection is also returned in the response body (optional)
      * @param  bool $count_only When set to true, only the count of the collection is returned (optional)
      */
-class GetDataInputFieldsRequest {
+class GetDataInputFieldsRequestSdk {
     private $avalara_version;
     private $x_avalara_client;
     private $filter;
@@ -549,7 +550,7 @@ class GetDataInputFieldsRequest {
     public function __construct() {
     }
     public function getAvalaraVersion() {
-        return $this->avalara_version ?? '1.2';
+        return $this->avalara_version ?? '1.3';
     }
 
     public function setAvalaraVersion($avalara_version) {

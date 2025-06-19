@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **string** | The unique ID for this document | [optional]
+**company_id** | **string** | Unique identifier that represents the company within the system. | [optional]
 **process_date_time** | **string** | The date and time when the document was processed, displayed in the format YYYY-MM-DDThh:mm:ss | [optional]
 **status** | **string** | The Document status | [optional]
 **supplier_name** | **string** | The name of the supplier in the transaction | [optional]
