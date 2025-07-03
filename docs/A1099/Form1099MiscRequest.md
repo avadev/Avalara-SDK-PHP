@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**state_and_local_withholding** | [**\Avalara\SDK\Model\A1099\V2\StateAndLocalWithholdingRequest**](StateAndLocalWithholdingRequest.md) |  | [optional]
+**state_and_local_withholding** | [**\AvalaraSDK\ModelA1099V2\StateAndLocalWithholdingRequest**](StateAndLocalWithholdingRequest.md) |  | [optional]
 **second_tin_notice** | **bool** |  | [optional]
 **rents** | **float** |  | [optional]
 **royalties** | **float** |  | [optional]
@@ -23,13 +23,10 @@ Name | Type | Description | Notes
 **nonqualified_deferred_compensation** | **float** |  | [optional]
 **type** | **string** |  | [optional]
 **issuer_id** | **string** |  | [optional]
-**issuer_reference_id** | **string** |  | [optional]
-**issuer_tin** | **string** |  | [optional]
-**tax_year** | **int** |  | [optional]
 **reference_id** | **string** |  | [optional]
 **recipient_name** | **string** |  | [optional]
 **recipient_tin** | **string** |  | [optional]
-**tin_type** | **int** |  | [optional]
+**tin_type** | **string** |  | [optional]
 **recipient_second_name** | **string** |  | [optional]
 **street_address** | **string** |  | [optional]
 **street_address_line2** | **string** |  | [optional]

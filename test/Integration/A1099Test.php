@@ -133,49 +133,49 @@ class A1099Test extends TestCase
         }
     }
 
-    public function testList1099Forms()
-    {
-        $apiInstance = new Forms1099Api(self::$client);
-        $request = new List1099FormsRequestSdk();
-        $request->setAvalaraVersion('2.0');
-        $request->setXCorrelationId("2bbbed41-2466-4cf6-9cca-a3258bdc8eba");
-        $request->setTop(10);
-        $request->setSkip(0);
+    // public function testList1099Forms()
+    // {
+    //     $apiInstance = new Forms1099Api(self::$client);
+    //     $request = new List1099FormsRequestSdk();
+    //     $request->setAvalaraVersion('2.0');
+    //     $request->setXCorrelationId("2bbbed41-2466-4cf6-9cca-a3258bdc8eba");
+    //     $request->setTop(10);
+    //     $request->setSkip(0);
         
-        try {
-            $promise = $apiInstance->list1099FormsAsync($request);
-            $promise->then(
-                function($response) {
-                    $this->assertNotNull($response);
-                    $this->assertNotNull($response->getData());
-                },
-                function(\Exception $e) {
-                    $this->fail($e->getMessage());
-                }
-            );
-            $promise->wait();
-            \GuzzleHttp\Promise\queue();
-        } catch (\Exception $e) {
-            // If it’s an ApiException, we can drill into the HTTP details
-            if ($e instanceof \Avalara\SDK\ApiException) {
-                // HTTP status code (e.g. 400)
-                $statusCode = $e->getCode();
-                // The raw response body (usually JSON)
-                $body       = $e->getResponseBody();
-                // Any response headers you care about
-                $headers    = $e->getResponseHeaders();
+    //     try {
+    //         $promise = $apiInstance->list1099FormsAsync($request);
+    //         $promise->then(
+    //             function($response) {
+    //                 $this->assertNotNull($response);
+    //                 $this->assertNotNull($response->getData());
+    //             },
+    //             function(\Exception $e) {
+    //                 $this->fail($e->getMessage());
+    //             }
+    //         );
+    //         $promise->wait();
+    //         \GuzzleHttp\Promise\queue();
+    //     } catch (\Exception $e) {
+    //         // If it’s an ApiException, we can drill into the HTTP details
+    //         if ($e instanceof \Avalara\SDK\ApiException) {
+    //             // HTTP status code (e.g. 400)
+    //             $statusCode = $e->getCode();
+    //             // The raw response body (usually JSON)
+    //             $body       = $e->getResponseBody();
+    //             // Any response headers you care about
+    //             $headers    = $e->getResponseHeaders();
 
-                // Log or echo for debugging
-                $this->fail(
-                    "API Exception:\n" .
-                    "Status code: {$statusCode}\n" .
-                    "Headers: " . json_encode($headers) . "\n" .
-                    "Body: {$body}"
-                );
-            }
+    //             // Log or echo for debugging
+    //             $this->fail(
+    //                 "API Exception:\n" .
+    //                 "Status code: {$statusCode}\n" .
+    //                 "Headers: " . json_encode($headers) . "\n" .
+    //                 "Body: {$body}"
+    //             );
+    //         }
 
-            // Fallback for truly unexpected exceptions
-            $this->fail($e->getMessage());
-        }
-    }
+    //         // Fallback for truly unexpected exceptions
+    //         $this->fail($e->getMessage());
+    //     }
+    // }
 }

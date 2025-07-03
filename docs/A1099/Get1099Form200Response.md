@@ -1,4 +1,4 @@
-# # Form1099K
+# # Get1099Form200Response
 
 ## Properties
 
@@ -57,5 +57,38 @@ Name | Type | Description | Notes
 **created_at** | **\DateTime** |  | [optional]
 **updated_at** | **\DateTime** |  | [optional]
 **state_and_local_withholding** | [**\AvalaraSDK\ModelA1099V2\StateAndLocalWithholding**](StateAndLocalWithholding.md) |  | [optional]
+**rents** | **float** |  | [optional]
+**royalties** | **float** |  | [optional]
+**other_income** | **float** |  | [optional]
+**fed_income_tax_withheld** | **float** |  | [optional]
+**fishing_boat_proceeds** | **float** |  | [optional]
+**medical_and_health_care** | **float** |  | [optional]
+**nonemployee_compensation** | **float** |  | [optional]
+**substitute_payments** | **float** |  | [optional]
+**direct_sales_indicator** | **bool** |  | [optional]
+**crop_insurance_proceeds** | **float** |  | [optional]
+**excess_golden_parachute** | **float** |  | [optional]
+**gross_amount_paid_attorney** | **float** |  | [optional]
+**section409_a_deferrals** | **float** |  | [optional]
+**section409_a_income** | **float** |  | [optional]
+**gross_distributions** | **float** |  | [optional]
+**taxable_amount** | **float** |  | [optional]
+**taxable_amount_not_determined** | **bool** |  | [optional]
+**total_distribution_indicator** | **bool** |  | [optional]
+**capital_gain** | **float** |  | [optional]
+**employee_contributions** | **float** |  | [optional]
+**net_unrealized_appreciation** | **float** |  | [optional]
+**distribution_code_required** | **string** |  | [optional]
+**distribution_code_optional** | **string** |  | [optional]
+**ira_sep_simple_indicator** | **bool** |  | [optional]
+**total_ira_sep_simple_distribution** | **float** |  | [optional]
+**other** | **float** |  | [optional]
+**other_percent** | **string** |  | [optional]
+**percentage_total_distribution** | **string** |  | [optional]
+**total_employee_contributions** | **float** |  | [optional]
+**amount_allocable_to_irr** | **float** |  | [optional]
+**first_year_designated_roth_contrib** | **string** |  | [optional]
+**fatca_requirement_indicator** | **bool** |  | [optional]
+**date_of_payment** | **string** |  | [optional]
 
 [[Back to Model list]](../../../README.md#models) [[Back to API list]](../../../README.md#endpoints) [[Back to README]](../../../README.md)

@@ -1,4 +1,4 @@
-# Avalara\SDK\TradingPartnersApi
+# AvalaraSDK\TradingPartnersApi
 
 All URIs are relative to https://api.sbx.avalara.com/einvoicing.
 
@@ -14,7 +14,7 @@ Method | HTTP request | Description
 ## `batchSearchParticipants()`
 
 ```php
-batchSearchParticipants($avalara_version, $name, $notification_email, $file, $x_avalara_client, $x_correlation_id): \Avalara\SDK\Model\EInvoicing\V1\BatchSearchParticipants202Response
+batchSearchParticipants($avalara_version, $name, $notification_email, $file, $x_avalara_client, $x_correlation_id): \AvalaraSDK\ModelEInvoicingV1\BatchSearchParticipants202Response
 ```
 
 Creates a batch search and performs a batch search in the directory for participants in the background.
@@ -37,7 +37,7 @@ $config = new \Avalara\SDK\Configuration()
 
 $client = new \Avalara\SDK\ApiClient($config);
 
-$apiInstance = new Avalara\SDK\Api\TradingPartnersApi($client);
+$apiInstance = new AvalaraSDK\Api\TradingPartnersApi($client);
 
 $avalara_version = 1.2; // string | The HTTP Header meant to specify the version of the API intended to be used
 $name = Automotive Companies in London Search; // string | The human readable name given to this batch search.
@@ -67,7 +67,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Avalara\SDK\Model\EInvoicing\V1\BatchSearchParticipants202Response**](../Model/BatchSearchParticipants202Response.md)
+[**\AvalaraSDK\ModelEInvoicingV1\BatchSearchParticipants202Response**](../Model/BatchSearchParticipants202Response.md)
 
 ### Authorization
 
@@ -108,7 +108,7 @@ $config = new \Avalara\SDK\Configuration()
 
 $client = new \Avalara\SDK\ApiClient($config);
 
-$apiInstance = new Avalara\SDK\Api\TradingPartnersApi($client);
+$apiInstance = new AvalaraSDK\Api\TradingPartnersApi($client);
 
 $avalara_version = 1.2; // string | The HTTP Header meant to specify the version of the API intended to be used
 $id = 2f5ea4b5-4dae-445a-b3e4-9f65a61eaa99; // string | The ID of the batch search whose report is to be downloaded.
@@ -152,7 +152,7 @@ Name | Type | Description  | Notes
 ## `getBatchSearchDetail()`
 
 ```php
-getBatchSearchDetail($avalara_version, $id, $x_avalara_client, $x_correlation_id): \Avalara\SDK\Model\EInvoicing\V1\BatchSearch
+getBatchSearchDetail($avalara_version, $id, $x_avalara_client, $x_correlation_id): \AvalaraSDK\ModelEInvoicingV1\BatchSearch
 ```
 
 Get the batch search details for a given id.
@@ -175,7 +175,7 @@ $config = new \Avalara\SDK\Configuration()
 
 $client = new \Avalara\SDK\ApiClient($config);
 
-$apiInstance = new Avalara\SDK\Api\TradingPartnersApi($client);
+$apiInstance = new AvalaraSDK\Api\TradingPartnersApi($client);
 
 $avalara_version = 1.2; // string | The HTTP Header meant to specify the version of the API intended to be used
 $id = 2f5ea4b5-4dae-445a-b3e4-9f65a61eaa99; // string | The ID of the batch search that was submitted earlier.
@@ -201,7 +201,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Avalara\SDK\Model\EInvoicing\V1\BatchSearch**](../Model/BatchSearch.md)
+[**\AvalaraSDK\ModelEInvoicingV1\BatchSearch**](../Model/BatchSearch.md)
 
 ### Authorization
 
@@ -219,7 +219,7 @@ Name | Type | Description  | Notes
 ## `listBatchSearches()`
 
 ```php
-listBatchSearches($avalara_version, $x_avalara_client, $filter, $count, $top, $skip, $order_by, $x_correlation_id): \Avalara\SDK\Model\EInvoicing\V1\BatchSearchListResponse
+listBatchSearches($avalara_version, $x_avalara_client, $filter, $count, $top, $skip, $order_by, $x_correlation_id): \AvalaraSDK\ModelEInvoicingV1\BatchSearchListResponse
 ```
 
 List all batch searches that were previously submitted.
@@ -242,7 +242,7 @@ $config = new \Avalara\SDK\Configuration()
 
 $client = new \Avalara\SDK\ApiClient($config);
 
-$apiInstance = new Avalara\SDK\Api\TradingPartnersApi($client);
+$apiInstance = new AvalaraSDK\Api\TradingPartnersApi($client);
 
 $avalara_version = 1.2; // string | The HTTP Header meant to specify the version of the API intended to be used
 $x_avalara_client = John's E-Invoicing-API Client; // string | You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a \"Fingerprint\"
@@ -276,7 +276,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Avalara\SDK\Model\EInvoicing\V1\BatchSearchListResponse**](../Model/BatchSearchListResponse.md)
+[**\AvalaraSDK\ModelEInvoicingV1\BatchSearchListResponse**](../Model/BatchSearchListResponse.md)
 
 ### Authorization
 
@@ -294,7 +294,7 @@ Name | Type | Description  | Notes
 ## `searchParticipants()`
 
 ```php
-searchParticipants($avalara_version, $search, $x_avalara_client, $count, $filter, $top, $skip, $order_by, $x_correlation_id): \Avalara\SDK\Model\EInvoicing\V1\DirectorySearchResponse
+searchParticipants($avalara_version, $search, $x_avalara_client, $count, $filter, $top, $skip, $order_by, $x_correlation_id): \AvalaraSDK\ModelEInvoicingV1\DirectorySearchResponse
 ```
 
 Returns a list of participants matching the input query.
@@ -317,7 +317,7 @@ $config = new \Avalara\SDK\Configuration()
 
 $client = new \Avalara\SDK\ApiClient($config);
 
-$apiInstance = new Avalara\SDK\Api\TradingPartnersApi($client);
+$apiInstance = new AvalaraSDK\Api\TradingPartnersApi($client);
 
 $avalara_version = 1.2; // string | The HTTP Header meant to specify the version of the API intended to be used
 $search = Acme and 7726627177 or BMW; // string | Search by value supports logical AND and OR. Refer to [https://learn.microsoft.com/en-us/odata/concepts/queryoptions-overview#search](https://learn.microsoft.com/en-us/odata/concepts/queryoptions-overview#search) for more information on search. Search will be done over <code>name</code> and <code>identifier</code> parameters only.
@@ -353,7 +353,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Avalara\SDK\Model\EInvoicing\V1\DirectorySearchResponse**](../Model/DirectorySearchResponse.md)
+[**\AvalaraSDK\ModelEInvoicingV1\DirectorySearchResponse**](../Model/DirectorySearchResponse.md)
 
 ### Authorization
 

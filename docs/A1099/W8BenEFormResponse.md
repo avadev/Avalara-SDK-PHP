@@ -97,7 +97,7 @@ Name | Type | Description | Notes
 **excepted_inter_affiliate_ffi_certification** | **bool** | Certifies that the entity is an inter-affiliate FFI meeting all conditions for exemption,  including limited account activity and payment interactions within its expanded affiliated group. | [optional]
 **sponsored_direct_reporting_nffe_certification** | **bool** | Certifies that the entity is a sponsored direct reporting NFFE. | [optional]
 **direct_reporting_nffe_sponsoring_entity** | **string** | The name of the entity that sponsors the direct reporting NFFE. | [optional]
-**substantial_us_owners** | [**\Avalara\SDK\Model\A1099\V2\SubstantialUsOwnerResponse[]**](SubstantialUsOwnerResponse.md) | The list of substantial U.S. owners of passive NFFE. | [optional]
+**substantial_us_owners** | [**\AvalaraSDK\ModelA1099V2\SubstantialUsOwnerResponse[]**](SubstantialUsOwnerResponse.md) | The list of substantial U.S. owners of passive NFFE. | [optional]
 **signer_name** | **string** | The name of the signer. | [optional]
 **capacity_to_sign_certification** | **bool** | Certifies signer has the capacity to sign for the beneficial owner. | [optional]
 **id** | **string** | The unique identifier for the form. | [optional]

@@ -1,13 +1,9 @@
-# # Form1099NecListItem
+# # FormRequestCsvBase
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**second_tin_notice** | **bool** |  | [optional]
-**nonemployee_compensation** | **float** |  | [optional]
-**payer_made_direct_sales** | **bool** |  | [optional]
-**federal_income_tax_withheld** | **float** |  | [optional]
 **issuer_reference_id** | **string** |  | [optional]
 **issuer_tin** | **string** |  | [optional]
 **tax_year** | **int** |  | [optional]
