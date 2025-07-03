@@ -1,9 +1,10 @@
-# # Form1099List
+# # Form1095BList
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**\AvalaraSDK\ModelA1099V2\Get1099Form200Response[]**](Get1099Form200Response.md) |  | [optional]
+**forms** | [**\AvalaraSDK\ModelA1099V2\Form1095BListItem[]**](Form1095BListItem.md) |  | [optional]
+**form_type** | **string** |  | [optional]
 
 [[Back to Model list]](../../../README.md#models) [[Back to API list]](../../../README.md#endpoints) [[Back to README]](../../../README.md)

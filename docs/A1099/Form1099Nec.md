@@ -30,7 +30,7 @@ Name | Type | Description | Notes
 **recipient_name** | **string** |  | [optional]
 **recipient_second_name** | **string** |  | [optional]
 **address** | **string** |  | [optional]
-**address_recipient_second** | **string** |  | [optional]
+**address2** | **string** |  | [optional]
 **city** | **string** |  | [optional]
 **state** | **string** |  | [optional]
 **zip** | **string** |  | [optional]

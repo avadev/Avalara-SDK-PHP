@@ -1,16 +1,17 @@
-# # Form1099NecListItem
+# # Form1095BRequest
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**second_tin_notice** | **bool** |  | [optional]
-**nonemployee_compensation** | **float** |  | [optional]
-**payer_made_direct_sales** | **bool** |  | [optional]
-**federal_income_tax_withheld** | **float** |  | [optional]
-**issuer_reference_id** | **string** |  | [optional]
-**issuer_tin** | **string** |  | [optional]
-**tax_year** | **int** |  | [optional]
+**employee_first_name** | **string** |  | [optional]
+**employee_middle_name** | **string** |  | [optional]
+**employee_last_name** | **string** |  | [optional]
+**employee_name_suffix** | **string** |  | [optional]
+**employee_date_of_birth** | **\DateTime** |  | [optional]
+**origin_of_health_coverage_code** | **string** |  | [optional]
+**covered_individuals** | [**\AvalaraSDK\ModelA1099V2\CoveredIndividualRequest[]**](CoveredIndividualRequest.md) |  | [optional]
+**type** | **string** |  | [optional] [readonly]
 **issuer_id** | **string** |  | [optional]
 **reference_id** | **string** |  | [optional]
 **recipient_name** | **string** |  | [optional]

@@ -10,7 +10,7 @@ Method | HTTP request | Description
 ## `getJob()`
 
 ```php
-getJob($id, $avalara_version, $x_correlation_id): \AvalaraSDK\ModelA1099V2\JobResult
+getJob($id, $avalara_version, $x_correlation_id, $x_avalara_client): \AvalaraSDK\ModelA1099V2\JobResult
 ```
 
 Retrieves information about the job
@@ -37,10 +37,11 @@ $apiInstance = new AvalaraSDK\Api\Jobs1099Api($client);
 
 $id = 'id_example'; // string | Job id obtained from other API responses, like `/1099/bulk-upsert`.
 $avalara_version = 2.0; // string | API version
-$x_correlation_id = 27e8a96c-0c06-4f02-8f3e-4d3f1277835c; // string | Unique correlation Id in a GUID format
+$x_correlation_id = 979f23e8-d8cd-4762-a449-1f1912981402; // string | Unique correlation Id in a GUID format
+$x_avalara_client = Swagger UI; 22.1.0; // string | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
 
 try {
-    $result = $apiInstance->getJob($id, $avalara_version, $x_correlation_id);
+    $result = $apiInstance->getJob($id, $avalara_version, $x_correlation_id, $x_avalara_client);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling Jobs1099Api->getJob: ', $e->getMessage(), PHP_EOL;
@@ -53,7 +54,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string**| Job id obtained from other API responses, like &#x60;/1099/bulk-upsert&#x60;. |
  **avalara_version** | **string**| API version |
- **x_correlation_id** | **string**| Unique correlation Id in a GUID format |
+ **x_correlation_id** | **string**| Unique correlation Id in a GUID format | [optional]
+ **x_avalara_client** | **string**| Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) . | [optional]
 
 ### Return type
 

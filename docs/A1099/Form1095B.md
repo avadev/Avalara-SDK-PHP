@@ -1,9 +1,11 @@
-# # Form1099Base
+# # Form1095B
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**origin_of_health_coverage_code** | **string** |  | [optional]
+**covered_individuals** | [**\AvalaraSDK\ModelA1099V2\CoveredIndividualReference[]**](CoveredIndividualReference.md) |  | [optional]
 **id** | **string** |  | [optional]
 **type** | **string** |  | [optional]
 **issuer_id** | **int** |  | [optional]
