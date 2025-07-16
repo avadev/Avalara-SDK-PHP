@@ -123,7 +123,7 @@ Name | Type | Description | Notes
 **part19_formation_or_resolution_date** | **\DateTime** |  | [optional]
 **part20_filing_date** | **\DateTime** |  | [optional]
 **part21_determination_date** | **\DateTime** |  | [optional]
-**substantial_us_owners** | [**\AvalaraSDK\ModelA1099V2\W8BenESubstantialUsOwnerDataModel[]**](W8BenESubstantialUsOwnerDataModel.md) |  | [optional]
+**substantial_us_owners** | [**\Avalara\SDK\Model\A1099\V2\W8BenESubstantialUsOwnerDataModel[]**](W8BenESubstantialUsOwnerDataModel.md) |  | [optional]
 **birthday** | **string** | The birthday of the individual associated with the form. | [optional]
 **foreign_tin_not_required** | **bool** | Indicates whether a foreign TIN is not required. | [optional]
 **archived** | **bool** | Indicates whether the form is archived. | [optional]

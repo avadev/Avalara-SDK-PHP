@@ -72,16 +72,13 @@ class FormRequestBase implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'issuer_id' => 'string',
-        'issuer_reference_id' => 'string',
-        'issuer_tin' => 'string',
-        'tax_year' => 'int',
         'reference_id' => 'string',
         'recipient_name' => 'string',
         'recipient_tin' => 'string',
-        'tin_type' => 'int',
+        'tin_type' => 'string',
         'recipient_second_name' => 'string',
-        'street_address' => 'string',
-        'street_address_line2' => 'string',
+        'address' => 'string',
+        'address2' => 'string',
         'city' => 'string',
         'state' => 'string',
         'zip' => 'string',
@@ -94,7 +91,8 @@ class FormRequestBase implements ModelInterface, ArrayAccess, \JsonSerializable
         'postal_mail' => 'bool',
         'state_e_file' => 'bool',
         'tin_match' => 'bool',
-        'address_verification' => 'bool'
+        'address_verification' => 'bool',
+        'state_and_local_withholding' => '\Avalara\SDK\Model\A1099\V2\StateAndLocalWithholdingRequest'
     ];
 
     /**
@@ -106,16 +104,13 @@ class FormRequestBase implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPIFormats = [
         'issuer_id' => null,
-        'issuer_reference_id' => null,
-        'issuer_tin' => null,
-        'tax_year' => 'int32',
         'reference_id' => null,
         'recipient_name' => null,
         'recipient_tin' => null,
-        'tin_type' => 'int32',
+        'tin_type' => null,
         'recipient_second_name' => null,
-        'street_address' => null,
-        'street_address_line2' => null,
+        'address' => null,
+        'address2' => null,
         'city' => null,
         'state' => null,
         'zip' => null,
@@ -128,7 +123,8 @@ class FormRequestBase implements ModelInterface, ArrayAccess, \JsonSerializable
         'postal_mail' => null,
         'state_e_file' => null,
         'tin_match' => null,
-        'address_verification' => null
+        'address_verification' => null,
+        'state_and_local_withholding' => null
     ];
 
     /**
@@ -159,16 +155,13 @@ class FormRequestBase implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $attributeMap = [
         'issuer_id' => 'issuerId',
-        'issuer_reference_id' => 'issuerReferenceId',
-        'issuer_tin' => 'issuerTin',
-        'tax_year' => 'taxYear',
         'reference_id' => 'referenceId',
         'recipient_name' => 'recipientName',
         'recipient_tin' => 'recipientTin',
         'tin_type' => 'tinType',
         'recipient_second_name' => 'recipientSecondName',
-        'street_address' => 'streetAddress',
-        'street_address_line2' => 'streetAddressLine2',
+        'address' => 'address',
+        'address2' => 'address2',
         'city' => 'city',
         'state' => 'state',
         'zip' => 'zip',
@@ -181,7 +174,8 @@ class FormRequestBase implements ModelInterface, ArrayAccess, \JsonSerializable
         'postal_mail' => 'postalMail',
         'state_e_file' => 'stateEFile',
         'tin_match' => 'tinMatch',
-        'address_verification' => 'addressVerification'
+        'address_verification' => 'addressVerification',
+        'state_and_local_withholding' => 'stateAndLocalWithholding'
     ];
 
     /**
@@ -191,16 +185,13 @@ class FormRequestBase implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $setters = [
         'issuer_id' => 'setIssuerId',
-        'issuer_reference_id' => 'setIssuerReferenceId',
-        'issuer_tin' => 'setIssuerTin',
-        'tax_year' => 'setTaxYear',
         'reference_id' => 'setReferenceId',
         'recipient_name' => 'setRecipientName',
         'recipient_tin' => 'setRecipientTin',
         'tin_type' => 'setTinType',
         'recipient_second_name' => 'setRecipientSecondName',
-        'street_address' => 'setStreetAddress',
-        'street_address_line2' => 'setStreetAddressLine2',
+        'address' => 'setAddress',
+        'address2' => 'setAddress2',
         'city' => 'setCity',
         'state' => 'setState',
         'zip' => 'setZip',
@@ -213,7 +204,8 @@ class FormRequestBase implements ModelInterface, ArrayAccess, \JsonSerializable
         'postal_mail' => 'setPostalMail',
         'state_e_file' => 'setStateEFile',
         'tin_match' => 'setTinMatch',
-        'address_verification' => 'setAddressVerification'
+        'address_verification' => 'setAddressVerification',
+        'state_and_local_withholding' => 'setStateAndLocalWithholding'
     ];
 
     /**
@@ -223,16 +215,13 @@ class FormRequestBase implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $getters = [
         'issuer_id' => 'getIssuerId',
-        'issuer_reference_id' => 'getIssuerReferenceId',
-        'issuer_tin' => 'getIssuerTin',
-        'tax_year' => 'getTaxYear',
         'reference_id' => 'getReferenceId',
         'recipient_name' => 'getRecipientName',
         'recipient_tin' => 'getRecipientTin',
         'tin_type' => 'getTinType',
         'recipient_second_name' => 'getRecipientSecondName',
-        'street_address' => 'getStreetAddress',
-        'street_address_line2' => 'getStreetAddressLine2',
+        'address' => 'getAddress',
+        'address2' => 'getAddress2',
         'city' => 'getCity',
         'state' => 'getState',
         'zip' => 'getZip',
@@ -245,7 +234,8 @@ class FormRequestBase implements ModelInterface, ArrayAccess, \JsonSerializable
         'postal_mail' => 'getPostalMail',
         'state_e_file' => 'getStateEFile',
         'tin_match' => 'getTinMatch',
-        'address_verification' => 'getAddressVerification'
+        'address_verification' => 'getAddressVerification',
+        'state_and_local_withholding' => 'getStateAndLocalWithholding'
     ];
 
     /**
@@ -289,6 +279,25 @@ class FormRequestBase implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
+    const TIN_TYPE_EIN = 'EIN';
+    const TIN_TYPE_SSN = 'SSN';
+    const TIN_TYPE_ITIN = 'ITIN';
+    const TIN_TYPE_ATIN = 'ATIN';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTinTypeAllowableValues()
+    {
+        return [
+            self::TIN_TYPE_EIN,
+            self::TIN_TYPE_SSN,
+            self::TIN_TYPE_ITIN,
+            self::TIN_TYPE_ATIN,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -306,16 +315,13 @@ class FormRequestBase implements ModelInterface, ArrayAccess, \JsonSerializable
     public function __construct(array $data = null)
     {
         $this->container['issuer_id'] = $data['issuer_id'] ?? null;
-        $this->container['issuer_reference_id'] = $data['issuer_reference_id'] ?? null;
-        $this->container['issuer_tin'] = $data['issuer_tin'] ?? null;
-        $this->container['tax_year'] = $data['tax_year'] ?? null;
         $this->container['reference_id'] = $data['reference_id'] ?? null;
         $this->container['recipient_name'] = $data['recipient_name'] ?? null;
         $this->container['recipient_tin'] = $data['recipient_tin'] ?? null;
         $this->container['tin_type'] = $data['tin_type'] ?? null;
         $this->container['recipient_second_name'] = $data['recipient_second_name'] ?? null;
-        $this->container['street_address'] = $data['street_address'] ?? null;
-        $this->container['street_address_line2'] = $data['street_address_line2'] ?? null;
+        $this->container['address'] = $data['address'] ?? null;
+        $this->container['address2'] = $data['address2'] ?? null;
         $this->container['city'] = $data['city'] ?? null;
         $this->container['state'] = $data['state'] ?? null;
         $this->container['zip'] = $data['zip'] ?? null;
@@ -329,6 +335,7 @@ class FormRequestBase implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['state_e_file'] = $data['state_e_file'] ?? null;
         $this->container['tin_match'] = $data['tin_match'] ?? null;
         $this->container['address_verification'] = $data['address_verification'] ?? null;
+        $this->container['state_and_local_withholding'] = $data['state_and_local_withholding'] ?? null;
     }
 
     /**
@@ -339,6 +346,15 @@ class FormRequestBase implements ModelInterface, ArrayAccess, \JsonSerializable
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getTinTypeAllowableValues();
+        if (!is_null($this->container['tin_type']) && !in_array($this->container['tin_type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'tin_type', must be one of '%s'",
+                $this->container['tin_type'],
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -375,78 +391,6 @@ class FormRequestBase implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setIssuerId($issuer_id)
     {
         $this->container['issuer_id'] = $issuer_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets issuer_reference_id
-     *
-     * @return string|null
-     */
-    public function getIssuerReferenceId()
-    {
-        return $this->container['issuer_reference_id'];
-    }
-
-    /**
-     * Sets issuer_reference_id
-     *
-     * @param string|null $issuer_reference_id issuer_reference_id
-     *
-     * @return self
-     */
-    public function setIssuerReferenceId($issuer_reference_id)
-    {
-        $this->container['issuer_reference_id'] = $issuer_reference_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets issuer_tin
-     *
-     * @return string|null
-     */
-    public function getIssuerTin()
-    {
-        return $this->container['issuer_tin'];
-    }
-
-    /**
-     * Sets issuer_tin
-     *
-     * @param string|null $issuer_tin issuer_tin
-     *
-     * @return self
-     */
-    public function setIssuerTin($issuer_tin)
-    {
-        $this->container['issuer_tin'] = $issuer_tin;
-
-        return $this;
-    }
-
-    /**
-     * Gets tax_year
-     *
-     * @return int|null
-     */
-    public function getTaxYear()
-    {
-        return $this->container['tax_year'];
-    }
-
-    /**
-     * Sets tax_year
-     *
-     * @param int|null $tax_year tax_year
-     *
-     * @return self
-     */
-    public function setTaxYear($tax_year)
-    {
-        $this->container['tax_year'] = $tax_year;
 
         return $this;
     }
@@ -526,7 +470,7 @@ class FormRequestBase implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets tin_type
      *
-     * @return int|null
+     * @return string|null
      */
     public function getTinType()
     {
@@ -536,12 +480,22 @@ class FormRequestBase implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets tin_type
      *
-     * @param int|null $tin_type tin_type
+     * @param string|null $tin_type tin_type
      *
      * @return self
      */
     public function setTinType($tin_type)
     {
+        $allowedValues = $this->getTinTypeAllowableValues();
+        if (!is_null($tin_type) && !in_array($tin_type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'tin_type', must be one of '%s'",
+                    $tin_type,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['tin_type'] = $tin_type;
 
         return $this;
@@ -572,49 +526,49 @@ class FormRequestBase implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets street_address
+     * Gets address
      *
      * @return string|null
      */
-    public function getStreetAddress()
+    public function getAddress()
     {
-        return $this->container['street_address'];
+        return $this->container['address'];
     }
 
     /**
-     * Sets street_address
+     * Sets address
      *
-     * @param string|null $street_address street_address
+     * @param string|null $address address
      *
      * @return self
      */
-    public function setStreetAddress($street_address)
+    public function setAddress($address)
     {
-        $this->container['street_address'] = $street_address;
+        $this->container['address'] = $address;
 
         return $this;
     }
 
     /**
-     * Gets street_address_line2
+     * Gets address2
      *
      * @return string|null
      */
-    public function getStreetAddressLine2()
+    public function getAddress2()
     {
-        return $this->container['street_address_line2'];
+        return $this->container['address2'];
     }
 
     /**
-     * Sets street_address_line2
+     * Sets address2
      *
-     * @param string|null $street_address_line2 street_address_line2
+     * @param string|null $address2 address2
      *
      * @return self
      */
-    public function setStreetAddressLine2($street_address_line2)
+    public function setAddress2($address2)
     {
-        $this->container['street_address_line2'] = $street_address_line2;
+        $this->container['address2'] = $address2;
 
         return $this;
     }
@@ -927,6 +881,30 @@ class FormRequestBase implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setAddressVerification($address_verification)
     {
         $this->container['address_verification'] = $address_verification;
+
+        return $this;
+    }
+
+    /**
+     * Gets state_and_local_withholding
+     *
+     * @return \Avalara\SDK\Model\A1099\V2\StateAndLocalWithholdingRequest|null
+     */
+    public function getStateAndLocalWithholding()
+    {
+        return $this->container['state_and_local_withholding'];
+    }
+
+    /**
+     * Sets state_and_local_withholding
+     *
+     * @param \Avalara\SDK\Model\A1099\V2\StateAndLocalWithholdingRequest|null $state_and_local_withholding state_and_local_withholding
+     *
+     * @return self
+     */
+    public function setStateAndLocalWithholding($state_and_local_withholding)
+    {
+        $this->container['state_and_local_withholding'] = $state_and_local_withholding;
 
         return $this;
     }
