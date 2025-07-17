@@ -79,7 +79,7 @@ class Issuers1099Api
     private function setConfiguration($client): void
     {
         $this->verifyAPIClient($client);
-        $client->setSdkVersion("25.6.0");
+        $client->setSdkVersion("25.7.2");
         $this->headerSelector = new HeaderSelector(); 
         $this->client = $client;
     }
@@ -380,18 +380,13 @@ class Issuers1099Api
         
         $avalara_version = $request_parameters->getAvalaraVersion();
         $x_correlation_id = $request_parameters->getXCorrelationId();
+        $x_avalara_client = $request_parameters->getXAvalaraClient();
         $issuer_command = $request_parameters->getIssuerCommand();
 
         // verify the required parameter 'avalara_version' is set
         if ($avalara_version === null || (is_array($avalara_version) && count($avalara_version) === 0)) {
             throw new \InvalidArgumentException(
                 'Missing the required parameter $avalara_version when calling createIssuer'
-            );
-        }
-        // verify the required parameter 'x_correlation_id' is set
-        if ($x_correlation_id === null || (is_array($x_correlation_id) && count($x_correlation_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $x_correlation_id when calling createIssuer'
             );
         }
 
@@ -411,6 +406,10 @@ class Issuers1099Api
         if ($x_correlation_id !== null) {
             $headerParams['X-Correlation-Id'] = ObjectSerializer::toHeaderValue($x_correlation_id);
         }
+        // header params
+        if ($x_avalara_client !== null) {
+            $headerParams['X-Avalara-Client'] = ObjectSerializer::toHeaderValue($x_avalara_client);
+        }
 
 
 
@@ -424,7 +423,7 @@ class Issuers1099Api
                 ['application/json', 'text/json', 'application/*+json']
             );
         }
-        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.6.0; {$this->client->config->getMachineName()}";
+        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.7.2; {$this->client->config->getMachineName()}";
 
         $headers['X-Avalara-Client']=$clientId;
 
@@ -671,6 +670,7 @@ class Issuers1099Api
         $id = $request_parameters->getId();
         $avalara_version = $request_parameters->getAvalaraVersion();
         $x_correlation_id = $request_parameters->getXCorrelationId();
+        $x_avalara_client = $request_parameters->getXAvalaraClient();
 
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
@@ -682,12 +682,6 @@ class Issuers1099Api
         if ($avalara_version === null || (is_array($avalara_version) && count($avalara_version) === 0)) {
             throw new \InvalidArgumentException(
                 'Missing the required parameter $avalara_version when calling deleteIssuer'
-            );
-        }
-        // verify the required parameter 'x_correlation_id' is set
-        if ($x_correlation_id === null || (is_array($x_correlation_id) && count($x_correlation_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $x_correlation_id when calling deleteIssuer'
             );
         }
 
@@ -706,6 +700,10 @@ class Issuers1099Api
         // header params
         if ($x_correlation_id !== null) {
             $headerParams['X-Correlation-Id'] = ObjectSerializer::toHeaderValue($x_correlation_id);
+        }
+        // header params
+        if ($x_avalara_client !== null) {
+            $headerParams['X-Avalara-Client'] = ObjectSerializer::toHeaderValue($x_avalara_client);
         }
 
         // path params
@@ -728,7 +726,7 @@ class Issuers1099Api
                 []
             );
         }
-        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.6.0; {$this->client->config->getMachineName()}";
+        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.7.2; {$this->client->config->getMachineName()}";
 
         $headers['X-Avalara-Client']=$clientId;
 
@@ -1043,6 +1041,7 @@ class Issuers1099Api
         $id = $request_parameters->getId();
         $avalara_version = $request_parameters->getAvalaraVersion();
         $x_correlation_id = $request_parameters->getXCorrelationId();
+        $x_avalara_client = $request_parameters->getXAvalaraClient();
 
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
@@ -1054,12 +1053,6 @@ class Issuers1099Api
         if ($avalara_version === null || (is_array($avalara_version) && count($avalara_version) === 0)) {
             throw new \InvalidArgumentException(
                 'Missing the required parameter $avalara_version when calling getIssuer'
-            );
-        }
-        // verify the required parameter 'x_correlation_id' is set
-        if ($x_correlation_id === null || (is_array($x_correlation_id) && count($x_correlation_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $x_correlation_id when calling getIssuer'
             );
         }
 
@@ -1078,6 +1071,10 @@ class Issuers1099Api
         // header params
         if ($x_correlation_id !== null) {
             $headerParams['X-Correlation-Id'] = ObjectSerializer::toHeaderValue($x_correlation_id);
+        }
+        // header params
+        if ($x_avalara_client !== null) {
+            $headerParams['X-Avalara-Client'] = ObjectSerializer::toHeaderValue($x_avalara_client);
         }
 
         // path params
@@ -1100,7 +1097,7 @@ class Issuers1099Api
                 []
             );
         }
-        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.6.0; {$this->client->config->getMachineName()}";
+        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.7.2; {$this->client->config->getMachineName()}";
 
         $headers['X-Avalara-Client']=$clientId;
 
@@ -1455,24 +1452,19 @@ class Issuers1099Api
         $requiredScopes = "";
         
         $avalara_version = $request_parameters->getAvalaraVersion();
-        $x_correlation_id = $request_parameters->getXCorrelationId();
         $filter = $request_parameters->getFilter();
         $top = $request_parameters->getTop();
         $skip = $request_parameters->getSkip();
         $order_by = $request_parameters->getOrderBy();
         $count = $request_parameters->getCount();
         $count_only = $request_parameters->getCountOnly();
+        $x_correlation_id = $request_parameters->getXCorrelationId();
+        $x_avalara_client = $request_parameters->getXAvalaraClient();
 
         // verify the required parameter 'avalara_version' is set
         if ($avalara_version === null || (is_array($avalara_version) && count($avalara_version) === 0)) {
             throw new \InvalidArgumentException(
                 'Missing the required parameter $avalara_version when calling getIssuers'
-            );
-        }
-        // verify the required parameter 'x_correlation_id' is set
-        if ($x_correlation_id === null || (is_array($x_correlation_id) && count($x_correlation_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $x_correlation_id when calling getIssuers'
             );
         }
 
@@ -1558,6 +1550,10 @@ class Issuers1099Api
         if ($x_correlation_id !== null) {
             $headerParams['X-Correlation-Id'] = ObjectSerializer::toHeaderValue($x_correlation_id);
         }
+        // header params
+        if ($x_avalara_client !== null) {
+            $headerParams['X-Avalara-Client'] = ObjectSerializer::toHeaderValue($x_avalara_client);
+        }
 
 
 
@@ -1571,7 +1567,7 @@ class Issuers1099Api
                 []
             );
         }
-        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.6.0; {$this->client->config->getMachineName()}";
+        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.7.2; {$this->client->config->getMachineName()}";
 
         $headers['X-Avalara-Client']=$clientId;
 
@@ -1812,6 +1808,7 @@ class Issuers1099Api
         $id = $request_parameters->getId();
         $avalara_version = $request_parameters->getAvalaraVersion();
         $x_correlation_id = $request_parameters->getXCorrelationId();
+        $x_avalara_client = $request_parameters->getXAvalaraClient();
         $issuer_command = $request_parameters->getIssuerCommand();
 
         // verify the required parameter 'id' is set
@@ -1824,12 +1821,6 @@ class Issuers1099Api
         if ($avalara_version === null || (is_array($avalara_version) && count($avalara_version) === 0)) {
             throw new \InvalidArgumentException(
                 'Missing the required parameter $avalara_version when calling updateIssuer'
-            );
-        }
-        // verify the required parameter 'x_correlation_id' is set
-        if ($x_correlation_id === null || (is_array($x_correlation_id) && count($x_correlation_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $x_correlation_id when calling updateIssuer'
             );
         }
 
@@ -1848,6 +1839,10 @@ class Issuers1099Api
         // header params
         if ($x_correlation_id !== null) {
             $headerParams['X-Correlation-Id'] = ObjectSerializer::toHeaderValue($x_correlation_id);
+        }
+        // header params
+        if ($x_avalara_client !== null) {
+            $headerParams['X-Avalara-Client'] = ObjectSerializer::toHeaderValue($x_avalara_client);
         }
 
         // path params
@@ -1870,7 +1865,7 @@ class Issuers1099Api
                 ['application/json', 'text/json', 'application/*+json']
             );
         }
-        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.6.0; {$this->client->config->getMachineName()}";
+        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.7.2; {$this->client->config->getMachineName()}";
 
         $headers['X-Avalara-Client']=$clientId;
 
@@ -1930,12 +1925,14 @@ class Issuers1099Api
      * Represents the Request object for the CreateIssuer API
      *
      * @param  string $avalara_version API version (required)
-     * @param  string $x_correlation_id Unique correlation Id in a GUID format (required)
+     * @param  string $x_correlation_id Unique correlation Id in a GUID format (optional)
+     * @param  string $x_avalara_client Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) . (optional)
      * @param  \Avalara\SDK\Model\A1099\V2\IssuerCommand $issuer_command The issuer to create (optional)
      */
 class CreateIssuerRequestSdk {
     private $avalara_version;
     private $x_correlation_id;
+    private $x_avalara_client;
     private $issuer_command;
 
     public function __construct() {
@@ -1954,6 +1951,13 @@ class CreateIssuerRequestSdk {
     public function setXCorrelationId($x_correlation_id) {
         $this->x_correlation_id = $x_correlation_id;
     }
+    public function getXAvalaraClient() {
+        return $this->x_avalara_client;
+    }
+
+    public function setXAvalaraClient($x_avalara_client) {
+        $this->x_avalara_client = $x_avalara_client;
+    }
     public function getIssuerCommand() {
         return $this->issuer_command;
     }
@@ -1968,12 +1972,14 @@ class CreateIssuerRequestSdk {
      *
      * @param  string $id Id of the issuer to delete (required)
      * @param  string $avalara_version API version (required)
-     * @param  string $x_correlation_id Unique correlation Id in a GUID format (required)
+     * @param  string $x_correlation_id Unique correlation Id in a GUID format (optional)
+     * @param  string $x_avalara_client Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) . (optional)
      */
 class DeleteIssuerRequestSdk {
     private $id;
     private $avalara_version;
     private $x_correlation_id;
+    private $x_avalara_client;
 
     public function __construct() {
     }
@@ -1997,6 +2003,13 @@ class DeleteIssuerRequestSdk {
 
     public function setXCorrelationId($x_correlation_id) {
         $this->x_correlation_id = $x_correlation_id;
+    }
+    public function getXAvalaraClient() {
+        return $this->x_avalara_client;
+    }
+
+    public function setXAvalaraClient($x_avalara_client) {
+        $this->x_avalara_client = $x_avalara_client;
     }
 }
 
@@ -2005,12 +2018,14 @@ class DeleteIssuerRequestSdk {
      *
      * @param  string $id id (required)
      * @param  string $avalara_version API version (required)
-     * @param  string $x_correlation_id Unique correlation Id in a GUID format (required)
+     * @param  string $x_correlation_id Unique correlation Id in a GUID format (optional)
+     * @param  string $x_avalara_client Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) . (optional)
      */
 class GetIssuerRequestSdk {
     private $id;
     private $avalara_version;
     private $x_correlation_id;
+    private $x_avalara_client;
 
     public function __construct() {
     }
@@ -2035,29 +2050,38 @@ class GetIssuerRequestSdk {
     public function setXCorrelationId($x_correlation_id) {
         $this->x_correlation_id = $x_correlation_id;
     }
+    public function getXAvalaraClient() {
+        return $this->x_avalara_client;
+    }
+
+    public function setXAvalaraClient($x_avalara_client) {
+        $this->x_avalara_client = $x_avalara_client;
+    }
 }
 
     /**
      * Represents the Request object for the GetIssuers API
      *
      * @param  string $avalara_version API version (required)
-     * @param  string $x_correlation_id Unique correlation Id in a GUID format (required)
      * @param  string $filter A filter statement to identify specific records to retrieve.  For more information on filtering, see &lt;a href&#x3D;\&quot;https://developer.avalara.com/avatax/filtering-in-rest/\&quot;&gt;Filtering in REST&lt;/a&gt;. (optional)
      * @param  int $top If zero or greater than 1000, return at most 1000 results.  Otherwise, return this number of results.  Used with skip to provide pagination for large datasets. (optional)
      * @param  int $skip If nonzero, skip this number of results before returning data. Used with top to provide pagination for large datasets. (optional)
      * @param  string $order_by A comma separated list of sort statements in the format (fieldname) [ASC|DESC], for example id ASC. (optional)
      * @param  bool $count If true, return the global count of elements in the collection. (optional)
      * @param  bool $count_only If true, return ONLY the global count of elements in the collection.  It only applies when count&#x3D;true. (optional)
+     * @param  string $x_correlation_id Unique correlation Id in a GUID format (optional)
+     * @param  string $x_avalara_client Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) . (optional)
      */
 class GetIssuersRequestSdk {
     private $avalara_version;
-    private $x_correlation_id;
     private $filter;
     private $top;
     private $skip;
     private $order_by;
     private $count;
     private $count_only;
+    private $x_correlation_id;
+    private $x_avalara_client;
 
     public function __construct() {
     }
@@ -2067,13 +2091,6 @@ class GetIssuersRequestSdk {
 
     public function setAvalaraVersion($avalara_version) {
         $this->avalara_version = $avalara_version;
-    }
-    public function getXCorrelationId() {
-        return $this->x_correlation_id;
-    }
-
-    public function setXCorrelationId($x_correlation_id) {
-        $this->x_correlation_id = $x_correlation_id;
     }
     public function getFilter() {
         return $this->filter;
@@ -2117,6 +2134,20 @@ class GetIssuersRequestSdk {
     public function setCountOnly($count_only) {
         $this->count_only = $count_only;
     }
+    public function getXCorrelationId() {
+        return $this->x_correlation_id;
+    }
+
+    public function setXCorrelationId($x_correlation_id) {
+        $this->x_correlation_id = $x_correlation_id;
+    }
+    public function getXAvalaraClient() {
+        return $this->x_avalara_client;
+    }
+
+    public function setXAvalaraClient($x_avalara_client) {
+        $this->x_avalara_client = $x_avalara_client;
+    }
 }
 
     /**
@@ -2124,13 +2155,15 @@ class GetIssuersRequestSdk {
      *
      * @param  string $id Id of the issuer to Update (required)
      * @param  string $avalara_version API version (required)
-     * @param  string $x_correlation_id Unique correlation Id in a GUID format (required)
+     * @param  string $x_correlation_id Unique correlation Id in a GUID format (optional)
+     * @param  string $x_avalara_client Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) . (optional)
      * @param  \Avalara\SDK\Model\A1099\V2\IssuerCommand $issuer_command The issuer to update (optional)
      */
 class UpdateIssuerRequestSdk {
     private $id;
     private $avalara_version;
     private $x_correlation_id;
+    private $x_avalara_client;
     private $issuer_command;
 
     public function __construct() {
@@ -2155,6 +2188,13 @@ class UpdateIssuerRequestSdk {
 
     public function setXCorrelationId($x_correlation_id) {
         $this->x_correlation_id = $x_correlation_id;
+    }
+    public function getXAvalaraClient() {
+        return $this->x_avalara_client;
+    }
+
+    public function setXAvalaraClient($x_avalara_client) {
+        $this->x_avalara_client = $x_avalara_client;
     }
     public function getIssuerCommand() {
         return $this->issuer_command;

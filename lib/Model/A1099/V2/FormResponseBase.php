@@ -71,17 +71,23 @@ class FormResponseBase implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
+        'type' => 'string',
+        'created_at' => '\DateTime',
+        'updated_at' => '\DateTime',
+        'user_id' => 'string',
+        'state_and_local_withholding' => '\Avalara\SDK\Model\A1099\V2\StateAndLocalWithholdingResponse',
+        'tin_type' => 'string',
+        'id' => 'string',
         'issuer_id' => 'string',
         'issuer_reference_id' => 'string',
         'issuer_tin' => 'string',
         'tax_year' => 'int',
         'reference_id' => 'string',
         'recipient_name' => 'string',
-        'recipient_federal_id' => 'string',
-        'federal_id_type' => 'int',
+        'recipient_tin' => 'string',
         'recipient_second_name' => 'string',
-        'street_address' => 'string',
-        'street_address_line2' => 'string',
+        'address' => 'string',
+        'address2' => 'string',
         'city' => 'string',
         'state' => 'string',
         'zip' => 'string',
@@ -89,7 +95,18 @@ class FormResponseBase implements ModelInterface, ArrayAccess, \JsonSerializable
         'account_number' => 'string',
         'office_code' => 'string',
         'recipient_non_us_province' => 'string',
-        'country_code' => 'string'
+        'country_code' => 'string',
+        'federal_e_file' => 'bool',
+        'postal_mail' => 'bool',
+        'state_e_file' => 'bool',
+        'tin_match' => 'bool',
+        'address_verification' => 'bool',
+        'federal_efile_status' => '\Avalara\SDK\Model\A1099\V2\StatusDetail',
+        'state_efile_status' => '\Avalara\SDK\Model\A1099\V2\StateEfileStatusDetailApp[]',
+        'postal_mail_status' => '\Avalara\SDK\Model\A1099\V2\StatusDetail',
+        'tin_match_status' => '\Avalara\SDK\Model\A1099\V2\StatusDetail',
+        'address_verification_status' => '\Avalara\SDK\Model\A1099\V2\StatusDetail',
+        'validation_errors' => '\Avalara\SDK\Model\A1099\V2\ValidationErrorApp[]'
     ];
 
     /**
@@ -100,17 +117,23 @@ class FormResponseBase implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'type' => null,
+        'created_at' => 'date-time',
+        'updated_at' => 'date-time',
+        'user_id' => null,
+        'state_and_local_withholding' => null,
+        'tin_type' => null,
+        'id' => null,
         'issuer_id' => null,
         'issuer_reference_id' => null,
         'issuer_tin' => null,
         'tax_year' => 'int32',
         'reference_id' => null,
         'recipient_name' => null,
-        'recipient_federal_id' => null,
-        'federal_id_type' => 'int32',
+        'recipient_tin' => null,
         'recipient_second_name' => null,
-        'street_address' => null,
-        'street_address_line2' => null,
+        'address' => null,
+        'address2' => null,
         'city' => null,
         'state' => null,
         'zip' => null,
@@ -118,7 +141,18 @@ class FormResponseBase implements ModelInterface, ArrayAccess, \JsonSerializable
         'account_number' => null,
         'office_code' => null,
         'recipient_non_us_province' => null,
-        'country_code' => null
+        'country_code' => null,
+        'federal_e_file' => null,
+        'postal_mail' => null,
+        'state_e_file' => null,
+        'tin_match' => null,
+        'address_verification' => null,
+        'federal_efile_status' => null,
+        'state_efile_status' => null,
+        'postal_mail_status' => null,
+        'tin_match_status' => null,
+        'address_verification_status' => null,
+        'validation_errors' => null
     ];
 
     /**
@@ -148,17 +182,23 @@ class FormResponseBase implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
+        'type' => 'type',
+        'created_at' => 'createdAt',
+        'updated_at' => 'updatedAt',
+        'user_id' => 'userId',
+        'state_and_local_withholding' => 'stateAndLocalWithholding',
+        'tin_type' => 'tinType',
+        'id' => 'id',
         'issuer_id' => 'issuerId',
         'issuer_reference_id' => 'issuerReferenceId',
         'issuer_tin' => 'issuerTin',
         'tax_year' => 'taxYear',
         'reference_id' => 'referenceId',
         'recipient_name' => 'recipientName',
-        'recipient_federal_id' => 'recipientFederalId',
-        'federal_id_type' => 'federalIdType',
+        'recipient_tin' => 'recipientTin',
         'recipient_second_name' => 'recipientSecondName',
-        'street_address' => 'streetAddress',
-        'street_address_line2' => 'streetAddressLine2',
+        'address' => 'address',
+        'address2' => 'address2',
         'city' => 'city',
         'state' => 'state',
         'zip' => 'zip',
@@ -166,7 +206,18 @@ class FormResponseBase implements ModelInterface, ArrayAccess, \JsonSerializable
         'account_number' => 'accountNumber',
         'office_code' => 'officeCode',
         'recipient_non_us_province' => 'recipientNonUsProvince',
-        'country_code' => 'countryCode'
+        'country_code' => 'countryCode',
+        'federal_e_file' => 'federalEFile',
+        'postal_mail' => 'postalMail',
+        'state_e_file' => 'stateEFile',
+        'tin_match' => 'tinMatch',
+        'address_verification' => 'addressVerification',
+        'federal_efile_status' => 'federalEfileStatus',
+        'state_efile_status' => 'stateEfileStatus',
+        'postal_mail_status' => 'postalMailStatus',
+        'tin_match_status' => 'tinMatchStatus',
+        'address_verification_status' => 'addressVerificationStatus',
+        'validation_errors' => 'validationErrors'
     ];
 
     /**
@@ -175,17 +226,23 @@ class FormResponseBase implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
+        'type' => 'setType',
+        'created_at' => 'setCreatedAt',
+        'updated_at' => 'setUpdatedAt',
+        'user_id' => 'setUserId',
+        'state_and_local_withholding' => 'setStateAndLocalWithholding',
+        'tin_type' => 'setTinType',
+        'id' => 'setId',
         'issuer_id' => 'setIssuerId',
         'issuer_reference_id' => 'setIssuerReferenceId',
         'issuer_tin' => 'setIssuerTin',
         'tax_year' => 'setTaxYear',
         'reference_id' => 'setReferenceId',
         'recipient_name' => 'setRecipientName',
-        'recipient_federal_id' => 'setRecipientFederalId',
-        'federal_id_type' => 'setFederalIdType',
+        'recipient_tin' => 'setRecipientTin',
         'recipient_second_name' => 'setRecipientSecondName',
-        'street_address' => 'setStreetAddress',
-        'street_address_line2' => 'setStreetAddressLine2',
+        'address' => 'setAddress',
+        'address2' => 'setAddress2',
         'city' => 'setCity',
         'state' => 'setState',
         'zip' => 'setZip',
@@ -193,7 +250,18 @@ class FormResponseBase implements ModelInterface, ArrayAccess, \JsonSerializable
         'account_number' => 'setAccountNumber',
         'office_code' => 'setOfficeCode',
         'recipient_non_us_province' => 'setRecipientNonUsProvince',
-        'country_code' => 'setCountryCode'
+        'country_code' => 'setCountryCode',
+        'federal_e_file' => 'setFederalEFile',
+        'postal_mail' => 'setPostalMail',
+        'state_e_file' => 'setStateEFile',
+        'tin_match' => 'setTinMatch',
+        'address_verification' => 'setAddressVerification',
+        'federal_efile_status' => 'setFederalEfileStatus',
+        'state_efile_status' => 'setStateEfileStatus',
+        'postal_mail_status' => 'setPostalMailStatus',
+        'tin_match_status' => 'setTinMatchStatus',
+        'address_verification_status' => 'setAddressVerificationStatus',
+        'validation_errors' => 'setValidationErrors'
     ];
 
     /**
@@ -202,17 +270,23 @@ class FormResponseBase implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
+        'type' => 'getType',
+        'created_at' => 'getCreatedAt',
+        'updated_at' => 'getUpdatedAt',
+        'user_id' => 'getUserId',
+        'state_and_local_withholding' => 'getStateAndLocalWithholding',
+        'tin_type' => 'getTinType',
+        'id' => 'getId',
         'issuer_id' => 'getIssuerId',
         'issuer_reference_id' => 'getIssuerReferenceId',
         'issuer_tin' => 'getIssuerTin',
         'tax_year' => 'getTaxYear',
         'reference_id' => 'getReferenceId',
         'recipient_name' => 'getRecipientName',
-        'recipient_federal_id' => 'getRecipientFederalId',
-        'federal_id_type' => 'getFederalIdType',
+        'recipient_tin' => 'getRecipientTin',
         'recipient_second_name' => 'getRecipientSecondName',
-        'street_address' => 'getStreetAddress',
-        'street_address_line2' => 'getStreetAddressLine2',
+        'address' => 'getAddress',
+        'address2' => 'getAddress2',
         'city' => 'getCity',
         'state' => 'getState',
         'zip' => 'getZip',
@@ -220,7 +294,18 @@ class FormResponseBase implements ModelInterface, ArrayAccess, \JsonSerializable
         'account_number' => 'getAccountNumber',
         'office_code' => 'getOfficeCode',
         'recipient_non_us_province' => 'getRecipientNonUsProvince',
-        'country_code' => 'getCountryCode'
+        'country_code' => 'getCountryCode',
+        'federal_e_file' => 'getFederalEFile',
+        'postal_mail' => 'getPostalMail',
+        'state_e_file' => 'getStateEFile',
+        'tin_match' => 'getTinMatch',
+        'address_verification' => 'getAddressVerification',
+        'federal_efile_status' => 'getFederalEfileStatus',
+        'state_efile_status' => 'getStateEfileStatus',
+        'postal_mail_status' => 'getPostalMailStatus',
+        'tin_match_status' => 'getTinMatchStatus',
+        'address_verification_status' => 'getAddressVerificationStatus',
+        'validation_errors' => 'getValidationErrors'
     ];
 
     /**
@@ -264,6 +349,48 @@ class FormResponseBase implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
+    const TYPE_FORM1099_NEC = 'Form1099Nec';
+    const TYPE_FORM1099_MISC = 'Form1099Misc';
+    const TYPE_FORM1099_DIV = 'Form1099Div';
+    const TYPE_FORM1099_R = 'Form1099R';
+    const TYPE_FORM1099_K = 'Form1099K';
+    const TYPE_FORM1095_B = 'Form1095B';
+    const TIN_TYPE_EIN = 'EIN';
+    const TIN_TYPE_SSN = 'SSN';
+    const TIN_TYPE_ITIN = 'ITIN';
+    const TIN_TYPE_ATIN = 'ATIN';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_FORM1099_NEC,
+            self::TYPE_FORM1099_MISC,
+            self::TYPE_FORM1099_DIV,
+            self::TYPE_FORM1099_R,
+            self::TYPE_FORM1099_K,
+            self::TYPE_FORM1095_B,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTinTypeAllowableValues()
+    {
+        return [
+            self::TIN_TYPE_EIN,
+            self::TIN_TYPE_SSN,
+            self::TIN_TYPE_ITIN,
+            self::TIN_TYPE_ATIN,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -280,17 +407,23 @@ class FormResponseBase implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
+        $this->container['type'] = $data['type'] ?? null;
+        $this->container['created_at'] = $data['created_at'] ?? null;
+        $this->container['updated_at'] = $data['updated_at'] ?? null;
+        $this->container['user_id'] = $data['user_id'] ?? null;
+        $this->container['state_and_local_withholding'] = $data['state_and_local_withholding'] ?? null;
+        $this->container['tin_type'] = $data['tin_type'] ?? null;
+        $this->container['id'] = $data['id'] ?? null;
         $this->container['issuer_id'] = $data['issuer_id'] ?? null;
         $this->container['issuer_reference_id'] = $data['issuer_reference_id'] ?? null;
         $this->container['issuer_tin'] = $data['issuer_tin'] ?? null;
         $this->container['tax_year'] = $data['tax_year'] ?? null;
         $this->container['reference_id'] = $data['reference_id'] ?? null;
         $this->container['recipient_name'] = $data['recipient_name'] ?? null;
-        $this->container['recipient_federal_id'] = $data['recipient_federal_id'] ?? null;
-        $this->container['federal_id_type'] = $data['federal_id_type'] ?? null;
+        $this->container['recipient_tin'] = $data['recipient_tin'] ?? null;
         $this->container['recipient_second_name'] = $data['recipient_second_name'] ?? null;
-        $this->container['street_address'] = $data['street_address'] ?? null;
-        $this->container['street_address_line2'] = $data['street_address_line2'] ?? null;
+        $this->container['address'] = $data['address'] ?? null;
+        $this->container['address2'] = $data['address2'] ?? null;
         $this->container['city'] = $data['city'] ?? null;
         $this->container['state'] = $data['state'] ?? null;
         $this->container['zip'] = $data['zip'] ?? null;
@@ -299,6 +432,17 @@ class FormResponseBase implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['office_code'] = $data['office_code'] ?? null;
         $this->container['recipient_non_us_province'] = $data['recipient_non_us_province'] ?? null;
         $this->container['country_code'] = $data['country_code'] ?? null;
+        $this->container['federal_e_file'] = $data['federal_e_file'] ?? null;
+        $this->container['postal_mail'] = $data['postal_mail'] ?? null;
+        $this->container['state_e_file'] = $data['state_e_file'] ?? null;
+        $this->container['tin_match'] = $data['tin_match'] ?? null;
+        $this->container['address_verification'] = $data['address_verification'] ?? null;
+        $this->container['federal_efile_status'] = $data['federal_efile_status'] ?? null;
+        $this->container['state_efile_status'] = $data['state_efile_status'] ?? null;
+        $this->container['postal_mail_status'] = $data['postal_mail_status'] ?? null;
+        $this->container['tin_match_status'] = $data['tin_match_status'] ?? null;
+        $this->container['address_verification_status'] = $data['address_verification_status'] ?? null;
+        $this->container['validation_errors'] = $data['validation_errors'] ?? null;
     }
 
     /**
@@ -309,6 +453,24 @@ class FormResponseBase implements ModelInterface, ArrayAccess, \JsonSerializable
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'type', must be one of '%s'",
+                $this->container['type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getTinTypeAllowableValues();
+        if (!is_null($this->container['tin_type']) && !in_array($this->container['tin_type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'tin_type', must be one of '%s'",
+                $this->container['tin_type'],
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -324,6 +486,194 @@ class FormResponseBase implements ModelInterface, ArrayAccess, \JsonSerializable
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets type
+     *
+     * @return string|null
+     */
+    public function getType()
+    {
+        return $this->container['type'];
+    }
+
+    /**
+     * Sets type
+     *
+     * @param string|null $type type
+     *
+     * @return self
+     */
+    public function setType($type)
+    {
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($type) && !in_array($type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'type', must be one of '%s'",
+                    $type,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['type'] = $type;
+
+        return $this;
+    }
+
+    /**
+     * Gets created_at
+     *
+     * @return \DateTime|null
+     */
+    public function getCreatedAt()
+    {
+        return $this->container['created_at'];
+    }
+
+    /**
+     * Sets created_at
+     *
+     * @param \DateTime|null $created_at created_at
+     *
+     * @return self
+     */
+    public function setCreatedAt($created_at)
+    {
+        $this->container['created_at'] = $created_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets updated_at
+     *
+     * @return \DateTime|null
+     */
+    public function getUpdatedAt()
+    {
+        return $this->container['updated_at'];
+    }
+
+    /**
+     * Sets updated_at
+     *
+     * @param \DateTime|null $updated_at updated_at
+     *
+     * @return self
+     */
+    public function setUpdatedAt($updated_at)
+    {
+        $this->container['updated_at'] = $updated_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets user_id
+     *
+     * @return string|null
+     */
+    public function getUserId()
+    {
+        return $this->container['user_id'];
+    }
+
+    /**
+     * Sets user_id
+     *
+     * @param string|null $user_id user_id
+     *
+     * @return self
+     */
+    public function setUserId($user_id)
+    {
+        $this->container['user_id'] = $user_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets state_and_local_withholding
+     *
+     * @return \Avalara\SDK\Model\A1099\V2\StateAndLocalWithholdingResponse|null
+     */
+    public function getStateAndLocalWithholding()
+    {
+        return $this->container['state_and_local_withholding'];
+    }
+
+    /**
+     * Sets state_and_local_withholding
+     *
+     * @param \Avalara\SDK\Model\A1099\V2\StateAndLocalWithholdingResponse|null $state_and_local_withholding state_and_local_withholding
+     *
+     * @return self
+     */
+    public function setStateAndLocalWithholding($state_and_local_withholding)
+    {
+        $this->container['state_and_local_withholding'] = $state_and_local_withholding;
+
+        return $this;
+    }
+
+    /**
+     * Gets tin_type
+     *
+     * @return string|null
+     */
+    public function getTinType()
+    {
+        return $this->container['tin_type'];
+    }
+
+    /**
+     * Sets tin_type
+     *
+     * @param string|null $tin_type tin_type
+     *
+     * @return self
+     */
+    public function setTinType($tin_type)
+    {
+        $allowedValues = $this->getTinTypeAllowableValues();
+        if (!is_null($tin_type) && !in_array($tin_type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'tin_type', must be one of '%s'",
+                    $tin_type,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['tin_type'] = $tin_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets id
+     *
+     * @return string|null
+     */
+    public function getId()
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param string|null $id id
+     *
+     * @return self
+     */
+    public function setId($id)
+    {
+        $this->container['id'] = $id;
+
+        return $this;
+    }
 
     /**
      * Gets issuer_id
@@ -470,49 +820,25 @@ class FormResponseBase implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets recipient_federal_id
+     * Gets recipient_tin
      *
      * @return string|null
      */
-    public function getRecipientFederalId()
+    public function getRecipientTin()
     {
-        return $this->container['recipient_federal_id'];
+        return $this->container['recipient_tin'];
     }
 
     /**
-     * Sets recipient_federal_id
+     * Sets recipient_tin
      *
-     * @param string|null $recipient_federal_id recipient_federal_id
+     * @param string|null $recipient_tin recipient_tin
      *
      * @return self
      */
-    public function setRecipientFederalId($recipient_federal_id)
+    public function setRecipientTin($recipient_tin)
     {
-        $this->container['recipient_federal_id'] = $recipient_federal_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets federal_id_type
-     *
-     * @return int|null
-     */
-    public function getFederalIdType()
-    {
-        return $this->container['federal_id_type'];
-    }
-
-    /**
-     * Sets federal_id_type
-     *
-     * @param int|null $federal_id_type federal_id_type
-     *
-     * @return self
-     */
-    public function setFederalIdType($federal_id_type)
-    {
-        $this->container['federal_id_type'] = $federal_id_type;
+        $this->container['recipient_tin'] = $recipient_tin;
 
         return $this;
     }
@@ -542,49 +868,49 @@ class FormResponseBase implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets street_address
+     * Gets address
      *
      * @return string|null
      */
-    public function getStreetAddress()
+    public function getAddress()
     {
-        return $this->container['street_address'];
+        return $this->container['address'];
     }
 
     /**
-     * Sets street_address
+     * Sets address
      *
-     * @param string|null $street_address street_address
+     * @param string|null $address address
      *
      * @return self
      */
-    public function setStreetAddress($street_address)
+    public function setAddress($address)
     {
-        $this->container['street_address'] = $street_address;
+        $this->container['address'] = $address;
 
         return $this;
     }
 
     /**
-     * Gets street_address_line2
+     * Gets address2
      *
      * @return string|null
      */
-    public function getStreetAddressLine2()
+    public function getAddress2()
     {
-        return $this->container['street_address_line2'];
+        return $this->container['address2'];
     }
 
     /**
-     * Sets street_address_line2
+     * Sets address2
      *
-     * @param string|null $street_address_line2 street_address_line2
+     * @param string|null $address2 address2
      *
      * @return self
      */
-    public function setStreetAddressLine2($street_address_line2)
+    public function setAddress2($address2)
     {
-        $this->container['street_address_line2'] = $street_address_line2;
+        $this->container['address2'] = $address2;
 
         return $this;
     }
@@ -777,6 +1103,274 @@ class FormResponseBase implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setCountryCode($country_code)
     {
         $this->container['country_code'] = $country_code;
+
+        return $this;
+    }
+
+    /**
+     * Gets federal_e_file
+     *
+     * @return bool|null
+     */
+    public function getFederalEFile()
+    {
+        return $this->container['federal_e_file'];
+    }
+
+    /**
+     * Sets federal_e_file
+     *
+     * @param bool|null $federal_e_file federal_e_file
+     *
+     * @return self
+     */
+    public function setFederalEFile($federal_e_file)
+    {
+        $this->container['federal_e_file'] = $federal_e_file;
+
+        return $this;
+    }
+
+    /**
+     * Gets postal_mail
+     *
+     * @return bool|null
+     */
+    public function getPostalMail()
+    {
+        return $this->container['postal_mail'];
+    }
+
+    /**
+     * Sets postal_mail
+     *
+     * @param bool|null $postal_mail postal_mail
+     *
+     * @return self
+     */
+    public function setPostalMail($postal_mail)
+    {
+        $this->container['postal_mail'] = $postal_mail;
+
+        return $this;
+    }
+
+    /**
+     * Gets state_e_file
+     *
+     * @return bool|null
+     */
+    public function getStateEFile()
+    {
+        return $this->container['state_e_file'];
+    }
+
+    /**
+     * Sets state_e_file
+     *
+     * @param bool|null $state_e_file state_e_file
+     *
+     * @return self
+     */
+    public function setStateEFile($state_e_file)
+    {
+        $this->container['state_e_file'] = $state_e_file;
+
+        return $this;
+    }
+
+    /**
+     * Gets tin_match
+     *
+     * @return bool|null
+     */
+    public function getTinMatch()
+    {
+        return $this->container['tin_match'];
+    }
+
+    /**
+     * Sets tin_match
+     *
+     * @param bool|null $tin_match tin_match
+     *
+     * @return self
+     */
+    public function setTinMatch($tin_match)
+    {
+        $this->container['tin_match'] = $tin_match;
+
+        return $this;
+    }
+
+    /**
+     * Gets address_verification
+     *
+     * @return bool|null
+     */
+    public function getAddressVerification()
+    {
+        return $this->container['address_verification'];
+    }
+
+    /**
+     * Sets address_verification
+     *
+     * @param bool|null $address_verification address_verification
+     *
+     * @return self
+     */
+    public function setAddressVerification($address_verification)
+    {
+        $this->container['address_verification'] = $address_verification;
+
+        return $this;
+    }
+
+    /**
+     * Gets federal_efile_status
+     *
+     * @return \Avalara\SDK\Model\A1099\V2\StatusDetail|null
+     */
+    public function getFederalEfileStatus()
+    {
+        return $this->container['federal_efile_status'];
+    }
+
+    /**
+     * Sets federal_efile_status
+     *
+     * @param \Avalara\SDK\Model\A1099\V2\StatusDetail|null $federal_efile_status federal_efile_status
+     *
+     * @return self
+     */
+    public function setFederalEfileStatus($federal_efile_status)
+    {
+        $this->container['federal_efile_status'] = $federal_efile_status;
+
+        return $this;
+    }
+
+    /**
+     * Gets state_efile_status
+     *
+     * @return \Avalara\SDK\Model\A1099\V2\StateEfileStatusDetailApp[]|null
+     */
+    public function getStateEfileStatus()
+    {
+        return $this->container['state_efile_status'];
+    }
+
+    /**
+     * Sets state_efile_status
+     *
+     * @param \Avalara\SDK\Model\A1099\V2\StateEfileStatusDetailApp[]|null $state_efile_status state_efile_status
+     *
+     * @return self
+     */
+    public function setStateEfileStatus($state_efile_status)
+    {
+
+
+        $this->container['state_efile_status'] = $state_efile_status;
+
+        return $this;
+    }
+
+    /**
+     * Gets postal_mail_status
+     *
+     * @return \Avalara\SDK\Model\A1099\V2\StatusDetail|null
+     */
+    public function getPostalMailStatus()
+    {
+        return $this->container['postal_mail_status'];
+    }
+
+    /**
+     * Sets postal_mail_status
+     *
+     * @param \Avalara\SDK\Model\A1099\V2\StatusDetail|null $postal_mail_status postal_mail_status
+     *
+     * @return self
+     */
+    public function setPostalMailStatus($postal_mail_status)
+    {
+        $this->container['postal_mail_status'] = $postal_mail_status;
+
+        return $this;
+    }
+
+    /**
+     * Gets tin_match_status
+     *
+     * @return \Avalara\SDK\Model\A1099\V2\StatusDetail|null
+     */
+    public function getTinMatchStatus()
+    {
+        return $this->container['tin_match_status'];
+    }
+
+    /**
+     * Sets tin_match_status
+     *
+     * @param \Avalara\SDK\Model\A1099\V2\StatusDetail|null $tin_match_status tin_match_status
+     *
+     * @return self
+     */
+    public function setTinMatchStatus($tin_match_status)
+    {
+        $this->container['tin_match_status'] = $tin_match_status;
+
+        return $this;
+    }
+
+    /**
+     * Gets address_verification_status
+     *
+     * @return \Avalara\SDK\Model\A1099\V2\StatusDetail|null
+     */
+    public function getAddressVerificationStatus()
+    {
+        return $this->container['address_verification_status'];
+    }
+
+    /**
+     * Sets address_verification_status
+     *
+     * @param \Avalara\SDK\Model\A1099\V2\StatusDetail|null $address_verification_status address_verification_status
+     *
+     * @return self
+     */
+    public function setAddressVerificationStatus($address_verification_status)
+    {
+        $this->container['address_verification_status'] = $address_verification_status;
+
+        return $this;
+    }
+
+    /**
+     * Gets validation_errors
+     *
+     * @return \Avalara\SDK\Model\A1099\V2\ValidationErrorApp[]|null
+     */
+    public function getValidationErrors()
+    {
+        return $this->container['validation_errors'];
+    }
+
+    /**
+     * Sets validation_errors
+     *
+     * @param \Avalara\SDK\Model\A1099\V2\ValidationErrorApp[]|null $validation_errors validation_errors
+     *
+     * @return self
+     */
+    public function setValidationErrors($validation_errors)
+    {
+
+
+        $this->container['validation_errors'] = $validation_errors;
 
         return $this;
     }

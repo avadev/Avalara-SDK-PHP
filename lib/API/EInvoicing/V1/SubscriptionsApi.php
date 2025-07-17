@@ -79,7 +79,7 @@ class SubscriptionsApi
     private function setConfiguration($client): void
     {
         $this->verifyAPIClient($client);
-        $client->setSdkVersion("25.6.0");
+        $client->setSdkVersion("25.7.2");
         $this->headerSelector = new HeaderSelector(); 
         $this->client = $client;
     }
@@ -450,7 +450,7 @@ class SubscriptionsApi
                 ['application/json']
             );
         }
-        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.6.0; {$this->client->config->getMachineName()}";
+        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.7.2; {$this->client->config->getMachineName()}";
 
         $headers['X-Avalara-Client']=$clientId;
 
@@ -761,7 +761,7 @@ class SubscriptionsApi
                 []
             );
         }
-        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.6.0; {$this->client->config->getMachineName()}";
+        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.7.2; {$this->client->config->getMachineName()}";
 
         $headers['X-Avalara-Client']=$clientId;
 
@@ -1153,7 +1153,7 @@ class SubscriptionsApi
                 []
             );
         }
-        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.6.0; {$this->client->config->getMachineName()}";
+        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.7.2; {$this->client->config->getMachineName()}";
 
         $headers['X-Avalara-Client']=$clientId;
 
@@ -1578,7 +1578,7 @@ class SubscriptionsApi
                 []
             );
         }
-        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.6.0; {$this->client->config->getMachineName()}";
+        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.7.2; {$this->client->config->getMachineName()}";
 
         $headers['X-Avalara-Client']=$clientId;
 
@@ -1772,8 +1772,8 @@ class GetWebhookSubscriptionRequestSdk {
      * @param  string $avalara_version The version of the API to use, e.g., \&quot;1.3\&quot;. (required)
      * @param  string $x_correlation_id A unique identifier for tracking the request and its response (optional)
      * @param  string $x_avalara_client Client application identification (optional)
-     * @param  int $top The number of items to include in the result. (optional)
-     * @param  int $skip The number of items to skip in the result. (optional)
+     * @param  float $top The number of items to include in the result. (optional)
+     * @param  float $skip The number of items to skip in the result. (optional)
      * @param  bool $count Whether to include the total count of records in the result. (optional)
      * @param  bool $count_only Whether to return only the count of records, without the list of records. (optional)
      */

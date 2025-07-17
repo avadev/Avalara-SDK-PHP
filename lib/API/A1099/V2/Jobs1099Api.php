@@ -79,7 +79,7 @@ class Jobs1099Api
     private function setConfiguration($client): void
     {
         $this->verifyAPIClient($client);
-        $client->setSdkVersion("25.6.0");
+        $client->setSdkVersion("25.7.2");
         $this->headerSelector = new HeaderSelector(); 
         $this->client = $client;
     }
@@ -402,6 +402,7 @@ class Jobs1099Api
         $id = $request_parameters->getId();
         $avalara_version = $request_parameters->getAvalaraVersion();
         $x_correlation_id = $request_parameters->getXCorrelationId();
+        $x_avalara_client = $request_parameters->getXAvalaraClient();
 
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
@@ -413,12 +414,6 @@ class Jobs1099Api
         if ($avalara_version === null || (is_array($avalara_version) && count($avalara_version) === 0)) {
             throw new \InvalidArgumentException(
                 'Missing the required parameter $avalara_version when calling getJob'
-            );
-        }
-        // verify the required parameter 'x_correlation_id' is set
-        if ($x_correlation_id === null || (is_array($x_correlation_id) && count($x_correlation_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $x_correlation_id when calling getJob'
             );
         }
 
@@ -437,6 +432,10 @@ class Jobs1099Api
         // header params
         if ($x_correlation_id !== null) {
             $headerParams['X-Correlation-Id'] = ObjectSerializer::toHeaderValue($x_correlation_id);
+        }
+        // header params
+        if ($x_avalara_client !== null) {
+            $headerParams['X-Avalara-Client'] = ObjectSerializer::toHeaderValue($x_avalara_client);
         }
 
         // path params
@@ -459,7 +458,7 @@ class Jobs1099Api
                 []
             );
         }
-        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.6.0; {$this->client->config->getMachineName()}";
+        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.7.2; {$this->client->config->getMachineName()}";
 
         $headers['X-Avalara-Client']=$clientId;
 
@@ -514,12 +513,14 @@ class Jobs1099Api
      *
      * @param  string $id Job id obtained from other API responses, like &#x60;/1099/bulk-upsert&#x60;. (required)
      * @param  string $avalara_version API version (required)
-     * @param  string $x_correlation_id Unique correlation Id in a GUID format (required)
+     * @param  string $x_correlation_id Unique correlation Id in a GUID format (optional)
+     * @param  string $x_avalara_client Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) . (optional)
      */
 class GetJobRequestSdk {
     private $id;
     private $avalara_version;
     private $x_correlation_id;
+    private $x_avalara_client;
 
     public function __construct() {
     }
@@ -543,6 +544,13 @@ class GetJobRequestSdk {
 
     public function setXCorrelationId($x_correlation_id) {
         $this->x_correlation_id = $x_correlation_id;
+    }
+    public function getXAvalaraClient() {
+        return $this->x_avalara_client;
+    }
+
+    public function setXAvalaraClient($x_avalara_client) {
+        $this->x_avalara_client = $x_avalara_client;
     }
 }
 

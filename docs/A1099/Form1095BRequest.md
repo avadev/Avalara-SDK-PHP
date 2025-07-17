@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **employee_name_suffix** | **string** |  | [optional]
 **employee_date_of_birth** | **\DateTime** |  | [optional]
 **origin_of_health_coverage_code** | **string** |  | [optional]
-**covered_individuals** | [**\AvalaraSDK\ModelA1099V2\CoveredIndividualRequest[]**](CoveredIndividualRequest.md) |  | [optional]
+**covered_individuals** | [**\Avalara\SDK\Model\A1099\V2\CoveredIndividualRequest[]**](CoveredIndividualRequest.md) |  | [optional]
 **type** | **string** |  | [optional] [readonly]
 **issuer_id** | **string** |  | [optional]
 **reference_id** | **string** |  | [optional]
@@ -33,6 +33,6 @@ Name | Type | Description | Notes
 **state_e_file** | **bool** |  | [optional]
 **tin_match** | **bool** |  | [optional]
 **address_verification** | **bool** |  | [optional]
-**state_and_local_withholding** | [**\AvalaraSDK\ModelA1099V2\StateAndLocalWithholdingRequest**](StateAndLocalWithholdingRequest.md) |  | [optional]
+**state_and_local_withholding** | [**\Avalara\SDK\Model\A1099\V2\StateAndLocalWithholdingRequest**](StateAndLocalWithholdingRequest.md) |  | [optional]
 
 [[Back to Model list]](../../../README.md#models) [[Back to API list]](../../../README.md#endpoints) [[Back to README]](../../../README.md)

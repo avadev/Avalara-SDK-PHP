@@ -71,7 +71,7 @@ class Form1099List implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\Avalara\SDK\Model\A1099\V2\Form1099ListDataInner[]'
+        'data' => '\Avalara\SDK\Model\A1099\V2\Get1099Form200Response[]'
     ];
 
     /**
@@ -220,7 +220,7 @@ class Form1099List implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets data
      *
-     * @return \Avalara\SDK\Model\A1099\V2\Form1099ListDataInner[]|null
+     * @return \Avalara\SDK\Model\A1099\V2\Get1099Form200Response[]|null
      */
     public function getData()
     {
@@ -230,7 +230,7 @@ class Form1099List implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets data
      *
-     * @param \Avalara\SDK\Model\A1099\V2\Form1099ListDataInner[]|null $data data
+     * @param \Avalara\SDK\Model\A1099\V2\Get1099Form200Response[]|null $data data
      *
      * @return self
      */

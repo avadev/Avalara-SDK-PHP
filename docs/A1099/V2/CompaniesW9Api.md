@@ -1,4 +1,4 @@
-# AvalaraSDK\CompaniesW9Api
+# Avalara\SDK\CompaniesW9Api
 
 All URIs are relative to https://api-ava1099.eta.sbx.us-east-1.aws.avalara.io/avalara1099.
 
@@ -14,7 +14,7 @@ Method | HTTP request | Description
 ## `createCompany()`
 
 ```php
-createCompany($avalara_version, $x_correlation_id, $x_avalara_client, $company_create_update_request_model): \AvalaraSDK\ModelA1099V2\CompanyResponseModel
+createCompany($avalara_version, $x_correlation_id, $x_avalara_client, $company_create_update_request_model): \Avalara\SDK\Model\A1099\V2\CompanyResponseModel
 ```
 
 Creates a new company
@@ -37,12 +37,12 @@ $config = new \Avalara\SDK\Configuration()
 
 $client = new \Avalara\SDK\ApiClient($config);
 
-$apiInstance = new AvalaraSDK\Api\CompaniesW9Api($client);
+$apiInstance = new Avalara\SDK\Api\CompaniesW9Api($client);
 
 $avalara_version = 2.0; // string | API version
-$x_correlation_id = a0ce1bca-7d94-4ead-9bdf-322bea7b002e; // string | Unique correlation Id in a GUID format
+$x_correlation_id = f47d9c74-0d5c-4386-a948-3dbbb1e9c6cb; // string | Unique correlation Id in a GUID format
 $x_avalara_client = Swagger UI; 22.1.0; // string | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
-$company_create_update_request_model = new \AvalaraSDK\ModelA1099V2\CompanyCreateUpdateRequestModel(); // \AvalaraSDK\ModelA1099V2\CompanyCreateUpdateRequestModel | The company to create
+$company_create_update_request_model = new \Avalara\SDK\Model\A1099\V2\CompanyCreateUpdateRequestModel(); // \Avalara\SDK\Model\A1099\V2\CompanyCreateUpdateRequestModel | The company to create
 
 try {
     $result = $apiInstance->createCompany($avalara_version, $x_correlation_id, $x_avalara_client, $company_create_update_request_model);
@@ -59,11 +59,11 @@ Name | Type | Description  | Notes
  **avalara_version** | **string**| API version |
  **x_correlation_id** | **string**| Unique correlation Id in a GUID format | [optional]
  **x_avalara_client** | **string**| Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) . | [optional]
- **company_create_update_request_model** | [**\AvalaraSDK\ModelA1099V2\CompanyCreateUpdateRequestModel**](../Model/CompanyCreateUpdateRequestModel.md)| The company to create | [optional]
+ **company_create_update_request_model** | [**\Avalara\SDK\Model\A1099\V2\CompanyCreateUpdateRequestModel**](../Model/CompanyCreateUpdateRequestModel.md)| The company to create | [optional]
 
 ### Return type
 
-[**\AvalaraSDK\ModelA1099V2\CompanyResponseModel**](../Model/CompanyResponseModel.md)
+[**\Avalara\SDK\Model\A1099\V2\CompanyResponseModel**](../Model/CompanyResponseModel.md)
 
 ### Authorization
 
@@ -104,11 +104,11 @@ $config = new \Avalara\SDK\Configuration()
 
 $client = new \Avalara\SDK\ApiClient($config);
 
-$apiInstance = new AvalaraSDK\Api\CompaniesW9Api($client);
+$apiInstance = new Avalara\SDK\Api\CompaniesW9Api($client);
 
 $id = 'id_example'; // string | The company to delete
 $avalara_version = 2.0; // string | API version
-$x_correlation_id = eba441ae-1442-4d93-861c-21b57baf0ed1; // string | Unique correlation Id in a GUID format
+$x_correlation_id = 6eb5c4e5-40c8-4756-a918-8b55d33b8ae8; // string | Unique correlation Id in a GUID format
 $x_avalara_client = Swagger UI; 22.1.0; // string | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
 
 try {
@@ -147,7 +147,7 @@ void (empty response body)
 ## `getCompanies()`
 
 ```php
-getCompanies($avalara_version, $filter, $top, $skip, $order_by, $count, $count_only, $x_correlation_id, $x_avalara_client): \AvalaraSDK\ModelA1099V2\PaginatedQueryResultModelCompanyResponse
+getCompanies($avalara_version, $filter, $top, $skip, $order_by, $count, $count_only, $x_correlation_id, $x_avalara_client): \Avalara\SDK\Model\A1099\V2\PaginatedQueryResultModelCompanyResponse
 ```
 
 List companies
@@ -170,7 +170,7 @@ $config = new \Avalara\SDK\Configuration()
 
 $client = new \Avalara\SDK\ApiClient($config);
 
-$apiInstance = new AvalaraSDK\Api\CompaniesW9Api($client);
+$apiInstance = new Avalara\SDK\Api\CompaniesW9Api($client);
 
 $avalara_version = 2.0; // string | API version
 $filter = 'filter_example'; // string | A filter statement to identify specific records to retrieve.  For more information on filtering, see <a href=\"https://developer.avalara.com/avatax/filtering-in-rest/\">Filtering in REST</a>.
@@ -179,7 +179,7 @@ $skip = 56; // int | If nonzero, skip this number of results before returning da
 $order_by = 'order_by_example'; // string | A comma separated list of sort statements in the format (fieldname) [ASC|DESC], for example id ASC.
 $count = True; // bool | If true, return the global count of elements in the collection.
 $count_only = True; // bool | If true, return ONLY the global count of elements in the collection.  It only applies when count=true.
-$x_correlation_id = d4d272dd-0057-436c-aaa6-bf6b14437668; // string | Unique correlation Id in a GUID format
+$x_correlation_id = 24c21277-5b54-4f25-96c0-99cd1c5c2be1; // string | Unique correlation Id in a GUID format
 $x_avalara_client = Swagger UI; 22.1.0; // string | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
 
 try {
@@ -206,7 +206,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\AvalaraSDK\ModelA1099V2\PaginatedQueryResultModelCompanyResponse**](../Model/PaginatedQueryResultModelCompanyResponse.md)
+[**\Avalara\SDK\Model\A1099\V2\PaginatedQueryResultModelCompanyResponse**](../Model/PaginatedQueryResultModelCompanyResponse.md)
 
 ### Authorization
 
@@ -224,7 +224,7 @@ Name | Type | Description  | Notes
 ## `getCompany()`
 
 ```php
-getCompany($id, $avalara_version, $x_correlation_id, $x_avalara_client): \AvalaraSDK\ModelA1099V2\CompanyResponse
+getCompany($id, $avalara_version, $x_correlation_id, $x_avalara_client): \Avalara\SDK\Model\A1099\V2\CompanyResponse
 ```
 
 Retrieve a company
@@ -247,11 +247,11 @@ $config = new \Avalara\SDK\Configuration()
 
 $client = new \Avalara\SDK\ApiClient($config);
 
-$apiInstance = new AvalaraSDK\Api\CompaniesW9Api($client);
+$apiInstance = new Avalara\SDK\Api\CompaniesW9Api($client);
 
 $id = 'id_example'; // string | Id of the company
 $avalara_version = 2.0; // string | API version
-$x_correlation_id = b74aff66-e358-4ece-9ba3-0ec9d2257b3d; // string | Unique correlation Id in a GUID format
+$x_correlation_id = 731c9681-a7f2-4534-9e9f-41742bfe5144; // string | Unique correlation Id in a GUID format
 $x_avalara_client = Swagger UI; 22.1.0; // string | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
 
 try {
@@ -273,7 +273,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\AvalaraSDK\ModelA1099V2\CompanyResponse**](../Model/CompanyResponse.md)
+[**\Avalara\SDK\Model\A1099\V2\CompanyResponse**](../Model/CompanyResponse.md)
 
 ### Authorization
 
@@ -291,7 +291,7 @@ Name | Type | Description  | Notes
 ## `updateCompany()`
 
 ```php
-updateCompany($id, $avalara_version, $x_correlation_id, $x_avalara_client, $company_create_update_request_model): \AvalaraSDK\ModelA1099V2\CompanyResponseModel
+updateCompany($id, $avalara_version, $x_correlation_id, $x_avalara_client, $company_create_update_request_model): \Avalara\SDK\Model\A1099\V2\CompanyResponseModel
 ```
 
 Update a company
@@ -314,13 +314,13 @@ $config = new \Avalara\SDK\Configuration()
 
 $client = new \Avalara\SDK\ApiClient($config);
 
-$apiInstance = new AvalaraSDK\Api\CompaniesW9Api($client);
+$apiInstance = new Avalara\SDK\Api\CompaniesW9Api($client);
 
 $id = 'id_example'; // string | The ID of the company to update
 $avalara_version = 2.0; // string | API version
-$x_correlation_id = 281dffca-bdf1-4ad5-a3ff-6ff7f0e1fd9e; // string | Unique correlation Id in a GUID format
+$x_correlation_id = 82a494d7-3ce8-4d54-b705-1cd2cb128fb9; // string | Unique correlation Id in a GUID format
 $x_avalara_client = Swagger UI; 22.1.0; // string | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
-$company_create_update_request_model = new \AvalaraSDK\ModelA1099V2\CompanyCreateUpdateRequestModel(); // \AvalaraSDK\ModelA1099V2\CompanyCreateUpdateRequestModel | The updated company data
+$company_create_update_request_model = new \Avalara\SDK\Model\A1099\V2\CompanyCreateUpdateRequestModel(); // \Avalara\SDK\Model\A1099\V2\CompanyCreateUpdateRequestModel | The updated company data
 
 try {
     $result = $apiInstance->updateCompany($id, $avalara_version, $x_correlation_id, $x_avalara_client, $company_create_update_request_model);
@@ -338,11 +338,11 @@ Name | Type | Description  | Notes
  **avalara_version** | **string**| API version |
  **x_correlation_id** | **string**| Unique correlation Id in a GUID format | [optional]
  **x_avalara_client** | **string**| Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) . | [optional]
- **company_create_update_request_model** | [**\AvalaraSDK\ModelA1099V2\CompanyCreateUpdateRequestModel**](../Model/CompanyCreateUpdateRequestModel.md)| The updated company data | [optional]
+ **company_create_update_request_model** | [**\Avalara\SDK\Model\A1099\V2\CompanyCreateUpdateRequestModel**](../Model/CompanyCreateUpdateRequestModel.md)| The updated company data | [optional]
 
 ### Return type
 
-[**\AvalaraSDK\ModelA1099V2\CompanyResponseModel**](../Model/CompanyResponseModel.md)
+[**\Avalara\SDK\Model\A1099\V2\CompanyResponseModel**](../Model/CompanyResponseModel.md)
 
 ### Authorization
 

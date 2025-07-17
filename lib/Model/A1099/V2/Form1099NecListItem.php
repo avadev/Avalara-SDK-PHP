@@ -71,22 +71,21 @@ class Form1099NecListItem implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
-        'state_and_local_withholding' => '\Avalara\SDK\Model\A1099\V2\StateAndLocalWithholding',
         'second_tin_notice' => 'bool',
         'nonemployee_compensation' => 'float',
         'payer_made_direct_sales' => 'bool',
         'federal_income_tax_withheld' => 'float',
-        'issuer_id' => 'string',
         'issuer_reference_id' => 'string',
         'issuer_tin' => 'string',
         'tax_year' => 'int',
+        'issuer_id' => 'string',
         'reference_id' => 'string',
         'recipient_name' => 'string',
         'recipient_tin' => 'string',
-        'tin_type' => 'int',
+        'tin_type' => 'string',
         'recipient_second_name' => 'string',
-        'street_address' => 'string',
-        'street_address_line2' => 'string',
+        'address' => 'string',
+        'address2' => 'string',
         'city' => 'string',
         'state' => 'string',
         'zip' => 'string',
@@ -99,7 +98,8 @@ class Form1099NecListItem implements ModelInterface, ArrayAccess, \JsonSerializa
         'postal_mail' => 'bool',
         'state_e_file' => 'bool',
         'tin_match' => 'bool',
-        'address_verification' => 'bool'
+        'address_verification' => 'bool',
+        'state_and_local_withholding' => '\Avalara\SDK\Model\A1099\V2\StateAndLocalWithholdingRequest'
     ];
 
     /**
@@ -110,22 +110,21 @@ class Form1099NecListItem implements ModelInterface, ArrayAccess, \JsonSerializa
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'state_and_local_withholding' => null,
         'second_tin_notice' => null,
         'nonemployee_compensation' => 'double',
         'payer_made_direct_sales' => null,
         'federal_income_tax_withheld' => 'double',
-        'issuer_id' => null,
         'issuer_reference_id' => null,
         'issuer_tin' => null,
         'tax_year' => 'int32',
+        'issuer_id' => null,
         'reference_id' => null,
         'recipient_name' => null,
         'recipient_tin' => null,
-        'tin_type' => 'int32',
+        'tin_type' => null,
         'recipient_second_name' => null,
-        'street_address' => null,
-        'street_address_line2' => null,
+        'address' => null,
+        'address2' => null,
         'city' => null,
         'state' => null,
         'zip' => null,
@@ -138,7 +137,8 @@ class Form1099NecListItem implements ModelInterface, ArrayAccess, \JsonSerializa
         'postal_mail' => null,
         'state_e_file' => null,
         'tin_match' => null,
-        'address_verification' => null
+        'address_verification' => null,
+        'state_and_local_withholding' => null
     ];
 
     /**
@@ -168,22 +168,21 @@ class Form1099NecListItem implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $attributeMap = [
-        'state_and_local_withholding' => 'stateAndLocalWithholding',
         'second_tin_notice' => 'secondTinNotice',
         'nonemployee_compensation' => 'nonemployeeCompensation',
         'payer_made_direct_sales' => 'payerMadeDirectSales',
         'federal_income_tax_withheld' => 'federalIncomeTaxWithheld',
-        'issuer_id' => 'issuerId',
         'issuer_reference_id' => 'issuerReferenceId',
         'issuer_tin' => 'issuerTin',
         'tax_year' => 'taxYear',
+        'issuer_id' => 'issuerId',
         'reference_id' => 'referenceId',
         'recipient_name' => 'recipientName',
         'recipient_tin' => 'recipientTin',
         'tin_type' => 'tinType',
         'recipient_second_name' => 'recipientSecondName',
-        'street_address' => 'streetAddress',
-        'street_address_line2' => 'streetAddressLine2',
+        'address' => 'address',
+        'address2' => 'address2',
         'city' => 'city',
         'state' => 'state',
         'zip' => 'zip',
@@ -196,7 +195,8 @@ class Form1099NecListItem implements ModelInterface, ArrayAccess, \JsonSerializa
         'postal_mail' => 'postalMail',
         'state_e_file' => 'stateEFile',
         'tin_match' => 'tinMatch',
-        'address_verification' => 'addressVerification'
+        'address_verification' => 'addressVerification',
+        'state_and_local_withholding' => 'stateAndLocalWithholding'
     ];
 
     /**
@@ -205,22 +205,21 @@ class Form1099NecListItem implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $setters = [
-        'state_and_local_withholding' => 'setStateAndLocalWithholding',
         'second_tin_notice' => 'setSecondTinNotice',
         'nonemployee_compensation' => 'setNonemployeeCompensation',
         'payer_made_direct_sales' => 'setPayerMadeDirectSales',
         'federal_income_tax_withheld' => 'setFederalIncomeTaxWithheld',
-        'issuer_id' => 'setIssuerId',
         'issuer_reference_id' => 'setIssuerReferenceId',
         'issuer_tin' => 'setIssuerTin',
         'tax_year' => 'setTaxYear',
+        'issuer_id' => 'setIssuerId',
         'reference_id' => 'setReferenceId',
         'recipient_name' => 'setRecipientName',
         'recipient_tin' => 'setRecipientTin',
         'tin_type' => 'setTinType',
         'recipient_second_name' => 'setRecipientSecondName',
-        'street_address' => 'setStreetAddress',
-        'street_address_line2' => 'setStreetAddressLine2',
+        'address' => 'setAddress',
+        'address2' => 'setAddress2',
         'city' => 'setCity',
         'state' => 'setState',
         'zip' => 'setZip',
@@ -233,7 +232,8 @@ class Form1099NecListItem implements ModelInterface, ArrayAccess, \JsonSerializa
         'postal_mail' => 'setPostalMail',
         'state_e_file' => 'setStateEFile',
         'tin_match' => 'setTinMatch',
-        'address_verification' => 'setAddressVerification'
+        'address_verification' => 'setAddressVerification',
+        'state_and_local_withholding' => 'setStateAndLocalWithholding'
     ];
 
     /**
@@ -242,22 +242,21 @@ class Form1099NecListItem implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $getters = [
-        'state_and_local_withholding' => 'getStateAndLocalWithholding',
         'second_tin_notice' => 'getSecondTinNotice',
         'nonemployee_compensation' => 'getNonemployeeCompensation',
         'payer_made_direct_sales' => 'getPayerMadeDirectSales',
         'federal_income_tax_withheld' => 'getFederalIncomeTaxWithheld',
-        'issuer_id' => 'getIssuerId',
         'issuer_reference_id' => 'getIssuerReferenceId',
         'issuer_tin' => 'getIssuerTin',
         'tax_year' => 'getTaxYear',
+        'issuer_id' => 'getIssuerId',
         'reference_id' => 'getReferenceId',
         'recipient_name' => 'getRecipientName',
         'recipient_tin' => 'getRecipientTin',
         'tin_type' => 'getTinType',
         'recipient_second_name' => 'getRecipientSecondName',
-        'street_address' => 'getStreetAddress',
-        'street_address_line2' => 'getStreetAddressLine2',
+        'address' => 'getAddress',
+        'address2' => 'getAddress2',
         'city' => 'getCity',
         'state' => 'getState',
         'zip' => 'getZip',
@@ -270,7 +269,8 @@ class Form1099NecListItem implements ModelInterface, ArrayAccess, \JsonSerializa
         'postal_mail' => 'getPostalMail',
         'state_e_file' => 'getStateEFile',
         'tin_match' => 'getTinMatch',
-        'address_verification' => 'getAddressVerification'
+        'address_verification' => 'getAddressVerification',
+        'state_and_local_withholding' => 'getStateAndLocalWithholding'
     ];
 
     /**
@@ -314,6 +314,25 @@ class Form1099NecListItem implements ModelInterface, ArrayAccess, \JsonSerializa
         return self::$openAPIModelName;
     }
 
+    const TIN_TYPE_EIN = 'EIN';
+    const TIN_TYPE_SSN = 'SSN';
+    const TIN_TYPE_ITIN = 'ITIN';
+    const TIN_TYPE_ATIN = 'ATIN';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTinTypeAllowableValues()
+    {
+        return [
+            self::TIN_TYPE_EIN,
+            self::TIN_TYPE_SSN,
+            self::TIN_TYPE_ITIN,
+            self::TIN_TYPE_ATIN,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -330,22 +349,21 @@ class Form1099NecListItem implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function __construct(array $data = null)
     {
-        $this->container['state_and_local_withholding'] = $data['state_and_local_withholding'] ?? null;
         $this->container['second_tin_notice'] = $data['second_tin_notice'] ?? null;
         $this->container['nonemployee_compensation'] = $data['nonemployee_compensation'] ?? null;
         $this->container['payer_made_direct_sales'] = $data['payer_made_direct_sales'] ?? null;
         $this->container['federal_income_tax_withheld'] = $data['federal_income_tax_withheld'] ?? null;
-        $this->container['issuer_id'] = $data['issuer_id'] ?? null;
         $this->container['issuer_reference_id'] = $data['issuer_reference_id'] ?? null;
         $this->container['issuer_tin'] = $data['issuer_tin'] ?? null;
         $this->container['tax_year'] = $data['tax_year'] ?? null;
+        $this->container['issuer_id'] = $data['issuer_id'] ?? null;
         $this->container['reference_id'] = $data['reference_id'] ?? null;
         $this->container['recipient_name'] = $data['recipient_name'] ?? null;
         $this->container['recipient_tin'] = $data['recipient_tin'] ?? null;
         $this->container['tin_type'] = $data['tin_type'] ?? null;
         $this->container['recipient_second_name'] = $data['recipient_second_name'] ?? null;
-        $this->container['street_address'] = $data['street_address'] ?? null;
-        $this->container['street_address_line2'] = $data['street_address_line2'] ?? null;
+        $this->container['address'] = $data['address'] ?? null;
+        $this->container['address2'] = $data['address2'] ?? null;
         $this->container['city'] = $data['city'] ?? null;
         $this->container['state'] = $data['state'] ?? null;
         $this->container['zip'] = $data['zip'] ?? null;
@@ -359,6 +377,7 @@ class Form1099NecListItem implements ModelInterface, ArrayAccess, \JsonSerializa
         $this->container['state_e_file'] = $data['state_e_file'] ?? null;
         $this->container['tin_match'] = $data['tin_match'] ?? null;
         $this->container['address_verification'] = $data['address_verification'] ?? null;
+        $this->container['state_and_local_withholding'] = $data['state_and_local_withholding'] ?? null;
     }
 
     /**
@@ -369,6 +388,15 @@ class Form1099NecListItem implements ModelInterface, ArrayAccess, \JsonSerializa
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getTinTypeAllowableValues();
+        if (!is_null($this->container['tin_type']) && !in_array($this->container['tin_type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'tin_type', must be one of '%s'",
+                $this->container['tin_type'],
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -384,30 +412,6 @@ class Form1099NecListItem implements ModelInterface, ArrayAccess, \JsonSerializa
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets state_and_local_withholding
-     *
-     * @return \Avalara\SDK\Model\A1099\V2\StateAndLocalWithholding|null
-     */
-    public function getStateAndLocalWithholding()
-    {
-        return $this->container['state_and_local_withholding'];
-    }
-
-    /**
-     * Sets state_and_local_withholding
-     *
-     * @param \Avalara\SDK\Model\A1099\V2\StateAndLocalWithholding|null $state_and_local_withholding state_and_local_withholding
-     *
-     * @return self
-     */
-    public function setStateAndLocalWithholding($state_and_local_withholding)
-    {
-        $this->container['state_and_local_withholding'] = $state_and_local_withholding;
-
-        return $this;
-    }
 
     /**
      * Gets second_tin_notice
@@ -506,30 +510,6 @@ class Form1099NecListItem implements ModelInterface, ArrayAccess, \JsonSerializa
     }
 
     /**
-     * Gets issuer_id
-     *
-     * @return string|null
-     */
-    public function getIssuerId()
-    {
-        return $this->container['issuer_id'];
-    }
-
-    /**
-     * Sets issuer_id
-     *
-     * @param string|null $issuer_id issuer_id
-     *
-     * @return self
-     */
-    public function setIssuerId($issuer_id)
-    {
-        $this->container['issuer_id'] = $issuer_id;
-
-        return $this;
-    }
-
-    /**
      * Gets issuer_reference_id
      *
      * @return string|null
@@ -597,6 +577,30 @@ class Form1099NecListItem implements ModelInterface, ArrayAccess, \JsonSerializa
     public function setTaxYear($tax_year)
     {
         $this->container['tax_year'] = $tax_year;
+
+        return $this;
+    }
+
+    /**
+     * Gets issuer_id
+     *
+     * @return string|null
+     */
+    public function getIssuerId()
+    {
+        return $this->container['issuer_id'];
+    }
+
+    /**
+     * Sets issuer_id
+     *
+     * @param string|null $issuer_id issuer_id
+     *
+     * @return self
+     */
+    public function setIssuerId($issuer_id)
+    {
+        $this->container['issuer_id'] = $issuer_id;
 
         return $this;
     }
@@ -676,7 +680,7 @@ class Form1099NecListItem implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets tin_type
      *
-     * @return int|null
+     * @return string|null
      */
     public function getTinType()
     {
@@ -686,12 +690,22 @@ class Form1099NecListItem implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets tin_type
      *
-     * @param int|null $tin_type tin_type
+     * @param string|null $tin_type tin_type
      *
      * @return self
      */
     public function setTinType($tin_type)
     {
+        $allowedValues = $this->getTinTypeAllowableValues();
+        if (!is_null($tin_type) && !in_array($tin_type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'tin_type', must be one of '%s'",
+                    $tin_type,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['tin_type'] = $tin_type;
 
         return $this;
@@ -722,49 +736,49 @@ class Form1099NecListItem implements ModelInterface, ArrayAccess, \JsonSerializa
     }
 
     /**
-     * Gets street_address
+     * Gets address
      *
      * @return string|null
      */
-    public function getStreetAddress()
+    public function getAddress()
     {
-        return $this->container['street_address'];
+        return $this->container['address'];
     }
 
     /**
-     * Sets street_address
+     * Sets address
      *
-     * @param string|null $street_address street_address
+     * @param string|null $address address
      *
      * @return self
      */
-    public function setStreetAddress($street_address)
+    public function setAddress($address)
     {
-        $this->container['street_address'] = $street_address;
+        $this->container['address'] = $address;
 
         return $this;
     }
 
     /**
-     * Gets street_address_line2
+     * Gets address2
      *
      * @return string|null
      */
-    public function getStreetAddressLine2()
+    public function getAddress2()
     {
-        return $this->container['street_address_line2'];
+        return $this->container['address2'];
     }
 
     /**
-     * Sets street_address_line2
+     * Sets address2
      *
-     * @param string|null $street_address_line2 street_address_line2
+     * @param string|null $address2 address2
      *
      * @return self
      */
-    public function setStreetAddressLine2($street_address_line2)
+    public function setAddress2($address2)
     {
-        $this->container['street_address_line2'] = $street_address_line2;
+        $this->container['address2'] = $address2;
 
         return $this;
     }
@@ -1077,6 +1091,30 @@ class Form1099NecListItem implements ModelInterface, ArrayAccess, \JsonSerializa
     public function setAddressVerification($address_verification)
     {
         $this->container['address_verification'] = $address_verification;
+
+        return $this;
+    }
+
+    /**
+     * Gets state_and_local_withholding
+     *
+     * @return \Avalara\SDK\Model\A1099\V2\StateAndLocalWithholdingRequest|null
+     */
+    public function getStateAndLocalWithholding()
+    {
+        return $this->container['state_and_local_withholding'];
+    }
+
+    /**
+     * Sets state_and_local_withholding
+     *
+     * @param \Avalara\SDK\Model\A1099\V2\StateAndLocalWithholdingRequest|null $state_and_local_withholding state_and_local_withholding
+     *
+     * @return self
+     */
+    public function setStateAndLocalWithholding($state_and_local_withholding)
+    {
+        $this->container['state_and_local_withholding'] = $state_and_local_withholding;
 
         return $this;
     }

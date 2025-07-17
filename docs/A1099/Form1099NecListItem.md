@@ -32,6 +32,6 @@ Name | Type | Description | Notes
 **state_e_file** | **bool** |  | [optional]
 **tin_match** | **bool** |  | [optional]
 **address_verification** | **bool** |  | [optional]
-**state_and_local_withholding** | [**\AvalaraSDK\ModelA1099V2\StateAndLocalWithholdingRequest**](StateAndLocalWithholdingRequest.md) |  | [optional]
+**state_and_local_withholding** | [**\Avalara\SDK\Model\A1099\V2\StateAndLocalWithholdingRequest**](StateAndLocalWithholdingRequest.md) |  | [optional]
 
 [[Back to Model list]](../../../README.md#models) [[Back to API list]](../../../README.md#endpoints) [[Back to README]](../../../README.md)

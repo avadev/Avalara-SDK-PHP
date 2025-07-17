@@ -109,12 +109,12 @@ class Form1099K implements ModelInterface, ArrayAccess, \JsonSerializable
         'address_verification_status' => '\Avalara\SDK\Model\A1099\V2\Form1099StatusDetail',
         'reference_id' => 'string',
         'email' => 'string',
-        'type_of_tin' => 'string',
+        'tin_type' => 'string',
         'tin' => 'string',
-        'first_payee_name' => 'string',
-        'second_payee_name' => 'string',
+        'recipient_name' => 'string',
+        'recipient_second_name' => 'string',
         'address' => 'string',
-        'address_recipient_second' => 'string',
+        'address2' => 'string',
         'city' => 'string',
         'state' => 'string',
         'zip' => 'string',
@@ -172,12 +172,12 @@ class Form1099K implements ModelInterface, ArrayAccess, \JsonSerializable
         'address_verification_status' => null,
         'reference_id' => null,
         'email' => null,
-        'type_of_tin' => null,
+        'tin_type' => null,
         'tin' => null,
-        'first_payee_name' => null,
-        'second_payee_name' => null,
+        'recipient_name' => null,
+        'recipient_second_name' => null,
         'address' => null,
-        'address_recipient_second' => null,
+        'address2' => null,
         'city' => null,
         'state' => null,
         'zip' => null,
@@ -254,12 +254,12 @@ class Form1099K implements ModelInterface, ArrayAccess, \JsonSerializable
         'address_verification_status' => 'addressVerificationStatus',
         'reference_id' => 'referenceId',
         'email' => 'email',
-        'type_of_tin' => 'typeOfTin',
+        'tin_type' => 'tinType',
         'tin' => 'tin',
-        'first_payee_name' => 'firstPayeeName',
-        'second_payee_name' => 'secondPayeeName',
+        'recipient_name' => 'recipientName',
+        'recipient_second_name' => 'recipientSecondName',
         'address' => 'address',
-        'address_recipient_second' => 'addressRecipientSecond',
+        'address2' => 'address2',
         'city' => 'city',
         'state' => 'state',
         'zip' => 'zip',
@@ -315,12 +315,12 @@ class Form1099K implements ModelInterface, ArrayAccess, \JsonSerializable
         'address_verification_status' => 'setAddressVerificationStatus',
         'reference_id' => 'setReferenceId',
         'email' => 'setEmail',
-        'type_of_tin' => 'setTypeOfTin',
+        'tin_type' => 'setTinType',
         'tin' => 'setTin',
-        'first_payee_name' => 'setFirstPayeeName',
-        'second_payee_name' => 'setSecondPayeeName',
+        'recipient_name' => 'setRecipientName',
+        'recipient_second_name' => 'setRecipientSecondName',
         'address' => 'setAddress',
-        'address_recipient_second' => 'setAddressRecipientSecond',
+        'address2' => 'setAddress2',
         'city' => 'setCity',
         'state' => 'setState',
         'zip' => 'setZip',
@@ -376,12 +376,12 @@ class Form1099K implements ModelInterface, ArrayAccess, \JsonSerializable
         'address_verification_status' => 'getAddressVerificationStatus',
         'reference_id' => 'getReferenceId',
         'email' => 'getEmail',
-        'type_of_tin' => 'getTypeOfTin',
+        'tin_type' => 'getTinType',
         'tin' => 'getTin',
-        'first_payee_name' => 'getFirstPayeeName',
-        'second_payee_name' => 'getSecondPayeeName',
+        'recipient_name' => 'getRecipientName',
+        'recipient_second_name' => 'getRecipientSecondName',
         'address' => 'getAddress',
-        'address_recipient_second' => 'getAddressRecipientSecond',
+        'address2' => 'getAddress2',
         'city' => 'getCity',
         'state' => 'getState',
         'zip' => 'getZip',
@@ -520,12 +520,12 @@ class Form1099K implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['address_verification_status'] = $data['address_verification_status'] ?? null;
         $this->container['reference_id'] = $data['reference_id'] ?? null;
         $this->container['email'] = $data['email'] ?? null;
-        $this->container['type_of_tin'] = $data['type_of_tin'] ?? null;
+        $this->container['tin_type'] = $data['tin_type'] ?? null;
         $this->container['tin'] = $data['tin'] ?? null;
-        $this->container['first_payee_name'] = $data['first_payee_name'] ?? null;
-        $this->container['second_payee_name'] = $data['second_payee_name'] ?? null;
+        $this->container['recipient_name'] = $data['recipient_name'] ?? null;
+        $this->container['recipient_second_name'] = $data['recipient_second_name'] ?? null;
         $this->container['address'] = $data['address'] ?? null;
-        $this->container['address_recipient_second'] = $data['address_recipient_second'] ?? null;
+        $this->container['address2'] = $data['address2'] ?? null;
         $this->container['city'] = $data['city'] ?? null;
         $this->container['state'] = $data['state'] ?? null;
         $this->container['zip'] = $data['zip'] ?? null;
@@ -1514,25 +1514,25 @@ class Form1099K implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets type_of_tin
+     * Gets tin_type
      *
      * @return string|null
      */
-    public function getTypeOfTin()
+    public function getTinType()
     {
-        return $this->container['type_of_tin'];
+        return $this->container['tin_type'];
     }
 
     /**
-     * Sets type_of_tin
+     * Sets tin_type
      *
-     * @param string|null $type_of_tin type_of_tin
+     * @param string|null $tin_type tin_type
      *
      * @return self
      */
-    public function setTypeOfTin($type_of_tin)
+    public function setTinType($tin_type)
     {
-        $this->container['type_of_tin'] = $type_of_tin;
+        $this->container['tin_type'] = $tin_type;
 
         return $this;
     }
@@ -1562,49 +1562,49 @@ class Form1099K implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets first_payee_name
+     * Gets recipient_name
      *
      * @return string|null
      */
-    public function getFirstPayeeName()
+    public function getRecipientName()
     {
-        return $this->container['first_payee_name'];
+        return $this->container['recipient_name'];
     }
 
     /**
-     * Sets first_payee_name
+     * Sets recipient_name
      *
-     * @param string|null $first_payee_name first_payee_name
+     * @param string|null $recipient_name recipient_name
      *
      * @return self
      */
-    public function setFirstPayeeName($first_payee_name)
+    public function setRecipientName($recipient_name)
     {
-        $this->container['first_payee_name'] = $first_payee_name;
+        $this->container['recipient_name'] = $recipient_name;
 
         return $this;
     }
 
     /**
-     * Gets second_payee_name
+     * Gets recipient_second_name
      *
      * @return string|null
      */
-    public function getSecondPayeeName()
+    public function getRecipientSecondName()
     {
-        return $this->container['second_payee_name'];
+        return $this->container['recipient_second_name'];
     }
 
     /**
-     * Sets second_payee_name
+     * Sets recipient_second_name
      *
-     * @param string|null $second_payee_name second_payee_name
+     * @param string|null $recipient_second_name recipient_second_name
      *
      * @return self
      */
-    public function setSecondPayeeName($second_payee_name)
+    public function setRecipientSecondName($recipient_second_name)
     {
-        $this->container['second_payee_name'] = $second_payee_name;
+        $this->container['recipient_second_name'] = $recipient_second_name;
 
         return $this;
     }
@@ -1634,25 +1634,25 @@ class Form1099K implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets address_recipient_second
+     * Gets address2
      *
      * @return string|null
      */
-    public function getAddressRecipientSecond()
+    public function getAddress2()
     {
-        return $this->container['address_recipient_second'];
+        return $this->container['address2'];
     }
 
     /**
-     * Sets address_recipient_second
+     * Sets address2
      *
-     * @param string|null $address_recipient_second address_recipient_second
+     * @param string|null $address2 address2
      *
      * @return self
      */
-    public function setAddressRecipientSecond($address_recipient_second)
+    public function setAddress2($address2)
     {
-        $this->container['address_recipient_second'] = $address_recipient_second;
+        $this->container['address2'] = $address2;
 
         return $this;
     }
