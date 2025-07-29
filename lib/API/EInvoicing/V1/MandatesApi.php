@@ -1053,8 +1053,8 @@ class GetMandateDataInputFieldsRequestSdk {
      * @param  string $avalara_version The HTTP Header meant to specify the version of the API intended to be used (required)
      * @param  string $x_avalara_client You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a fingerprint. (optional)
      * @param  string $filter Filter by field name and value. This filter only supports &lt;code&gt;eq&lt;/code&gt; and &lt;code&gt;contains&lt;/code&gt;. Refer to [https://developer.avalara.com/avatax/filtering-in-rest/](https://developer.avalara.com/avatax/filtering-in-rest/) for more information on filtering. (optional)
-     * @param  float $top If nonzero, return no more than this number of results. Used with &lt;code&gt;$skip&lt;/code&gt; to provide pagination for large datasets. Unless otherwise specified, the maximum number of records that can be returned from an API call is 1,000 records. (optional)
-     * @param  float $skip If nonzero, skip this number of results before returning data. Used with &lt;code&gt;$top&lt;/code&gt; to provide pagination for large datasets. (optional)
+     * @param  int $top The number of items to include in the result. (optional)
+     * @param  int $skip The number of items to skip in the result. (optional)
      * @param  bool $count When set to true, the count of the collection is also returned in the response body. (optional)
      * @param  bool $count_only When set to true, only the count of the collection is returned (optional)
      */
