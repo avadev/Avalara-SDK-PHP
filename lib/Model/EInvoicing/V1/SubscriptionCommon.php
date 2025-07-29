@@ -47,7 +47,6 @@ use \Avalara\SDK\Model\ModelInterface;
  * SubscriptionCommon Class Doc Comment
  *
  * @category Class
- * @description Basic configuration for a webhook subscription, including description and target notification URL.
  * @package  Avalara\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

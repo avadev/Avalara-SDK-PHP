@@ -20,7 +20,7 @@
  *
  * Avalara 1099 & W-9 API Definition
  *
- * ## 🔐 Authentication  Use **username/password** or generate a **license key** from: *Avalara Portal → Settings → License and API Keys*.  [More on authentication methods](https://developer.avalara.com/avatax-dm-combined-erp/common-setup/authentication/authentication-methods/)  [Test your credentials](https://developer.avalara.com/avatax/test-credentials/)  ## 📘 API & SDK Documentation  [Avalara SDK (.NET) on GitHub](https://github.com/avadev/Avalara-SDK-DotNet#avalarasdk--the-unified-c-library-for-next-gen-avalara-services)  [Code Examples – 1099 API](https://github.com/avadev/Avalara-SDK-DotNet/blob/main/docs/A1099/V2/Class1099IssuersApi.md#call1099issuersget)
+ * ## 🔐 Authentication  Generate a **license key** from: *[Avalara Portal](https://www.avalara.com/us/en/signin.html) → Settings → License and API Keys*.  [More on authentication methods](https://developer.avalara.com/avatax-dm-combined-erp/common-setup/authentication/authentication-methods/)  [Test your credentials](https://developer.avalara.com/avatax/test-credentials/)  ## 📘 API & SDK Documentation  [Avalara SDK (.NET) on GitHub](https://github.com/avadev/Avalara-SDK-DotNet#avalarasdk--the-unified-c-library-for-next-gen-avalara-services)  [Code Examples – 1099 API](https://github.com/avadev/Avalara-SDK-DotNet/blob/main/docs/A1099/V2/Class1099IssuersApi.md#call1099issuersget)
  *
  * @category   Avalara client libraries
  * @package    Avalara\SDK\API\A1099\V2
@@ -80,8 +80,8 @@ class Form1095BListItem implements ModelInterface, ArrayAccess, \JsonSerializabl
         'covered_individuals' => '\Avalara\SDK\Model\A1099\V2\CoveredIndividualRequest[]',
         'issuer_id' => 'string',
         'reference_id' => 'string',
-        'recipient_name' => 'string',
         'recipient_tin' => 'string',
+        'recipient_name' => 'string',
         'tin_type' => 'string',
         'recipient_second_name' => 'string',
         'address' => 'string',
@@ -119,8 +119,8 @@ class Form1095BListItem implements ModelInterface, ArrayAccess, \JsonSerializabl
         'covered_individuals' => null,
         'issuer_id' => null,
         'reference_id' => null,
-        'recipient_name' => null,
         'recipient_tin' => null,
+        'recipient_name' => null,
         'tin_type' => null,
         'recipient_second_name' => null,
         'address' => null,
@@ -177,8 +177,8 @@ class Form1095BListItem implements ModelInterface, ArrayAccess, \JsonSerializabl
         'covered_individuals' => 'coveredIndividuals',
         'issuer_id' => 'issuerId',
         'reference_id' => 'referenceId',
-        'recipient_name' => 'recipientName',
         'recipient_tin' => 'recipientTin',
+        'recipient_name' => 'recipientName',
         'tin_type' => 'tinType',
         'recipient_second_name' => 'recipientSecondName',
         'address' => 'address',
@@ -214,8 +214,8 @@ class Form1095BListItem implements ModelInterface, ArrayAccess, \JsonSerializabl
         'covered_individuals' => 'setCoveredIndividuals',
         'issuer_id' => 'setIssuerId',
         'reference_id' => 'setReferenceId',
-        'recipient_name' => 'setRecipientName',
         'recipient_tin' => 'setRecipientTin',
+        'recipient_name' => 'setRecipientName',
         'tin_type' => 'setTinType',
         'recipient_second_name' => 'setRecipientSecondName',
         'address' => 'setAddress',
@@ -251,8 +251,8 @@ class Form1095BListItem implements ModelInterface, ArrayAccess, \JsonSerializabl
         'covered_individuals' => 'getCoveredIndividuals',
         'issuer_id' => 'getIssuerId',
         'reference_id' => 'getReferenceId',
-        'recipient_name' => 'getRecipientName',
         'recipient_tin' => 'getRecipientTin',
+        'recipient_name' => 'getRecipientName',
         'tin_type' => 'getTinType',
         'recipient_second_name' => 'getRecipientSecondName',
         'address' => 'getAddress',
@@ -314,13 +314,13 @@ class Form1095BListItem implements ModelInterface, ArrayAccess, \JsonSerializabl
         return self::$openAPIModelName;
     }
 
-    const ORIGIN_OF_HEALTH_COVERAGE_CODE_SMALL_BUSINESS_HEALTH_OPTIONS_PROGRAM = 'SmallBusinessHealthOptionsProgram';
-    const ORIGIN_OF_HEALTH_COVERAGE_CODE_EMPLOYER_SPONSORED = 'EmployerSponsored';
-    const ORIGIN_OF_HEALTH_COVERAGE_CODE_GOVERNMENT_SPONSORED = 'GovernmentSponsored';
-    const ORIGIN_OF_HEALTH_COVERAGE_CODE_INDIVIDUAL_MARKET = 'IndividualMarket';
-    const ORIGIN_OF_HEALTH_COVERAGE_CODE_MULTIEMPLOYER_PLAN = 'MultiemployerPlan';
-    const ORIGIN_OF_HEALTH_COVERAGE_CODE_OTHER_DESIGNATED_MINIMUM_ESSENTIAL_COVERAGE = 'OtherDesignatedMinimumEssentialCoverage';
-    const ORIGIN_OF_HEALTH_COVERAGE_CODE_EMPLOYER_SPONSORED_INDIVIDUAL_HRA = 'EmployerSponsoredIndividualHra';
+    const ORIGIN_OF_HEALTH_COVERAGE_CODE_A = 'A';
+    const ORIGIN_OF_HEALTH_COVERAGE_CODE_B = 'B';
+    const ORIGIN_OF_HEALTH_COVERAGE_CODE_C = 'C';
+    const ORIGIN_OF_HEALTH_COVERAGE_CODE_D = 'D';
+    const ORIGIN_OF_HEALTH_COVERAGE_CODE_E = 'E';
+    const ORIGIN_OF_HEALTH_COVERAGE_CODE_F = 'F';
+    const ORIGIN_OF_HEALTH_COVERAGE_CODE_G = 'G';
     const TIN_TYPE_EIN = 'EIN';
     const TIN_TYPE_SSN = 'SSN';
     const TIN_TYPE_ITIN = 'ITIN';
@@ -334,13 +334,13 @@ class Form1095BListItem implements ModelInterface, ArrayAccess, \JsonSerializabl
     public function getOriginOfHealthCoverageCodeAllowableValues()
     {
         return [
-            self::ORIGIN_OF_HEALTH_COVERAGE_CODE_SMALL_BUSINESS_HEALTH_OPTIONS_PROGRAM,
-            self::ORIGIN_OF_HEALTH_COVERAGE_CODE_EMPLOYER_SPONSORED,
-            self::ORIGIN_OF_HEALTH_COVERAGE_CODE_GOVERNMENT_SPONSORED,
-            self::ORIGIN_OF_HEALTH_COVERAGE_CODE_INDIVIDUAL_MARKET,
-            self::ORIGIN_OF_HEALTH_COVERAGE_CODE_MULTIEMPLOYER_PLAN,
-            self::ORIGIN_OF_HEALTH_COVERAGE_CODE_OTHER_DESIGNATED_MINIMUM_ESSENTIAL_COVERAGE,
-            self::ORIGIN_OF_HEALTH_COVERAGE_CODE_EMPLOYER_SPONSORED_INDIVIDUAL_HRA,
+            self::ORIGIN_OF_HEALTH_COVERAGE_CODE_A,
+            self::ORIGIN_OF_HEALTH_COVERAGE_CODE_B,
+            self::ORIGIN_OF_HEALTH_COVERAGE_CODE_C,
+            self::ORIGIN_OF_HEALTH_COVERAGE_CODE_D,
+            self::ORIGIN_OF_HEALTH_COVERAGE_CODE_E,
+            self::ORIGIN_OF_HEALTH_COVERAGE_CODE_F,
+            self::ORIGIN_OF_HEALTH_COVERAGE_CODE_G,
         ];
     }
 
@@ -383,8 +383,8 @@ class Form1095BListItem implements ModelInterface, ArrayAccess, \JsonSerializabl
         $this->container['covered_individuals'] = $data['covered_individuals'] ?? null;
         $this->container['issuer_id'] = $data['issuer_id'] ?? null;
         $this->container['reference_id'] = $data['reference_id'] ?? null;
-        $this->container['recipient_name'] = $data['recipient_name'] ?? null;
         $this->container['recipient_tin'] = $data['recipient_tin'] ?? null;
+        $this->container['recipient_name'] = $data['recipient_name'] ?? null;
         $this->container['tin_type'] = $data['tin_type'] ?? null;
         $this->container['recipient_second_name'] = $data['recipient_second_name'] ?? null;
         $this->container['address'] = $data['address'] ?? null;
@@ -423,6 +423,13 @@ class Form1095BListItem implements ModelInterface, ArrayAccess, \JsonSerializabl
             );
         }
 
+        if ($this->container['recipient_name'] === null) {
+            $invalidProperties[] = "'recipient_name' can't be null";
+        }
+        if ((mb_strlen($this->container['recipient_name']) < 1)) {
+            $invalidProperties[] = "invalid value for 'recipient_name', the character length must be bigger than or equal to 1.";
+        }
+
         $allowedValues = $this->getTinTypeAllowableValues();
         if (!is_null($this->container['tin_type']) && !in_array($this->container['tin_type'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -430,6 +437,27 @@ class Form1095BListItem implements ModelInterface, ArrayAccess, \JsonSerializabl
                 $this->container['tin_type'],
                 implode("', '", $allowedValues)
             );
+        }
+
+        if ($this->container['address'] === null) {
+            $invalidProperties[] = "'address' can't be null";
+        }
+        if ((mb_strlen($this->container['address']) < 1)) {
+            $invalidProperties[] = "invalid value for 'address', the character length must be bigger than or equal to 1.";
+        }
+
+        if ($this->container['city'] === null) {
+            $invalidProperties[] = "'city' can't be null";
+        }
+        if ((mb_strlen($this->container['city']) < 1)) {
+            $invalidProperties[] = "invalid value for 'city', the character length must be bigger than or equal to 1.";
+        }
+
+        if ($this->container['country_code'] === null) {
+            $invalidProperties[] = "'country_code' can't be null";
+        }
+        if ((mb_strlen($this->container['country_code']) < 1)) {
+            $invalidProperties[] = "invalid value for 'country_code', the character length must be bigger than or equal to 1.";
         }
 
         return $invalidProperties;
@@ -460,7 +488,7 @@ class Form1095BListItem implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets employee_first_name
      *
-     * @param string|null $employee_first_name employee_first_name
+     * @param string|null $employee_first_name Employee's first name
      *
      * @return self
      */
@@ -484,7 +512,7 @@ class Form1095BListItem implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets employee_middle_name
      *
-     * @param string|null $employee_middle_name employee_middle_name
+     * @param string|null $employee_middle_name Employee's middle name
      *
      * @return self
      */
@@ -508,7 +536,7 @@ class Form1095BListItem implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets employee_last_name
      *
-     * @param string|null $employee_last_name employee_last_name
+     * @param string|null $employee_last_name Employee's last name
      *
      * @return self
      */
@@ -532,7 +560,7 @@ class Form1095BListItem implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets employee_name_suffix
      *
-     * @param string|null $employee_name_suffix employee_name_suffix
+     * @param string|null $employee_name_suffix Employee's name suffix
      *
      * @return self
      */
@@ -556,7 +584,7 @@ class Form1095BListItem implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets employee_date_of_birth
      *
-     * @param \DateTime|null $employee_date_of_birth employee_date_of_birth
+     * @param \DateTime|null $employee_date_of_birth Employee's date of birth
      *
      * @return self
      */
@@ -580,7 +608,7 @@ class Form1095BListItem implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets origin_of_health_coverage_code
      *
-     * @param string|null $origin_of_health_coverage_code origin_of_health_coverage_code
+     * @param string|null $origin_of_health_coverage_code Origin of health coverage code
      *
      * @return self
      */
@@ -614,7 +642,7 @@ class Form1095BListItem implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets covered_individuals
      *
-     * @param \Avalara\SDK\Model\A1099\V2\CoveredIndividualRequest[]|null $covered_individuals covered_individuals
+     * @param \Avalara\SDK\Model\A1099\V2\CoveredIndividualRequest[]|null $covered_individuals Covered individuals information
      *
      * @return self
      */
@@ -640,7 +668,7 @@ class Form1095BListItem implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets issuer_id
      *
-     * @param string|null $issuer_id issuer_id
+     * @param string|null $issuer_id Issuer ID
      *
      * @return self
      */
@@ -664,37 +692,13 @@ class Form1095BListItem implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets reference_id
      *
-     * @param string|null $reference_id reference_id
+     * @param string|null $reference_id Reference ID
      *
      * @return self
      */
     public function setReferenceId($reference_id)
     {
         $this->container['reference_id'] = $reference_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets recipient_name
-     *
-     * @return string|null
-     */
-    public function getRecipientName()
-    {
-        return $this->container['recipient_name'];
-    }
-
-    /**
-     * Sets recipient_name
-     *
-     * @param string|null $recipient_name recipient_name
-     *
-     * @return self
-     */
-    public function setRecipientName($recipient_name)
-    {
-        $this->container['recipient_name'] = $recipient_name;
 
         return $this;
     }
@@ -712,13 +716,42 @@ class Form1095BListItem implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets recipient_tin
      *
-     * @param string|null $recipient_tin recipient_tin
+     * @param string|null $recipient_tin Recipient Tax ID Number
      *
      * @return self
      */
     public function setRecipientTin($recipient_tin)
     {
         $this->container['recipient_tin'] = $recipient_tin;
+
+        return $this;
+    }
+
+    /**
+     * Gets recipient_name
+     *
+     * @return string
+     */
+    public function getRecipientName()
+    {
+        return $this->container['recipient_name'];
+    }
+
+    /**
+     * Sets recipient_name
+     *
+     * @param string $recipient_name Recipient name
+     *
+     * @return self
+     */
+    public function setRecipientName($recipient_name)
+    {
+
+        if ((mb_strlen($recipient_name) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $recipient_name when calling Form1095BListItem., must be bigger than or equal to 1.');
+        }
+
+        $this->container['recipient_name'] = $recipient_name;
 
         return $this;
     }
@@ -736,7 +769,7 @@ class Form1095BListItem implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets tin_type
      *
-     * @param string|null $tin_type tin_type
+     * @param string|null $tin_type Type of TIN (Tax ID Number). Will be one of:  * SSN  * EIN  * ITIN  * ATIN
      *
      * @return self
      */
@@ -770,7 +803,7 @@ class Form1095BListItem implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets recipient_second_name
      *
-     * @param string|null $recipient_second_name recipient_second_name
+     * @param string|null $recipient_second_name Recipient second name
      *
      * @return self
      */
@@ -784,7 +817,7 @@ class Form1095BListItem implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Gets address
      *
-     * @return string|null
+     * @return string
      */
     public function getAddress()
     {
@@ -794,12 +827,17 @@ class Form1095BListItem implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets address
      *
-     * @param string|null $address address
+     * @param string $address Address
      *
      * @return self
      */
     public function setAddress($address)
     {
+
+        if ((mb_strlen($address) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $address when calling Form1095BListItem., must be bigger than or equal to 1.');
+        }
+
         $this->container['address'] = $address;
 
         return $this;
@@ -818,7 +856,7 @@ class Form1095BListItem implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets address2
      *
-     * @param string|null $address2 address2
+     * @param string|null $address2 Address line 2
      *
      * @return self
      */
@@ -832,7 +870,7 @@ class Form1095BListItem implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Gets city
      *
-     * @return string|null
+     * @return string
      */
     public function getCity()
     {
@@ -842,12 +880,17 @@ class Form1095BListItem implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets city
      *
-     * @param string|null $city city
+     * @param string $city City
      *
      * @return self
      */
     public function setCity($city)
     {
+
+        if ((mb_strlen($city) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $city when calling Form1095BListItem., must be bigger than or equal to 1.');
+        }
+
         $this->container['city'] = $city;
 
         return $this;
@@ -866,7 +909,7 @@ class Form1095BListItem implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets state
      *
-     * @param string|null $state state
+     * @param string|null $state US state. Required if CountryCode is \"US\".
      *
      * @return self
      */
@@ -890,7 +933,7 @@ class Form1095BListItem implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets zip
      *
-     * @param string|null $zip zip
+     * @param string|null $zip Zip/postal code
      *
      * @return self
      */
@@ -914,7 +957,7 @@ class Form1095BListItem implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets recipient_email
      *
-     * @param string|null $recipient_email recipient_email
+     * @param string|null $recipient_email Recipient email address
      *
      * @return self
      */
@@ -938,7 +981,7 @@ class Form1095BListItem implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets account_number
      *
-     * @param string|null $account_number account_number
+     * @param string|null $account_number Account number
      *
      * @return self
      */
@@ -962,7 +1005,7 @@ class Form1095BListItem implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets office_code
      *
-     * @param string|null $office_code office_code
+     * @param string|null $office_code Office code
      *
      * @return self
      */
@@ -986,7 +1029,7 @@ class Form1095BListItem implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets recipient_non_us_province
      *
-     * @param string|null $recipient_non_us_province recipient_non_us_province
+     * @param string|null $recipient_non_us_province Foreign province
      *
      * @return self
      */
@@ -1000,7 +1043,7 @@ class Form1095BListItem implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Gets country_code
      *
-     * @return string|null
+     * @return string
      */
     public function getCountryCode()
     {
@@ -1010,12 +1053,17 @@ class Form1095BListItem implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets country_code
      *
-     * @param string|null $country_code country_code
+     * @param string $country_code Country code, as defined at https://www.irs.gov/e-file-providers/country-codes
      *
      * @return self
      */
     public function setCountryCode($country_code)
     {
+
+        if ((mb_strlen($country_code) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $country_code when calling Form1095BListItem., must be bigger than or equal to 1.');
+        }
+
         $this->container['country_code'] = $country_code;
 
         return $this;
@@ -1034,7 +1082,7 @@ class Form1095BListItem implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets federal_e_file
      *
-     * @param bool|null $federal_e_file federal_e_file
+     * @param bool|null $federal_e_file Boolean indicating that federal e-filing should be scheduled for this form
      *
      * @return self
      */
@@ -1058,7 +1106,7 @@ class Form1095BListItem implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets postal_mail
      *
-     * @param bool|null $postal_mail postal_mail
+     * @param bool|null $postal_mail Boolean indicating that postal mailing to the recipient should be scheduled for this form
      *
      * @return self
      */
@@ -1082,7 +1130,7 @@ class Form1095BListItem implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets state_e_file
      *
-     * @param bool|null $state_e_file state_e_file
+     * @param bool|null $state_e_file Boolean indicating that state e-filing should be scheduled for this form
      *
      * @return self
      */
@@ -1106,7 +1154,7 @@ class Form1095BListItem implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets tin_match
      *
-     * @param bool|null $tin_match tin_match
+     * @param bool|null $tin_match Boolean indicating that TIN Matching should be scheduled for this form
      *
      * @return self
      */
@@ -1130,7 +1178,7 @@ class Form1095BListItem implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets address_verification
      *
-     * @param bool|null $address_verification address_verification
+     * @param bool|null $address_verification Boolean indicating that address verification should be scheduled for this form
      *
      * @return self
      */
@@ -1154,7 +1202,7 @@ class Form1095BListItem implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets state_and_local_withholding
      *
-     * @param \Avalara\SDK\Model\A1099\V2\StateAndLocalWithholdingRequest|null $state_and_local_withholding state_and_local_withholding
+     * @param \Avalara\SDK\Model\A1099\V2\StateAndLocalWithholdingRequest|null $state_and_local_withholding State and local withholding information
      *
      * @return self
      */

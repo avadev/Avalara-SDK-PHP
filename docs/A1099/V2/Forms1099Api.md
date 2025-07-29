@@ -4,13 +4,13 @@ All URIs are relative to https://api-ava1099.eta.sbx.us-east-1.aws.avalara.io/av
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**bulkUpsert1099Forms()**](Forms1099Api.md#bulkUpsert1099Forms) | **POST** /1099/forms/$bulk-upsert | Creates or updates multiple 1099 forms.
-[**create1099Form()**](Forms1099Api.md#create1099Form) | **POST** /1099/forms | Creates a 1099 form.
-[**delete1099Form()**](Forms1099Api.md#delete1099Form) | **DELETE** /1099/forms/{id} | Deletes a 1099 form.
-[**get1099Form()**](Forms1099Api.md#get1099Form) | **GET** /1099/forms/{id} | Retrieves a 1099 form.
-[**get1099FormPdf()**](Forms1099Api.md#get1099FormPdf) | **GET** /1099/forms/{id}/pdf | Retrieves the PDF file for a single 1099 by form id.
-[**list1099Forms()**](Forms1099Api.md#list1099Forms) | **GET** /1099/forms | Retrieves a list of 1099 forms based on query parameters.
-[**update1099Form()**](Forms1099Api.md#update1099Form) | **PUT** /1099/forms/{id} | Updates a 1099 form.
+[**bulkUpsert1099Forms()**](Forms1099Api.md#bulkUpsert1099Forms) | **POST** /1099/forms/$bulk-upsert | Create or update multiple 1099/1095/W2/1042S forms
+[**create1099Form()**](Forms1099Api.md#create1099Form) | **POST** /1099/forms | Create a 1099/1095/W2/1042S form
+[**delete1099Form()**](Forms1099Api.md#delete1099Form) | **DELETE** /1099/forms/{id} | Delete a 1099/1095/W2/1042S form
+[**get1099Form()**](Forms1099Api.md#get1099Form) | **GET** /1099/forms/{id} | Retrieve a 1099/1095/W2/1042S form
+[**get1099FormPdf()**](Forms1099Api.md#get1099FormPdf) | **GET** /1099/forms/{id}/pdf | Retrieve the PDF file for a 1099/1095/W2/1042S form
+[**list1099Forms()**](Forms1099Api.md#list1099Forms) | **GET** /1099/forms | List 1099/1095/W2/1042S forms
+[**update1099Form()**](Forms1099Api.md#update1099Form) | **PUT** /1099/forms/{id} | Update a 1099/1095/W2/1042S form
 
 
 ## `bulkUpsert1099Forms()`
@@ -19,9 +19,9 @@ Method | HTTP request | Description
 bulkUpsert1099Forms($avalara_version, $dry_run, $x_correlation_id, $x_avalara_client, $bulk_upsert1099_forms_request): \Avalara\SDK\Model\A1099\V2\Form1099ProccessResult
 ```
 
-Creates or updates multiple 1099 forms.
+Create or update multiple 1099/1095/W2/1042S forms
 
-This endpoint allows you to create or update multiple 1099 forms.  You can use one of the following payload structures:                **Form 1099-MISC:**  ```json  {     \"formType\": \"1099-MISC\",     \"forms\": [         {             \"IssuerId\": \"123456\",             \"IssuerReferenceId\": \"REF123\",             \"IssuerTin\": \"12-3456789\",             \"TaxYear\": 2023,             \"ReferenceId\": \"FORM123456\",             \"RecipientName\": \"John Doe\",             \"RecipientTin\": \"987-65-4321\",             \"TinType\": \"IEN\",             \"RecipientSecondName\": \"Jane Doe\",             \"Address\": \"123 Main Street\",             \"Address2\": \"Apt 4B\",             \"City\": \"New York\",             \"State\": \"NY\",             \"Zip\": \"10001\",             \"RecipientEmail\": \"john.doe@email.com\",             \"AccountNumber\": \"ACC123456\",             \"OfficeCode\": \"NYC01\",             \"SecondTinNotice\": false,             \"RecipientNonUsProvince\": \"\",             \"CountryCode\": \"US\",             \"Rents\": 12000.00,             \"Royalties\": 5000.00,             \"OtherIncome\": 3000.00,             \"FishingBoatProceeds\": 0.00,             \"MedicalHealthCarePayments\": 15000.00,             \"SubstitutePayments\": 1000.00,             \"CropInsuranceProceeds\": 0.00,             \"GrossProceedsPaidToAttorney\": 7500.00,             \"FishPurchasedForResale\": 0.00,             \"FedIncomeTaxWithheld\": 5000.00,             \"Section409ADeferrals\": 0.00,             \"ExcessGoldenParachutePayments\": 0.00,             \"NonqualifiedDeferredCompensation\": 0.00,             \"PayerMadeDirectSales\": false,             \"FatcaFilingRequirement\": false,             \"StateAndLocalWithholding\": {               \"StateTaxWithheld\": 2500.00,               \"LocalTaxWithheld\": 1000.00,               \"State\": \"NY\",               \"StateIdNumber\": \"NY123456\",               \"Locality\": \"New York City\",               \"StateIncome\": 35000.00,               \"LocalIncome\": 35000.00             }         }     ]  }  ```                **Form 1099-NEC:**  ```json  {    \"formType\": \"1099-NEC\",    \"forms\": [      {        \"issuerID\": \"180337282\",        \"issuerReferenceId\": \"ISS123\",        \"issuerTin\": \"12-3000000\",        \"taxYear\": 2024,        \"referenceID\": \"REF-002\",        \"recipientName\": \"Jane Smith\",        \"recipientSecondName\": \"\",        \"recipientTin\": \"987-65-4321\",        \"tinType\": \"IEN\",        \"address\": \"123 Center St\",        \"address2\": \"\",        \"city\": \"Santa Monica\",        \"state\": \"CA\",        \"zip\": \"90401\",        \"countryCode\": \"US\",        \"recipientNonUsProvince\": \"\",        \"recipientEmail\": \"\",        \"accountNumber\": \"\",        \"officeCode\": \"\",        \"secondTinNotice\": false,        \"nonemployeeCompensation\": 123.45,        \"payerMadeDirectSales\": false,        \"federalIncomeTaxWithheld\": 12.34,        \"stateAndLocalWithholding\": {          \"state\": \"CA\",          \"stateIdNumber\": \"123123123\"          \"stateIncome\": 123.45,          \"stateTaxWithheld\": 12.34,          \"locality\": \"Santa Monica\",          \"localityIdNumber\": \"456456\",          \"localTaxWithheld\": 12.34          \"localIncome\": 50000.00         },        \"federalEFile\": true,        \"postalMail\": true,        \"stateEFile\": true,        \"tinMatch\": true,        \"addressVerification\": true       }     ]   }  ```  For the full version of the payload and its schema details, refer to the Swagger schemas section.
+This endpoint allows you to create or update multiple 1099/1095/W2/1042S forms.  You can use one of the following payload structures:                **Form 1099-MISC:**  ```json  {     \"formType\": \"1099-MISC\",     \"forms\": [         {             \"IssuerId\": \"123456\",             \"IssuerReferenceId\": \"REF123\",             \"IssuerTin\": \"12-3456789\",             \"TaxYear\": 2023,             \"ReferenceId\": \"FORM123456\",             \"RecipientName\": \"John Doe\",             \"RecipientTin\": \"587-65-4321\",             \"TinType\": \"SSN\",             \"RecipientSecondName\": \"Jane Doe\",             \"Address\": \"123 Main Street\",             \"Address2\": \"Apt 4B\",             \"City\": \"New York\",             \"State\": \"NY\",             \"Zip\": \"10001\",             \"RecipientEmail\": \"john.doe@email.com\",             \"AccountNumber\": \"ACC123456\",             \"OfficeCode\": \"NYC01\",             \"SecondTinNotice\": false,             \"RecipientNonUsProvince\": \"\",             \"CountryCode\": \"US\",             \"Rents\": 12000.00,             \"Royalties\": 5000.00,             \"OtherIncome\": 3000.00,             \"FishingBoatProceeds\": 0.00,             \"MedicalHealthCarePayments\": 15000.00,             \"SubstitutePayments\": 1000.00,             \"CropInsuranceProceeds\": 0.00,             \"GrossProceedsPaidToAttorney\": 7500.00,             \"FishPurchasedForResale\": 0.00,             \"FedIncomeTaxWithheld\": 5000.00,             \"Section409ADeferrals\": 0.00,             \"ExcessGoldenParachutePayments\": 0.00,             \"NonqualifiedDeferredCompensation\": 0.00,             \"DirectSalesIndicator\": false,             \"FatcaFilingRequirement\": false,             \"StateAndLocalWithholding\": {               \"StateTaxWithheld\": 2500.00,               \"LocalTaxWithheld\": 1000.00,               \"State\": \"NY\",               \"StateIdNumber\": \"NY123456\",               \"Locality\": \"New York City\",               \"StateIncome\": 35000.00,               \"LocalIncome\": 35000.00             }         }     ]  }  ```                **Form 1099-NEC:**  ```json  {    \"formType\": \"1099-NEC\",    \"forms\": [      {        \"issuerID\": \"180337282\",        \"issuerReferenceId\": \"ISS123\",        \"issuerTin\": \"12-3000000\",        \"taxYear\": 2024,        \"referenceID\": \"REF-002\",        \"recipientName\": \"Jane Smith\",        \"recipientSecondName\": \"\",        \"recipientTin\": \"587-65-4321\",        \"tinType\": \"SSN\",        \"address\": \"123 Center St\",        \"address2\": \"\",        \"city\": \"Santa Monica\",        \"state\": \"CA\",        \"zip\": \"90401\",        \"countryCode\": \"US\",        \"recipientNonUsProvince\": \"\",        \"recipientEmail\": \"\",        \"accountNumber\": \"\",        \"officeCode\": \"\",        \"secondTinNotice\": false,        \"nonemployeeCompensation\": 123.45,        \"directSalesIndicator\": false,        \"federalIncomeTaxWithheld\": 12.34,        \"stateAndLocalWithholding\": {          \"state\": \"CA\",          \"stateIdNumber\": \"123123123\",          \"stateIncome\": 123.45,          \"stateTaxWithheld\": 12.34,          \"locality\": \"Santa Monica\",          \"localityIdNumber\": \"456456\",          \"localTaxWithheld\": 12.34,          \"localIncome\": 50000.00         },        \"federalEFile\": true,        \"postalMail\": true,        \"stateEFile\": true,        \"tinMatch\": true,        \"addressVerification\": true       }     ]   }  ```  For the full version of the payload and its schema details, refer to the Swagger schemas section.
 
 ### Example
 
@@ -41,9 +41,9 @@ $client = new \Avalara\SDK\ApiClient($config);
 
 $apiInstance = new Avalara\SDK\Api\Forms1099Api($client);
 
-$avalara_version = 2.0; // string | API version
+$avalara_version = 2.0.0; // string | API version
 $dry_run = false; // bool | 
-$x_correlation_id = 2077ede9-37dd-485d-a027-dfa1c77d63fb; // string | Unique correlation Id in a GUID format
+$x_correlation_id = 2887c820-8999-462b-a6d0-a806ff098c1d; // string | Unique correlation Id in a GUID format
 $x_avalara_client = Swagger UI; 22.1.0; // string | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
 $bulk_upsert1099_forms_request = new \Avalara\SDK\Model\A1099\V2\BulkUpsert1099FormsRequest(); // \Avalara\SDK\Model\A1099\V2\BulkUpsert1099FormsRequest | 
 
@@ -85,10 +85,12 @@ Name | Type | Description  | Notes
 ## `create1099Form()`
 
 ```php
-create1099Form($avalara_version, $x_correlation_id, $x_avalara_client, $i_create_form1099_request): \Avalara\SDK\Model\A1099\V2\Get1099Form200Response
+create1099Form($avalara_version, $x_correlation_id, $x_avalara_client, $i_create_form1099_request): \Avalara\SDK\Model\A1099\V2\Create1099Form201Response
 ```
 
-Creates a 1099 form.
+Create a 1099/1095/W2/1042S form
+
+Create a 1099/1095/W2/1042S form.
 
 ### Example
 
@@ -108,8 +110,8 @@ $client = new \Avalara\SDK\ApiClient($config);
 
 $apiInstance = new Avalara\SDK\Api\Forms1099Api($client);
 
-$avalara_version = 2.0; // string | API version
-$x_correlation_id = 79967515-0a3a-4455-a656-451fca1ccc79; // string | Unique correlation Id in a GUID format
+$avalara_version = 2.0.0; // string | API version
+$x_correlation_id = d0cd754d-adf8-41e6-be0a-b4d205e24e61; // string | Unique correlation Id in a GUID format
 $x_avalara_client = Swagger UI; 22.1.0; // string | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
 $i_create_form1099_request = new \Avalara\SDK\Model\A1099\V2\ICreateForm1099Request(); // \Avalara\SDK\Model\A1099\V2\ICreateForm1099Request
 
@@ -132,7 +134,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Avalara\SDK\Model\A1099\V2\Get1099Form200Response**](../Model/Get1099Form200Response.md)
+[**\Avalara\SDK\Model\A1099\V2\Create1099Form201Response**](../Model/Create1099Form201Response.md)
 
 ### Authorization
 
@@ -153,7 +155,9 @@ Name | Type | Description  | Notes
 delete1099Form($id, $avalara_version, $x_correlation_id, $x_avalara_client)
 ```
 
-Deletes a 1099 form.
+Delete a 1099/1095/W2/1042S form
+
+Delete a 1099/1095/W2/1042S form.
 
 ### Example
 
@@ -174,8 +178,8 @@ $client = new \Avalara\SDK\ApiClient($config);
 $apiInstance = new Avalara\SDK\Api\Forms1099Api($client);
 
 $id = 'id_example'; // string | The unique identifier of the desired form to delete.
-$avalara_version = 2.0; // string | API version
-$x_correlation_id = 9f1be630-1bef-4e22-b7fe-3de4d7505117; // string | Unique correlation Id in a GUID format
+$avalara_version = 2.0.0; // string | API version
+$x_correlation_id = addfa5c3-a255-432d-97a0-51af301447b2; // string | Unique correlation Id in a GUID format
 $x_avalara_client = Swagger UI; 22.1.0; // string | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
 
 try {
@@ -217,7 +221,9 @@ void (empty response body)
 get1099Form($id, $avalara_version, $x_correlation_id, $x_avalara_client): \Avalara\SDK\Model\A1099\V2\Get1099Form200Response
 ```
 
-Retrieves a 1099 form.
+Retrieve a 1099/1095/W2/1042S form
+
+Retrieve a 1099/1095/W2/1042S form.
 
 ### Example
 
@@ -238,8 +244,8 @@ $client = new \Avalara\SDK\ApiClient($config);
 $apiInstance = new Avalara\SDK\Api\Forms1099Api($client);
 
 $id = 'id_example'; // string
-$avalara_version = 2.0; // string | API version
-$x_correlation_id = 2345256f-fa77-4849-80b3-133afc8cb5c2; // string | Unique correlation Id in a GUID format
+$avalara_version = 2.0.0; // string | API version
+$x_correlation_id = d24d3112-03b3-42d3-8118-9654a4ed92c1; // string | Unique correlation Id in a GUID format
 $x_avalara_client = Swagger UI; 22.1.0; // string | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
 
 try {
@@ -279,10 +285,12 @@ Name | Type | Description  | Notes
 ## `get1099FormPdf()`
 
 ```php
-get1099FormPdf($id, $avalara_version, $mark_edelivered, $x_correlation_id, $x_avalara_client): \Avalara\SDK\Model\A1099\V2\Update1099Form200Response
+get1099FormPdf($id, $avalara_version, $mark_edelivered, $x_correlation_id, $x_avalara_client): \SplFileObject
 ```
 
-Retrieves the PDF file for a single 1099 by form id.
+Retrieve the PDF file for a 1099/1095/W2/1042S form
+
+Retrieve the PDF file for a 1099/1095/W2/1042S form.
 
 ### Example
 
@@ -302,10 +310,10 @@ $client = new \Avalara\SDK\ApiClient($config);
 
 $apiInstance = new Avalara\SDK\Api\Forms1099Api($client);
 
-$id = 'id_example'; // string | 
-$avalara_version = 2.0; // string | API version
-$mark_edelivered = True; // bool | The parameter for marked e-delivered
-$x_correlation_id = ec2b2e74-7990-43f9-b68e-0a32e20abd1b; // string | Unique correlation Id in a GUID format
+$id = 'id_example'; // string | The ID of the form
+$avalara_version = 2.0.0; // string | API version
+$mark_edelivered = True; // bool | Optional boolean that if set indicates that the form should be marked as having been successfully edelivered
+$x_correlation_id = 84d9cf56-2aee-4be1-a89f-de5be5369993; // string | Unique correlation Id in a GUID format
 $x_avalara_client = Swagger UI; 22.1.0; // string | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
 
 try {
@@ -320,15 +328,15 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **string**|  |
+ **id** | **string**| The ID of the form |
  **avalara_version** | **string**| API version |
- **mark_edelivered** | **bool**| The parameter for marked e-delivered | [optional]
+ **mark_edelivered** | **bool**| Optional boolean that if set indicates that the form should be marked as having been successfully edelivered | [optional]
  **x_correlation_id** | **string**| Unique correlation Id in a GUID format | [optional]
  **x_avalara_client** | **string**| Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) . | [optional]
 
 ### Return type
 
-[**\Avalara\SDK\Model\A1099\V2\Update1099Form200Response**](../Model/Update1099Form200Response.md)
+**\SplFileObject**
 
 ### Authorization
 
@@ -337,7 +345,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: `application/json`
+- **Accept**: `application/pdf`, `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../../README.md#endpoints)
 [[Back to Model list]](../../../README.md#models)
@@ -346,10 +354,12 @@ Name | Type | Description  | Notes
 ## `list1099Forms()`
 
 ```php
-list1099Forms($avalara_version, $filter, $top, $skip, $order_by, $x_correlation_id, $x_avalara_client): \Avalara\SDK\Model\A1099\V2\Form1099List
+list1099Forms($avalara_version, $filter, $top, $skip, $order_by, $x_correlation_id, $x_avalara_client): \Avalara\SDK\Model\A1099\V2\Form1099ListResponse
 ```
 
-Retrieves a list of 1099 forms based on query parameters.
+List 1099/1095/W2/1042S forms
+
+List 1099/1095/W2/1042S forms. Filterable fields are name, referenceId and taxYear.
 
 ### Example
 
@@ -369,12 +379,12 @@ $client = new \Avalara\SDK\ApiClient($config);
 
 $apiInstance = new Avalara\SDK\Api\Forms1099Api($client);
 
-$avalara_version = 2.0; // string | API version
+$avalara_version = 2.0.0; // string | API version
 $filter = 'filter_example'; // string | A filter statement to identify specific records to retrieve. For more information on filtering, see <a href=\"https://developer.avalara.com/avatax/filtering-in-rest/\">Filtering in REST</a>.    Collections support filtering only on certain fields. An attempt to filter on an unsupported field will receive a 400 Bad Request response.    Supported filtering fields are as follows:        issuerId      issuerReferenceId      taxYear      addressVerificationStatus - possible values are: unknown, pending, failed, incomplete, unchanged, verified      createdAt      edeliveryStatus - possible values are: sent, unscheduled, bad_verify, bad_verify_limit, scheduled, bounced, accepted      email      federalEfileStatus - possible values are: unscheduled, scheduled, sent, corrected_scheduled, accepted, corrected, corrected_accepted, held      recipientName      mailStatus - possible values are: sent, unscheduled, pending, delivered      referenceId      tinMatchStatus - possible values are: none, pending, matched, failed      type - possible values are: 940, 941, 943, 944, 945, 1042, 1042-S, 1095-B, 1095-C, 1097-BTC, 1098, 1098-C, 1098-E, 1098-Q, 1098-T, 3921, 3922, 5498, 5498-ESA, 5498-SA, 1099-MISC, 1099-A, 1099-B, 1099-C, 1099-CAP, 1099-DIV, 1099-G, 1099-INT, 1099-K, 1099-LS, 1099-LTC, 1099-NEC, 1099-OID, 1099-PATR, 1099-Q, 1099-R, 1099-S, 1099-SA, T4A, W-2, W-2G, 1099-HC      updatedAt      validity - possible values are: true, false
 $top = 10; // int | If nonzero, return no more than this number of results.     Used with skip to provide pagination for large datasets.     Unless otherwise specified, the maximum number of records that can be returned from an API call is 1,000 records.
 $skip = 0; // int | If nonzero, skip this number of results before returning data. Used with top to provide pagination for large datasets.
 $order_by = 'order_by_example'; // string | A comma separated list of sort statements in the format (fieldname) [ASC|DESC], for example issuerReferenceId ASC.    Supported sorting fields are:         issuerReferenceId       taxYear       createdAt       recipientName      updatedAt
-$x_correlation_id = 3be682bf-25f2-4c12-825b-dea22885d37f; // string | Unique correlation Id in a GUID format
+$x_correlation_id = edd69041-acfd-4252-8f4f-a0a3f009bda6; // string | Unique correlation Id in a GUID format
 $x_avalara_client = Swagger UI; 22.1.0; // string | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
 
 try {
@@ -399,7 +409,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Avalara\SDK\Model\A1099\V2\Form1099List**](../Model/Form1099List.md)
+[**\Avalara\SDK\Model\A1099\V2\Form1099ListResponse**](../Model/Form1099ListResponse.md)
 
 ### Authorization
 
@@ -420,7 +430,9 @@ Name | Type | Description  | Notes
 update1099Form($id, $avalara_version, $x_correlation_id, $x_avalara_client, $i_update_form1099_request): \Avalara\SDK\Model\A1099\V2\Update1099Form200Response
 ```
 
-Updates a 1099 form.
+Update a 1099/1095/W2/1042S form
+
+Update a 1099/1095/W2/1042S form.
 
 ### Example
 
@@ -441,8 +453,8 @@ $client = new \Avalara\SDK\ApiClient($config);
 $apiInstance = new Avalara\SDK\Api\Forms1099Api($client);
 
 $id = 'id_example'; // string
-$avalara_version = 2.0; // string | API version
-$x_correlation_id = d94e8c12-6cc3-4468-a739-68e9eba9138b; // string | Unique correlation Id in a GUID format
+$avalara_version = 2.0.0; // string | API version
+$x_correlation_id = 860f5511-f0d8-45a4-ac62-6d2733e3028d; // string | Unique correlation Id in a GUID format
 $x_avalara_client = Swagger UI; 22.1.0; // string | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
 $i_update_form1099_request = new \Avalara\SDK\Model\A1099\V2\IUpdateForm1099Request(); // \Avalara\SDK\Model\A1099\V2\IUpdateForm1099Request
 

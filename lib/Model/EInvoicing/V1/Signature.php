@@ -47,7 +47,6 @@ use \Avalara\SDK\Model\ModelInterface;
  * Signature Class Doc Comment
  *
  * @category Class
- * @description Defines the signature configuration, specifying whether and how messages are signed for webhook delivery.
  * @package  Avalara\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

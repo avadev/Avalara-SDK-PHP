@@ -20,7 +20,7 @@
  *
  * Avalara 1099 & W-9 API Definition
  *
- * ## 🔐 Authentication  Use **username/password** or generate a **license key** from: *Avalara Portal → Settings → License and API Keys*.  [More on authentication methods](https://developer.avalara.com/avatax-dm-combined-erp/common-setup/authentication/authentication-methods/)  [Test your credentials](https://developer.avalara.com/avatax/test-credentials/)  ## 📘 API & SDK Documentation  [Avalara SDK (.NET) on GitHub](https://github.com/avadev/Avalara-SDK-DotNet#avalarasdk--the-unified-c-library-for-next-gen-avalara-services)  [Code Examples – 1099 API](https://github.com/avadev/Avalara-SDK-DotNet/blob/main/docs/A1099/V2/Class1099IssuersApi.md#call1099issuersget)
+ * ## 🔐 Authentication  Generate a **license key** from: *[Avalara Portal](https://www.avalara.com/us/en/signin.html) → Settings → License and API Keys*.  [More on authentication methods](https://developer.avalara.com/avatax-dm-combined-erp/common-setup/authentication/authentication-methods/)  [Test your credentials](https://developer.avalara.com/avatax/test-credentials/)  ## 📘 API & SDK Documentation  [Avalara SDK (.NET) on GitHub](https://github.com/avadev/Avalara-SDK-DotNet#avalarasdk--the-unified-c-library-for-next-gen-avalara-services)  [Code Examples – 1099 API](https://github.com/avadev/Avalara-SDK-DotNet/blob/main/docs/A1099/V2/Class1099IssuersApi.md#call1099issuersget)
  *
  * @category   Avalara client libraries
  * @package    Avalara\SDK\API\A1099\V2
@@ -95,8 +95,8 @@ class Form1099DivListItem implements ModelInterface, ArrayAccess, \JsonSerializa
         'tax_year' => 'int',
         'issuer_id' => 'string',
         'reference_id' => 'string',
-        'recipient_name' => 'string',
         'recipient_tin' => 'string',
+        'recipient_name' => 'string',
         'tin_type' => 'string',
         'recipient_second_name' => 'string',
         'address' => 'string',
@@ -149,8 +149,8 @@ class Form1099DivListItem implements ModelInterface, ArrayAccess, \JsonSerializa
         'tax_year' => 'int32',
         'issuer_id' => null,
         'reference_id' => null,
-        'recipient_name' => null,
         'recipient_tin' => null,
+        'recipient_name' => null,
         'tin_type' => null,
         'recipient_second_name' => null,
         'address' => null,
@@ -222,8 +222,8 @@ class Form1099DivListItem implements ModelInterface, ArrayAccess, \JsonSerializa
         'tax_year' => 'taxYear',
         'issuer_id' => 'issuerId',
         'reference_id' => 'referenceId',
-        'recipient_name' => 'recipientName',
         'recipient_tin' => 'recipientTin',
+        'recipient_name' => 'recipientName',
         'tin_type' => 'tinType',
         'recipient_second_name' => 'recipientSecondName',
         'address' => 'address',
@@ -274,8 +274,8 @@ class Form1099DivListItem implements ModelInterface, ArrayAccess, \JsonSerializa
         'tax_year' => 'setTaxYear',
         'issuer_id' => 'setIssuerId',
         'reference_id' => 'setReferenceId',
-        'recipient_name' => 'setRecipientName',
         'recipient_tin' => 'setRecipientTin',
+        'recipient_name' => 'setRecipientName',
         'tin_type' => 'setTinType',
         'recipient_second_name' => 'setRecipientSecondName',
         'address' => 'setAddress',
@@ -326,8 +326,8 @@ class Form1099DivListItem implements ModelInterface, ArrayAccess, \JsonSerializa
         'tax_year' => 'getTaxYear',
         'issuer_id' => 'getIssuerId',
         'reference_id' => 'getReferenceId',
-        'recipient_name' => 'getRecipientName',
         'recipient_tin' => 'getRecipientTin',
+        'recipient_name' => 'getRecipientName',
         'tin_type' => 'getTinType',
         'recipient_second_name' => 'getRecipientSecondName',
         'address' => 'getAddress',
@@ -448,8 +448,8 @@ class Form1099DivListItem implements ModelInterface, ArrayAccess, \JsonSerializa
         $this->container['tax_year'] = $data['tax_year'] ?? null;
         $this->container['issuer_id'] = $data['issuer_id'] ?? null;
         $this->container['reference_id'] = $data['reference_id'] ?? null;
-        $this->container['recipient_name'] = $data['recipient_name'] ?? null;
         $this->container['recipient_tin'] = $data['recipient_tin'] ?? null;
+        $this->container['recipient_name'] = $data['recipient_name'] ?? null;
         $this->container['tin_type'] = $data['tin_type'] ?? null;
         $this->container['recipient_second_name'] = $data['recipient_second_name'] ?? null;
         $this->container['address'] = $data['address'] ?? null;
@@ -479,6 +479,16 @@ class Form1099DivListItem implements ModelInterface, ArrayAccess, \JsonSerializa
     {
         $invalidProperties = [];
 
+        if ($this->container['tax_year'] === null) {
+            $invalidProperties[] = "'tax_year' can't be null";
+        }
+        if ($this->container['recipient_name'] === null) {
+            $invalidProperties[] = "'recipient_name' can't be null";
+        }
+        if ((mb_strlen($this->container['recipient_name']) < 1)) {
+            $invalidProperties[] = "invalid value for 'recipient_name', the character length must be bigger than or equal to 1.";
+        }
+
         $allowedValues = $this->getTinTypeAllowableValues();
         if (!is_null($this->container['tin_type']) && !in_array($this->container['tin_type'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -486,6 +496,27 @@ class Form1099DivListItem implements ModelInterface, ArrayAccess, \JsonSerializa
                 $this->container['tin_type'],
                 implode("', '", $allowedValues)
             );
+        }
+
+        if ($this->container['address'] === null) {
+            $invalidProperties[] = "'address' can't be null";
+        }
+        if ((mb_strlen($this->container['address']) < 1)) {
+            $invalidProperties[] = "invalid value for 'address', the character length must be bigger than or equal to 1.";
+        }
+
+        if ($this->container['city'] === null) {
+            $invalidProperties[] = "'city' can't be null";
+        }
+        if ((mb_strlen($this->container['city']) < 1)) {
+            $invalidProperties[] = "invalid value for 'city', the character length must be bigger than or equal to 1.";
+        }
+
+        if ($this->container['country_code'] === null) {
+            $invalidProperties[] = "'country_code' can't be null";
+        }
+        if ((mb_strlen($this->container['country_code']) < 1)) {
+            $invalidProperties[] = "invalid value for 'country_code', the character length must be bigger than or equal to 1.";
         }
 
         return $invalidProperties;
@@ -516,7 +547,7 @@ class Form1099DivListItem implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets total_ordinary_dividends
      *
-     * @param string|null $total_ordinary_dividends total_ordinary_dividends
+     * @param string|null $total_ordinary_dividends Total ordinary dividends
      *
      * @return self
      */
@@ -540,7 +571,7 @@ class Form1099DivListItem implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets qualified_dividends
      *
-     * @param string|null $qualified_dividends qualified_dividends
+     * @param string|null $qualified_dividends Qualified dividends
      *
      * @return self
      */
@@ -564,7 +595,7 @@ class Form1099DivListItem implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets total_capital_gain_distr
      *
-     * @param string|null $total_capital_gain_distr total_capital_gain_distr
+     * @param string|null $total_capital_gain_distr Total capital gain distributions
      *
      * @return self
      */
@@ -588,7 +619,7 @@ class Form1099DivListItem implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets unrecap_sec1250_gain
      *
-     * @param string|null $unrecap_sec1250_gain unrecap_sec1250_gain
+     * @param string|null $unrecap_sec1250_gain Unrecaptured Section 1250 gain
      *
      * @return self
      */
@@ -612,7 +643,7 @@ class Form1099DivListItem implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets section1202_gain
      *
-     * @param string|null $section1202_gain section1202_gain
+     * @param string|null $section1202_gain Section 1202 gain
      *
      * @return self
      */
@@ -636,7 +667,7 @@ class Form1099DivListItem implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets collectibles_gain
      *
-     * @param string|null $collectibles_gain collectibles_gain
+     * @param string|null $collectibles_gain Collectibles (28%) gain
      *
      * @return self
      */
@@ -660,7 +691,7 @@ class Form1099DivListItem implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets section897_ordinary_dividends
      *
-     * @param string|null $section897_ordinary_dividends section897_ordinary_dividends
+     * @param string|null $section897_ordinary_dividends Section 897 ordinary dividends
      *
      * @return self
      */
@@ -684,7 +715,7 @@ class Form1099DivListItem implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets section897_capital_gain
      *
-     * @param string|null $section897_capital_gain section897_capital_gain
+     * @param string|null $section897_capital_gain Section 897 capital gain
      *
      * @return self
      */
@@ -708,7 +739,7 @@ class Form1099DivListItem implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets nondividend_distributions
      *
-     * @param string|null $nondividend_distributions nondividend_distributions
+     * @param string|null $nondividend_distributions Nondividend distributions
      *
      * @return self
      */
@@ -732,7 +763,7 @@ class Form1099DivListItem implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets federal_income_tax_withheld
      *
-     * @param string|null $federal_income_tax_withheld federal_income_tax_withheld
+     * @param string|null $federal_income_tax_withheld Federal income tax withheld
      *
      * @return self
      */
@@ -756,7 +787,7 @@ class Form1099DivListItem implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets section199_a_dividends
      *
-     * @param string|null $section199_a_dividends section199_a_dividends
+     * @param string|null $section199_a_dividends Section 199A dividends
      *
      * @return self
      */
@@ -780,7 +811,7 @@ class Form1099DivListItem implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets investment_expenses
      *
-     * @param string|null $investment_expenses investment_expenses
+     * @param string|null $investment_expenses Investment expenses
      *
      * @return self
      */
@@ -804,7 +835,7 @@ class Form1099DivListItem implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets foreign_tax_paid
      *
-     * @param string|null $foreign_tax_paid foreign_tax_paid
+     * @param string|null $foreign_tax_paid Foreign tax paid
      *
      * @return self
      */
@@ -828,7 +859,7 @@ class Form1099DivListItem implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets foreign_country_or_us_possession
      *
-     * @param string|null $foreign_country_or_us_possession foreign_country_or_us_possession
+     * @param string|null $foreign_country_or_us_possession Foreign country or U.S. possession
      *
      * @return self
      */
@@ -852,7 +883,7 @@ class Form1099DivListItem implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets cash_liquidation_distributions
      *
-     * @param string|null $cash_liquidation_distributions cash_liquidation_distributions
+     * @param string|null $cash_liquidation_distributions Cash liquidation distributions
      *
      * @return self
      */
@@ -876,7 +907,7 @@ class Form1099DivListItem implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets noncash_liquidation_distributions
      *
-     * @param string|null $noncash_liquidation_distributions noncash_liquidation_distributions
+     * @param string|null $noncash_liquidation_distributions Noncash liquidation distributions
      *
      * @return self
      */
@@ -900,7 +931,7 @@ class Form1099DivListItem implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets exempt_interest_dividends
      *
-     * @param string|null $exempt_interest_dividends exempt_interest_dividends
+     * @param string|null $exempt_interest_dividends Exempt-interest dividends
      *
      * @return self
      */
@@ -924,7 +955,7 @@ class Form1099DivListItem implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets specified_private_activity_bond_interest_dividends
      *
-     * @param string|null $specified_private_activity_bond_interest_dividends specified_private_activity_bond_interest_dividends
+     * @param string|null $specified_private_activity_bond_interest_dividends Specified private activity bond interest dividends
      *
      * @return self
      */
@@ -948,7 +979,7 @@ class Form1099DivListItem implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets fatca_filing_requirement
      *
-     * @param string|null $fatca_filing_requirement fatca_filing_requirement
+     * @param string|null $fatca_filing_requirement FATCA filing requirement
      *
      * @return self
      */
@@ -972,7 +1003,7 @@ class Form1099DivListItem implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets issuer_reference_id
      *
-     * @param string|null $issuer_reference_id issuer_reference_id
+     * @param string|null $issuer_reference_id Issuer Reference ID. One of `issuerReferenceId` or `issuerTin` is required.
      *
      * @return self
      */
@@ -996,7 +1027,7 @@ class Form1099DivListItem implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets issuer_tin
      *
-     * @param string|null $issuer_tin issuer_tin
+     * @param string|null $issuer_tin Issuer TIN. One of `issuerReferenceId` or `issuerTin` is required.
      *
      * @return self
      */
@@ -1010,7 +1041,7 @@ class Form1099DivListItem implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets tax_year
      *
-     * @return int|null
+     * @return int
      */
     public function getTaxYear()
     {
@@ -1020,7 +1051,7 @@ class Form1099DivListItem implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets tax_year
      *
-     * @param int|null $tax_year tax_year
+     * @param int $tax_year Tax year
      *
      * @return self
      */
@@ -1044,7 +1075,7 @@ class Form1099DivListItem implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets issuer_id
      *
-     * @param string|null $issuer_id issuer_id
+     * @param string|null $issuer_id Issuer ID
      *
      * @return self
      */
@@ -1068,37 +1099,13 @@ class Form1099DivListItem implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets reference_id
      *
-     * @param string|null $reference_id reference_id
+     * @param string|null $reference_id Reference ID
      *
      * @return self
      */
     public function setReferenceId($reference_id)
     {
         $this->container['reference_id'] = $reference_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets recipient_name
-     *
-     * @return string|null
-     */
-    public function getRecipientName()
-    {
-        return $this->container['recipient_name'];
-    }
-
-    /**
-     * Sets recipient_name
-     *
-     * @param string|null $recipient_name recipient_name
-     *
-     * @return self
-     */
-    public function setRecipientName($recipient_name)
-    {
-        $this->container['recipient_name'] = $recipient_name;
 
         return $this;
     }
@@ -1116,13 +1123,42 @@ class Form1099DivListItem implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets recipient_tin
      *
-     * @param string|null $recipient_tin recipient_tin
+     * @param string|null $recipient_tin Recipient Tax ID Number
      *
      * @return self
      */
     public function setRecipientTin($recipient_tin)
     {
         $this->container['recipient_tin'] = $recipient_tin;
+
+        return $this;
+    }
+
+    /**
+     * Gets recipient_name
+     *
+     * @return string
+     */
+    public function getRecipientName()
+    {
+        return $this->container['recipient_name'];
+    }
+
+    /**
+     * Sets recipient_name
+     *
+     * @param string $recipient_name Recipient name
+     *
+     * @return self
+     */
+    public function setRecipientName($recipient_name)
+    {
+
+        if ((mb_strlen($recipient_name) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $recipient_name when calling Form1099DivListItem., must be bigger than or equal to 1.');
+        }
+
+        $this->container['recipient_name'] = $recipient_name;
 
         return $this;
     }
@@ -1140,7 +1176,7 @@ class Form1099DivListItem implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets tin_type
      *
-     * @param string|null $tin_type tin_type
+     * @param string|null $tin_type Type of TIN (Tax ID Number). Will be one of:  * SSN  * EIN  * ITIN  * ATIN
      *
      * @return self
      */
@@ -1174,7 +1210,7 @@ class Form1099DivListItem implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets recipient_second_name
      *
-     * @param string|null $recipient_second_name recipient_second_name
+     * @param string|null $recipient_second_name Recipient second name
      *
      * @return self
      */
@@ -1188,7 +1224,7 @@ class Form1099DivListItem implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets address
      *
-     * @return string|null
+     * @return string
      */
     public function getAddress()
     {
@@ -1198,12 +1234,17 @@ class Form1099DivListItem implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets address
      *
-     * @param string|null $address address
+     * @param string $address Address
      *
      * @return self
      */
     public function setAddress($address)
     {
+
+        if ((mb_strlen($address) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $address when calling Form1099DivListItem., must be bigger than or equal to 1.');
+        }
+
         $this->container['address'] = $address;
 
         return $this;
@@ -1222,7 +1263,7 @@ class Form1099DivListItem implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets address2
      *
-     * @param string|null $address2 address2
+     * @param string|null $address2 Address line 2
      *
      * @return self
      */
@@ -1236,7 +1277,7 @@ class Form1099DivListItem implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets city
      *
-     * @return string|null
+     * @return string
      */
     public function getCity()
     {
@@ -1246,12 +1287,17 @@ class Form1099DivListItem implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets city
      *
-     * @param string|null $city city
+     * @param string $city City
      *
      * @return self
      */
     public function setCity($city)
     {
+
+        if ((mb_strlen($city) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $city when calling Form1099DivListItem., must be bigger than or equal to 1.');
+        }
+
         $this->container['city'] = $city;
 
         return $this;
@@ -1270,7 +1316,7 @@ class Form1099DivListItem implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets state
      *
-     * @param string|null $state state
+     * @param string|null $state US state. Required if CountryCode is \"US\".
      *
      * @return self
      */
@@ -1294,7 +1340,7 @@ class Form1099DivListItem implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets zip
      *
-     * @param string|null $zip zip
+     * @param string|null $zip Zip/postal code
      *
      * @return self
      */
@@ -1318,7 +1364,7 @@ class Form1099DivListItem implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets recipient_email
      *
-     * @param string|null $recipient_email recipient_email
+     * @param string|null $recipient_email Recipient email address
      *
      * @return self
      */
@@ -1342,7 +1388,7 @@ class Form1099DivListItem implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets account_number
      *
-     * @param string|null $account_number account_number
+     * @param string|null $account_number Account number
      *
      * @return self
      */
@@ -1366,7 +1412,7 @@ class Form1099DivListItem implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets office_code
      *
-     * @param string|null $office_code office_code
+     * @param string|null $office_code Office code
      *
      * @return self
      */
@@ -1390,7 +1436,7 @@ class Form1099DivListItem implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets recipient_non_us_province
      *
-     * @param string|null $recipient_non_us_province recipient_non_us_province
+     * @param string|null $recipient_non_us_province Foreign province
      *
      * @return self
      */
@@ -1404,7 +1450,7 @@ class Form1099DivListItem implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets country_code
      *
-     * @return string|null
+     * @return string
      */
     public function getCountryCode()
     {
@@ -1414,12 +1460,17 @@ class Form1099DivListItem implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets country_code
      *
-     * @param string|null $country_code country_code
+     * @param string $country_code Country code, as defined at https://www.irs.gov/e-file-providers/country-codes
      *
      * @return self
      */
     public function setCountryCode($country_code)
     {
+
+        if ((mb_strlen($country_code) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $country_code when calling Form1099DivListItem., must be bigger than or equal to 1.');
+        }
+
         $this->container['country_code'] = $country_code;
 
         return $this;
@@ -1438,7 +1489,7 @@ class Form1099DivListItem implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets federal_e_file
      *
-     * @param bool|null $federal_e_file federal_e_file
+     * @param bool|null $federal_e_file Boolean indicating that federal e-filing should be scheduled for this form
      *
      * @return self
      */
@@ -1462,7 +1513,7 @@ class Form1099DivListItem implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets postal_mail
      *
-     * @param bool|null $postal_mail postal_mail
+     * @param bool|null $postal_mail Boolean indicating that postal mailing to the recipient should be scheduled for this form
      *
      * @return self
      */
@@ -1486,7 +1537,7 @@ class Form1099DivListItem implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets state_e_file
      *
-     * @param bool|null $state_e_file state_e_file
+     * @param bool|null $state_e_file Boolean indicating that state e-filing should be scheduled for this form
      *
      * @return self
      */
@@ -1510,7 +1561,7 @@ class Form1099DivListItem implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets tin_match
      *
-     * @param bool|null $tin_match tin_match
+     * @param bool|null $tin_match Boolean indicating that TIN Matching should be scheduled for this form
      *
      * @return self
      */
@@ -1534,7 +1585,7 @@ class Form1099DivListItem implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets address_verification
      *
-     * @param bool|null $address_verification address_verification
+     * @param bool|null $address_verification Boolean indicating that address verification should be scheduled for this form
      *
      * @return self
      */
@@ -1558,7 +1609,7 @@ class Form1099DivListItem implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets state_and_local_withholding
      *
-     * @param \Avalara\SDK\Model\A1099\V2\StateAndLocalWithholdingRequest|null $state_and_local_withholding state_and_local_withholding
+     * @param \Avalara\SDK\Model\A1099\V2\StateAndLocalWithholdingRequest|null $state_and_local_withholding State and local withholding information
      *
      * @return self
      */

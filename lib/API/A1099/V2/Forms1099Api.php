@@ -16,7 +16,7 @@
  *
  * Avalara 1099 & W-9 API Definition
  *
- * ## 🔐 Authentication  Use **username/password** or generate a **license key** from: *Avalara Portal → Settings → License and API Keys*.  [More on authentication methods](https://developer.avalara.com/avatax-dm-combined-erp/common-setup/authentication/authentication-methods/)  [Test your credentials](https://developer.avalara.com/avatax/test-credentials/)  ## 📘 API & SDK Documentation  [Avalara SDK (.NET) on GitHub](https://github.com/avadev/Avalara-SDK-DotNet#avalarasdk--the-unified-c-library-for-next-gen-avalara-services)  [Code Examples – 1099 API](https://github.com/avadev/Avalara-SDK-DotNet/blob/main/docs/A1099/V2/Class1099IssuersApi.md#call1099issuersget)
+ * ## 🔐 Authentication  Generate a **license key** from: *[Avalara Portal](https://www.avalara.com/us/en/signin.html) → Settings → License and API Keys*.  [More on authentication methods](https://developer.avalara.com/avatax-dm-combined-erp/common-setup/authentication/authentication-methods/)  [Test your credentials](https://developer.avalara.com/avatax/test-credentials/)  ## 📘 API & SDK Documentation  [Avalara SDK (.NET) on GitHub](https://github.com/avadev/Avalara-SDK-DotNet#avalarasdk--the-unified-c-library-for-next-gen-avalara-services)  [Code Examples – 1099 API](https://github.com/avadev/Avalara-SDK-DotNet/blob/main/docs/A1099/V2/Class1099IssuersApi.md#call1099issuersget)
  *
  * @category   Avalara client libraries
  * @package    Avalara\SDK\API\A1099\V2
@@ -79,7 +79,7 @@ class Forms1099Api
     private function setConfiguration($client): void
     {
         $this->verifyAPIClient($client);
-        $client->setSdkVersion("25.7.2");
+        $client->setSdkVersion("25.8.0");
         $this->headerSelector = new HeaderSelector(); 
         $this->client = $client;
     }
@@ -118,7 +118,7 @@ class Forms1099Api
     /**
      * Operation bulkUpsert1099Forms
      *
-     * Creates or updates multiple 1099 forms.
+     * Create or update multiple 1099/1095/W2/1042S forms
      *
      * @param BulkUpsert1099FormsRequestSdk The request parameters for the API call.
      *
@@ -135,7 +135,7 @@ class Forms1099Api
     /**
      * Operation bulkUpsert1099FormsWithHttpInfo
      *
-     * Creates or updates multiple 1099 forms.
+     * Create or update multiple 1099/1095/W2/1042S forms
      *
      * @param BulkUpsert1099FormsRequestSdk The request parameters for the API call.
      *
@@ -306,7 +306,7 @@ class Forms1099Api
     /**
      * Operation bulkUpsert1099FormsAsync
      *
-     * Creates or updates multiple 1099 forms.
+     * Create or update multiple 1099/1095/W2/1042S forms
      *
      * @param BulkUpsert1099FormsRequestSdk The request parameters for the API call.
      *
@@ -326,7 +326,7 @@ class Forms1099Api
     /**
      * Operation bulkUpsert1099FormsAsyncWithHttpInfo
      *
-     * Creates or updates multiple 1099 forms.
+     * Create or update multiple 1099/1095/W2/1042S forms
      *
      * @param BulkUpsert1099FormsRequestSdk The request parameters for the API call.
      *
@@ -456,7 +456,7 @@ class Forms1099Api
                 ['application/json', 'text/json', 'application/*+json']
             );
         }
-        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.7.2; {$this->client->config->getMachineName()}";
+        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.8.0; {$this->client->config->getMachineName()}";
 
         $headers['X-Avalara-Client']=$clientId;
 
@@ -514,13 +514,13 @@ class Forms1099Api
     /**
      * Operation create1099Form
      *
-     * Creates a 1099 form.
+     * Create a 1099/1095/W2/1042S form
      *
      * @param Create1099FormRequestSdk The request parameters for the API call.
      *
      * @throws \Avalara\SDK\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Avalara\SDK\Model\A1099\V2\Get1099Form200Response|\Avalara\SDK\Model\A1099\V2\ErrorResponse|\Avalara\SDK\Model\A1099\V2\ErrorResponse
+     * @return \Avalara\SDK\Model\A1099\V2\Create1099Form201Response|\Avalara\SDK\Model\A1099\V2\ErrorResponse|\Avalara\SDK\Model\A1099\V2\ErrorResponse
      */
     public function create1099Form($request_parameters)
     {
@@ -531,13 +531,13 @@ class Forms1099Api
     /**
      * Operation create1099FormWithHttpInfo
      *
-     * Creates a 1099 form.
+     * Create a 1099/1095/W2/1042S form
      *
      * @param Create1099FormRequestSdk The request parameters for the API call.
      *
      * @throws \Avalara\SDK\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Avalara\SDK\Model\A1099\V2\Get1099Form200Response|\Avalara\SDK\Model\A1099\V2\ErrorResponse|\Avalara\SDK\Model\A1099\V2\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Avalara\SDK\Model\A1099\V2\Create1099Form201Response|\Avalara\SDK\Model\A1099\V2\ErrorResponse|\Avalara\SDK\Model\A1099\V2\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function create1099FormWithHttpInfo($request_parameters, $isRetry = false)
     {
@@ -593,7 +593,7 @@ class Forms1099Api
 
             switch($statusCode) {
                 case 201:
-                    if ('\Avalara\SDK\Model\A1099\V2\Get1099Form200Response' === '\SplFileObject') {
+                    if ('\Avalara\SDK\Model\A1099\V2\Create1099Form201Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -601,7 +601,7 @@ class Forms1099Api
                     $logObject->populateResponseInfo($content, $response);
                     $this->client->logger->info(json_encode($logObject));
                     return [
-                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\A1099\V2\Get1099Form200Response', []),
+                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\A1099\V2\Create1099Form201Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -633,7 +633,7 @@ class Forms1099Api
                     ];
             }
 
-            $returnType = '\Avalara\SDK\Model\A1099\V2\Get1099Form200Response';
+            $returnType = '\Avalara\SDK\Model\A1099\V2\Create1099Form201Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -652,7 +652,7 @@ class Forms1099Api
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Avalara\SDK\Model\A1099\V2\Get1099Form200Response',
+                        '\Avalara\SDK\Model\A1099\V2\Create1099Form201Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -681,7 +681,7 @@ class Forms1099Api
     /**
      * Operation create1099FormAsync
      *
-     * Creates a 1099 form.
+     * Create a 1099/1095/W2/1042S form
      *
      * @param Create1099FormRequestSdk The request parameters for the API call.
      *
@@ -701,7 +701,7 @@ class Forms1099Api
     /**
      * Operation create1099FormAsyncWithHttpInfo
      *
-     * Creates a 1099 form.
+     * Create a 1099/1095/W2/1042S form
      *
      * @param Create1099FormRequestSdk The request parameters for the API call.
      *
@@ -711,7 +711,7 @@ class Forms1099Api
     public function create1099FormAsyncWithHttpInfo($request_parameters, $isRetry = false)
     {
         $logObject = new LogObject($this->client->logRequestAndResponse);
-        $returnType = '\Avalara\SDK\Model\A1099\V2\Get1099Form200Response';
+        $returnType = '\Avalara\SDK\Model\A1099\V2\Create1099Form201Response';
         $request = $this->create1099FormRequest($request_parameters);
         $logObject->populateRequestInfo($request);
         return $this->client
@@ -819,7 +819,7 @@ class Forms1099Api
                 ['application/json', 'text/json', 'application/*+json']
             );
         }
-        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.7.2; {$this->client->config->getMachineName()}";
+        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.8.0; {$this->client->config->getMachineName()}";
 
         $headers['X-Avalara-Client']=$clientId;
 
@@ -877,7 +877,7 @@ class Forms1099Api
     /**
      * Operation delete1099Form
      *
-     * Deletes a 1099 form.
+     * Delete a 1099/1095/W2/1042S form
      *
      * @param Delete1099FormRequestSdk The request parameters for the API call.
      *
@@ -893,7 +893,7 @@ class Forms1099Api
     /**
      * Operation delete1099FormWithHttpInfo
      *
-     * Deletes a 1099 form.
+     * Delete a 1099/1095/W2/1042S form
      *
      * @param Delete1099FormRequestSdk The request parameters for the API call.
      *
@@ -996,7 +996,7 @@ class Forms1099Api
     /**
      * Operation delete1099FormAsync
      *
-     * Deletes a 1099 form.
+     * Delete a 1099/1095/W2/1042S form
      *
      * @param Delete1099FormRequestSdk The request parameters for the API call.
      *
@@ -1016,7 +1016,7 @@ class Forms1099Api
     /**
      * Operation delete1099FormAsyncWithHttpInfo
      *
-     * Deletes a 1099 form.
+     * Delete a 1099/1095/W2/1042S form
      *
      * @param Delete1099FormRequestSdk The request parameters for the API call.
      *
@@ -1138,7 +1138,7 @@ class Forms1099Api
                 []
             );
         }
-        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.7.2; {$this->client->config->getMachineName()}";
+        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.8.0; {$this->client->config->getMachineName()}";
 
         $headers['X-Avalara-Client']=$clientId;
 
@@ -1190,7 +1190,7 @@ class Forms1099Api
     /**
      * Operation get1099Form
      *
-     * Retrieves a 1099 form.
+     * Retrieve a 1099/1095/W2/1042S form
      *
      * @param Get1099FormRequestSdk The request parameters for the API call.
      *
@@ -1207,7 +1207,7 @@ class Forms1099Api
     /**
      * Operation get1099FormWithHttpInfo
      *
-     * Retrieves a 1099 form.
+     * Retrieve a 1099/1095/W2/1042S form
      *
      * @param Get1099FormRequestSdk The request parameters for the API call.
      *
@@ -1378,7 +1378,7 @@ class Forms1099Api
     /**
      * Operation get1099FormAsync
      *
-     * Retrieves a 1099 form.
+     * Retrieve a 1099/1095/W2/1042S form
      *
      * @param Get1099FormRequestSdk The request parameters for the API call.
      *
@@ -1398,7 +1398,7 @@ class Forms1099Api
     /**
      * Operation get1099FormAsyncWithHttpInfo
      *
-     * Retrieves a 1099 form.
+     * Retrieve a 1099/1095/W2/1042S form
      *
      * @param Get1099FormRequestSdk The request parameters for the API call.
      *
@@ -1530,7 +1530,7 @@ class Forms1099Api
                 []
             );
         }
-        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.7.2; {$this->client->config->getMachineName()}";
+        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.8.0; {$this->client->config->getMachineName()}";
 
         $headers['X-Avalara-Client']=$clientId;
 
@@ -1582,13 +1582,13 @@ class Forms1099Api
     /**
      * Operation get1099FormPdf
      *
-     * Retrieves the PDF file for a single 1099 by form id.
+     * Retrieve the PDF file for a 1099/1095/W2/1042S form
      *
      * @param Get1099FormPdfRequestSdk The request parameters for the API call.
      *
      * @throws \Avalara\SDK\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Avalara\SDK\Model\A1099\V2\Update1099Form200Response|\Avalara\SDK\Model\A1099\V2\ErrorResponse|\Avalara\SDK\Model\A1099\V2\ErrorResponse|\Avalara\SDK\Model\A1099\V2\ErrorResponse
+     * @return \SplFileObject|\Avalara\SDK\Model\A1099\V2\ErrorResponse|\Avalara\SDK\Model\A1099\V2\ErrorResponse|\Avalara\SDK\Model\A1099\V2\ErrorResponse
      */
     public function get1099FormPdf($request_parameters)
     {
@@ -1599,13 +1599,13 @@ class Forms1099Api
     /**
      * Operation get1099FormPdfWithHttpInfo
      *
-     * Retrieves the PDF file for a single 1099 by form id.
+     * Retrieve the PDF file for a 1099/1095/W2/1042S form
      *
      * @param Get1099FormPdfRequestSdk The request parameters for the API call.
      *
      * @throws \Avalara\SDK\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Avalara\SDK\Model\A1099\V2\Update1099Form200Response|\Avalara\SDK\Model\A1099\V2\ErrorResponse|\Avalara\SDK\Model\A1099\V2\ErrorResponse|\Avalara\SDK\Model\A1099\V2\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SplFileObject|\Avalara\SDK\Model\A1099\V2\ErrorResponse|\Avalara\SDK\Model\A1099\V2\ErrorResponse|\Avalara\SDK\Model\A1099\V2\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function get1099FormPdfWithHttpInfo($request_parameters, $isRetry = false)
     {
@@ -1661,7 +1661,7 @@ class Forms1099Api
 
             switch($statusCode) {
                 case 200:
-                    if ('\Avalara\SDK\Model\A1099\V2\Update1099Form200Response' === '\SplFileObject') {
+                    if ('\SplFileObject' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -1669,7 +1669,7 @@ class Forms1099Api
                     $logObject->populateResponseInfo($content, $response);
                     $this->client->logger->info(json_encode($logObject));
                     return [
-                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\A1099\V2\Update1099Form200Response', []),
+                        ObjectSerializer::deserialize($content, '\SplFileObject', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -1714,7 +1714,7 @@ class Forms1099Api
                     ];
             }
 
-            $returnType = '\Avalara\SDK\Model\A1099\V2\Update1099Form200Response';
+            $returnType = '\SplFileObject';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1733,7 +1733,7 @@ class Forms1099Api
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Avalara\SDK\Model\A1099\V2\Update1099Form200Response',
+                        '\SplFileObject',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1770,7 +1770,7 @@ class Forms1099Api
     /**
      * Operation get1099FormPdfAsync
      *
-     * Retrieves the PDF file for a single 1099 by form id.
+     * Retrieve the PDF file for a 1099/1095/W2/1042S form
      *
      * @param Get1099FormPdfRequestSdk The request parameters for the API call.
      *
@@ -1790,7 +1790,7 @@ class Forms1099Api
     /**
      * Operation get1099FormPdfAsyncWithHttpInfo
      *
-     * Retrieves the PDF file for a single 1099 by form id.
+     * Retrieve the PDF file for a 1099/1095/W2/1042S form
      *
      * @param Get1099FormPdfRequestSdk The request parameters for the API call.
      *
@@ -1800,7 +1800,7 @@ class Forms1099Api
     public function get1099FormPdfAsyncWithHttpInfo($request_parameters, $isRetry = false)
     {
         $logObject = new LogObject($this->client->logRequestAndResponse);
-        $returnType = '\Avalara\SDK\Model\A1099\V2\Update1099Form200Response';
+        $returnType = '\SplFileObject';
         $request = $this->get1099FormPdfRequest($request_parameters);
         $logObject->populateRequestInfo($request);
         return $this->client
@@ -1926,15 +1926,15 @@ class Forms1099Api
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
+                ['application/pdf', 'application/json']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
+                ['application/pdf', 'application/json'],
                 []
             );
         }
-        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.7.2; {$this->client->config->getMachineName()}";
+        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.8.0; {$this->client->config->getMachineName()}";
 
         $headers['X-Avalara-Client']=$clientId;
 
@@ -1986,13 +1986,13 @@ class Forms1099Api
     /**
      * Operation list1099Forms
      *
-     * Retrieves a list of 1099 forms based on query parameters.
+     * List 1099/1095/W2/1042S forms
      *
      * @param List1099FormsRequestSdk The request parameters for the API call.
      *
      * @throws \Avalara\SDK\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Avalara\SDK\Model\A1099\V2\Form1099List|\Avalara\SDK\Model\A1099\V2\ErrorResponse|\Avalara\SDK\Model\A1099\V2\ErrorResponse|\Avalara\SDK\Model\A1099\V2\ErrorResponse
+     * @return \Avalara\SDK\Model\A1099\V2\Form1099ListResponse|\Avalara\SDK\Model\A1099\V2\ErrorResponse|\Avalara\SDK\Model\A1099\V2\ErrorResponse|\Avalara\SDK\Model\A1099\V2\ErrorResponse
      */
     public function list1099Forms($request_parameters)
     {
@@ -2003,13 +2003,13 @@ class Forms1099Api
     /**
      * Operation list1099FormsWithHttpInfo
      *
-     * Retrieves a list of 1099 forms based on query parameters.
+     * List 1099/1095/W2/1042S forms
      *
      * @param List1099FormsRequestSdk The request parameters for the API call.
      *
      * @throws \Avalara\SDK\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Avalara\SDK\Model\A1099\V2\Form1099List|\Avalara\SDK\Model\A1099\V2\ErrorResponse|\Avalara\SDK\Model\A1099\V2\ErrorResponse|\Avalara\SDK\Model\A1099\V2\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Avalara\SDK\Model\A1099\V2\Form1099ListResponse|\Avalara\SDK\Model\A1099\V2\ErrorResponse|\Avalara\SDK\Model\A1099\V2\ErrorResponse|\Avalara\SDK\Model\A1099\V2\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function list1099FormsWithHttpInfo($request_parameters, $isRetry = false)
     {
@@ -2065,7 +2065,7 @@ class Forms1099Api
 
             switch($statusCode) {
                 case 200:
-                    if ('\Avalara\SDK\Model\A1099\V2\Form1099List' === '\SplFileObject') {
+                    if ('\Avalara\SDK\Model\A1099\V2\Form1099ListResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -2073,7 +2073,7 @@ class Forms1099Api
                     $logObject->populateResponseInfo($content, $response);
                     $this->client->logger->info(json_encode($logObject));
                     return [
-                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\A1099\V2\Form1099List', []),
+                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\A1099\V2\Form1099ListResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -2118,7 +2118,7 @@ class Forms1099Api
                     ];
             }
 
-            $returnType = '\Avalara\SDK\Model\A1099\V2\Form1099List';
+            $returnType = '\Avalara\SDK\Model\A1099\V2\Form1099ListResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -2137,7 +2137,7 @@ class Forms1099Api
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Avalara\SDK\Model\A1099\V2\Form1099List',
+                        '\Avalara\SDK\Model\A1099\V2\Form1099ListResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2174,7 +2174,7 @@ class Forms1099Api
     /**
      * Operation list1099FormsAsync
      *
-     * Retrieves a list of 1099 forms based on query parameters.
+     * List 1099/1095/W2/1042S forms
      *
      * @param List1099FormsRequestSdk The request parameters for the API call.
      *
@@ -2194,7 +2194,7 @@ class Forms1099Api
     /**
      * Operation list1099FormsAsyncWithHttpInfo
      *
-     * Retrieves a list of 1099 forms based on query parameters.
+     * List 1099/1095/W2/1042S forms
      *
      * @param List1099FormsRequestSdk The request parameters for the API call.
      *
@@ -2204,7 +2204,7 @@ class Forms1099Api
     public function list1099FormsAsyncWithHttpInfo($request_parameters, $isRetry = false)
     {
         $logObject = new LogObject($this->client->logRequestAndResponse);
-        $returnType = '\Avalara\SDK\Model\A1099\V2\Form1099List';
+        $returnType = '\Avalara\SDK\Model\A1099\V2\Form1099ListResponse';
         $request = $this->list1099FormsRequest($request_parameters);
         $logObject->populateRequestInfo($request);
         return $this->client
@@ -2359,7 +2359,7 @@ class Forms1099Api
                 []
             );
         }
-        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.7.2; {$this->client->config->getMachineName()}";
+        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.8.0; {$this->client->config->getMachineName()}";
 
         $headers['X-Avalara-Client']=$clientId;
 
@@ -2411,7 +2411,7 @@ class Forms1099Api
     /**
      * Operation update1099Form
      *
-     * Updates a 1099 form.
+     * Update a 1099/1095/W2/1042S form
      *
      * @param Update1099FormRequestSdk The request parameters for the API call.
      *
@@ -2428,7 +2428,7 @@ class Forms1099Api
     /**
      * Operation update1099FormWithHttpInfo
      *
-     * Updates a 1099 form.
+     * Update a 1099/1095/W2/1042S form
      *
      * @param Update1099FormRequestSdk The request parameters for the API call.
      *
@@ -2599,7 +2599,7 @@ class Forms1099Api
     /**
      * Operation update1099FormAsync
      *
-     * Updates a 1099 form.
+     * Update a 1099/1095/W2/1042S form
      *
      * @param Update1099FormRequestSdk The request parameters for the API call.
      *
@@ -2619,7 +2619,7 @@ class Forms1099Api
     /**
      * Operation update1099FormAsyncWithHttpInfo
      *
-     * Updates a 1099 form.
+     * Update a 1099/1095/W2/1042S form
      *
      * @param Update1099FormRequestSdk The request parameters for the API call.
      *
@@ -2752,7 +2752,7 @@ class Forms1099Api
                 ['application/json', 'text/json', 'application/*+json']
             );
         }
-        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.7.2; {$this->client->config->getMachineName()}";
+        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.8.0; {$this->client->config->getMachineName()}";
 
         $headers['X-Avalara-Client']=$clientId;
 
@@ -3004,9 +3004,9 @@ class Get1099FormRequestSdk {
     /**
      * Represents the Request object for the Get1099FormPdf API
      *
-     * @param  string $id  (required)
+     * @param  string $id The ID of the form (required)
      * @param  string $avalara_version API version (required)
-     * @param  bool $mark_edelivered The parameter for marked e-delivered (optional)
+     * @param  bool $mark_edelivered Optional boolean that if set indicates that the form should be marked as having been successfully edelivered (optional)
      * @param  string $x_correlation_id Unique correlation Id in a GUID format (optional)
      * @param  string $x_avalara_client Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) . (optional)
      */

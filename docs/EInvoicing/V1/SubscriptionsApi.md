@@ -38,7 +38,7 @@ $client = new \Avalara\SDK\ApiClient($config);
 
 $apiInstance = new Avalara\SDK\Api\SubscriptionsApi($client);
 
-$avalara_version = 'avalara_version_example'; // string | The version of the API to use, e.g., \"1.3\".
+$avalara_version = 'avalara_version_example'; // string | The version of the API to use, e.g., \"1.4\".
 $subscription_registration = new \Avalara\SDK\Model\EInvoicing\V1\SubscriptionRegistration(); // \Avalara\SDK\Model\EInvoicing\V1\SubscriptionRegistration
 $x_correlation_id = 'x_correlation_id_example'; // string | A unique identifier for tracking the request and its response
 $x_avalara_client = 'x_avalara_client_example'; // string | Client application identification
@@ -55,7 +55,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **avalara_version** | **string**| The version of the API to use, e.g., \&quot;1.3\&quot;. |
+ **avalara_version** | **string**| The version of the API to use, e.g., \&quot;1.4\&quot;. |
  **subscription_registration** | [**\Avalara\SDK\Model\EInvoicing\V1\SubscriptionRegistration**](../Model/SubscriptionRegistration.md)|  |
  **x_correlation_id** | **string**| A unique identifier for tracking the request and its response | [optional]
  **x_avalara_client** | **string**| Client application identification | [optional]
@@ -106,7 +106,7 @@ $client = new \Avalara\SDK\ApiClient($config);
 $apiInstance = new Avalara\SDK\Api\SubscriptionsApi($client);
 
 $subscription_id = 'subscription_id_example'; // string
-$avalara_version = 'avalara_version_example'; // string | The version of the API to use, e.g., \"1.3\".
+$avalara_version = 'avalara_version_example'; // string | The version of the API to use, e.g., \"1.4\".
 $x_correlation_id = 'x_correlation_id_example'; // string | A unique identifier for tracking the request and its response
 $x_avalara_client = 'x_avalara_client_example'; // string | Client application identification
 
@@ -122,7 +122,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **subscription_id** | **string**|  |
- **avalara_version** | **string**| The version of the API to use, e.g., \&quot;1.3\&quot;. |
+ **avalara_version** | **string**| The version of the API to use, e.g., \&quot;1.4\&quot;. |
  **x_correlation_id** | **string**| A unique identifier for tracking the request and its response | [optional]
  **x_avalara_client** | **string**| Client application identification | [optional]
 
@@ -172,7 +172,7 @@ $client = new \Avalara\SDK\ApiClient($config);
 $apiInstance = new Avalara\SDK\Api\SubscriptionsApi($client);
 
 $subscription_id = 'subscription_id_example'; // string
-$avalara_version = 'avalara_version_example'; // string | The version of the API to use, e.g., \"1.3\".
+$avalara_version = 'avalara_version_example'; // string | The version of the API to use, e.g., \"1.4\".
 $x_correlation_id = 'x_correlation_id_example'; // string | A unique identifier for tracking the request and its response
 $x_avalara_client = 'x_avalara_client_example'; // string | Client application identification
 
@@ -189,7 +189,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **subscription_id** | **string**|  |
- **avalara_version** | **string**| The version of the API to use, e.g., \&quot;1.3\&quot;. |
+ **avalara_version** | **string**| The version of the API to use, e.g., \&quot;1.4\&quot;. |
  **x_correlation_id** | **string**| A unique identifier for tracking the request and its response | [optional]
  **x_avalara_client** | **string**| Client application identification | [optional]
 
@@ -238,11 +238,11 @@ $client = new \Avalara\SDK\ApiClient($config);
 
 $apiInstance = new Avalara\SDK\Api\SubscriptionsApi($client);
 
-$avalara_version = 'avalara_version_example'; // string | The version of the API to use, e.g., \"1.3\".
+$avalara_version = 'avalara_version_example'; // string | The version of the API to use, e.g., \"1.4\".
 $x_correlation_id = 'x_correlation_id_example'; // string | A unique identifier for tracking the request and its response
 $x_avalara_client = 'x_avalara_client_example'; // string | Client application identification
-$top = 3.4; // float | The number of items to include in the result.
-$skip = 3.4; // float | The number of items to skip in the result.
+$top = 56; // int | The number of items to include in the result.
+$skip = 56; // int | The number of items to skip in the result.
 $count = True; // bool | Whether to include the total count of records in the result.
 $count_only = True; // bool | Whether to return only the count of records, without the list of records.
 
@@ -258,11 +258,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **avalara_version** | **string**| The version of the API to use, e.g., \&quot;1.3\&quot;. |
+ **avalara_version** | **string**| The version of the API to use, e.g., \&quot;1.4\&quot;. |
  **x_correlation_id** | **string**| A unique identifier for tracking the request and its response | [optional]
  **x_avalara_client** | **string**| Client application identification | [optional]
- **top** | **float**| The number of items to include in the result. | [optional]
- **skip** | **float**| The number of items to skip in the result. | [optional]
+ **top** | **int**| The number of items to include in the result. | [optional]
+ **skip** | **int**| The number of items to skip in the result. | [optional]
  **count** | **bool**| Whether to include the total count of records in the result. | [optional]
  **count_only** | **bool**| Whether to return only the count of records, without the list of records. | [optional]
 

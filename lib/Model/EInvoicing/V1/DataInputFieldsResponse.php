@@ -47,7 +47,6 @@ use \Avalara\SDK\Model\ModelInterface;
  * DataInputFieldsResponse Class Doc Comment
  *
  * @category Class
- * @description Response model providing a list of input fields required, optional, or conditional for different country mandates.
  * @package  Avalara\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

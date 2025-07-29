@@ -79,7 +79,7 @@ class SubscriptionsApi
     private function setConfiguration($client): void
     {
         $this->verifyAPIClient($client);
-        $client->setSdkVersion("25.7.2");
+        $client->setSdkVersion("25.8.0");
         $this->headerSelector = new HeaderSelector(); 
         $this->client = $client;
     }
@@ -450,7 +450,7 @@ class SubscriptionsApi
                 ['application/json']
             );
         }
-        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.7.2; {$this->client->config->getMachineName()}";
+        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.8.0; {$this->client->config->getMachineName()}";
 
         $headers['X-Avalara-Client']=$clientId;
 
@@ -761,7 +761,7 @@ class SubscriptionsApi
                 []
             );
         }
-        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.7.2; {$this->client->config->getMachineName()}";
+        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.8.0; {$this->client->config->getMachineName()}";
 
         $headers['X-Avalara-Client']=$clientId;
 
@@ -1153,7 +1153,7 @@ class SubscriptionsApi
                 []
             );
         }
-        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.7.2; {$this->client->config->getMachineName()}";
+        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.8.0; {$this->client->config->getMachineName()}";
 
         $headers['X-Avalara-Client']=$clientId;
 
@@ -1578,7 +1578,7 @@ class SubscriptionsApi
                 []
             );
         }
-        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.7.2; {$this->client->config->getMachineName()}";
+        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.8.0; {$this->client->config->getMachineName()}";
 
         $headers['X-Avalara-Client']=$clientId;
 
@@ -1631,7 +1631,7 @@ class SubscriptionsApi
     /**
      * Represents the Request object for the CreateWebhookSubscription API
      *
-     * @param  string $avalara_version The version of the API to use, e.g., \&quot;1.3\&quot;. (required)
+     * @param  string $avalara_version The version of the API to use, e.g., \&quot;1.4\&quot;. (required)
      * @param  \Avalara\SDK\Model\EInvoicing\V1\SubscriptionRegistration $subscription_registration subscription_registration (required)
      * @param  string $x_correlation_id A unique identifier for tracking the request and its response (optional)
      * @param  string $x_avalara_client Client application identification (optional)
@@ -1645,7 +1645,7 @@ class CreateWebhookSubscriptionRequestSdk {
     public function __construct() {
     }
     public function getAvalaraVersion() {
-        return $this->avalara_version ?? '1.3';
+        return $this->avalara_version ?? '1.4';
     }
 
     public function setAvalaraVersion($avalara_version) {
@@ -1678,7 +1678,7 @@ class CreateWebhookSubscriptionRequestSdk {
      * Represents the Request object for the DeleteWebhookSubscription API
      *
      * @param  string $subscription_id subscription_id (required)
-     * @param  string $avalara_version The version of the API to use, e.g., \&quot;1.3\&quot;. (required)
+     * @param  string $avalara_version The version of the API to use, e.g., \&quot;1.4\&quot;. (required)
      * @param  string $x_correlation_id A unique identifier for tracking the request and its response (optional)
      * @param  string $x_avalara_client Client application identification (optional)
      */
@@ -1698,7 +1698,7 @@ class DeleteWebhookSubscriptionRequestSdk {
         $this->subscription_id = $subscription_id;
     }
     public function getAvalaraVersion() {
-        return $this->avalara_version ?? '1.3';
+        return $this->avalara_version ?? '1.4';
     }
 
     public function setAvalaraVersion($avalara_version) {
@@ -1724,7 +1724,7 @@ class DeleteWebhookSubscriptionRequestSdk {
      * Represents the Request object for the GetWebhookSubscription API
      *
      * @param  string $subscription_id subscription_id (required)
-     * @param  string $avalara_version The version of the API to use, e.g., \&quot;1.3\&quot;. (required)
+     * @param  string $avalara_version The version of the API to use, e.g., \&quot;1.4\&quot;. (required)
      * @param  string $x_correlation_id A unique identifier for tracking the request and its response (optional)
      * @param  string $x_avalara_client Client application identification (optional)
      */
@@ -1744,7 +1744,7 @@ class GetWebhookSubscriptionRequestSdk {
         $this->subscription_id = $subscription_id;
     }
     public function getAvalaraVersion() {
-        return $this->avalara_version ?? '1.3';
+        return $this->avalara_version ?? '1.4';
     }
 
     public function setAvalaraVersion($avalara_version) {
@@ -1769,11 +1769,11 @@ class GetWebhookSubscriptionRequestSdk {
     /**
      * Represents the Request object for the ListWebhookSubscriptions API
      *
-     * @param  string $avalara_version The version of the API to use, e.g., \&quot;1.3\&quot;. (required)
+     * @param  string $avalara_version The version of the API to use, e.g., \&quot;1.4\&quot;. (required)
      * @param  string $x_correlation_id A unique identifier for tracking the request and its response (optional)
      * @param  string $x_avalara_client Client application identification (optional)
-     * @param  float $top The number of items to include in the result. (optional)
-     * @param  float $skip The number of items to skip in the result. (optional)
+     * @param  int $top The number of items to include in the result. (optional)
+     * @param  int $skip The number of items to skip in the result. (optional)
      * @param  bool $count Whether to include the total count of records in the result. (optional)
      * @param  bool $count_only Whether to return only the count of records, without the list of records. (optional)
      */
@@ -1789,7 +1789,7 @@ class ListWebhookSubscriptionsRequestSdk {
     public function __construct() {
     }
     public function getAvalaraVersion() {
-        return $this->avalara_version ?? '1.3';
+        return $this->avalara_version ?? '1.4';
     }
 
     public function setAvalaraVersion($avalara_version) {

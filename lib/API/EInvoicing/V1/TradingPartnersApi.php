@@ -79,7 +79,7 @@ class TradingPartnersApi
     private function setConfiguration($client): void
     {
         $this->verifyAPIClient($client);
-        $client->setSdkVersion("25.7.2");
+        $client->setSdkVersion("25.8.0");
         $this->headerSelector = new HeaderSelector(); 
         $this->client = $client;
     }
@@ -118,7 +118,7 @@ class TradingPartnersApi
     /**
      * Operation batchSearchParticipants
      *
-     * Creates a batch search and performs a batch search in the directory for participants in the background.
+     * Handles batch search requests by uploading a file containing search parameters.
      *
      * @param BatchSearchParticipantsRequestSdk The request parameters for the API call.
      *
@@ -135,7 +135,7 @@ class TradingPartnersApi
     /**
      * Operation batchSearchParticipantsWithHttpInfo
      *
-     * Creates a batch search and performs a batch search in the directory for participants in the background.
+     * Handles batch search requests by uploading a file containing search parameters.
      *
      * @param BatchSearchParticipantsRequestSdk The request parameters for the API call.
      *
@@ -327,7 +327,7 @@ class TradingPartnersApi
     /**
      * Operation batchSearchParticipantsAsync
      *
-     * Creates a batch search and performs a batch search in the directory for participants in the background.
+     * Handles batch search requests by uploading a file containing search parameters.
      *
      * @param BatchSearchParticipantsRequestSdk The request parameters for the API call.
      *
@@ -347,7 +347,7 @@ class TradingPartnersApi
     /**
      * Operation batchSearchParticipantsAsyncWithHttpInfo
      *
-     * Creates a batch search and performs a batch search in the directory for participants in the background.
+     * Handles batch search requests by uploading a file containing search parameters.
      *
      * @param BatchSearchParticipantsRequestSdk The request parameters for the API call.
      *
@@ -519,7 +519,7 @@ class TradingPartnersApi
                 ['multipart/form-data']
             );
         }
-        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.7.2; {$this->client->config->getMachineName()}";
+        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.8.0; {$this->client->config->getMachineName()}";
 
         $headers['X-Avalara-Client']=$clientId;
 
@@ -569,9 +569,1207 @@ class TradingPartnersApi
     }
 
     /**
+     * Operation createTradingPartner
+     *
+     * Creates a new trading partner.
+     *
+     * @param CreateTradingPartnerRequestSdk The request parameters for the API call.
+     *
+     * @throws \Avalara\SDK\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \Avalara\SDK\Model\EInvoicing\V1\CreateTradingPartner201Response|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse
+     */
+    public function createTradingPartner($request_parameters)
+    {
+        list($response) = $this->createTradingPartnerWithHttpInfo($request_parameters);
+        return $response;
+    }
+
+    /**
+     * Operation createTradingPartnerWithHttpInfo
+     *
+     * Creates a new trading partner.
+     *
+     * @param CreateTradingPartnerRequestSdk The request parameters for the API call.
+     *
+     * @throws \Avalara\SDK\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \Avalara\SDK\Model\EInvoicing\V1\CreateTradingPartner201Response|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function createTradingPartnerWithHttpInfo($request_parameters, $isRetry = false)
+    {
+        $logObject = new LogObject($this->client->logRequestAndResponse);
+        //OAuth2 Scopes
+        $requiredScopes = "";
+        $request = $this->createTradingPartnerRequest($request_parameters);
+        $logObject->populateRequestInfo($request);
+
+        try {
+            try {
+                $response = $this->client->send_sync($request, []);
+            } catch (RequestException $e) {
+                $statusCode = $e->getCode();
+                if (($statusCode == 401 || $statusCode == 403) && !$isRetry) {
+                    $this->client->refreshAuthToken($e->getRequest() ? $e->getRequest()->getHeaders() : null, $requiredScopes);
+                    list($response) = $this->createTradingPartnerWithHttpInfo($request_parameters, true);
+                    return $response;
+                }
+                $logObject->populateErrorInfo($e->getResponse());
+                $this->client->logger->error(json_encode($logObject));
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                $logObject->populateErrorMessage($e->getCode(), $e->getMessage());
+                $this->client->logger->error(json_encode($logObject));
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }         
+            
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 201:
+                    if ('\Avalara\SDK\Model\EInvoicing\V1\CreateTradingPartner201Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+                    $logObject->populateResponseInfo($content, $response);
+                    $this->client->logger->info(json_encode($logObject));
+                    return [
+                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\CreateTradingPartner201Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+                    $logObject->populateResponseInfo($content, $response);
+                    $this->client->logger->info(json_encode($logObject));
+                    return [
+                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+                    $logObject->populateResponseInfo($content, $response);
+                    $this->client->logger->info(json_encode($logObject));
+                    return [
+                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 403:
+                    if ('\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+                    $logObject->populateResponseInfo($content, $response);
+                    $this->client->logger->info(json_encode($logObject));
+                    return [
+                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 409:
+                    if ('\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+                    $logObject->populateResponseInfo($content, $response);
+                    $this->client->logger->info(json_encode($logObject));
+                    return [
+                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+                    $logObject->populateResponseInfo($content, $response);
+                    $this->client->logger->info(json_encode($logObject));
+                    return [
+                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\Avalara\SDK\Model\EInvoicing\V1\CreateTradingPartner201Response';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+            }
+            $logObject->populateResponseInfo($content, $response);
+            $this->client->logger->info(json_encode($logObject));
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 201:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Avalara\SDK\Model\EInvoicing\V1\CreateTradingPartner201Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 409:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation createTradingPartnerAsync
+     *
+     * Creates a new trading partner.
+     *
+     * @param CreateTradingPartnerRequestSdk The request parameters for the API call.
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createTradingPartnerAsync($request_parameters)
+    {
+        return $this->createTradingPartnerAsyncWithHttpInfo($request_parameters)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation createTradingPartnerAsyncWithHttpInfo
+     *
+     * Creates a new trading partner.
+     *
+     * @param CreateTradingPartnerRequestSdk The request parameters for the API call.
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createTradingPartnerAsyncWithHttpInfo($request_parameters, $isRetry = false)
+    {
+        $logObject = new LogObject($this->client->logRequestAndResponse);
+        $returnType = '\Avalara\SDK\Model\EInvoicing\V1\CreateTradingPartner201Response';
+        $request = $this->createTradingPartnerRequest($request_parameters);
+        $logObject->populateRequestInfo($request);
+        return $this->client
+            ->send_async($request, [])
+            ->then(
+                function ($response) use ($returnType, $logObject) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+                    $logObject->populateResponseInfo($content, $response);
+                    $this->client->logger->info(json_encode($logObject));
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) use ($request_parameters, $isRetry, $request, $logObject) {
+                    //OAuth2 Scopes
+                    $requiredScopes = "";
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    if (($statusCode == 401 || $statusCode == 403) && !$isRetry) {
+                        $this->client->refreshAuthToken($request->getHeaders(), $requiredScopes);
+                        return $this->createTradingPartnerAsyncWithHttpInfo($request_parameters, true)
+                            ->then(
+                                function ($response) {
+                                    return $response[0];
+                                }
+                            );
+                    }
+                    $logObject->populateErrorInfo($response);
+                    $this->client->logger->error(json_encode($logObject));
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'createTradingPartner'
+     *
+     * @param CreateTradingPartnerRequestSdk The request parameters for the API call.
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function createTradingPartnerRequest($request_parameters)
+    {
+        //OAuth2 Scopes
+        $requiredScopes = "";
+        
+        $avalara_version = $request_parameters->getAvalaraVersion();
+        $trading_partner = $request_parameters->getTradingPartner();
+        $x_avalara_client = $request_parameters->getXAvalaraClient();
+        $x_correlation_id = $request_parameters->getXCorrelationId();
+
+        // verify the required parameter 'avalara_version' is set
+        if ($avalara_version === null || (is_array($avalara_version) && count($avalara_version) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $avalara_version when calling createTradingPartner'
+            );
+        }
+        // verify the required parameter 'trading_partner' is set
+        if ($trading_partner === null || (is_array($trading_partner) && count($trading_partner) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $trading_partner when calling createTradingPartner'
+            );
+        }
+
+        $resourcePath = '/einvoicing/trading-partners';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // header params
+        if ($avalara_version !== null) {
+            $headerParams['avalara-version'] = ObjectSerializer::toHeaderValue($avalara_version);
+        }
+        // header params
+        if ($x_avalara_client !== null) {
+            $headerParams['X-Avalara-Client'] = ObjectSerializer::toHeaderValue($x_avalara_client);
+        }
+        // header params
+        if ($x_correlation_id !== null) {
+            $headerParams['X-Correlation-ID'] = ObjectSerializer::toHeaderValue($x_correlation_id);
+        }
+
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.8.0; {$this->client->config->getMachineName()}";
+
+        $headers['X-Avalara-Client']=$clientId;
+
+        // for model (json/xml)
+        if (isset($trading_partner)) {
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($trading_partner));
+            } else {
+                $httpBody = $trading_partner;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
+            }
+        }
+
+        $headers = $this->client->applyAuthToRequest($headers, $requiredScopes);
+
+        $defaultHeaders = [];
+        
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
+        $baseUrl = $this->client->config->getBasePath('EInvoicing');
+        return new Request(
+            'POST',
+            $baseUrl . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation createTradingPartnersBatch
+     *
+     * Creates a batch of multiple trading partners.
+     *
+     * @param CreateTradingPartnersBatchRequestSdk The request parameters for the API call.
+     *
+     * @throws \Avalara\SDK\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \Avalara\SDK\Model\EInvoicing\V1\CreateTradingPartnersBatch200Response|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse
+     */
+    public function createTradingPartnersBatch($request_parameters)
+    {
+        list($response) = $this->createTradingPartnersBatchWithHttpInfo($request_parameters);
+        return $response;
+    }
+
+    /**
+     * Operation createTradingPartnersBatchWithHttpInfo
+     *
+     * Creates a batch of multiple trading partners.
+     *
+     * @param CreateTradingPartnersBatchRequestSdk The request parameters for the API call.
+     *
+     * @throws \Avalara\SDK\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \Avalara\SDK\Model\EInvoicing\V1\CreateTradingPartnersBatch200Response|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function createTradingPartnersBatchWithHttpInfo($request_parameters, $isRetry = false)
+    {
+        $logObject = new LogObject($this->client->logRequestAndResponse);
+        //OAuth2 Scopes
+        $requiredScopes = "";
+        $request = $this->createTradingPartnersBatchRequest($request_parameters);
+        $logObject->populateRequestInfo($request);
+
+        try {
+            try {
+                $response = $this->client->send_sync($request, []);
+            } catch (RequestException $e) {
+                $statusCode = $e->getCode();
+                if (($statusCode == 401 || $statusCode == 403) && !$isRetry) {
+                    $this->client->refreshAuthToken($e->getRequest() ? $e->getRequest()->getHeaders() : null, $requiredScopes);
+                    list($response) = $this->createTradingPartnersBatchWithHttpInfo($request_parameters, true);
+                    return $response;
+                }
+                $logObject->populateErrorInfo($e->getResponse());
+                $this->client->logger->error(json_encode($logObject));
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                $logObject->populateErrorMessage($e->getCode(), $e->getMessage());
+                $this->client->logger->error(json_encode($logObject));
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }         
+            
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\Avalara\SDK\Model\EInvoicing\V1\CreateTradingPartnersBatch200Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+                    $logObject->populateResponseInfo($content, $response);
+                    $this->client->logger->info(json_encode($logObject));
+                    return [
+                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\CreateTradingPartnersBatch200Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+                    $logObject->populateResponseInfo($content, $response);
+                    $this->client->logger->info(json_encode($logObject));
+                    return [
+                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+                    $logObject->populateResponseInfo($content, $response);
+                    $this->client->logger->info(json_encode($logObject));
+                    return [
+                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 403:
+                    if ('\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+                    $logObject->populateResponseInfo($content, $response);
+                    $this->client->logger->info(json_encode($logObject));
+                    return [
+                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 409:
+                    if ('\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+                    $logObject->populateResponseInfo($content, $response);
+                    $this->client->logger->info(json_encode($logObject));
+                    return [
+                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 413:
+                    if ('\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+                    $logObject->populateResponseInfo($content, $response);
+                    $this->client->logger->info(json_encode($logObject));
+                    return [
+                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+                    $logObject->populateResponseInfo($content, $response);
+                    $this->client->logger->info(json_encode($logObject));
+                    return [
+                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\Avalara\SDK\Model\EInvoicing\V1\CreateTradingPartnersBatch200Response';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+            }
+            $logObject->populateResponseInfo($content, $response);
+            $this->client->logger->info(json_encode($logObject));
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Avalara\SDK\Model\EInvoicing\V1\CreateTradingPartnersBatch200Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 409:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 413:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation createTradingPartnersBatchAsync
+     *
+     * Creates a batch of multiple trading partners.
+     *
+     * @param CreateTradingPartnersBatchRequestSdk The request parameters for the API call.
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createTradingPartnersBatchAsync($request_parameters)
+    {
+        return $this->createTradingPartnersBatchAsyncWithHttpInfo($request_parameters)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation createTradingPartnersBatchAsyncWithHttpInfo
+     *
+     * Creates a batch of multiple trading partners.
+     *
+     * @param CreateTradingPartnersBatchRequestSdk The request parameters for the API call.
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createTradingPartnersBatchAsyncWithHttpInfo($request_parameters, $isRetry = false)
+    {
+        $logObject = new LogObject($this->client->logRequestAndResponse);
+        $returnType = '\Avalara\SDK\Model\EInvoicing\V1\CreateTradingPartnersBatch200Response';
+        $request = $this->createTradingPartnersBatchRequest($request_parameters);
+        $logObject->populateRequestInfo($request);
+        return $this->client
+            ->send_async($request, [])
+            ->then(
+                function ($response) use ($returnType, $logObject) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+                    $logObject->populateResponseInfo($content, $response);
+                    $this->client->logger->info(json_encode($logObject));
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) use ($request_parameters, $isRetry, $request, $logObject) {
+                    //OAuth2 Scopes
+                    $requiredScopes = "";
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    if (($statusCode == 401 || $statusCode == 403) && !$isRetry) {
+                        $this->client->refreshAuthToken($request->getHeaders(), $requiredScopes);
+                        return $this->createTradingPartnersBatchAsyncWithHttpInfo($request_parameters, true)
+                            ->then(
+                                function ($response) {
+                                    return $response[0];
+                                }
+                            );
+                    }
+                    $logObject->populateErrorInfo($response);
+                    $this->client->logger->error(json_encode($logObject));
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'createTradingPartnersBatch'
+     *
+     * @param CreateTradingPartnersBatchRequestSdk The request parameters for the API call.
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function createTradingPartnersBatchRequest($request_parameters)
+    {
+        //OAuth2 Scopes
+        $requiredScopes = "";
+        
+        $avalara_version = $request_parameters->getAvalaraVersion();
+        $create_trading_partners_batch_request = $request_parameters->getCreateTradingPartnersBatchRequest();
+        $x_avalara_client = $request_parameters->getXAvalaraClient();
+        $x_correlation_id = $request_parameters->getXCorrelationId();
+
+        // verify the required parameter 'avalara_version' is set
+        if ($avalara_version === null || (is_array($avalara_version) && count($avalara_version) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $avalara_version when calling createTradingPartnersBatch'
+            );
+        }
+        // verify the required parameter 'create_trading_partners_batch_request' is set
+        if ($create_trading_partners_batch_request === null || (is_array($create_trading_partners_batch_request) && count($create_trading_partners_batch_request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $create_trading_partners_batch_request when calling createTradingPartnersBatch'
+            );
+        }
+
+        $resourcePath = '/einvoicing/trading-partners/batch';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // header params
+        if ($avalara_version !== null) {
+            $headerParams['avalara-version'] = ObjectSerializer::toHeaderValue($avalara_version);
+        }
+        // header params
+        if ($x_avalara_client !== null) {
+            $headerParams['X-Avalara-Client'] = ObjectSerializer::toHeaderValue($x_avalara_client);
+        }
+        // header params
+        if ($x_correlation_id !== null) {
+            $headerParams['X-Correlation-ID'] = ObjectSerializer::toHeaderValue($x_correlation_id);
+        }
+
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.8.0; {$this->client->config->getMachineName()}";
+
+        $headers['X-Avalara-Client']=$clientId;
+
+        // for model (json/xml)
+        if (isset($create_trading_partners_batch_request)) {
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($create_trading_partners_batch_request));
+            } else {
+                $httpBody = $create_trading_partners_batch_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
+            }
+        }
+
+        $headers = $this->client->applyAuthToRequest($headers, $requiredScopes);
+
+        $defaultHeaders = [];
+        
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
+        $baseUrl = $this->client->config->getBasePath('EInvoicing');
+        return new Request(
+            'POST',
+            $baseUrl . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation deleteTradingPartner
+     *
+     * Deletes a trading partner using ID.
+     *
+     * @param DeleteTradingPartnerRequestSdk The request parameters for the API call.
+     *
+     * @throws \Avalara\SDK\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function deleteTradingPartner($request_parameters)
+    {
+        $this->deleteTradingPartnerWithHttpInfo($request_parameters);
+    }
+
+    /**
+     * Operation deleteTradingPartnerWithHttpInfo
+     *
+     * Deletes a trading partner using ID.
+     *
+     * @param DeleteTradingPartnerRequestSdk The request parameters for the API call.
+     *
+     * @throws \Avalara\SDK\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function deleteTradingPartnerWithHttpInfo($request_parameters, $isRetry = false)
+    {
+        $logObject = new LogObject($this->client->logRequestAndResponse);
+        //OAuth2 Scopes
+        $requiredScopes = "";
+        $request = $this->deleteTradingPartnerRequest($request_parameters);
+        $logObject->populateRequestInfo($request);
+
+        try {
+            try {
+                $response = $this->client->send_sync($request, []);
+            } catch (RequestException $e) {
+                $statusCode = $e->getCode();
+                if (($statusCode == 401 || $statusCode == 403) && !$isRetry) {
+                    $this->client->refreshAuthToken($e->getRequest() ? $e->getRequest()->getHeaders() : null, $requiredScopes);
+                    $this->deleteTradingPartnerWithHttpInfo($request_parameters, true);
+                }
+                $logObject->populateErrorInfo($e->getResponse());
+                $this->client->logger->error(json_encode($logObject));
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                $logObject->populateErrorMessage($e->getCode(), $e->getMessage());
+                $this->client->logger->error(json_encode($logObject));
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }         
+            
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return [null, $statusCode, $response->getHeaders()];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation deleteTradingPartnerAsync
+     *
+     * Deletes a trading partner using ID.
+     *
+     * @param DeleteTradingPartnerRequestSdk The request parameters for the API call.
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deleteTradingPartnerAsync($request_parameters)
+    {
+        return $this->deleteTradingPartnerAsyncWithHttpInfo($request_parameters)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation deleteTradingPartnerAsyncWithHttpInfo
+     *
+     * Deletes a trading partner using ID.
+     *
+     * @param DeleteTradingPartnerRequestSdk The request parameters for the API call.
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deleteTradingPartnerAsyncWithHttpInfo($request_parameters, $isRetry = false)
+    {
+        $logObject = new LogObject($this->client->logRequestAndResponse);
+        $returnType = '';
+        $request = $this->deleteTradingPartnerRequest($request_parameters);
+        $logObject->populateRequestInfo($request);
+        return $this->client
+            ->send_async($request, [])
+            ->then(
+                function ($response) use ($returnType, $logObject) {
+                    $this->client->logger->info(json_encode($logObject));
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) use ($request_parameters, $isRetry, $request, $logObject) {
+                    //OAuth2 Scopes
+                    $requiredScopes = "";
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    if (($statusCode == 401 || $statusCode == 403) && !$isRetry) {
+                        $this->client->refreshAuthToken($request->getHeaders(), $requiredScopes);
+                        return $this->deleteTradingPartnerAsyncWithHttpInfo($request_parameters, true)
+                            ->then(
+                                function ($response) {
+                                    return $response[0];
+                                }
+                            );
+                    }
+                    $logObject->populateErrorInfo($response);
+                    $this->client->logger->error(json_encode($logObject));
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'deleteTradingPartner'
+     *
+     * @param DeleteTradingPartnerRequestSdk The request parameters for the API call.
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function deleteTradingPartnerRequest($request_parameters)
+    {
+        //OAuth2 Scopes
+        $requiredScopes = "";
+        
+        $avalara_version = $request_parameters->getAvalaraVersion();
+        $id = $request_parameters->getId();
+        $x_avalara_client = $request_parameters->getXAvalaraClient();
+        $x_correlation_id = $request_parameters->getXCorrelationId();
+
+        // verify the required parameter 'avalara_version' is set
+        if ($avalara_version === null || (is_array($avalara_version) && count($avalara_version) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $avalara_version when calling deleteTradingPartner'
+            );
+        }
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling deleteTradingPartner'
+            );
+        }
+
+        $resourcePath = '/einvoicing/trading-partners/{id}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // header params
+        if ($avalara_version !== null) {
+            $headerParams['avalara-version'] = ObjectSerializer::toHeaderValue($avalara_version);
+        }
+        // header params
+        if ($x_avalara_client !== null) {
+            $headerParams['X-Avalara-Client'] = ObjectSerializer::toHeaderValue($x_avalara_client);
+        }
+        // header params
+        if ($x_correlation_id !== null) {
+            $headerParams['X-Correlation-ID'] = ObjectSerializer::toHeaderValue($x_correlation_id);
+        }
+
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.8.0; {$this->client->config->getMachineName()}";
+
+        $headers['X-Avalara-Client']=$clientId;
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
+            }
+        }
+
+        $headers = $this->client->applyAuthToRequest($headers, $requiredScopes);
+
+        $defaultHeaders = [];
+        
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
+        $baseUrl = $this->client->config->getBasePath('EInvoicing');
+        return new Request(
+            'DELETE',
+            $baseUrl . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation downloadBatchSearchReport
      *
-     * Download batch search results in a csv file.
+     * Downloads batch search results in a csv file.
      *
      * @param DownloadBatchSearchReportRequestSdk The request parameters for the API call.
      *
@@ -588,7 +1786,7 @@ class TradingPartnersApi
     /**
      * Operation downloadBatchSearchReportWithHttpInfo
      *
-     * Download batch search results in a csv file.
+     * Downloads batch search results in a csv file.
      *
      * @param DownloadBatchSearchReportRequestSdk The request parameters for the API call.
      *
@@ -780,7 +1978,7 @@ class TradingPartnersApi
     /**
      * Operation downloadBatchSearchReportAsync
      *
-     * Download batch search results in a csv file.
+     * Downloads batch search results in a csv file.
      *
      * @param DownloadBatchSearchReportRequestSdk The request parameters for the API call.
      *
@@ -800,7 +1998,7 @@ class TradingPartnersApi
     /**
      * Operation downloadBatchSearchReportAsyncWithHttpInfo
      *
-     * Download batch search results in a csv file.
+     * Downloads batch search results in a csv file.
      *
      * @param DownloadBatchSearchReportRequestSdk The request parameters for the API call.
      *
@@ -932,7 +2130,7 @@ class TradingPartnersApi
                 []
             );
         }
-        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.7.2; {$this->client->config->getMachineName()}";
+        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.8.0; {$this->client->config->getMachineName()}";
 
         $headers['X-Avalara-Client']=$clientId;
 
@@ -984,7 +2182,7 @@ class TradingPartnersApi
     /**
      * Operation getBatchSearchDetail
      *
-     * Get the batch search details for a given id.
+     * Returns the batch search details using ID.
      *
      * @param GetBatchSearchDetailRequestSdk The request parameters for the API call.
      *
@@ -1001,7 +2199,7 @@ class TradingPartnersApi
     /**
      * Operation getBatchSearchDetailWithHttpInfo
      *
-     * Get the batch search details for a given id.
+     * Returns the batch search details using ID.
      *
      * @param GetBatchSearchDetailRequestSdk The request parameters for the API call.
      *
@@ -1088,7 +2286,7 @@ class TradingPartnersApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
-                case 404:
+                case 403:
                     if ('\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
@@ -1101,7 +2299,7 @@ class TradingPartnersApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
-                case 403:
+                case 404:
                     if ('\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
@@ -1161,7 +2359,7 @@ class TradingPartnersApi
                     );
                     $e->setResponseObject($data);
                     break;
-                case 404:
+                case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse',
@@ -1169,7 +2367,7 @@ class TradingPartnersApi
                     );
                     $e->setResponseObject($data);
                     break;
-                case 403:
+                case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse',
@@ -1193,7 +2391,7 @@ class TradingPartnersApi
     /**
      * Operation getBatchSearchDetailAsync
      *
-     * Get the batch search details for a given id.
+     * Returns the batch search details using ID.
      *
      * @param GetBatchSearchDetailRequestSdk The request parameters for the API call.
      *
@@ -1213,7 +2411,7 @@ class TradingPartnersApi
     /**
      * Operation getBatchSearchDetailAsyncWithHttpInfo
      *
-     * Get the batch search details for a given id.
+     * Returns the batch search details using ID.
      *
      * @param GetBatchSearchDetailRequestSdk The request parameters for the API call.
      *
@@ -1345,7 +2543,7 @@ class TradingPartnersApi
                 []
             );
         }
-        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.7.2; {$this->client->config->getMachineName()}";
+        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.8.0; {$this->client->config->getMachineName()}";
 
         $headers['X-Avalara-Client']=$clientId;
 
@@ -1397,7 +2595,7 @@ class TradingPartnersApi
     /**
      * Operation listBatchSearches
      *
-     * List all batch searches that were previously submitted.
+     * Lists all batch searches that were previously submitted.
      *
      * @param ListBatchSearchesRequestSdk The request parameters for the API call.
      *
@@ -1414,7 +2612,7 @@ class TradingPartnersApi
     /**
      * Operation listBatchSearchesWithHttpInfo
      *
-     * List all batch searches that were previously submitted.
+     * Lists all batch searches that were previously submitted.
      *
      * @param ListBatchSearchesRequestSdk The request parameters for the API call.
      *
@@ -1606,7 +2804,7 @@ class TradingPartnersApi
     /**
      * Operation listBatchSearchesAsync
      *
-     * List all batch searches that were previously submitted.
+     * Lists all batch searches that were previously submitted.
      *
      * @param ListBatchSearchesRequestSdk The request parameters for the API call.
      *
@@ -1626,7 +2824,7 @@ class TradingPartnersApi
     /**
      * Operation listBatchSearchesAsyncWithHttpInfo
      *
-     * List all batch searches that were previously submitted.
+     * Lists all batch searches that were previously submitted.
      *
      * @param ListBatchSearchesRequestSdk The request parameters for the API call.
      *
@@ -1803,7 +3001,7 @@ class TradingPartnersApi
                 []
             );
         }
-        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.7.2; {$this->client->config->getMachineName()}";
+        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.8.0; {$this->client->config->getMachineName()}";
 
         $headers['X-Avalara-Client']=$clientId;
 
@@ -1861,7 +3059,7 @@ class TradingPartnersApi
      *
      * @throws \Avalara\SDK\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Avalara\SDK\Model\EInvoicing\V1\DirectorySearchResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse
+     * @return \Avalara\SDK\Model\EInvoicing\V1\SearchParticipants200Response|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse
      */
     public function searchParticipants($request_parameters)
     {
@@ -1878,7 +3076,7 @@ class TradingPartnersApi
      *
      * @throws \Avalara\SDK\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Avalara\SDK\Model\EInvoicing\V1\DirectorySearchResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Avalara\SDK\Model\EInvoicing\V1\SearchParticipants200Response|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function searchParticipantsWithHttpInfo($request_parameters, $isRetry = false)
     {
@@ -1934,7 +3132,7 @@ class TradingPartnersApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Avalara\SDK\Model\EInvoicing\V1\DirectorySearchResponse' === '\SplFileObject') {
+                    if ('\Avalara\SDK\Model\EInvoicing\V1\SearchParticipants200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -1942,7 +3140,7 @@ class TradingPartnersApi
                     $logObject->populateResponseInfo($content, $response);
                     $this->client->logger->info(json_encode($logObject));
                     return [
-                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\DirectorySearchResponse', []),
+                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\SearchParticipants200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -2000,7 +3198,7 @@ class TradingPartnersApi
                     ];
             }
 
-            $returnType = '\Avalara\SDK\Model\EInvoicing\V1\DirectorySearchResponse';
+            $returnType = '\Avalara\SDK\Model\EInvoicing\V1\SearchParticipants200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -2019,7 +3217,7 @@ class TradingPartnersApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Avalara\SDK\Model\EInvoicing\V1\DirectorySearchResponse',
+                        '\Avalara\SDK\Model\EInvoicing\V1\SearchParticipants200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2094,7 +3292,7 @@ class TradingPartnersApi
     public function searchParticipantsAsyncWithHttpInfo($request_parameters, $isRetry = false)
     {
         $logObject = new LogObject($this->client->logRequestAndResponse);
-        $returnType = '\Avalara\SDK\Model\EInvoicing\V1\DirectorySearchResponse';
+        $returnType = '\Avalara\SDK\Model\EInvoicing\V1\SearchParticipants200Response';
         $request = $this->searchParticipantsRequest($request_parameters);
         $logObject->populateRequestInfo($request);
         return $this->client
@@ -2279,7 +3477,7 @@ class TradingPartnersApi
                 []
             );
         }
-        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.7.2; {$this->client->config->getMachineName()}";
+        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.8.0; {$this->client->config->getMachineName()}";
 
         $headers['X-Avalara-Client']=$clientId;
 
@@ -2328,15 +3526,483 @@ class TradingPartnersApi
         );
     }
 
+    /**
+     * Operation updateTradingPartner
+     *
+     * Updates a trading partner using ID.
+     *
+     * @param UpdateTradingPartnerRequestSdk The request parameters for the API call.
+     *
+     * @throws \Avalara\SDK\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \Avalara\SDK\Model\EInvoicing\V1\UpdateTradingPartner200Response|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse
+     */
+    public function updateTradingPartner($request_parameters)
+    {
+        list($response) = $this->updateTradingPartnerWithHttpInfo($request_parameters);
+        return $response;
+    }
+
+    /**
+     * Operation updateTradingPartnerWithHttpInfo
+     *
+     * Updates a trading partner using ID.
+     *
+     * @param UpdateTradingPartnerRequestSdk The request parameters for the API call.
+     *
+     * @throws \Avalara\SDK\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \Avalara\SDK\Model\EInvoicing\V1\UpdateTradingPartner200Response|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateTradingPartnerWithHttpInfo($request_parameters, $isRetry = false)
+    {
+        $logObject = new LogObject($this->client->logRequestAndResponse);
+        //OAuth2 Scopes
+        $requiredScopes = "";
+        $request = $this->updateTradingPartnerRequest($request_parameters);
+        $logObject->populateRequestInfo($request);
+
+        try {
+            try {
+                $response = $this->client->send_sync($request, []);
+            } catch (RequestException $e) {
+                $statusCode = $e->getCode();
+                if (($statusCode == 401 || $statusCode == 403) && !$isRetry) {
+                    $this->client->refreshAuthToken($e->getRequest() ? $e->getRequest()->getHeaders() : null, $requiredScopes);
+                    list($response) = $this->updateTradingPartnerWithHttpInfo($request_parameters, true);
+                    return $response;
+                }
+                $logObject->populateErrorInfo($e->getResponse());
+                $this->client->logger->error(json_encode($logObject));
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                $logObject->populateErrorMessage($e->getCode(), $e->getMessage());
+                $this->client->logger->error(json_encode($logObject));
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }         
+            
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\Avalara\SDK\Model\EInvoicing\V1\UpdateTradingPartner200Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+                    $logObject->populateResponseInfo($content, $response);
+                    $this->client->logger->info(json_encode($logObject));
+                    return [
+                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\UpdateTradingPartner200Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+                    $logObject->populateResponseInfo($content, $response);
+                    $this->client->logger->info(json_encode($logObject));
+                    return [
+                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+                    $logObject->populateResponseInfo($content, $response);
+                    $this->client->logger->info(json_encode($logObject));
+                    return [
+                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 403:
+                    if ('\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+                    $logObject->populateResponseInfo($content, $response);
+                    $this->client->logger->info(json_encode($logObject));
+                    return [
+                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 404:
+                    if ('\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+                    $logObject->populateResponseInfo($content, $response);
+                    $this->client->logger->info(json_encode($logObject));
+                    return [
+                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 409:
+                    if ('\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+                    $logObject->populateResponseInfo($content, $response);
+                    $this->client->logger->info(json_encode($logObject));
+                    return [
+                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+                    $logObject->populateResponseInfo($content, $response);
+                    $this->client->logger->info(json_encode($logObject));
+                    return [
+                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\Avalara\SDK\Model\EInvoicing\V1\UpdateTradingPartner200Response';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+            }
+            $logObject->populateResponseInfo($content, $response);
+            $this->client->logger->info(json_encode($logObject));
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Avalara\SDK\Model\EInvoicing\V1\UpdateTradingPartner200Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 409:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation updateTradingPartnerAsync
+     *
+     * Updates a trading partner using ID.
+     *
+     * @param UpdateTradingPartnerRequestSdk The request parameters for the API call.
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateTradingPartnerAsync($request_parameters)
+    {
+        return $this->updateTradingPartnerAsyncWithHttpInfo($request_parameters)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation updateTradingPartnerAsyncWithHttpInfo
+     *
+     * Updates a trading partner using ID.
+     *
+     * @param UpdateTradingPartnerRequestSdk The request parameters for the API call.
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateTradingPartnerAsyncWithHttpInfo($request_parameters, $isRetry = false)
+    {
+        $logObject = new LogObject($this->client->logRequestAndResponse);
+        $returnType = '\Avalara\SDK\Model\EInvoicing\V1\UpdateTradingPartner200Response';
+        $request = $this->updateTradingPartnerRequest($request_parameters);
+        $logObject->populateRequestInfo($request);
+        return $this->client
+            ->send_async($request, [])
+            ->then(
+                function ($response) use ($returnType, $logObject) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+                    $logObject->populateResponseInfo($content, $response);
+                    $this->client->logger->info(json_encode($logObject));
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) use ($request_parameters, $isRetry, $request, $logObject) {
+                    //OAuth2 Scopes
+                    $requiredScopes = "";
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    if (($statusCode == 401 || $statusCode == 403) && !$isRetry) {
+                        $this->client->refreshAuthToken($request->getHeaders(), $requiredScopes);
+                        return $this->updateTradingPartnerAsyncWithHttpInfo($request_parameters, true)
+                            ->then(
+                                function ($response) {
+                                    return $response[0];
+                                }
+                            );
+                    }
+                    $logObject->populateErrorInfo($response);
+                    $this->client->logger->error(json_encode($logObject));
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'updateTradingPartner'
+     *
+     * @param UpdateTradingPartnerRequestSdk The request parameters for the API call.
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function updateTradingPartnerRequest($request_parameters)
+    {
+        //OAuth2 Scopes
+        $requiredScopes = "";
+        
+        $avalara_version = $request_parameters->getAvalaraVersion();
+        $id = $request_parameters->getId();
+        $trading_partner = $request_parameters->getTradingPartner();
+        $x_avalara_client = $request_parameters->getXAvalaraClient();
+        $x_correlation_id = $request_parameters->getXCorrelationId();
+
+        // verify the required parameter 'avalara_version' is set
+        if ($avalara_version === null || (is_array($avalara_version) && count($avalara_version) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $avalara_version when calling updateTradingPartner'
+            );
+        }
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling updateTradingPartner'
+            );
+        }
+        // verify the required parameter 'trading_partner' is set
+        if ($trading_partner === null || (is_array($trading_partner) && count($trading_partner) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $trading_partner when calling updateTradingPartner'
+            );
+        }
+
+        $resourcePath = '/einvoicing/trading-partners/{id}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // header params
+        if ($avalara_version !== null) {
+            $headerParams['avalara-version'] = ObjectSerializer::toHeaderValue($avalara_version);
+        }
+        // header params
+        if ($x_avalara_client !== null) {
+            $headerParams['X-Avalara-Client'] = ObjectSerializer::toHeaderValue($x_avalara_client);
+        }
+        // header params
+        if ($x_correlation_id !== null) {
+            $headerParams['X-Correlation-ID'] = ObjectSerializer::toHeaderValue($x_correlation_id);
+        }
+
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.8.0; {$this->client->config->getMachineName()}";
+
+        $headers['X-Avalara-Client']=$clientId;
+
+        // for model (json/xml)
+        if (isset($trading_partner)) {
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($trading_partner));
+            } else {
+                $httpBody = $trading_partner;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
+            }
+        }
+
+        $headers = $this->client->applyAuthToRequest($headers, $requiredScopes);
+
+        $defaultHeaders = [];
+        
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
+        $baseUrl = $this->client->config->getBasePath('EInvoicing');
+        return new Request(
+            'PUT',
+            $baseUrl . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
 }
     /**
      * Represents the Request object for the BatchSearchParticipants API
      *
-     * @param  string $avalara_version The HTTP Header meant to specify the version of the API intended to be used (required)
-     * @param  string $name The human readable name given to this batch search. (required)
-     * @param  string $notification_email The email address of the user to whom the batch search completion notification must go to. (required)
-     * @param  \SplFileObject $file CSV file containing search parameters. (required)
-     * @param  string $x_avalara_client You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a \&quot;Fingerprint\&quot; (optional)
+     * @param  string $avalara_version The HTTP Header meant to specify the version of the API intended to be used. (required)
+     * @param  string $name A &lt;b&gt;human-readable&lt;/b&gt; name for the batch search. (required)
+     * @param  string $notification_email The email address to which a notification will be sent once the batch search is complete. (required)
+     * @param  \SplFileObject $file CSV file containing search parameters.  Input Constraints: - Maximum file size: 1 MB - File Header: Must be less than 500 KB - Total number of lines (including header): Must be 101 or fewer (required)
+     * @param  string $x_avalara_client You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a \&quot;Fingerprint\&quot;. (optional)
      * @param  string $x_correlation_id The caller can use this as an identifier to use as a correlation id to trace the call. (optional)
      */
 class BatchSearchParticipantsRequestSdk {
@@ -2350,7 +4016,7 @@ class BatchSearchParticipantsRequestSdk {
     public function __construct() {
     }
     public function getAvalaraVersion() {
-        return $this->avalara_version ?? '1.3';
+        return $this->avalara_version ?? '1.4';
     }
 
     public function setAvalaraVersion($avalara_version) {
@@ -2394,11 +4060,149 @@ class BatchSearchParticipantsRequestSdk {
 }
 
     /**
+     * Represents the Request object for the CreateTradingPartner API
+     *
+     * @param  string $avalara_version The HTTP Header meant to specify the version of the API intended to be used. (required)
+     * @param  \Avalara\SDK\Model\EInvoicing\V1\TradingPartner $trading_partner trading_partner (required)
+     * @param  string $x_avalara_client You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a \&quot;Fingerprint\&quot;. (optional)
+     * @param  string $x_correlation_id The caller can use this as an identifier to use as a correlation id to trace the call. (optional)
+     */
+class CreateTradingPartnerRequestSdk {
+    private $avalara_version;
+    private $trading_partner;
+    private $x_avalara_client;
+    private $x_correlation_id;
+
+    public function __construct() {
+    }
+    public function getAvalaraVersion() {
+        return $this->avalara_version ?? '1.4';
+    }
+
+    public function setAvalaraVersion($avalara_version) {
+        $this->avalara_version = $avalara_version;
+    }
+    public function getTradingPartner() {
+        return $this->trading_partner;
+    }
+
+    public function setTradingPartner($trading_partner) {
+        $this->trading_partner = $trading_partner;
+    }
+    public function getXAvalaraClient() {
+        return $this->x_avalara_client;
+    }
+
+    public function setXAvalaraClient($x_avalara_client) {
+        $this->x_avalara_client = $x_avalara_client;
+    }
+    public function getXCorrelationId() {
+        return $this->x_correlation_id;
+    }
+
+    public function setXCorrelationId($x_correlation_id) {
+        $this->x_correlation_id = $x_correlation_id;
+    }
+}
+
+    /**
+     * Represents the Request object for the CreateTradingPartnersBatch API
+     *
+     * @param  string $avalara_version The HTTP Header meant to specify the version of the API intended to be used. (required)
+     * @param  \Avalara\SDK\Model\EInvoicing\V1\CreateTradingPartnersBatchRequest $create_trading_partners_batch_request create_trading_partners_batch_request (required)
+     * @param  string $x_avalara_client You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a \&quot;Fingerprint\&quot;. (optional)
+     * @param  string $x_correlation_id The caller can use this as an identifier to use as a correlation id to trace the call. (optional)
+     */
+class CreateTradingPartnersBatchRequestSdk {
+    private $avalara_version;
+    private $create_trading_partners_batch_request;
+    private $x_avalara_client;
+    private $x_correlation_id;
+
+    public function __construct() {
+    }
+    public function getAvalaraVersion() {
+        return $this->avalara_version ?? '1.4';
+    }
+
+    public function setAvalaraVersion($avalara_version) {
+        $this->avalara_version = $avalara_version;
+    }
+    public function getCreateTradingPartnersBatchRequest() {
+        return $this->create_trading_partners_batch_request;
+    }
+
+    public function setCreateTradingPartnersBatchRequest($create_trading_partners_batch_request) {
+        $this->create_trading_partners_batch_request = $create_trading_partners_batch_request;
+    }
+    public function getXAvalaraClient() {
+        return $this->x_avalara_client;
+    }
+
+    public function setXAvalaraClient($x_avalara_client) {
+        $this->x_avalara_client = $x_avalara_client;
+    }
+    public function getXCorrelationId() {
+        return $this->x_correlation_id;
+    }
+
+    public function setXCorrelationId($x_correlation_id) {
+        $this->x_correlation_id = $x_correlation_id;
+    }
+}
+
+    /**
+     * Represents the Request object for the DeleteTradingPartner API
+     *
+     * @param  string $avalara_version The HTTP Header meant to specify the version of the API intended to be used. (required)
+     * @param  string $id The ID of the trading partner which is being deleted. (required)
+     * @param  string $x_avalara_client You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a \&quot;Fingerprint\&quot;. (optional)
+     * @param  string $x_correlation_id The caller can use this as an identifier to use as a correlation id to trace the call. (optional)
+     */
+class DeleteTradingPartnerRequestSdk {
+    private $avalara_version;
+    private $id;
+    private $x_avalara_client;
+    private $x_correlation_id;
+
+    public function __construct() {
+    }
+    public function getAvalaraVersion() {
+        return $this->avalara_version ?? '1.4';
+    }
+
+    public function setAvalaraVersion($avalara_version) {
+        $this->avalara_version = $avalara_version;
+    }
+    public function getId() {
+        return $this->id;
+    }
+
+    public function setId($id) {
+        $this->id = $id;
+    }
+    public function getXAvalaraClient() {
+        return $this->x_avalara_client;
+    }
+
+    public function setXAvalaraClient($x_avalara_client) {
+        $this->x_avalara_client = $x_avalara_client;
+    }
+    public function getXCorrelationId() {
+        return $this->x_correlation_id;
+    }
+
+    public function setXCorrelationId($x_correlation_id) {
+        $this->x_correlation_id = $x_correlation_id;
+    }
+}
+
+    /**
      * Represents the Request object for the DownloadBatchSearchReport API
      *
-     * @param  string $avalara_version The HTTP Header meant to specify the version of the API intended to be used (required)
-     * @param  string $id The ID of the batch search whose report is to be downloaded. (required)
-     * @param  string $x_avalara_client You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a \&quot;Fingerprint\&quot; (optional)
+     * @param  string $avalara_version The HTTP Header meant to specify the version of the API intended to be used. (required)
+     * @param  string $id The ID of the batch search for which the report should be downloaded. (required)
+     * @param  string $x_avalara_client You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a \&quot;Fingerprint\&quot;. (optional)
      * @param  string $x_correlation_id The caller can use this as an identifier to use as a correlation id to trace the call. (optional)
      */
 class DownloadBatchSearchReportRequestSdk {
@@ -2410,7 +4214,7 @@ class DownloadBatchSearchReportRequestSdk {
     public function __construct() {
     }
     public function getAvalaraVersion() {
-        return $this->avalara_version ?? '1.3';
+        return $this->avalara_version ?? '1.4';
     }
 
     public function setAvalaraVersion($avalara_version) {
@@ -2442,9 +4246,9 @@ class DownloadBatchSearchReportRequestSdk {
     /**
      * Represents the Request object for the GetBatchSearchDetail API
      *
-     * @param  string $avalara_version The HTTP Header meant to specify the version of the API intended to be used (required)
+     * @param  string $avalara_version The HTTP Header meant to specify the version of the API intended to be used. (required)
      * @param  string $id The ID of the batch search that was submitted earlier. (required)
-     * @param  string $x_avalara_client You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a \&quot;Fingerprint\&quot; (optional)
+     * @param  string $x_avalara_client You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a \&quot;Fingerprint\&quot;. (optional)
      * @param  string $x_correlation_id The caller can use this as an identifier to use as a correlation id to trace the call. (optional)
      */
 class GetBatchSearchDetailRequestSdk {
@@ -2456,7 +4260,7 @@ class GetBatchSearchDetailRequestSdk {
     public function __construct() {
     }
     public function getAvalaraVersion() {
-        return $this->avalara_version ?? '1.3';
+        return $this->avalara_version ?? '1.4';
     }
 
     public function setAvalaraVersion($avalara_version) {
@@ -2488,13 +4292,13 @@ class GetBatchSearchDetailRequestSdk {
     /**
      * Represents the Request object for the ListBatchSearches API
      *
-     * @param  string $avalara_version The HTTP Header meant to specify the version of the API intended to be used (required)
-     * @param  string $x_avalara_client You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a \&quot;Fingerprint\&quot; (optional)
-     * @param  string $filter Filter by field name and value. This filter only supports &lt;code&gt;eq&lt;/code&gt; .The parameters supported is &lt;code&gt;name&lt;/code&gt;.    Refer to [https://developer.avalara.com/avatax/filtering-in-rest/](https://developer.avalara.com/avatax/filtering-in-rest/) for more information on filtering. Filtering will be done over the provided parameters. (optional)
-     * @param  bool $count When set to true, the count of the collection is included as @recordSetCount in the response body. (optional)
-     * @param  float $top The number of items to include in the result. (optional)
+     * @param  string $avalara_version The HTTP Header meant to specify the version of the API intended to be used. (required)
+     * @param  string $x_avalara_client You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a \&quot;Fingerprint\&quot;. (optional)
+     * @param  string $filter Filters the results by field name. Only the &lt;code&gt;eq&lt;/code&gt; operator and the name field is supported. For more information, refer to [AvaTax filtering guide](https://developer.avalara.com/avatax/filtering-in-rest/). (optional)
+     * @param  bool $count When set to &lt;code&gt;true&lt;/code&gt;, returns the total count of matching records included as &lt;code&gt;@recordSetCount&lt;/code&gt; in the response body. (optional)
+     * @param  string $top If nonzero, return no more than this number of results. Used with &lt;code&gt;$skip&lt;/code&gt; to provide pagination for large datasets. Unless otherwise specified, the maximum number of records that can be returned from an API call is 200 records. (optional)
      * @param  string $skip If nonzero, skip this number of results before returning data. Used with &lt;code&gt;$top&lt;/code&gt; to provide pagination for large datasets. (optional)
-     * @param  string $order_by The $orderBy query parameter specifies the field and sorting direction for ordering the result set. The value is a string that combines a field name and a sorting direction (asc for ascending or desc for descending), separated by a space. (optional)
+     * @param  string $order_by The &lt;code&gt;$orderBy&lt;/code&gt; query parameter specifies the field and sorting direction for ordering the result set. The value is a string that combines a field name and a sorting direction (asc for ascending or desc for descending), separated by a space. (optional)
      * @param  string $x_correlation_id The caller can use this as an identifier to use as a correlation id to trace the call. (optional)
      */
 class ListBatchSearchesRequestSdk {
@@ -2510,7 +4314,7 @@ class ListBatchSearchesRequestSdk {
     public function __construct() {
     }
     public function getAvalaraVersion() {
-        return $this->avalara_version ?? '1.3';
+        return $this->avalara_version ?? '1.4';
     }
 
     public function setAvalaraVersion($avalara_version) {
@@ -2570,14 +4374,14 @@ class ListBatchSearchesRequestSdk {
     /**
      * Represents the Request object for the SearchParticipants API
      *
-     * @param  string $avalara_version The HTTP Header meant to specify the version of the API intended to be used (required)
-     * @param  string $search Search by value supports logical AND and OR. Refer to [https://learn.microsoft.com/en-us/odata/concepts/queryoptions-overview#search](https://learn.microsoft.com/en-us/odata/concepts/queryoptions-overview#search) for more information on search. Search will be done over &lt;code&gt;name&lt;/code&gt; and &lt;code&gt;identifier&lt;/code&gt; parameters only. (required)
-     * @param  string $x_avalara_client You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a \&quot;Fingerprint\&quot; (optional)
-     * @param  bool $count When set to true, the count of the collection is included as @recordSetCount in the response body. (optional)
-     * @param  string $filter Filter by field name and value. This filter only supports &lt;code&gt;eq&lt;/code&gt; .The parameters supported are &lt;code&gt;network&lt;/code&gt;, &lt;code&gt;country&lt;/code&gt;, &lt;code&gt;documentType&lt;/code&gt;, &lt;code&gt;idType&lt;/code&gt;.          Refer to [https://developer.avalara.com/avatax/filtering-in-rest/](https://developer.avalara.com/avatax/filtering-in-rest/) for more information on filtering. Filtering will be done over the provided parameters. (optional)
-     * @param  float $top The number of items to include in the result. (optional)
+     * @param  string $avalara_version The HTTP Header meant to specify the version of the API intended to be used. (required)
+     * @param  string $search Search by value supports logical &lt;code&gt;AND&lt;/code&gt; / &lt;code&gt;OR&lt;/code&gt; operators. Search is performed only over the name and identifier value fields. For more information, refer to [Query options overview - OData.](https://learn.microsoft.com/en-us/odata/concepts/queryoptions-overview#search). (required)
+     * @param  string $x_avalara_client You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a \&quot;Fingerprint\&quot;. (optional)
+     * @param  bool $count When set to &lt;code&gt;true&lt;/code&gt;, returns the total count of matching records included as &lt;code&gt;@recordSetCount&lt;/code&gt; in the response body. (optional)
+     * @param  string $filter Filters the results using the &lt;code&gt;eq&lt;/code&gt; operator. Supported fields: &lt;code&gt;network&lt;/code&gt;, &lt;code&gt;country&lt;/code&gt;, &lt;code&gt;documentType&lt;/code&gt;, &lt;code&gt;idType&lt;/code&gt;. For more information, refer to [AvaTax filtering guide](https://developer.avalara.com/avatax/filtering-in-rest/). (optional)
+     * @param  string $top If nonzero, return no more than this number of results. Used with &lt;code&gt;$skip&lt;/code&gt; to provide pagination for large datasets. Unless otherwise specified, the maximum number of records that can be returned from an API call is 200 records. (optional)
      * @param  string $skip If nonzero, skip this number of results before returning data. Used with &lt;code&gt;$top&lt;/code&gt; to provide pagination for large datasets. (optional)
-     * @param  string $order_by The $orderBy query parameter specifies the field and sorting direction for ordering the result set. The value is a string that combines a field name and a sorting direction (asc for ascending or desc for descending), separated by a space. (optional)
+     * @param  string $order_by The &lt;code&gt;$orderBy&lt;/code&gt; query parameter specifies the field and sorting direction for ordering the result set. The value is a string that combines a field name and a sorting direction (asc for ascending or desc for descending), separated by a space. (optional)
      * @param  string $x_correlation_id The caller can use this as an identifier to use as a correlation id to trace the call. (optional)
      */
 class SearchParticipantsRequestSdk {
@@ -2594,7 +4398,7 @@ class SearchParticipantsRequestSdk {
     public function __construct() {
     }
     public function getAvalaraVersion() {
-        return $this->avalara_version ?? '1.3';
+        return $this->avalara_version ?? '1.4';
     }
 
     public function setAvalaraVersion($avalara_version) {
@@ -2648,6 +4452,61 @@ class SearchParticipantsRequestSdk {
 
     public function setOrderBy($order_by) {
         $this->order_by = $order_by;
+    }
+    public function getXCorrelationId() {
+        return $this->x_correlation_id;
+    }
+
+    public function setXCorrelationId($x_correlation_id) {
+        $this->x_correlation_id = $x_correlation_id;
+    }
+}
+
+    /**
+     * Represents the Request object for the UpdateTradingPartner API
+     *
+     * @param  string $avalara_version The HTTP Header meant to specify the version of the API intended to be used. (required)
+     * @param  string $id The ID of the trading partner which is being updated. (required)
+     * @param  \Avalara\SDK\Model\EInvoicing\V1\TradingPartner $trading_partner trading_partner (required)
+     * @param  string $x_avalara_client You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a \&quot;Fingerprint\&quot;. (optional)
+     * @param  string $x_correlation_id The caller can use this as an identifier to use as a correlation id to trace the call. (optional)
+     */
+class UpdateTradingPartnerRequestSdk {
+    private $avalara_version;
+    private $id;
+    private $trading_partner;
+    private $x_avalara_client;
+    private $x_correlation_id;
+
+    public function __construct() {
+    }
+    public function getAvalaraVersion() {
+        return $this->avalara_version ?? '1.4';
+    }
+
+    public function setAvalaraVersion($avalara_version) {
+        $this->avalara_version = $avalara_version;
+    }
+    public function getId() {
+        return $this->id;
+    }
+
+    public function setId($id) {
+        $this->id = $id;
+    }
+    public function getTradingPartner() {
+        return $this->trading_partner;
+    }
+
+    public function setTradingPartner($trading_partner) {
+        $this->trading_partner = $trading_partner;
+    }
+    public function getXAvalaraClient() {
+        return $this->x_avalara_client;
+    }
+
+    public function setXAvalaraClient($x_avalara_client) {
+        $this->x_avalara_client = $x_avalara_client;
     }
     public function getXCorrelationId() {
         return $this->x_correlation_id;

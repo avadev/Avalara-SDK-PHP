@@ -47,7 +47,6 @@ use \Avalara\SDK\Model\ModelInterface;
  * Pagination Class Doc Comment
  *
  * @category Class
- * @description Pagination information for the dataset.
  * @package  Avalara\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

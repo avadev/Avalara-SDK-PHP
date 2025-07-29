@@ -20,7 +20,7 @@
  *
  * Avalara 1099 & W-9 API Definition
  *
- * ## 🔐 Authentication  Use **username/password** or generate a **license key** from: *Avalara Portal → Settings → License and API Keys*.  [More on authentication methods](https://developer.avalara.com/avatax-dm-combined-erp/common-setup/authentication/authentication-methods/)  [Test your credentials](https://developer.avalara.com/avatax/test-credentials/)  ## 📘 API & SDK Documentation  [Avalara SDK (.NET) on GitHub](https://github.com/avadev/Avalara-SDK-DotNet#avalarasdk--the-unified-c-library-for-next-gen-avalara-services)  [Code Examples – 1099 API](https://github.com/avadev/Avalara-SDK-DotNet/blob/main/docs/A1099/V2/Class1099IssuersApi.md#call1099issuersget)
+ * ## 🔐 Authentication  Generate a **license key** from: *[Avalara Portal](https://www.avalara.com/us/en/signin.html) → Settings → License and API Keys*.  [More on authentication methods](https://developer.avalara.com/avatax-dm-combined-erp/common-setup/authentication/authentication-methods/)  [Test your credentials](https://developer.avalara.com/avatax/test-credentials/)  ## 📘 API & SDK Documentation  [Avalara SDK (.NET) on GitHub](https://github.com/avadev/Avalara-SDK-DotNet#avalarasdk--the-unified-c-library-for-next-gen-avalara-services)  [Code Examples – 1099 API](https://github.com/avadev/Avalara-SDK-DotNet/blob/main/docs/A1099/V2/Class1099IssuersApi.md#call1099issuersget)
  *
  * @category   Avalara client libraries
  * @package    Avalara\SDK\API\A1099\V2
@@ -71,8 +71,6 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
       * @var string[]
       */
     protected static $openAPITypes = [
-        'origin_of_health_coverage_code' => 'string',
-        'covered_individuals' => '\Avalara\SDK\Model\A1099\V2\CoveredIndividualReference[]',
         'id' => 'string',
         'type' => 'string',
         'issuer_id' => 'int',
@@ -80,15 +78,15 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
         'issuer_tin' => 'string',
         'tax_year' => 'int',
         'federal_efile' => 'bool',
-        'federal_efile_status' => '\Avalara\SDK\Model\A1099\V2\Form1099StatusDetail',
+        'federal_efile_status' => '\Avalara\SDK\Model\A1099\V2\Form1099StatusDetailResponse',
         'state_efile' => 'bool',
-        'state_efile_status' => '\Avalara\SDK\Model\A1099\V2\StateEfileStatusDetail[]',
+        'state_efile_status' => '\Avalara\SDK\Model\A1099\V2\StateEfileStatusDetailResponse[]',
         'postal_mail' => 'bool',
-        'postal_mail_status' => '\Avalara\SDK\Model\A1099\V2\Form1099StatusDetail',
+        'postal_mail_status' => '\Avalara\SDK\Model\A1099\V2\Form1099StatusDetailResponse',
         'tin_match' => 'bool',
-        'tin_match_status' => '\Avalara\SDK\Model\A1099\V2\Form1099StatusDetail',
+        'tin_match_status' => '\Avalara\SDK\Model\A1099\V2\Form1099StatusDetailResponse',
         'address_verification' => 'bool',
-        'address_verification_status' => '\Avalara\SDK\Model\A1099\V2\Form1099StatusDetail',
+        'address_verification_status' => '\Avalara\SDK\Model\A1099\V2\Form1099StatusDetailResponse',
         'reference_id' => 'string',
         'email' => 'string',
         'tin_type' => 'string',
@@ -102,10 +100,36 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
         'zip' => 'string',
         'foreign_province' => 'string',
         'country_code' => 'string',
-        'validation_errors' => '\Avalara\SDK\Model\A1099\V2\ValidationError[]',
+        'validation_errors' => '\Avalara\SDK\Model\A1099\V2\ValidationErrorResponse[]',
         'created_at' => '\DateTime',
         'updated_at' => '\DateTime',
-        'state_and_local_withholding' => '\Avalara\SDK\Model\A1099\V2\StateAndLocalWithholding',
+        'state_and_local_withholding' => '\Avalara\SDK\Model\A1099\V2\StateAndLocalWithholdingResponse',
+        'unique_form_id' => 'string',
+        'no_tin' => 'bool',
+        'recipient_date_of_birth' => '\DateTime',
+        'recipient_giin' => 'string',
+        'recipient_foreign_tin' => 'string',
+        'lob_code' => 'string',
+        'income_code' => 'string',
+        'gross_income' => 'float',
+        'withholding_indicator' => 'string',
+        'tax_country_code' => 'string',
+        'exemption_code_chap3' => 'string',
+        'exemption_code_chap4' => 'string',
+        'tax_rate_chap3' => 'string',
+        'withholding_allowance' => 'float',
+        'federal_tax_withheld' => 'float',
+        'tax_not_deposited_indicator' => 'bool',
+        'academic_indicator' => 'bool',
+        'tax_withheld_other_agents' => 'float',
+        'amount_repaid' => 'float',
+        'tax_paid_agent' => 'float',
+        'chap3_status_code' => 'string',
+        'chap4_status_code' => 'string',
+        'primary_withholding_agent' => '\Avalara\SDK\Model\A1099\V2\PrimaryWithholdingAgentResponse',
+        'intermediary_or_flow_through' => '\Avalara\SDK\Model\A1099\V2\IntermediaryOrFlowThroughResponse',
+        'origin_of_health_coverage_code' => 'string',
+        'covered_individuals' => '\Avalara\SDK\Model\A1099\V2\CoveredIndividualReferenceResponse[]',
         'filer_type' => 'string',
         'payment_type' => 'string',
         'payment_settlement_entity_name_phone_number' => 'string',
@@ -132,7 +156,6 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
         'fed_income_tax_withheld' => 'float',
         'fishing_boat_proceeds' => 'float',
         'medical_and_health_care' => 'float',
-        'nonemployee_compensation' => 'float',
         'substitute_payments' => 'float',
         'direct_sales_indicator' => 'bool',
         'crop_insurance_proceeds' => 'float',
@@ -140,6 +163,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
         'gross_amount_paid_attorney' => 'float',
         'section409_a_deferrals' => 'float',
         'section409_a_income' => 'float',
+        'nonemployee_compensation' => 'float',
         'gross_distributions' => 'float',
         'taxable_amount' => 'float',
         'taxable_amount_not_determined' => 'bool',
@@ -169,8 +193,6 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'origin_of_health_coverage_code' => null,
-        'covered_individuals' => null,
         'id' => null,
         'type' => null,
         'issuer_id' => 'int32',
@@ -204,6 +226,32 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
         'created_at' => 'date-time',
         'updated_at' => 'date-time',
         'state_and_local_withholding' => null,
+        'unique_form_id' => null,
+        'no_tin' => null,
+        'recipient_date_of_birth' => 'date-time',
+        'recipient_giin' => null,
+        'recipient_foreign_tin' => null,
+        'lob_code' => null,
+        'income_code' => null,
+        'gross_income' => 'double',
+        'withholding_indicator' => null,
+        'tax_country_code' => null,
+        'exemption_code_chap3' => null,
+        'exemption_code_chap4' => null,
+        'tax_rate_chap3' => null,
+        'withholding_allowance' => 'double',
+        'federal_tax_withheld' => 'double',
+        'tax_not_deposited_indicator' => null,
+        'academic_indicator' => null,
+        'tax_withheld_other_agents' => 'double',
+        'amount_repaid' => 'double',
+        'tax_paid_agent' => 'double',
+        'chap3_status_code' => null,
+        'chap4_status_code' => null,
+        'primary_withholding_agent' => null,
+        'intermediary_or_flow_through' => null,
+        'origin_of_health_coverage_code' => null,
+        'covered_individuals' => null,
         'filer_type' => null,
         'payment_type' => null,
         'payment_settlement_entity_name_phone_number' => null,
@@ -230,7 +278,6 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
         'fed_income_tax_withheld' => 'double',
         'fishing_boat_proceeds' => 'double',
         'medical_and_health_care' => 'double',
-        'nonemployee_compensation' => 'double',
         'substitute_payments' => 'double',
         'direct_sales_indicator' => null,
         'crop_insurance_proceeds' => 'double',
@@ -238,6 +285,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
         'gross_amount_paid_attorney' => 'double',
         'section409_a_deferrals' => 'double',
         'section409_a_income' => 'double',
+        'nonemployee_compensation' => 'double',
         'gross_distributions' => 'double',
         'taxable_amount' => 'double',
         'taxable_amount_not_determined' => null,
@@ -286,8 +334,6 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $attributeMap = [
-        'origin_of_health_coverage_code' => 'originOfHealthCoverageCode',
-        'covered_individuals' => 'coveredIndividuals',
         'id' => 'id',
         'type' => 'type',
         'issuer_id' => 'issuerId',
@@ -321,6 +367,32 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
         'created_at' => 'createdAt',
         'updated_at' => 'updatedAt',
         'state_and_local_withholding' => 'stateAndLocalWithholding',
+        'unique_form_id' => 'uniqueFormId',
+        'no_tin' => 'noTin',
+        'recipient_date_of_birth' => 'recipientDateOfBirth',
+        'recipient_giin' => 'recipientGiin',
+        'recipient_foreign_tin' => 'recipientForeignTin',
+        'lob_code' => 'lobCode',
+        'income_code' => 'incomeCode',
+        'gross_income' => 'grossIncome',
+        'withholding_indicator' => 'withholdingIndicator',
+        'tax_country_code' => 'taxCountryCode',
+        'exemption_code_chap3' => 'exemptionCodeChap3',
+        'exemption_code_chap4' => 'exemptionCodeChap4',
+        'tax_rate_chap3' => 'taxRateChap3',
+        'withholding_allowance' => 'withholdingAllowance',
+        'federal_tax_withheld' => 'federalTaxWithheld',
+        'tax_not_deposited_indicator' => 'taxNotDepositedIndicator',
+        'academic_indicator' => 'academicIndicator',
+        'tax_withheld_other_agents' => 'taxWithheldOtherAgents',
+        'amount_repaid' => 'amountRepaid',
+        'tax_paid_agent' => 'taxPaidAgent',
+        'chap3_status_code' => 'chap3StatusCode',
+        'chap4_status_code' => 'chap4StatusCode',
+        'primary_withholding_agent' => 'primaryWithholdingAgent',
+        'intermediary_or_flow_through' => 'intermediaryOrFlowThrough',
+        'origin_of_health_coverage_code' => 'originOfHealthCoverageCode',
+        'covered_individuals' => 'coveredIndividuals',
         'filer_type' => 'filerType',
         'payment_type' => 'paymentType',
         'payment_settlement_entity_name_phone_number' => 'paymentSettlementEntityNamePhoneNumber',
@@ -347,7 +419,6 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
         'fed_income_tax_withheld' => 'fedIncomeTaxWithheld',
         'fishing_boat_proceeds' => 'fishingBoatProceeds',
         'medical_and_health_care' => 'medicalAndHealthCare',
-        'nonemployee_compensation' => 'nonemployeeCompensation',
         'substitute_payments' => 'substitutePayments',
         'direct_sales_indicator' => 'directSalesIndicator',
         'crop_insurance_proceeds' => 'cropInsuranceProceeds',
@@ -355,6 +426,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
         'gross_amount_paid_attorney' => 'grossAmountPaidAttorney',
         'section409_a_deferrals' => 'section409ADeferrals',
         'section409_a_income' => 'section409AIncome',
+        'nonemployee_compensation' => 'nonemployeeCompensation',
         'gross_distributions' => 'grossDistributions',
         'taxable_amount' => 'taxableAmount',
         'taxable_amount_not_determined' => 'taxableAmountNotDetermined',
@@ -382,8 +454,6 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $setters = [
-        'origin_of_health_coverage_code' => 'setOriginOfHealthCoverageCode',
-        'covered_individuals' => 'setCoveredIndividuals',
         'id' => 'setId',
         'type' => 'setType',
         'issuer_id' => 'setIssuerId',
@@ -417,6 +487,32 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
         'created_at' => 'setCreatedAt',
         'updated_at' => 'setUpdatedAt',
         'state_and_local_withholding' => 'setStateAndLocalWithholding',
+        'unique_form_id' => 'setUniqueFormId',
+        'no_tin' => 'setNoTin',
+        'recipient_date_of_birth' => 'setRecipientDateOfBirth',
+        'recipient_giin' => 'setRecipientGiin',
+        'recipient_foreign_tin' => 'setRecipientForeignTin',
+        'lob_code' => 'setLobCode',
+        'income_code' => 'setIncomeCode',
+        'gross_income' => 'setGrossIncome',
+        'withholding_indicator' => 'setWithholdingIndicator',
+        'tax_country_code' => 'setTaxCountryCode',
+        'exemption_code_chap3' => 'setExemptionCodeChap3',
+        'exemption_code_chap4' => 'setExemptionCodeChap4',
+        'tax_rate_chap3' => 'setTaxRateChap3',
+        'withholding_allowance' => 'setWithholdingAllowance',
+        'federal_tax_withheld' => 'setFederalTaxWithheld',
+        'tax_not_deposited_indicator' => 'setTaxNotDepositedIndicator',
+        'academic_indicator' => 'setAcademicIndicator',
+        'tax_withheld_other_agents' => 'setTaxWithheldOtherAgents',
+        'amount_repaid' => 'setAmountRepaid',
+        'tax_paid_agent' => 'setTaxPaidAgent',
+        'chap3_status_code' => 'setChap3StatusCode',
+        'chap4_status_code' => 'setChap4StatusCode',
+        'primary_withholding_agent' => 'setPrimaryWithholdingAgent',
+        'intermediary_or_flow_through' => 'setIntermediaryOrFlowThrough',
+        'origin_of_health_coverage_code' => 'setOriginOfHealthCoverageCode',
+        'covered_individuals' => 'setCoveredIndividuals',
         'filer_type' => 'setFilerType',
         'payment_type' => 'setPaymentType',
         'payment_settlement_entity_name_phone_number' => 'setPaymentSettlementEntityNamePhoneNumber',
@@ -443,7 +539,6 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
         'fed_income_tax_withheld' => 'setFedIncomeTaxWithheld',
         'fishing_boat_proceeds' => 'setFishingBoatProceeds',
         'medical_and_health_care' => 'setMedicalAndHealthCare',
-        'nonemployee_compensation' => 'setNonemployeeCompensation',
         'substitute_payments' => 'setSubstitutePayments',
         'direct_sales_indicator' => 'setDirectSalesIndicator',
         'crop_insurance_proceeds' => 'setCropInsuranceProceeds',
@@ -451,6 +546,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
         'gross_amount_paid_attorney' => 'setGrossAmountPaidAttorney',
         'section409_a_deferrals' => 'setSection409ADeferrals',
         'section409_a_income' => 'setSection409AIncome',
+        'nonemployee_compensation' => 'setNonemployeeCompensation',
         'gross_distributions' => 'setGrossDistributions',
         'taxable_amount' => 'setTaxableAmount',
         'taxable_amount_not_determined' => 'setTaxableAmountNotDetermined',
@@ -478,8 +574,6 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $getters = [
-        'origin_of_health_coverage_code' => 'getOriginOfHealthCoverageCode',
-        'covered_individuals' => 'getCoveredIndividuals',
         'id' => 'getId',
         'type' => 'getType',
         'issuer_id' => 'getIssuerId',
@@ -513,6 +607,32 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
         'created_at' => 'getCreatedAt',
         'updated_at' => 'getUpdatedAt',
         'state_and_local_withholding' => 'getStateAndLocalWithholding',
+        'unique_form_id' => 'getUniqueFormId',
+        'no_tin' => 'getNoTin',
+        'recipient_date_of_birth' => 'getRecipientDateOfBirth',
+        'recipient_giin' => 'getRecipientGiin',
+        'recipient_foreign_tin' => 'getRecipientForeignTin',
+        'lob_code' => 'getLobCode',
+        'income_code' => 'getIncomeCode',
+        'gross_income' => 'getGrossIncome',
+        'withholding_indicator' => 'getWithholdingIndicator',
+        'tax_country_code' => 'getTaxCountryCode',
+        'exemption_code_chap3' => 'getExemptionCodeChap3',
+        'exemption_code_chap4' => 'getExemptionCodeChap4',
+        'tax_rate_chap3' => 'getTaxRateChap3',
+        'withholding_allowance' => 'getWithholdingAllowance',
+        'federal_tax_withheld' => 'getFederalTaxWithheld',
+        'tax_not_deposited_indicator' => 'getTaxNotDepositedIndicator',
+        'academic_indicator' => 'getAcademicIndicator',
+        'tax_withheld_other_agents' => 'getTaxWithheldOtherAgents',
+        'amount_repaid' => 'getAmountRepaid',
+        'tax_paid_agent' => 'getTaxPaidAgent',
+        'chap3_status_code' => 'getChap3StatusCode',
+        'chap4_status_code' => 'getChap4StatusCode',
+        'primary_withholding_agent' => 'getPrimaryWithholdingAgent',
+        'intermediary_or_flow_through' => 'getIntermediaryOrFlowThrough',
+        'origin_of_health_coverage_code' => 'getOriginOfHealthCoverageCode',
+        'covered_individuals' => 'getCoveredIndividuals',
         'filer_type' => 'getFilerType',
         'payment_type' => 'getPaymentType',
         'payment_settlement_entity_name_phone_number' => 'getPaymentSettlementEntityNamePhoneNumber',
@@ -539,7 +659,6 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
         'fed_income_tax_withheld' => 'getFedIncomeTaxWithheld',
         'fishing_boat_proceeds' => 'getFishingBoatProceeds',
         'medical_and_health_care' => 'getMedicalAndHealthCare',
-        'nonemployee_compensation' => 'getNonemployeeCompensation',
         'substitute_payments' => 'getSubstitutePayments',
         'direct_sales_indicator' => 'getDirectSalesIndicator',
         'crop_insurance_proceeds' => 'getCropInsuranceProceeds',
@@ -547,6 +666,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
         'gross_amount_paid_attorney' => 'getGrossAmountPaidAttorney',
         'section409_a_deferrals' => 'getSection409ADeferrals',
         'section409_a_income' => 'getSection409AIncome',
+        'nonemployee_compensation' => 'getNonemployeeCompensation',
         'gross_distributions' => 'getGrossDistributions',
         'taxable_amount' => 'getTaxableAmount',
         'taxable_amount_not_determined' => 'getTaxableAmountNotDetermined',
@@ -657,8 +777,6 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function __construct(array $data = null)
     {
-        $this->container['origin_of_health_coverage_code'] = $data['origin_of_health_coverage_code'] ?? null;
-        $this->container['covered_individuals'] = $data['covered_individuals'] ?? null;
         $this->container['id'] = $data['id'] ?? null;
         $this->container['type'] = $data['type'] ?? null;
         $this->container['issuer_id'] = $data['issuer_id'] ?? null;
@@ -692,6 +810,32 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
         $this->container['created_at'] = $data['created_at'] ?? null;
         $this->container['updated_at'] = $data['updated_at'] ?? null;
         $this->container['state_and_local_withholding'] = $data['state_and_local_withholding'] ?? null;
+        $this->container['unique_form_id'] = $data['unique_form_id'] ?? null;
+        $this->container['no_tin'] = $data['no_tin'] ?? null;
+        $this->container['recipient_date_of_birth'] = $data['recipient_date_of_birth'] ?? null;
+        $this->container['recipient_giin'] = $data['recipient_giin'] ?? null;
+        $this->container['recipient_foreign_tin'] = $data['recipient_foreign_tin'] ?? null;
+        $this->container['lob_code'] = $data['lob_code'] ?? null;
+        $this->container['income_code'] = $data['income_code'] ?? null;
+        $this->container['gross_income'] = $data['gross_income'] ?? null;
+        $this->container['withholding_indicator'] = $data['withholding_indicator'] ?? null;
+        $this->container['tax_country_code'] = $data['tax_country_code'] ?? null;
+        $this->container['exemption_code_chap3'] = $data['exemption_code_chap3'] ?? null;
+        $this->container['exemption_code_chap4'] = $data['exemption_code_chap4'] ?? null;
+        $this->container['tax_rate_chap3'] = $data['tax_rate_chap3'] ?? null;
+        $this->container['withholding_allowance'] = $data['withholding_allowance'] ?? null;
+        $this->container['federal_tax_withheld'] = $data['federal_tax_withheld'] ?? null;
+        $this->container['tax_not_deposited_indicator'] = $data['tax_not_deposited_indicator'] ?? null;
+        $this->container['academic_indicator'] = $data['academic_indicator'] ?? null;
+        $this->container['tax_withheld_other_agents'] = $data['tax_withheld_other_agents'] ?? null;
+        $this->container['amount_repaid'] = $data['amount_repaid'] ?? null;
+        $this->container['tax_paid_agent'] = $data['tax_paid_agent'] ?? null;
+        $this->container['chap3_status_code'] = $data['chap3_status_code'] ?? null;
+        $this->container['chap4_status_code'] = $data['chap4_status_code'] ?? null;
+        $this->container['primary_withholding_agent'] = $data['primary_withholding_agent'] ?? null;
+        $this->container['intermediary_or_flow_through'] = $data['intermediary_or_flow_through'] ?? null;
+        $this->container['origin_of_health_coverage_code'] = $data['origin_of_health_coverage_code'] ?? null;
+        $this->container['covered_individuals'] = $data['covered_individuals'] ?? null;
         $this->container['filer_type'] = $data['filer_type'] ?? null;
         $this->container['payment_type'] = $data['payment_type'] ?? null;
         $this->container['payment_settlement_entity_name_phone_number'] = $data['payment_settlement_entity_name_phone_number'] ?? null;
@@ -718,7 +862,6 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
         $this->container['fed_income_tax_withheld'] = $data['fed_income_tax_withheld'] ?? null;
         $this->container['fishing_boat_proceeds'] = $data['fishing_boat_proceeds'] ?? null;
         $this->container['medical_and_health_care'] = $data['medical_and_health_care'] ?? null;
-        $this->container['nonemployee_compensation'] = $data['nonemployee_compensation'] ?? null;
         $this->container['substitute_payments'] = $data['substitute_payments'] ?? null;
         $this->container['direct_sales_indicator'] = $data['direct_sales_indicator'] ?? null;
         $this->container['crop_insurance_proceeds'] = $data['crop_insurance_proceeds'] ?? null;
@@ -726,6 +869,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
         $this->container['gross_amount_paid_attorney'] = $data['gross_amount_paid_attorney'] ?? null;
         $this->container['section409_a_deferrals'] = $data['section409_a_deferrals'] ?? null;
         $this->container['section409_a_income'] = $data['section409_a_income'] ?? null;
+        $this->container['nonemployee_compensation'] = $data['nonemployee_compensation'] ?? null;
         $this->container['gross_distributions'] = $data['gross_distributions'] ?? null;
         $this->container['taxable_amount'] = $data['taxable_amount'] ?? null;
         $this->container['taxable_amount_not_determined'] = $data['taxable_amount_not_determined'] ?? null;
@@ -756,6 +900,38 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     {
         $invalidProperties = [];
 
+        if ($this->container['id'] === null) {
+            $invalidProperties[] = "'id' can't be null";
+        }
+        if ((mb_strlen($this->container['id']) < 1)) {
+            $invalidProperties[] = "invalid value for 'id', the character length must be bigger than or equal to 1.";
+        }
+
+        if ($this->container['type'] === null) {
+            $invalidProperties[] = "'type' can't be null";
+        }
+        if ((mb_strlen($this->container['type']) < 1)) {
+            $invalidProperties[] = "invalid value for 'type', the character length must be bigger than or equal to 1.";
+        }
+
+        if ($this->container['issuer_id'] === null) {
+            $invalidProperties[] = "'issuer_id' can't be null";
+        }
+        if ($this->container['federal_efile'] === null) {
+            $invalidProperties[] = "'federal_efile' can't be null";
+        }
+        if ($this->container['state_efile'] === null) {
+            $invalidProperties[] = "'state_efile' can't be null";
+        }
+        if ($this->container['postal_mail'] === null) {
+            $invalidProperties[] = "'postal_mail' can't be null";
+        }
+        if ($this->container['tin_match'] === null) {
+            $invalidProperties[] = "'tin_match' can't be null";
+        }
+        if ($this->container['address_verification'] === null) {
+            $invalidProperties[] = "'address_verification' can't be null";
+        }
         $allowedValues = $this->getFilerTypeAllowableValues();
         if (!is_null($this->container['filer_type']) && !in_array($this->container['filer_type'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -790,59 +966,9 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
 
 
     /**
-     * Gets origin_of_health_coverage_code
-     *
-     * @return string|null
-     */
-    public function getOriginOfHealthCoverageCode()
-    {
-        return $this->container['origin_of_health_coverage_code'];
-    }
-
-    /**
-     * Sets origin_of_health_coverage_code
-     *
-     * @param string|null $origin_of_health_coverage_code origin_of_health_coverage_code
-     *
-     * @return self
-     */
-    public function setOriginOfHealthCoverageCode($origin_of_health_coverage_code)
-    {
-        $this->container['origin_of_health_coverage_code'] = $origin_of_health_coverage_code;
-
-        return $this;
-    }
-
-    /**
-     * Gets covered_individuals
-     *
-     * @return \Avalara\SDK\Model\A1099\V2\CoveredIndividualReference[]|null
-     */
-    public function getCoveredIndividuals()
-    {
-        return $this->container['covered_individuals'];
-    }
-
-    /**
-     * Sets covered_individuals
-     *
-     * @param \Avalara\SDK\Model\A1099\V2\CoveredIndividualReference[]|null $covered_individuals covered_individuals
-     *
-     * @return self
-     */
-    public function setCoveredIndividuals($covered_individuals)
-    {
-
-
-        $this->container['covered_individuals'] = $covered_individuals;
-
-        return $this;
-    }
-
-    /**
      * Gets id
      *
-     * @return string|null
+     * @return string
      */
     public function getId()
     {
@@ -852,12 +978,17 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets id
      *
-     * @param string|null $id id
+     * @param string $id ID of the form
      *
      * @return self
      */
     public function setId($id)
     {
+
+        if ((mb_strlen($id) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $id when calling Get1099Form200Response., must be bigger than or equal to 1.');
+        }
+
         $this->container['id'] = $id;
 
         return $this;
@@ -866,7 +997,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets type
      *
-     * @return string|null
+     * @return string
      */
     public function getType()
     {
@@ -876,12 +1007,17 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets type
      *
-     * @param string|null $type type
+     * @param string $type Type of the form. Will be one of:  * 940  * 941  * 943  * 944  * 945  * 1042  * 1042-S  * 1095-B  * 1095-C  * 1097-BTC  * 1098  * 1098-C  * 1098-E  * 1098-Q  * 1098-T  * 3921  * 3922  * 5498  * 5498-ESA  * 5498-SA  * 1099-MISC  * 1099-A  * 1099-B  * 1099-C  * 1099-CAP  * 1099-DIV  * 1099-G  * 1099-INT  * 1099-K  * 1099-LS  * 1099-LTC  * 1099-NEC  * 1099-OID  * 1099-PATR  * 1099-Q  * 1099-R  * 1099-S  * 1099-SA  * T4A  * W-2  * W-2G  * 1099-HC
      *
      * @return self
      */
     public function setType($type)
     {
+
+        if ((mb_strlen($type) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $type when calling Get1099Form200Response., must be bigger than or equal to 1.');
+        }
+
         $this->container['type'] = $type;
 
         return $this;
@@ -890,7 +1026,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets issuer_id
      *
-     * @return int|null
+     * @return int
      */
     public function getIssuerId()
     {
@@ -900,7 +1036,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets issuer_id
      *
-     * @param int|null $issuer_id issuer_id
+     * @param int $issuer_id Issuer ID
      *
      * @return self
      */
@@ -924,7 +1060,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets issuer_reference_id
      *
-     * @param string|null $issuer_reference_id issuer_reference_id
+     * @param string|null $issuer_reference_id Issuer Reference ID
      *
      * @return self
      */
@@ -948,7 +1084,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets issuer_tin
      *
-     * @param string|null $issuer_tin issuer_tin
+     * @param string|null $issuer_tin Issuer TIN
      *
      * @return self
      */
@@ -972,7 +1108,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets tax_year
      *
-     * @param int|null $tax_year tax_year
+     * @param int|null $tax_year Tax year
      *
      * @return self
      */
@@ -986,7 +1122,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets federal_efile
      *
-     * @return bool|null
+     * @return bool
      */
     public function getFederalEfile()
     {
@@ -996,7 +1132,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets federal_efile
      *
-     * @param bool|null $federal_efile federal_efile
+     * @param bool $federal_efile Boolean indicating that federal e-filing has been scheduled for this form
      *
      * @return self
      */
@@ -1010,7 +1146,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets federal_efile_status
      *
-     * @return \Avalara\SDK\Model\A1099\V2\Form1099StatusDetail|null
+     * @return \Avalara\SDK\Model\A1099\V2\Form1099StatusDetailResponse|null
      */
     public function getFederalEfileStatus()
     {
@@ -1020,7 +1156,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets federal_efile_status
      *
-     * @param \Avalara\SDK\Model\A1099\V2\Form1099StatusDetail|null $federal_efile_status federal_efile_status
+     * @param \Avalara\SDK\Model\A1099\V2\Form1099StatusDetailResponse|null $federal_efile_status Federal e-file status
      *
      * @return self
      */
@@ -1034,7 +1170,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets state_efile
      *
-     * @return bool|null
+     * @return bool
      */
     public function getStateEfile()
     {
@@ -1044,7 +1180,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets state_efile
      *
-     * @param bool|null $state_efile state_efile
+     * @param bool $state_efile Boolean indicating that state e-filing has been scheduled for this form
      *
      * @return self
      */
@@ -1058,7 +1194,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets state_efile_status
      *
-     * @return \Avalara\SDK\Model\A1099\V2\StateEfileStatusDetail[]|null
+     * @return \Avalara\SDK\Model\A1099\V2\StateEfileStatusDetailResponse[]|null
      */
     public function getStateEfileStatus()
     {
@@ -1068,7 +1204,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets state_efile_status
      *
-     * @param \Avalara\SDK\Model\A1099\V2\StateEfileStatusDetail[]|null $state_efile_status state_efile_status
+     * @param \Avalara\SDK\Model\A1099\V2\StateEfileStatusDetailResponse[]|null $state_efile_status State e-file status
      *
      * @return self
      */
@@ -1084,7 +1220,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets postal_mail
      *
-     * @return bool|null
+     * @return bool
      */
     public function getPostalMail()
     {
@@ -1094,7 +1230,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets postal_mail
      *
-     * @param bool|null $postal_mail postal_mail
+     * @param bool $postal_mail Boolean indicating that postal mailing to the recipient has been scheduled for this form
      *
      * @return self
      */
@@ -1108,7 +1244,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets postal_mail_status
      *
-     * @return \Avalara\SDK\Model\A1099\V2\Form1099StatusDetail|null
+     * @return \Avalara\SDK\Model\A1099\V2\Form1099StatusDetailResponse|null
      */
     public function getPostalMailStatus()
     {
@@ -1118,7 +1254,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets postal_mail_status
      *
-     * @param \Avalara\SDK\Model\A1099\V2\Form1099StatusDetail|null $postal_mail_status postal_mail_status
+     * @param \Avalara\SDK\Model\A1099\V2\Form1099StatusDetailResponse|null $postal_mail_status Postal mail to recipient status
      *
      * @return self
      */
@@ -1132,7 +1268,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets tin_match
      *
-     * @return bool|null
+     * @return bool
      */
     public function getTinMatch()
     {
@@ -1142,7 +1278,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets tin_match
      *
-     * @param bool|null $tin_match tin_match
+     * @param bool $tin_match Boolean indicating that TIN Matching has been scheduled for this form
      *
      * @return self
      */
@@ -1156,7 +1292,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets tin_match_status
      *
-     * @return \Avalara\SDK\Model\A1099\V2\Form1099StatusDetail|null
+     * @return \Avalara\SDK\Model\A1099\V2\Form1099StatusDetailResponse|null
      */
     public function getTinMatchStatus()
     {
@@ -1166,7 +1302,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets tin_match_status
      *
-     * @param \Avalara\SDK\Model\A1099\V2\Form1099StatusDetail|null $tin_match_status tin_match_status
+     * @param \Avalara\SDK\Model\A1099\V2\Form1099StatusDetailResponse|null $tin_match_status TIN Match status
      *
      * @return self
      */
@@ -1180,7 +1316,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets address_verification
      *
-     * @return bool|null
+     * @return bool
      */
     public function getAddressVerification()
     {
@@ -1190,7 +1326,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets address_verification
      *
-     * @param bool|null $address_verification address_verification
+     * @param bool $address_verification Boolean indicating that address verification has been scheduled for this form
      *
      * @return self
      */
@@ -1204,7 +1340,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets address_verification_status
      *
-     * @return \Avalara\SDK\Model\A1099\V2\Form1099StatusDetail|null
+     * @return \Avalara\SDK\Model\A1099\V2\Form1099StatusDetailResponse|null
      */
     public function getAddressVerificationStatus()
     {
@@ -1214,7 +1350,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets address_verification_status
      *
-     * @param \Avalara\SDK\Model\A1099\V2\Form1099StatusDetail|null $address_verification_status address_verification_status
+     * @param \Avalara\SDK\Model\A1099\V2\Form1099StatusDetailResponse|null $address_verification_status Address verification status
      *
      * @return self
      */
@@ -1238,7 +1374,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets reference_id
      *
-     * @param string|null $reference_id reference_id
+     * @param string|null $reference_id Reference ID
      *
      * @return self
      */
@@ -1262,7 +1398,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets email
      *
-     * @param string|null $email email
+     * @param string|null $email Recipient email address
      *
      * @return self
      */
@@ -1286,7 +1422,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets tin_type
      *
-     * @param string|null $tin_type tin_type
+     * @param string|null $tin_type Type of TIN (Tax ID Number). Will be one of:  * SSN  * EIN  * ITIN  * ATIN
      *
      * @return self
      */
@@ -1310,7 +1446,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets tin
      *
-     * @param string|null $tin tin
+     * @param string|null $tin Recipient Tax ID Number
      *
      * @return self
      */
@@ -1334,7 +1470,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets recipient_name
      *
-     * @param string|null $recipient_name recipient_name
+     * @param string|null $recipient_name Recipient name
      *
      * @return self
      */
@@ -1358,7 +1494,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets recipient_second_name
      *
-     * @param string|null $recipient_second_name recipient_second_name
+     * @param string|null $recipient_second_name Recipient second name
      *
      * @return self
      */
@@ -1382,7 +1518,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets address
      *
-     * @param string|null $address address
+     * @param string|null $address Address
      *
      * @return self
      */
@@ -1406,7 +1542,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets address2
      *
-     * @param string|null $address2 address2
+     * @param string|null $address2 Address line 2
      *
      * @return self
      */
@@ -1430,7 +1566,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets city
      *
-     * @param string|null $city city
+     * @param string|null $city City
      *
      * @return self
      */
@@ -1454,7 +1590,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets state
      *
-     * @param string|null $state state
+     * @param string|null $state US state
      *
      * @return self
      */
@@ -1478,7 +1614,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets zip
      *
-     * @param string|null $zip zip
+     * @param string|null $zip Zip/postal code
      *
      * @return self
      */
@@ -1502,7 +1638,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets foreign_province
      *
-     * @param string|null $foreign_province foreign_province
+     * @param string|null $foreign_province Foreign province
      *
      * @return self
      */
@@ -1526,7 +1662,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets country_code
      *
-     * @param string|null $country_code country_code
+     * @param string|null $country_code Country code, as defined at https://www.irs.gov/e-file-providers/country-codes
      *
      * @return self
      */
@@ -1540,7 +1676,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets validation_errors
      *
-     * @return \Avalara\SDK\Model\A1099\V2\ValidationError[]|null
+     * @return \Avalara\SDK\Model\A1099\V2\ValidationErrorResponse[]|null
      */
     public function getValidationErrors()
     {
@@ -1550,7 +1686,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets validation_errors
      *
-     * @param \Avalara\SDK\Model\A1099\V2\ValidationError[]|null $validation_errors validation_errors
+     * @param \Avalara\SDK\Model\A1099\V2\ValidationErrorResponse[]|null $validation_errors Validation errors
      *
      * @return self
      */
@@ -1576,7 +1712,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets created_at
      *
-     * @param \DateTime|null $created_at created_at
+     * @param \DateTime|null $created_at Creation time
      *
      * @return self
      */
@@ -1600,7 +1736,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets updated_at
      *
-     * @param \DateTime|null $updated_at updated_at
+     * @param \DateTime|null $updated_at Update time
      *
      * @return self
      */
@@ -1614,7 +1750,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets state_and_local_withholding
      *
-     * @return \Avalara\SDK\Model\A1099\V2\StateAndLocalWithholding|null
+     * @return \Avalara\SDK\Model\A1099\V2\StateAndLocalWithholdingResponse|null
      */
     public function getStateAndLocalWithholding()
     {
@@ -1624,13 +1760,639 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets state_and_local_withholding
      *
-     * @param \Avalara\SDK\Model\A1099\V2\StateAndLocalWithholding|null $state_and_local_withholding state_and_local_withholding
+     * @param \Avalara\SDK\Model\A1099\V2\StateAndLocalWithholdingResponse|null $state_and_local_withholding state_and_local_withholding
      *
      * @return self
      */
     public function setStateAndLocalWithholding($state_and_local_withholding)
     {
         $this->container['state_and_local_withholding'] = $state_and_local_withholding;
+
+        return $this;
+    }
+
+    /**
+     * Gets unique_form_id
+     *
+     * @return string|null
+     */
+    public function getUniqueFormId()
+    {
+        return $this->container['unique_form_id'];
+    }
+
+    /**
+     * Sets unique_form_id
+     *
+     * @param string|null $unique_form_id Unique form identifier
+     *
+     * @return self
+     */
+    public function setUniqueFormId($unique_form_id)
+    {
+        $this->container['unique_form_id'] = $unique_form_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets no_tin
+     *
+     * @return bool|null
+     */
+    public function getNoTin()
+    {
+        return $this->container['no_tin'];
+    }
+
+    /**
+     * Sets no_tin
+     *
+     * @param bool|null $no_tin No TIN indicator
+     *
+     * @return self
+     */
+    public function setNoTin($no_tin)
+    {
+        $this->container['no_tin'] = $no_tin;
+
+        return $this;
+    }
+
+    /**
+     * Gets recipient_date_of_birth
+     *
+     * @return \DateTime|null
+     */
+    public function getRecipientDateOfBirth()
+    {
+        return $this->container['recipient_date_of_birth'];
+    }
+
+    /**
+     * Sets recipient_date_of_birth
+     *
+     * @param \DateTime|null $recipient_date_of_birth Recipient's date of birth
+     *
+     * @return self
+     */
+    public function setRecipientDateOfBirth($recipient_date_of_birth)
+    {
+        $this->container['recipient_date_of_birth'] = $recipient_date_of_birth;
+
+        return $this;
+    }
+
+    /**
+     * Gets recipient_giin
+     *
+     * @return string|null
+     */
+    public function getRecipientGiin()
+    {
+        return $this->container['recipient_giin'];
+    }
+
+    /**
+     * Sets recipient_giin
+     *
+     * @param string|null $recipient_giin Recipient's GIIN (Global Intermediary Identification Number)
+     *
+     * @return self
+     */
+    public function setRecipientGiin($recipient_giin)
+    {
+        $this->container['recipient_giin'] = $recipient_giin;
+
+        return $this;
+    }
+
+    /**
+     * Gets recipient_foreign_tin
+     *
+     * @return string|null
+     */
+    public function getRecipientForeignTin()
+    {
+        return $this->container['recipient_foreign_tin'];
+    }
+
+    /**
+     * Sets recipient_foreign_tin
+     *
+     * @param string|null $recipient_foreign_tin Recipient's foreign TIN
+     *
+     * @return self
+     */
+    public function setRecipientForeignTin($recipient_foreign_tin)
+    {
+        $this->container['recipient_foreign_tin'] = $recipient_foreign_tin;
+
+        return $this;
+    }
+
+    /**
+     * Gets lob_code
+     *
+     * @return string|null
+     */
+    public function getLobCode()
+    {
+        return $this->container['lob_code'];
+    }
+
+    /**
+     * Sets lob_code
+     *
+     * @param string|null $lob_code Limitation on benefits code
+     *
+     * @return self
+     */
+    public function setLobCode($lob_code)
+    {
+        $this->container['lob_code'] = $lob_code;
+
+        return $this;
+    }
+
+    /**
+     * Gets income_code
+     *
+     * @return string|null
+     */
+    public function getIncomeCode()
+    {
+        return $this->container['income_code'];
+    }
+
+    /**
+     * Sets income_code
+     *
+     * @param string|null $income_code Income code
+     *
+     * @return self
+     */
+    public function setIncomeCode($income_code)
+    {
+        $this->container['income_code'] = $income_code;
+
+        return $this;
+    }
+
+    /**
+     * Gets gross_income
+     *
+     * @return float|null
+     */
+    public function getGrossIncome()
+    {
+        return $this->container['gross_income'];
+    }
+
+    /**
+     * Sets gross_income
+     *
+     * @param float|null $gross_income Gross income
+     *
+     * @return self
+     */
+    public function setGrossIncome($gross_income)
+    {
+        $this->container['gross_income'] = $gross_income;
+
+        return $this;
+    }
+
+    /**
+     * Gets withholding_indicator
+     *
+     * @return string|null
+     */
+    public function getWithholdingIndicator()
+    {
+        return $this->container['withholding_indicator'];
+    }
+
+    /**
+     * Sets withholding_indicator
+     *
+     * @param string|null $withholding_indicator Withholding indicator
+     *
+     * @return self
+     */
+    public function setWithholdingIndicator($withholding_indicator)
+    {
+        $this->container['withholding_indicator'] = $withholding_indicator;
+
+        return $this;
+    }
+
+    /**
+     * Gets tax_country_code
+     *
+     * @return string|null
+     */
+    public function getTaxCountryCode()
+    {
+        return $this->container['tax_country_code'];
+    }
+
+    /**
+     * Sets tax_country_code
+     *
+     * @param string|null $tax_country_code Country code
+     *
+     * @return self
+     */
+    public function setTaxCountryCode($tax_country_code)
+    {
+        $this->container['tax_country_code'] = $tax_country_code;
+
+        return $this;
+    }
+
+    /**
+     * Gets exemption_code_chap3
+     *
+     * @return string|null
+     */
+    public function getExemptionCodeChap3()
+    {
+        return $this->container['exemption_code_chap3'];
+    }
+
+    /**
+     * Sets exemption_code_chap3
+     *
+     * @param string|null $exemption_code_chap3 Exemption code (Chapter 3)
+     *
+     * @return self
+     */
+    public function setExemptionCodeChap3($exemption_code_chap3)
+    {
+        $this->container['exemption_code_chap3'] = $exemption_code_chap3;
+
+        return $this;
+    }
+
+    /**
+     * Gets exemption_code_chap4
+     *
+     * @return string|null
+     */
+    public function getExemptionCodeChap4()
+    {
+        return $this->container['exemption_code_chap4'];
+    }
+
+    /**
+     * Sets exemption_code_chap4
+     *
+     * @param string|null $exemption_code_chap4 Exemption code (Chapter 4)
+     *
+     * @return self
+     */
+    public function setExemptionCodeChap4($exemption_code_chap4)
+    {
+        $this->container['exemption_code_chap4'] = $exemption_code_chap4;
+
+        return $this;
+    }
+
+    /**
+     * Gets tax_rate_chap3
+     *
+     * @return string|null
+     */
+    public function getTaxRateChap3()
+    {
+        return $this->container['tax_rate_chap3'];
+    }
+
+    /**
+     * Sets tax_rate_chap3
+     *
+     * @param string|null $tax_rate_chap3 Tax rate (Chapter 3)
+     *
+     * @return self
+     */
+    public function setTaxRateChap3($tax_rate_chap3)
+    {
+        $this->container['tax_rate_chap3'] = $tax_rate_chap3;
+
+        return $this;
+    }
+
+    /**
+     * Gets withholding_allowance
+     *
+     * @return float|null
+     */
+    public function getWithholdingAllowance()
+    {
+        return $this->container['withholding_allowance'];
+    }
+
+    /**
+     * Sets withholding_allowance
+     *
+     * @param float|null $withholding_allowance Withholding allowance
+     *
+     * @return self
+     */
+    public function setWithholdingAllowance($withholding_allowance)
+    {
+        $this->container['withholding_allowance'] = $withholding_allowance;
+
+        return $this;
+    }
+
+    /**
+     * Gets federal_tax_withheld
+     *
+     * @return float|null
+     */
+    public function getFederalTaxWithheld()
+    {
+        return $this->container['federal_tax_withheld'];
+    }
+
+    /**
+     * Sets federal_tax_withheld
+     *
+     * @param float|null $federal_tax_withheld Federal tax withheld
+     *
+     * @return self
+     */
+    public function setFederalTaxWithheld($federal_tax_withheld)
+    {
+        $this->container['federal_tax_withheld'] = $federal_tax_withheld;
+
+        return $this;
+    }
+
+    /**
+     * Gets tax_not_deposited_indicator
+     *
+     * @return bool|null
+     */
+    public function getTaxNotDepositedIndicator()
+    {
+        return $this->container['tax_not_deposited_indicator'];
+    }
+
+    /**
+     * Sets tax_not_deposited_indicator
+     *
+     * @param bool|null $tax_not_deposited_indicator Tax not deposited indicator
+     *
+     * @return self
+     */
+    public function setTaxNotDepositedIndicator($tax_not_deposited_indicator)
+    {
+        $this->container['tax_not_deposited_indicator'] = $tax_not_deposited_indicator;
+
+        return $this;
+    }
+
+    /**
+     * Gets academic_indicator
+     *
+     * @return bool|null
+     */
+    public function getAcademicIndicator()
+    {
+        return $this->container['academic_indicator'];
+    }
+
+    /**
+     * Sets academic_indicator
+     *
+     * @param bool|null $academic_indicator Academic indicator
+     *
+     * @return self
+     */
+    public function setAcademicIndicator($academic_indicator)
+    {
+        $this->container['academic_indicator'] = $academic_indicator;
+
+        return $this;
+    }
+
+    /**
+     * Gets tax_withheld_other_agents
+     *
+     * @return float|null
+     */
+    public function getTaxWithheldOtherAgents()
+    {
+        return $this->container['tax_withheld_other_agents'];
+    }
+
+    /**
+     * Sets tax_withheld_other_agents
+     *
+     * @param float|null $tax_withheld_other_agents Tax withheld by other agents
+     *
+     * @return self
+     */
+    public function setTaxWithheldOtherAgents($tax_withheld_other_agents)
+    {
+        $this->container['tax_withheld_other_agents'] = $tax_withheld_other_agents;
+
+        return $this;
+    }
+
+    /**
+     * Gets amount_repaid
+     *
+     * @return float|null
+     */
+    public function getAmountRepaid()
+    {
+        return $this->container['amount_repaid'];
+    }
+
+    /**
+     * Sets amount_repaid
+     *
+     * @param float|null $amount_repaid Amount repaid to recipient
+     *
+     * @return self
+     */
+    public function setAmountRepaid($amount_repaid)
+    {
+        $this->container['amount_repaid'] = $amount_repaid;
+
+        return $this;
+    }
+
+    /**
+     * Gets tax_paid_agent
+     *
+     * @return float|null
+     */
+    public function getTaxPaidAgent()
+    {
+        return $this->container['tax_paid_agent'];
+    }
+
+    /**
+     * Sets tax_paid_agent
+     *
+     * @param float|null $tax_paid_agent Tax paid by withholding agent
+     *
+     * @return self
+     */
+    public function setTaxPaidAgent($tax_paid_agent)
+    {
+        $this->container['tax_paid_agent'] = $tax_paid_agent;
+
+        return $this;
+    }
+
+    /**
+     * Gets chap3_status_code
+     *
+     * @return string|null
+     */
+    public function getChap3StatusCode()
+    {
+        return $this->container['chap3_status_code'];
+    }
+
+    /**
+     * Sets chap3_status_code
+     *
+     * @param string|null $chap3_status_code Chapter 3 status code
+     *
+     * @return self
+     */
+    public function setChap3StatusCode($chap3_status_code)
+    {
+        $this->container['chap3_status_code'] = $chap3_status_code;
+
+        return $this;
+    }
+
+    /**
+     * Gets chap4_status_code
+     *
+     * @return string|null
+     */
+    public function getChap4StatusCode()
+    {
+        return $this->container['chap4_status_code'];
+    }
+
+    /**
+     * Sets chap4_status_code
+     *
+     * @param string|null $chap4_status_code Chapter 4 status code
+     *
+     * @return self
+     */
+    public function setChap4StatusCode($chap4_status_code)
+    {
+        $this->container['chap4_status_code'] = $chap4_status_code;
+
+        return $this;
+    }
+
+    /**
+     * Gets primary_withholding_agent
+     *
+     * @return \Avalara\SDK\Model\A1099\V2\PrimaryWithholdingAgentResponse|null
+     */
+    public function getPrimaryWithholdingAgent()
+    {
+        return $this->container['primary_withholding_agent'];
+    }
+
+    /**
+     * Sets primary_withholding_agent
+     *
+     * @param \Avalara\SDK\Model\A1099\V2\PrimaryWithholdingAgentResponse|null $primary_withholding_agent Primary withholding agent information
+     *
+     * @return self
+     */
+    public function setPrimaryWithholdingAgent($primary_withholding_agent)
+    {
+        $this->container['primary_withholding_agent'] = $primary_withholding_agent;
+
+        return $this;
+    }
+
+    /**
+     * Gets intermediary_or_flow_through
+     *
+     * @return \Avalara\SDK\Model\A1099\V2\IntermediaryOrFlowThroughResponse|null
+     */
+    public function getIntermediaryOrFlowThrough()
+    {
+        return $this->container['intermediary_or_flow_through'];
+    }
+
+    /**
+     * Sets intermediary_or_flow_through
+     *
+     * @param \Avalara\SDK\Model\A1099\V2\IntermediaryOrFlowThroughResponse|null $intermediary_or_flow_through Intermediary or flow-through entity information
+     *
+     * @return self
+     */
+    public function setIntermediaryOrFlowThrough($intermediary_or_flow_through)
+    {
+        $this->container['intermediary_or_flow_through'] = $intermediary_or_flow_through;
+
+        return $this;
+    }
+
+    /**
+     * Gets origin_of_health_coverage_code
+     *
+     * @return string|null
+     */
+    public function getOriginOfHealthCoverageCode()
+    {
+        return $this->container['origin_of_health_coverage_code'];
+    }
+
+    /**
+     * Sets origin_of_health_coverage_code
+     *
+     * @param string|null $origin_of_health_coverage_code Origin of health coverage code
+     *
+     * @return self
+     */
+    public function setOriginOfHealthCoverageCode($origin_of_health_coverage_code)
+    {
+        $this->container['origin_of_health_coverage_code'] = $origin_of_health_coverage_code;
+
+        return $this;
+    }
+
+    /**
+     * Gets covered_individuals
+     *
+     * @return \Avalara\SDK\Model\A1099\V2\CoveredIndividualReferenceResponse[]|null
+     */
+    public function getCoveredIndividuals()
+    {
+        return $this->container['covered_individuals'];
+    }
+
+    /**
+     * Sets covered_individuals
+     *
+     * @param \Avalara\SDK\Model\A1099\V2\CoveredIndividualReferenceResponse[]|null $covered_individuals Covered individuals information
+     *
+     * @return self
+     */
+    public function setCoveredIndividuals($covered_individuals)
+    {
+
+
+        $this->container['covered_individuals'] = $covered_individuals;
 
         return $this;
     }
@@ -1648,7 +2410,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets filer_type
      *
-     * @param string|null $filer_type filer_type
+     * @param string|null $filer_type Filer type (PSE or EPF)
      *
      * @return self
      */
@@ -1682,7 +2444,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets payment_type
      *
-     * @param string|null $payment_type payment_type
+     * @param string|null $payment_type Payment type (payment card or third party network)
      *
      * @return self
      */
@@ -1716,7 +2478,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets payment_settlement_entity_name_phone_number
      *
-     * @param string|null $payment_settlement_entity_name_phone_number payment_settlement_entity_name_phone_number
+     * @param string|null $payment_settlement_entity_name_phone_number Payment settlement entity name and phone number
      *
      * @return self
      */
@@ -1740,7 +2502,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets gross_amount_payment_card
      *
-     * @param float|null $gross_amount_payment_card gross_amount_payment_card
+     * @param float|null $gross_amount_payment_card Gross amount of payment card/third party network transactions
      *
      * @return self
      */
@@ -1764,7 +2526,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets card_not_present_transactions
      *
-     * @param float|null $card_not_present_transactions card_not_present_transactions
+     * @param float|null $card_not_present_transactions Card not present transactions
      *
      * @return self
      */
@@ -1788,7 +2550,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets merchant_category_code
      *
-     * @param string|null $merchant_category_code merchant_category_code
+     * @param string|null $merchant_category_code Merchant category code
      *
      * @return self
      */
@@ -1812,7 +2574,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets payment_transaction_number
      *
-     * @param float|null $payment_transaction_number payment_transaction_number
+     * @param float|null $payment_transaction_number Number of payment transactions
      *
      * @return self
      */
@@ -1836,7 +2598,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets federal_income_tax_withheld
      *
-     * @param float|null $federal_income_tax_withheld federal_income_tax_withheld
+     * @param float|null $federal_income_tax_withheld Federal income tax withheld
      *
      * @return self
      */
@@ -1860,7 +2622,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets january
      *
-     * @param float|null $january january
+     * @param float|null $january January gross payments
      *
      * @return self
      */
@@ -1884,7 +2646,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets february
      *
-     * @param float|null $february february
+     * @param float|null $february February gross payments
      *
      * @return self
      */
@@ -1908,7 +2670,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets march
      *
-     * @param float|null $march march
+     * @param float|null $march March gross payments
      *
      * @return self
      */
@@ -1932,7 +2694,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets april
      *
-     * @param float|null $april april
+     * @param float|null $april April gross payments
      *
      * @return self
      */
@@ -1956,7 +2718,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets may
      *
-     * @param float|null $may may
+     * @param float|null $may May gross payments
      *
      * @return self
      */
@@ -1980,7 +2742,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets june
      *
-     * @param float|null $june june
+     * @param float|null $june June gross payments
      *
      * @return self
      */
@@ -2004,7 +2766,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets july
      *
-     * @param float|null $july july
+     * @param float|null $july July gross payments
      *
      * @return self
      */
@@ -2028,7 +2790,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets august
      *
-     * @param float|null $august august
+     * @param float|null $august August gross payments
      *
      * @return self
      */
@@ -2052,7 +2814,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets sept
      *
-     * @param float|null $sept sept
+     * @param float|null $sept September gross payments
      *
      * @return self
      */
@@ -2076,7 +2838,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets october
      *
-     * @param float|null $october october
+     * @param float|null $october October gross payments
      *
      * @return self
      */
@@ -2100,7 +2862,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets november
      *
-     * @param float|null $november november
+     * @param float|null $november November gross payments
      *
      * @return self
      */
@@ -2124,7 +2886,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets december
      *
-     * @param float|null $december december
+     * @param float|null $december December gross payments
      *
      * @return self
      */
@@ -2148,7 +2910,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets rents
      *
-     * @param float|null $rents rents
+     * @param float|null $rents Rents
      *
      * @return self
      */
@@ -2172,7 +2934,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets royalties
      *
-     * @param float|null $royalties royalties
+     * @param float|null $royalties Royalties
      *
      * @return self
      */
@@ -2196,7 +2958,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets other_income
      *
-     * @param float|null $other_income other_income
+     * @param float|null $other_income Other income
      *
      * @return self
      */
@@ -2220,7 +2982,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets fed_income_tax_withheld
      *
-     * @param float|null $fed_income_tax_withheld fed_income_tax_withheld
+     * @param float|null $fed_income_tax_withheld Federal income tax withheld
      *
      * @return self
      */
@@ -2244,7 +3006,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets fishing_boat_proceeds
      *
-     * @param float|null $fishing_boat_proceeds fishing_boat_proceeds
+     * @param float|null $fishing_boat_proceeds Fishing boat proceeds
      *
      * @return self
      */
@@ -2268,37 +3030,13 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets medical_and_health_care
      *
-     * @param float|null $medical_and_health_care medical_and_health_care
+     * @param float|null $medical_and_health_care Medical and health care payments
      *
      * @return self
      */
     public function setMedicalAndHealthCare($medical_and_health_care)
     {
         $this->container['medical_and_health_care'] = $medical_and_health_care;
-
-        return $this;
-    }
-
-    /**
-     * Gets nonemployee_compensation
-     *
-     * @return float|null
-     */
-    public function getNonemployeeCompensation()
-    {
-        return $this->container['nonemployee_compensation'];
-    }
-
-    /**
-     * Sets nonemployee_compensation
-     *
-     * @param float|null $nonemployee_compensation nonemployee_compensation
-     *
-     * @return self
-     */
-    public function setNonemployeeCompensation($nonemployee_compensation)
-    {
-        $this->container['nonemployee_compensation'] = $nonemployee_compensation;
 
         return $this;
     }
@@ -2316,7 +3054,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets substitute_payments
      *
-     * @param float|null $substitute_payments substitute_payments
+     * @param float|null $substitute_payments Substitute payments in lieu of dividends or interest
      *
      * @return self
      */
@@ -2340,7 +3078,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets direct_sales_indicator
      *
-     * @param bool|null $direct_sales_indicator direct_sales_indicator
+     * @param bool|null $direct_sales_indicator Payer made direct sales totaling $5,000 or more of consumer products to recipient for resale
      *
      * @return self
      */
@@ -2364,7 +3102,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets crop_insurance_proceeds
      *
-     * @param float|null $crop_insurance_proceeds crop_insurance_proceeds
+     * @param float|null $crop_insurance_proceeds Crop insurance proceeds
      *
      * @return self
      */
@@ -2388,7 +3126,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets excess_golden_parachute
      *
-     * @param float|null $excess_golden_parachute excess_golden_parachute
+     * @param float|null $excess_golden_parachute (Legacy field) Excess golden parachute payments
      *
      * @return self
      */
@@ -2412,7 +3150,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets gross_amount_paid_attorney
      *
-     * @param float|null $gross_amount_paid_attorney gross_amount_paid_attorney
+     * @param float|null $gross_amount_paid_attorney Gross proceeds paid to an attorney
      *
      * @return self
      */
@@ -2436,7 +3174,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets section409_a_deferrals
      *
-     * @param float|null $section409_a_deferrals section409_a_deferrals
+     * @param float|null $section409_a_deferrals Section 409A deferrals
      *
      * @return self
      */
@@ -2460,13 +3198,37 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets section409_a_income
      *
-     * @param float|null $section409_a_income section409_a_income
+     * @param float|null $section409_a_income Nonqualified deferred compensation
      *
      * @return self
      */
     public function setSection409AIncome($section409_a_income)
     {
         $this->container['section409_a_income'] = $section409_a_income;
+
+        return $this;
+    }
+
+    /**
+     * Gets nonemployee_compensation
+     *
+     * @return float|null
+     */
+    public function getNonemployeeCompensation()
+    {
+        return $this->container['nonemployee_compensation'];
+    }
+
+    /**
+     * Sets nonemployee_compensation
+     *
+     * @param float|null $nonemployee_compensation Nonemployee compensation
+     *
+     * @return self
+     */
+    public function setNonemployeeCompensation($nonemployee_compensation)
+    {
+        $this->container['nonemployee_compensation'] = $nonemployee_compensation;
 
         return $this;
     }
@@ -2484,7 +3246,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets gross_distributions
      *
-     * @param float|null $gross_distributions gross_distributions
+     * @param float|null $gross_distributions Gross distribution
      *
      * @return self
      */
@@ -2508,7 +3270,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets taxable_amount
      *
-     * @param float|null $taxable_amount taxable_amount
+     * @param float|null $taxable_amount Taxable amount
      *
      * @return self
      */
@@ -2532,7 +3294,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets taxable_amount_not_determined
      *
-     * @param bool|null $taxable_amount_not_determined taxable_amount_not_determined
+     * @param bool|null $taxable_amount_not_determined Taxable amount not determined
      *
      * @return self
      */
@@ -2556,7 +3318,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets total_distribution_indicator
      *
-     * @param bool|null $total_distribution_indicator total_distribution_indicator
+     * @param bool|null $total_distribution_indicator Total distribution
      *
      * @return self
      */
@@ -2580,7 +3342,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets capital_gain
      *
-     * @param float|null $capital_gain capital_gain
+     * @param float|null $capital_gain Capital gain (included in Box 2a)
      *
      * @return self
      */
@@ -2604,7 +3366,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets employee_contributions
      *
-     * @param float|null $employee_contributions employee_contributions
+     * @param float|null $employee_contributions Employee contributions/Designated Roth contributions or insurance premiums
      *
      * @return self
      */
@@ -2628,7 +3390,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets net_unrealized_appreciation
      *
-     * @param float|null $net_unrealized_appreciation net_unrealized_appreciation
+     * @param float|null $net_unrealized_appreciation Net unrealized appreciation in employer's securities
      *
      * @return self
      */
@@ -2652,7 +3414,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets distribution_code_required
      *
-     * @param string|null $distribution_code_required distribution_code_required
+     * @param string|null $distribution_code_required Distribution code
      *
      * @return self
      */
@@ -2676,7 +3438,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets distribution_code_optional
      *
-     * @param string|null $distribution_code_optional distribution_code_optional
+     * @param string|null $distribution_code_optional Second distribution code
      *
      * @return self
      */
@@ -2700,7 +3462,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets ira_sep_simple_indicator
      *
-     * @param bool|null $ira_sep_simple_indicator ira_sep_simple_indicator
+     * @param bool|null $ira_sep_simple_indicator IRA/SEP/SIMPLE
      *
      * @return self
      */
@@ -2724,7 +3486,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets total_ira_sep_simple_distribution
      *
-     * @param float|null $total_ira_sep_simple_distribution total_ira_sep_simple_distribution
+     * @param float|null $total_ira_sep_simple_distribution Traditional IRA/SEP/SIMPLE or Roth conversion amount
      *
      * @return self
      */
@@ -2748,7 +3510,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets other
      *
-     * @param float|null $other other
+     * @param float|null $other Other amount
      *
      * @return self
      */
@@ -2772,7 +3534,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets other_percent
      *
-     * @param string|null $other_percent other_percent
+     * @param string|null $other_percent Other percentage
      *
      * @return self
      */
@@ -2796,7 +3558,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets percentage_total_distribution
      *
-     * @param string|null $percentage_total_distribution percentage_total_distribution
+     * @param string|null $percentage_total_distribution Total distribution percentage
      *
      * @return self
      */
@@ -2820,7 +3582,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets total_employee_contributions
      *
-     * @param float|null $total_employee_contributions total_employee_contributions
+     * @param float|null $total_employee_contributions Total employee contributions
      *
      * @return self
      */
@@ -2844,7 +3606,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets amount_allocable_to_irr
      *
-     * @param float|null $amount_allocable_to_irr amount_allocable_to_irr
+     * @param float|null $amount_allocable_to_irr Amount allocable to IRR within 5 years
      *
      * @return self
      */
@@ -2868,7 +3630,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets first_year_designated_roth_contrib
      *
-     * @param string|null $first_year_designated_roth_contrib first_year_designated_roth_contrib
+     * @param string|null $first_year_designated_roth_contrib First year of designated Roth contribution
      *
      * @return self
      */
@@ -2892,7 +3654,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets fatca_requirement_indicator
      *
-     * @param bool|null $fatca_requirement_indicator fatca_requirement_indicator
+     * @param bool|null $fatca_requirement_indicator FATCA filing requirement
      *
      * @return self
      */
@@ -2916,7 +3678,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets date_of_payment
      *
-     * @param string|null $date_of_payment date_of_payment
+     * @param string|null $date_of_payment Date of payment
      *
      * @return self
      */
