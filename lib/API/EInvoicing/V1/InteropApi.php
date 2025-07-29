@@ -79,7 +79,7 @@ class InteropApi
     private function setConfiguration($client): void
     {
         $this->verifyAPIClient($client);
-        $client->setSdkVersion("25.7.2");
+        $client->setSdkVersion("25.8.0");
         $this->headerSelector = new HeaderSelector(); 
         $this->client = $client;
     }
@@ -513,7 +513,7 @@ class InteropApi
                 ['multipart/form-data']
             );
         }
-        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.7.2; {$this->client->config->getMachineName()}";
+        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.8.0; {$this->client->config->getMachineName()}";
 
         $headers['X-Avalara-Client']=$clientId;
 
@@ -598,7 +598,7 @@ class SubmitInteropDocumentRequestSdk {
         $this->interchange_type = $interchange_type;
     }
     public function getAvalaraVersion() {
-        return $this->avalara_version ?? '1.3';
+        return $this->avalara_version ?? '1.4';
     }
 
     public function setAvalaraVersion($avalara_version) {

@@ -47,7 +47,6 @@ use \Avalara\SDK\Model\ModelInterface;
  * DocumentFetch Class Doc Comment
  *
  * @category Class
- * @description An object of the inbound document
  * @package  Avalara\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

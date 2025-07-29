@@ -20,7 +20,7 @@
  *
  * Avalara 1099 & W-9 API Definition
  *
- * ## 🔐 Authentication  Use **username/password** or generate a **license key** from: *Avalara Portal → Settings → License and API Keys*.  [More on authentication methods](https://developer.avalara.com/avatax-dm-combined-erp/common-setup/authentication/authentication-methods/)  [Test your credentials](https://developer.avalara.com/avatax/test-credentials/)  ## 📘 API & SDK Documentation  [Avalara SDK (.NET) on GitHub](https://github.com/avadev/Avalara-SDK-DotNet#avalarasdk--the-unified-c-library-for-next-gen-avalara-services)  [Code Examples – 1099 API](https://github.com/avadev/Avalara-SDK-DotNet/blob/main/docs/A1099/V2/Class1099IssuersApi.md#call1099issuersget)
+ * ## 🔐 Authentication  Generate a **license key** from: *[Avalara Portal](https://www.avalara.com/us/en/signin.html) → Settings → License and API Keys*.  [More on authentication methods](https://developer.avalara.com/avatax-dm-combined-erp/common-setup/authentication/authentication-methods/)  [Test your credentials](https://developer.avalara.com/avatax/test-credentials/)  ## 📘 API & SDK Documentation  [Avalara SDK (.NET) on GitHub](https://github.com/avadev/Avalara-SDK-DotNet#avalarasdk--the-unified-c-library-for-next-gen-avalara-services)  [Code Examples – 1099 API](https://github.com/avadev/Avalara-SDK-DotNet/blob/main/docs/A1099/V2/Class1099IssuersApi.md#call1099issuersget)
  *
  * @category   Avalara client libraries
  * @package    Avalara\SDK\API\A1099\V2
@@ -102,11 +102,11 @@ class Form1099DivResponse implements ModelInterface, ArrayAccess, \JsonSerializa
         'tin_match' => 'bool',
         'address_verification' => 'bool',
         'federal_efile_status' => '\Avalara\SDK\Model\A1099\V2\StatusDetail',
-        'state_efile_status' => '\Avalara\SDK\Model\A1099\V2\StateEfileStatusDetailApp[]',
+        'state_efile_status' => '\Avalara\SDK\Model\A1099\V2\StateEfileStatusDetailResponse[]',
         'postal_mail_status' => '\Avalara\SDK\Model\A1099\V2\StatusDetail',
         'tin_match_status' => '\Avalara\SDK\Model\A1099\V2\StatusDetail',
         'address_verification_status' => '\Avalara\SDK\Model\A1099\V2\StatusDetail',
-        'validation_errors' => '\Avalara\SDK\Model\A1099\V2\ValidationErrorApp[]'
+        'validation_errors' => '\Avalara\SDK\Model\A1099\V2\ValidationErrorResponse[]'
     ];
 
     /**
@@ -349,12 +349,13 @@ class Form1099DivResponse implements ModelInterface, ArrayAccess, \JsonSerializa
         return self::$openAPIModelName;
     }
 
-    const TYPE_FORM1099_NEC = 'Form1099Nec';
-    const TYPE_FORM1099_MISC = 'Form1099Misc';
-    const TYPE_FORM1099_DIV = 'Form1099Div';
-    const TYPE_FORM1099_R = 'Form1099R';
-    const TYPE_FORM1099_K = 'Form1099K';
-    const TYPE_FORM1095_B = 'Form1095B';
+    const TYPE__1099_NEC = '1099-NEC';
+    const TYPE__1099_MISC = '1099-MISC';
+    const TYPE__1099_DIV = '1099-DIV';
+    const TYPE__1099_R = '1099-R';
+    const TYPE__1099_K = '1099-K';
+    const TYPE__1095_B = '1095-B';
+    const TYPE__1042_S = '1042-S';
     const TIN_TYPE_EIN = 'EIN';
     const TIN_TYPE_SSN = 'SSN';
     const TIN_TYPE_ITIN = 'ITIN';
@@ -368,12 +369,13 @@ class Form1099DivResponse implements ModelInterface, ArrayAccess, \JsonSerializa
     public function getTypeAllowableValues()
     {
         return [
-            self::TYPE_FORM1099_NEC,
-            self::TYPE_FORM1099_MISC,
-            self::TYPE_FORM1099_DIV,
-            self::TYPE_FORM1099_R,
-            self::TYPE_FORM1099_K,
-            self::TYPE_FORM1095_B,
+            self::TYPE__1099_NEC,
+            self::TYPE__1099_MISC,
+            self::TYPE__1099_DIV,
+            self::TYPE__1099_R,
+            self::TYPE__1099_K,
+            self::TYPE__1095_B,
+            self::TYPE__1042_S,
         ];
     }
 
@@ -1254,7 +1256,7 @@ class Form1099DivResponse implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets state_efile_status
      *
-     * @return \Avalara\SDK\Model\A1099\V2\StateEfileStatusDetailApp[]|null
+     * @return \Avalara\SDK\Model\A1099\V2\StateEfileStatusDetailResponse[]|null
      */
     public function getStateEfileStatus()
     {
@@ -1264,7 +1266,7 @@ class Form1099DivResponse implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets state_efile_status
      *
-     * @param \Avalara\SDK\Model\A1099\V2\StateEfileStatusDetailApp[]|null $state_efile_status state_efile_status
+     * @param \Avalara\SDK\Model\A1099\V2\StateEfileStatusDetailResponse[]|null $state_efile_status state_efile_status
      *
      * @return self
      */
@@ -1352,7 +1354,7 @@ class Form1099DivResponse implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets validation_errors
      *
-     * @return \Avalara\SDK\Model\A1099\V2\ValidationErrorApp[]|null
+     * @return \Avalara\SDK\Model\A1099\V2\ValidationErrorResponse[]|null
      */
     public function getValidationErrors()
     {
@@ -1362,7 +1364,7 @@ class Form1099DivResponse implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets validation_errors
      *
-     * @param \Avalara\SDK\Model\A1099\V2\ValidationErrorApp[]|null $validation_errors validation_errors
+     * @param \Avalara\SDK\Model\A1099\V2\ValidationErrorResponse[]|null $validation_errors validation_errors
      *
      * @return self
      */

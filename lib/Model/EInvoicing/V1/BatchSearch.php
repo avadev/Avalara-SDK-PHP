@@ -47,7 +47,7 @@ use \Avalara\SDK\Model\ModelInterface;
  * BatchSearch Class Doc Comment
  *
  * @category Class
- * @description Provides details about a batch search operation, including status, timestamps, and potential errors.
+ * @description Represents a single batch search operation
  * @package  Avalara\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

@@ -20,7 +20,7 @@
  *
  * Avalara 1099 & W-9 API Definition
  *
- * ## 🔐 Authentication  Use **username/password** or generate a **license key** from: *Avalara Portal → Settings → License and API Keys*.  [More on authentication methods](https://developer.avalara.com/avatax-dm-combined-erp/common-setup/authentication/authentication-methods/)  [Test your credentials](https://developer.avalara.com/avatax/test-credentials/)  ## 📘 API & SDK Documentation  [Avalara SDK (.NET) on GitHub](https://github.com/avadev/Avalara-SDK-DotNet#avalarasdk--the-unified-c-library-for-next-gen-avalara-services)  [Code Examples – 1099 API](https://github.com/avadev/Avalara-SDK-DotNet/blob/main/docs/A1099/V2/Class1099IssuersApi.md#call1099issuersget)
+ * ## 🔐 Authentication  Generate a **license key** from: *[Avalara Portal](https://www.avalara.com/us/en/signin.html) → Settings → License and API Keys*.  [More on authentication methods](https://developer.avalara.com/avatax-dm-combined-erp/common-setup/authentication/authentication-methods/)  [Test your credentials](https://developer.avalara.com/avatax/test-credentials/)  ## 📘 API & SDK Documentation  [Avalara SDK (.NET) on GitHub](https://github.com/avadev/Avalara-SDK-DotNet#avalarasdk--the-unified-c-library-for-next-gen-avalara-services)  [Code Examples – 1099 API](https://github.com/avadev/Avalara-SDK-DotNet/blob/main/docs/A1099/V2/Class1099IssuersApi.md#call1099issuersget)
  *
  * @category   Avalara client libraries
  * @package    Avalara\SDK\API\A1099\V2
@@ -338,7 +338,7 @@ class CoveredIndividualRequest implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets first_name
      *
-     * @param string|null $first_name first_name
+     * @param string|null $first_name Covered individual's first name
      *
      * @return self
      */
@@ -362,7 +362,7 @@ class CoveredIndividualRequest implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets middle_name
      *
-     * @param string|null $middle_name middle_name
+     * @param string|null $middle_name Covered individual's middle name
      *
      * @return self
      */
@@ -386,7 +386,7 @@ class CoveredIndividualRequest implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets last_name
      *
-     * @param string|null $last_name last_name
+     * @param string|null $last_name Covered individual's last name
      *
      * @return self
      */
@@ -410,7 +410,7 @@ class CoveredIndividualRequest implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets name_suffix
      *
-     * @param string|null $name_suffix name_suffix
+     * @param string|null $name_suffix Covered individual's name suffix
      *
      * @return self
      */
@@ -434,7 +434,7 @@ class CoveredIndividualRequest implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets tin
      *
-     * @param string|null $tin tin
+     * @param string|null $tin Covered individual's TIN (SSN or ITIN)
      *
      * @return self
      */
@@ -458,7 +458,7 @@ class CoveredIndividualRequest implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets birth_date
      *
-     * @param \DateTime|null $birth_date birth_date
+     * @param \DateTime|null $birth_date Covered individual's date of birth
      *
      * @return self
      */
@@ -482,7 +482,7 @@ class CoveredIndividualRequest implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets covered_month_indicator0
      *
-     * @param bool|null $covered_month_indicator0 covered_month_indicator0
+     * @param bool|null $covered_month_indicator0 Coverage indicator for all 12 months
      *
      * @return self
      */
@@ -506,7 +506,7 @@ class CoveredIndividualRequest implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets covered_month_indicator1
      *
-     * @param bool|null $covered_month_indicator1 covered_month_indicator1
+     * @param bool|null $covered_month_indicator1 Coverage indicator for January
      *
      * @return self
      */
@@ -530,7 +530,7 @@ class CoveredIndividualRequest implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets covered_month_indicator2
      *
-     * @param bool|null $covered_month_indicator2 covered_month_indicator2
+     * @param bool|null $covered_month_indicator2 Coverage indicator for February
      *
      * @return self
      */
@@ -554,7 +554,7 @@ class CoveredIndividualRequest implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets covered_month_indicator3
      *
-     * @param bool|null $covered_month_indicator3 covered_month_indicator3
+     * @param bool|null $covered_month_indicator3 Coverage indicator for March
      *
      * @return self
      */
@@ -578,7 +578,7 @@ class CoveredIndividualRequest implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets covered_month_indicator4
      *
-     * @param bool|null $covered_month_indicator4 covered_month_indicator4
+     * @param bool|null $covered_month_indicator4 Coverage indicator for April
      *
      * @return self
      */
@@ -602,7 +602,7 @@ class CoveredIndividualRequest implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets covered_month_indicator5
      *
-     * @param bool|null $covered_month_indicator5 covered_month_indicator5
+     * @param bool|null $covered_month_indicator5 Coverage indicator for May
      *
      * @return self
      */
@@ -626,7 +626,7 @@ class CoveredIndividualRequest implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets covered_month_indicator6
      *
-     * @param bool|null $covered_month_indicator6 covered_month_indicator6
+     * @param bool|null $covered_month_indicator6 Coverage indicator for June
      *
      * @return self
      */
@@ -650,7 +650,7 @@ class CoveredIndividualRequest implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets covered_month_indicator7
      *
-     * @param bool|null $covered_month_indicator7 covered_month_indicator7
+     * @param bool|null $covered_month_indicator7 Coverage indicator for July
      *
      * @return self
      */
@@ -674,7 +674,7 @@ class CoveredIndividualRequest implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets covered_month_indicator8
      *
-     * @param bool|null $covered_month_indicator8 covered_month_indicator8
+     * @param bool|null $covered_month_indicator8 Coverage indicator for August
      *
      * @return self
      */
@@ -698,7 +698,7 @@ class CoveredIndividualRequest implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets covered_month_indicator9
      *
-     * @param bool|null $covered_month_indicator9 covered_month_indicator9
+     * @param bool|null $covered_month_indicator9 Coverage indicator for September
      *
      * @return self
      */
@@ -722,7 +722,7 @@ class CoveredIndividualRequest implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets covered_month_indicator10
      *
-     * @param bool|null $covered_month_indicator10 covered_month_indicator10
+     * @param bool|null $covered_month_indicator10 Coverage indicator for October
      *
      * @return self
      */
@@ -746,7 +746,7 @@ class CoveredIndividualRequest implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets covered_month_indicator11
      *
-     * @param bool|null $covered_month_indicator11 covered_month_indicator11
+     * @param bool|null $covered_month_indicator11 Coverage indicator for November
      *
      * @return self
      */
@@ -770,7 +770,7 @@ class CoveredIndividualRequest implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets covered_month_indicator12
      *
-     * @param bool|null $covered_month_indicator12 covered_month_indicator12
+     * @param bool|null $covered_month_indicator12 Coverage indicator for December
      *
      * @return self
      */

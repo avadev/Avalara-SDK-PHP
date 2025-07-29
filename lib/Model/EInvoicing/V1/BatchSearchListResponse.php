@@ -47,7 +47,7 @@ use \Avalara\SDK\Model\ModelInterface;
  * BatchSearchListResponse Class Doc Comment
  *
  * @category Class
- * @description Schema for batch search list
+ * @description Response schema for listing batch search details.
  * @package  Avalara\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -243,7 +243,7 @@ class BatchSearchListResponse implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets at_record_set_count
      *
-     * @param int|null $at_record_set_count The count of records in the result set
+     * @param int|null $at_record_set_count The count of records in the result set.
      *
      * @return self
      */
@@ -291,7 +291,7 @@ class BatchSearchListResponse implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets value
      *
-     * @param \Avalara\SDK\Model\EInvoicing\V1\BatchSearch[]|null $value value
+     * @param \Avalara\SDK\Model\EInvoicing\V1\BatchSearch[]|null $value List of batch search records.
      *
      * @return self
      */

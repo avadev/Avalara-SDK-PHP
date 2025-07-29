@@ -20,7 +20,7 @@
  *
  * Avalara 1099 & W-9 API Definition
  *
- * ## 🔐 Authentication  Use **username/password** or generate a **license key** from: *Avalara Portal → Settings → License and API Keys*.  [More on authentication methods](https://developer.avalara.com/avatax-dm-combined-erp/common-setup/authentication/authentication-methods/)  [Test your credentials](https://developer.avalara.com/avatax/test-credentials/)  ## 📘 API & SDK Documentation  [Avalara SDK (.NET) on GitHub](https://github.com/avadev/Avalara-SDK-DotNet#avalarasdk--the-unified-c-library-for-next-gen-avalara-services)  [Code Examples – 1099 API](https://github.com/avadev/Avalara-SDK-DotNet/blob/main/docs/A1099/V2/Class1099IssuersApi.md#call1099issuersget)
+ * ## 🔐 Authentication  Generate a **license key** from: *[Avalara Portal](https://www.avalara.com/us/en/signin.html) → Settings → License and API Keys*.  [More on authentication methods](https://developer.avalara.com/avatax-dm-combined-erp/common-setup/authentication/authentication-methods/)  [Test your credentials](https://developer.avalara.com/avatax/test-credentials/)  ## 📘 API & SDK Documentation  [Avalara SDK (.NET) on GitHub](https://github.com/avadev/Avalara-SDK-DotNet#avalarasdk--the-unified-c-library-for-next-gen-avalara-services)  [Code Examples – 1099 API](https://github.com/avadev/Avalara-SDK-DotNet/blob/main/docs/A1099/V2/Class1099IssuersApi.md#call1099issuersget)
  *
  * @category   Avalara client libraries
  * @package    Avalara\SDK\API\A1099\V2
@@ -419,9 +419,9 @@ class W8BenFormDataModel implements ModelInterface, ArrayAccess, \JsonSerializab
         'certify_box41' => null,
         'certify_box43' => null,
         'certify_part29_signature' => null,
-        'part19_formation_or_resolution_date' => 'date-time',
-        'part20_filing_date' => 'date-time',
-        'part21_determination_date' => 'date-time',
+        'part19_formation_or_resolution_date' => 'date',
+        'part20_filing_date' => 'date',
+        'part21_determination_date' => 'date',
         'substantial_us_owners' => null,
         'ein' => null,
         'ein_type' => null,
@@ -491,8 +491,8 @@ class W8BenFormDataModel implements ModelInterface, ArrayAccess, \JsonSerializab
         'certify_box40' => null,
         'box41_sponsoring_entity' => null,
         'certify_box42' => null,
-        'box35_formed_on_date' => 'date-time',
-        'box36_filed_on_date' => 'date-time',
+        'box35_formed_on_date' => 'date',
+        'box36_filed_on_date' => 'date',
         'tin_match_status' => null,
         'signature' => null,
         'business_classification' => null,

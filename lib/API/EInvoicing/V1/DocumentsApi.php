@@ -79,7 +79,7 @@ class DocumentsApi
     private function setConfiguration($client): void
     {
         $this->verifyAPIClient($client);
-        $client->setSdkVersion("25.7.2");
+        $client->setSdkVersion("25.8.0");
         $this->headerSelector = new HeaderSelector(); 
         $this->client = $client;
     }
@@ -464,7 +464,7 @@ class DocumentsApi
                 []
             );
         }
-        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.7.2; {$this->client->config->getMachineName()}";
+        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.8.0; {$this->client->config->getMachineName()}";
 
         $headers['X-Avalara-Client']=$clientId;
 
@@ -822,7 +822,7 @@ class DocumentsApi
                 ['application/json']
             );
         }
-        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.7.2; {$this->client->config->getMachineName()}";
+        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.8.0; {$this->client->config->getMachineName()}";
 
         $headers['X-Avalara-Client']=$clientId;
 
@@ -1275,7 +1275,7 @@ class DocumentsApi
                 []
             );
         }
-        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.7.2; {$this->client->config->getMachineName()}";
+        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.8.0; {$this->client->config->getMachineName()}";
 
         $headers['X-Avalara-Client']=$clientId;
 
@@ -1641,7 +1641,7 @@ class DocumentsApi
                 []
             );
         }
-        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.7.2; {$this->client->config->getMachineName()}";
+        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.8.0; {$this->client->config->getMachineName()}";
 
         $headers['X-Avalara-Client']=$clientId;
 
@@ -2014,7 +2014,7 @@ class DocumentsApi
                 ['multipart/form-data']
             );
         }
-        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.7.2; {$this->client->config->getMachineName()}";
+        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.8.0; {$this->client->config->getMachineName()}";
 
         $headers['X-Avalara-Client']=$clientId;
 
@@ -2081,7 +2081,7 @@ class DownloadDocumentRequestSdk {
     public function __construct() {
     }
     public function getAvalaraVersion() {
-        return $this->avalara_version ?? '1.3';
+        return $this->avalara_version ?? '1.4';
     }
 
     public function setAvalaraVersion($avalara_version) {
@@ -2125,7 +2125,7 @@ class FetchDocumentsRequestSdk {
     public function __construct() {
     }
     public function getAvalaraVersion() {
-        return $this->avalara_version ?? '1.3';
+        return $this->avalara_version ?? '1.4';
     }
 
     public function setAvalaraVersion($avalara_version) {
@@ -2158,7 +2158,7 @@ class FetchDocumentsRequestSdk {
      * @param  string $count When set to true, the count of the collection is also returned in the response body (optional)
      * @param  string $count_only When set to true, only the count of the collection is returned (optional)
      * @param  string $filter Filter by field name and value. This filter only supports &lt;code&gt;eq&lt;/code&gt; . Refer to [https://developer.avalara.com/avatax/filtering-in-rest/](https://developer.avalara.com/avatax/filtering-in-rest/) for more information on filtering. Filtering will be done over the provided startDate and endDate. If no startDate or endDate is provided, defaults will be assumed. (optional)
-     * @param  float $top The number of items to include in the result. (optional)
+     * @param  float $top If nonzero, return no more than this number of results. Used with &lt;code&gt;$skip&lt;/code&gt; to provide pagination for large datasets. Unless otherwise specified, the maximum number of records that can be returned from an API call is 200 records. (optional)
      * @param  string $skip If nonzero, skip this number of results before returning data. Used with &lt;code&gt;$top&lt;/code&gt; to provide pagination for large datasets. (optional)
      */
 class GetDocumentListRequestSdk {
@@ -2176,7 +2176,7 @@ class GetDocumentListRequestSdk {
     public function __construct() {
     }
     public function getAvalaraVersion() {
-        return $this->avalara_version ?? '1.3';
+        return $this->avalara_version ?? '1.4';
     }
 
     public function setAvalaraVersion($avalara_version) {
@@ -2262,7 +2262,7 @@ class GetDocumentStatusRequestSdk {
     public function __construct() {
     }
     public function getAvalaraVersion() {
-        return $this->avalara_version ?? '1.3';
+        return $this->avalara_version ?? '1.4';
     }
 
     public function setAvalaraVersion($avalara_version) {
@@ -2301,7 +2301,7 @@ class SubmitDocumentRequestSdk {
     public function __construct() {
     }
     public function getAvalaraVersion() {
-        return $this->avalara_version ?? '1.3';
+        return $this->avalara_version ?? '1.4';
     }
 
     public function setAvalaraVersion($avalara_version) {

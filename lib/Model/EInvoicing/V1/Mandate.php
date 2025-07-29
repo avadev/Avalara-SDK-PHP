@@ -47,7 +47,6 @@ use \Avalara\SDK\Model\ModelInterface;
  * Mandate Class Doc Comment
  *
  * @category Class
- * @description An object representing the country mandate
  * @package  Avalara\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

@@ -20,7 +20,7 @@
  *
  * Avalara 1099 & W-9 API Definition
  *
- * ## 🔐 Authentication  Use **username/password** or generate a **license key** from: *Avalara Portal → Settings → License and API Keys*.  [More on authentication methods](https://developer.avalara.com/avatax-dm-combined-erp/common-setup/authentication/authentication-methods/)  [Test your credentials](https://developer.avalara.com/avatax/test-credentials/)  ## 📘 API & SDK Documentation  [Avalara SDK (.NET) on GitHub](https://github.com/avadev/Avalara-SDK-DotNet#avalarasdk--the-unified-c-library-for-next-gen-avalara-services)  [Code Examples – 1099 API](https://github.com/avadev/Avalara-SDK-DotNet/blob/main/docs/A1099/V2/Class1099IssuersApi.md#call1099issuersget)
+ * ## 🔐 Authentication  Generate a **license key** from: *[Avalara Portal](https://www.avalara.com/us/en/signin.html) → Settings → License and API Keys*.  [More on authentication methods](https://developer.avalara.com/avatax-dm-combined-erp/common-setup/authentication/authentication-methods/)  [Test your credentials](https://developer.avalara.com/avatax/test-credentials/)  ## 📘 API & SDK Documentation  [Avalara SDK (.NET) on GitHub](https://github.com/avadev/Avalara-SDK-DotNet#avalarasdk--the-unified-c-library-for-next-gen-avalara-services)  [Code Examples – 1099 API](https://github.com/avadev/Avalara-SDK-DotNet/blob/main/docs/A1099/V2/Class1099IssuersApi.md#call1099issuersget)
  *
  * @category   Avalara client libraries
  * @package    Avalara\SDK\API\A1099\V2
@@ -73,13 +73,13 @@ class Form1099NecRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     protected static $openAPITypes = [
         'second_tin_notice' => 'bool',
         'nonemployee_compensation' => 'float',
-        'payer_made_direct_sales' => 'bool',
+        'direct_sales_indicator' => 'bool',
         'federal_income_tax_withheld' => 'float',
         'type' => 'string',
         'issuer_id' => 'string',
         'reference_id' => 'string',
-        'recipient_name' => 'string',
         'recipient_tin' => 'string',
+        'recipient_name' => 'string',
         'tin_type' => 'string',
         'recipient_second_name' => 'string',
         'address' => 'string',
@@ -110,13 +110,13 @@ class Form1099NecRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     protected static $openAPIFormats = [
         'second_tin_notice' => null,
         'nonemployee_compensation' => 'double',
-        'payer_made_direct_sales' => null,
+        'direct_sales_indicator' => null,
         'federal_income_tax_withheld' => 'double',
         'type' => null,
         'issuer_id' => null,
         'reference_id' => null,
-        'recipient_name' => null,
         'recipient_tin' => null,
+        'recipient_name' => null,
         'tin_type' => null,
         'recipient_second_name' => null,
         'address' => null,
@@ -166,13 +166,13 @@ class Form1099NecRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     protected static $attributeMap = [
         'second_tin_notice' => 'secondTinNotice',
         'nonemployee_compensation' => 'nonemployeeCompensation',
-        'payer_made_direct_sales' => 'payerMadeDirectSales',
+        'direct_sales_indicator' => 'directSalesIndicator',
         'federal_income_tax_withheld' => 'federalIncomeTaxWithheld',
         'type' => 'type',
         'issuer_id' => 'issuerId',
         'reference_id' => 'referenceId',
-        'recipient_name' => 'recipientName',
         'recipient_tin' => 'recipientTin',
+        'recipient_name' => 'recipientName',
         'tin_type' => 'tinType',
         'recipient_second_name' => 'recipientSecondName',
         'address' => 'address',
@@ -201,13 +201,13 @@ class Form1099NecRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     protected static $setters = [
         'second_tin_notice' => 'setSecondTinNotice',
         'nonemployee_compensation' => 'setNonemployeeCompensation',
-        'payer_made_direct_sales' => 'setPayerMadeDirectSales',
+        'direct_sales_indicator' => 'setDirectSalesIndicator',
         'federal_income_tax_withheld' => 'setFederalIncomeTaxWithheld',
         'type' => 'setType',
         'issuer_id' => 'setIssuerId',
         'reference_id' => 'setReferenceId',
-        'recipient_name' => 'setRecipientName',
         'recipient_tin' => 'setRecipientTin',
+        'recipient_name' => 'setRecipientName',
         'tin_type' => 'setTinType',
         'recipient_second_name' => 'setRecipientSecondName',
         'address' => 'setAddress',
@@ -236,13 +236,13 @@ class Form1099NecRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     protected static $getters = [
         'second_tin_notice' => 'getSecondTinNotice',
         'nonemployee_compensation' => 'getNonemployeeCompensation',
-        'payer_made_direct_sales' => 'getPayerMadeDirectSales',
+        'direct_sales_indicator' => 'getDirectSalesIndicator',
         'federal_income_tax_withheld' => 'getFederalIncomeTaxWithheld',
         'type' => 'getType',
         'issuer_id' => 'getIssuerId',
         'reference_id' => 'getReferenceId',
-        'recipient_name' => 'getRecipientName',
         'recipient_tin' => 'getRecipientTin',
+        'recipient_name' => 'getRecipientName',
         'tin_type' => 'getTinType',
         'recipient_second_name' => 'getRecipientSecondName',
         'address' => 'getAddress',
@@ -304,12 +304,13 @@ class Form1099NecRequest implements ModelInterface, ArrayAccess, \JsonSerializab
         return self::$openAPIModelName;
     }
 
-    const TYPE_FORM1099_NEC = 'Form1099Nec';
-    const TYPE_FORM1099_MISC = 'Form1099Misc';
-    const TYPE_FORM1099_DIV = 'Form1099Div';
-    const TYPE_FORM1099_R = 'Form1099R';
-    const TYPE_FORM1099_K = 'Form1099K';
-    const TYPE_FORM1095_B = 'Form1095B';
+    const TYPE__1099_NEC = '1099-NEC';
+    const TYPE__1099_MISC = '1099-MISC';
+    const TYPE__1099_DIV = '1099-DIV';
+    const TYPE__1099_R = '1099-R';
+    const TYPE__1099_K = '1099-K';
+    const TYPE__1095_B = '1095-B';
+    const TYPE__1042_S = '1042-S';
     const TIN_TYPE_EIN = 'EIN';
     const TIN_TYPE_SSN = 'SSN';
     const TIN_TYPE_ITIN = 'ITIN';
@@ -323,12 +324,13 @@ class Form1099NecRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     public function getTypeAllowableValues()
     {
         return [
-            self::TYPE_FORM1099_NEC,
-            self::TYPE_FORM1099_MISC,
-            self::TYPE_FORM1099_DIV,
-            self::TYPE_FORM1099_R,
-            self::TYPE_FORM1099_K,
-            self::TYPE_FORM1095_B,
+            self::TYPE__1099_NEC,
+            self::TYPE__1099_MISC,
+            self::TYPE__1099_DIV,
+            self::TYPE__1099_R,
+            self::TYPE__1099_K,
+            self::TYPE__1095_B,
+            self::TYPE__1042_S,
         ];
     }
 
@@ -364,13 +366,13 @@ class Form1099NecRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     {
         $this->container['second_tin_notice'] = $data['second_tin_notice'] ?? null;
         $this->container['nonemployee_compensation'] = $data['nonemployee_compensation'] ?? null;
-        $this->container['payer_made_direct_sales'] = $data['payer_made_direct_sales'] ?? null;
+        $this->container['direct_sales_indicator'] = $data['direct_sales_indicator'] ?? null;
         $this->container['federal_income_tax_withheld'] = $data['federal_income_tax_withheld'] ?? null;
         $this->container['type'] = $data['type'] ?? null;
         $this->container['issuer_id'] = $data['issuer_id'] ?? null;
         $this->container['reference_id'] = $data['reference_id'] ?? null;
-        $this->container['recipient_name'] = $data['recipient_name'] ?? null;
         $this->container['recipient_tin'] = $data['recipient_tin'] ?? null;
+        $this->container['recipient_name'] = $data['recipient_name'] ?? null;
         $this->container['tin_type'] = $data['tin_type'] ?? null;
         $this->container['recipient_second_name'] = $data['recipient_second_name'] ?? null;
         $this->container['address'] = $data['address'] ?? null;
@@ -400,6 +402,9 @@ class Form1099NecRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     {
         $invalidProperties = [];
 
+        if ($this->container['nonemployee_compensation'] === null) {
+            $invalidProperties[] = "'nonemployee_compensation' can't be null";
+        }
         $allowedValues = $this->getTypeAllowableValues();
         if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -409,6 +414,13 @@ class Form1099NecRequest implements ModelInterface, ArrayAccess, \JsonSerializab
             );
         }
 
+        if ($this->container['recipient_name'] === null) {
+            $invalidProperties[] = "'recipient_name' can't be null";
+        }
+        if ((mb_strlen($this->container['recipient_name']) < 1)) {
+            $invalidProperties[] = "invalid value for 'recipient_name', the character length must be bigger than or equal to 1.";
+        }
+
         $allowedValues = $this->getTinTypeAllowableValues();
         if (!is_null($this->container['tin_type']) && !in_array($this->container['tin_type'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -416,6 +428,27 @@ class Form1099NecRequest implements ModelInterface, ArrayAccess, \JsonSerializab
                 $this->container['tin_type'],
                 implode("', '", $allowedValues)
             );
+        }
+
+        if ($this->container['address'] === null) {
+            $invalidProperties[] = "'address' can't be null";
+        }
+        if ((mb_strlen($this->container['address']) < 1)) {
+            $invalidProperties[] = "invalid value for 'address', the character length must be bigger than or equal to 1.";
+        }
+
+        if ($this->container['city'] === null) {
+            $invalidProperties[] = "'city' can't be null";
+        }
+        if ((mb_strlen($this->container['city']) < 1)) {
+            $invalidProperties[] = "invalid value for 'city', the character length must be bigger than or equal to 1.";
+        }
+
+        if ($this->container['country_code'] === null) {
+            $invalidProperties[] = "'country_code' can't be null";
+        }
+        if ((mb_strlen($this->container['country_code']) < 1)) {
+            $invalidProperties[] = "invalid value for 'country_code', the character length must be bigger than or equal to 1.";
         }
 
         return $invalidProperties;
@@ -446,7 +479,7 @@ class Form1099NecRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets second_tin_notice
      *
-     * @param bool|null $second_tin_notice second_tin_notice
+     * @param bool|null $second_tin_notice Second TIN notice
      *
      * @return self
      */
@@ -460,7 +493,7 @@ class Form1099NecRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets nonemployee_compensation
      *
-     * @return float|null
+     * @return float
      */
     public function getNonemployeeCompensation()
     {
@@ -470,7 +503,7 @@ class Form1099NecRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets nonemployee_compensation
      *
-     * @param float|null $nonemployee_compensation nonemployee_compensation
+     * @param float $nonemployee_compensation Nonemployee compensation
      *
      * @return self
      */
@@ -482,25 +515,25 @@ class Form1099NecRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     }
 
     /**
-     * Gets payer_made_direct_sales
+     * Gets direct_sales_indicator
      *
      * @return bool|null
      */
-    public function getPayerMadeDirectSales()
+    public function getDirectSalesIndicator()
     {
-        return $this->container['payer_made_direct_sales'];
+        return $this->container['direct_sales_indicator'];
     }
 
     /**
-     * Sets payer_made_direct_sales
+     * Sets direct_sales_indicator
      *
-     * @param bool|null $payer_made_direct_sales payer_made_direct_sales
+     * @param bool|null $direct_sales_indicator Payer made direct sales totaling $5,000 or more of consumer products to recipient for resale
      *
      * @return self
      */
-    public function setPayerMadeDirectSales($payer_made_direct_sales)
+    public function setDirectSalesIndicator($direct_sales_indicator)
     {
-        $this->container['payer_made_direct_sales'] = $payer_made_direct_sales;
+        $this->container['direct_sales_indicator'] = $direct_sales_indicator;
 
         return $this;
     }
@@ -518,7 +551,7 @@ class Form1099NecRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets federal_income_tax_withheld
      *
-     * @param float|null $federal_income_tax_withheld federal_income_tax_withheld
+     * @param float|null $federal_income_tax_withheld Federal income tax withheld
      *
      * @return self
      */
@@ -576,7 +609,7 @@ class Form1099NecRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets issuer_id
      *
-     * @param string|null $issuer_id issuer_id
+     * @param string|null $issuer_id Issuer ID
      *
      * @return self
      */
@@ -600,37 +633,13 @@ class Form1099NecRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets reference_id
      *
-     * @param string|null $reference_id reference_id
+     * @param string|null $reference_id Reference ID
      *
      * @return self
      */
     public function setReferenceId($reference_id)
     {
         $this->container['reference_id'] = $reference_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets recipient_name
-     *
-     * @return string|null
-     */
-    public function getRecipientName()
-    {
-        return $this->container['recipient_name'];
-    }
-
-    /**
-     * Sets recipient_name
-     *
-     * @param string|null $recipient_name recipient_name
-     *
-     * @return self
-     */
-    public function setRecipientName($recipient_name)
-    {
-        $this->container['recipient_name'] = $recipient_name;
 
         return $this;
     }
@@ -648,13 +657,42 @@ class Form1099NecRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets recipient_tin
      *
-     * @param string|null $recipient_tin recipient_tin
+     * @param string|null $recipient_tin Recipient Tax ID Number
      *
      * @return self
      */
     public function setRecipientTin($recipient_tin)
     {
         $this->container['recipient_tin'] = $recipient_tin;
+
+        return $this;
+    }
+
+    /**
+     * Gets recipient_name
+     *
+     * @return string
+     */
+    public function getRecipientName()
+    {
+        return $this->container['recipient_name'];
+    }
+
+    /**
+     * Sets recipient_name
+     *
+     * @param string $recipient_name Recipient name
+     *
+     * @return self
+     */
+    public function setRecipientName($recipient_name)
+    {
+
+        if ((mb_strlen($recipient_name) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $recipient_name when calling Form1099NecRequest., must be bigger than or equal to 1.');
+        }
+
+        $this->container['recipient_name'] = $recipient_name;
 
         return $this;
     }
@@ -672,7 +710,7 @@ class Form1099NecRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets tin_type
      *
-     * @param string|null $tin_type tin_type
+     * @param string|null $tin_type Type of TIN (Tax ID Number). Will be one of:  * SSN  * EIN  * ITIN  * ATIN
      *
      * @return self
      */
@@ -706,7 +744,7 @@ class Form1099NecRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets recipient_second_name
      *
-     * @param string|null $recipient_second_name recipient_second_name
+     * @param string|null $recipient_second_name Recipient second name
      *
      * @return self
      */
@@ -720,7 +758,7 @@ class Form1099NecRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets address
      *
-     * @return string|null
+     * @return string
      */
     public function getAddress()
     {
@@ -730,12 +768,17 @@ class Form1099NecRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets address
      *
-     * @param string|null $address address
+     * @param string $address Address
      *
      * @return self
      */
     public function setAddress($address)
     {
+
+        if ((mb_strlen($address) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $address when calling Form1099NecRequest., must be bigger than or equal to 1.');
+        }
+
         $this->container['address'] = $address;
 
         return $this;
@@ -754,7 +797,7 @@ class Form1099NecRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets address2
      *
-     * @param string|null $address2 address2
+     * @param string|null $address2 Address line 2
      *
      * @return self
      */
@@ -768,7 +811,7 @@ class Form1099NecRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets city
      *
-     * @return string|null
+     * @return string
      */
     public function getCity()
     {
@@ -778,12 +821,17 @@ class Form1099NecRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets city
      *
-     * @param string|null $city city
+     * @param string $city City
      *
      * @return self
      */
     public function setCity($city)
     {
+
+        if ((mb_strlen($city) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $city when calling Form1099NecRequest., must be bigger than or equal to 1.');
+        }
+
         $this->container['city'] = $city;
 
         return $this;
@@ -802,7 +850,7 @@ class Form1099NecRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets state
      *
-     * @param string|null $state state
+     * @param string|null $state US state. Required if CountryCode is \"US\".
      *
      * @return self
      */
@@ -826,7 +874,7 @@ class Form1099NecRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets zip
      *
-     * @param string|null $zip zip
+     * @param string|null $zip Zip/postal code
      *
      * @return self
      */
@@ -850,7 +898,7 @@ class Form1099NecRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets recipient_email
      *
-     * @param string|null $recipient_email recipient_email
+     * @param string|null $recipient_email Recipient email address
      *
      * @return self
      */
@@ -874,7 +922,7 @@ class Form1099NecRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets account_number
      *
-     * @param string|null $account_number account_number
+     * @param string|null $account_number Account number
      *
      * @return self
      */
@@ -898,7 +946,7 @@ class Form1099NecRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets office_code
      *
-     * @param string|null $office_code office_code
+     * @param string|null $office_code Office code
      *
      * @return self
      */
@@ -922,7 +970,7 @@ class Form1099NecRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets recipient_non_us_province
      *
-     * @param string|null $recipient_non_us_province recipient_non_us_province
+     * @param string|null $recipient_non_us_province Foreign province
      *
      * @return self
      */
@@ -936,7 +984,7 @@ class Form1099NecRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets country_code
      *
-     * @return string|null
+     * @return string
      */
     public function getCountryCode()
     {
@@ -946,12 +994,17 @@ class Form1099NecRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets country_code
      *
-     * @param string|null $country_code country_code
+     * @param string $country_code Country code, as defined at https://www.irs.gov/e-file-providers/country-codes
      *
      * @return self
      */
     public function setCountryCode($country_code)
     {
+
+        if ((mb_strlen($country_code) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $country_code when calling Form1099NecRequest., must be bigger than or equal to 1.');
+        }
+
         $this->container['country_code'] = $country_code;
 
         return $this;
@@ -970,7 +1023,7 @@ class Form1099NecRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets federal_e_file
      *
-     * @param bool|null $federal_e_file federal_e_file
+     * @param bool|null $federal_e_file Boolean indicating that federal e-filing should be scheduled for this form
      *
      * @return self
      */
@@ -994,7 +1047,7 @@ class Form1099NecRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets postal_mail
      *
-     * @param bool|null $postal_mail postal_mail
+     * @param bool|null $postal_mail Boolean indicating that postal mailing to the recipient should be scheduled for this form
      *
      * @return self
      */
@@ -1018,7 +1071,7 @@ class Form1099NecRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets state_e_file
      *
-     * @param bool|null $state_e_file state_e_file
+     * @param bool|null $state_e_file Boolean indicating that state e-filing should be scheduled for this form
      *
      * @return self
      */
@@ -1042,7 +1095,7 @@ class Form1099NecRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets tin_match
      *
-     * @param bool|null $tin_match tin_match
+     * @param bool|null $tin_match Boolean indicating that TIN Matching should be scheduled for this form
      *
      * @return self
      */
@@ -1066,7 +1119,7 @@ class Form1099NecRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets address_verification
      *
-     * @param bool|null $address_verification address_verification
+     * @param bool|null $address_verification Boolean indicating that address verification should be scheduled for this form
      *
      * @return self
      */
@@ -1090,7 +1143,7 @@ class Form1099NecRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets state_and_local_withholding
      *
-     * @param \Avalara\SDK\Model\A1099\V2\StateAndLocalWithholdingRequest|null $state_and_local_withholding state_and_local_withholding
+     * @param \Avalara\SDK\Model\A1099\V2\StateAndLocalWithholdingRequest|null $state_and_local_withholding State and local withholding information
      *
      * @return self
      */

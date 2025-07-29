@@ -39,7 +39,7 @@ $client = new \Avalara\SDK\ApiClient($config);
 
 $apiInstance = new Avalara\SDK\Api\DocumentsApi($client);
 
-$avalara_version = 1.2; // string | The HTTP Header meant to specify the version of the API intended to be used
+$avalara_version = 1.4; // string | The HTTP Header meant to specify the version of the API intended to be used
 $accept = application/pdf; // string | This header indicates the MIME type of the document
 $document_id = 'document_id_example'; // string | The unique ID for this document that was returned in the POST /einvoicing/document response body
 $x_avalara_client = John's E-Invoicing-API Client; // string | You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a fingerprint.
@@ -106,7 +106,7 @@ $client = new \Avalara\SDK\ApiClient($config);
 
 $apiInstance = new Avalara\SDK\Api\DocumentsApi($client);
 
-$avalara_version = 1.2; // string | The HTTP Header meant to specify the version of the API intended to be used
+$avalara_version = 1.4; // string | The HTTP Header meant to specify the version of the API intended to be used
 $fetch_documents_request = new \Avalara\SDK\Model\EInvoicing\V1\FetchDocumentsRequest(); // \Avalara\SDK\Model\EInvoicing\V1\FetchDocumentsRequest
 $x_avalara_client = John's E-Invoicing-API Client; // string | You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a fingerprint.
 
@@ -171,7 +171,7 @@ $client = new \Avalara\SDK\ApiClient($config);
 
 $apiInstance = new Avalara\SDK\Api\DocumentsApi($client);
 
-$avalara_version = 1.2; // string | The HTTP Header meant to specify the version of the API intended to be used
+$avalara_version = 1.4; // string | The HTTP Header meant to specify the version of the API intended to be used
 $x_avalara_client = John's E-Invoicing-API Client; // string | You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a fingerprint.
 $start_date = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Start date of documents to return. This defaults to the previous month.
 $end_date = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | End date of documents to return. This defaults to the current date.
@@ -179,7 +179,7 @@ $flow = out; // string | Optionally filter by document direction, where issued =
 $count = true; // string | When set to true, the count of the collection is also returned in the response body
 $count_only = false; // string | When set to true, only the count of the collection is returned
 $filter = id eq 52f60401-44d0-4667-ad47-4afe519abb53; // string | Filter by field name and value. This filter only supports <code>eq</code> . Refer to [https://developer.avalara.com/avatax/filtering-in-rest/](https://developer.avalara.com/avatax/filtering-in-rest/) for more information on filtering. Filtering will be done over the provided startDate and endDate. If no startDate or endDate is provided, defaults will be assumed.
-$top = 3.4; // float | The number of items to include in the result.
+$top = 10; // float | If nonzero, return no more than this number of results. Used with <code>$skip</code> to provide pagination for large datasets. Unless otherwise specified, the maximum number of records that can be returned from an API call is 200 records.
 $skip = 10; // string | If nonzero, skip this number of results before returning data. Used with <code>$top</code> to provide pagination for large datasets.
 
 try {
@@ -202,7 +202,7 @@ Name | Type | Description  | Notes
  **count** | **string**| When set to true, the count of the collection is also returned in the response body | [optional]
  **count_only** | **string**| When set to true, only the count of the collection is returned | [optional]
  **filter** | **string**| Filter by field name and value. This filter only supports &lt;code&gt;eq&lt;/code&gt; . Refer to [https://developer.avalara.com/avatax/filtering-in-rest/](https://developer.avalara.com/avatax/filtering-in-rest/) for more information on filtering. Filtering will be done over the provided startDate and endDate. If no startDate or endDate is provided, defaults will be assumed. | [optional]
- **top** | **float**| The number of items to include in the result. | [optional]
+ **top** | **float**| If nonzero, return no more than this number of results. Used with &lt;code&gt;$skip&lt;/code&gt; to provide pagination for large datasets. Unless otherwise specified, the maximum number of records that can be returned from an API call is 200 records. | [optional]
  **skip** | **string**| If nonzero, skip this number of results before returning data. Used with &lt;code&gt;$top&lt;/code&gt; to provide pagination for large datasets. | [optional]
 
 ### Return type
@@ -250,7 +250,7 @@ $client = new \Avalara\SDK\ApiClient($config);
 
 $apiInstance = new Avalara\SDK\Api\DocumentsApi($client);
 
-$avalara_version = 1.2; // string | The HTTP Header meant to specify the version of the API intended to be used
+$avalara_version = 1.4; // string | The HTTP Header meant to specify the version of the API intended to be used
 $document_id = 'document_id_example'; // string | The unique ID for this document that was returned in the POST /einvoicing/documents response body
 $x_avalara_client = John's E-Invoicing-API Client; // string | You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a fingerprint.
 
@@ -315,7 +315,7 @@ $client = new \Avalara\SDK\ApiClient($config);
 
 $apiInstance = new Avalara\SDK\Api\DocumentsApi($client);
 
-$avalara_version = 1.2; // string | The HTTP Header meant to specify the version of the API intended to be used
+$avalara_version = 1.4; // string | The HTTP Header meant to specify the version of the API intended to be used
 $metadata = new \Avalara\SDK\Model\EInvoicing\V1\SubmitDocumentMetadata(); // \Avalara\SDK\Model\EInvoicing\V1\SubmitDocumentMetadata
 $data = array('key' => new \stdClass); // object | The document to be submitted, as indicated by the metadata fields 'dataFormat' and 'dataFormatVersion'
 $x_avalara_client = John's E-Invoicing-API Client; // string | You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a fingerprint.

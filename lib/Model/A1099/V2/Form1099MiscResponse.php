@@ -20,7 +20,7 @@
  *
  * Avalara 1099 & W-9 API Definition
  *
- * ## 🔐 Authentication  Use **username/password** or generate a **license key** from: *Avalara Portal → Settings → License and API Keys*.  [More on authentication methods](https://developer.avalara.com/avatax-dm-combined-erp/common-setup/authentication/authentication-methods/)  [Test your credentials](https://developer.avalara.com/avatax/test-credentials/)  ## 📘 API & SDK Documentation  [Avalara SDK (.NET) on GitHub](https://github.com/avadev/Avalara-SDK-DotNet#avalarasdk--the-unified-c-library-for-next-gen-avalara-services)  [Code Examples – 1099 API](https://github.com/avadev/Avalara-SDK-DotNet/blob/main/docs/A1099/V2/Class1099IssuersApi.md#call1099issuersget)
+ * ## 🔐 Authentication  Generate a **license key** from: *[Avalara Portal](https://www.avalara.com/us/en/signin.html) → Settings → License and API Keys*.  [More on authentication methods](https://developer.avalara.com/avatax-dm-combined-erp/common-setup/authentication/authentication-methods/)  [Test your credentials](https://developer.avalara.com/avatax/test-credentials/)  ## 📘 API & SDK Documentation  [Avalara SDK (.NET) on GitHub](https://github.com/avadev/Avalara-SDK-DotNet#avalarasdk--the-unified-c-library-for-next-gen-avalara-services)  [Code Examples – 1099 API](https://github.com/avadev/Avalara-SDK-DotNet/blob/main/docs/A1099/V2/Class1099IssuersApi.md#call1099issuersget)
  *
  * @category   Avalara client libraries
  * @package    Avalara\SDK\API\A1099\V2
@@ -78,7 +78,7 @@ class Form1099MiscResponse implements ModelInterface, ArrayAccess, \JsonSerializ
         'fed_income_tax_withheld' => 'float',
         'fishing_boat_proceeds' => 'float',
         'medical_health_care_payments' => 'float',
-        'payer_made_direct_sales' => 'bool',
+        'direct_sales_indicator' => 'bool',
         'substitute_payments' => 'float',
         'crop_insurance_proceeds' => 'float',
         'gross_proceeds_paid_to_attorney' => 'float',
@@ -118,11 +118,11 @@ class Form1099MiscResponse implements ModelInterface, ArrayAccess, \JsonSerializ
         'tin_match' => 'bool',
         'address_verification' => 'bool',
         'federal_efile_status' => '\Avalara\SDK\Model\A1099\V2\StatusDetail',
-        'state_efile_status' => '\Avalara\SDK\Model\A1099\V2\StateEfileStatusDetailApp[]',
+        'state_efile_status' => '\Avalara\SDK\Model\A1099\V2\StateEfileStatusDetailResponse[]',
         'postal_mail_status' => '\Avalara\SDK\Model\A1099\V2\StatusDetail',
         'tin_match_status' => '\Avalara\SDK\Model\A1099\V2\StatusDetail',
         'address_verification_status' => '\Avalara\SDK\Model\A1099\V2\StatusDetail',
-        'validation_errors' => '\Avalara\SDK\Model\A1099\V2\ValidationErrorApp[]'
+        'validation_errors' => '\Avalara\SDK\Model\A1099\V2\ValidationErrorResponse[]'
     ];
 
     /**
@@ -140,7 +140,7 @@ class Form1099MiscResponse implements ModelInterface, ArrayAccess, \JsonSerializ
         'fed_income_tax_withheld' => 'double',
         'fishing_boat_proceeds' => 'double',
         'medical_health_care_payments' => 'double',
-        'payer_made_direct_sales' => null,
+        'direct_sales_indicator' => null,
         'substitute_payments' => 'double',
         'crop_insurance_proceeds' => 'double',
         'gross_proceeds_paid_to_attorney' => 'double',
@@ -221,7 +221,7 @@ class Form1099MiscResponse implements ModelInterface, ArrayAccess, \JsonSerializ
         'fed_income_tax_withheld' => 'fedIncomeTaxWithheld',
         'fishing_boat_proceeds' => 'fishingBoatProceeds',
         'medical_health_care_payments' => 'medicalHealthCarePayments',
-        'payer_made_direct_sales' => 'payerMadeDirectSales',
+        'direct_sales_indicator' => 'directSalesIndicator',
         'substitute_payments' => 'substitutePayments',
         'crop_insurance_proceeds' => 'cropInsuranceProceeds',
         'gross_proceeds_paid_to_attorney' => 'grossProceedsPaidToAttorney',
@@ -281,7 +281,7 @@ class Form1099MiscResponse implements ModelInterface, ArrayAccess, \JsonSerializ
         'fed_income_tax_withheld' => 'setFedIncomeTaxWithheld',
         'fishing_boat_proceeds' => 'setFishingBoatProceeds',
         'medical_health_care_payments' => 'setMedicalHealthCarePayments',
-        'payer_made_direct_sales' => 'setPayerMadeDirectSales',
+        'direct_sales_indicator' => 'setDirectSalesIndicator',
         'substitute_payments' => 'setSubstitutePayments',
         'crop_insurance_proceeds' => 'setCropInsuranceProceeds',
         'gross_proceeds_paid_to_attorney' => 'setGrossProceedsPaidToAttorney',
@@ -341,7 +341,7 @@ class Form1099MiscResponse implements ModelInterface, ArrayAccess, \JsonSerializ
         'fed_income_tax_withheld' => 'getFedIncomeTaxWithheld',
         'fishing_boat_proceeds' => 'getFishingBoatProceeds',
         'medical_health_care_payments' => 'getMedicalHealthCarePayments',
-        'payer_made_direct_sales' => 'getPayerMadeDirectSales',
+        'direct_sales_indicator' => 'getDirectSalesIndicator',
         'substitute_payments' => 'getSubstitutePayments',
         'crop_insurance_proceeds' => 'getCropInsuranceProceeds',
         'gross_proceeds_paid_to_attorney' => 'getGrossProceedsPaidToAttorney',
@@ -429,12 +429,13 @@ class Form1099MiscResponse implements ModelInterface, ArrayAccess, \JsonSerializ
         return self::$openAPIModelName;
     }
 
-    const TYPE_FORM1099_NEC = 'Form1099Nec';
-    const TYPE_FORM1099_MISC = 'Form1099Misc';
-    const TYPE_FORM1099_DIV = 'Form1099Div';
-    const TYPE_FORM1099_R = 'Form1099R';
-    const TYPE_FORM1099_K = 'Form1099K';
-    const TYPE_FORM1095_B = 'Form1095B';
+    const TYPE__1099_NEC = '1099-NEC';
+    const TYPE__1099_MISC = '1099-MISC';
+    const TYPE__1099_DIV = '1099-DIV';
+    const TYPE__1099_R = '1099-R';
+    const TYPE__1099_K = '1099-K';
+    const TYPE__1095_B = '1095-B';
+    const TYPE__1042_S = '1042-S';
     const TIN_TYPE_EIN = 'EIN';
     const TIN_TYPE_SSN = 'SSN';
     const TIN_TYPE_ITIN = 'ITIN';
@@ -448,12 +449,13 @@ class Form1099MiscResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     public function getTypeAllowableValues()
     {
         return [
-            self::TYPE_FORM1099_NEC,
-            self::TYPE_FORM1099_MISC,
-            self::TYPE_FORM1099_DIV,
-            self::TYPE_FORM1099_R,
-            self::TYPE_FORM1099_K,
-            self::TYPE_FORM1095_B,
+            self::TYPE__1099_NEC,
+            self::TYPE__1099_MISC,
+            self::TYPE__1099_DIV,
+            self::TYPE__1099_R,
+            self::TYPE__1099_K,
+            self::TYPE__1095_B,
+            self::TYPE__1042_S,
         ];
     }
 
@@ -494,7 +496,7 @@ class Form1099MiscResponse implements ModelInterface, ArrayAccess, \JsonSerializ
         $this->container['fed_income_tax_withheld'] = $data['fed_income_tax_withheld'] ?? null;
         $this->container['fishing_boat_proceeds'] = $data['fishing_boat_proceeds'] ?? null;
         $this->container['medical_health_care_payments'] = $data['medical_health_care_payments'] ?? null;
-        $this->container['payer_made_direct_sales'] = $data['payer_made_direct_sales'] ?? null;
+        $this->container['direct_sales_indicator'] = $data['direct_sales_indicator'] ?? null;
         $this->container['substitute_payments'] = $data['substitute_payments'] ?? null;
         $this->container['crop_insurance_proceeds'] = $data['crop_insurance_proceeds'] ?? null;
         $this->container['gross_proceeds_paid_to_attorney'] = $data['gross_proceeds_paid_to_attorney'] ?? null;
@@ -752,25 +754,25 @@ class Form1099MiscResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     }
 
     /**
-     * Gets payer_made_direct_sales
+     * Gets direct_sales_indicator
      *
      * @return bool|null
      */
-    public function getPayerMadeDirectSales()
+    public function getDirectSalesIndicator()
     {
-        return $this->container['payer_made_direct_sales'];
+        return $this->container['direct_sales_indicator'];
     }
 
     /**
-     * Sets payer_made_direct_sales
+     * Sets direct_sales_indicator
      *
-     * @param bool|null $payer_made_direct_sales payer_made_direct_sales
+     * @param bool|null $direct_sales_indicator direct_sales_indicator
      *
      * @return self
      */
-    public function setPayerMadeDirectSales($payer_made_direct_sales)
+    public function setDirectSalesIndicator($direct_sales_indicator)
     {
-        $this->container['payer_made_direct_sales'] = $payer_made_direct_sales;
+        $this->container['direct_sales_indicator'] = $direct_sales_indicator;
 
         return $this;
     }
@@ -1734,7 +1736,7 @@ class Form1099MiscResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets state_efile_status
      *
-     * @return \Avalara\SDK\Model\A1099\V2\StateEfileStatusDetailApp[]|null
+     * @return \Avalara\SDK\Model\A1099\V2\StateEfileStatusDetailResponse[]|null
      */
     public function getStateEfileStatus()
     {
@@ -1744,7 +1746,7 @@ class Form1099MiscResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets state_efile_status
      *
-     * @param \Avalara\SDK\Model\A1099\V2\StateEfileStatusDetailApp[]|null $state_efile_status state_efile_status
+     * @param \Avalara\SDK\Model\A1099\V2\StateEfileStatusDetailResponse[]|null $state_efile_status state_efile_status
      *
      * @return self
      */
@@ -1832,7 +1834,7 @@ class Form1099MiscResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets validation_errors
      *
-     * @return \Avalara\SDK\Model\A1099\V2\ValidationErrorApp[]|null
+     * @return \Avalara\SDK\Model\A1099\V2\ValidationErrorResponse[]|null
      */
     public function getValidationErrors()
     {
@@ -1842,7 +1844,7 @@ class Form1099MiscResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets validation_errors
      *
-     * @param \Avalara\SDK\Model\A1099\V2\ValidationErrorApp[]|null $validation_errors validation_errors
+     * @param \Avalara\SDK\Model\A1099\V2\ValidationErrorResponse[]|null $validation_errors validation_errors
      *
      * @return self
      */

@@ -20,7 +20,7 @@
  *
  * Avalara 1099 & W-9 API Definition
  *
- * ## 🔐 Authentication  Use **username/password** or generate a **license key** from: *Avalara Portal → Settings → License and API Keys*.  [More on authentication methods](https://developer.avalara.com/avatax-dm-combined-erp/common-setup/authentication/authentication-methods/)  [Test your credentials](https://developer.avalara.com/avatax/test-credentials/)  ## 📘 API & SDK Documentation  [Avalara SDK (.NET) on GitHub](https://github.com/avadev/Avalara-SDK-DotNet#avalarasdk--the-unified-c-library-for-next-gen-avalara-services)  [Code Examples – 1099 API](https://github.com/avadev/Avalara-SDK-DotNet/blob/main/docs/A1099/V2/Class1099IssuersApi.md#call1099issuersget)
+ * ## 🔐 Authentication  Generate a **license key** from: *[Avalara Portal](https://www.avalara.com/us/en/signin.html) → Settings → License and API Keys*.  [More on authentication methods](https://developer.avalara.com/avatax-dm-combined-erp/common-setup/authentication/authentication-methods/)  [Test your credentials](https://developer.avalara.com/avatax/test-credentials/)  ## 📘 API & SDK Documentation  [Avalara SDK (.NET) on GitHub](https://github.com/avadev/Avalara-SDK-DotNet#avalarasdk--the-unified-c-library-for-next-gen-avalara-services)  [Code Examples – 1099 API](https://github.com/avadev/Avalara-SDK-DotNet/blob/main/docs/A1099/V2/Class1099IssuersApi.md#call1099issuersget)
  *
  * @category   Avalara client libraries
  * @package    Avalara\SDK\API\A1099\V2
@@ -94,8 +94,8 @@ class Form1099KRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         'type' => 'string',
         'issuer_id' => 'string',
         'reference_id' => 'string',
-        'recipient_name' => 'string',
         'recipient_tin' => 'string',
+        'recipient_name' => 'string',
         'tin_type' => 'string',
         'recipient_second_name' => 'string',
         'address' => 'string',
@@ -147,8 +147,8 @@ class Form1099KRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         'type' => null,
         'issuer_id' => null,
         'reference_id' => null,
-        'recipient_name' => null,
         'recipient_tin' => null,
+        'recipient_name' => null,
         'tin_type' => null,
         'recipient_second_name' => null,
         'address' => null,
@@ -219,8 +219,8 @@ class Form1099KRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         'type' => 'type',
         'issuer_id' => 'issuerId',
         'reference_id' => 'referenceId',
-        'recipient_name' => 'recipientName',
         'recipient_tin' => 'recipientTin',
+        'recipient_name' => 'recipientName',
         'tin_type' => 'tinType',
         'recipient_second_name' => 'recipientSecondName',
         'address' => 'address',
@@ -270,8 +270,8 @@ class Form1099KRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         'type' => 'setType',
         'issuer_id' => 'setIssuerId',
         'reference_id' => 'setReferenceId',
-        'recipient_name' => 'setRecipientName',
         'recipient_tin' => 'setRecipientTin',
+        'recipient_name' => 'setRecipientName',
         'tin_type' => 'setTinType',
         'recipient_second_name' => 'setRecipientSecondName',
         'address' => 'setAddress',
@@ -321,8 +321,8 @@ class Form1099KRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         'type' => 'getType',
         'issuer_id' => 'getIssuerId',
         'reference_id' => 'getReferenceId',
-        'recipient_name' => 'getRecipientName',
         'recipient_tin' => 'getRecipientTin',
+        'recipient_name' => 'getRecipientName',
         'tin_type' => 'getTinType',
         'recipient_second_name' => 'getRecipientSecondName',
         'address' => 'getAddress',
@@ -384,12 +384,13 @@ class Form1099KRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
-    const TYPE_FORM1099_NEC = 'Form1099Nec';
-    const TYPE_FORM1099_MISC = 'Form1099Misc';
-    const TYPE_FORM1099_DIV = 'Form1099Div';
-    const TYPE_FORM1099_R = 'Form1099R';
-    const TYPE_FORM1099_K = 'Form1099K';
-    const TYPE_FORM1095_B = 'Form1095B';
+    const TYPE__1099_NEC = '1099-NEC';
+    const TYPE__1099_MISC = '1099-MISC';
+    const TYPE__1099_DIV = '1099-DIV';
+    const TYPE__1099_R = '1099-R';
+    const TYPE__1099_K = '1099-K';
+    const TYPE__1095_B = '1095-B';
+    const TYPE__1042_S = '1042-S';
     const TIN_TYPE_EIN = 'EIN';
     const TIN_TYPE_SSN = 'SSN';
     const TIN_TYPE_ITIN = 'ITIN';
@@ -403,12 +404,13 @@ class Form1099KRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     public function getTypeAllowableValues()
     {
         return [
-            self::TYPE_FORM1099_NEC,
-            self::TYPE_FORM1099_MISC,
-            self::TYPE_FORM1099_DIV,
-            self::TYPE_FORM1099_R,
-            self::TYPE_FORM1099_K,
-            self::TYPE_FORM1095_B,
+            self::TYPE__1099_NEC,
+            self::TYPE__1099_MISC,
+            self::TYPE__1099_DIV,
+            self::TYPE__1099_R,
+            self::TYPE__1099_K,
+            self::TYPE__1095_B,
+            self::TYPE__1042_S,
         ];
     }
 
@@ -465,8 +467,8 @@ class Form1099KRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['type'] = $data['type'] ?? null;
         $this->container['issuer_id'] = $data['issuer_id'] ?? null;
         $this->container['reference_id'] = $data['reference_id'] ?? null;
-        $this->container['recipient_name'] = $data['recipient_name'] ?? null;
         $this->container['recipient_tin'] = $data['recipient_tin'] ?? null;
+        $this->container['recipient_name'] = $data['recipient_name'] ?? null;
         $this->container['tin_type'] = $data['tin_type'] ?? null;
         $this->container['recipient_second_name'] = $data['recipient_second_name'] ?? null;
         $this->container['address'] = $data['address'] ?? null;
@@ -505,6 +507,13 @@ class Form1099KRequest implements ModelInterface, ArrayAccess, \JsonSerializable
             );
         }
 
+        if ($this->container['recipient_name'] === null) {
+            $invalidProperties[] = "'recipient_name' can't be null";
+        }
+        if ((mb_strlen($this->container['recipient_name']) < 1)) {
+            $invalidProperties[] = "invalid value for 'recipient_name', the character length must be bigger than or equal to 1.";
+        }
+
         $allowedValues = $this->getTinTypeAllowableValues();
         if (!is_null($this->container['tin_type']) && !in_array($this->container['tin_type'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -512,6 +521,27 @@ class Form1099KRequest implements ModelInterface, ArrayAccess, \JsonSerializable
                 $this->container['tin_type'],
                 implode("', '", $allowedValues)
             );
+        }
+
+        if ($this->container['address'] === null) {
+            $invalidProperties[] = "'address' can't be null";
+        }
+        if ((mb_strlen($this->container['address']) < 1)) {
+            $invalidProperties[] = "invalid value for 'address', the character length must be bigger than or equal to 1.";
+        }
+
+        if ($this->container['city'] === null) {
+            $invalidProperties[] = "'city' can't be null";
+        }
+        if ((mb_strlen($this->container['city']) < 1)) {
+            $invalidProperties[] = "invalid value for 'city', the character length must be bigger than or equal to 1.";
+        }
+
+        if ($this->container['country_code'] === null) {
+            $invalidProperties[] = "'country_code' can't be null";
+        }
+        if ((mb_strlen($this->container['country_code']) < 1)) {
+            $invalidProperties[] = "invalid value for 'country_code', the character length must be bigger than or equal to 1.";
         }
 
         return $invalidProperties;
@@ -542,7 +572,7 @@ class Form1099KRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets filer_type
      *
-     * @param int|null $filer_type filer_type
+     * @param int|null $filer_type Filer type (PSE or EPF)
      *
      * @return self
      */
@@ -566,7 +596,7 @@ class Form1099KRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets payment_type
      *
-     * @param int|null $payment_type payment_type
+     * @param int|null $payment_type Payment type (payment card or third party network)
      *
      * @return self
      */
@@ -590,7 +620,7 @@ class Form1099KRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets payment_settlement_entity_name_phone_number
      *
-     * @param string|null $payment_settlement_entity_name_phone_number payment_settlement_entity_name_phone_number
+     * @param string|null $payment_settlement_entity_name_phone_number Payment settlement entity name and phone number
      *
      * @return self
      */
@@ -614,7 +644,7 @@ class Form1099KRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets gross_amount_payment_card
      *
-     * @param float|null $gross_amount_payment_card gross_amount_payment_card
+     * @param float|null $gross_amount_payment_card Gross amount of payment card/third party network transactions
      *
      * @return self
      */
@@ -638,7 +668,7 @@ class Form1099KRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets card_not_present_transactions
      *
-     * @param float|null $card_not_present_transactions card_not_present_transactions
+     * @param float|null $card_not_present_transactions Card not present transactions
      *
      * @return self
      */
@@ -662,7 +692,7 @@ class Form1099KRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets merchant_category_code
      *
-     * @param string|null $merchant_category_code merchant_category_code
+     * @param string|null $merchant_category_code Merchant category code
      *
      * @return self
      */
@@ -686,7 +716,7 @@ class Form1099KRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets payment_transaction_number
      *
-     * @param float|null $payment_transaction_number payment_transaction_number
+     * @param float|null $payment_transaction_number Number of payment transactions
      *
      * @return self
      */
@@ -710,7 +740,7 @@ class Form1099KRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets federal_income_tax_withheld
      *
-     * @param float|null $federal_income_tax_withheld federal_income_tax_withheld
+     * @param float|null $federal_income_tax_withheld Federal income tax withheld
      *
      * @return self
      */
@@ -734,7 +764,7 @@ class Form1099KRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets january
      *
-     * @param float|null $january january
+     * @param float|null $january January gross payments
      *
      * @return self
      */
@@ -758,7 +788,7 @@ class Form1099KRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets february
      *
-     * @param float|null $february february
+     * @param float|null $february February gross payments
      *
      * @return self
      */
@@ -782,7 +812,7 @@ class Form1099KRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets march
      *
-     * @param float|null $march march
+     * @param float|null $march March gross payments
      *
      * @return self
      */
@@ -806,7 +836,7 @@ class Form1099KRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets april
      *
-     * @param float|null $april april
+     * @param float|null $april April gross payments
      *
      * @return self
      */
@@ -830,7 +860,7 @@ class Form1099KRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets may
      *
-     * @param float|null $may may
+     * @param float|null $may May gross payments
      *
      * @return self
      */
@@ -854,7 +884,7 @@ class Form1099KRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets june
      *
-     * @param float|null $june june
+     * @param float|null $june June gross payments
      *
      * @return self
      */
@@ -878,7 +908,7 @@ class Form1099KRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets july
      *
-     * @param float|null $july july
+     * @param float|null $july July gross payments
      *
      * @return self
      */
@@ -902,7 +932,7 @@ class Form1099KRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets august
      *
-     * @param float|null $august august
+     * @param float|null $august August gross payments
      *
      * @return self
      */
@@ -926,7 +956,7 @@ class Form1099KRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets sept
      *
-     * @param float|null $sept sept
+     * @param float|null $sept September gross payments
      *
      * @return self
      */
@@ -950,7 +980,7 @@ class Form1099KRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets october
      *
-     * @param float|null $october october
+     * @param float|null $october October gross payments
      *
      * @return self
      */
@@ -974,7 +1004,7 @@ class Form1099KRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets november
      *
-     * @param float|null $november november
+     * @param float|null $november November gross payments
      *
      * @return self
      */
@@ -998,7 +1028,7 @@ class Form1099KRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets december
      *
-     * @param float|null $december december
+     * @param float|null $december December gross payments
      *
      * @return self
      */
@@ -1056,7 +1086,7 @@ class Form1099KRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets issuer_id
      *
-     * @param string|null $issuer_id issuer_id
+     * @param string|null $issuer_id Issuer ID
      *
      * @return self
      */
@@ -1080,37 +1110,13 @@ class Form1099KRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets reference_id
      *
-     * @param string|null $reference_id reference_id
+     * @param string|null $reference_id Reference ID
      *
      * @return self
      */
     public function setReferenceId($reference_id)
     {
         $this->container['reference_id'] = $reference_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets recipient_name
-     *
-     * @return string|null
-     */
-    public function getRecipientName()
-    {
-        return $this->container['recipient_name'];
-    }
-
-    /**
-     * Sets recipient_name
-     *
-     * @param string|null $recipient_name recipient_name
-     *
-     * @return self
-     */
-    public function setRecipientName($recipient_name)
-    {
-        $this->container['recipient_name'] = $recipient_name;
 
         return $this;
     }
@@ -1128,13 +1134,42 @@ class Form1099KRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets recipient_tin
      *
-     * @param string|null $recipient_tin recipient_tin
+     * @param string|null $recipient_tin Recipient Tax ID Number
      *
      * @return self
      */
     public function setRecipientTin($recipient_tin)
     {
         $this->container['recipient_tin'] = $recipient_tin;
+
+        return $this;
+    }
+
+    /**
+     * Gets recipient_name
+     *
+     * @return string
+     */
+    public function getRecipientName()
+    {
+        return $this->container['recipient_name'];
+    }
+
+    /**
+     * Sets recipient_name
+     *
+     * @param string $recipient_name Recipient name
+     *
+     * @return self
+     */
+    public function setRecipientName($recipient_name)
+    {
+
+        if ((mb_strlen($recipient_name) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $recipient_name when calling Form1099KRequest., must be bigger than or equal to 1.');
+        }
+
+        $this->container['recipient_name'] = $recipient_name;
 
         return $this;
     }
@@ -1152,7 +1187,7 @@ class Form1099KRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets tin_type
      *
-     * @param string|null $tin_type tin_type
+     * @param string|null $tin_type Type of TIN (Tax ID Number). Will be one of:  * SSN  * EIN  * ITIN  * ATIN
      *
      * @return self
      */
@@ -1186,7 +1221,7 @@ class Form1099KRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets recipient_second_name
      *
-     * @param string|null $recipient_second_name recipient_second_name
+     * @param string|null $recipient_second_name Recipient second name
      *
      * @return self
      */
@@ -1200,7 +1235,7 @@ class Form1099KRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets address
      *
-     * @return string|null
+     * @return string
      */
     public function getAddress()
     {
@@ -1210,12 +1245,17 @@ class Form1099KRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets address
      *
-     * @param string|null $address address
+     * @param string $address Address
      *
      * @return self
      */
     public function setAddress($address)
     {
+
+        if ((mb_strlen($address) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $address when calling Form1099KRequest., must be bigger than or equal to 1.');
+        }
+
         $this->container['address'] = $address;
 
         return $this;
@@ -1234,7 +1274,7 @@ class Form1099KRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets address2
      *
-     * @param string|null $address2 address2
+     * @param string|null $address2 Address line 2
      *
      * @return self
      */
@@ -1248,7 +1288,7 @@ class Form1099KRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets city
      *
-     * @return string|null
+     * @return string
      */
     public function getCity()
     {
@@ -1258,12 +1298,17 @@ class Form1099KRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets city
      *
-     * @param string|null $city city
+     * @param string $city City
      *
      * @return self
      */
     public function setCity($city)
     {
+
+        if ((mb_strlen($city) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $city when calling Form1099KRequest., must be bigger than or equal to 1.');
+        }
+
         $this->container['city'] = $city;
 
         return $this;
@@ -1282,7 +1327,7 @@ class Form1099KRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets state
      *
-     * @param string|null $state state
+     * @param string|null $state US state. Required if CountryCode is \"US\".
      *
      * @return self
      */
@@ -1306,7 +1351,7 @@ class Form1099KRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets zip
      *
-     * @param string|null $zip zip
+     * @param string|null $zip Zip/postal code
      *
      * @return self
      */
@@ -1330,7 +1375,7 @@ class Form1099KRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets recipient_email
      *
-     * @param string|null $recipient_email recipient_email
+     * @param string|null $recipient_email Recipient email address
      *
      * @return self
      */
@@ -1354,7 +1399,7 @@ class Form1099KRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets account_number
      *
-     * @param string|null $account_number account_number
+     * @param string|null $account_number Account number
      *
      * @return self
      */
@@ -1378,7 +1423,7 @@ class Form1099KRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets office_code
      *
-     * @param string|null $office_code office_code
+     * @param string|null $office_code Office code
      *
      * @return self
      */
@@ -1402,7 +1447,7 @@ class Form1099KRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets recipient_non_us_province
      *
-     * @param string|null $recipient_non_us_province recipient_non_us_province
+     * @param string|null $recipient_non_us_province Foreign province
      *
      * @return self
      */
@@ -1416,7 +1461,7 @@ class Form1099KRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets country_code
      *
-     * @return string|null
+     * @return string
      */
     public function getCountryCode()
     {
@@ -1426,12 +1471,17 @@ class Form1099KRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets country_code
      *
-     * @param string|null $country_code country_code
+     * @param string $country_code Country code, as defined at https://www.irs.gov/e-file-providers/country-codes
      *
      * @return self
      */
     public function setCountryCode($country_code)
     {
+
+        if ((mb_strlen($country_code) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $country_code when calling Form1099KRequest., must be bigger than or equal to 1.');
+        }
+
         $this->container['country_code'] = $country_code;
 
         return $this;
@@ -1450,7 +1500,7 @@ class Form1099KRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets federal_e_file
      *
-     * @param bool|null $federal_e_file federal_e_file
+     * @param bool|null $federal_e_file Boolean indicating that federal e-filing should be scheduled for this form
      *
      * @return self
      */
@@ -1474,7 +1524,7 @@ class Form1099KRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets postal_mail
      *
-     * @param bool|null $postal_mail postal_mail
+     * @param bool|null $postal_mail Boolean indicating that postal mailing to the recipient should be scheduled for this form
      *
      * @return self
      */
@@ -1498,7 +1548,7 @@ class Form1099KRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets state_e_file
      *
-     * @param bool|null $state_e_file state_e_file
+     * @param bool|null $state_e_file Boolean indicating that state e-filing should be scheduled for this form
      *
      * @return self
      */
@@ -1522,7 +1572,7 @@ class Form1099KRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets tin_match
      *
-     * @param bool|null $tin_match tin_match
+     * @param bool|null $tin_match Boolean indicating that TIN Matching should be scheduled for this form
      *
      * @return self
      */
@@ -1546,7 +1596,7 @@ class Form1099KRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets address_verification
      *
-     * @param bool|null $address_verification address_verification
+     * @param bool|null $address_verification Boolean indicating that address verification should be scheduled for this form
      *
      * @return self
      */
@@ -1570,7 +1620,7 @@ class Form1099KRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets state_and_local_withholding
      *
-     * @param \Avalara\SDK\Model\A1099\V2\StateAndLocalWithholdingRequest|null $state_and_local_withholding state_and_local_withholding
+     * @param \Avalara\SDK\Model\A1099\V2\StateAndLocalWithholdingRequest|null $state_and_local_withholding State and local withholding information
      *
      * @return self
      */

@@ -20,7 +20,7 @@
  *
  * Avalara 1099 & W-9 API Definition
  *
- * ## 🔐 Authentication  Use **username/password** or generate a **license key** from: *Avalara Portal → Settings → License and API Keys*.  [More on authentication methods](https://developer.avalara.com/avatax-dm-combined-erp/common-setup/authentication/authentication-methods/)  [Test your credentials](https://developer.avalara.com/avatax/test-credentials/)  ## 📘 API & SDK Documentation  [Avalara SDK (.NET) on GitHub](https://github.com/avadev/Avalara-SDK-DotNet#avalarasdk--the-unified-c-library-for-next-gen-avalara-services)  [Code Examples – 1099 API](https://github.com/avadev/Avalara-SDK-DotNet/blob/main/docs/A1099/V2/Class1099IssuersApi.md#call1099issuersget)
+ * ## 🔐 Authentication  Generate a **license key** from: *[Avalara Portal](https://www.avalara.com/us/en/signin.html) → Settings → License and API Keys*.  [More on authentication methods](https://developer.avalara.com/avatax-dm-combined-erp/common-setup/authentication/authentication-methods/)  [Test your credentials](https://developer.avalara.com/avatax/test-credentials/)  ## 📘 API & SDK Documentation  [Avalara SDK (.NET) on GitHub](https://github.com/avadev/Avalara-SDK-DotNet#avalarasdk--the-unified-c-library-for-next-gen-avalara-services)  [Code Examples – 1099 API](https://github.com/avadev/Avalara-SDK-DotNet/blob/main/docs/A1099/V2/Class1099IssuersApi.md#call1099issuersget)
  *
  * @category   Avalara client libraries
  * @package    Avalara\SDK\API\A1099\V2
@@ -380,7 +380,7 @@ class JobResult implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets dry_run
      *
-     * @param bool|null $dry_run dry_run
+     * @param bool|null $dry_run Dry run. If `true`, this job only simulates the changes but doesn't actually persist them.
      *
      * @return self
      */
@@ -404,7 +404,7 @@ class JobResult implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets upsert
      *
-     * @param bool|null $upsert upsert
+     * @param bool|null $upsert Upsert. If `true`, this job will first attempt to update existing records if matches can be found. Matches are done in the following order:  * Form ID  * Form Reference ID and tax year  * Form TIN and tax year
      *
      * @return self
      */
@@ -428,7 +428,7 @@ class JobResult implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets status
      *
-     * @param string|null $status status
+     * @param string|null $status Status of the job
      *
      * @return self
      */
@@ -476,7 +476,7 @@ class JobResult implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets total_processed
      *
-     * @param int|null $total_processed total_processed
+     * @param int|null $total_processed Total number of forms processed
      *
      * @return self
      */
@@ -500,7 +500,7 @@ class JobResult implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets total_rows
      *
-     * @param int|null $total_rows total_rows
+     * @param int|null $total_rows Total number of forms in the request
      *
      * @return self
      */
@@ -524,7 +524,7 @@ class JobResult implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets updated_valid
      *
-     * @param int|null $updated_valid updated_valid
+     * @param int|null $updated_valid Number of forms updated and valid for e-filing and e-delivery
      *
      * @return self
      */
@@ -548,7 +548,7 @@ class JobResult implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets updated_no_email
      *
-     * @param int|null $updated_no_email updated_no_email
+     * @param int|null $updated_no_email Number of forms updated and valid for e-filing but missing email or email is undeliverable
      *
      * @return self
      */
@@ -572,7 +572,7 @@ class JobResult implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets updated_invalid
      *
-     * @param int|null $updated_invalid updated_invalid
+     * @param int|null $updated_invalid Number of forms updated but invalid for e-filing
      *
      * @return self
      */
@@ -596,7 +596,7 @@ class JobResult implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets skipped_duplicate
      *
-     * @param int|null $skipped_duplicate skipped_duplicate
+     * @param int|null $skipped_duplicate Number of forms skipped because they would have updated a record already updated once in the request
      *
      * @return self
      */
@@ -620,7 +620,7 @@ class JobResult implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets skipped_invalid
      *
-     * @param int|null $skipped_invalid skipped_invalid
+     * @param int|null $skipped_invalid Number of forms skipped because they would have made a form invalid and the form is already e-filed or scheduled for e-filing
      *
      * @return self
      */
@@ -644,7 +644,7 @@ class JobResult implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets skipped_multiple_matches
      *
-     * @param int|null $skipped_multiple_matches skipped_multiple_matches
+     * @param int|null $skipped_multiple_matches Number of forms skipped because they matched multiple forms
      *
      * @return self
      */
@@ -668,7 +668,7 @@ class JobResult implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets not_found
      *
-     * @param int|null $not_found not_found
+     * @param int|null $not_found Number of forms skipped because no matching form or issuer could be found
      *
      * @return self
      */
@@ -692,7 +692,7 @@ class JobResult implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets created_invalid
      *
-     * @param int|null $created_invalid created_invalid
+     * @param int|null $created_invalid Number of new forms created because no matching form could be found (and `upsert` was true) - with errors
      *
      * @return self
      */
@@ -716,7 +716,7 @@ class JobResult implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets created_no_email
      *
-     * @param int|null $created_no_email created_no_email
+     * @param int|null $created_no_email Number of new forms created because no matching form could be found (and `upsert` was true) - valid for e-filing but missing email or email is undeliverable
      *
      * @return self
      */
@@ -740,7 +740,7 @@ class JobResult implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets created_valid
      *
-     * @param int|null $created_valid created_valid
+     * @param int|null $created_valid Number of new forms created because no matching form could be found (and `upsert` was true) - valid for e-filing and e-delivery
      *
      * @return self
      */

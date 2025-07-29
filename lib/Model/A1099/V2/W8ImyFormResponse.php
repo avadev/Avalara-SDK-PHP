@@ -20,7 +20,7 @@
  *
  * Avalara 1099 & W-9 API Definition
  *
- * ## 🔐 Authentication  Use **username/password** or generate a **license key** from: *Avalara Portal → Settings → License and API Keys*.  [More on authentication methods](https://developer.avalara.com/avatax-dm-combined-erp/common-setup/authentication/authentication-methods/)  [Test your credentials](https://developer.avalara.com/avatax/test-credentials/)  ## 📘 API & SDK Documentation  [Avalara SDK (.NET) on GitHub](https://github.com/avadev/Avalara-SDK-DotNet#avalarasdk--the-unified-c-library-for-next-gen-avalara-services)  [Code Examples – 1099 API](https://github.com/avadev/Avalara-SDK-DotNet/blob/main/docs/A1099/V2/Class1099IssuersApi.md#call1099issuersget)
+ * ## 🔐 Authentication  Generate a **license key** from: *[Avalara Portal](https://www.avalara.com/us/en/signin.html) → Settings → License and API Keys*.  [More on authentication methods](https://developer.avalara.com/avatax-dm-combined-erp/common-setup/authentication/authentication-methods/)  [Test your credentials](https://developer.avalara.com/avatax/test-credentials/)  ## 📘 API & SDK Documentation  [Avalara SDK (.NET) on GitHub](https://github.com/avadev/Avalara-SDK-DotNet#avalarasdk--the-unified-c-library-for-next-gen-avalara-services)  [Code Examples – 1099 API](https://github.com/avadev/Avalara-SDK-DotNet/blob/main/docs/A1099/V2/Class1099IssuersApi.md#call1099issuersget)
  *
  * @category   Avalara client libraries
  * @package    Avalara\SDK\API\A1099\V2
@@ -303,9 +303,9 @@ class W8ImyFormResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
         'exempt_beneficial_owner_sponsored_retirement_fund_certification' => null,
         'excepted_nonfinancial_group_entity_certification' => null,
         'excepted_nonfinancial_start_up_certification' => null,
-        'startup_formation_or_resolution_date' => 'date-time',
+        'startup_formation_or_resolution_date' => 'date',
         'excepted_nonfinancial_entity_in_liquidation_or_bankruptcy_certification' => null,
-        'nonfinancial_entity_filing_date' => 'date-time',
+        'nonfinancial_entity_filing_date' => 'date',
         'publicly_traded_nffe_certification' => null,
         'publicly_traded_nffe_securities_market' => null,
         'nffe_affiliate_of_publicly_traded_entity_certification' => null,

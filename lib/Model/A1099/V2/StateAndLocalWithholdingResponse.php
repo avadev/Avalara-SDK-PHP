@@ -20,7 +20,7 @@
  *
  * Avalara 1099 & W-9 API Definition
  *
- * ## 🔐 Authentication  Use **username/password** or generate a **license key** from: *Avalara Portal → Settings → License and API Keys*.  [More on authentication methods](https://developer.avalara.com/avatax-dm-combined-erp/common-setup/authentication/authentication-methods/)  [Test your credentials](https://developer.avalara.com/avatax/test-credentials/)  ## 📘 API & SDK Documentation  [Avalara SDK (.NET) on GitHub](https://github.com/avadev/Avalara-SDK-DotNet#avalarasdk--the-unified-c-library-for-next-gen-avalara-services)  [Code Examples – 1099 API](https://github.com/avadev/Avalara-SDK-DotNet/blob/main/docs/A1099/V2/Class1099IssuersApi.md#call1099issuersget)
+ * ## 🔐 Authentication  Generate a **license key** from: *[Avalara Portal](https://www.avalara.com/us/en/signin.html) → Settings → License and API Keys*.  [More on authentication methods](https://developer.avalara.com/avatax-dm-combined-erp/common-setup/authentication/authentication-methods/)  [Test your credentials](https://developer.avalara.com/avatax/test-credentials/)  ## 📘 API & SDK Documentation  [Avalara SDK (.NET) on GitHub](https://github.com/avadev/Avalara-SDK-DotNet#avalarasdk--the-unified-c-library-for-next-gen-avalara-services)  [Code Examples – 1099 API](https://github.com/avadev/Avalara-SDK-DotNet/blob/main/docs/A1099/V2/Class1099IssuersApi.md#call1099issuersget)
  *
  * @category   Avalara client libraries
  * @package    Avalara\SDK\API\A1099\V2
@@ -272,7 +272,7 @@ class StateAndLocalWithholdingResponse implements ModelInterface, ArrayAccess, \
     /**
      * Sets state_tax_withheld
      *
-     * @param float|null $state_tax_withheld state_tax_withheld
+     * @param float|null $state_tax_withheld Amount of state tax that was withheld
      *
      * @return self
      */
@@ -296,7 +296,7 @@ class StateAndLocalWithholdingResponse implements ModelInterface, ArrayAccess, \
     /**
      * Sets state
      *
-     * @param string|null $state state
+     * @param string|null $state US state
      *
      * @return self
      */
@@ -320,7 +320,7 @@ class StateAndLocalWithholdingResponse implements ModelInterface, ArrayAccess, \
     /**
      * Sets state_id_number
      *
-     * @param string|null $state_id_number state_id_number
+     * @param string|null $state_id_number State ID number of the entity issuing the form
      *
      * @return self
      */
@@ -344,7 +344,7 @@ class StateAndLocalWithholdingResponse implements ModelInterface, ArrayAccess, \
     /**
      * Sets state_income
      *
-     * @param float|null $state_income state_income
+     * @param float|null $state_income Amount of state income
      *
      * @return self
      */
@@ -368,7 +368,7 @@ class StateAndLocalWithholdingResponse implements ModelInterface, ArrayAccess, \
     /**
      * Sets local_tax_withheld
      *
-     * @param float|null $local_tax_withheld local_tax_withheld
+     * @param float|null $local_tax_withheld Amount of local tax that was withheld
      *
      * @return self
      */
@@ -392,7 +392,7 @@ class StateAndLocalWithholdingResponse implements ModelInterface, ArrayAccess, \
     /**
      * Sets locality
      *
-     * @param string|null $locality locality
+     * @param string|null $locality Locality name
      *
      * @return self
      */
@@ -416,7 +416,7 @@ class StateAndLocalWithholdingResponse implements ModelInterface, ArrayAccess, \
     /**
      * Sets locality_id_number
      *
-     * @param string|null $locality_id_number locality_id_number
+     * @param string|null $locality_id_number Locality ID number of the entity issuing the form
      *
      * @return self
      */
@@ -440,7 +440,7 @@ class StateAndLocalWithholdingResponse implements ModelInterface, ArrayAccess, \
     /**
      * Sets local_income
      *
-     * @param float|null $local_income local_income
+     * @param float|null $local_income Amount of local income
      *
      * @return self
      */

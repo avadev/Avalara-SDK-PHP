@@ -47,7 +47,6 @@ use \Avalara\SDK\Model\ModelInterface;
  * HmacSignatureValue Class Doc Comment
  *
  * @category Class
- * @description Contains the HMAC algorithm and the resulting signature value used for verifying message integrity.
  * @package  Avalara\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

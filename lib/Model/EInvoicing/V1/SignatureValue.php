@@ -47,7 +47,6 @@ use \Avalara\SDK\Model\ModelInterface;
  * SignatureValue Class Doc Comment
  *
  * @category Class
- * @description Includes the actual signature applied to a webhook message along with the algorithm used.
  * @package  Avalara\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

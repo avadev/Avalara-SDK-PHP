@@ -47,7 +47,6 @@ use \Avalara\SDK\Model\ModelInterface;
  * SuccessResponse Class Doc Comment
  *
  * @category Class
- * @description Indicates a successful outcome of an API operation, including a generated ID and success message.
  * @package  Avalara\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

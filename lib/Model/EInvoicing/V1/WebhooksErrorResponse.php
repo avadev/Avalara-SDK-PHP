@@ -47,7 +47,6 @@ use \Avalara\SDK\Model\ModelInterface;
  * WebhooksErrorResponse Class Doc Comment
  *
  * @category Class
- * @description Wrapper for errors occurring during webhook subscription or delivery processing.
  * @package  Avalara\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

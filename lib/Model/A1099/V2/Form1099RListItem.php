@@ -20,7 +20,7 @@
  *
  * Avalara 1099 & W-9 API Definition
  *
- * ## 🔐 Authentication  Use **username/password** or generate a **license key** from: *Avalara Portal → Settings → License and API Keys*.  [More on authentication methods](https://developer.avalara.com/avatax-dm-combined-erp/common-setup/authentication/authentication-methods/)  [Test your credentials](https://developer.avalara.com/avatax/test-credentials/)  ## 📘 API & SDK Documentation  [Avalara SDK (.NET) on GitHub](https://github.com/avadev/Avalara-SDK-DotNet#avalarasdk--the-unified-c-library-for-next-gen-avalara-services)  [Code Examples – 1099 API](https://github.com/avadev/Avalara-SDK-DotNet/blob/main/docs/A1099/V2/Class1099IssuersApi.md#call1099issuersget)
+ * ## 🔐 Authentication  Generate a **license key** from: *[Avalara Portal](https://www.avalara.com/us/en/signin.html) → Settings → License and API Keys*.  [More on authentication methods](https://developer.avalara.com/avatax-dm-combined-erp/common-setup/authentication/authentication-methods/)  [Test your credentials](https://developer.avalara.com/avatax/test-credentials/)  ## 📘 API & SDK Documentation  [Avalara SDK (.NET) on GitHub](https://github.com/avadev/Avalara-SDK-DotNet#avalarasdk--the-unified-c-library-for-next-gen-avalara-services)  [Code Examples – 1099 API](https://github.com/avadev/Avalara-SDK-DotNet/blob/main/docs/A1099/V2/Class1099IssuersApi.md#call1099issuersget)
  *
  * @category   Avalara client libraries
  * @package    Avalara\SDK\API\A1099\V2
@@ -96,8 +96,8 @@ class Form1099RListItem implements ModelInterface, ArrayAccess, \JsonSerializabl
         'tax_year' => 'int',
         'issuer_id' => 'string',
         'reference_id' => 'string',
-        'recipient_name' => 'string',
         'recipient_tin' => 'string',
+        'recipient_name' => 'string',
         'tin_type' => 'string',
         'recipient_second_name' => 'string',
         'address' => 'string',
@@ -151,8 +151,8 @@ class Form1099RListItem implements ModelInterface, ArrayAccess, \JsonSerializabl
         'tax_year' => 'int32',
         'issuer_id' => null,
         'reference_id' => null,
-        'recipient_name' => null,
         'recipient_tin' => null,
+        'recipient_name' => null,
         'tin_type' => null,
         'recipient_second_name' => null,
         'address' => null,
@@ -225,8 +225,8 @@ class Form1099RListItem implements ModelInterface, ArrayAccess, \JsonSerializabl
         'tax_year' => 'taxYear',
         'issuer_id' => 'issuerId',
         'reference_id' => 'referenceId',
-        'recipient_name' => 'recipientName',
         'recipient_tin' => 'recipientTin',
+        'recipient_name' => 'recipientName',
         'tin_type' => 'tinType',
         'recipient_second_name' => 'recipientSecondName',
         'address' => 'address',
@@ -278,8 +278,8 @@ class Form1099RListItem implements ModelInterface, ArrayAccess, \JsonSerializabl
         'tax_year' => 'setTaxYear',
         'issuer_id' => 'setIssuerId',
         'reference_id' => 'setReferenceId',
-        'recipient_name' => 'setRecipientName',
         'recipient_tin' => 'setRecipientTin',
+        'recipient_name' => 'setRecipientName',
         'tin_type' => 'setTinType',
         'recipient_second_name' => 'setRecipientSecondName',
         'address' => 'setAddress',
@@ -331,8 +331,8 @@ class Form1099RListItem implements ModelInterface, ArrayAccess, \JsonSerializabl
         'tax_year' => 'getTaxYear',
         'issuer_id' => 'getIssuerId',
         'reference_id' => 'getReferenceId',
-        'recipient_name' => 'getRecipientName',
         'recipient_tin' => 'getRecipientTin',
+        'recipient_name' => 'getRecipientName',
         'tin_type' => 'getTinType',
         'recipient_second_name' => 'getRecipientSecondName',
         'address' => 'getAddress',
@@ -394,35 +394,35 @@ class Form1099RListItem implements ModelInterface, ArrayAccess, \JsonSerializabl
         return self::$openAPIModelName;
     }
 
-    const DISTRIBUTION_CODE_EARLY_DISTRIBUTION_NO_EXCEPTION = 'EarlyDistributionNoException';
-    const DISTRIBUTION_CODE_EARLY_DISTRIBUTION_WITH_EXCEPTION = 'EarlyDistributionWithException';
-    const DISTRIBUTION_CODE_DISABILITY = 'Disability';
-    const DISTRIBUTION_CODE_DEATH = 'Death';
-    const DISTRIBUTION_CODE_PROHIBITED_TRANSACTION = 'ProhibitedTransaction';
-    const DISTRIBUTION_CODE_SECTION1035_EXCHANGE = 'Section1035Exchange';
-    const DISTRIBUTION_CODE_NORMAL_DISTRIBUTION = 'NormalDistribution';
-    const DISTRIBUTION_CODE_EXCESS_CONTRIBUTIONS_CURRENT_YEAR = 'ExcessContributionsCurrentYear';
-    const DISTRIBUTION_CODE_CURRENT_LIFE_INSURANCE_PROTECTION_COST = 'CurrentLifeInsuranceProtectionCost';
-    const DISTRIBUTION_CODE_TEN_YEAR_TAX_OPTION = 'TenYearTaxOption';
-    const DISTRIBUTION_CODE_DESIGNATED_ROTH_DISTRIBUTION = 'DesignatedRothDistribution';
-    const DISTRIBUTION_CODE_REPORTABLE_DEATH_BENEFITS = 'ReportableDeathBenefits';
-    const DISTRIBUTION_CODE_NONQUALIFIED_ANNUITY_PAYMENTS = 'NonqualifiedAnnuityPayments';
-    const DISTRIBUTION_CODE_EPCRS_DISTRIBUTION = 'EPCRSDistribution';
-    const DISTRIBUTION_CODE_CHARITABLE_GIFT_ANNUITY = 'CharitableGiftAnnuity';
-    const DISTRIBUTION_CODE_DIRECT_ROLLOVER = 'DirectRollover';
-    const DISTRIBUTION_CODE_ROTH_ACCOUNT_TO_IRA_DIRECT_ROLLOVER = 'RothAccountToIRADirectRollover';
-    const DISTRIBUTION_CODE_EARLY_ROTH_IRA_DISTRIBUTION = 'EarlyRothIRADistribution';
-    const DISTRIBUTION_CODE_IRA_ASSETS_NO_FMV = 'IRAAssetsNoFMV';
-    const DISTRIBUTION_CODE_LOANS_DEEMED_DISTRIBUTIONS = 'LoansDeemedDistributions';
-    const DISTRIBUTION_CODE_QUALIFIED_PLAN_LOAN_OFFSETS = 'QualifiedPlanLoanOffsets';
-    const DISTRIBUTION_CODE_RECHARACTERIZED_IRA_NEXT_YEAR = 'RecharacterizedIRANextYear';
-    const DISTRIBUTION_CODE_EXCESS_CONTRIBUTIONS_PREVIOUS_YEAR = 'ExcessContributionsPreviousYear';
-    const DISTRIBUTION_CODE_QUALIFIED_ROTH_IRA_DISTRIBUTION = 'QualifiedRothIRADistribution';
-    const DISTRIBUTION_CODE_RECHARACTERIZED_IRA_PREVIOUS_YEAR = 'RecharacterizedIRAPreviousYear';
-    const DISTRIBUTION_CODE_EARLY_SIMPLE_IRA_DISTRIBUTION = 'EarlySimpleIRADistribution';
-    const DISTRIBUTION_CODE_ROTH_IRA_DISTRIBUTION_EXCEPTION = 'RothIRADistributionException';
-    const DISTRIBUTION_CODE_ESOP_DISTRIBUTION = 'ESOPDistribution';
-    const DISTRIBUTION_CODE_LONG_TERM_CARE_INSURANCE = 'LongTermCareInsurance';
+    const DISTRIBUTION_CODE__1 = '1';
+    const DISTRIBUTION_CODE__2 = '2';
+    const DISTRIBUTION_CODE__3 = '3';
+    const DISTRIBUTION_CODE__4 = '4';
+    const DISTRIBUTION_CODE__5 = '5';
+    const DISTRIBUTION_CODE__6 = '6';
+    const DISTRIBUTION_CODE__7 = '7';
+    const DISTRIBUTION_CODE__8 = '8';
+    const DISTRIBUTION_CODE__9 = '9';
+    const DISTRIBUTION_CODE_A = 'A';
+    const DISTRIBUTION_CODE_B = 'B';
+    const DISTRIBUTION_CODE_C = 'C';
+    const DISTRIBUTION_CODE_D = 'D';
+    const DISTRIBUTION_CODE_E = 'E';
+    const DISTRIBUTION_CODE_F = 'F';
+    const DISTRIBUTION_CODE_G = 'G';
+    const DISTRIBUTION_CODE_H = 'H';
+    const DISTRIBUTION_CODE_J = 'J';
+    const DISTRIBUTION_CODE_K = 'K';
+    const DISTRIBUTION_CODE_L = 'L';
+    const DISTRIBUTION_CODE_M = 'M';
+    const DISTRIBUTION_CODE_N = 'N';
+    const DISTRIBUTION_CODE_P = 'P';
+    const DISTRIBUTION_CODE_Q = 'Q';
+    const DISTRIBUTION_CODE_R = 'R';
+    const DISTRIBUTION_CODE_S = 'S';
+    const DISTRIBUTION_CODE_T = 'T';
+    const DISTRIBUTION_CODE_U = 'U';
+    const DISTRIBUTION_CODE_W = 'W';
     const SECOND_DISTRIBUTION_CODE_EARLY_DISTRIBUTION_NO_EXCEPTION = 'EarlyDistributionNoException';
     const SECOND_DISTRIBUTION_CODE_EARLY_DISTRIBUTION_WITH_EXCEPTION = 'EarlyDistributionWithException';
     const SECOND_DISTRIBUTION_CODE_DISABILITY = 'Disability';
@@ -465,35 +465,35 @@ class Form1099RListItem implements ModelInterface, ArrayAccess, \JsonSerializabl
     public function getDistributionCodeAllowableValues()
     {
         return [
-            self::DISTRIBUTION_CODE_EARLY_DISTRIBUTION_NO_EXCEPTION,
-            self::DISTRIBUTION_CODE_EARLY_DISTRIBUTION_WITH_EXCEPTION,
-            self::DISTRIBUTION_CODE_DISABILITY,
-            self::DISTRIBUTION_CODE_DEATH,
-            self::DISTRIBUTION_CODE_PROHIBITED_TRANSACTION,
-            self::DISTRIBUTION_CODE_SECTION1035_EXCHANGE,
-            self::DISTRIBUTION_CODE_NORMAL_DISTRIBUTION,
-            self::DISTRIBUTION_CODE_EXCESS_CONTRIBUTIONS_CURRENT_YEAR,
-            self::DISTRIBUTION_CODE_CURRENT_LIFE_INSURANCE_PROTECTION_COST,
-            self::DISTRIBUTION_CODE_TEN_YEAR_TAX_OPTION,
-            self::DISTRIBUTION_CODE_DESIGNATED_ROTH_DISTRIBUTION,
-            self::DISTRIBUTION_CODE_REPORTABLE_DEATH_BENEFITS,
-            self::DISTRIBUTION_CODE_NONQUALIFIED_ANNUITY_PAYMENTS,
-            self::DISTRIBUTION_CODE_EPCRS_DISTRIBUTION,
-            self::DISTRIBUTION_CODE_CHARITABLE_GIFT_ANNUITY,
-            self::DISTRIBUTION_CODE_DIRECT_ROLLOVER,
-            self::DISTRIBUTION_CODE_ROTH_ACCOUNT_TO_IRA_DIRECT_ROLLOVER,
-            self::DISTRIBUTION_CODE_EARLY_ROTH_IRA_DISTRIBUTION,
-            self::DISTRIBUTION_CODE_IRA_ASSETS_NO_FMV,
-            self::DISTRIBUTION_CODE_LOANS_DEEMED_DISTRIBUTIONS,
-            self::DISTRIBUTION_CODE_QUALIFIED_PLAN_LOAN_OFFSETS,
-            self::DISTRIBUTION_CODE_RECHARACTERIZED_IRA_NEXT_YEAR,
-            self::DISTRIBUTION_CODE_EXCESS_CONTRIBUTIONS_PREVIOUS_YEAR,
-            self::DISTRIBUTION_CODE_QUALIFIED_ROTH_IRA_DISTRIBUTION,
-            self::DISTRIBUTION_CODE_RECHARACTERIZED_IRA_PREVIOUS_YEAR,
-            self::DISTRIBUTION_CODE_EARLY_SIMPLE_IRA_DISTRIBUTION,
-            self::DISTRIBUTION_CODE_ROTH_IRA_DISTRIBUTION_EXCEPTION,
-            self::DISTRIBUTION_CODE_ESOP_DISTRIBUTION,
-            self::DISTRIBUTION_CODE_LONG_TERM_CARE_INSURANCE,
+            self::DISTRIBUTION_CODE__1,
+            self::DISTRIBUTION_CODE__2,
+            self::DISTRIBUTION_CODE__3,
+            self::DISTRIBUTION_CODE__4,
+            self::DISTRIBUTION_CODE__5,
+            self::DISTRIBUTION_CODE__6,
+            self::DISTRIBUTION_CODE__7,
+            self::DISTRIBUTION_CODE__8,
+            self::DISTRIBUTION_CODE__9,
+            self::DISTRIBUTION_CODE_A,
+            self::DISTRIBUTION_CODE_B,
+            self::DISTRIBUTION_CODE_C,
+            self::DISTRIBUTION_CODE_D,
+            self::DISTRIBUTION_CODE_E,
+            self::DISTRIBUTION_CODE_F,
+            self::DISTRIBUTION_CODE_G,
+            self::DISTRIBUTION_CODE_H,
+            self::DISTRIBUTION_CODE_J,
+            self::DISTRIBUTION_CODE_K,
+            self::DISTRIBUTION_CODE_L,
+            self::DISTRIBUTION_CODE_M,
+            self::DISTRIBUTION_CODE_N,
+            self::DISTRIBUTION_CODE_P,
+            self::DISTRIBUTION_CODE_Q,
+            self::DISTRIBUTION_CODE_R,
+            self::DISTRIBUTION_CODE_S,
+            self::DISTRIBUTION_CODE_T,
+            self::DISTRIBUTION_CODE_U,
+            self::DISTRIBUTION_CODE_W,
         ];
     }
 
@@ -592,8 +592,8 @@ class Form1099RListItem implements ModelInterface, ArrayAccess, \JsonSerializabl
         $this->container['tax_year'] = $data['tax_year'] ?? null;
         $this->container['issuer_id'] = $data['issuer_id'] ?? null;
         $this->container['reference_id'] = $data['reference_id'] ?? null;
-        $this->container['recipient_name'] = $data['recipient_name'] ?? null;
         $this->container['recipient_tin'] = $data['recipient_tin'] ?? null;
+        $this->container['recipient_name'] = $data['recipient_name'] ?? null;
         $this->container['tin_type'] = $data['tin_type'] ?? null;
         $this->container['recipient_second_name'] = $data['recipient_second_name'] ?? null;
         $this->container['address'] = $data['address'] ?? null;
@@ -641,6 +641,16 @@ class Form1099RListItem implements ModelInterface, ArrayAccess, \JsonSerializabl
             );
         }
 
+        if ($this->container['tax_year'] === null) {
+            $invalidProperties[] = "'tax_year' can't be null";
+        }
+        if ($this->container['recipient_name'] === null) {
+            $invalidProperties[] = "'recipient_name' can't be null";
+        }
+        if ((mb_strlen($this->container['recipient_name']) < 1)) {
+            $invalidProperties[] = "invalid value for 'recipient_name', the character length must be bigger than or equal to 1.";
+        }
+
         $allowedValues = $this->getTinTypeAllowableValues();
         if (!is_null($this->container['tin_type']) && !in_array($this->container['tin_type'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -648,6 +658,27 @@ class Form1099RListItem implements ModelInterface, ArrayAccess, \JsonSerializabl
                 $this->container['tin_type'],
                 implode("', '", $allowedValues)
             );
+        }
+
+        if ($this->container['address'] === null) {
+            $invalidProperties[] = "'address' can't be null";
+        }
+        if ((mb_strlen($this->container['address']) < 1)) {
+            $invalidProperties[] = "invalid value for 'address', the character length must be bigger than or equal to 1.";
+        }
+
+        if ($this->container['city'] === null) {
+            $invalidProperties[] = "'city' can't be null";
+        }
+        if ((mb_strlen($this->container['city']) < 1)) {
+            $invalidProperties[] = "invalid value for 'city', the character length must be bigger than or equal to 1.";
+        }
+
+        if ($this->container['country_code'] === null) {
+            $invalidProperties[] = "'country_code' can't be null";
+        }
+        if ((mb_strlen($this->container['country_code']) < 1)) {
+            $invalidProperties[] = "invalid value for 'country_code', the character length must be bigger than or equal to 1.";
         }
 
         return $invalidProperties;
@@ -678,7 +709,7 @@ class Form1099RListItem implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets gross_distribution
      *
-     * @param float|null $gross_distribution gross_distribution
+     * @param float|null $gross_distribution Gross distribution
      *
      * @return self
      */
@@ -702,7 +733,7 @@ class Form1099RListItem implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets taxable_amount
      *
-     * @param float|null $taxable_amount taxable_amount
+     * @param float|null $taxable_amount Taxable amount
      *
      * @return self
      */
@@ -726,7 +757,7 @@ class Form1099RListItem implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets taxable_amount_not_determined
      *
-     * @param bool|null $taxable_amount_not_determined taxable_amount_not_determined
+     * @param bool|null $taxable_amount_not_determined Taxable amount not determined
      *
      * @return self
      */
@@ -750,7 +781,7 @@ class Form1099RListItem implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets total_distribution_determined
      *
-     * @param bool|null $total_distribution_determined total_distribution_determined
+     * @param bool|null $total_distribution_determined Total distribution
      *
      * @return self
      */
@@ -774,7 +805,7 @@ class Form1099RListItem implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets capital_gain
      *
-     * @param float|null $capital_gain capital_gain
+     * @param float|null $capital_gain Capital gain (included in Box 2a)
      *
      * @return self
      */
@@ -798,7 +829,7 @@ class Form1099RListItem implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets federal_income_tax_withheld
      *
-     * @param float|null $federal_income_tax_withheld federal_income_tax_withheld
+     * @param float|null $federal_income_tax_withheld Federal income tax withheld
      *
      * @return self
      */
@@ -822,7 +853,7 @@ class Form1099RListItem implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets employee_contributions_or_designated_roth_or_insurance_premiums
      *
-     * @param float|null $employee_contributions_or_designated_roth_or_insurance_premiums employee_contributions_or_designated_roth_or_insurance_premiums
+     * @param float|null $employee_contributions_or_designated_roth_or_insurance_premiums Employee contributions/Designated Roth contributions or insurance premiums
      *
      * @return self
      */
@@ -846,7 +877,7 @@ class Form1099RListItem implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets net_unrealized_appreciation_in_employer_securities
      *
-     * @param float|null $net_unrealized_appreciation_in_employer_securities net_unrealized_appreciation_in_employer_securities
+     * @param float|null $net_unrealized_appreciation_in_employer_securities Net unrealized appreciation in employer's securities
      *
      * @return self
      */
@@ -870,7 +901,7 @@ class Form1099RListItem implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets distribution_code
      *
-     * @param string|null $distribution_code distribution_code
+     * @param string|null $distribution_code Distribution code
      *
      * @return self
      */
@@ -904,7 +935,7 @@ class Form1099RListItem implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets second_distribution_code
      *
-     * @param string|null $second_distribution_code second_distribution_code
+     * @param string|null $second_distribution_code Second distribution code
      *
      * @return self
      */
@@ -938,7 +969,7 @@ class Form1099RListItem implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets ira_sep_simple
      *
-     * @param bool|null $ira_sep_simple ira_sep_simple
+     * @param bool|null $ira_sep_simple IRA/SEP/SIMPLE
      *
      * @return self
      */
@@ -962,7 +993,7 @@ class Form1099RListItem implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets traditional_ira_sep_simple_or_roth_conversion_amount
      *
-     * @param float|null $traditional_ira_sep_simple_or_roth_conversion_amount traditional_ira_sep_simple_or_roth_conversion_amount
+     * @param float|null $traditional_ira_sep_simple_or_roth_conversion_amount Traditional IRA/SEP/SIMPLE or Roth conversion amount
      *
      * @return self
      */
@@ -986,7 +1017,7 @@ class Form1099RListItem implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets other_amount
      *
-     * @param float|null $other_amount other_amount
+     * @param float|null $other_amount Other amount
      *
      * @return self
      */
@@ -1010,7 +1041,7 @@ class Form1099RListItem implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets other_percentage
      *
-     * @param string|null $other_percentage other_percentage
+     * @param string|null $other_percentage Other percentage
      *
      * @return self
      */
@@ -1034,7 +1065,7 @@ class Form1099RListItem implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets total_distribution_percentage
      *
-     * @param string|null $total_distribution_percentage total_distribution_percentage
+     * @param string|null $total_distribution_percentage Total distribution percentage
      *
      * @return self
      */
@@ -1058,7 +1089,7 @@ class Form1099RListItem implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets total_employee_contributions
      *
-     * @param float|null $total_employee_contributions total_employee_contributions
+     * @param float|null $total_employee_contributions Total employee contributions
      *
      * @return self
      */
@@ -1082,7 +1113,7 @@ class Form1099RListItem implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets amount_allocable_to_irr_within5_years
      *
-     * @param float|null $amount_allocable_to_irr_within5_years amount_allocable_to_irr_within5_years
+     * @param float|null $amount_allocable_to_irr_within5_years Amount allocable to IRR within 5 years
      *
      * @return self
      */
@@ -1106,7 +1137,7 @@ class Form1099RListItem implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets first_year_of_designated_roth_contribution
      *
-     * @param int|null $first_year_of_designated_roth_contribution first_year_of_designated_roth_contribution
+     * @param int|null $first_year_of_designated_roth_contribution First year of designated Roth contribution
      *
      * @return self
      */
@@ -1130,7 +1161,7 @@ class Form1099RListItem implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets fatca_filing_requirement
      *
-     * @param bool|null $fatca_filing_requirement fatca_filing_requirement
+     * @param bool|null $fatca_filing_requirement FATCA filing requirement
      *
      * @return self
      */
@@ -1154,7 +1185,7 @@ class Form1099RListItem implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets date_of_payment
      *
-     * @param \DateTime|null $date_of_payment date_of_payment
+     * @param \DateTime|null $date_of_payment Date of payment
      *
      * @return self
      */
@@ -1178,7 +1209,7 @@ class Form1099RListItem implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets issuer_reference_id
      *
-     * @param string|null $issuer_reference_id issuer_reference_id
+     * @param string|null $issuer_reference_id Issuer Reference ID. One of `issuerReferenceId` or `issuerTin` is required.
      *
      * @return self
      */
@@ -1202,7 +1233,7 @@ class Form1099RListItem implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets issuer_tin
      *
-     * @param string|null $issuer_tin issuer_tin
+     * @param string|null $issuer_tin Issuer TIN. One of `issuerReferenceId` or `issuerTin` is required.
      *
      * @return self
      */
@@ -1216,7 +1247,7 @@ class Form1099RListItem implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Gets tax_year
      *
-     * @return int|null
+     * @return int
      */
     public function getTaxYear()
     {
@@ -1226,7 +1257,7 @@ class Form1099RListItem implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets tax_year
      *
-     * @param int|null $tax_year tax_year
+     * @param int $tax_year Tax year
      *
      * @return self
      */
@@ -1250,7 +1281,7 @@ class Form1099RListItem implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets issuer_id
      *
-     * @param string|null $issuer_id issuer_id
+     * @param string|null $issuer_id Issuer ID
      *
      * @return self
      */
@@ -1274,37 +1305,13 @@ class Form1099RListItem implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets reference_id
      *
-     * @param string|null $reference_id reference_id
+     * @param string|null $reference_id Reference ID
      *
      * @return self
      */
     public function setReferenceId($reference_id)
     {
         $this->container['reference_id'] = $reference_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets recipient_name
-     *
-     * @return string|null
-     */
-    public function getRecipientName()
-    {
-        return $this->container['recipient_name'];
-    }
-
-    /**
-     * Sets recipient_name
-     *
-     * @param string|null $recipient_name recipient_name
-     *
-     * @return self
-     */
-    public function setRecipientName($recipient_name)
-    {
-        $this->container['recipient_name'] = $recipient_name;
 
         return $this;
     }
@@ -1322,13 +1329,42 @@ class Form1099RListItem implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets recipient_tin
      *
-     * @param string|null $recipient_tin recipient_tin
+     * @param string|null $recipient_tin Recipient Tax ID Number
      *
      * @return self
      */
     public function setRecipientTin($recipient_tin)
     {
         $this->container['recipient_tin'] = $recipient_tin;
+
+        return $this;
+    }
+
+    /**
+     * Gets recipient_name
+     *
+     * @return string
+     */
+    public function getRecipientName()
+    {
+        return $this->container['recipient_name'];
+    }
+
+    /**
+     * Sets recipient_name
+     *
+     * @param string $recipient_name Recipient name
+     *
+     * @return self
+     */
+    public function setRecipientName($recipient_name)
+    {
+
+        if ((mb_strlen($recipient_name) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $recipient_name when calling Form1099RListItem., must be bigger than or equal to 1.');
+        }
+
+        $this->container['recipient_name'] = $recipient_name;
 
         return $this;
     }
@@ -1346,7 +1382,7 @@ class Form1099RListItem implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets tin_type
      *
-     * @param string|null $tin_type tin_type
+     * @param string|null $tin_type Type of TIN (Tax ID Number). Will be one of:  * SSN  * EIN  * ITIN  * ATIN
      *
      * @return self
      */
@@ -1380,7 +1416,7 @@ class Form1099RListItem implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets recipient_second_name
      *
-     * @param string|null $recipient_second_name recipient_second_name
+     * @param string|null $recipient_second_name Recipient second name
      *
      * @return self
      */
@@ -1394,7 +1430,7 @@ class Form1099RListItem implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Gets address
      *
-     * @return string|null
+     * @return string
      */
     public function getAddress()
     {
@@ -1404,12 +1440,17 @@ class Form1099RListItem implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets address
      *
-     * @param string|null $address address
+     * @param string $address Address
      *
      * @return self
      */
     public function setAddress($address)
     {
+
+        if ((mb_strlen($address) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $address when calling Form1099RListItem., must be bigger than or equal to 1.');
+        }
+
         $this->container['address'] = $address;
 
         return $this;
@@ -1428,7 +1469,7 @@ class Form1099RListItem implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets address2
      *
-     * @param string|null $address2 address2
+     * @param string|null $address2 Address line 2
      *
      * @return self
      */
@@ -1442,7 +1483,7 @@ class Form1099RListItem implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Gets city
      *
-     * @return string|null
+     * @return string
      */
     public function getCity()
     {
@@ -1452,12 +1493,17 @@ class Form1099RListItem implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets city
      *
-     * @param string|null $city city
+     * @param string $city City
      *
      * @return self
      */
     public function setCity($city)
     {
+
+        if ((mb_strlen($city) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $city when calling Form1099RListItem., must be bigger than or equal to 1.');
+        }
+
         $this->container['city'] = $city;
 
         return $this;
@@ -1476,7 +1522,7 @@ class Form1099RListItem implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets state
      *
-     * @param string|null $state state
+     * @param string|null $state US state. Required if CountryCode is \"US\".
      *
      * @return self
      */
@@ -1500,7 +1546,7 @@ class Form1099RListItem implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets zip
      *
-     * @param string|null $zip zip
+     * @param string|null $zip Zip/postal code
      *
      * @return self
      */
@@ -1524,7 +1570,7 @@ class Form1099RListItem implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets recipient_email
      *
-     * @param string|null $recipient_email recipient_email
+     * @param string|null $recipient_email Recipient email address
      *
      * @return self
      */
@@ -1548,7 +1594,7 @@ class Form1099RListItem implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets account_number
      *
-     * @param string|null $account_number account_number
+     * @param string|null $account_number Account number
      *
      * @return self
      */
@@ -1572,7 +1618,7 @@ class Form1099RListItem implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets office_code
      *
-     * @param string|null $office_code office_code
+     * @param string|null $office_code Office code
      *
      * @return self
      */
@@ -1596,7 +1642,7 @@ class Form1099RListItem implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets recipient_non_us_province
      *
-     * @param string|null $recipient_non_us_province recipient_non_us_province
+     * @param string|null $recipient_non_us_province Foreign province
      *
      * @return self
      */
@@ -1610,7 +1656,7 @@ class Form1099RListItem implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Gets country_code
      *
-     * @return string|null
+     * @return string
      */
     public function getCountryCode()
     {
@@ -1620,12 +1666,17 @@ class Form1099RListItem implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets country_code
      *
-     * @param string|null $country_code country_code
+     * @param string $country_code Country code, as defined at https://www.irs.gov/e-file-providers/country-codes
      *
      * @return self
      */
     public function setCountryCode($country_code)
     {
+
+        if ((mb_strlen($country_code) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $country_code when calling Form1099RListItem., must be bigger than or equal to 1.');
+        }
+
         $this->container['country_code'] = $country_code;
 
         return $this;
@@ -1644,7 +1695,7 @@ class Form1099RListItem implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets federal_e_file
      *
-     * @param bool|null $federal_e_file federal_e_file
+     * @param bool|null $federal_e_file Boolean indicating that federal e-filing should be scheduled for this form
      *
      * @return self
      */
@@ -1668,7 +1719,7 @@ class Form1099RListItem implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets postal_mail
      *
-     * @param bool|null $postal_mail postal_mail
+     * @param bool|null $postal_mail Boolean indicating that postal mailing to the recipient should be scheduled for this form
      *
      * @return self
      */
@@ -1692,7 +1743,7 @@ class Form1099RListItem implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets state_e_file
      *
-     * @param bool|null $state_e_file state_e_file
+     * @param bool|null $state_e_file Boolean indicating that state e-filing should be scheduled for this form
      *
      * @return self
      */
@@ -1716,7 +1767,7 @@ class Form1099RListItem implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets tin_match
      *
-     * @param bool|null $tin_match tin_match
+     * @param bool|null $tin_match Boolean indicating that TIN Matching should be scheduled for this form
      *
      * @return self
      */
@@ -1740,7 +1791,7 @@ class Form1099RListItem implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets address_verification
      *
-     * @param bool|null $address_verification address_verification
+     * @param bool|null $address_verification Boolean indicating that address verification should be scheduled for this form
      *
      * @return self
      */
@@ -1764,7 +1815,7 @@ class Form1099RListItem implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets state_and_local_withholding
      *
-     * @param \Avalara\SDK\Model\A1099\V2\StateAndLocalWithholdingRequest|null $state_and_local_withholding state_and_local_withholding
+     * @param \Avalara\SDK\Model\A1099\V2\StateAndLocalWithholdingRequest|null $state_and_local_withholding State and local withholding information
      *
      * @return self
      */
