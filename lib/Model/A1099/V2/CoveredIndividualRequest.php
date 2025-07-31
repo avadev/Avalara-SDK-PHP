@@ -77,19 +77,19 @@ class CoveredIndividualRequest implements ModelInterface, ArrayAccess, \JsonSeri
         'name_suffix' => 'string',
         'tin' => 'string',
         'birth_date' => '\DateTime',
-        'covered_month_indicator0' => 'bool',
-        'covered_month_indicator1' => 'bool',
-        'covered_month_indicator2' => 'bool',
-        'covered_month_indicator3' => 'bool',
-        'covered_month_indicator4' => 'bool',
-        'covered_month_indicator5' => 'bool',
-        'covered_month_indicator6' => 'bool',
-        'covered_month_indicator7' => 'bool',
-        'covered_month_indicator8' => 'bool',
-        'covered_month_indicator9' => 'bool',
-        'covered_month_indicator10' => 'bool',
-        'covered_month_indicator11' => 'bool',
-        'covered_month_indicator12' => 'bool'
+        'covered_all_months' => 'bool',
+        'covered_january' => 'bool',
+        'covered_february' => 'bool',
+        'covered_march' => 'bool',
+        'covered_april' => 'bool',
+        'covered_may' => 'bool',
+        'covered_june' => 'bool',
+        'covered_july' => 'bool',
+        'covered_august' => 'bool',
+        'covered_september' => 'bool',
+        'covered_october' => 'bool',
+        'covered_november' => 'bool',
+        'covered_december' => 'bool'
     ];
 
     /**
@@ -106,19 +106,19 @@ class CoveredIndividualRequest implements ModelInterface, ArrayAccess, \JsonSeri
         'name_suffix' => null,
         'tin' => null,
         'birth_date' => 'date-time',
-        'covered_month_indicator0' => null,
-        'covered_month_indicator1' => null,
-        'covered_month_indicator2' => null,
-        'covered_month_indicator3' => null,
-        'covered_month_indicator4' => null,
-        'covered_month_indicator5' => null,
-        'covered_month_indicator6' => null,
-        'covered_month_indicator7' => null,
-        'covered_month_indicator8' => null,
-        'covered_month_indicator9' => null,
-        'covered_month_indicator10' => null,
-        'covered_month_indicator11' => null,
-        'covered_month_indicator12' => null
+        'covered_all_months' => null,
+        'covered_january' => null,
+        'covered_february' => null,
+        'covered_march' => null,
+        'covered_april' => null,
+        'covered_may' => null,
+        'covered_june' => null,
+        'covered_july' => null,
+        'covered_august' => null,
+        'covered_september' => null,
+        'covered_october' => null,
+        'covered_november' => null,
+        'covered_december' => null
     ];
 
     /**
@@ -154,19 +154,19 @@ class CoveredIndividualRequest implements ModelInterface, ArrayAccess, \JsonSeri
         'name_suffix' => 'nameSuffix',
         'tin' => 'tin',
         'birth_date' => 'birthDate',
-        'covered_month_indicator0' => 'coveredMonthIndicator0',
-        'covered_month_indicator1' => 'coveredMonthIndicator1',
-        'covered_month_indicator2' => 'coveredMonthIndicator2',
-        'covered_month_indicator3' => 'coveredMonthIndicator3',
-        'covered_month_indicator4' => 'coveredMonthIndicator4',
-        'covered_month_indicator5' => 'coveredMonthIndicator5',
-        'covered_month_indicator6' => 'coveredMonthIndicator6',
-        'covered_month_indicator7' => 'coveredMonthIndicator7',
-        'covered_month_indicator8' => 'coveredMonthIndicator8',
-        'covered_month_indicator9' => 'coveredMonthIndicator9',
-        'covered_month_indicator10' => 'coveredMonthIndicator10',
-        'covered_month_indicator11' => 'coveredMonthIndicator11',
-        'covered_month_indicator12' => 'coveredMonthIndicator12'
+        'covered_all_months' => 'coveredAllMonths',
+        'covered_january' => 'coveredJanuary',
+        'covered_february' => 'coveredFebruary',
+        'covered_march' => 'coveredMarch',
+        'covered_april' => 'coveredApril',
+        'covered_may' => 'coveredMay',
+        'covered_june' => 'coveredJune',
+        'covered_july' => 'coveredJuly',
+        'covered_august' => 'coveredAugust',
+        'covered_september' => 'coveredSeptember',
+        'covered_october' => 'coveredOctober',
+        'covered_november' => 'coveredNovember',
+        'covered_december' => 'coveredDecember'
     ];
 
     /**
@@ -181,19 +181,19 @@ class CoveredIndividualRequest implements ModelInterface, ArrayAccess, \JsonSeri
         'name_suffix' => 'setNameSuffix',
         'tin' => 'setTin',
         'birth_date' => 'setBirthDate',
-        'covered_month_indicator0' => 'setCoveredMonthIndicator0',
-        'covered_month_indicator1' => 'setCoveredMonthIndicator1',
-        'covered_month_indicator2' => 'setCoveredMonthIndicator2',
-        'covered_month_indicator3' => 'setCoveredMonthIndicator3',
-        'covered_month_indicator4' => 'setCoveredMonthIndicator4',
-        'covered_month_indicator5' => 'setCoveredMonthIndicator5',
-        'covered_month_indicator6' => 'setCoveredMonthIndicator6',
-        'covered_month_indicator7' => 'setCoveredMonthIndicator7',
-        'covered_month_indicator8' => 'setCoveredMonthIndicator8',
-        'covered_month_indicator9' => 'setCoveredMonthIndicator9',
-        'covered_month_indicator10' => 'setCoveredMonthIndicator10',
-        'covered_month_indicator11' => 'setCoveredMonthIndicator11',
-        'covered_month_indicator12' => 'setCoveredMonthIndicator12'
+        'covered_all_months' => 'setCoveredAllMonths',
+        'covered_january' => 'setCoveredJanuary',
+        'covered_february' => 'setCoveredFebruary',
+        'covered_march' => 'setCoveredMarch',
+        'covered_april' => 'setCoveredApril',
+        'covered_may' => 'setCoveredMay',
+        'covered_june' => 'setCoveredJune',
+        'covered_july' => 'setCoveredJuly',
+        'covered_august' => 'setCoveredAugust',
+        'covered_september' => 'setCoveredSeptember',
+        'covered_october' => 'setCoveredOctober',
+        'covered_november' => 'setCoveredNovember',
+        'covered_december' => 'setCoveredDecember'
     ];
 
     /**
@@ -208,19 +208,19 @@ class CoveredIndividualRequest implements ModelInterface, ArrayAccess, \JsonSeri
         'name_suffix' => 'getNameSuffix',
         'tin' => 'getTin',
         'birth_date' => 'getBirthDate',
-        'covered_month_indicator0' => 'getCoveredMonthIndicator0',
-        'covered_month_indicator1' => 'getCoveredMonthIndicator1',
-        'covered_month_indicator2' => 'getCoveredMonthIndicator2',
-        'covered_month_indicator3' => 'getCoveredMonthIndicator3',
-        'covered_month_indicator4' => 'getCoveredMonthIndicator4',
-        'covered_month_indicator5' => 'getCoveredMonthIndicator5',
-        'covered_month_indicator6' => 'getCoveredMonthIndicator6',
-        'covered_month_indicator7' => 'getCoveredMonthIndicator7',
-        'covered_month_indicator8' => 'getCoveredMonthIndicator8',
-        'covered_month_indicator9' => 'getCoveredMonthIndicator9',
-        'covered_month_indicator10' => 'getCoveredMonthIndicator10',
-        'covered_month_indicator11' => 'getCoveredMonthIndicator11',
-        'covered_month_indicator12' => 'getCoveredMonthIndicator12'
+        'covered_all_months' => 'getCoveredAllMonths',
+        'covered_january' => 'getCoveredJanuary',
+        'covered_february' => 'getCoveredFebruary',
+        'covered_march' => 'getCoveredMarch',
+        'covered_april' => 'getCoveredApril',
+        'covered_may' => 'getCoveredMay',
+        'covered_june' => 'getCoveredJune',
+        'covered_july' => 'getCoveredJuly',
+        'covered_august' => 'getCoveredAugust',
+        'covered_september' => 'getCoveredSeptember',
+        'covered_october' => 'getCoveredOctober',
+        'covered_november' => 'getCoveredNovember',
+        'covered_december' => 'getCoveredDecember'
     ];
 
     /**
@@ -286,19 +286,19 @@ class CoveredIndividualRequest implements ModelInterface, ArrayAccess, \JsonSeri
         $this->container['name_suffix'] = $data['name_suffix'] ?? null;
         $this->container['tin'] = $data['tin'] ?? null;
         $this->container['birth_date'] = $data['birth_date'] ?? null;
-        $this->container['covered_month_indicator0'] = $data['covered_month_indicator0'] ?? null;
-        $this->container['covered_month_indicator1'] = $data['covered_month_indicator1'] ?? null;
-        $this->container['covered_month_indicator2'] = $data['covered_month_indicator2'] ?? null;
-        $this->container['covered_month_indicator3'] = $data['covered_month_indicator3'] ?? null;
-        $this->container['covered_month_indicator4'] = $data['covered_month_indicator4'] ?? null;
-        $this->container['covered_month_indicator5'] = $data['covered_month_indicator5'] ?? null;
-        $this->container['covered_month_indicator6'] = $data['covered_month_indicator6'] ?? null;
-        $this->container['covered_month_indicator7'] = $data['covered_month_indicator7'] ?? null;
-        $this->container['covered_month_indicator8'] = $data['covered_month_indicator8'] ?? null;
-        $this->container['covered_month_indicator9'] = $data['covered_month_indicator9'] ?? null;
-        $this->container['covered_month_indicator10'] = $data['covered_month_indicator10'] ?? null;
-        $this->container['covered_month_indicator11'] = $data['covered_month_indicator11'] ?? null;
-        $this->container['covered_month_indicator12'] = $data['covered_month_indicator12'] ?? null;
+        $this->container['covered_all_months'] = $data['covered_all_months'] ?? null;
+        $this->container['covered_january'] = $data['covered_january'] ?? null;
+        $this->container['covered_february'] = $data['covered_february'] ?? null;
+        $this->container['covered_march'] = $data['covered_march'] ?? null;
+        $this->container['covered_april'] = $data['covered_april'] ?? null;
+        $this->container['covered_may'] = $data['covered_may'] ?? null;
+        $this->container['covered_june'] = $data['covered_june'] ?? null;
+        $this->container['covered_july'] = $data['covered_july'] ?? null;
+        $this->container['covered_august'] = $data['covered_august'] ?? null;
+        $this->container['covered_september'] = $data['covered_september'] ?? null;
+        $this->container['covered_october'] = $data['covered_october'] ?? null;
+        $this->container['covered_november'] = $data['covered_november'] ?? null;
+        $this->container['covered_december'] = $data['covered_december'] ?? null;
     }
 
     /**
@@ -470,313 +470,313 @@ class CoveredIndividualRequest implements ModelInterface, ArrayAccess, \JsonSeri
     }
 
     /**
-     * Gets covered_month_indicator0
+     * Gets covered_all_months
      *
      * @return bool|null
      */
-    public function getCoveredMonthIndicator0()
+    public function getCoveredAllMonths()
     {
-        return $this->container['covered_month_indicator0'];
+        return $this->container['covered_all_months'];
     }
 
     /**
-     * Sets covered_month_indicator0
+     * Sets covered_all_months
      *
-     * @param bool|null $covered_month_indicator0 Coverage indicator for all 12 months
+     * @param bool|null $covered_all_months Coverage indicator for all 12 months
      *
      * @return self
      */
-    public function setCoveredMonthIndicator0($covered_month_indicator0)
+    public function setCoveredAllMonths($covered_all_months)
     {
-        $this->container['covered_month_indicator0'] = $covered_month_indicator0;
+        $this->container['covered_all_months'] = $covered_all_months;
 
         return $this;
     }
 
     /**
-     * Gets covered_month_indicator1
+     * Gets covered_january
      *
      * @return bool|null
      */
-    public function getCoveredMonthIndicator1()
+    public function getCoveredJanuary()
     {
-        return $this->container['covered_month_indicator1'];
+        return $this->container['covered_january'];
     }
 
     /**
-     * Sets covered_month_indicator1
+     * Sets covered_january
      *
-     * @param bool|null $covered_month_indicator1 Coverage indicator for January
+     * @param bool|null $covered_january Coverage indicator for January
      *
      * @return self
      */
-    public function setCoveredMonthIndicator1($covered_month_indicator1)
+    public function setCoveredJanuary($covered_january)
     {
-        $this->container['covered_month_indicator1'] = $covered_month_indicator1;
+        $this->container['covered_january'] = $covered_january;
 
         return $this;
     }
 
     /**
-     * Gets covered_month_indicator2
+     * Gets covered_february
      *
      * @return bool|null
      */
-    public function getCoveredMonthIndicator2()
+    public function getCoveredFebruary()
     {
-        return $this->container['covered_month_indicator2'];
+        return $this->container['covered_february'];
     }
 
     /**
-     * Sets covered_month_indicator2
+     * Sets covered_february
      *
-     * @param bool|null $covered_month_indicator2 Coverage indicator for February
+     * @param bool|null $covered_february Coverage indicator for February
      *
      * @return self
      */
-    public function setCoveredMonthIndicator2($covered_month_indicator2)
+    public function setCoveredFebruary($covered_february)
     {
-        $this->container['covered_month_indicator2'] = $covered_month_indicator2;
+        $this->container['covered_february'] = $covered_february;
 
         return $this;
     }
 
     /**
-     * Gets covered_month_indicator3
+     * Gets covered_march
      *
      * @return bool|null
      */
-    public function getCoveredMonthIndicator3()
+    public function getCoveredMarch()
     {
-        return $this->container['covered_month_indicator3'];
+        return $this->container['covered_march'];
     }
 
     /**
-     * Sets covered_month_indicator3
+     * Sets covered_march
      *
-     * @param bool|null $covered_month_indicator3 Coverage indicator for March
+     * @param bool|null $covered_march Coverage indicator for March
      *
      * @return self
      */
-    public function setCoveredMonthIndicator3($covered_month_indicator3)
+    public function setCoveredMarch($covered_march)
     {
-        $this->container['covered_month_indicator3'] = $covered_month_indicator3;
+        $this->container['covered_march'] = $covered_march;
 
         return $this;
     }
 
     /**
-     * Gets covered_month_indicator4
+     * Gets covered_april
      *
      * @return bool|null
      */
-    public function getCoveredMonthIndicator4()
+    public function getCoveredApril()
     {
-        return $this->container['covered_month_indicator4'];
+        return $this->container['covered_april'];
     }
 
     /**
-     * Sets covered_month_indicator4
+     * Sets covered_april
      *
-     * @param bool|null $covered_month_indicator4 Coverage indicator for April
+     * @param bool|null $covered_april Coverage indicator for April
      *
      * @return self
      */
-    public function setCoveredMonthIndicator4($covered_month_indicator4)
+    public function setCoveredApril($covered_april)
     {
-        $this->container['covered_month_indicator4'] = $covered_month_indicator4;
+        $this->container['covered_april'] = $covered_april;
 
         return $this;
     }
 
     /**
-     * Gets covered_month_indicator5
+     * Gets covered_may
      *
      * @return bool|null
      */
-    public function getCoveredMonthIndicator5()
+    public function getCoveredMay()
     {
-        return $this->container['covered_month_indicator5'];
+        return $this->container['covered_may'];
     }
 
     /**
-     * Sets covered_month_indicator5
+     * Sets covered_may
      *
-     * @param bool|null $covered_month_indicator5 Coverage indicator for May
+     * @param bool|null $covered_may Coverage indicator for May
      *
      * @return self
      */
-    public function setCoveredMonthIndicator5($covered_month_indicator5)
+    public function setCoveredMay($covered_may)
     {
-        $this->container['covered_month_indicator5'] = $covered_month_indicator5;
+        $this->container['covered_may'] = $covered_may;
 
         return $this;
     }
 
     /**
-     * Gets covered_month_indicator6
+     * Gets covered_june
      *
      * @return bool|null
      */
-    public function getCoveredMonthIndicator6()
+    public function getCoveredJune()
     {
-        return $this->container['covered_month_indicator6'];
+        return $this->container['covered_june'];
     }
 
     /**
-     * Sets covered_month_indicator6
+     * Sets covered_june
      *
-     * @param bool|null $covered_month_indicator6 Coverage indicator for June
+     * @param bool|null $covered_june Coverage indicator for June
      *
      * @return self
      */
-    public function setCoveredMonthIndicator6($covered_month_indicator6)
+    public function setCoveredJune($covered_june)
     {
-        $this->container['covered_month_indicator6'] = $covered_month_indicator6;
+        $this->container['covered_june'] = $covered_june;
 
         return $this;
     }
 
     /**
-     * Gets covered_month_indicator7
+     * Gets covered_july
      *
      * @return bool|null
      */
-    public function getCoveredMonthIndicator7()
+    public function getCoveredJuly()
     {
-        return $this->container['covered_month_indicator7'];
+        return $this->container['covered_july'];
     }
 
     /**
-     * Sets covered_month_indicator7
+     * Sets covered_july
      *
-     * @param bool|null $covered_month_indicator7 Coverage indicator for July
+     * @param bool|null $covered_july Coverage indicator for July
      *
      * @return self
      */
-    public function setCoveredMonthIndicator7($covered_month_indicator7)
+    public function setCoveredJuly($covered_july)
     {
-        $this->container['covered_month_indicator7'] = $covered_month_indicator7;
+        $this->container['covered_july'] = $covered_july;
 
         return $this;
     }
 
     /**
-     * Gets covered_month_indicator8
+     * Gets covered_august
      *
      * @return bool|null
      */
-    public function getCoveredMonthIndicator8()
+    public function getCoveredAugust()
     {
-        return $this->container['covered_month_indicator8'];
+        return $this->container['covered_august'];
     }
 
     /**
-     * Sets covered_month_indicator8
+     * Sets covered_august
      *
-     * @param bool|null $covered_month_indicator8 Coverage indicator for August
+     * @param bool|null $covered_august Coverage indicator for August
      *
      * @return self
      */
-    public function setCoveredMonthIndicator8($covered_month_indicator8)
+    public function setCoveredAugust($covered_august)
     {
-        $this->container['covered_month_indicator8'] = $covered_month_indicator8;
+        $this->container['covered_august'] = $covered_august;
 
         return $this;
     }
 
     /**
-     * Gets covered_month_indicator9
+     * Gets covered_september
      *
      * @return bool|null
      */
-    public function getCoveredMonthIndicator9()
+    public function getCoveredSeptember()
     {
-        return $this->container['covered_month_indicator9'];
+        return $this->container['covered_september'];
     }
 
     /**
-     * Sets covered_month_indicator9
+     * Sets covered_september
      *
-     * @param bool|null $covered_month_indicator9 Coverage indicator for September
+     * @param bool|null $covered_september Coverage indicator for September
      *
      * @return self
      */
-    public function setCoveredMonthIndicator9($covered_month_indicator9)
+    public function setCoveredSeptember($covered_september)
     {
-        $this->container['covered_month_indicator9'] = $covered_month_indicator9;
+        $this->container['covered_september'] = $covered_september;
 
         return $this;
     }
 
     /**
-     * Gets covered_month_indicator10
+     * Gets covered_october
      *
      * @return bool|null
      */
-    public function getCoveredMonthIndicator10()
+    public function getCoveredOctober()
     {
-        return $this->container['covered_month_indicator10'];
+        return $this->container['covered_october'];
     }
 
     /**
-     * Sets covered_month_indicator10
+     * Sets covered_october
      *
-     * @param bool|null $covered_month_indicator10 Coverage indicator for October
+     * @param bool|null $covered_october Coverage indicator for October
      *
      * @return self
      */
-    public function setCoveredMonthIndicator10($covered_month_indicator10)
+    public function setCoveredOctober($covered_october)
     {
-        $this->container['covered_month_indicator10'] = $covered_month_indicator10;
+        $this->container['covered_october'] = $covered_october;
 
         return $this;
     }
 
     /**
-     * Gets covered_month_indicator11
+     * Gets covered_november
      *
      * @return bool|null
      */
-    public function getCoveredMonthIndicator11()
+    public function getCoveredNovember()
     {
-        return $this->container['covered_month_indicator11'];
+        return $this->container['covered_november'];
     }
 
     /**
-     * Sets covered_month_indicator11
+     * Sets covered_november
      *
-     * @param bool|null $covered_month_indicator11 Coverage indicator for November
+     * @param bool|null $covered_november Coverage indicator for November
      *
      * @return self
      */
-    public function setCoveredMonthIndicator11($covered_month_indicator11)
+    public function setCoveredNovember($covered_november)
     {
-        $this->container['covered_month_indicator11'] = $covered_month_indicator11;
+        $this->container['covered_november'] = $covered_november;
 
         return $this;
     }
 
     /**
-     * Gets covered_month_indicator12
+     * Gets covered_december
      *
      * @return bool|null
      */
-    public function getCoveredMonthIndicator12()
+    public function getCoveredDecember()
     {
-        return $this->container['covered_month_indicator12'];
+        return $this->container['covered_december'];
     }
 
     /**
-     * Sets covered_month_indicator12
+     * Sets covered_december
      *
-     * @param bool|null $covered_month_indicator12 Coverage indicator for December
+     * @param bool|null $covered_december Coverage indicator for December
      *
      * @return self
      */
-    public function setCoveredMonthIndicator12($covered_month_indicator12)
+    public function setCoveredDecember($covered_december)
     {
-        $this->container['covered_month_indicator12'] = $covered_month_indicator12;
+        $this->container['covered_december'] = $covered_december;
 
         return $this;
     }

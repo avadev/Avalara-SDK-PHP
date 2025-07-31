@@ -102,19 +102,21 @@ class Form1042SListItemResponse implements ModelInterface, ArrayAccess, \JsonSer
         'issuer_tin' => 'string',
         'tax_year' => 'int',
         'federal_efile' => 'bool',
-        'federal_efile_status' => '\Avalara\SDK\Model\A1099\V2\Form1099StatusDetailResponse',
+        'federal_efile_status' => '\Avalara\SDK\Model\A1099\V2\StatusDetail',
         'state_efile' => 'bool',
         'state_efile_status' => '\Avalara\SDK\Model\A1099\V2\StateEfileStatusDetailResponse[]',
         'postal_mail' => 'bool',
-        'postal_mail_status' => '\Avalara\SDK\Model\A1099\V2\Form1099StatusDetailResponse',
+        'postal_mail_status' => '\Avalara\SDK\Model\A1099\V2\StatusDetail',
         'tin_match' => 'bool',
-        'tin_match_status' => '\Avalara\SDK\Model\A1099\V2\Form1099StatusDetailResponse',
+        'tin_match_status' => '\Avalara\SDK\Model\A1099\V2\StatusDetail',
         'address_verification' => 'bool',
-        'address_verification_status' => '\Avalara\SDK\Model\A1099\V2\Form1099StatusDetailResponse',
+        'address_verification_status' => '\Avalara\SDK\Model\A1099\V2\StatusDetail',
+        'e_delivery_status' => '\Avalara\SDK\Model\A1099\V2\StatusDetail',
         'reference_id' => 'string',
         'email' => 'string',
         'tin_type' => 'string',
         'tin' => 'string',
+        'second_tin_notice' => 'bool',
         'recipient_name' => 'string',
         'recipient_second_name' => 'string',
         'address' => 'string',
@@ -122,8 +124,11 @@ class Form1042SListItemResponse implements ModelInterface, ArrayAccess, \JsonSer
         'city' => 'string',
         'state' => 'string',
         'zip' => 'string',
-        'foreign_province' => 'string',
+        'non_us_province' => 'string',
         'country_code' => 'string',
+        'account_number' => 'string',
+        'office_code' => 'string',
+        'fatca_filing_requirement' => 'bool',
         'validation_errors' => '\Avalara\SDK\Model\A1099\V2\ValidationErrorResponse[]',
         'created_at' => '\DateTime',
         'updated_at' => '\DateTime',
@@ -178,10 +183,12 @@ class Form1042SListItemResponse implements ModelInterface, ArrayAccess, \JsonSer
         'tin_match_status' => null,
         'address_verification' => null,
         'address_verification_status' => null,
+        'e_delivery_status' => null,
         'reference_id' => null,
         'email' => null,
         'tin_type' => null,
         'tin' => null,
+        'second_tin_notice' => null,
         'recipient_name' => null,
         'recipient_second_name' => null,
         'address' => null,
@@ -189,8 +196,11 @@ class Form1042SListItemResponse implements ModelInterface, ArrayAccess, \JsonSer
         'city' => null,
         'state' => null,
         'zip' => null,
-        'foreign_province' => null,
+        'non_us_province' => null,
         'country_code' => null,
+        'account_number' => null,
+        'office_code' => null,
+        'fatca_filing_requirement' => null,
         'validation_errors' => null,
         'created_at' => 'date-time',
         'updated_at' => 'date-time',
@@ -264,10 +274,12 @@ class Form1042SListItemResponse implements ModelInterface, ArrayAccess, \JsonSer
         'tin_match_status' => 'tinMatchStatus',
         'address_verification' => 'addressVerification',
         'address_verification_status' => 'addressVerificationStatus',
+        'e_delivery_status' => 'eDeliveryStatus',
         'reference_id' => 'referenceId',
         'email' => 'email',
         'tin_type' => 'tinType',
         'tin' => 'tin',
+        'second_tin_notice' => 'secondTinNotice',
         'recipient_name' => 'recipientName',
         'recipient_second_name' => 'recipientSecondName',
         'address' => 'address',
@@ -275,8 +287,11 @@ class Form1042SListItemResponse implements ModelInterface, ArrayAccess, \JsonSer
         'city' => 'city',
         'state' => 'state',
         'zip' => 'zip',
-        'foreign_province' => 'foreignProvince',
+        'non_us_province' => 'nonUsProvince',
         'country_code' => 'countryCode',
+        'account_number' => 'accountNumber',
+        'office_code' => 'officeCode',
+        'fatca_filing_requirement' => 'fatcaFilingRequirement',
         'validation_errors' => 'validationErrors',
         'created_at' => 'createdAt',
         'updated_at' => 'updatedAt',
@@ -329,10 +344,12 @@ class Form1042SListItemResponse implements ModelInterface, ArrayAccess, \JsonSer
         'tin_match_status' => 'setTinMatchStatus',
         'address_verification' => 'setAddressVerification',
         'address_verification_status' => 'setAddressVerificationStatus',
+        'e_delivery_status' => 'setEDeliveryStatus',
         'reference_id' => 'setReferenceId',
         'email' => 'setEmail',
         'tin_type' => 'setTinType',
         'tin' => 'setTin',
+        'second_tin_notice' => 'setSecondTinNotice',
         'recipient_name' => 'setRecipientName',
         'recipient_second_name' => 'setRecipientSecondName',
         'address' => 'setAddress',
@@ -340,8 +357,11 @@ class Form1042SListItemResponse implements ModelInterface, ArrayAccess, \JsonSer
         'city' => 'setCity',
         'state' => 'setState',
         'zip' => 'setZip',
-        'foreign_province' => 'setForeignProvince',
+        'non_us_province' => 'setNonUsProvince',
         'country_code' => 'setCountryCode',
+        'account_number' => 'setAccountNumber',
+        'office_code' => 'setOfficeCode',
+        'fatca_filing_requirement' => 'setFatcaFilingRequirement',
         'validation_errors' => 'setValidationErrors',
         'created_at' => 'setCreatedAt',
         'updated_at' => 'setUpdatedAt',
@@ -394,10 +414,12 @@ class Form1042SListItemResponse implements ModelInterface, ArrayAccess, \JsonSer
         'tin_match_status' => 'getTinMatchStatus',
         'address_verification' => 'getAddressVerification',
         'address_verification_status' => 'getAddressVerificationStatus',
+        'e_delivery_status' => 'getEDeliveryStatus',
         'reference_id' => 'getReferenceId',
         'email' => 'getEmail',
         'tin_type' => 'getTinType',
         'tin' => 'getTin',
+        'second_tin_notice' => 'getSecondTinNotice',
         'recipient_name' => 'getRecipientName',
         'recipient_second_name' => 'getRecipientSecondName',
         'address' => 'getAddress',
@@ -405,8 +427,11 @@ class Form1042SListItemResponse implements ModelInterface, ArrayAccess, \JsonSer
         'city' => 'getCity',
         'state' => 'getState',
         'zip' => 'getZip',
-        'foreign_province' => 'getForeignProvince',
+        'non_us_province' => 'getNonUsProvince',
         'country_code' => 'getCountryCode',
+        'account_number' => 'getAccountNumber',
+        'office_code' => 'getOfficeCode',
+        'fatca_filing_requirement' => 'getFatcaFilingRequirement',
         'validation_errors' => 'getValidationErrors',
         'created_at' => 'getCreatedAt',
         'updated_at' => 'getUpdatedAt',
@@ -510,10 +535,12 @@ class Form1042SListItemResponse implements ModelInterface, ArrayAccess, \JsonSer
         $this->container['tin_match_status'] = $data['tin_match_status'] ?? null;
         $this->container['address_verification'] = $data['address_verification'] ?? null;
         $this->container['address_verification_status'] = $data['address_verification_status'] ?? null;
+        $this->container['e_delivery_status'] = $data['e_delivery_status'] ?? null;
         $this->container['reference_id'] = $data['reference_id'] ?? null;
         $this->container['email'] = $data['email'] ?? null;
         $this->container['tin_type'] = $data['tin_type'] ?? null;
         $this->container['tin'] = $data['tin'] ?? null;
+        $this->container['second_tin_notice'] = $data['second_tin_notice'] ?? null;
         $this->container['recipient_name'] = $data['recipient_name'] ?? null;
         $this->container['recipient_second_name'] = $data['recipient_second_name'] ?? null;
         $this->container['address'] = $data['address'] ?? null;
@@ -521,8 +548,11 @@ class Form1042SListItemResponse implements ModelInterface, ArrayAccess, \JsonSer
         $this->container['city'] = $data['city'] ?? null;
         $this->container['state'] = $data['state'] ?? null;
         $this->container['zip'] = $data['zip'] ?? null;
-        $this->container['foreign_province'] = $data['foreign_province'] ?? null;
+        $this->container['non_us_province'] = $data['non_us_province'] ?? null;
         $this->container['country_code'] = $data['country_code'] ?? null;
+        $this->container['account_number'] = $data['account_number'] ?? null;
+        $this->container['office_code'] = $data['office_code'] ?? null;
+        $this->container['fatca_filing_requirement'] = $data['fatca_filing_requirement'] ?? null;
         $this->container['validation_errors'] = $data['validation_errors'] ?? null;
         $this->container['created_at'] = $data['created_at'] ?? null;
         $this->container['updated_at'] = $data['updated_at'] ?? null;
@@ -1342,7 +1372,7 @@ class Form1042SListItemResponse implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Gets federal_efile_status
      *
-     * @return \Avalara\SDK\Model\A1099\V2\Form1099StatusDetailResponse|null
+     * @return \Avalara\SDK\Model\A1099\V2\StatusDetail|null
      */
     public function getFederalEfileStatus()
     {
@@ -1352,7 +1382,7 @@ class Form1042SListItemResponse implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets federal_efile_status
      *
-     * @param \Avalara\SDK\Model\A1099\V2\Form1099StatusDetailResponse|null $federal_efile_status Federal e-file status
+     * @param \Avalara\SDK\Model\A1099\V2\StatusDetail|null $federal_efile_status Federal e-file status
      *
      * @return self
      */
@@ -1440,7 +1470,7 @@ class Form1042SListItemResponse implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Gets postal_mail_status
      *
-     * @return \Avalara\SDK\Model\A1099\V2\Form1099StatusDetailResponse|null
+     * @return \Avalara\SDK\Model\A1099\V2\StatusDetail|null
      */
     public function getPostalMailStatus()
     {
@@ -1450,7 +1480,7 @@ class Form1042SListItemResponse implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets postal_mail_status
      *
-     * @param \Avalara\SDK\Model\A1099\V2\Form1099StatusDetailResponse|null $postal_mail_status Postal mail to recipient status
+     * @param \Avalara\SDK\Model\A1099\V2\StatusDetail|null $postal_mail_status Postal mail to recipient status
      *
      * @return self
      */
@@ -1488,7 +1518,7 @@ class Form1042SListItemResponse implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Gets tin_match_status
      *
-     * @return \Avalara\SDK\Model\A1099\V2\Form1099StatusDetailResponse|null
+     * @return \Avalara\SDK\Model\A1099\V2\StatusDetail|null
      */
     public function getTinMatchStatus()
     {
@@ -1498,7 +1528,7 @@ class Form1042SListItemResponse implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets tin_match_status
      *
-     * @param \Avalara\SDK\Model\A1099\V2\Form1099StatusDetailResponse|null $tin_match_status TIN Match status
+     * @param \Avalara\SDK\Model\A1099\V2\StatusDetail|null $tin_match_status TIN Match status
      *
      * @return self
      */
@@ -1536,7 +1566,7 @@ class Form1042SListItemResponse implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Gets address_verification_status
      *
-     * @return \Avalara\SDK\Model\A1099\V2\Form1099StatusDetailResponse|null
+     * @return \Avalara\SDK\Model\A1099\V2\StatusDetail|null
      */
     public function getAddressVerificationStatus()
     {
@@ -1546,13 +1576,37 @@ class Form1042SListItemResponse implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets address_verification_status
      *
-     * @param \Avalara\SDK\Model\A1099\V2\Form1099StatusDetailResponse|null $address_verification_status Address verification status
+     * @param \Avalara\SDK\Model\A1099\V2\StatusDetail|null $address_verification_status Address verification status
      *
      * @return self
      */
     public function setAddressVerificationStatus($address_verification_status)
     {
         $this->container['address_verification_status'] = $address_verification_status;
+
+        return $this;
+    }
+
+    /**
+     * Gets e_delivery_status
+     *
+     * @return \Avalara\SDK\Model\A1099\V2\StatusDetail|null
+     */
+    public function getEDeliveryStatus()
+    {
+        return $this->container['e_delivery_status'];
+    }
+
+    /**
+     * Sets e_delivery_status
+     *
+     * @param \Avalara\SDK\Model\A1099\V2\StatusDetail|null $e_delivery_status EDelivery status
+     *
+     * @return self
+     */
+    public function setEDeliveryStatus($e_delivery_status)
+    {
+        $this->container['e_delivery_status'] = $e_delivery_status;
 
         return $this;
     }
@@ -1649,6 +1703,30 @@ class Form1042SListItemResponse implements ModelInterface, ArrayAccess, \JsonSer
     public function setTin($tin)
     {
         $this->container['tin'] = $tin;
+
+        return $this;
+    }
+
+    /**
+     * Gets second_tin_notice
+     *
+     * @return bool|null
+     */
+    public function getSecondTinNotice()
+    {
+        return $this->container['second_tin_notice'];
+    }
+
+    /**
+     * Sets second_tin_notice
+     *
+     * @param bool|null $second_tin_notice Second Tin Notice
+     *
+     * @return self
+     */
+    public function setSecondTinNotice($second_tin_notice)
+    {
+        $this->container['second_tin_notice'] = $second_tin_notice;
 
         return $this;
     }
@@ -1822,25 +1900,25 @@ class Form1042SListItemResponse implements ModelInterface, ArrayAccess, \JsonSer
     }
 
     /**
-     * Gets foreign_province
+     * Gets non_us_province
      *
      * @return string|null
      */
-    public function getForeignProvince()
+    public function getNonUsProvince()
     {
-        return $this->container['foreign_province'];
+        return $this->container['non_us_province'];
     }
 
     /**
-     * Sets foreign_province
+     * Sets non_us_province
      *
-     * @param string|null $foreign_province Foreign province
+     * @param string|null $non_us_province Foreign province
      *
      * @return self
      */
-    public function setForeignProvince($foreign_province)
+    public function setNonUsProvince($non_us_province)
     {
-        $this->container['foreign_province'] = $foreign_province;
+        $this->container['non_us_province'] = $non_us_province;
 
         return $this;
     }
@@ -1865,6 +1943,78 @@ class Form1042SListItemResponse implements ModelInterface, ArrayAccess, \JsonSer
     public function setCountryCode($country_code)
     {
         $this->container['country_code'] = $country_code;
+
+        return $this;
+    }
+
+    /**
+     * Gets account_number
+     *
+     * @return string|null
+     */
+    public function getAccountNumber()
+    {
+        return $this->container['account_number'];
+    }
+
+    /**
+     * Sets account_number
+     *
+     * @param string|null $account_number Account Number
+     *
+     * @return self
+     */
+    public function setAccountNumber($account_number)
+    {
+        $this->container['account_number'] = $account_number;
+
+        return $this;
+    }
+
+    /**
+     * Gets office_code
+     *
+     * @return string|null
+     */
+    public function getOfficeCode()
+    {
+        return $this->container['office_code'];
+    }
+
+    /**
+     * Sets office_code
+     *
+     * @param string|null $office_code Office Code
+     *
+     * @return self
+     */
+    public function setOfficeCode($office_code)
+    {
+        $this->container['office_code'] = $office_code;
+
+        return $this;
+    }
+
+    /**
+     * Gets fatca_filing_requirement
+     *
+     * @return bool|null
+     */
+    public function getFatcaFilingRequirement()
+    {
+        return $this->container['fatca_filing_requirement'];
+    }
+
+    /**
+     * Sets fatca_filing_requirement
+     *
+     * @param bool|null $fatca_filing_requirement FATCA filing requirement
+     *
+     * @return self
+     */
+    public function setFatcaFilingRequirement($fatca_filing_requirement)
+    {
+        $this->container['fatca_filing_requirement'] = $fatca_filing_requirement;
 
         return $this;
     }

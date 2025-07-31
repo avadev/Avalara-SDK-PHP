@@ -35,19 +35,21 @@ Name | Type | Description | Notes
 **issuer_tin** | **string** | Issuer TIN | [optional]
 **tax_year** | **int** | Tax year | [optional]
 **federal_efile** | **bool** | Boolean indicating that federal e-filing has been scheduled for this form |
-**federal_efile_status** | [**\Avalara\SDK\Model\A1099\V2\Form1099StatusDetailResponse**](Form1099StatusDetailResponse.md) | Federal e-file status | [optional] [readonly]
+**federal_efile_status** | [**\Avalara\SDK\Model\A1099\V2\StatusDetail**](StatusDetail.md) | Federal e-file status | [optional] [readonly]
 **state_efile** | **bool** | Boolean indicating that state e-filing has been scheduled for this form |
 **state_efile_status** | [**\Avalara\SDK\Model\A1099\V2\StateEfileStatusDetailResponse[]**](StateEfileStatusDetailResponse.md) | State e-file status | [optional] [readonly]
 **postal_mail** | **bool** | Boolean indicating that postal mailing to the recipient has been scheduled for this form |
-**postal_mail_status** | [**\Avalara\SDK\Model\A1099\V2\Form1099StatusDetailResponse**](Form1099StatusDetailResponse.md) | Postal mail to recipient status | [optional] [readonly]
+**postal_mail_status** | [**\Avalara\SDK\Model\A1099\V2\StatusDetail**](StatusDetail.md) | Postal mail to recipient status | [optional] [readonly]
 **tin_match** | **bool** | Boolean indicating that TIN Matching has been scheduled for this form |
-**tin_match_status** | [**\Avalara\SDK\Model\A1099\V2\Form1099StatusDetailResponse**](Form1099StatusDetailResponse.md) | TIN Match status | [optional] [readonly]
+**tin_match_status** | [**\Avalara\SDK\Model\A1099\V2\StatusDetail**](StatusDetail.md) | TIN Match status | [optional] [readonly]
 **address_verification** | **bool** | Boolean indicating that address verification has been scheduled for this form |
-**address_verification_status** | [**\Avalara\SDK\Model\A1099\V2\Form1099StatusDetailResponse**](Form1099StatusDetailResponse.md) | Address verification status | [optional] [readonly]
+**address_verification_status** | [**\Avalara\SDK\Model\A1099\V2\StatusDetail**](StatusDetail.md) | Address verification status | [optional] [readonly]
+**e_delivery_status** | [**\Avalara\SDK\Model\A1099\V2\StatusDetail**](StatusDetail.md) | EDelivery status | [optional] [readonly]
 **reference_id** | **string** | Reference ID | [optional]
 **email** | **string** | Recipient email address | [optional]
 **tin_type** | **string** | Type of TIN (Tax ID Number). Will be one of:  * SSN  * EIN  * ITIN  * ATIN | [optional]
 **tin** | **string** | Recipient Tax ID Number | [optional]
+**second_tin_notice** | **bool** | Second Tin Notice | [optional]
 **recipient_name** | **string** | Recipient name | [optional]
 **recipient_second_name** | **string** | Recipient second name | [optional]
 **address** | **string** | Address | [optional]
@@ -55,8 +57,11 @@ Name | Type | Description | Notes
 **city** | **string** | City | [optional]
 **state** | **string** | US state | [optional]
 **zip** | **string** | Zip/postal code | [optional]
-**foreign_province** | **string** | Foreign province | [optional]
+**non_us_province** | **string** | Foreign province | [optional]
 **country_code** | **string** | Country code, as defined at https://www.irs.gov/e-file-providers/country-codes | [optional]
+**account_number** | **string** | Account Number | [optional]
+**office_code** | **string** | Office Code | [optional]
+**fatca_filing_requirement** | **bool** | FATCA filing requirement | [optional]
 **validation_errors** | [**\Avalara\SDK\Model\A1099\V2\ValidationErrorResponse[]**](ValidationErrorResponse.md) | Validation errors | [optional] [readonly]
 **created_at** | **\DateTime** | Creation time | [optional] [readonly]
 **updated_at** | **\DateTime** | Update time | [optional] [readonly]

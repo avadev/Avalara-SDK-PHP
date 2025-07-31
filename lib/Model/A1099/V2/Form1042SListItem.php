@@ -106,15 +106,16 @@ class Form1042SListItem implements ModelInterface, ArrayAccess, \JsonSerializabl
         'city' => 'string',
         'state' => 'string',
         'zip' => 'string',
-        'recipient_email' => 'string',
+        'email' => 'string',
         'account_number' => 'string',
         'office_code' => 'string',
-        'recipient_non_us_province' => 'string',
+        'non_us_province' => 'string',
         'country_code' => 'string',
         'federal_e_file' => 'bool',
         'postal_mail' => 'bool',
         'state_e_file' => 'bool',
         'tin_match' => 'bool',
+        'second_tin_notice' => 'bool',
         'address_verification' => 'bool',
         'state_and_local_withholding' => '\Avalara\SDK\Model\A1099\V2\StateAndLocalWithholdingRequest'
     ];
@@ -162,15 +163,16 @@ class Form1042SListItem implements ModelInterface, ArrayAccess, \JsonSerializabl
         'city' => null,
         'state' => null,
         'zip' => null,
-        'recipient_email' => null,
+        'email' => null,
         'account_number' => null,
         'office_code' => null,
-        'recipient_non_us_province' => null,
+        'non_us_province' => null,
         'country_code' => null,
         'federal_e_file' => null,
         'postal_mail' => null,
         'state_e_file' => null,
         'tin_match' => null,
+        'second_tin_notice' => null,
         'address_verification' => null,
         'state_and_local_withholding' => null
     ];
@@ -237,15 +239,16 @@ class Form1042SListItem implements ModelInterface, ArrayAccess, \JsonSerializabl
         'city' => 'city',
         'state' => 'state',
         'zip' => 'zip',
-        'recipient_email' => 'recipientEmail',
+        'email' => 'email',
         'account_number' => 'accountNumber',
         'office_code' => 'officeCode',
-        'recipient_non_us_province' => 'recipientNonUsProvince',
+        'non_us_province' => 'nonUsProvince',
         'country_code' => 'countryCode',
         'federal_e_file' => 'federalEFile',
         'postal_mail' => 'postalMail',
         'state_e_file' => 'stateEFile',
         'tin_match' => 'tinMatch',
+        'second_tin_notice' => 'secondTinNotice',
         'address_verification' => 'addressVerification',
         'state_and_local_withholding' => 'stateAndLocalWithholding'
     ];
@@ -291,15 +294,16 @@ class Form1042SListItem implements ModelInterface, ArrayAccess, \JsonSerializabl
         'city' => 'setCity',
         'state' => 'setState',
         'zip' => 'setZip',
-        'recipient_email' => 'setRecipientEmail',
+        'email' => 'setEmail',
         'account_number' => 'setAccountNumber',
         'office_code' => 'setOfficeCode',
-        'recipient_non_us_province' => 'setRecipientNonUsProvince',
+        'non_us_province' => 'setNonUsProvince',
         'country_code' => 'setCountryCode',
         'federal_e_file' => 'setFederalEFile',
         'postal_mail' => 'setPostalMail',
         'state_e_file' => 'setStateEFile',
         'tin_match' => 'setTinMatch',
+        'second_tin_notice' => 'setSecondTinNotice',
         'address_verification' => 'setAddressVerification',
         'state_and_local_withholding' => 'setStateAndLocalWithholding'
     ];
@@ -345,15 +349,16 @@ class Form1042SListItem implements ModelInterface, ArrayAccess, \JsonSerializabl
         'city' => 'getCity',
         'state' => 'getState',
         'zip' => 'getZip',
-        'recipient_email' => 'getRecipientEmail',
+        'email' => 'getEmail',
         'account_number' => 'getAccountNumber',
         'office_code' => 'getOfficeCode',
-        'recipient_non_us_province' => 'getRecipientNonUsProvince',
+        'non_us_province' => 'getNonUsProvince',
         'country_code' => 'getCountryCode',
         'federal_e_file' => 'getFederalEFile',
         'postal_mail' => 'getPostalMail',
         'state_e_file' => 'getStateEFile',
         'tin_match' => 'getTinMatch',
+        'second_tin_notice' => 'getSecondTinNotice',
         'address_verification' => 'getAddressVerification',
         'state_and_local_withholding' => 'getStateAndLocalWithholding'
     ];
@@ -776,15 +781,16 @@ class Form1042SListItem implements ModelInterface, ArrayAccess, \JsonSerializabl
         $this->container['city'] = $data['city'] ?? null;
         $this->container['state'] = $data['state'] ?? null;
         $this->container['zip'] = $data['zip'] ?? null;
-        $this->container['recipient_email'] = $data['recipient_email'] ?? null;
+        $this->container['email'] = $data['email'] ?? null;
         $this->container['account_number'] = $data['account_number'] ?? null;
         $this->container['office_code'] = $data['office_code'] ?? null;
-        $this->container['recipient_non_us_province'] = $data['recipient_non_us_province'] ?? null;
+        $this->container['non_us_province'] = $data['non_us_province'] ?? null;
         $this->container['country_code'] = $data['country_code'] ?? null;
         $this->container['federal_e_file'] = $data['federal_e_file'] ?? null;
         $this->container['postal_mail'] = $data['postal_mail'] ?? null;
         $this->container['state_e_file'] = $data['state_e_file'] ?? null;
         $this->container['tin_match'] = $data['tin_match'] ?? null;
+        $this->container['second_tin_notice'] = $data['second_tin_notice'] ?? null;
         $this->container['address_verification'] = $data['address_verification'] ?? null;
         $this->container['state_and_local_withholding'] = $data['state_and_local_withholding'] ?? null;
     }
@@ -841,13 +847,6 @@ class Form1042SListItem implements ModelInterface, ArrayAccess, \JsonSerializabl
                 $this->container['chap4_status_code'],
                 implode("', '", $allowedValues)
             );
-        }
-
-        if ($this->container['recipient_name'] === null) {
-            $invalidProperties[] = "'recipient_name' can't be null";
-        }
-        if ((mb_strlen($this->container['recipient_name']) < 1)) {
-            $invalidProperties[] = "invalid value for 'recipient_name', the character length must be bigger than or equal to 1.";
         }
 
         $allowedValues = $this->getTinTypeAllowableValues();
@@ -1596,7 +1595,7 @@ class Form1042SListItem implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Gets recipient_name
      *
-     * @return string
+     * @return string|null
      */
     public function getRecipientName()
     {
@@ -1606,17 +1605,12 @@ class Form1042SListItem implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets recipient_name
      *
-     * @param string $recipient_name Recipient name
+     * @param string|null $recipient_name Recipient name
      *
      * @return self
      */
     public function setRecipientName($recipient_name)
     {
-
-        if ((mb_strlen($recipient_name) < 1)) {
-            throw new \InvalidArgumentException('invalid length for $recipient_name when calling Form1042SListItem., must be bigger than or equal to 1.');
-        }
-
         $this->container['recipient_name'] = $recipient_name;
 
         return $this;
@@ -1811,25 +1805,25 @@ class Form1042SListItem implements ModelInterface, ArrayAccess, \JsonSerializabl
     }
 
     /**
-     * Gets recipient_email
+     * Gets email
      *
      * @return string|null
      */
-    public function getRecipientEmail()
+    public function getEmail()
     {
-        return $this->container['recipient_email'];
+        return $this->container['email'];
     }
 
     /**
-     * Sets recipient_email
+     * Sets email
      *
-     * @param string|null $recipient_email Recipient email address
+     * @param string|null $email Recipient email address
      *
      * @return self
      */
-    public function setRecipientEmail($recipient_email)
+    public function setEmail($email)
     {
-        $this->container['recipient_email'] = $recipient_email;
+        $this->container['email'] = $email;
 
         return $this;
     }
@@ -1883,25 +1877,25 @@ class Form1042SListItem implements ModelInterface, ArrayAccess, \JsonSerializabl
     }
 
     /**
-     * Gets recipient_non_us_province
+     * Gets non_us_province
      *
      * @return string|null
      */
-    public function getRecipientNonUsProvince()
+    public function getNonUsProvince()
     {
-        return $this->container['recipient_non_us_province'];
+        return $this->container['non_us_province'];
     }
 
     /**
-     * Sets recipient_non_us_province
+     * Sets non_us_province
      *
-     * @param string|null $recipient_non_us_province Foreign province
+     * @param string|null $non_us_province Foreign province
      *
      * @return self
      */
-    public function setRecipientNonUsProvince($recipient_non_us_province)
+    public function setNonUsProvince($non_us_province)
     {
-        $this->container['recipient_non_us_province'] = $recipient_non_us_province;
+        $this->container['non_us_province'] = $non_us_province;
 
         return $this;
     }
@@ -2027,6 +2021,30 @@ class Form1042SListItem implements ModelInterface, ArrayAccess, \JsonSerializabl
     public function setTinMatch($tin_match)
     {
         $this->container['tin_match'] = $tin_match;
+
+        return $this;
+    }
+
+    /**
+     * Gets second_tin_notice
+     *
+     * @return bool|null
+     */
+    public function getSecondTinNotice()
+    {
+        return $this->container['second_tin_notice'];
+    }
+
+    /**
+     * Sets second_tin_notice
+     *
+     * @param bool|null $second_tin_notice Second TIN notice in three years
+     *
+     * @return self
+     */
+    public function setSecondTinNotice($second_tin_notice)
+    {
+        $this->container['second_tin_notice'] = $second_tin_notice;
 
         return $this;
     }
