@@ -74,7 +74,6 @@ class Update1099Form200Response implements ModelInterface, ArrayAccess, \JsonSer
         'type' => 'string',
         'created_at' => '\DateTime',
         'updated_at' => '\DateTime',
-        'user_id' => 'string',
         'state_and_local_withholding' => '\Avalara\SDK\Model\A1099\V2\StateAndLocalWithholdingResponse',
         'tin_type' => 'string',
         'id' => 'string',
@@ -91,29 +90,51 @@ class Update1099Form200Response implements ModelInterface, ArrayAccess, \JsonSer
         'city' => 'string',
         'state' => 'string',
         'zip' => 'string',
-        'recipient_email' => 'string',
+        'email' => 'string',
         'account_number' => 'string',
         'office_code' => 'string',
-        'recipient_non_us_province' => 'string',
+        'non_us_province' => 'string',
         'country_code' => 'string',
         'federal_e_file' => 'bool',
         'postal_mail' => 'bool',
         'state_e_file' => 'bool',
         'tin_match' => 'bool',
+        'no_tin' => 'bool',
+        'second_tin_notice' => 'bool',
         'address_verification' => 'bool',
         'federal_efile_status' => '\Avalara\SDK\Model\A1099\V2\StatusDetail',
+        'e_delivery_status' => '\Avalara\SDK\Model\A1099\V2\StatusDetail',
         'state_efile_status' => '\Avalara\SDK\Model\A1099\V2\StateEfileStatusDetailResponse[]',
         'postal_mail_status' => '\Avalara\SDK\Model\A1099\V2\StatusDetail',
         'tin_match_status' => '\Avalara\SDK\Model\A1099\V2\StatusDetail',
         'address_verification_status' => '\Avalara\SDK\Model\A1099\V2\StatusDetail',
         'validation_errors' => '\Avalara\SDK\Model\A1099\V2\ValidationErrorResponse[]',
-        'second_tin_notice' => 'bool',
+        'filer_type' => 'string',
+        'payment_type' => 'string',
+        'payment_settlement_entity_name_phone_number' => 'string',
+        'gross_amount_payment_card' => 'float',
+        'card_not_present_transactions' => 'float',
+        'merchant_category_code' => 'string',
+        'payment_transaction_number' => 'float',
+        'federal_income_tax_withheld' => 'float',
+        'january' => 'float',
+        'february' => 'float',
+        'march' => 'float',
+        'april' => 'float',
+        'may' => 'float',
+        'june' => 'float',
+        'july' => 'float',
+        'august' => 'float',
+        'sept' => 'float',
+        'october' => 'float',
+        'november' => 'float',
+        'december' => 'float',
         'rents' => 'float',
         'royalties' => 'float',
         'other_income' => 'float',
         'fed_income_tax_withheld' => 'float',
         'fishing_boat_proceeds' => 'float',
-        'medical_health_care_payments' => 'float',
+        'medical_and_health_care_payments' => 'float',
         'direct_sales_indicator' => 'bool',
         'substitute_payments' => 'float',
         'crop_insurance_proceeds' => 'float',
@@ -123,8 +144,7 @@ class Update1099Form200Response implements ModelInterface, ArrayAccess, \JsonSer
         'fatca_filing_requirement' => 'bool',
         'excess_golden_parachute_payments' => 'float',
         'nonqualified_deferred_compensation' => 'float',
-        'nonemployee_compensation' => 'float',
-        'federal_income_tax_withheld' => 'float'
+        'nonemployee_compensation' => 'float'
     ];
 
     /**
@@ -138,7 +158,6 @@ class Update1099Form200Response implements ModelInterface, ArrayAccess, \JsonSer
         'type' => null,
         'created_at' => 'date-time',
         'updated_at' => 'date-time',
-        'user_id' => null,
         'state_and_local_withholding' => null,
         'tin_type' => null,
         'id' => null,
@@ -155,29 +174,51 @@ class Update1099Form200Response implements ModelInterface, ArrayAccess, \JsonSer
         'city' => null,
         'state' => null,
         'zip' => null,
-        'recipient_email' => null,
+        'email' => null,
         'account_number' => null,
         'office_code' => null,
-        'recipient_non_us_province' => null,
+        'non_us_province' => null,
         'country_code' => null,
         'federal_e_file' => null,
         'postal_mail' => null,
         'state_e_file' => null,
         'tin_match' => null,
+        'no_tin' => null,
+        'second_tin_notice' => null,
         'address_verification' => null,
         'federal_efile_status' => null,
+        'e_delivery_status' => null,
         'state_efile_status' => null,
         'postal_mail_status' => null,
         'tin_match_status' => null,
         'address_verification_status' => null,
         'validation_errors' => null,
-        'second_tin_notice' => null,
+        'filer_type' => null,
+        'payment_type' => null,
+        'payment_settlement_entity_name_phone_number' => null,
+        'gross_amount_payment_card' => 'double',
+        'card_not_present_transactions' => 'double',
+        'merchant_category_code' => null,
+        'payment_transaction_number' => 'double',
+        'federal_income_tax_withheld' => 'double',
+        'january' => 'double',
+        'february' => 'double',
+        'march' => 'double',
+        'april' => 'double',
+        'may' => 'double',
+        'june' => 'double',
+        'july' => 'double',
+        'august' => 'double',
+        'sept' => 'double',
+        'october' => 'double',
+        'november' => 'double',
+        'december' => 'double',
         'rents' => 'double',
         'royalties' => 'double',
         'other_income' => 'double',
         'fed_income_tax_withheld' => 'double',
         'fishing_boat_proceeds' => 'double',
-        'medical_health_care_payments' => 'double',
+        'medical_and_health_care_payments' => 'double',
         'direct_sales_indicator' => null,
         'substitute_payments' => 'double',
         'crop_insurance_proceeds' => 'double',
@@ -187,8 +228,7 @@ class Update1099Form200Response implements ModelInterface, ArrayAccess, \JsonSer
         'fatca_filing_requirement' => null,
         'excess_golden_parachute_payments' => 'double',
         'nonqualified_deferred_compensation' => 'double',
-        'nonemployee_compensation' => 'double',
-        'federal_income_tax_withheld' => 'double'
+        'nonemployee_compensation' => 'double'
     ];
 
     /**
@@ -221,7 +261,6 @@ class Update1099Form200Response implements ModelInterface, ArrayAccess, \JsonSer
         'type' => 'type',
         'created_at' => 'createdAt',
         'updated_at' => 'updatedAt',
-        'user_id' => 'userId',
         'state_and_local_withholding' => 'stateAndLocalWithholding',
         'tin_type' => 'tinType',
         'id' => 'id',
@@ -238,29 +277,51 @@ class Update1099Form200Response implements ModelInterface, ArrayAccess, \JsonSer
         'city' => 'city',
         'state' => 'state',
         'zip' => 'zip',
-        'recipient_email' => 'recipientEmail',
+        'email' => 'email',
         'account_number' => 'accountNumber',
         'office_code' => 'officeCode',
-        'recipient_non_us_province' => 'recipientNonUsProvince',
+        'non_us_province' => 'nonUsProvince',
         'country_code' => 'countryCode',
         'federal_e_file' => 'federalEFile',
         'postal_mail' => 'postalMail',
         'state_e_file' => 'stateEFile',
         'tin_match' => 'tinMatch',
+        'no_tin' => 'noTin',
+        'second_tin_notice' => 'secondTinNotice',
         'address_verification' => 'addressVerification',
         'federal_efile_status' => 'federalEfileStatus',
+        'e_delivery_status' => 'eDeliveryStatus',
         'state_efile_status' => 'stateEfileStatus',
         'postal_mail_status' => 'postalMailStatus',
         'tin_match_status' => 'tinMatchStatus',
         'address_verification_status' => 'addressVerificationStatus',
         'validation_errors' => 'validationErrors',
-        'second_tin_notice' => 'secondTinNotice',
+        'filer_type' => 'filerType',
+        'payment_type' => 'paymentType',
+        'payment_settlement_entity_name_phone_number' => 'paymentSettlementEntityNamePhoneNumber',
+        'gross_amount_payment_card' => 'grossAmountPaymentCard',
+        'card_not_present_transactions' => 'cardNotPresentTransactions',
+        'merchant_category_code' => 'merchantCategoryCode',
+        'payment_transaction_number' => 'paymentTransactionNumber',
+        'federal_income_tax_withheld' => 'federalIncomeTaxWithheld',
+        'january' => 'january',
+        'february' => 'february',
+        'march' => 'march',
+        'april' => 'april',
+        'may' => 'may',
+        'june' => 'june',
+        'july' => 'july',
+        'august' => 'august',
+        'sept' => 'sept',
+        'october' => 'october',
+        'november' => 'november',
+        'december' => 'december',
         'rents' => 'rents',
         'royalties' => 'royalties',
         'other_income' => 'otherIncome',
         'fed_income_tax_withheld' => 'fedIncomeTaxWithheld',
         'fishing_boat_proceeds' => 'fishingBoatProceeds',
-        'medical_health_care_payments' => 'medicalHealthCarePayments',
+        'medical_and_health_care_payments' => 'medicalAndHealthCarePayments',
         'direct_sales_indicator' => 'directSalesIndicator',
         'substitute_payments' => 'substitutePayments',
         'crop_insurance_proceeds' => 'cropInsuranceProceeds',
@@ -270,8 +331,7 @@ class Update1099Form200Response implements ModelInterface, ArrayAccess, \JsonSer
         'fatca_filing_requirement' => 'fatcaFilingRequirement',
         'excess_golden_parachute_payments' => 'excessGoldenParachutePayments',
         'nonqualified_deferred_compensation' => 'nonqualifiedDeferredCompensation',
-        'nonemployee_compensation' => 'nonemployeeCompensation',
-        'federal_income_tax_withheld' => 'federalIncomeTaxWithheld'
+        'nonemployee_compensation' => 'nonemployeeCompensation'
     ];
 
     /**
@@ -283,7 +343,6 @@ class Update1099Form200Response implements ModelInterface, ArrayAccess, \JsonSer
         'type' => 'setType',
         'created_at' => 'setCreatedAt',
         'updated_at' => 'setUpdatedAt',
-        'user_id' => 'setUserId',
         'state_and_local_withholding' => 'setStateAndLocalWithholding',
         'tin_type' => 'setTinType',
         'id' => 'setId',
@@ -300,29 +359,51 @@ class Update1099Form200Response implements ModelInterface, ArrayAccess, \JsonSer
         'city' => 'setCity',
         'state' => 'setState',
         'zip' => 'setZip',
-        'recipient_email' => 'setRecipientEmail',
+        'email' => 'setEmail',
         'account_number' => 'setAccountNumber',
         'office_code' => 'setOfficeCode',
-        'recipient_non_us_province' => 'setRecipientNonUsProvince',
+        'non_us_province' => 'setNonUsProvince',
         'country_code' => 'setCountryCode',
         'federal_e_file' => 'setFederalEFile',
         'postal_mail' => 'setPostalMail',
         'state_e_file' => 'setStateEFile',
         'tin_match' => 'setTinMatch',
+        'no_tin' => 'setNoTin',
+        'second_tin_notice' => 'setSecondTinNotice',
         'address_verification' => 'setAddressVerification',
         'federal_efile_status' => 'setFederalEfileStatus',
+        'e_delivery_status' => 'setEDeliveryStatus',
         'state_efile_status' => 'setStateEfileStatus',
         'postal_mail_status' => 'setPostalMailStatus',
         'tin_match_status' => 'setTinMatchStatus',
         'address_verification_status' => 'setAddressVerificationStatus',
         'validation_errors' => 'setValidationErrors',
-        'second_tin_notice' => 'setSecondTinNotice',
+        'filer_type' => 'setFilerType',
+        'payment_type' => 'setPaymentType',
+        'payment_settlement_entity_name_phone_number' => 'setPaymentSettlementEntityNamePhoneNumber',
+        'gross_amount_payment_card' => 'setGrossAmountPaymentCard',
+        'card_not_present_transactions' => 'setCardNotPresentTransactions',
+        'merchant_category_code' => 'setMerchantCategoryCode',
+        'payment_transaction_number' => 'setPaymentTransactionNumber',
+        'federal_income_tax_withheld' => 'setFederalIncomeTaxWithheld',
+        'january' => 'setJanuary',
+        'february' => 'setFebruary',
+        'march' => 'setMarch',
+        'april' => 'setApril',
+        'may' => 'setMay',
+        'june' => 'setJune',
+        'july' => 'setJuly',
+        'august' => 'setAugust',
+        'sept' => 'setSept',
+        'october' => 'setOctober',
+        'november' => 'setNovember',
+        'december' => 'setDecember',
         'rents' => 'setRents',
         'royalties' => 'setRoyalties',
         'other_income' => 'setOtherIncome',
         'fed_income_tax_withheld' => 'setFedIncomeTaxWithheld',
         'fishing_boat_proceeds' => 'setFishingBoatProceeds',
-        'medical_health_care_payments' => 'setMedicalHealthCarePayments',
+        'medical_and_health_care_payments' => 'setMedicalAndHealthCarePayments',
         'direct_sales_indicator' => 'setDirectSalesIndicator',
         'substitute_payments' => 'setSubstitutePayments',
         'crop_insurance_proceeds' => 'setCropInsuranceProceeds',
@@ -332,8 +413,7 @@ class Update1099Form200Response implements ModelInterface, ArrayAccess, \JsonSer
         'fatca_filing_requirement' => 'setFatcaFilingRequirement',
         'excess_golden_parachute_payments' => 'setExcessGoldenParachutePayments',
         'nonqualified_deferred_compensation' => 'setNonqualifiedDeferredCompensation',
-        'nonemployee_compensation' => 'setNonemployeeCompensation',
-        'federal_income_tax_withheld' => 'setFederalIncomeTaxWithheld'
+        'nonemployee_compensation' => 'setNonemployeeCompensation'
     ];
 
     /**
@@ -345,7 +425,6 @@ class Update1099Form200Response implements ModelInterface, ArrayAccess, \JsonSer
         'type' => 'getType',
         'created_at' => 'getCreatedAt',
         'updated_at' => 'getUpdatedAt',
-        'user_id' => 'getUserId',
         'state_and_local_withholding' => 'getStateAndLocalWithholding',
         'tin_type' => 'getTinType',
         'id' => 'getId',
@@ -362,29 +441,51 @@ class Update1099Form200Response implements ModelInterface, ArrayAccess, \JsonSer
         'city' => 'getCity',
         'state' => 'getState',
         'zip' => 'getZip',
-        'recipient_email' => 'getRecipientEmail',
+        'email' => 'getEmail',
         'account_number' => 'getAccountNumber',
         'office_code' => 'getOfficeCode',
-        'recipient_non_us_province' => 'getRecipientNonUsProvince',
+        'non_us_province' => 'getNonUsProvince',
         'country_code' => 'getCountryCode',
         'federal_e_file' => 'getFederalEFile',
         'postal_mail' => 'getPostalMail',
         'state_e_file' => 'getStateEFile',
         'tin_match' => 'getTinMatch',
+        'no_tin' => 'getNoTin',
+        'second_tin_notice' => 'getSecondTinNotice',
         'address_verification' => 'getAddressVerification',
         'federal_efile_status' => 'getFederalEfileStatus',
+        'e_delivery_status' => 'getEDeliveryStatus',
         'state_efile_status' => 'getStateEfileStatus',
         'postal_mail_status' => 'getPostalMailStatus',
         'tin_match_status' => 'getTinMatchStatus',
         'address_verification_status' => 'getAddressVerificationStatus',
         'validation_errors' => 'getValidationErrors',
-        'second_tin_notice' => 'getSecondTinNotice',
+        'filer_type' => 'getFilerType',
+        'payment_type' => 'getPaymentType',
+        'payment_settlement_entity_name_phone_number' => 'getPaymentSettlementEntityNamePhoneNumber',
+        'gross_amount_payment_card' => 'getGrossAmountPaymentCard',
+        'card_not_present_transactions' => 'getCardNotPresentTransactions',
+        'merchant_category_code' => 'getMerchantCategoryCode',
+        'payment_transaction_number' => 'getPaymentTransactionNumber',
+        'federal_income_tax_withheld' => 'getFederalIncomeTaxWithheld',
+        'january' => 'getJanuary',
+        'february' => 'getFebruary',
+        'march' => 'getMarch',
+        'april' => 'getApril',
+        'may' => 'getMay',
+        'june' => 'getJune',
+        'july' => 'getJuly',
+        'august' => 'getAugust',
+        'sept' => 'getSept',
+        'october' => 'getOctober',
+        'november' => 'getNovember',
+        'december' => 'getDecember',
         'rents' => 'getRents',
         'royalties' => 'getRoyalties',
         'other_income' => 'getOtherIncome',
         'fed_income_tax_withheld' => 'getFedIncomeTaxWithheld',
         'fishing_boat_proceeds' => 'getFishingBoatProceeds',
-        'medical_health_care_payments' => 'getMedicalHealthCarePayments',
+        'medical_and_health_care_payments' => 'getMedicalAndHealthCarePayments',
         'direct_sales_indicator' => 'getDirectSalesIndicator',
         'substitute_payments' => 'getSubstitutePayments',
         'crop_insurance_proceeds' => 'getCropInsuranceProceeds',
@@ -394,8 +495,7 @@ class Update1099Form200Response implements ModelInterface, ArrayAccess, \JsonSer
         'fatca_filing_requirement' => 'getFatcaFilingRequirement',
         'excess_golden_parachute_payments' => 'getExcessGoldenParachutePayments',
         'nonqualified_deferred_compensation' => 'getNonqualifiedDeferredCompensation',
-        'nonemployee_compensation' => 'getNonemployeeCompensation',
-        'federal_income_tax_withheld' => 'getFederalIncomeTaxWithheld'
+        'nonemployee_compensation' => 'getNonemployeeCompensation'
     ];
 
     /**
@@ -446,10 +546,16 @@ class Update1099Form200Response implements ModelInterface, ArrayAccess, \JsonSer
     const TYPE__1099_K = '1099-K';
     const TYPE__1095_B = '1095-B';
     const TYPE__1042_S = '1042-S';
+    const TYPE__1095_C = '1095-C';
     const TIN_TYPE_EIN = 'EIN';
     const TIN_TYPE_SSN = 'SSN';
     const TIN_TYPE_ITIN = 'ITIN';
     const TIN_TYPE_ATIN = 'ATIN';
+    const FILER_TYPE_PSE = 'PSE';
+    const FILER_TYPE_EPF = 'EPF';
+    const FILER_TYPE_OTHER = 'Other';
+    const PAYMENT_TYPE_MERCHANT_PAYMENT_CARD = 'MerchantPaymentCard';
+    const PAYMENT_TYPE_THIRD_PARTY_NETWORK = 'ThirdPartyNetwork';
 
     /**
      * Gets allowable values of the enum
@@ -466,6 +572,7 @@ class Update1099Form200Response implements ModelInterface, ArrayAccess, \JsonSer
             self::TYPE__1099_K,
             self::TYPE__1095_B,
             self::TYPE__1042_S,
+            self::TYPE__1095_C,
         ];
     }
 
@@ -481,6 +588,33 @@ class Update1099Form200Response implements ModelInterface, ArrayAccess, \JsonSer
             self::TIN_TYPE_SSN,
             self::TIN_TYPE_ITIN,
             self::TIN_TYPE_ATIN,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getFilerTypeAllowableValues()
+    {
+        return [
+            self::FILER_TYPE_PSE,
+            self::FILER_TYPE_EPF,
+            self::FILER_TYPE_OTHER,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getPaymentTypeAllowableValues()
+    {
+        return [
+            self::PAYMENT_TYPE_MERCHANT_PAYMENT_CARD,
+            self::PAYMENT_TYPE_THIRD_PARTY_NETWORK,
         ];
     }
 
@@ -502,7 +636,6 @@ class Update1099Form200Response implements ModelInterface, ArrayAccess, \JsonSer
         $this->container['type'] = $data['type'] ?? null;
         $this->container['created_at'] = $data['created_at'] ?? null;
         $this->container['updated_at'] = $data['updated_at'] ?? null;
-        $this->container['user_id'] = $data['user_id'] ?? null;
         $this->container['state_and_local_withholding'] = $data['state_and_local_withholding'] ?? null;
         $this->container['tin_type'] = $data['tin_type'] ?? null;
         $this->container['id'] = $data['id'] ?? null;
@@ -519,29 +652,51 @@ class Update1099Form200Response implements ModelInterface, ArrayAccess, \JsonSer
         $this->container['city'] = $data['city'] ?? null;
         $this->container['state'] = $data['state'] ?? null;
         $this->container['zip'] = $data['zip'] ?? null;
-        $this->container['recipient_email'] = $data['recipient_email'] ?? null;
+        $this->container['email'] = $data['email'] ?? null;
         $this->container['account_number'] = $data['account_number'] ?? null;
         $this->container['office_code'] = $data['office_code'] ?? null;
-        $this->container['recipient_non_us_province'] = $data['recipient_non_us_province'] ?? null;
+        $this->container['non_us_province'] = $data['non_us_province'] ?? null;
         $this->container['country_code'] = $data['country_code'] ?? null;
         $this->container['federal_e_file'] = $data['federal_e_file'] ?? null;
         $this->container['postal_mail'] = $data['postal_mail'] ?? null;
         $this->container['state_e_file'] = $data['state_e_file'] ?? null;
         $this->container['tin_match'] = $data['tin_match'] ?? null;
+        $this->container['no_tin'] = $data['no_tin'] ?? null;
+        $this->container['second_tin_notice'] = $data['second_tin_notice'] ?? null;
         $this->container['address_verification'] = $data['address_verification'] ?? null;
         $this->container['federal_efile_status'] = $data['federal_efile_status'] ?? null;
+        $this->container['e_delivery_status'] = $data['e_delivery_status'] ?? null;
         $this->container['state_efile_status'] = $data['state_efile_status'] ?? null;
         $this->container['postal_mail_status'] = $data['postal_mail_status'] ?? null;
         $this->container['tin_match_status'] = $data['tin_match_status'] ?? null;
         $this->container['address_verification_status'] = $data['address_verification_status'] ?? null;
         $this->container['validation_errors'] = $data['validation_errors'] ?? null;
-        $this->container['second_tin_notice'] = $data['second_tin_notice'] ?? null;
+        $this->container['filer_type'] = $data['filer_type'] ?? null;
+        $this->container['payment_type'] = $data['payment_type'] ?? null;
+        $this->container['payment_settlement_entity_name_phone_number'] = $data['payment_settlement_entity_name_phone_number'] ?? null;
+        $this->container['gross_amount_payment_card'] = $data['gross_amount_payment_card'] ?? null;
+        $this->container['card_not_present_transactions'] = $data['card_not_present_transactions'] ?? null;
+        $this->container['merchant_category_code'] = $data['merchant_category_code'] ?? null;
+        $this->container['payment_transaction_number'] = $data['payment_transaction_number'] ?? null;
+        $this->container['federal_income_tax_withheld'] = $data['federal_income_tax_withheld'] ?? null;
+        $this->container['january'] = $data['january'] ?? null;
+        $this->container['february'] = $data['february'] ?? null;
+        $this->container['march'] = $data['march'] ?? null;
+        $this->container['april'] = $data['april'] ?? null;
+        $this->container['may'] = $data['may'] ?? null;
+        $this->container['june'] = $data['june'] ?? null;
+        $this->container['july'] = $data['july'] ?? null;
+        $this->container['august'] = $data['august'] ?? null;
+        $this->container['sept'] = $data['sept'] ?? null;
+        $this->container['october'] = $data['october'] ?? null;
+        $this->container['november'] = $data['november'] ?? null;
+        $this->container['december'] = $data['december'] ?? null;
         $this->container['rents'] = $data['rents'] ?? null;
         $this->container['royalties'] = $data['royalties'] ?? null;
         $this->container['other_income'] = $data['other_income'] ?? null;
         $this->container['fed_income_tax_withheld'] = $data['fed_income_tax_withheld'] ?? null;
         $this->container['fishing_boat_proceeds'] = $data['fishing_boat_proceeds'] ?? null;
-        $this->container['medical_health_care_payments'] = $data['medical_health_care_payments'] ?? null;
+        $this->container['medical_and_health_care_payments'] = $data['medical_and_health_care_payments'] ?? null;
         $this->container['direct_sales_indicator'] = $data['direct_sales_indicator'] ?? null;
         $this->container['substitute_payments'] = $data['substitute_payments'] ?? null;
         $this->container['crop_insurance_proceeds'] = $data['crop_insurance_proceeds'] ?? null;
@@ -552,7 +707,6 @@ class Update1099Form200Response implements ModelInterface, ArrayAccess, \JsonSer
         $this->container['excess_golden_parachute_payments'] = $data['excess_golden_parachute_payments'] ?? null;
         $this->container['nonqualified_deferred_compensation'] = $data['nonqualified_deferred_compensation'] ?? null;
         $this->container['nonemployee_compensation'] = $data['nonemployee_compensation'] ?? null;
-        $this->container['federal_income_tax_withheld'] = $data['federal_income_tax_withheld'] ?? null;
     }
 
     /**
@@ -578,6 +732,24 @@ class Update1099Form200Response implements ModelInterface, ArrayAccess, \JsonSer
             $invalidProperties[] = sprintf(
                 "invalid value '%s' for 'tin_type', must be one of '%s'",
                 $this->container['tin_type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getFilerTypeAllowableValues();
+        if (!is_null($this->container['filer_type']) && !in_array($this->container['filer_type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'filer_type', must be one of '%s'",
+                $this->container['filer_type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getPaymentTypeAllowableValues();
+        if (!is_null($this->container['payment_type']) && !in_array($this->container['payment_type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'payment_type', must be one of '%s'",
+                $this->container['payment_type'],
                 implode("', '", $allowedValues)
             );
         }
@@ -675,30 +847,6 @@ class Update1099Form200Response implements ModelInterface, ArrayAccess, \JsonSer
     public function setUpdatedAt($updated_at)
     {
         $this->container['updated_at'] = $updated_at;
-
-        return $this;
-    }
-
-    /**
-     * Gets user_id
-     *
-     * @return string|null
-     */
-    public function getUserId()
-    {
-        return $this->container['user_id'];
-    }
-
-    /**
-     * Sets user_id
-     *
-     * @param string|null $user_id user_id
-     *
-     * @return self
-     */
-    public function setUserId($user_id)
-    {
-        $this->container['user_id'] = $user_id;
 
         return $this;
     }
@@ -1098,25 +1246,25 @@ class Update1099Form200Response implements ModelInterface, ArrayAccess, \JsonSer
     }
 
     /**
-     * Gets recipient_email
+     * Gets email
      *
      * @return string|null
      */
-    public function getRecipientEmail()
+    public function getEmail()
     {
-        return $this->container['recipient_email'];
+        return $this->container['email'];
     }
 
     /**
-     * Sets recipient_email
+     * Sets email
      *
-     * @param string|null $recipient_email recipient_email
+     * @param string|null $email email
      *
      * @return self
      */
-    public function setRecipientEmail($recipient_email)
+    public function setEmail($email)
     {
-        $this->container['recipient_email'] = $recipient_email;
+        $this->container['email'] = $email;
 
         return $this;
     }
@@ -1170,25 +1318,25 @@ class Update1099Form200Response implements ModelInterface, ArrayAccess, \JsonSer
     }
 
     /**
-     * Gets recipient_non_us_province
+     * Gets non_us_province
      *
      * @return string|null
      */
-    public function getRecipientNonUsProvince()
+    public function getNonUsProvince()
     {
-        return $this->container['recipient_non_us_province'];
+        return $this->container['non_us_province'];
     }
 
     /**
-     * Sets recipient_non_us_province
+     * Sets non_us_province
      *
-     * @param string|null $recipient_non_us_province recipient_non_us_province
+     * @param string|null $non_us_province non_us_province
      *
      * @return self
      */
-    public function setRecipientNonUsProvince($recipient_non_us_province)
+    public function setNonUsProvince($non_us_province)
     {
-        $this->container['recipient_non_us_province'] = $recipient_non_us_province;
+        $this->container['non_us_province'] = $non_us_province;
 
         return $this;
     }
@@ -1314,6 +1462,54 @@ class Update1099Form200Response implements ModelInterface, ArrayAccess, \JsonSer
     }
 
     /**
+     * Gets no_tin
+     *
+     * @return bool|null
+     */
+    public function getNoTin()
+    {
+        return $this->container['no_tin'];
+    }
+
+    /**
+     * Sets no_tin
+     *
+     * @param bool|null $no_tin no_tin
+     *
+     * @return self
+     */
+    public function setNoTin($no_tin)
+    {
+        $this->container['no_tin'] = $no_tin;
+
+        return $this;
+    }
+
+    /**
+     * Gets second_tin_notice
+     *
+     * @return bool|null
+     */
+    public function getSecondTinNotice()
+    {
+        return $this->container['second_tin_notice'];
+    }
+
+    /**
+     * Sets second_tin_notice
+     *
+     * @param bool|null $second_tin_notice second_tin_notice
+     *
+     * @return self
+     */
+    public function setSecondTinNotice($second_tin_notice)
+    {
+        $this->container['second_tin_notice'] = $second_tin_notice;
+
+        return $this;
+    }
+
+    /**
      * Gets address_verification
      *
      * @return bool|null
@@ -1357,6 +1553,30 @@ class Update1099Form200Response implements ModelInterface, ArrayAccess, \JsonSer
     public function setFederalEfileStatus($federal_efile_status)
     {
         $this->container['federal_efile_status'] = $federal_efile_status;
+
+        return $this;
+    }
+
+    /**
+     * Gets e_delivery_status
+     *
+     * @return \Avalara\SDK\Model\A1099\V2\StatusDetail|null
+     */
+    public function getEDeliveryStatus()
+    {
+        return $this->container['e_delivery_status'];
+    }
+
+    /**
+     * Sets e_delivery_status
+     *
+     * @param \Avalara\SDK\Model\A1099\V2\StatusDetail|null $e_delivery_status e_delivery_status
+     *
+     * @return self
+     */
+    public function setEDeliveryStatus($e_delivery_status)
+    {
+        $this->container['e_delivery_status'] = $e_delivery_status;
 
         return $this;
     }
@@ -1486,25 +1706,501 @@ class Update1099Form200Response implements ModelInterface, ArrayAccess, \JsonSer
     }
 
     /**
-     * Gets second_tin_notice
+     * Gets filer_type
      *
-     * @return bool|null
+     * @return string|null
      */
-    public function getSecondTinNotice()
+    public function getFilerType()
     {
-        return $this->container['second_tin_notice'];
+        return $this->container['filer_type'];
     }
 
     /**
-     * Sets second_tin_notice
+     * Sets filer_type
      *
-     * @param bool|null $second_tin_notice second_tin_notice
+     * @param string|null $filer_type filer_type
      *
      * @return self
      */
-    public function setSecondTinNotice($second_tin_notice)
+    public function setFilerType($filer_type)
     {
-        $this->container['second_tin_notice'] = $second_tin_notice;
+        $allowedValues = $this->getFilerTypeAllowableValues();
+        if (!is_null($filer_type) && !in_array($filer_type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'filer_type', must be one of '%s'",
+                    $filer_type,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['filer_type'] = $filer_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets payment_type
+     *
+     * @return string|null
+     */
+    public function getPaymentType()
+    {
+        return $this->container['payment_type'];
+    }
+
+    /**
+     * Sets payment_type
+     *
+     * @param string|null $payment_type payment_type
+     *
+     * @return self
+     */
+    public function setPaymentType($payment_type)
+    {
+        $allowedValues = $this->getPaymentTypeAllowableValues();
+        if (!is_null($payment_type) && !in_array($payment_type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'payment_type', must be one of '%s'",
+                    $payment_type,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['payment_type'] = $payment_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets payment_settlement_entity_name_phone_number
+     *
+     * @return string|null
+     */
+    public function getPaymentSettlementEntityNamePhoneNumber()
+    {
+        return $this->container['payment_settlement_entity_name_phone_number'];
+    }
+
+    /**
+     * Sets payment_settlement_entity_name_phone_number
+     *
+     * @param string|null $payment_settlement_entity_name_phone_number payment_settlement_entity_name_phone_number
+     *
+     * @return self
+     */
+    public function setPaymentSettlementEntityNamePhoneNumber($payment_settlement_entity_name_phone_number)
+    {
+        $this->container['payment_settlement_entity_name_phone_number'] = $payment_settlement_entity_name_phone_number;
+
+        return $this;
+    }
+
+    /**
+     * Gets gross_amount_payment_card
+     *
+     * @return float|null
+     */
+    public function getGrossAmountPaymentCard()
+    {
+        return $this->container['gross_amount_payment_card'];
+    }
+
+    /**
+     * Sets gross_amount_payment_card
+     *
+     * @param float|null $gross_amount_payment_card gross_amount_payment_card
+     *
+     * @return self
+     */
+    public function setGrossAmountPaymentCard($gross_amount_payment_card)
+    {
+        $this->container['gross_amount_payment_card'] = $gross_amount_payment_card;
+
+        return $this;
+    }
+
+    /**
+     * Gets card_not_present_transactions
+     *
+     * @return float|null
+     */
+    public function getCardNotPresentTransactions()
+    {
+        return $this->container['card_not_present_transactions'];
+    }
+
+    /**
+     * Sets card_not_present_transactions
+     *
+     * @param float|null $card_not_present_transactions card_not_present_transactions
+     *
+     * @return self
+     */
+    public function setCardNotPresentTransactions($card_not_present_transactions)
+    {
+        $this->container['card_not_present_transactions'] = $card_not_present_transactions;
+
+        return $this;
+    }
+
+    /**
+     * Gets merchant_category_code
+     *
+     * @return string|null
+     */
+    public function getMerchantCategoryCode()
+    {
+        return $this->container['merchant_category_code'];
+    }
+
+    /**
+     * Sets merchant_category_code
+     *
+     * @param string|null $merchant_category_code merchant_category_code
+     *
+     * @return self
+     */
+    public function setMerchantCategoryCode($merchant_category_code)
+    {
+        $this->container['merchant_category_code'] = $merchant_category_code;
+
+        return $this;
+    }
+
+    /**
+     * Gets payment_transaction_number
+     *
+     * @return float|null
+     */
+    public function getPaymentTransactionNumber()
+    {
+        return $this->container['payment_transaction_number'];
+    }
+
+    /**
+     * Sets payment_transaction_number
+     *
+     * @param float|null $payment_transaction_number payment_transaction_number
+     *
+     * @return self
+     */
+    public function setPaymentTransactionNumber($payment_transaction_number)
+    {
+        $this->container['payment_transaction_number'] = $payment_transaction_number;
+
+        return $this;
+    }
+
+    /**
+     * Gets federal_income_tax_withheld
+     *
+     * @return float|null
+     */
+    public function getFederalIncomeTaxWithheld()
+    {
+        return $this->container['federal_income_tax_withheld'];
+    }
+
+    /**
+     * Sets federal_income_tax_withheld
+     *
+     * @param float|null $federal_income_tax_withheld federal_income_tax_withheld
+     *
+     * @return self
+     */
+    public function setFederalIncomeTaxWithheld($federal_income_tax_withheld)
+    {
+        $this->container['federal_income_tax_withheld'] = $federal_income_tax_withheld;
+
+        return $this;
+    }
+
+    /**
+     * Gets january
+     *
+     * @return float|null
+     */
+    public function getJanuary()
+    {
+        return $this->container['january'];
+    }
+
+    /**
+     * Sets january
+     *
+     * @param float|null $january january
+     *
+     * @return self
+     */
+    public function setJanuary($january)
+    {
+        $this->container['january'] = $january;
+
+        return $this;
+    }
+
+    /**
+     * Gets february
+     *
+     * @return float|null
+     */
+    public function getFebruary()
+    {
+        return $this->container['february'];
+    }
+
+    /**
+     * Sets february
+     *
+     * @param float|null $february february
+     *
+     * @return self
+     */
+    public function setFebruary($february)
+    {
+        $this->container['february'] = $february;
+
+        return $this;
+    }
+
+    /**
+     * Gets march
+     *
+     * @return float|null
+     */
+    public function getMarch()
+    {
+        return $this->container['march'];
+    }
+
+    /**
+     * Sets march
+     *
+     * @param float|null $march march
+     *
+     * @return self
+     */
+    public function setMarch($march)
+    {
+        $this->container['march'] = $march;
+
+        return $this;
+    }
+
+    /**
+     * Gets april
+     *
+     * @return float|null
+     */
+    public function getApril()
+    {
+        return $this->container['april'];
+    }
+
+    /**
+     * Sets april
+     *
+     * @param float|null $april april
+     *
+     * @return self
+     */
+    public function setApril($april)
+    {
+        $this->container['april'] = $april;
+
+        return $this;
+    }
+
+    /**
+     * Gets may
+     *
+     * @return float|null
+     */
+    public function getMay()
+    {
+        return $this->container['may'];
+    }
+
+    /**
+     * Sets may
+     *
+     * @param float|null $may may
+     *
+     * @return self
+     */
+    public function setMay($may)
+    {
+        $this->container['may'] = $may;
+
+        return $this;
+    }
+
+    /**
+     * Gets june
+     *
+     * @return float|null
+     */
+    public function getJune()
+    {
+        return $this->container['june'];
+    }
+
+    /**
+     * Sets june
+     *
+     * @param float|null $june june
+     *
+     * @return self
+     */
+    public function setJune($june)
+    {
+        $this->container['june'] = $june;
+
+        return $this;
+    }
+
+    /**
+     * Gets july
+     *
+     * @return float|null
+     */
+    public function getJuly()
+    {
+        return $this->container['july'];
+    }
+
+    /**
+     * Sets july
+     *
+     * @param float|null $july july
+     *
+     * @return self
+     */
+    public function setJuly($july)
+    {
+        $this->container['july'] = $july;
+
+        return $this;
+    }
+
+    /**
+     * Gets august
+     *
+     * @return float|null
+     */
+    public function getAugust()
+    {
+        return $this->container['august'];
+    }
+
+    /**
+     * Sets august
+     *
+     * @param float|null $august august
+     *
+     * @return self
+     */
+    public function setAugust($august)
+    {
+        $this->container['august'] = $august;
+
+        return $this;
+    }
+
+    /**
+     * Gets sept
+     *
+     * @return float|null
+     */
+    public function getSept()
+    {
+        return $this->container['sept'];
+    }
+
+    /**
+     * Sets sept
+     *
+     * @param float|null $sept sept
+     *
+     * @return self
+     */
+    public function setSept($sept)
+    {
+        $this->container['sept'] = $sept;
+
+        return $this;
+    }
+
+    /**
+     * Gets october
+     *
+     * @return float|null
+     */
+    public function getOctober()
+    {
+        return $this->container['october'];
+    }
+
+    /**
+     * Sets october
+     *
+     * @param float|null $october october
+     *
+     * @return self
+     */
+    public function setOctober($october)
+    {
+        $this->container['october'] = $october;
+
+        return $this;
+    }
+
+    /**
+     * Gets november
+     *
+     * @return float|null
+     */
+    public function getNovember()
+    {
+        return $this->container['november'];
+    }
+
+    /**
+     * Sets november
+     *
+     * @param float|null $november november
+     *
+     * @return self
+     */
+    public function setNovember($november)
+    {
+        $this->container['november'] = $november;
+
+        return $this;
+    }
+
+    /**
+     * Gets december
+     *
+     * @return float|null
+     */
+    public function getDecember()
+    {
+        return $this->container['december'];
+    }
+
+    /**
+     * Sets december
+     *
+     * @param float|null $december december
+     *
+     * @return self
+     */
+    public function setDecember($december)
+    {
+        $this->container['december'] = $december;
 
         return $this;
     }
@@ -1630,25 +2326,25 @@ class Update1099Form200Response implements ModelInterface, ArrayAccess, \JsonSer
     }
 
     /**
-     * Gets medical_health_care_payments
+     * Gets medical_and_health_care_payments
      *
      * @return float|null
      */
-    public function getMedicalHealthCarePayments()
+    public function getMedicalAndHealthCarePayments()
     {
-        return $this->container['medical_health_care_payments'];
+        return $this->container['medical_and_health_care_payments'];
     }
 
     /**
-     * Sets medical_health_care_payments
+     * Sets medical_and_health_care_payments
      *
-     * @param float|null $medical_health_care_payments medical_health_care_payments
+     * @param float|null $medical_and_health_care_payments medical_and_health_care_payments
      *
      * @return self
      */
-    public function setMedicalHealthCarePayments($medical_health_care_payments)
+    public function setMedicalAndHealthCarePayments($medical_and_health_care_payments)
     {
-        $this->container['medical_health_care_payments'] = $medical_health_care_payments;
+        $this->container['medical_and_health_care_payments'] = $medical_and_health_care_payments;
 
         return $this;
     }
@@ -1889,30 +2585,6 @@ class Update1099Form200Response implements ModelInterface, ArrayAccess, \JsonSer
     public function setNonemployeeCompensation($nonemployee_compensation)
     {
         $this->container['nonemployee_compensation'] = $nonemployee_compensation;
-
-        return $this;
-    }
-
-    /**
-     * Gets federal_income_tax_withheld
-     *
-     * @return float|null
-     */
-    public function getFederalIncomeTaxWithheld()
-    {
-        return $this->container['federal_income_tax_withheld'];
-    }
-
-    /**
-     * Sets federal_income_tax_withheld
-     *
-     * @param float|null $federal_income_tax_withheld federal_income_tax_withheld
-     *
-     * @return self
-     */
-    public function setFederalIncomeTaxWithheld($federal_income_tax_withheld)
-    {
-        $this->container['federal_income_tax_withheld'] = $federal_income_tax_withheld;
 
         return $this;
     }

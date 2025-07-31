@@ -72,7 +72,6 @@ class Form1042SRequest implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'unique_form_id' => 'string',
-        'no_tin' => 'bool',
         'recipient_date_of_birth' => '\DateTime',
         'recipient_giin' => 'string',
         'recipient_foreign_tin' => 'string',
@@ -108,15 +107,17 @@ class Form1042SRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         'city' => 'string',
         'state' => 'string',
         'zip' => 'string',
-        'recipient_email' => 'string',
+        'email' => 'string',
         'account_number' => 'string',
         'office_code' => 'string',
-        'recipient_non_us_province' => 'string',
+        'non_us_province' => 'string',
         'country_code' => 'string',
         'federal_e_file' => 'bool',
         'postal_mail' => 'bool',
         'state_e_file' => 'bool',
         'tin_match' => 'bool',
+        'no_tin' => 'bool',
+        'second_tin_notice' => 'bool',
         'address_verification' => 'bool'
     ];
 
@@ -129,7 +130,6 @@ class Form1042SRequest implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPIFormats = [
         'unique_form_id' => null,
-        'no_tin' => null,
         'recipient_date_of_birth' => 'date-time',
         'recipient_giin' => null,
         'recipient_foreign_tin' => null,
@@ -165,15 +165,17 @@ class Form1042SRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         'city' => null,
         'state' => null,
         'zip' => null,
-        'recipient_email' => null,
+        'email' => null,
         'account_number' => null,
         'office_code' => null,
-        'recipient_non_us_province' => null,
+        'non_us_province' => null,
         'country_code' => null,
         'federal_e_file' => null,
         'postal_mail' => null,
         'state_e_file' => null,
         'tin_match' => null,
+        'no_tin' => null,
+        'second_tin_notice' => null,
         'address_verification' => null
     ];
 
@@ -205,7 +207,6 @@ class Form1042SRequest implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $attributeMap = [
         'unique_form_id' => 'uniqueFormId',
-        'no_tin' => 'noTin',
         'recipient_date_of_birth' => 'recipientDateOfBirth',
         'recipient_giin' => 'recipientGiin',
         'recipient_foreign_tin' => 'recipientForeignTin',
@@ -241,15 +242,17 @@ class Form1042SRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         'city' => 'city',
         'state' => 'state',
         'zip' => 'zip',
-        'recipient_email' => 'recipientEmail',
+        'email' => 'email',
         'account_number' => 'accountNumber',
         'office_code' => 'officeCode',
-        'recipient_non_us_province' => 'recipientNonUsProvince',
+        'non_us_province' => 'nonUsProvince',
         'country_code' => 'countryCode',
         'federal_e_file' => 'federalEFile',
         'postal_mail' => 'postalMail',
         'state_e_file' => 'stateEFile',
         'tin_match' => 'tinMatch',
+        'no_tin' => 'noTin',
+        'second_tin_notice' => 'secondTinNotice',
         'address_verification' => 'addressVerification'
     ];
 
@@ -260,7 +263,6 @@ class Form1042SRequest implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $setters = [
         'unique_form_id' => 'setUniqueFormId',
-        'no_tin' => 'setNoTin',
         'recipient_date_of_birth' => 'setRecipientDateOfBirth',
         'recipient_giin' => 'setRecipientGiin',
         'recipient_foreign_tin' => 'setRecipientForeignTin',
@@ -296,15 +298,17 @@ class Form1042SRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         'city' => 'setCity',
         'state' => 'setState',
         'zip' => 'setZip',
-        'recipient_email' => 'setRecipientEmail',
+        'email' => 'setEmail',
         'account_number' => 'setAccountNumber',
         'office_code' => 'setOfficeCode',
-        'recipient_non_us_province' => 'setRecipientNonUsProvince',
+        'non_us_province' => 'setNonUsProvince',
         'country_code' => 'setCountryCode',
         'federal_e_file' => 'setFederalEFile',
         'postal_mail' => 'setPostalMail',
         'state_e_file' => 'setStateEFile',
         'tin_match' => 'setTinMatch',
+        'no_tin' => 'setNoTin',
+        'second_tin_notice' => 'setSecondTinNotice',
         'address_verification' => 'setAddressVerification'
     ];
 
@@ -315,7 +319,6 @@ class Form1042SRequest implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $getters = [
         'unique_form_id' => 'getUniqueFormId',
-        'no_tin' => 'getNoTin',
         'recipient_date_of_birth' => 'getRecipientDateOfBirth',
         'recipient_giin' => 'getRecipientGiin',
         'recipient_foreign_tin' => 'getRecipientForeignTin',
@@ -351,15 +354,17 @@ class Form1042SRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         'city' => 'getCity',
         'state' => 'getState',
         'zip' => 'getZip',
-        'recipient_email' => 'getRecipientEmail',
+        'email' => 'getEmail',
         'account_number' => 'getAccountNumber',
         'office_code' => 'getOfficeCode',
-        'recipient_non_us_province' => 'getRecipientNonUsProvince',
+        'non_us_province' => 'getNonUsProvince',
         'country_code' => 'getCountryCode',
         'federal_e_file' => 'getFederalEFile',
         'postal_mail' => 'getPostalMail',
         'state_e_file' => 'getStateEFile',
         'tin_match' => 'getTinMatch',
+        'no_tin' => 'getNoTin',
+        'second_tin_notice' => 'getSecondTinNotice',
         'address_verification' => 'getAddressVerification'
     ];
 
@@ -411,6 +416,7 @@ class Form1042SRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     const TYPE__1099_K = '1099-K';
     const TYPE__1095_B = '1095-B';
     const TYPE__1042_S = '1042-S';
+    const TYPE__1095_C = '1095-C';
     const TIN_TYPE_EIN = 'EIN';
     const TIN_TYPE_SSN = 'SSN';
     const TIN_TYPE_ITIN = 'ITIN';
@@ -431,6 +437,7 @@ class Form1042SRequest implements ModelInterface, ArrayAccess, \JsonSerializable
             self::TYPE__1099_K,
             self::TYPE__1095_B,
             self::TYPE__1042_S,
+            self::TYPE__1095_C,
         ];
     }
 
@@ -465,7 +472,6 @@ class Form1042SRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     public function __construct(array $data = null)
     {
         $this->container['unique_form_id'] = $data['unique_form_id'] ?? null;
-        $this->container['no_tin'] = $data['no_tin'] ?? null;
         $this->container['recipient_date_of_birth'] = $data['recipient_date_of_birth'] ?? null;
         $this->container['recipient_giin'] = $data['recipient_giin'] ?? null;
         $this->container['recipient_foreign_tin'] = $data['recipient_foreign_tin'] ?? null;
@@ -501,15 +507,17 @@ class Form1042SRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['city'] = $data['city'] ?? null;
         $this->container['state'] = $data['state'] ?? null;
         $this->container['zip'] = $data['zip'] ?? null;
-        $this->container['recipient_email'] = $data['recipient_email'] ?? null;
+        $this->container['email'] = $data['email'] ?? null;
         $this->container['account_number'] = $data['account_number'] ?? null;
         $this->container['office_code'] = $data['office_code'] ?? null;
-        $this->container['recipient_non_us_province'] = $data['recipient_non_us_province'] ?? null;
+        $this->container['non_us_province'] = $data['non_us_province'] ?? null;
         $this->container['country_code'] = $data['country_code'] ?? null;
         $this->container['federal_e_file'] = $data['federal_e_file'] ?? null;
         $this->container['postal_mail'] = $data['postal_mail'] ?? null;
         $this->container['state_e_file'] = $data['state_e_file'] ?? null;
         $this->container['tin_match'] = $data['tin_match'] ?? null;
+        $this->container['no_tin'] = $data['no_tin'] ?? null;
+        $this->container['second_tin_notice'] = $data['second_tin_notice'] ?? null;
         $this->container['address_verification'] = $data['address_verification'] ?? null;
     }
 
@@ -529,13 +537,6 @@ class Form1042SRequest implements ModelInterface, ArrayAccess, \JsonSerializable
                 $this->container['type'],
                 implode("', '", $allowedValues)
             );
-        }
-
-        if ($this->container['recipient_name'] === null) {
-            $invalidProperties[] = "'recipient_name' can't be null";
-        }
-        if ((mb_strlen($this->container['recipient_name']) < 1)) {
-            $invalidProperties[] = "invalid value for 'recipient_name', the character length must be bigger than or equal to 1.";
         }
 
         $allowedValues = $this->getTinTypeAllowableValues();
@@ -603,30 +604,6 @@ class Form1042SRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setUniqueFormId($unique_form_id)
     {
         $this->container['unique_form_id'] = $unique_form_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets no_tin
-     *
-     * @return bool|null
-     */
-    public function getNoTin()
-    {
-        return $this->container['no_tin'];
-    }
-
-    /**
-     * Sets no_tin
-     *
-     * @param bool|null $no_tin No TIN indicator
-     *
-     * @return self
-     */
-    public function setNoTin($no_tin)
-    {
-        $this->container['no_tin'] = $no_tin;
 
         return $this;
     }
@@ -1292,7 +1269,7 @@ class Form1042SRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets recipient_name
      *
-     * @return string
+     * @return string|null
      */
     public function getRecipientName()
     {
@@ -1302,17 +1279,12 @@ class Form1042SRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets recipient_name
      *
-     * @param string $recipient_name Recipient name
+     * @param string|null $recipient_name Recipient name
      *
      * @return self
      */
     public function setRecipientName($recipient_name)
     {
-
-        if ((mb_strlen($recipient_name) < 1)) {
-            throw new \InvalidArgumentException('invalid length for $recipient_name when calling Form1042SRequest., must be bigger than or equal to 1.');
-        }
-
         $this->container['recipient_name'] = $recipient_name;
 
         return $this;
@@ -1507,25 +1479,25 @@ class Form1042SRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets recipient_email
+     * Gets email
      *
      * @return string|null
      */
-    public function getRecipientEmail()
+    public function getEmail()
     {
-        return $this->container['recipient_email'];
+        return $this->container['email'];
     }
 
     /**
-     * Sets recipient_email
+     * Sets email
      *
-     * @param string|null $recipient_email Recipient email address
+     * @param string|null $email Recipient email address
      *
      * @return self
      */
-    public function setRecipientEmail($recipient_email)
+    public function setEmail($email)
     {
-        $this->container['recipient_email'] = $recipient_email;
+        $this->container['email'] = $email;
 
         return $this;
     }
@@ -1579,25 +1551,25 @@ class Form1042SRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets recipient_non_us_province
+     * Gets non_us_province
      *
      * @return string|null
      */
-    public function getRecipientNonUsProvince()
+    public function getNonUsProvince()
     {
-        return $this->container['recipient_non_us_province'];
+        return $this->container['non_us_province'];
     }
 
     /**
-     * Sets recipient_non_us_province
+     * Sets non_us_province
      *
-     * @param string|null $recipient_non_us_province Foreign province
+     * @param string|null $non_us_province Foreign province
      *
      * @return self
      */
-    public function setRecipientNonUsProvince($recipient_non_us_province)
+    public function setNonUsProvince($non_us_province)
     {
-        $this->container['recipient_non_us_province'] = $recipient_non_us_province;
+        $this->container['non_us_province'] = $non_us_province;
 
         return $this;
     }
@@ -1723,6 +1695,54 @@ class Form1042SRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setTinMatch($tin_match)
     {
         $this->container['tin_match'] = $tin_match;
+
+        return $this;
+    }
+
+    /**
+     * Gets no_tin
+     *
+     * @return bool|null
+     */
+    public function getNoTin()
+    {
+        return $this->container['no_tin'];
+    }
+
+    /**
+     * Sets no_tin
+     *
+     * @param bool|null $no_tin Indicates whether the recipient has no TIN
+     *
+     * @return self
+     */
+    public function setNoTin($no_tin)
+    {
+        $this->container['no_tin'] = $no_tin;
+
+        return $this;
+    }
+
+    /**
+     * Gets second_tin_notice
+     *
+     * @return bool|null
+     */
+    public function getSecondTinNotice()
+    {
+        return $this->container['second_tin_notice'];
+    }
+
+    /**
+     * Sets second_tin_notice
+     *
+     * @param bool|null $second_tin_notice Second TIN notice in three years
+     *
+     * @return self
+     */
+    public function setSecondTinNotice($second_tin_notice)
+    {
+        $this->container['second_tin_notice'] = $second_tin_notice;
 
         return $this;
     }

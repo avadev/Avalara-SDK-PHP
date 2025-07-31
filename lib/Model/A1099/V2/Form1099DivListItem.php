@@ -73,8 +73,8 @@ class Form1099DivListItem implements ModelInterface, ArrayAccess, \JsonSerializa
     protected static $openAPITypes = [
         'total_ordinary_dividends' => 'string',
         'qualified_dividends' => 'string',
-        'total_capital_gain_distr' => 'string',
-        'unrecap_sec1250_gain' => 'string',
+        'total_capital_gain_distributions' => 'string',
+        'unrecaptured_section1250_gain' => 'string',
         'section1202_gain' => 'string',
         'collectibles_gain' => 'string',
         'section897_ordinary_dividends' => 'string',
@@ -89,7 +89,7 @@ class Form1099DivListItem implements ModelInterface, ArrayAccess, \JsonSerializa
         'noncash_liquidation_distributions' => 'string',
         'exempt_interest_dividends' => 'string',
         'specified_private_activity_bond_interest_dividends' => 'string',
-        'fatca_filing_requirement' => 'string',
+        'fatca_filing_requirement' => 'bool',
         'issuer_reference_id' => 'string',
         'issuer_tin' => 'string',
         'tax_year' => 'int',
@@ -104,15 +104,17 @@ class Form1099DivListItem implements ModelInterface, ArrayAccess, \JsonSerializa
         'city' => 'string',
         'state' => 'string',
         'zip' => 'string',
-        'recipient_email' => 'string',
+        'email' => 'string',
         'account_number' => 'string',
         'office_code' => 'string',
-        'recipient_non_us_province' => 'string',
+        'non_us_province' => 'string',
         'country_code' => 'string',
         'federal_e_file' => 'bool',
         'postal_mail' => 'bool',
         'state_e_file' => 'bool',
         'tin_match' => 'bool',
+        'no_tin' => 'bool',
+        'second_tin_notice' => 'bool',
         'address_verification' => 'bool',
         'state_and_local_withholding' => '\Avalara\SDK\Model\A1099\V2\StateAndLocalWithholdingRequest'
     ];
@@ -127,8 +129,8 @@ class Form1099DivListItem implements ModelInterface, ArrayAccess, \JsonSerializa
     protected static $openAPIFormats = [
         'total_ordinary_dividends' => null,
         'qualified_dividends' => null,
-        'total_capital_gain_distr' => null,
-        'unrecap_sec1250_gain' => null,
+        'total_capital_gain_distributions' => null,
+        'unrecaptured_section1250_gain' => null,
         'section1202_gain' => null,
         'collectibles_gain' => null,
         'section897_ordinary_dividends' => null,
@@ -158,15 +160,17 @@ class Form1099DivListItem implements ModelInterface, ArrayAccess, \JsonSerializa
         'city' => null,
         'state' => null,
         'zip' => null,
-        'recipient_email' => null,
+        'email' => null,
         'account_number' => null,
         'office_code' => null,
-        'recipient_non_us_province' => null,
+        'non_us_province' => null,
         'country_code' => null,
         'federal_e_file' => null,
         'postal_mail' => null,
         'state_e_file' => null,
         'tin_match' => null,
+        'no_tin' => null,
+        'second_tin_notice' => null,
         'address_verification' => null,
         'state_and_local_withholding' => null
     ];
@@ -200,8 +204,8 @@ class Form1099DivListItem implements ModelInterface, ArrayAccess, \JsonSerializa
     protected static $attributeMap = [
         'total_ordinary_dividends' => 'totalOrdinaryDividends',
         'qualified_dividends' => 'qualifiedDividends',
-        'total_capital_gain_distr' => 'totalCapitalGainDistr',
-        'unrecap_sec1250_gain' => 'unrecapSec1250Gain',
+        'total_capital_gain_distributions' => 'totalCapitalGainDistributions',
+        'unrecaptured_section1250_gain' => 'unrecapturedSection1250Gain',
         'section1202_gain' => 'section1202Gain',
         'collectibles_gain' => 'collectiblesGain',
         'section897_ordinary_dividends' => 'section897OrdinaryDividends',
@@ -231,15 +235,17 @@ class Form1099DivListItem implements ModelInterface, ArrayAccess, \JsonSerializa
         'city' => 'city',
         'state' => 'state',
         'zip' => 'zip',
-        'recipient_email' => 'recipientEmail',
+        'email' => 'email',
         'account_number' => 'accountNumber',
         'office_code' => 'officeCode',
-        'recipient_non_us_province' => 'recipientNonUsProvince',
+        'non_us_province' => 'nonUsProvince',
         'country_code' => 'countryCode',
         'federal_e_file' => 'federalEFile',
         'postal_mail' => 'postalMail',
         'state_e_file' => 'stateEFile',
         'tin_match' => 'tinMatch',
+        'no_tin' => 'noTin',
+        'second_tin_notice' => 'secondTinNotice',
         'address_verification' => 'addressVerification',
         'state_and_local_withholding' => 'stateAndLocalWithholding'
     ];
@@ -252,8 +258,8 @@ class Form1099DivListItem implements ModelInterface, ArrayAccess, \JsonSerializa
     protected static $setters = [
         'total_ordinary_dividends' => 'setTotalOrdinaryDividends',
         'qualified_dividends' => 'setQualifiedDividends',
-        'total_capital_gain_distr' => 'setTotalCapitalGainDistr',
-        'unrecap_sec1250_gain' => 'setUnrecapSec1250Gain',
+        'total_capital_gain_distributions' => 'setTotalCapitalGainDistributions',
+        'unrecaptured_section1250_gain' => 'setUnrecapturedSection1250Gain',
         'section1202_gain' => 'setSection1202Gain',
         'collectibles_gain' => 'setCollectiblesGain',
         'section897_ordinary_dividends' => 'setSection897OrdinaryDividends',
@@ -283,15 +289,17 @@ class Form1099DivListItem implements ModelInterface, ArrayAccess, \JsonSerializa
         'city' => 'setCity',
         'state' => 'setState',
         'zip' => 'setZip',
-        'recipient_email' => 'setRecipientEmail',
+        'email' => 'setEmail',
         'account_number' => 'setAccountNumber',
         'office_code' => 'setOfficeCode',
-        'recipient_non_us_province' => 'setRecipientNonUsProvince',
+        'non_us_province' => 'setNonUsProvince',
         'country_code' => 'setCountryCode',
         'federal_e_file' => 'setFederalEFile',
         'postal_mail' => 'setPostalMail',
         'state_e_file' => 'setStateEFile',
         'tin_match' => 'setTinMatch',
+        'no_tin' => 'setNoTin',
+        'second_tin_notice' => 'setSecondTinNotice',
         'address_verification' => 'setAddressVerification',
         'state_and_local_withholding' => 'setStateAndLocalWithholding'
     ];
@@ -304,8 +312,8 @@ class Form1099DivListItem implements ModelInterface, ArrayAccess, \JsonSerializa
     protected static $getters = [
         'total_ordinary_dividends' => 'getTotalOrdinaryDividends',
         'qualified_dividends' => 'getQualifiedDividends',
-        'total_capital_gain_distr' => 'getTotalCapitalGainDistr',
-        'unrecap_sec1250_gain' => 'getUnrecapSec1250Gain',
+        'total_capital_gain_distributions' => 'getTotalCapitalGainDistributions',
+        'unrecaptured_section1250_gain' => 'getUnrecapturedSection1250Gain',
         'section1202_gain' => 'getSection1202Gain',
         'collectibles_gain' => 'getCollectiblesGain',
         'section897_ordinary_dividends' => 'getSection897OrdinaryDividends',
@@ -335,15 +343,17 @@ class Form1099DivListItem implements ModelInterface, ArrayAccess, \JsonSerializa
         'city' => 'getCity',
         'state' => 'getState',
         'zip' => 'getZip',
-        'recipient_email' => 'getRecipientEmail',
+        'email' => 'getEmail',
         'account_number' => 'getAccountNumber',
         'office_code' => 'getOfficeCode',
-        'recipient_non_us_province' => 'getRecipientNonUsProvince',
+        'non_us_province' => 'getNonUsProvince',
         'country_code' => 'getCountryCode',
         'federal_e_file' => 'getFederalEFile',
         'postal_mail' => 'getPostalMail',
         'state_e_file' => 'getStateEFile',
         'tin_match' => 'getTinMatch',
+        'no_tin' => 'getNoTin',
+        'second_tin_notice' => 'getSecondTinNotice',
         'address_verification' => 'getAddressVerification',
         'state_and_local_withholding' => 'getStateAndLocalWithholding'
     ];
@@ -426,8 +436,8 @@ class Form1099DivListItem implements ModelInterface, ArrayAccess, \JsonSerializa
     {
         $this->container['total_ordinary_dividends'] = $data['total_ordinary_dividends'] ?? null;
         $this->container['qualified_dividends'] = $data['qualified_dividends'] ?? null;
-        $this->container['total_capital_gain_distr'] = $data['total_capital_gain_distr'] ?? null;
-        $this->container['unrecap_sec1250_gain'] = $data['unrecap_sec1250_gain'] ?? null;
+        $this->container['total_capital_gain_distributions'] = $data['total_capital_gain_distributions'] ?? null;
+        $this->container['unrecaptured_section1250_gain'] = $data['unrecaptured_section1250_gain'] ?? null;
         $this->container['section1202_gain'] = $data['section1202_gain'] ?? null;
         $this->container['collectibles_gain'] = $data['collectibles_gain'] ?? null;
         $this->container['section897_ordinary_dividends'] = $data['section897_ordinary_dividends'] ?? null;
@@ -457,15 +467,17 @@ class Form1099DivListItem implements ModelInterface, ArrayAccess, \JsonSerializa
         $this->container['city'] = $data['city'] ?? null;
         $this->container['state'] = $data['state'] ?? null;
         $this->container['zip'] = $data['zip'] ?? null;
-        $this->container['recipient_email'] = $data['recipient_email'] ?? null;
+        $this->container['email'] = $data['email'] ?? null;
         $this->container['account_number'] = $data['account_number'] ?? null;
         $this->container['office_code'] = $data['office_code'] ?? null;
-        $this->container['recipient_non_us_province'] = $data['recipient_non_us_province'] ?? null;
+        $this->container['non_us_province'] = $data['non_us_province'] ?? null;
         $this->container['country_code'] = $data['country_code'] ?? null;
         $this->container['federal_e_file'] = $data['federal_e_file'] ?? null;
         $this->container['postal_mail'] = $data['postal_mail'] ?? null;
         $this->container['state_e_file'] = $data['state_e_file'] ?? null;
         $this->container['tin_match'] = $data['tin_match'] ?? null;
+        $this->container['no_tin'] = $data['no_tin'] ?? null;
+        $this->container['second_tin_notice'] = $data['second_tin_notice'] ?? null;
         $this->container['address_verification'] = $data['address_verification'] ?? null;
         $this->container['state_and_local_withholding'] = $data['state_and_local_withholding'] ?? null;
     }
@@ -482,13 +494,6 @@ class Form1099DivListItem implements ModelInterface, ArrayAccess, \JsonSerializa
         if ($this->container['tax_year'] === null) {
             $invalidProperties[] = "'tax_year' can't be null";
         }
-        if ($this->container['recipient_name'] === null) {
-            $invalidProperties[] = "'recipient_name' can't be null";
-        }
-        if ((mb_strlen($this->container['recipient_name']) < 1)) {
-            $invalidProperties[] = "invalid value for 'recipient_name', the character length must be bigger than or equal to 1.";
-        }
-
         $allowedValues = $this->getTinTypeAllowableValues();
         if (!is_null($this->container['tin_type']) && !in_array($this->container['tin_type'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -583,49 +588,49 @@ class Form1099DivListItem implements ModelInterface, ArrayAccess, \JsonSerializa
     }
 
     /**
-     * Gets total_capital_gain_distr
+     * Gets total_capital_gain_distributions
      *
      * @return string|null
      */
-    public function getTotalCapitalGainDistr()
+    public function getTotalCapitalGainDistributions()
     {
-        return $this->container['total_capital_gain_distr'];
+        return $this->container['total_capital_gain_distributions'];
     }
 
     /**
-     * Sets total_capital_gain_distr
+     * Sets total_capital_gain_distributions
      *
-     * @param string|null $total_capital_gain_distr Total capital gain distributions
+     * @param string|null $total_capital_gain_distributions Total capital gain distributions
      *
      * @return self
      */
-    public function setTotalCapitalGainDistr($total_capital_gain_distr)
+    public function setTotalCapitalGainDistributions($total_capital_gain_distributions)
     {
-        $this->container['total_capital_gain_distr'] = $total_capital_gain_distr;
+        $this->container['total_capital_gain_distributions'] = $total_capital_gain_distributions;
 
         return $this;
     }
 
     /**
-     * Gets unrecap_sec1250_gain
+     * Gets unrecaptured_section1250_gain
      *
      * @return string|null
      */
-    public function getUnrecapSec1250Gain()
+    public function getUnrecapturedSection1250Gain()
     {
-        return $this->container['unrecap_sec1250_gain'];
+        return $this->container['unrecaptured_section1250_gain'];
     }
 
     /**
-     * Sets unrecap_sec1250_gain
+     * Sets unrecaptured_section1250_gain
      *
-     * @param string|null $unrecap_sec1250_gain Unrecaptured Section 1250 gain
+     * @param string|null $unrecaptured_section1250_gain Unrecaptured Section 1250 gain
      *
      * @return self
      */
-    public function setUnrecapSec1250Gain($unrecap_sec1250_gain)
+    public function setUnrecapturedSection1250Gain($unrecaptured_section1250_gain)
     {
-        $this->container['unrecap_sec1250_gain'] = $unrecap_sec1250_gain;
+        $this->container['unrecaptured_section1250_gain'] = $unrecaptured_section1250_gain;
 
         return $this;
     }
@@ -969,7 +974,7 @@ class Form1099DivListItem implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets fatca_filing_requirement
      *
-     * @return string|null
+     * @return bool|null
      */
     public function getFatcaFilingRequirement()
     {
@@ -979,7 +984,7 @@ class Form1099DivListItem implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets fatca_filing_requirement
      *
-     * @param string|null $fatca_filing_requirement FATCA filing requirement
+     * @param bool|null $fatca_filing_requirement FATCA filing requirement
      *
      * @return self
      */
@@ -1137,7 +1142,7 @@ class Form1099DivListItem implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets recipient_name
      *
-     * @return string
+     * @return string|null
      */
     public function getRecipientName()
     {
@@ -1147,17 +1152,12 @@ class Form1099DivListItem implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets recipient_name
      *
-     * @param string $recipient_name Recipient name
+     * @param string|null $recipient_name Recipient name
      *
      * @return self
      */
     public function setRecipientName($recipient_name)
     {
-
-        if ((mb_strlen($recipient_name) < 1)) {
-            throw new \InvalidArgumentException('invalid length for $recipient_name when calling Form1099DivListItem., must be bigger than or equal to 1.');
-        }
-
         $this->container['recipient_name'] = $recipient_name;
 
         return $this;
@@ -1352,25 +1352,25 @@ class Form1099DivListItem implements ModelInterface, ArrayAccess, \JsonSerializa
     }
 
     /**
-     * Gets recipient_email
+     * Gets email
      *
      * @return string|null
      */
-    public function getRecipientEmail()
+    public function getEmail()
     {
-        return $this->container['recipient_email'];
+        return $this->container['email'];
     }
 
     /**
-     * Sets recipient_email
+     * Sets email
      *
-     * @param string|null $recipient_email Recipient email address
+     * @param string|null $email Recipient email address
      *
      * @return self
      */
-    public function setRecipientEmail($recipient_email)
+    public function setEmail($email)
     {
-        $this->container['recipient_email'] = $recipient_email;
+        $this->container['email'] = $email;
 
         return $this;
     }
@@ -1424,25 +1424,25 @@ class Form1099DivListItem implements ModelInterface, ArrayAccess, \JsonSerializa
     }
 
     /**
-     * Gets recipient_non_us_province
+     * Gets non_us_province
      *
      * @return string|null
      */
-    public function getRecipientNonUsProvince()
+    public function getNonUsProvince()
     {
-        return $this->container['recipient_non_us_province'];
+        return $this->container['non_us_province'];
     }
 
     /**
-     * Sets recipient_non_us_province
+     * Sets non_us_province
      *
-     * @param string|null $recipient_non_us_province Foreign province
+     * @param string|null $non_us_province Foreign province
      *
      * @return self
      */
-    public function setRecipientNonUsProvince($recipient_non_us_province)
+    public function setNonUsProvince($non_us_province)
     {
-        $this->container['recipient_non_us_province'] = $recipient_non_us_province;
+        $this->container['non_us_province'] = $non_us_province;
 
         return $this;
     }
@@ -1568,6 +1568,54 @@ class Form1099DivListItem implements ModelInterface, ArrayAccess, \JsonSerializa
     public function setTinMatch($tin_match)
     {
         $this->container['tin_match'] = $tin_match;
+
+        return $this;
+    }
+
+    /**
+     * Gets no_tin
+     *
+     * @return bool|null
+     */
+    public function getNoTin()
+    {
+        return $this->container['no_tin'];
+    }
+
+    /**
+     * Sets no_tin
+     *
+     * @param bool|null $no_tin Indicates whether the recipient has no TIN
+     *
+     * @return self
+     */
+    public function setNoTin($no_tin)
+    {
+        $this->container['no_tin'] = $no_tin;
+
+        return $this;
+    }
+
+    /**
+     * Gets second_tin_notice
+     *
+     * @return bool|null
+     */
+    public function getSecondTinNotice()
+    {
+        return $this->container['second_tin_notice'];
+    }
+
+    /**
+     * Sets second_tin_notice
+     *
+     * @param bool|null $second_tin_notice Second TIN notice in three years
+     *
+     * @return self
+     */
+    public function setSecondTinNotice($second_tin_notice)
+    {
+        $this->container['second_tin_notice'] = $second_tin_notice;
 
         return $this;
     }

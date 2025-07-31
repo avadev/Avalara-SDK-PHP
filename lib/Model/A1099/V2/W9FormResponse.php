@@ -89,6 +89,7 @@ class W9FormResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         'tin' => 'string',
         'backup_withholding' => 'bool',
         'is1099able' => 'bool',
+        'tin_match_status' => '\Avalara\SDK\Model\A1099\V2\TinMatchStatusResponse',
         'id' => 'string',
         'type' => 'string',
         'entry_status' => 'string',
@@ -131,6 +132,7 @@ class W9FormResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         'tin' => null,
         'backup_withholding' => null,
         'is1099able' => null,
+        'tin_match_status' => null,
         'id' => null,
         'type' => null,
         'entry_status' => null,
@@ -192,6 +194,7 @@ class W9FormResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         'tin' => 'tin',
         'backup_withholding' => 'backupWithholding',
         'is1099able' => 'is1099able',
+        'tin_match_status' => 'tinMatchStatus',
         'id' => 'id',
         'type' => 'type',
         'entry_status' => 'entryStatus',
@@ -232,6 +235,7 @@ class W9FormResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         'tin' => 'setTin',
         'backup_withholding' => 'setBackupWithholding',
         'is1099able' => 'setIs1099able',
+        'tin_match_status' => 'setTinMatchStatus',
         'id' => 'setId',
         'type' => 'setType',
         'entry_status' => 'setEntryStatus',
@@ -272,6 +276,7 @@ class W9FormResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         'tin' => 'getTin',
         'backup_withholding' => 'getBackupWithholding',
         'is1099able' => 'getIs1099able',
+        'tin_match_status' => 'getTinMatchStatus',
         'id' => 'getId',
         'type' => 'getType',
         'entry_status' => 'getEntryStatus',
@@ -363,6 +368,7 @@ class W9FormResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['tin'] = $data['tin'] ?? null;
         $this->container['backup_withholding'] = $data['backup_withholding'] ?? null;
         $this->container['is1099able'] = $data['is1099able'] ?? null;
+        $this->container['tin_match_status'] = $data['tin_match_status'] ?? null;
         $this->container['id'] = $data['id'] ?? null;
         $this->container['type'] = $data['type'] ?? null;
         $this->container['entry_status'] = $data['entry_status'] ?? null;
@@ -831,6 +837,30 @@ class W9FormResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setIs1099able($is1099able)
     {
         $this->container['is1099able'] = $is1099able;
+
+        return $this;
+    }
+
+    /**
+     * Gets tin_match_status
+     *
+     * @return \Avalara\SDK\Model\A1099\V2\TinMatchStatusResponse|null
+     */
+    public function getTinMatchStatus()
+    {
+        return $this->container['tin_match_status'];
+    }
+
+    /**
+     * Sets tin_match_status
+     *
+     * @param \Avalara\SDK\Model\A1099\V2\TinMatchStatusResponse|null $tin_match_status The TIN Match status from IRS.
+     *
+     * @return self
+     */
+    public function setTinMatchStatus($tin_match_status)
+    {
+        $this->container['tin_match_status'] = $tin_match_status;
 
         return $this;
     }

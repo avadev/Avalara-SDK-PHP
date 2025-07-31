@@ -78,19 +78,22 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
         'issuer_tin' => 'string',
         'tax_year' => 'int',
         'federal_efile' => 'bool',
-        'federal_efile_status' => '\Avalara\SDK\Model\A1099\V2\Form1099StatusDetailResponse',
+        'federal_efile_status' => '\Avalara\SDK\Model\A1099\V2\StatusDetail',
         'state_efile' => 'bool',
         'state_efile_status' => '\Avalara\SDK\Model\A1099\V2\StateEfileStatusDetailResponse[]',
         'postal_mail' => 'bool',
-        'postal_mail_status' => '\Avalara\SDK\Model\A1099\V2\Form1099StatusDetailResponse',
+        'postal_mail_status' => '\Avalara\SDK\Model\A1099\V2\StatusDetail',
         'tin_match' => 'bool',
-        'tin_match_status' => '\Avalara\SDK\Model\A1099\V2\Form1099StatusDetailResponse',
+        'tin_match_status' => '\Avalara\SDK\Model\A1099\V2\StatusDetail',
         'address_verification' => 'bool',
-        'address_verification_status' => '\Avalara\SDK\Model\A1099\V2\Form1099StatusDetailResponse',
+        'address_verification_status' => '\Avalara\SDK\Model\A1099\V2\StatusDetail',
+        'e_delivery_status' => '\Avalara\SDK\Model\A1099\V2\StatusDetail',
         'reference_id' => 'string',
         'email' => 'string',
         'tin_type' => 'string',
         'tin' => 'string',
+        'no_tin' => 'bool',
+        'second_tin_notice' => 'bool',
         'recipient_name' => 'string',
         'recipient_second_name' => 'string',
         'address' => 'string',
@@ -98,14 +101,16 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
         'city' => 'string',
         'state' => 'string',
         'zip' => 'string',
-        'foreign_province' => 'string',
+        'non_us_province' => 'string',
         'country_code' => 'string',
+        'account_number' => 'string',
+        'office_code' => 'string',
+        'fatca_filing_requirement' => 'bool',
         'validation_errors' => '\Avalara\SDK\Model\A1099\V2\ValidationErrorResponse[]',
         'created_at' => '\DateTime',
         'updated_at' => '\DateTime',
         'state_and_local_withholding' => '\Avalara\SDK\Model\A1099\V2\StateAndLocalWithholdingResponse',
         'unique_form_id' => 'string',
-        'no_tin' => 'bool',
         'recipient_date_of_birth' => '\DateTime',
         'recipient_giin' => 'string',
         'recipient_foreign_tin' => 'string',
@@ -130,6 +135,24 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
         'intermediary_or_flow_through' => '\Avalara\SDK\Model\A1099\V2\IntermediaryOrFlowThroughResponse',
         'origin_of_health_coverage_code' => 'string',
         'covered_individuals' => '\Avalara\SDK\Model\A1099\V2\CoveredIndividualReferenceResponse[]',
+        'total_ordinary_dividends' => 'string',
+        'qualified_dividends' => 'string',
+        'total_capital_gain_distributions' => 'string',
+        'unrecaptured_section1250_gain' => 'string',
+        'section1202_gain' => 'string',
+        'collectibles_gain' => 'string',
+        'section897_ordinary_dividends' => 'string',
+        'section897_capital_gain' => 'string',
+        'nondividend_distributions' => 'string',
+        'federal_income_tax_withheld' => 'float',
+        'section199_a_dividends' => 'string',
+        'investment_expenses' => 'string',
+        'foreign_tax_paid' => 'string',
+        'foreign_country_or_us_possession' => 'string',
+        'cash_liquidation_distributions' => 'string',
+        'noncash_liquidation_distributions' => 'string',
+        'exempt_interest_dividends' => 'string',
+        'specified_private_activity_bond_interest_dividends' => 'string',
         'filer_type' => 'string',
         'payment_type' => 'string',
         'payment_settlement_entity_name_phone_number' => 'string',
@@ -137,7 +160,6 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
         'card_not_present_transactions' => 'float',
         'merchant_category_code' => 'string',
         'payment_transaction_number' => 'float',
-        'federal_income_tax_withheld' => 'float',
         'january' => 'float',
         'february' => 'float',
         'march' => 'float',
@@ -155,14 +177,15 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
         'other_income' => 'float',
         'fed_income_tax_withheld' => 'float',
         'fishing_boat_proceeds' => 'float',
-        'medical_and_health_care' => 'float',
+        'medical_and_health_care_payments' => 'float',
         'substitute_payments' => 'float',
         'direct_sales_indicator' => 'bool',
         'crop_insurance_proceeds' => 'float',
-        'excess_golden_parachute' => 'float',
-        'gross_amount_paid_attorney' => 'float',
+        'excess_golden_parachute_payments' => 'float',
+        'gross_proceeds_paid_to_attorney' => 'float',
+        'fish_purchased_for_resale' => 'float',
         'section409_a_deferrals' => 'float',
-        'section409_a_income' => 'float',
+        'nonqualified_deferred_compensation' => 'float',
         'nonemployee_compensation' => 'float',
         'gross_distributions' => 'float',
         'taxable_amount' => 'float',
@@ -209,10 +232,13 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
         'tin_match_status' => null,
         'address_verification' => null,
         'address_verification_status' => null,
+        'e_delivery_status' => null,
         'reference_id' => null,
         'email' => null,
         'tin_type' => null,
         'tin' => null,
+        'no_tin' => null,
+        'second_tin_notice' => null,
         'recipient_name' => null,
         'recipient_second_name' => null,
         'address' => null,
@@ -220,14 +246,16 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
         'city' => null,
         'state' => null,
         'zip' => null,
-        'foreign_province' => null,
+        'non_us_province' => null,
         'country_code' => null,
+        'account_number' => null,
+        'office_code' => null,
+        'fatca_filing_requirement' => null,
         'validation_errors' => null,
         'created_at' => 'date-time',
         'updated_at' => 'date-time',
         'state_and_local_withholding' => null,
         'unique_form_id' => null,
-        'no_tin' => null,
         'recipient_date_of_birth' => 'date-time',
         'recipient_giin' => null,
         'recipient_foreign_tin' => null,
@@ -252,6 +280,24 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
         'intermediary_or_flow_through' => null,
         'origin_of_health_coverage_code' => null,
         'covered_individuals' => null,
+        'total_ordinary_dividends' => null,
+        'qualified_dividends' => null,
+        'total_capital_gain_distributions' => null,
+        'unrecaptured_section1250_gain' => null,
+        'section1202_gain' => null,
+        'collectibles_gain' => null,
+        'section897_ordinary_dividends' => null,
+        'section897_capital_gain' => null,
+        'nondividend_distributions' => null,
+        'federal_income_tax_withheld' => 'double',
+        'section199_a_dividends' => null,
+        'investment_expenses' => null,
+        'foreign_tax_paid' => null,
+        'foreign_country_or_us_possession' => null,
+        'cash_liquidation_distributions' => null,
+        'noncash_liquidation_distributions' => null,
+        'exempt_interest_dividends' => null,
+        'specified_private_activity_bond_interest_dividends' => null,
         'filer_type' => null,
         'payment_type' => null,
         'payment_settlement_entity_name_phone_number' => null,
@@ -259,7 +305,6 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
         'card_not_present_transactions' => 'double',
         'merchant_category_code' => null,
         'payment_transaction_number' => 'double',
-        'federal_income_tax_withheld' => 'double',
         'january' => 'double',
         'february' => 'double',
         'march' => 'double',
@@ -277,14 +322,15 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
         'other_income' => 'double',
         'fed_income_tax_withheld' => 'double',
         'fishing_boat_proceeds' => 'double',
-        'medical_and_health_care' => 'double',
+        'medical_and_health_care_payments' => 'double',
         'substitute_payments' => 'double',
         'direct_sales_indicator' => null,
         'crop_insurance_proceeds' => 'double',
-        'excess_golden_parachute' => 'double',
-        'gross_amount_paid_attorney' => 'double',
+        'excess_golden_parachute_payments' => 'double',
+        'gross_proceeds_paid_to_attorney' => 'double',
+        'fish_purchased_for_resale' => 'double',
         'section409_a_deferrals' => 'double',
-        'section409_a_income' => 'double',
+        'nonqualified_deferred_compensation' => 'double',
         'nonemployee_compensation' => 'double',
         'gross_distributions' => 'double',
         'taxable_amount' => 'double',
@@ -350,10 +396,13 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
         'tin_match_status' => 'tinMatchStatus',
         'address_verification' => 'addressVerification',
         'address_verification_status' => 'addressVerificationStatus',
+        'e_delivery_status' => 'eDeliveryStatus',
         'reference_id' => 'referenceId',
         'email' => 'email',
         'tin_type' => 'tinType',
         'tin' => 'tin',
+        'no_tin' => 'noTin',
+        'second_tin_notice' => 'secondTinNotice',
         'recipient_name' => 'recipientName',
         'recipient_second_name' => 'recipientSecondName',
         'address' => 'address',
@@ -361,14 +410,16 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
         'city' => 'city',
         'state' => 'state',
         'zip' => 'zip',
-        'foreign_province' => 'foreignProvince',
+        'non_us_province' => 'nonUsProvince',
         'country_code' => 'countryCode',
+        'account_number' => 'accountNumber',
+        'office_code' => 'officeCode',
+        'fatca_filing_requirement' => 'fatcaFilingRequirement',
         'validation_errors' => 'validationErrors',
         'created_at' => 'createdAt',
         'updated_at' => 'updatedAt',
         'state_and_local_withholding' => 'stateAndLocalWithholding',
         'unique_form_id' => 'uniqueFormId',
-        'no_tin' => 'noTin',
         'recipient_date_of_birth' => 'recipientDateOfBirth',
         'recipient_giin' => 'recipientGiin',
         'recipient_foreign_tin' => 'recipientForeignTin',
@@ -393,6 +444,24 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
         'intermediary_or_flow_through' => 'intermediaryOrFlowThrough',
         'origin_of_health_coverage_code' => 'originOfHealthCoverageCode',
         'covered_individuals' => 'coveredIndividuals',
+        'total_ordinary_dividends' => 'totalOrdinaryDividends',
+        'qualified_dividends' => 'qualifiedDividends',
+        'total_capital_gain_distributions' => 'totalCapitalGainDistributions',
+        'unrecaptured_section1250_gain' => 'unrecapturedSection1250Gain',
+        'section1202_gain' => 'section1202Gain',
+        'collectibles_gain' => 'collectiblesGain',
+        'section897_ordinary_dividends' => 'section897OrdinaryDividends',
+        'section897_capital_gain' => 'section897CapitalGain',
+        'nondividend_distributions' => 'nondividendDistributions',
+        'federal_income_tax_withheld' => 'federalIncomeTaxWithheld',
+        'section199_a_dividends' => 'section199ADividends',
+        'investment_expenses' => 'investmentExpenses',
+        'foreign_tax_paid' => 'foreignTaxPaid',
+        'foreign_country_or_us_possession' => 'foreignCountryOrUSPossession',
+        'cash_liquidation_distributions' => 'cashLiquidationDistributions',
+        'noncash_liquidation_distributions' => 'noncashLiquidationDistributions',
+        'exempt_interest_dividends' => 'exemptInterestDividends',
+        'specified_private_activity_bond_interest_dividends' => 'specifiedPrivateActivityBondInterestDividends',
         'filer_type' => 'filerType',
         'payment_type' => 'paymentType',
         'payment_settlement_entity_name_phone_number' => 'paymentSettlementEntityNamePhoneNumber',
@@ -400,7 +469,6 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
         'card_not_present_transactions' => 'cardNotPresentTransactions',
         'merchant_category_code' => 'merchantCategoryCode',
         'payment_transaction_number' => 'paymentTransactionNumber',
-        'federal_income_tax_withheld' => 'federalIncomeTaxWithheld',
         'january' => 'january',
         'february' => 'february',
         'march' => 'march',
@@ -418,14 +486,15 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
         'other_income' => 'otherIncome',
         'fed_income_tax_withheld' => 'fedIncomeTaxWithheld',
         'fishing_boat_proceeds' => 'fishingBoatProceeds',
-        'medical_and_health_care' => 'medicalAndHealthCare',
+        'medical_and_health_care_payments' => 'medicalAndHealthCarePayments',
         'substitute_payments' => 'substitutePayments',
         'direct_sales_indicator' => 'directSalesIndicator',
         'crop_insurance_proceeds' => 'cropInsuranceProceeds',
-        'excess_golden_parachute' => 'excessGoldenParachute',
-        'gross_amount_paid_attorney' => 'grossAmountPaidAttorney',
+        'excess_golden_parachute_payments' => 'excessGoldenParachutePayments',
+        'gross_proceeds_paid_to_attorney' => 'grossProceedsPaidToAttorney',
+        'fish_purchased_for_resale' => 'fishPurchasedForResale',
         'section409_a_deferrals' => 'section409ADeferrals',
-        'section409_a_income' => 'section409AIncome',
+        'nonqualified_deferred_compensation' => 'nonqualifiedDeferredCompensation',
         'nonemployee_compensation' => 'nonemployeeCompensation',
         'gross_distributions' => 'grossDistributions',
         'taxable_amount' => 'taxableAmount',
@@ -470,10 +539,13 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
         'tin_match_status' => 'setTinMatchStatus',
         'address_verification' => 'setAddressVerification',
         'address_verification_status' => 'setAddressVerificationStatus',
+        'e_delivery_status' => 'setEDeliveryStatus',
         'reference_id' => 'setReferenceId',
         'email' => 'setEmail',
         'tin_type' => 'setTinType',
         'tin' => 'setTin',
+        'no_tin' => 'setNoTin',
+        'second_tin_notice' => 'setSecondTinNotice',
         'recipient_name' => 'setRecipientName',
         'recipient_second_name' => 'setRecipientSecondName',
         'address' => 'setAddress',
@@ -481,14 +553,16 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
         'city' => 'setCity',
         'state' => 'setState',
         'zip' => 'setZip',
-        'foreign_province' => 'setForeignProvince',
+        'non_us_province' => 'setNonUsProvince',
         'country_code' => 'setCountryCode',
+        'account_number' => 'setAccountNumber',
+        'office_code' => 'setOfficeCode',
+        'fatca_filing_requirement' => 'setFatcaFilingRequirement',
         'validation_errors' => 'setValidationErrors',
         'created_at' => 'setCreatedAt',
         'updated_at' => 'setUpdatedAt',
         'state_and_local_withholding' => 'setStateAndLocalWithholding',
         'unique_form_id' => 'setUniqueFormId',
-        'no_tin' => 'setNoTin',
         'recipient_date_of_birth' => 'setRecipientDateOfBirth',
         'recipient_giin' => 'setRecipientGiin',
         'recipient_foreign_tin' => 'setRecipientForeignTin',
@@ -513,6 +587,24 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
         'intermediary_or_flow_through' => 'setIntermediaryOrFlowThrough',
         'origin_of_health_coverage_code' => 'setOriginOfHealthCoverageCode',
         'covered_individuals' => 'setCoveredIndividuals',
+        'total_ordinary_dividends' => 'setTotalOrdinaryDividends',
+        'qualified_dividends' => 'setQualifiedDividends',
+        'total_capital_gain_distributions' => 'setTotalCapitalGainDistributions',
+        'unrecaptured_section1250_gain' => 'setUnrecapturedSection1250Gain',
+        'section1202_gain' => 'setSection1202Gain',
+        'collectibles_gain' => 'setCollectiblesGain',
+        'section897_ordinary_dividends' => 'setSection897OrdinaryDividends',
+        'section897_capital_gain' => 'setSection897CapitalGain',
+        'nondividend_distributions' => 'setNondividendDistributions',
+        'federal_income_tax_withheld' => 'setFederalIncomeTaxWithheld',
+        'section199_a_dividends' => 'setSection199ADividends',
+        'investment_expenses' => 'setInvestmentExpenses',
+        'foreign_tax_paid' => 'setForeignTaxPaid',
+        'foreign_country_or_us_possession' => 'setForeignCountryOrUsPossession',
+        'cash_liquidation_distributions' => 'setCashLiquidationDistributions',
+        'noncash_liquidation_distributions' => 'setNoncashLiquidationDistributions',
+        'exempt_interest_dividends' => 'setExemptInterestDividends',
+        'specified_private_activity_bond_interest_dividends' => 'setSpecifiedPrivateActivityBondInterestDividends',
         'filer_type' => 'setFilerType',
         'payment_type' => 'setPaymentType',
         'payment_settlement_entity_name_phone_number' => 'setPaymentSettlementEntityNamePhoneNumber',
@@ -520,7 +612,6 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
         'card_not_present_transactions' => 'setCardNotPresentTransactions',
         'merchant_category_code' => 'setMerchantCategoryCode',
         'payment_transaction_number' => 'setPaymentTransactionNumber',
-        'federal_income_tax_withheld' => 'setFederalIncomeTaxWithheld',
         'january' => 'setJanuary',
         'february' => 'setFebruary',
         'march' => 'setMarch',
@@ -538,14 +629,15 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
         'other_income' => 'setOtherIncome',
         'fed_income_tax_withheld' => 'setFedIncomeTaxWithheld',
         'fishing_boat_proceeds' => 'setFishingBoatProceeds',
-        'medical_and_health_care' => 'setMedicalAndHealthCare',
+        'medical_and_health_care_payments' => 'setMedicalAndHealthCarePayments',
         'substitute_payments' => 'setSubstitutePayments',
         'direct_sales_indicator' => 'setDirectSalesIndicator',
         'crop_insurance_proceeds' => 'setCropInsuranceProceeds',
-        'excess_golden_parachute' => 'setExcessGoldenParachute',
-        'gross_amount_paid_attorney' => 'setGrossAmountPaidAttorney',
+        'excess_golden_parachute_payments' => 'setExcessGoldenParachutePayments',
+        'gross_proceeds_paid_to_attorney' => 'setGrossProceedsPaidToAttorney',
+        'fish_purchased_for_resale' => 'setFishPurchasedForResale',
         'section409_a_deferrals' => 'setSection409ADeferrals',
-        'section409_a_income' => 'setSection409AIncome',
+        'nonqualified_deferred_compensation' => 'setNonqualifiedDeferredCompensation',
         'nonemployee_compensation' => 'setNonemployeeCompensation',
         'gross_distributions' => 'setGrossDistributions',
         'taxable_amount' => 'setTaxableAmount',
@@ -590,10 +682,13 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
         'tin_match_status' => 'getTinMatchStatus',
         'address_verification' => 'getAddressVerification',
         'address_verification_status' => 'getAddressVerificationStatus',
+        'e_delivery_status' => 'getEDeliveryStatus',
         'reference_id' => 'getReferenceId',
         'email' => 'getEmail',
         'tin_type' => 'getTinType',
         'tin' => 'getTin',
+        'no_tin' => 'getNoTin',
+        'second_tin_notice' => 'getSecondTinNotice',
         'recipient_name' => 'getRecipientName',
         'recipient_second_name' => 'getRecipientSecondName',
         'address' => 'getAddress',
@@ -601,14 +696,16 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
         'city' => 'getCity',
         'state' => 'getState',
         'zip' => 'getZip',
-        'foreign_province' => 'getForeignProvince',
+        'non_us_province' => 'getNonUsProvince',
         'country_code' => 'getCountryCode',
+        'account_number' => 'getAccountNumber',
+        'office_code' => 'getOfficeCode',
+        'fatca_filing_requirement' => 'getFatcaFilingRequirement',
         'validation_errors' => 'getValidationErrors',
         'created_at' => 'getCreatedAt',
         'updated_at' => 'getUpdatedAt',
         'state_and_local_withholding' => 'getStateAndLocalWithholding',
         'unique_form_id' => 'getUniqueFormId',
-        'no_tin' => 'getNoTin',
         'recipient_date_of_birth' => 'getRecipientDateOfBirth',
         'recipient_giin' => 'getRecipientGiin',
         'recipient_foreign_tin' => 'getRecipientForeignTin',
@@ -633,6 +730,24 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
         'intermediary_or_flow_through' => 'getIntermediaryOrFlowThrough',
         'origin_of_health_coverage_code' => 'getOriginOfHealthCoverageCode',
         'covered_individuals' => 'getCoveredIndividuals',
+        'total_ordinary_dividends' => 'getTotalOrdinaryDividends',
+        'qualified_dividends' => 'getQualifiedDividends',
+        'total_capital_gain_distributions' => 'getTotalCapitalGainDistributions',
+        'unrecaptured_section1250_gain' => 'getUnrecapturedSection1250Gain',
+        'section1202_gain' => 'getSection1202Gain',
+        'collectibles_gain' => 'getCollectiblesGain',
+        'section897_ordinary_dividends' => 'getSection897OrdinaryDividends',
+        'section897_capital_gain' => 'getSection897CapitalGain',
+        'nondividend_distributions' => 'getNondividendDistributions',
+        'federal_income_tax_withheld' => 'getFederalIncomeTaxWithheld',
+        'section199_a_dividends' => 'getSection199ADividends',
+        'investment_expenses' => 'getInvestmentExpenses',
+        'foreign_tax_paid' => 'getForeignTaxPaid',
+        'foreign_country_or_us_possession' => 'getForeignCountryOrUsPossession',
+        'cash_liquidation_distributions' => 'getCashLiquidationDistributions',
+        'noncash_liquidation_distributions' => 'getNoncashLiquidationDistributions',
+        'exempt_interest_dividends' => 'getExemptInterestDividends',
+        'specified_private_activity_bond_interest_dividends' => 'getSpecifiedPrivateActivityBondInterestDividends',
         'filer_type' => 'getFilerType',
         'payment_type' => 'getPaymentType',
         'payment_settlement_entity_name_phone_number' => 'getPaymentSettlementEntityNamePhoneNumber',
@@ -640,7 +755,6 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
         'card_not_present_transactions' => 'getCardNotPresentTransactions',
         'merchant_category_code' => 'getMerchantCategoryCode',
         'payment_transaction_number' => 'getPaymentTransactionNumber',
-        'federal_income_tax_withheld' => 'getFederalIncomeTaxWithheld',
         'january' => 'getJanuary',
         'february' => 'getFebruary',
         'march' => 'getMarch',
@@ -658,14 +772,15 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
         'other_income' => 'getOtherIncome',
         'fed_income_tax_withheld' => 'getFedIncomeTaxWithheld',
         'fishing_boat_proceeds' => 'getFishingBoatProceeds',
-        'medical_and_health_care' => 'getMedicalAndHealthCare',
+        'medical_and_health_care_payments' => 'getMedicalAndHealthCarePayments',
         'substitute_payments' => 'getSubstitutePayments',
         'direct_sales_indicator' => 'getDirectSalesIndicator',
         'crop_insurance_proceeds' => 'getCropInsuranceProceeds',
-        'excess_golden_parachute' => 'getExcessGoldenParachute',
-        'gross_amount_paid_attorney' => 'getGrossAmountPaidAttorney',
+        'excess_golden_parachute_payments' => 'getExcessGoldenParachutePayments',
+        'gross_proceeds_paid_to_attorney' => 'getGrossProceedsPaidToAttorney',
+        'fish_purchased_for_resale' => 'getFishPurchasedForResale',
         'section409_a_deferrals' => 'getSection409ADeferrals',
-        'section409_a_income' => 'getSection409AIncome',
+        'nonqualified_deferred_compensation' => 'getNonqualifiedDeferredCompensation',
         'nonemployee_compensation' => 'getNonemployeeCompensation',
         'gross_distributions' => 'getGrossDistributions',
         'taxable_amount' => 'getTaxableAmount',
@@ -793,10 +908,13 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
         $this->container['tin_match_status'] = $data['tin_match_status'] ?? null;
         $this->container['address_verification'] = $data['address_verification'] ?? null;
         $this->container['address_verification_status'] = $data['address_verification_status'] ?? null;
+        $this->container['e_delivery_status'] = $data['e_delivery_status'] ?? null;
         $this->container['reference_id'] = $data['reference_id'] ?? null;
         $this->container['email'] = $data['email'] ?? null;
         $this->container['tin_type'] = $data['tin_type'] ?? null;
         $this->container['tin'] = $data['tin'] ?? null;
+        $this->container['no_tin'] = $data['no_tin'] ?? null;
+        $this->container['second_tin_notice'] = $data['second_tin_notice'] ?? null;
         $this->container['recipient_name'] = $data['recipient_name'] ?? null;
         $this->container['recipient_second_name'] = $data['recipient_second_name'] ?? null;
         $this->container['address'] = $data['address'] ?? null;
@@ -804,14 +922,16 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
         $this->container['city'] = $data['city'] ?? null;
         $this->container['state'] = $data['state'] ?? null;
         $this->container['zip'] = $data['zip'] ?? null;
-        $this->container['foreign_province'] = $data['foreign_province'] ?? null;
+        $this->container['non_us_province'] = $data['non_us_province'] ?? null;
         $this->container['country_code'] = $data['country_code'] ?? null;
+        $this->container['account_number'] = $data['account_number'] ?? null;
+        $this->container['office_code'] = $data['office_code'] ?? null;
+        $this->container['fatca_filing_requirement'] = $data['fatca_filing_requirement'] ?? null;
         $this->container['validation_errors'] = $data['validation_errors'] ?? null;
         $this->container['created_at'] = $data['created_at'] ?? null;
         $this->container['updated_at'] = $data['updated_at'] ?? null;
         $this->container['state_and_local_withholding'] = $data['state_and_local_withholding'] ?? null;
         $this->container['unique_form_id'] = $data['unique_form_id'] ?? null;
-        $this->container['no_tin'] = $data['no_tin'] ?? null;
         $this->container['recipient_date_of_birth'] = $data['recipient_date_of_birth'] ?? null;
         $this->container['recipient_giin'] = $data['recipient_giin'] ?? null;
         $this->container['recipient_foreign_tin'] = $data['recipient_foreign_tin'] ?? null;
@@ -836,6 +956,24 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
         $this->container['intermediary_or_flow_through'] = $data['intermediary_or_flow_through'] ?? null;
         $this->container['origin_of_health_coverage_code'] = $data['origin_of_health_coverage_code'] ?? null;
         $this->container['covered_individuals'] = $data['covered_individuals'] ?? null;
+        $this->container['total_ordinary_dividends'] = $data['total_ordinary_dividends'] ?? null;
+        $this->container['qualified_dividends'] = $data['qualified_dividends'] ?? null;
+        $this->container['total_capital_gain_distributions'] = $data['total_capital_gain_distributions'] ?? null;
+        $this->container['unrecaptured_section1250_gain'] = $data['unrecaptured_section1250_gain'] ?? null;
+        $this->container['section1202_gain'] = $data['section1202_gain'] ?? null;
+        $this->container['collectibles_gain'] = $data['collectibles_gain'] ?? null;
+        $this->container['section897_ordinary_dividends'] = $data['section897_ordinary_dividends'] ?? null;
+        $this->container['section897_capital_gain'] = $data['section897_capital_gain'] ?? null;
+        $this->container['nondividend_distributions'] = $data['nondividend_distributions'] ?? null;
+        $this->container['federal_income_tax_withheld'] = $data['federal_income_tax_withheld'] ?? null;
+        $this->container['section199_a_dividends'] = $data['section199_a_dividends'] ?? null;
+        $this->container['investment_expenses'] = $data['investment_expenses'] ?? null;
+        $this->container['foreign_tax_paid'] = $data['foreign_tax_paid'] ?? null;
+        $this->container['foreign_country_or_us_possession'] = $data['foreign_country_or_us_possession'] ?? null;
+        $this->container['cash_liquidation_distributions'] = $data['cash_liquidation_distributions'] ?? null;
+        $this->container['noncash_liquidation_distributions'] = $data['noncash_liquidation_distributions'] ?? null;
+        $this->container['exempt_interest_dividends'] = $data['exempt_interest_dividends'] ?? null;
+        $this->container['specified_private_activity_bond_interest_dividends'] = $data['specified_private_activity_bond_interest_dividends'] ?? null;
         $this->container['filer_type'] = $data['filer_type'] ?? null;
         $this->container['payment_type'] = $data['payment_type'] ?? null;
         $this->container['payment_settlement_entity_name_phone_number'] = $data['payment_settlement_entity_name_phone_number'] ?? null;
@@ -843,7 +981,6 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
         $this->container['card_not_present_transactions'] = $data['card_not_present_transactions'] ?? null;
         $this->container['merchant_category_code'] = $data['merchant_category_code'] ?? null;
         $this->container['payment_transaction_number'] = $data['payment_transaction_number'] ?? null;
-        $this->container['federal_income_tax_withheld'] = $data['federal_income_tax_withheld'] ?? null;
         $this->container['january'] = $data['january'] ?? null;
         $this->container['february'] = $data['february'] ?? null;
         $this->container['march'] = $data['march'] ?? null;
@@ -861,14 +998,15 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
         $this->container['other_income'] = $data['other_income'] ?? null;
         $this->container['fed_income_tax_withheld'] = $data['fed_income_tax_withheld'] ?? null;
         $this->container['fishing_boat_proceeds'] = $data['fishing_boat_proceeds'] ?? null;
-        $this->container['medical_and_health_care'] = $data['medical_and_health_care'] ?? null;
+        $this->container['medical_and_health_care_payments'] = $data['medical_and_health_care_payments'] ?? null;
         $this->container['substitute_payments'] = $data['substitute_payments'] ?? null;
         $this->container['direct_sales_indicator'] = $data['direct_sales_indicator'] ?? null;
         $this->container['crop_insurance_proceeds'] = $data['crop_insurance_proceeds'] ?? null;
-        $this->container['excess_golden_parachute'] = $data['excess_golden_parachute'] ?? null;
-        $this->container['gross_amount_paid_attorney'] = $data['gross_amount_paid_attorney'] ?? null;
+        $this->container['excess_golden_parachute_payments'] = $data['excess_golden_parachute_payments'] ?? null;
+        $this->container['gross_proceeds_paid_to_attorney'] = $data['gross_proceeds_paid_to_attorney'] ?? null;
+        $this->container['fish_purchased_for_resale'] = $data['fish_purchased_for_resale'] ?? null;
         $this->container['section409_a_deferrals'] = $data['section409_a_deferrals'] ?? null;
-        $this->container['section409_a_income'] = $data['section409_a_income'] ?? null;
+        $this->container['nonqualified_deferred_compensation'] = $data['nonqualified_deferred_compensation'] ?? null;
         $this->container['nonemployee_compensation'] = $data['nonemployee_compensation'] ?? null;
         $this->container['gross_distributions'] = $data['gross_distributions'] ?? null;
         $this->container['taxable_amount'] = $data['taxable_amount'] ?? null;
@@ -1146,7 +1284,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets federal_efile_status
      *
-     * @return \Avalara\SDK\Model\A1099\V2\Form1099StatusDetailResponse|null
+     * @return \Avalara\SDK\Model\A1099\V2\StatusDetail|null
      */
     public function getFederalEfileStatus()
     {
@@ -1156,7 +1294,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets federal_efile_status
      *
-     * @param \Avalara\SDK\Model\A1099\V2\Form1099StatusDetailResponse|null $federal_efile_status Federal e-file status
+     * @param \Avalara\SDK\Model\A1099\V2\StatusDetail|null $federal_efile_status Federal e-file status
      *
      * @return self
      */
@@ -1244,7 +1382,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets postal_mail_status
      *
-     * @return \Avalara\SDK\Model\A1099\V2\Form1099StatusDetailResponse|null
+     * @return \Avalara\SDK\Model\A1099\V2\StatusDetail|null
      */
     public function getPostalMailStatus()
     {
@@ -1254,7 +1392,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets postal_mail_status
      *
-     * @param \Avalara\SDK\Model\A1099\V2\Form1099StatusDetailResponse|null $postal_mail_status Postal mail to recipient status
+     * @param \Avalara\SDK\Model\A1099\V2\StatusDetail|null $postal_mail_status Postal mail to recipient status
      *
      * @return self
      */
@@ -1292,7 +1430,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets tin_match_status
      *
-     * @return \Avalara\SDK\Model\A1099\V2\Form1099StatusDetailResponse|null
+     * @return \Avalara\SDK\Model\A1099\V2\StatusDetail|null
      */
     public function getTinMatchStatus()
     {
@@ -1302,7 +1440,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets tin_match_status
      *
-     * @param \Avalara\SDK\Model\A1099\V2\Form1099StatusDetailResponse|null $tin_match_status TIN Match status
+     * @param \Avalara\SDK\Model\A1099\V2\StatusDetail|null $tin_match_status TIN Match status
      *
      * @return self
      */
@@ -1340,7 +1478,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets address_verification_status
      *
-     * @return \Avalara\SDK\Model\A1099\V2\Form1099StatusDetailResponse|null
+     * @return \Avalara\SDK\Model\A1099\V2\StatusDetail|null
      */
     public function getAddressVerificationStatus()
     {
@@ -1350,13 +1488,37 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets address_verification_status
      *
-     * @param \Avalara\SDK\Model\A1099\V2\Form1099StatusDetailResponse|null $address_verification_status Address verification status
+     * @param \Avalara\SDK\Model\A1099\V2\StatusDetail|null $address_verification_status Address verification status
      *
      * @return self
      */
     public function setAddressVerificationStatus($address_verification_status)
     {
         $this->container['address_verification_status'] = $address_verification_status;
+
+        return $this;
+    }
+
+    /**
+     * Gets e_delivery_status
+     *
+     * @return \Avalara\SDK\Model\A1099\V2\StatusDetail|null
+     */
+    public function getEDeliveryStatus()
+    {
+        return $this->container['e_delivery_status'];
+    }
+
+    /**
+     * Sets e_delivery_status
+     *
+     * @param \Avalara\SDK\Model\A1099\V2\StatusDetail|null $e_delivery_status EDelivery status
+     *
+     * @return self
+     */
+    public function setEDeliveryStatus($e_delivery_status)
+    {
+        $this->container['e_delivery_status'] = $e_delivery_status;
 
         return $this;
     }
@@ -1453,6 +1615,54 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     public function setTin($tin)
     {
         $this->container['tin'] = $tin;
+
+        return $this;
+    }
+
+    /**
+     * Gets no_tin
+     *
+     * @return bool|null
+     */
+    public function getNoTin()
+    {
+        return $this->container['no_tin'];
+    }
+
+    /**
+     * Sets no_tin
+     *
+     * @param bool|null $no_tin Indicates whether the recipient has no TIN
+     *
+     * @return self
+     */
+    public function setNoTin($no_tin)
+    {
+        $this->container['no_tin'] = $no_tin;
+
+        return $this;
+    }
+
+    /**
+     * Gets second_tin_notice
+     *
+     * @return bool|null
+     */
+    public function getSecondTinNotice()
+    {
+        return $this->container['second_tin_notice'];
+    }
+
+    /**
+     * Sets second_tin_notice
+     *
+     * @param bool|null $second_tin_notice Second Tin Notice
+     *
+     * @return self
+     */
+    public function setSecondTinNotice($second_tin_notice)
+    {
+        $this->container['second_tin_notice'] = $second_tin_notice;
 
         return $this;
     }
@@ -1626,25 +1836,25 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     }
 
     /**
-     * Gets foreign_province
+     * Gets non_us_province
      *
      * @return string|null
      */
-    public function getForeignProvince()
+    public function getNonUsProvince()
     {
-        return $this->container['foreign_province'];
+        return $this->container['non_us_province'];
     }
 
     /**
-     * Sets foreign_province
+     * Sets non_us_province
      *
-     * @param string|null $foreign_province Foreign province
+     * @param string|null $non_us_province Foreign province
      *
      * @return self
      */
-    public function setForeignProvince($foreign_province)
+    public function setNonUsProvince($non_us_province)
     {
-        $this->container['foreign_province'] = $foreign_province;
+        $this->container['non_us_province'] = $non_us_province;
 
         return $this;
     }
@@ -1669,6 +1879,78 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     public function setCountryCode($country_code)
     {
         $this->container['country_code'] = $country_code;
+
+        return $this;
+    }
+
+    /**
+     * Gets account_number
+     *
+     * @return string|null
+     */
+    public function getAccountNumber()
+    {
+        return $this->container['account_number'];
+    }
+
+    /**
+     * Sets account_number
+     *
+     * @param string|null $account_number Account Number
+     *
+     * @return self
+     */
+    public function setAccountNumber($account_number)
+    {
+        $this->container['account_number'] = $account_number;
+
+        return $this;
+    }
+
+    /**
+     * Gets office_code
+     *
+     * @return string|null
+     */
+    public function getOfficeCode()
+    {
+        return $this->container['office_code'];
+    }
+
+    /**
+     * Sets office_code
+     *
+     * @param string|null $office_code Office Code
+     *
+     * @return self
+     */
+    public function setOfficeCode($office_code)
+    {
+        $this->container['office_code'] = $office_code;
+
+        return $this;
+    }
+
+    /**
+     * Gets fatca_filing_requirement
+     *
+     * @return bool|null
+     */
+    public function getFatcaFilingRequirement()
+    {
+        return $this->container['fatca_filing_requirement'];
+    }
+
+    /**
+     * Sets fatca_filing_requirement
+     *
+     * @param bool|null $fatca_filing_requirement FATCA filing requirement
+     *
+     * @return self
+     */
+    public function setFatcaFilingRequirement($fatca_filing_requirement)
+    {
+        $this->container['fatca_filing_requirement'] = $fatca_filing_requirement;
 
         return $this;
     }
@@ -1791,30 +2073,6 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     public function setUniqueFormId($unique_form_id)
     {
         $this->container['unique_form_id'] = $unique_form_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets no_tin
-     *
-     * @return bool|null
-     */
-    public function getNoTin()
-    {
-        return $this->container['no_tin'];
-    }
-
-    /**
-     * Sets no_tin
-     *
-     * @param bool|null $no_tin No TIN indicator
-     *
-     * @return self
-     */
-    public function setNoTin($no_tin)
-    {
-        $this->container['no_tin'] = $no_tin;
 
         return $this;
     }
@@ -2398,6 +2656,438 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     }
 
     /**
+     * Gets total_ordinary_dividends
+     *
+     * @return string|null
+     */
+    public function getTotalOrdinaryDividends()
+    {
+        return $this->container['total_ordinary_dividends'];
+    }
+
+    /**
+     * Sets total_ordinary_dividends
+     *
+     * @param string|null $total_ordinary_dividends Total ordinary dividends
+     *
+     * @return self
+     */
+    public function setTotalOrdinaryDividends($total_ordinary_dividends)
+    {
+        $this->container['total_ordinary_dividends'] = $total_ordinary_dividends;
+
+        return $this;
+    }
+
+    /**
+     * Gets qualified_dividends
+     *
+     * @return string|null
+     */
+    public function getQualifiedDividends()
+    {
+        return $this->container['qualified_dividends'];
+    }
+
+    /**
+     * Sets qualified_dividends
+     *
+     * @param string|null $qualified_dividends Qualified dividends
+     *
+     * @return self
+     */
+    public function setQualifiedDividends($qualified_dividends)
+    {
+        $this->container['qualified_dividends'] = $qualified_dividends;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_capital_gain_distributions
+     *
+     * @return string|null
+     */
+    public function getTotalCapitalGainDistributions()
+    {
+        return $this->container['total_capital_gain_distributions'];
+    }
+
+    /**
+     * Sets total_capital_gain_distributions
+     *
+     * @param string|null $total_capital_gain_distributions Total capital gain distributions
+     *
+     * @return self
+     */
+    public function setTotalCapitalGainDistributions($total_capital_gain_distributions)
+    {
+        $this->container['total_capital_gain_distributions'] = $total_capital_gain_distributions;
+
+        return $this;
+    }
+
+    /**
+     * Gets unrecaptured_section1250_gain
+     *
+     * @return string|null
+     */
+    public function getUnrecapturedSection1250Gain()
+    {
+        return $this->container['unrecaptured_section1250_gain'];
+    }
+
+    /**
+     * Sets unrecaptured_section1250_gain
+     *
+     * @param string|null $unrecaptured_section1250_gain Unrecaptured Section 1250 gain
+     *
+     * @return self
+     */
+    public function setUnrecapturedSection1250Gain($unrecaptured_section1250_gain)
+    {
+        $this->container['unrecaptured_section1250_gain'] = $unrecaptured_section1250_gain;
+
+        return $this;
+    }
+
+    /**
+     * Gets section1202_gain
+     *
+     * @return string|null
+     */
+    public function getSection1202Gain()
+    {
+        return $this->container['section1202_gain'];
+    }
+
+    /**
+     * Sets section1202_gain
+     *
+     * @param string|null $section1202_gain Section 1202 gain
+     *
+     * @return self
+     */
+    public function setSection1202Gain($section1202_gain)
+    {
+        $this->container['section1202_gain'] = $section1202_gain;
+
+        return $this;
+    }
+
+    /**
+     * Gets collectibles_gain
+     *
+     * @return string|null
+     */
+    public function getCollectiblesGain()
+    {
+        return $this->container['collectibles_gain'];
+    }
+
+    /**
+     * Sets collectibles_gain
+     *
+     * @param string|null $collectibles_gain Collectibles (28%) gain
+     *
+     * @return self
+     */
+    public function setCollectiblesGain($collectibles_gain)
+    {
+        $this->container['collectibles_gain'] = $collectibles_gain;
+
+        return $this;
+    }
+
+    /**
+     * Gets section897_ordinary_dividends
+     *
+     * @return string|null
+     */
+    public function getSection897OrdinaryDividends()
+    {
+        return $this->container['section897_ordinary_dividends'];
+    }
+
+    /**
+     * Sets section897_ordinary_dividends
+     *
+     * @param string|null $section897_ordinary_dividends Section 897 ordinary dividends
+     *
+     * @return self
+     */
+    public function setSection897OrdinaryDividends($section897_ordinary_dividends)
+    {
+        $this->container['section897_ordinary_dividends'] = $section897_ordinary_dividends;
+
+        return $this;
+    }
+
+    /**
+     * Gets section897_capital_gain
+     *
+     * @return string|null
+     */
+    public function getSection897CapitalGain()
+    {
+        return $this->container['section897_capital_gain'];
+    }
+
+    /**
+     * Sets section897_capital_gain
+     *
+     * @param string|null $section897_capital_gain Section 897 capital gain
+     *
+     * @return self
+     */
+    public function setSection897CapitalGain($section897_capital_gain)
+    {
+        $this->container['section897_capital_gain'] = $section897_capital_gain;
+
+        return $this;
+    }
+
+    /**
+     * Gets nondividend_distributions
+     *
+     * @return string|null
+     */
+    public function getNondividendDistributions()
+    {
+        return $this->container['nondividend_distributions'];
+    }
+
+    /**
+     * Sets nondividend_distributions
+     *
+     * @param string|null $nondividend_distributions Nondividend distributions
+     *
+     * @return self
+     */
+    public function setNondividendDistributions($nondividend_distributions)
+    {
+        $this->container['nondividend_distributions'] = $nondividend_distributions;
+
+        return $this;
+    }
+
+    /**
+     * Gets federal_income_tax_withheld
+     *
+     * @return float|null
+     */
+    public function getFederalIncomeTaxWithheld()
+    {
+        return $this->container['federal_income_tax_withheld'];
+    }
+
+    /**
+     * Sets federal_income_tax_withheld
+     *
+     * @param float|null $federal_income_tax_withheld Federal income tax withheld
+     *
+     * @return self
+     */
+    public function setFederalIncomeTaxWithheld($federal_income_tax_withheld)
+    {
+        $this->container['federal_income_tax_withheld'] = $federal_income_tax_withheld;
+
+        return $this;
+    }
+
+    /**
+     * Gets section199_a_dividends
+     *
+     * @return string|null
+     */
+    public function getSection199ADividends()
+    {
+        return $this->container['section199_a_dividends'];
+    }
+
+    /**
+     * Sets section199_a_dividends
+     *
+     * @param string|null $section199_a_dividends Section 199A dividends
+     *
+     * @return self
+     */
+    public function setSection199ADividends($section199_a_dividends)
+    {
+        $this->container['section199_a_dividends'] = $section199_a_dividends;
+
+        return $this;
+    }
+
+    /**
+     * Gets investment_expenses
+     *
+     * @return string|null
+     */
+    public function getInvestmentExpenses()
+    {
+        return $this->container['investment_expenses'];
+    }
+
+    /**
+     * Sets investment_expenses
+     *
+     * @param string|null $investment_expenses Investment expenses
+     *
+     * @return self
+     */
+    public function setInvestmentExpenses($investment_expenses)
+    {
+        $this->container['investment_expenses'] = $investment_expenses;
+
+        return $this;
+    }
+
+    /**
+     * Gets foreign_tax_paid
+     *
+     * @return string|null
+     */
+    public function getForeignTaxPaid()
+    {
+        return $this->container['foreign_tax_paid'];
+    }
+
+    /**
+     * Sets foreign_tax_paid
+     *
+     * @param string|null $foreign_tax_paid Foreign tax paid
+     *
+     * @return self
+     */
+    public function setForeignTaxPaid($foreign_tax_paid)
+    {
+        $this->container['foreign_tax_paid'] = $foreign_tax_paid;
+
+        return $this;
+    }
+
+    /**
+     * Gets foreign_country_or_us_possession
+     *
+     * @return string|null
+     */
+    public function getForeignCountryOrUsPossession()
+    {
+        return $this->container['foreign_country_or_us_possession'];
+    }
+
+    /**
+     * Sets foreign_country_or_us_possession
+     *
+     * @param string|null $foreign_country_or_us_possession Foreign country or U.S. possession
+     *
+     * @return self
+     */
+    public function setForeignCountryOrUsPossession($foreign_country_or_us_possession)
+    {
+        $this->container['foreign_country_or_us_possession'] = $foreign_country_or_us_possession;
+
+        return $this;
+    }
+
+    /**
+     * Gets cash_liquidation_distributions
+     *
+     * @return string|null
+     */
+    public function getCashLiquidationDistributions()
+    {
+        return $this->container['cash_liquidation_distributions'];
+    }
+
+    /**
+     * Sets cash_liquidation_distributions
+     *
+     * @param string|null $cash_liquidation_distributions Cash liquidation distributions
+     *
+     * @return self
+     */
+    public function setCashLiquidationDistributions($cash_liquidation_distributions)
+    {
+        $this->container['cash_liquidation_distributions'] = $cash_liquidation_distributions;
+
+        return $this;
+    }
+
+    /**
+     * Gets noncash_liquidation_distributions
+     *
+     * @return string|null
+     */
+    public function getNoncashLiquidationDistributions()
+    {
+        return $this->container['noncash_liquidation_distributions'];
+    }
+
+    /**
+     * Sets noncash_liquidation_distributions
+     *
+     * @param string|null $noncash_liquidation_distributions Noncash liquidation distributions
+     *
+     * @return self
+     */
+    public function setNoncashLiquidationDistributions($noncash_liquidation_distributions)
+    {
+        $this->container['noncash_liquidation_distributions'] = $noncash_liquidation_distributions;
+
+        return $this;
+    }
+
+    /**
+     * Gets exempt_interest_dividends
+     *
+     * @return string|null
+     */
+    public function getExemptInterestDividends()
+    {
+        return $this->container['exempt_interest_dividends'];
+    }
+
+    /**
+     * Sets exempt_interest_dividends
+     *
+     * @param string|null $exempt_interest_dividends Exempt-interest dividends
+     *
+     * @return self
+     */
+    public function setExemptInterestDividends($exempt_interest_dividends)
+    {
+        $this->container['exempt_interest_dividends'] = $exempt_interest_dividends;
+
+        return $this;
+    }
+
+    /**
+     * Gets specified_private_activity_bond_interest_dividends
+     *
+     * @return string|null
+     */
+    public function getSpecifiedPrivateActivityBondInterestDividends()
+    {
+        return $this->container['specified_private_activity_bond_interest_dividends'];
+    }
+
+    /**
+     * Sets specified_private_activity_bond_interest_dividends
+     *
+     * @param string|null $specified_private_activity_bond_interest_dividends Specified private activity bond interest dividends
+     *
+     * @return self
+     */
+    public function setSpecifiedPrivateActivityBondInterestDividends($specified_private_activity_bond_interest_dividends)
+    {
+        $this->container['specified_private_activity_bond_interest_dividends'] = $specified_private_activity_bond_interest_dividends;
+
+        return $this;
+    }
+
+    /**
      * Gets filer_type
      *
      * @return string|null
@@ -2581,30 +3271,6 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     public function setPaymentTransactionNumber($payment_transaction_number)
     {
         $this->container['payment_transaction_number'] = $payment_transaction_number;
-
-        return $this;
-    }
-
-    /**
-     * Gets federal_income_tax_withheld
-     *
-     * @return float|null
-     */
-    public function getFederalIncomeTaxWithheld()
-    {
-        return $this->container['federal_income_tax_withheld'];
-    }
-
-    /**
-     * Sets federal_income_tax_withheld
-     *
-     * @param float|null $federal_income_tax_withheld Federal income tax withheld
-     *
-     * @return self
-     */
-    public function setFederalIncomeTaxWithheld($federal_income_tax_withheld)
-    {
-        $this->container['federal_income_tax_withheld'] = $federal_income_tax_withheld;
 
         return $this;
     }
@@ -3018,25 +3684,25 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     }
 
     /**
-     * Gets medical_and_health_care
+     * Gets medical_and_health_care_payments
      *
      * @return float|null
      */
-    public function getMedicalAndHealthCare()
+    public function getMedicalAndHealthCarePayments()
     {
-        return $this->container['medical_and_health_care'];
+        return $this->container['medical_and_health_care_payments'];
     }
 
     /**
-     * Sets medical_and_health_care
+     * Sets medical_and_health_care_payments
      *
-     * @param float|null $medical_and_health_care Medical and health care payments
+     * @param float|null $medical_and_health_care_payments Medical and health care payments
      *
      * @return self
      */
-    public function setMedicalAndHealthCare($medical_and_health_care)
+    public function setMedicalAndHealthCarePayments($medical_and_health_care_payments)
     {
-        $this->container['medical_and_health_care'] = $medical_and_health_care;
+        $this->container['medical_and_health_care_payments'] = $medical_and_health_care_payments;
 
         return $this;
     }
@@ -3114,49 +3780,73 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     }
 
     /**
-     * Gets excess_golden_parachute
+     * Gets excess_golden_parachute_payments
      *
      * @return float|null
      */
-    public function getExcessGoldenParachute()
+    public function getExcessGoldenParachutePayments()
     {
-        return $this->container['excess_golden_parachute'];
+        return $this->container['excess_golden_parachute_payments'];
     }
 
     /**
-     * Sets excess_golden_parachute
+     * Sets excess_golden_parachute_payments
      *
-     * @param float|null $excess_golden_parachute (Legacy field) Excess golden parachute payments
+     * @param float|null $excess_golden_parachute_payments (Legacy field) Excess golden parachute payments
      *
      * @return self
      */
-    public function setExcessGoldenParachute($excess_golden_parachute)
+    public function setExcessGoldenParachutePayments($excess_golden_parachute_payments)
     {
-        $this->container['excess_golden_parachute'] = $excess_golden_parachute;
+        $this->container['excess_golden_parachute_payments'] = $excess_golden_parachute_payments;
 
         return $this;
     }
 
     /**
-     * Gets gross_amount_paid_attorney
+     * Gets gross_proceeds_paid_to_attorney
      *
      * @return float|null
      */
-    public function getGrossAmountPaidAttorney()
+    public function getGrossProceedsPaidToAttorney()
     {
-        return $this->container['gross_amount_paid_attorney'];
+        return $this->container['gross_proceeds_paid_to_attorney'];
     }
 
     /**
-     * Sets gross_amount_paid_attorney
+     * Sets gross_proceeds_paid_to_attorney
      *
-     * @param float|null $gross_amount_paid_attorney Gross proceeds paid to an attorney
+     * @param float|null $gross_proceeds_paid_to_attorney Gross proceeds paid to an attorney
      *
      * @return self
      */
-    public function setGrossAmountPaidAttorney($gross_amount_paid_attorney)
+    public function setGrossProceedsPaidToAttorney($gross_proceeds_paid_to_attorney)
     {
-        $this->container['gross_amount_paid_attorney'] = $gross_amount_paid_attorney;
+        $this->container['gross_proceeds_paid_to_attorney'] = $gross_proceeds_paid_to_attorney;
+
+        return $this;
+    }
+
+    /**
+     * Gets fish_purchased_for_resale
+     *
+     * @return float|null
+     */
+    public function getFishPurchasedForResale()
+    {
+        return $this->container['fish_purchased_for_resale'];
+    }
+
+    /**
+     * Sets fish_purchased_for_resale
+     *
+     * @param float|null $fish_purchased_for_resale Fish purchased for resale
+     *
+     * @return self
+     */
+    public function setFishPurchasedForResale($fish_purchased_for_resale)
+    {
+        $this->container['fish_purchased_for_resale'] = $fish_purchased_for_resale;
 
         return $this;
     }
@@ -3186,25 +3876,25 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     }
 
     /**
-     * Gets section409_a_income
+     * Gets nonqualified_deferred_compensation
      *
      * @return float|null
      */
-    public function getSection409AIncome()
+    public function getNonqualifiedDeferredCompensation()
     {
-        return $this->container['section409_a_income'];
+        return $this->container['nonqualified_deferred_compensation'];
     }
 
     /**
-     * Sets section409_a_income
+     * Sets nonqualified_deferred_compensation
      *
-     * @param float|null $section409_a_income Nonqualified deferred compensation
+     * @param float|null $nonqualified_deferred_compensation Nonqualified deferred compensation
      *
      * @return self
      */
-    public function setSection409AIncome($section409_a_income)
+    public function setNonqualifiedDeferredCompensation($nonqualified_deferred_compensation)
     {
-        $this->container['section409_a_income'] = $section409_a_income;
+        $this->container['nonqualified_deferred_compensation'] = $nonqualified_deferred_compensation;
 
         return $this;
     }

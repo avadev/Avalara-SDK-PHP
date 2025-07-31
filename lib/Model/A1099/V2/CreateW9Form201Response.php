@@ -249,7 +249,8 @@ class CreateW9Form201Response implements ModelInterface, ArrayAccess, \JsonSeria
         'foreign_address' => 'string',
         'account_number' => 'string',
         'backup_withholding' => 'bool',
-        'is1099able' => 'bool'
+        'is1099able' => 'bool',
+        'tin_match_status' => '\Avalara\SDK\Model\A1099\V2\TinMatchStatusResponse'
     ];
 
     /**
@@ -438,7 +439,8 @@ class CreateW9Form201Response implements ModelInterface, ArrayAccess, \JsonSeria
         'foreign_address' => null,
         'account_number' => null,
         'backup_withholding' => null,
-        'is1099able' => null
+        'is1099able' => null,
+        'tin_match_status' => null
     ];
 
     /**
@@ -646,7 +648,8 @@ class CreateW9Form201Response implements ModelInterface, ArrayAccess, \JsonSeria
         'foreign_address' => 'foreignAddress',
         'account_number' => 'accountNumber',
         'backup_withholding' => 'backupWithholding',
-        'is1099able' => 'is1099able'
+        'is1099able' => 'is1099able',
+        'tin_match_status' => 'tinMatchStatus'
     ];
 
     /**
@@ -833,7 +836,8 @@ class CreateW9Form201Response implements ModelInterface, ArrayAccess, \JsonSeria
         'foreign_address' => 'setForeignAddress',
         'account_number' => 'setAccountNumber',
         'backup_withholding' => 'setBackupWithholding',
-        'is1099able' => 'setIs1099able'
+        'is1099able' => 'setIs1099able',
+        'tin_match_status' => 'setTinMatchStatus'
     ];
 
     /**
@@ -1020,7 +1024,8 @@ class CreateW9Form201Response implements ModelInterface, ArrayAccess, \JsonSeria
         'foreign_address' => 'getForeignAddress',
         'account_number' => 'getAccountNumber',
         'backup_withholding' => 'getBackupWithholding',
-        'is1099able' => 'getIs1099able'
+        'is1099able' => 'getIs1099able',
+        'tin_match_status' => 'getTinMatchStatus'
     ];
 
     /**
@@ -1259,6 +1264,7 @@ class CreateW9Form201Response implements ModelInterface, ArrayAccess, \JsonSeria
         $this->container['account_number'] = $data['account_number'] ?? null;
         $this->container['backup_withholding'] = $data['backup_withholding'] ?? null;
         $this->container['is1099able'] = $data['is1099able'] ?? null;
+        $this->container['tin_match_status'] = $data['tin_match_status'] ?? null;
     }
 
     /**
@@ -5577,6 +5583,30 @@ class CreateW9Form201Response implements ModelInterface, ArrayAccess, \JsonSeria
     public function setIs1099able($is1099able)
     {
         $this->container['is1099able'] = $is1099able;
+
+        return $this;
+    }
+
+    /**
+     * Gets tin_match_status
+     *
+     * @return \Avalara\SDK\Model\A1099\V2\TinMatchStatusResponse|null
+     */
+    public function getTinMatchStatus()
+    {
+        return $this->container['tin_match_status'];
+    }
+
+    /**
+     * Sets tin_match_status
+     *
+     * @param \Avalara\SDK\Model\A1099\V2\TinMatchStatusResponse|null $tin_match_status The TIN Match status from IRS.
+     *
+     * @return self
+     */
+    public function setTinMatchStatus($tin_match_status)
+    {
+        $this->container['tin_match_status'] = $tin_match_status;
 
         return $this;
     }

@@ -71,13 +71,12 @@ class Form1099MiscResponse implements ModelInterface, ArrayAccess, \JsonSerializ
       * @var string[]
       */
     protected static $openAPITypes = [
-        'second_tin_notice' => 'bool',
         'rents' => 'float',
         'royalties' => 'float',
         'other_income' => 'float',
         'fed_income_tax_withheld' => 'float',
         'fishing_boat_proceeds' => 'float',
-        'medical_health_care_payments' => 'float',
+        'medical_and_health_care_payments' => 'float',
         'direct_sales_indicator' => 'bool',
         'substitute_payments' => 'float',
         'crop_insurance_proceeds' => 'float',
@@ -90,7 +89,6 @@ class Form1099MiscResponse implements ModelInterface, ArrayAccess, \JsonSerializ
         'type' => 'string',
         'created_at' => '\DateTime',
         'updated_at' => '\DateTime',
-        'user_id' => 'string',
         'state_and_local_withholding' => '\Avalara\SDK\Model\A1099\V2\StateAndLocalWithholdingResponse',
         'tin_type' => 'string',
         'id' => 'string',
@@ -107,17 +105,20 @@ class Form1099MiscResponse implements ModelInterface, ArrayAccess, \JsonSerializ
         'city' => 'string',
         'state' => 'string',
         'zip' => 'string',
-        'recipient_email' => 'string',
+        'email' => 'string',
         'account_number' => 'string',
         'office_code' => 'string',
-        'recipient_non_us_province' => 'string',
+        'non_us_province' => 'string',
         'country_code' => 'string',
         'federal_e_file' => 'bool',
         'postal_mail' => 'bool',
         'state_e_file' => 'bool',
         'tin_match' => 'bool',
+        'no_tin' => 'bool',
+        'second_tin_notice' => 'bool',
         'address_verification' => 'bool',
         'federal_efile_status' => '\Avalara\SDK\Model\A1099\V2\StatusDetail',
+        'e_delivery_status' => '\Avalara\SDK\Model\A1099\V2\StatusDetail',
         'state_efile_status' => '\Avalara\SDK\Model\A1099\V2\StateEfileStatusDetailResponse[]',
         'postal_mail_status' => '\Avalara\SDK\Model\A1099\V2\StatusDetail',
         'tin_match_status' => '\Avalara\SDK\Model\A1099\V2\StatusDetail',
@@ -133,13 +134,12 @@ class Form1099MiscResponse implements ModelInterface, ArrayAccess, \JsonSerializ
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'second_tin_notice' => null,
         'rents' => 'double',
         'royalties' => 'double',
         'other_income' => 'double',
         'fed_income_tax_withheld' => 'double',
         'fishing_boat_proceeds' => 'double',
-        'medical_health_care_payments' => 'double',
+        'medical_and_health_care_payments' => 'double',
         'direct_sales_indicator' => null,
         'substitute_payments' => 'double',
         'crop_insurance_proceeds' => 'double',
@@ -152,7 +152,6 @@ class Form1099MiscResponse implements ModelInterface, ArrayAccess, \JsonSerializ
         'type' => null,
         'created_at' => 'date-time',
         'updated_at' => 'date-time',
-        'user_id' => null,
         'state_and_local_withholding' => null,
         'tin_type' => null,
         'id' => null,
@@ -169,17 +168,20 @@ class Form1099MiscResponse implements ModelInterface, ArrayAccess, \JsonSerializ
         'city' => null,
         'state' => null,
         'zip' => null,
-        'recipient_email' => null,
+        'email' => null,
         'account_number' => null,
         'office_code' => null,
-        'recipient_non_us_province' => null,
+        'non_us_province' => null,
         'country_code' => null,
         'federal_e_file' => null,
         'postal_mail' => null,
         'state_e_file' => null,
         'tin_match' => null,
+        'no_tin' => null,
+        'second_tin_notice' => null,
         'address_verification' => null,
         'federal_efile_status' => null,
+        'e_delivery_status' => null,
         'state_efile_status' => null,
         'postal_mail_status' => null,
         'tin_match_status' => null,
@@ -214,13 +216,12 @@ class Form1099MiscResponse implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $attributeMap = [
-        'second_tin_notice' => 'secondTinNotice',
         'rents' => 'rents',
         'royalties' => 'royalties',
         'other_income' => 'otherIncome',
         'fed_income_tax_withheld' => 'fedIncomeTaxWithheld',
         'fishing_boat_proceeds' => 'fishingBoatProceeds',
-        'medical_health_care_payments' => 'medicalHealthCarePayments',
+        'medical_and_health_care_payments' => 'medicalAndHealthCarePayments',
         'direct_sales_indicator' => 'directSalesIndicator',
         'substitute_payments' => 'substitutePayments',
         'crop_insurance_proceeds' => 'cropInsuranceProceeds',
@@ -233,7 +234,6 @@ class Form1099MiscResponse implements ModelInterface, ArrayAccess, \JsonSerializ
         'type' => 'type',
         'created_at' => 'createdAt',
         'updated_at' => 'updatedAt',
-        'user_id' => 'userId',
         'state_and_local_withholding' => 'stateAndLocalWithholding',
         'tin_type' => 'tinType',
         'id' => 'id',
@@ -250,17 +250,20 @@ class Form1099MiscResponse implements ModelInterface, ArrayAccess, \JsonSerializ
         'city' => 'city',
         'state' => 'state',
         'zip' => 'zip',
-        'recipient_email' => 'recipientEmail',
+        'email' => 'email',
         'account_number' => 'accountNumber',
         'office_code' => 'officeCode',
-        'recipient_non_us_province' => 'recipientNonUsProvince',
+        'non_us_province' => 'nonUsProvince',
         'country_code' => 'countryCode',
         'federal_e_file' => 'federalEFile',
         'postal_mail' => 'postalMail',
         'state_e_file' => 'stateEFile',
         'tin_match' => 'tinMatch',
+        'no_tin' => 'noTin',
+        'second_tin_notice' => 'secondTinNotice',
         'address_verification' => 'addressVerification',
         'federal_efile_status' => 'federalEfileStatus',
+        'e_delivery_status' => 'eDeliveryStatus',
         'state_efile_status' => 'stateEfileStatus',
         'postal_mail_status' => 'postalMailStatus',
         'tin_match_status' => 'tinMatchStatus',
@@ -274,13 +277,12 @@ class Form1099MiscResponse implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $setters = [
-        'second_tin_notice' => 'setSecondTinNotice',
         'rents' => 'setRents',
         'royalties' => 'setRoyalties',
         'other_income' => 'setOtherIncome',
         'fed_income_tax_withheld' => 'setFedIncomeTaxWithheld',
         'fishing_boat_proceeds' => 'setFishingBoatProceeds',
-        'medical_health_care_payments' => 'setMedicalHealthCarePayments',
+        'medical_and_health_care_payments' => 'setMedicalAndHealthCarePayments',
         'direct_sales_indicator' => 'setDirectSalesIndicator',
         'substitute_payments' => 'setSubstitutePayments',
         'crop_insurance_proceeds' => 'setCropInsuranceProceeds',
@@ -293,7 +295,6 @@ class Form1099MiscResponse implements ModelInterface, ArrayAccess, \JsonSerializ
         'type' => 'setType',
         'created_at' => 'setCreatedAt',
         'updated_at' => 'setUpdatedAt',
-        'user_id' => 'setUserId',
         'state_and_local_withholding' => 'setStateAndLocalWithholding',
         'tin_type' => 'setTinType',
         'id' => 'setId',
@@ -310,17 +311,20 @@ class Form1099MiscResponse implements ModelInterface, ArrayAccess, \JsonSerializ
         'city' => 'setCity',
         'state' => 'setState',
         'zip' => 'setZip',
-        'recipient_email' => 'setRecipientEmail',
+        'email' => 'setEmail',
         'account_number' => 'setAccountNumber',
         'office_code' => 'setOfficeCode',
-        'recipient_non_us_province' => 'setRecipientNonUsProvince',
+        'non_us_province' => 'setNonUsProvince',
         'country_code' => 'setCountryCode',
         'federal_e_file' => 'setFederalEFile',
         'postal_mail' => 'setPostalMail',
         'state_e_file' => 'setStateEFile',
         'tin_match' => 'setTinMatch',
+        'no_tin' => 'setNoTin',
+        'second_tin_notice' => 'setSecondTinNotice',
         'address_verification' => 'setAddressVerification',
         'federal_efile_status' => 'setFederalEfileStatus',
+        'e_delivery_status' => 'setEDeliveryStatus',
         'state_efile_status' => 'setStateEfileStatus',
         'postal_mail_status' => 'setPostalMailStatus',
         'tin_match_status' => 'setTinMatchStatus',
@@ -334,13 +338,12 @@ class Form1099MiscResponse implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $getters = [
-        'second_tin_notice' => 'getSecondTinNotice',
         'rents' => 'getRents',
         'royalties' => 'getRoyalties',
         'other_income' => 'getOtherIncome',
         'fed_income_tax_withheld' => 'getFedIncomeTaxWithheld',
         'fishing_boat_proceeds' => 'getFishingBoatProceeds',
-        'medical_health_care_payments' => 'getMedicalHealthCarePayments',
+        'medical_and_health_care_payments' => 'getMedicalAndHealthCarePayments',
         'direct_sales_indicator' => 'getDirectSalesIndicator',
         'substitute_payments' => 'getSubstitutePayments',
         'crop_insurance_proceeds' => 'getCropInsuranceProceeds',
@@ -353,7 +356,6 @@ class Form1099MiscResponse implements ModelInterface, ArrayAccess, \JsonSerializ
         'type' => 'getType',
         'created_at' => 'getCreatedAt',
         'updated_at' => 'getUpdatedAt',
-        'user_id' => 'getUserId',
         'state_and_local_withholding' => 'getStateAndLocalWithholding',
         'tin_type' => 'getTinType',
         'id' => 'getId',
@@ -370,17 +372,20 @@ class Form1099MiscResponse implements ModelInterface, ArrayAccess, \JsonSerializ
         'city' => 'getCity',
         'state' => 'getState',
         'zip' => 'getZip',
-        'recipient_email' => 'getRecipientEmail',
+        'email' => 'getEmail',
         'account_number' => 'getAccountNumber',
         'office_code' => 'getOfficeCode',
-        'recipient_non_us_province' => 'getRecipientNonUsProvince',
+        'non_us_province' => 'getNonUsProvince',
         'country_code' => 'getCountryCode',
         'federal_e_file' => 'getFederalEFile',
         'postal_mail' => 'getPostalMail',
         'state_e_file' => 'getStateEFile',
         'tin_match' => 'getTinMatch',
+        'no_tin' => 'getNoTin',
+        'second_tin_notice' => 'getSecondTinNotice',
         'address_verification' => 'getAddressVerification',
         'federal_efile_status' => 'getFederalEfileStatus',
+        'e_delivery_status' => 'getEDeliveryStatus',
         'state_efile_status' => 'getStateEfileStatus',
         'postal_mail_status' => 'getPostalMailStatus',
         'tin_match_status' => 'getTinMatchStatus',
@@ -436,6 +441,7 @@ class Form1099MiscResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     const TYPE__1099_K = '1099-K';
     const TYPE__1095_B = '1095-B';
     const TYPE__1042_S = '1042-S';
+    const TYPE__1095_C = '1095-C';
     const TIN_TYPE_EIN = 'EIN';
     const TIN_TYPE_SSN = 'SSN';
     const TIN_TYPE_ITIN = 'ITIN';
@@ -456,6 +462,7 @@ class Form1099MiscResponse implements ModelInterface, ArrayAccess, \JsonSerializ
             self::TYPE__1099_K,
             self::TYPE__1095_B,
             self::TYPE__1042_S,
+            self::TYPE__1095_C,
         ];
     }
 
@@ -489,13 +496,12 @@ class Form1099MiscResponse implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     public function __construct(array $data = null)
     {
-        $this->container['second_tin_notice'] = $data['second_tin_notice'] ?? null;
         $this->container['rents'] = $data['rents'] ?? null;
         $this->container['royalties'] = $data['royalties'] ?? null;
         $this->container['other_income'] = $data['other_income'] ?? null;
         $this->container['fed_income_tax_withheld'] = $data['fed_income_tax_withheld'] ?? null;
         $this->container['fishing_boat_proceeds'] = $data['fishing_boat_proceeds'] ?? null;
-        $this->container['medical_health_care_payments'] = $data['medical_health_care_payments'] ?? null;
+        $this->container['medical_and_health_care_payments'] = $data['medical_and_health_care_payments'] ?? null;
         $this->container['direct_sales_indicator'] = $data['direct_sales_indicator'] ?? null;
         $this->container['substitute_payments'] = $data['substitute_payments'] ?? null;
         $this->container['crop_insurance_proceeds'] = $data['crop_insurance_proceeds'] ?? null;
@@ -508,7 +514,6 @@ class Form1099MiscResponse implements ModelInterface, ArrayAccess, \JsonSerializ
         $this->container['type'] = $data['type'] ?? null;
         $this->container['created_at'] = $data['created_at'] ?? null;
         $this->container['updated_at'] = $data['updated_at'] ?? null;
-        $this->container['user_id'] = $data['user_id'] ?? null;
         $this->container['state_and_local_withholding'] = $data['state_and_local_withholding'] ?? null;
         $this->container['tin_type'] = $data['tin_type'] ?? null;
         $this->container['id'] = $data['id'] ?? null;
@@ -525,17 +530,20 @@ class Form1099MiscResponse implements ModelInterface, ArrayAccess, \JsonSerializ
         $this->container['city'] = $data['city'] ?? null;
         $this->container['state'] = $data['state'] ?? null;
         $this->container['zip'] = $data['zip'] ?? null;
-        $this->container['recipient_email'] = $data['recipient_email'] ?? null;
+        $this->container['email'] = $data['email'] ?? null;
         $this->container['account_number'] = $data['account_number'] ?? null;
         $this->container['office_code'] = $data['office_code'] ?? null;
-        $this->container['recipient_non_us_province'] = $data['recipient_non_us_province'] ?? null;
+        $this->container['non_us_province'] = $data['non_us_province'] ?? null;
         $this->container['country_code'] = $data['country_code'] ?? null;
         $this->container['federal_e_file'] = $data['federal_e_file'] ?? null;
         $this->container['postal_mail'] = $data['postal_mail'] ?? null;
         $this->container['state_e_file'] = $data['state_e_file'] ?? null;
         $this->container['tin_match'] = $data['tin_match'] ?? null;
+        $this->container['no_tin'] = $data['no_tin'] ?? null;
+        $this->container['second_tin_notice'] = $data['second_tin_notice'] ?? null;
         $this->container['address_verification'] = $data['address_verification'] ?? null;
         $this->container['federal_efile_status'] = $data['federal_efile_status'] ?? null;
+        $this->container['e_delivery_status'] = $data['e_delivery_status'] ?? null;
         $this->container['state_efile_status'] = $data['state_efile_status'] ?? null;
         $this->container['postal_mail_status'] = $data['postal_mail_status'] ?? null;
         $this->container['tin_match_status'] = $data['tin_match_status'] ?? null;
@@ -584,30 +592,6 @@ class Form1099MiscResponse implements ModelInterface, ArrayAccess, \JsonSerializ
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets second_tin_notice
-     *
-     * @return bool|null
-     */
-    public function getSecondTinNotice()
-    {
-        return $this->container['second_tin_notice'];
-    }
-
-    /**
-     * Sets second_tin_notice
-     *
-     * @param bool|null $second_tin_notice second_tin_notice
-     *
-     * @return self
-     */
-    public function setSecondTinNotice($second_tin_notice)
-    {
-        $this->container['second_tin_notice'] = $second_tin_notice;
-
-        return $this;
-    }
 
     /**
      * Gets rents
@@ -730,25 +714,25 @@ class Form1099MiscResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     }
 
     /**
-     * Gets medical_health_care_payments
+     * Gets medical_and_health_care_payments
      *
      * @return float|null
      */
-    public function getMedicalHealthCarePayments()
+    public function getMedicalAndHealthCarePayments()
     {
-        return $this->container['medical_health_care_payments'];
+        return $this->container['medical_and_health_care_payments'];
     }
 
     /**
-     * Sets medical_health_care_payments
+     * Sets medical_and_health_care_payments
      *
-     * @param float|null $medical_health_care_payments medical_health_care_payments
+     * @param float|null $medical_and_health_care_payments medical_and_health_care_payments
      *
      * @return self
      */
-    public function setMedicalHealthCarePayments($medical_health_care_payments)
+    public function setMedicalAndHealthCarePayments($medical_and_health_care_payments)
     {
-        $this->container['medical_health_care_payments'] = $medical_health_care_payments;
+        $this->container['medical_and_health_care_payments'] = $medical_and_health_care_payments;
 
         return $this;
     }
@@ -1047,30 +1031,6 @@ class Form1099MiscResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     public function setUpdatedAt($updated_at)
     {
         $this->container['updated_at'] = $updated_at;
-
-        return $this;
-    }
-
-    /**
-     * Gets user_id
-     *
-     * @return string|null
-     */
-    public function getUserId()
-    {
-        return $this->container['user_id'];
-    }
-
-    /**
-     * Sets user_id
-     *
-     * @param string|null $user_id user_id
-     *
-     * @return self
-     */
-    public function setUserId($user_id)
-    {
-        $this->container['user_id'] = $user_id;
 
         return $this;
     }
@@ -1470,25 +1430,25 @@ class Form1099MiscResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     }
 
     /**
-     * Gets recipient_email
+     * Gets email
      *
      * @return string|null
      */
-    public function getRecipientEmail()
+    public function getEmail()
     {
-        return $this->container['recipient_email'];
+        return $this->container['email'];
     }
 
     /**
-     * Sets recipient_email
+     * Sets email
      *
-     * @param string|null $recipient_email recipient_email
+     * @param string|null $email email
      *
      * @return self
      */
-    public function setRecipientEmail($recipient_email)
+    public function setEmail($email)
     {
-        $this->container['recipient_email'] = $recipient_email;
+        $this->container['email'] = $email;
 
         return $this;
     }
@@ -1542,25 +1502,25 @@ class Form1099MiscResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     }
 
     /**
-     * Gets recipient_non_us_province
+     * Gets non_us_province
      *
      * @return string|null
      */
-    public function getRecipientNonUsProvince()
+    public function getNonUsProvince()
     {
-        return $this->container['recipient_non_us_province'];
+        return $this->container['non_us_province'];
     }
 
     /**
-     * Sets recipient_non_us_province
+     * Sets non_us_province
      *
-     * @param string|null $recipient_non_us_province recipient_non_us_province
+     * @param string|null $non_us_province non_us_province
      *
      * @return self
      */
-    public function setRecipientNonUsProvince($recipient_non_us_province)
+    public function setNonUsProvince($non_us_province)
     {
-        $this->container['recipient_non_us_province'] = $recipient_non_us_province;
+        $this->container['non_us_province'] = $non_us_province;
 
         return $this;
     }
@@ -1686,6 +1646,54 @@ class Form1099MiscResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     }
 
     /**
+     * Gets no_tin
+     *
+     * @return bool|null
+     */
+    public function getNoTin()
+    {
+        return $this->container['no_tin'];
+    }
+
+    /**
+     * Sets no_tin
+     *
+     * @param bool|null $no_tin no_tin
+     *
+     * @return self
+     */
+    public function setNoTin($no_tin)
+    {
+        $this->container['no_tin'] = $no_tin;
+
+        return $this;
+    }
+
+    /**
+     * Gets second_tin_notice
+     *
+     * @return bool|null
+     */
+    public function getSecondTinNotice()
+    {
+        return $this->container['second_tin_notice'];
+    }
+
+    /**
+     * Sets second_tin_notice
+     *
+     * @param bool|null $second_tin_notice second_tin_notice
+     *
+     * @return self
+     */
+    public function setSecondTinNotice($second_tin_notice)
+    {
+        $this->container['second_tin_notice'] = $second_tin_notice;
+
+        return $this;
+    }
+
+    /**
      * Gets address_verification
      *
      * @return bool|null
@@ -1729,6 +1737,30 @@ class Form1099MiscResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     public function setFederalEfileStatus($federal_efile_status)
     {
         $this->container['federal_efile_status'] = $federal_efile_status;
+
+        return $this;
+    }
+
+    /**
+     * Gets e_delivery_status
+     *
+     * @return \Avalara\SDK\Model\A1099\V2\StatusDetail|null
+     */
+    public function getEDeliveryStatus()
+    {
+        return $this->container['e_delivery_status'];
+    }
+
+    /**
+     * Sets e_delivery_status
+     *
+     * @param \Avalara\SDK\Model\A1099\V2\StatusDetail|null $e_delivery_status e_delivery_status
+     *
+     * @return self
+     */
+    public function setEDeliveryStatus($e_delivery_status)
+    {
+        $this->container['e_delivery_status'] = $e_delivery_status;
 
         return $this;
     }
