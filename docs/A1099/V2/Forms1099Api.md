@@ -1,4 +1,4 @@
-# Avalara\SDK\Forms1099Api
+# AvalaraSDK\Forms1099Api
 
 All URIs are relative to https://api-ava1099.eta.sbx.us-east-1.aws.avalara.io/avalara1099.
 
@@ -16,7 +16,7 @@ Method | HTTP request | Description
 ## `bulkUpsert1099Forms()`
 
 ```php
-bulkUpsert1099Forms($avalara_version, $dry_run, $x_correlation_id, $x_avalara_client, $bulk_upsert1099_forms_request): \Avalara\SDK\Model\A1099\V2\Form1099ProccessResult
+bulkUpsert1099Forms($avalara_version, $dry_run, $x_correlation_id, $x_avalara_client, $bulk_upsert1099_forms_request): \AvalaraSDK\ModelA1099V2\Form1099ProccessResult
 ```
 
 Create or update multiple 1099/1095/W2/1042S forms
@@ -39,13 +39,13 @@ $config = new \Avalara\SDK\Configuration()
 
 $client = new \Avalara\SDK\ApiClient($config);
 
-$apiInstance = new Avalara\SDK\Api\Forms1099Api($client);
+$apiInstance = new AvalaraSDK\Api\Forms1099Api($client);
 
 $avalara_version = 2.0.0; // string | API version
 $dry_run = false; // bool | 
-$x_correlation_id = 85d89e46-adbc-4a36-a615-347bd0ad3549; // string | Unique correlation Id in a GUID format
+$x_correlation_id = fc005c04-52f7-44d6-bf16-6551603a8324; // string | Unique correlation Id in a GUID format
 $x_avalara_client = Swagger UI; 22.1.0; // string | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
-$bulk_upsert1099_forms_request = new \Avalara\SDK\Model\A1099\V2\BulkUpsert1099FormsRequest(); // \Avalara\SDK\Model\A1099\V2\BulkUpsert1099FormsRequest | 
+$bulk_upsert1099_forms_request = new \AvalaraSDK\ModelA1099V2\BulkUpsert1099FormsRequest(); // \AvalaraSDK\ModelA1099V2\BulkUpsert1099FormsRequest | 
 
 try {
     $result = $apiInstance->bulkUpsert1099Forms($avalara_version, $dry_run, $x_correlation_id, $x_avalara_client, $bulk_upsert1099_forms_request);
@@ -63,11 +63,11 @@ Name | Type | Description  | Notes
  **dry_run** | **bool**|  | [optional] [default to false]
  **x_correlation_id** | **string**| Unique correlation Id in a GUID format | [optional]
  **x_avalara_client** | **string**| Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) . | [optional]
- **bulk_upsert1099_forms_request** | [**\Avalara\SDK\Model\A1099\V2\BulkUpsert1099FormsRequest**](../Model/BulkUpsert1099FormsRequest.md)|  | [optional]
+ **bulk_upsert1099_forms_request** | [**\AvalaraSDK\ModelA1099V2\BulkUpsert1099FormsRequest**](../Model/BulkUpsert1099FormsRequest.md)|  | [optional]
 
 ### Return type
 
-[**\Avalara\SDK\Model\A1099\V2\Form1099ProccessResult**](../Model/Form1099ProccessResult.md)
+[**\AvalaraSDK\ModelA1099V2\Form1099ProccessResult**](../Model/Form1099ProccessResult.md)
 
 ### Authorization
 
@@ -85,7 +85,7 @@ Name | Type | Description  | Notes
 ## `create1099Form()`
 
 ```php
-create1099Form($avalara_version, $x_correlation_id, $x_avalara_client, $i_create_form1099_request): \Avalara\SDK\Model\A1099\V2\Create1099Form201Response
+create1099Form($avalara_version, $x_correlation_id, $x_avalara_client, $i_create_form1099_request): \AvalaraSDK\ModelA1099V2\Create1099Form201Response
 ```
 
 Create a 1099/1095/W2/1042S form
@@ -108,12 +108,12 @@ $config = new \Avalara\SDK\Configuration()
 
 $client = new \Avalara\SDK\ApiClient($config);
 
-$apiInstance = new Avalara\SDK\Api\Forms1099Api($client);
+$apiInstance = new AvalaraSDK\Api\Forms1099Api($client);
 
 $avalara_version = 2.0.0; // string | API version
-$x_correlation_id = ac2b2725-9848-49c3-9255-1d638490cc87; // string | Unique correlation Id in a GUID format
+$x_correlation_id = 13eb4eb0-0e7d-41e3-adf3-61b131c1a92c; // string | Unique correlation Id in a GUID format
 $x_avalara_client = Swagger UI; 22.1.0; // string | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
-$i_create_form1099_request = new \Avalara\SDK\Model\A1099\V2\ICreateForm1099Request(); // \Avalara\SDK\Model\A1099\V2\ICreateForm1099Request
+$i_create_form1099_request = new \AvalaraSDK\ModelA1099V2\ICreateForm1099Request(); // \AvalaraSDK\ModelA1099V2\ICreateForm1099Request
 
 try {
     $result = $apiInstance->create1099Form($avalara_version, $x_correlation_id, $x_avalara_client, $i_create_form1099_request);
@@ -130,11 +130,11 @@ Name | Type | Description  | Notes
  **avalara_version** | **string**| API version |
  **x_correlation_id** | **string**| Unique correlation Id in a GUID format | [optional]
  **x_avalara_client** | **string**| Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) . | [optional]
- **i_create_form1099_request** | [**\Avalara\SDK\Model\A1099\V2\ICreateForm1099Request**](../Model/ICreateForm1099Request.md)|  | [optional]
+ **i_create_form1099_request** | [**\AvalaraSDK\ModelA1099V2\ICreateForm1099Request**](../Model/ICreateForm1099Request.md)|  | [optional]
 
 ### Return type
 
-[**\Avalara\SDK\Model\A1099\V2\Create1099Form201Response**](../Model/Create1099Form201Response.md)
+[**\AvalaraSDK\ModelA1099V2\Create1099Form201Response**](../Model/Create1099Form201Response.md)
 
 ### Authorization
 
@@ -175,11 +175,11 @@ $config = new \Avalara\SDK\Configuration()
 
 $client = new \Avalara\SDK\ApiClient($config);
 
-$apiInstance = new Avalara\SDK\Api\Forms1099Api($client);
+$apiInstance = new AvalaraSDK\Api\Forms1099Api($client);
 
 $id = 'id_example'; // string | The unique identifier of the desired form to delete.
 $avalara_version = 2.0.0; // string | API version
-$x_correlation_id = 0839267c-9208-438e-9fcd-3c193fd0216a; // string | Unique correlation Id in a GUID format
+$x_correlation_id = 2bcc9cf0-9638-46d5-a792-be61566e0651; // string | Unique correlation Id in a GUID format
 $x_avalara_client = Swagger UI; 22.1.0; // string | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
 
 try {
@@ -218,7 +218,7 @@ void (empty response body)
 ## `get1099Form()`
 
 ```php
-get1099Form($id, $avalara_version, $x_correlation_id, $x_avalara_client): \Avalara\SDK\Model\A1099\V2\Get1099Form200Response
+get1099Form($id, $avalara_version, $x_correlation_id, $x_avalara_client): \AvalaraSDK\ModelA1099V2\Get1099Form200Response
 ```
 
 Retrieve a 1099/1095/W2/1042S form
@@ -241,11 +241,11 @@ $config = new \Avalara\SDK\Configuration()
 
 $client = new \Avalara\SDK\ApiClient($config);
 
-$apiInstance = new Avalara\SDK\Api\Forms1099Api($client);
+$apiInstance = new AvalaraSDK\Api\Forms1099Api($client);
 
 $id = 'id_example'; // string
 $avalara_version = 2.0.0; // string | API version
-$x_correlation_id = 4c3931c8-2cd4-42f3-9042-7c23336b9f32; // string | Unique correlation Id in a GUID format
+$x_correlation_id = 6e842a03-8b64-4b02-8c5e-7073bf4e8a8c; // string | Unique correlation Id in a GUID format
 $x_avalara_client = Swagger UI; 22.1.0; // string | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
 
 try {
@@ -267,7 +267,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Avalara\SDK\Model\A1099\V2\Get1099Form200Response**](../Model/Get1099Form200Response.md)
+[**\AvalaraSDK\ModelA1099V2\Get1099Form200Response**](../Model/Get1099Form200Response.md)
 
 ### Authorization
 
@@ -308,12 +308,12 @@ $config = new \Avalara\SDK\Configuration()
 
 $client = new \Avalara\SDK\ApiClient($config);
 
-$apiInstance = new Avalara\SDK\Api\Forms1099Api($client);
+$apiInstance = new AvalaraSDK\Api\Forms1099Api($client);
 
 $id = 'id_example'; // string | The ID of the form
 $avalara_version = 2.0.0; // string | API version
 $mark_edelivered = True; // bool | Optional boolean that if set indicates that the form should be marked as having been successfully edelivered
-$x_correlation_id = 9133bfa6-8661-46dc-bbf2-4d45d0439e76; // string | Unique correlation Id in a GUID format
+$x_correlation_id = 7b4aa70b-3a10-4fa0-bf19-7592170409b7; // string | Unique correlation Id in a GUID format
 $x_avalara_client = Swagger UI; 22.1.0; // string | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
 
 try {
@@ -354,7 +354,7 @@ Name | Type | Description  | Notes
 ## `list1099Forms()`
 
 ```php
-list1099Forms($avalara_version, $filter, $top, $skip, $order_by, $x_correlation_id, $x_avalara_client): \Avalara\SDK\Model\A1099\V2\Form1099ListResponse
+list1099Forms($avalara_version, $filter, $top, $skip, $order_by, $x_correlation_id, $x_avalara_client): \AvalaraSDK\ModelA1099V2\Form1099ListResponse
 ```
 
 List 1099/1095/W2/1042S forms
@@ -377,14 +377,14 @@ $config = new \Avalara\SDK\Configuration()
 
 $client = new \Avalara\SDK\ApiClient($config);
 
-$apiInstance = new Avalara\SDK\Api\Forms1099Api($client);
+$apiInstance = new AvalaraSDK\Api\Forms1099Api($client);
 
 $avalara_version = 2.0.0; // string | API version
 $filter = issuerId eq 884781823; // string | A filter statement to identify specific records to retrieve. For more information on filtering, see <a href=\"https://developer.avalara.com/avatax/filtering-in-rest/\">Filtering in REST</a>.    Collections support filtering only on certain fields. An attempt to filter on an unsupported field will receive a 400 Bad Request response.    Supported filtering fields are as follows:        issuerId      issuerReferenceId      taxYear      addressVerificationStatus - possible values are: unknown, pending, failed, incomplete, unchanged, verified      createdAt      edeliveryStatus - possible values are: sent, unscheduled, bad_verify, bad_verify_limit, scheduled, bounced, accepted      email      federalEfileStatus - possible values are: unscheduled, scheduled, sent, corrected_scheduled, accepted, corrected, corrected_accepted, held      recipientName      mailStatus - possible values are: sent, unscheduled, pending, delivered      referenceId      tinMatchStatus - possible values are: none, pending, matched, failed      type - possible values are: 940, 941, 943, 944, 945, 1042, 1042-S, 1095-B, 1095-C, 1097-BTC, 1098, 1098-C, 1098-E, 1098-Q, 1098-T, 3921, 3922, 5498, 5498-ESA, 5498-SA, 1099-MISC, 1099-A, 1099-B, 1099-C, 1099-CAP, 1099-DIV, 1099-G, 1099-INT, 1099-K, 1099-LS, 1099-LTC, 1099-NEC, 1099-OID, 1099-PATR, 1099-Q, 1099-R, 1099-S, 1099-SA, T4A, W-2, W-2G, 1099-HC      updatedAt      validity - possible values are: true, false
 $top = 10; // int | If nonzero, return no more than this number of results.     Used with skip to provide pagination for large datasets.     Unless otherwise specified, the maximum number of records that can be returned from an API call is 1,000 records.
 $skip = 0; // int | If nonzero, skip this number of results before returning data. Used with top to provide pagination for large datasets.
 $order_by = 'order_by_example'; // string | A comma separated list of sort statements in the format (fieldname) [ASC|DESC], for example issuerReferenceId ASC.    Supported sorting fields are:         issuerReferenceId       taxYear       createdAt       recipientName      updatedAt
-$x_correlation_id = 1d1f9e87-4684-46a4-9439-85058f82f858; // string | Unique correlation Id in a GUID format
+$x_correlation_id = 7766bce5-4834-4907-81e9-dd0fd6c13079; // string | Unique correlation Id in a GUID format
 $x_avalara_client = Swagger UI; 22.1.0; // string | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
 
 try {
@@ -409,7 +409,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Avalara\SDK\Model\A1099\V2\Form1099ListResponse**](../Model/Form1099ListResponse.md)
+[**\AvalaraSDK\ModelA1099V2\Form1099ListResponse**](../Model/Form1099ListResponse.md)
 
 ### Authorization
 
@@ -427,7 +427,7 @@ Name | Type | Description  | Notes
 ## `update1099Form()`
 
 ```php
-update1099Form($id, $avalara_version, $x_correlation_id, $x_avalara_client, $i_update_form1099_request): \Avalara\SDK\Model\A1099\V2\Update1099Form200Response
+update1099Form($id, $avalara_version, $x_correlation_id, $x_avalara_client, $i_update_form1099_request): \AvalaraSDK\ModelA1099V2\Update1099Form200Response
 ```
 
 Update a 1099/1095/W2/1042S form
@@ -450,13 +450,13 @@ $config = new \Avalara\SDK\Configuration()
 
 $client = new \Avalara\SDK\ApiClient($config);
 
-$apiInstance = new Avalara\SDK\Api\Forms1099Api($client);
+$apiInstance = new AvalaraSDK\Api\Forms1099Api($client);
 
 $id = 'id_example'; // string
 $avalara_version = 2.0.0; // string | API version
-$x_correlation_id = e59dff29-007e-4aa7-8b11-5ba83766a56a; // string | Unique correlation Id in a GUID format
+$x_correlation_id = 9f622e4f-7992-4e4f-8e24-e628c5339402; // string | Unique correlation Id in a GUID format
 $x_avalara_client = Swagger UI; 22.1.0; // string | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
-$i_update_form1099_request = new \Avalara\SDK\Model\A1099\V2\IUpdateForm1099Request(); // \Avalara\SDK\Model\A1099\V2\IUpdateForm1099Request
+$i_update_form1099_request = new \AvalaraSDK\ModelA1099V2\IUpdateForm1099Request(); // \AvalaraSDK\ModelA1099V2\IUpdateForm1099Request
 
 try {
     $result = $apiInstance->update1099Form($id, $avalara_version, $x_correlation_id, $x_avalara_client, $i_update_form1099_request);
@@ -474,11 +474,11 @@ Name | Type | Description  | Notes
  **avalara_version** | **string**| API version |
  **x_correlation_id** | **string**| Unique correlation Id in a GUID format | [optional]
  **x_avalara_client** | **string**| Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) . | [optional]
- **i_update_form1099_request** | [**\Avalara\SDK\Model\A1099\V2\IUpdateForm1099Request**](../Model/IUpdateForm1099Request.md)|  | [optional]
+ **i_update_form1099_request** | [**\AvalaraSDK\ModelA1099V2\IUpdateForm1099Request**](../Model/IUpdateForm1099Request.md)|  | [optional]
 
 ### Return type
 
-[**\Avalara\SDK\Model\A1099\V2\Update1099Form200Response**](../Model/Update1099Form200Response.md)
+[**\AvalaraSDK\ModelA1099V2\Update1099Form200Response**](../Model/Update1099Form200Response.md)
 
 ### Authorization
 

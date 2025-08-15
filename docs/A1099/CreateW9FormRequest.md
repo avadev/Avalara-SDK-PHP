@@ -158,7 +158,7 @@ Name | Type | Description | Notes
 **passive_nffe_no_substantial_us_owners_certification** | **bool** | Certifies that the passive NFFE has no substantial U.S. owners or controlling U.S. persons. | [optional]
 **passive_nffe_substantial_us_owners_provided_certification** | **bool** | Certifies that the passive NFFE has provided the name, address, and TIN of each substantial U.S. owner or controlling U.S. person. | [optional]
 **excepted_inter_affiliate_ffi_certification** | **bool** | Certifies that the entity is an inter-affiliate FFI meeting all conditions for exemption,  including limited account activity and payment interactions within its expanded affiliated group. | [optional]
-**substantial_us_owners** | [**\Avalara\SDK\Model\A1099\V2\SubstantialUsOwnerRequest[]**](SubstantialUsOwnerRequest.md) | The list of substantial U.S. owners of passive NFFE. | [optional]
+**substantial_us_owners** | [**\AvalaraSDK\ModelA1099V2\SubstantialUsOwnerRequest[]**](SubstantialUsOwnerRequest.md) | The list of substantial U.S. owners of passive NFFE. | [optional]
 **capacity_to_sign_certification** | **bool** | Certifies signer has the capacity to sign for the beneficial owner. | [optional]
 **birthday** | **\DateTime** | The birthday of the individual associated with the form. | [optional]
 **employee_first_name** | **string** | The first name of the employee. | [optional]
