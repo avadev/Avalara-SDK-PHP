@@ -1,4 +1,4 @@
-# Avalara\SDK\Issuers1099Api
+# AvalaraSDK\Issuers1099Api
 
 All URIs are relative to https://api-ava1099.eta.sbx.us-east-1.aws.avalara.io/avalara1099.
 
@@ -14,7 +14,7 @@ Method | HTTP request | Description
 ## `createIssuer()`
 
 ```php
-createIssuer($avalara_version, $x_correlation_id, $x_avalara_client, $issuer_command): \Avalara\SDK\Model\A1099\V2\IssuerResponse
+createIssuer($avalara_version, $x_correlation_id, $x_avalara_client, $issuer_command): \AvalaraSDK\ModelA1099V2\IssuerResponse
 ```
 
 Create an issuer
@@ -37,12 +37,12 @@ $config = new \Avalara\SDK\Configuration()
 
 $client = new \Avalara\SDK\ApiClient($config);
 
-$apiInstance = new Avalara\SDK\Api\Issuers1099Api($client);
+$apiInstance = new AvalaraSDK\Api\Issuers1099Api($client);
 
 $avalara_version = 2.0.0; // string | API version
-$x_correlation_id = cd08f20c-e93f-4ed9-9fcc-1c43161a5ab1; // string | Unique correlation Id in a GUID format
+$x_correlation_id = d2b38090-a4c9-4170-bc1d-6cc2778b0bd0; // string | Unique correlation Id in a GUID format
 $x_avalara_client = Swagger UI; 22.1.0; // string | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
-$issuer_command = new \Avalara\SDK\Model\A1099\V2\IssuerCommand(); // \Avalara\SDK\Model\A1099\V2\IssuerCommand | The issuer to create
+$issuer_command = new \AvalaraSDK\ModelA1099V2\IssuerCommand(); // \AvalaraSDK\ModelA1099V2\IssuerCommand | The issuer to create
 
 try {
     $result = $apiInstance->createIssuer($avalara_version, $x_correlation_id, $x_avalara_client, $issuer_command);
@@ -59,11 +59,11 @@ Name | Type | Description  | Notes
  **avalara_version** | **string**| API version |
  **x_correlation_id** | **string**| Unique correlation Id in a GUID format | [optional]
  **x_avalara_client** | **string**| Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) . | [optional]
- **issuer_command** | [**\Avalara\SDK\Model\A1099\V2\IssuerCommand**](../Model/IssuerCommand.md)| The issuer to create | [optional]
+ **issuer_command** | [**\AvalaraSDK\ModelA1099V2\IssuerCommand**](../Model/IssuerCommand.md)| The issuer to create | [optional]
 
 ### Return type
 
-[**\Avalara\SDK\Model\A1099\V2\IssuerResponse**](../Model/IssuerResponse.md)
+[**\AvalaraSDK\ModelA1099V2\IssuerResponse**](../Model/IssuerResponse.md)
 
 ### Authorization
 
@@ -104,11 +104,11 @@ $config = new \Avalara\SDK\Configuration()
 
 $client = new \Avalara\SDK\ApiClient($config);
 
-$apiInstance = new Avalara\SDK\Api\Issuers1099Api($client);
+$apiInstance = new AvalaraSDK\Api\Issuers1099Api($client);
 
 $id = 'id_example'; // string | Id of the issuer to delete
 $avalara_version = 2.0.0; // string | API version
-$x_correlation_id = b31ed293-452b-4f1a-9781-92bf4cc732b2; // string | Unique correlation Id in a GUID format
+$x_correlation_id = 22e9dc96-0041-4e27-ab37-038dc9d6c215; // string | Unique correlation Id in a GUID format
 $x_avalara_client = Swagger UI; 22.1.0; // string | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
 
 try {
@@ -147,7 +147,7 @@ void (empty response body)
 ## `getIssuer()`
 
 ```php
-getIssuer($id, $avalara_version, $x_correlation_id, $x_avalara_client): \Avalara\SDK\Model\A1099\V2\IssuerResponse
+getIssuer($id, $avalara_version, $x_correlation_id, $x_avalara_client): \AvalaraSDK\ModelA1099V2\IssuerResponse
 ```
 
 Retrieve an issuer
@@ -170,11 +170,11 @@ $config = new \Avalara\SDK\Configuration()
 
 $client = new \Avalara\SDK\ApiClient($config);
 
-$apiInstance = new Avalara\SDK\Api\Issuers1099Api($client);
+$apiInstance = new AvalaraSDK\Api\Issuers1099Api($client);
 
 $id = 'id_example'; // string | Id of the issuer to retrieve
 $avalara_version = 2.0.0; // string | API version
-$x_correlation_id = 6f7412dc-b5d2-4657-9ae0-9eb72e1cbaac; // string | Unique correlation Id in a GUID format
+$x_correlation_id = 86c9eff5-1ed3-49b1-be09-a117b235f3e2; // string | Unique correlation Id in a GUID format
 $x_avalara_client = Swagger UI; 22.1.0; // string | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
 
 try {
@@ -196,7 +196,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Avalara\SDK\Model\A1099\V2\IssuerResponse**](../Model/IssuerResponse.md)
+[**\AvalaraSDK\ModelA1099V2\IssuerResponse**](../Model/IssuerResponse.md)
 
 ### Authorization
 
@@ -214,7 +214,7 @@ Name | Type | Description  | Notes
 ## `getIssuers()`
 
 ```php
-getIssuers($avalara_version, $filter, $top, $skip, $order_by, $count, $count_only, $x_correlation_id, $x_avalara_client): \Avalara\SDK\Model\A1099\V2\PaginatedQueryResultModelIssuerResponse
+getIssuers($avalara_version, $filter, $top, $skip, $order_by, $count, $count_only, $x_correlation_id, $x_avalara_client): \AvalaraSDK\ModelA1099V2\PaginatedQueryResultModelIssuerResponse
 ```
 
 List issuers
@@ -237,7 +237,7 @@ $config = new \Avalara\SDK\Configuration()
 
 $client = new \Avalara\SDK\ApiClient($config);
 
-$apiInstance = new Avalara\SDK\Api\Issuers1099Api($client);
+$apiInstance = new AvalaraSDK\Api\Issuers1099Api($client);
 
 $avalara_version = 2.0.0; // string | API version
 $filter = taxYear eq 2024; // string | A filter statement to identify specific records to retrieve.  For more information on filtering, see <a href=\"https://developer.avalara.com/avatax/filtering-in-rest/\">Filtering in REST</a>.
@@ -246,7 +246,7 @@ $skip = 56; // int | If nonzero, skip this number of results before returning da
 $order_by = 'order_by_example'; // string | A comma separated list of sort statements in the format (fieldname) [ASC|DESC], for example id ASC.
 $count = True; // bool | If true, return the global count of elements in the collection.
 $count_only = True; // bool | If true, return ONLY the global count of elements in the collection.  It only applies when count=true.
-$x_correlation_id = 6ab59fe8-83fc-4fa3-9617-abb9b8d1bdb7; // string | Unique correlation Id in a GUID format
+$x_correlation_id = 0983f292-e1e0-4415-9cdc-b70482da76b0; // string | Unique correlation Id in a GUID format
 $x_avalara_client = Swagger UI; 22.1.0; // string | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
 
 try {
@@ -273,7 +273,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Avalara\SDK\Model\A1099\V2\PaginatedQueryResultModelIssuerResponse**](../Model/PaginatedQueryResultModelIssuerResponse.md)
+[**\AvalaraSDK\ModelA1099V2\PaginatedQueryResultModelIssuerResponse**](../Model/PaginatedQueryResultModelIssuerResponse.md)
 
 ### Authorization
 
@@ -314,13 +314,13 @@ $config = new \Avalara\SDK\Configuration()
 
 $client = new \Avalara\SDK\ApiClient($config);
 
-$apiInstance = new Avalara\SDK\Api\Issuers1099Api($client);
+$apiInstance = new AvalaraSDK\Api\Issuers1099Api($client);
 
 $id = 'id_example'; // string | Id of the issuer to update
 $avalara_version = 2.0.0; // string | API version
-$x_correlation_id = 2f427cf4-fa55-4abb-85da-d79a4a846191; // string | Unique correlation Id in a GUID format
+$x_correlation_id = f43f2c52-c35e-4e50-b1ad-2923b624e5a0; // string | Unique correlation Id in a GUID format
 $x_avalara_client = Swagger UI; 22.1.0; // string | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
-$issuer_command = new \Avalara\SDK\Model\A1099\V2\IssuerCommand(); // \Avalara\SDK\Model\A1099\V2\IssuerCommand | The issuer to update
+$issuer_command = new \AvalaraSDK\ModelA1099V2\IssuerCommand(); // \AvalaraSDK\ModelA1099V2\IssuerCommand | The issuer to update
 
 try {
     $apiInstance->updateIssuer($id, $avalara_version, $x_correlation_id, $x_avalara_client, $issuer_command);
@@ -337,7 +337,7 @@ Name | Type | Description  | Notes
  **avalara_version** | **string**| API version |
  **x_correlation_id** | **string**| Unique correlation Id in a GUID format | [optional]
  **x_avalara_client** | **string**| Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) . | [optional]
- **issuer_command** | [**\Avalara\SDK\Model\A1099\V2\IssuerCommand**](../Model/IssuerCommand.md)| The issuer to update | [optional]
+ **issuer_command** | [**\AvalaraSDK\ModelA1099V2\IssuerCommand**](../Model/IssuerCommand.md)| The issuer to update | [optional]
 
 ### Return type
 
