@@ -1,4 +1,4 @@
-# # Form1095B
+# # Form1095C
 
 ## Properties
 
@@ -8,9 +8,11 @@ Name | Type | Description | Notes
 **employee_middle_name** | **string** | Employee&#39;s middle name | [optional]
 **employee_last_name** | **string** | Employee&#39;s last name |
 **employee_name_suffix** | **string** | Employee&#39;s name suffix | [optional]
-**employee_date_of_birth** | **\DateTime** | Employee&#39;s date of birth | [optional]
-**origin_of_health_coverage_code** | **string** | Origin of health coverage code  Available values:  - A: Small Business Health Options Program (SHOP)  - B: Employer-sponsored coverage  - C: Government-sponsored program  - D: Individual market insurance  - E: Multiemployer plan  - F: Other designated minimum essential coverage  - G: Employer-sponsored coverage that is an individual coverage HRA (valid for tax years 2020 and later) |
-**covered_individuals** | [**\AvalaraSDK\ModelA1099V2\CoveredIndividual[]**](CoveredIndividual.md) | Covered individuals information - At least one month of coverage must be entered if it&#39;s not a correction. | [optional]
+**recipient_date_of_birth** | **\DateTime** | Recipient&#39;s date of birth | [optional]
+**plan_start_month** | **string** | Plan start month.  The calendar month during which the plan year begins of the health plan in which the employee is offered coverage (or would be offered coverage if the employee were eligible to participate in the plan).  Available values:  - 00: None  - 01: January  - 02: February  - 03: March  - 04: April  - 05: May  - 06: June  - 07: July  - 08: August  - 09: September  - 10: October  - 11: November  - 12: December |
+**employer_provided_si_coverage** | **bool** | Employer provided self-insured coverage | [optional]
+**offer_and_coverages** | [**\AvalaraSDK\ModelA1099V2\OfferAndCoverage[]**](OfferAndCoverage.md) | Offer and coverage information |
+**covered_individuals** | [**\AvalaraSDK\ModelA1099V2\CoveredIndividual[]**](CoveredIndividual.md) | Covered individuals information | [optional]
 **type** | **string** | Form type |
 **id** | **string** | Form ID. Unique identifier set when the record is created. | [optional] [readonly]
 **issuer_id** | **string** | Issuer ID - only required when creating forms | [optional]

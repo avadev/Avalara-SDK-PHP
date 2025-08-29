@@ -1,10 +1,10 @@
-# # PrimaryWithholdingAgent
+# # EntryStatusResponse
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **string** | Name of the primary withholding agent |
-**ein** | **string** | EIN (Employer Identification Number) of the primary withholding agent. |
+**status** | **string** | The form status. | [optional]
+**time** | **\DateTime** | The timestamp for the latest status update. | [optional]
 
 [[Back to Model list]](../../../README.md#models) [[Back to API list]](../../../README.md#endpoints) [[Back to README]](../../../README.md)

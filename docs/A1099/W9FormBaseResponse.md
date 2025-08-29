@@ -5,13 +5,13 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **string** | The unique identifier for the form. | [optional]
-**entry_status** | **string** | The form status. | [optional]
-**entry_status_date** | **\DateTime** | The timestamp for the latest status update. | [optional]
+**entry_status** | [**\AvalaraSDK\ModelA1099V2\EntryStatusResponse**](EntryStatusResponse.md) | The entry status information for the form. | [optional]
 **reference_id** | **string** | A reference identifier for the form. | [optional]
 **company_id** | **string** | The ID of the associated company. | [optional]
 **display_name** | **string** | The display name associated with the form. | [optional]
 **email** | **string** | The email address of the individual associated with the form. | [optional]
 **archived** | **bool** | Indicates whether the form is archived. | [optional]
+**ancestor_id** | **string** | Form ID of previous version. | [optional]
 **signature** | **string** | The signature of the form. | [optional]
 **signed_date** | **\DateTime** | The date the form was signed. | [optional]
 **e_delivery_consented_at** | **\DateTime** | The date when e-delivery was consented. | [optional]

@@ -1,4 +1,4 @@
-# # IssuerCommand
+# # CreateIssuerRequest
 
 ## Properties
 
@@ -19,5 +19,8 @@ Name | Type | Description | Notes
 **foreign_province** | **string** | Province or region for non-US/CA addresses. | [optional]
 **transfer_agent_name** | **string** | Name of the transfer agent, if applicable — optional; use either this or &#39;dbaName&#39;. | [optional]
 **last_filing** | **bool** | Indicates if this is the issuer&#39;s final year filing. |
+**id** | **string** | Unique identifier set when the record is created. | [optional]
+**created_at** | **\DateTime** | Date time when the record was created. | [optional]
+**updated_at** | **\DateTime** | Date time when the record was last updated. | [optional]
 
 [[Back to Model list]](../../../README.md#models) [[Back to API list]](../../../README.md#endpoints) [[Back to README]](../../../README.md)
