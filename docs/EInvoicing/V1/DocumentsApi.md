@@ -1,4 +1,4 @@
-# AvalaraSDK\DocumentsApi
+# Avalara\SDK\DocumentsApi
 
 All URIs are relative to https://api.sbx.avalara.com/einvoicing.
 
@@ -37,7 +37,7 @@ $config = new \Avalara\SDK\Configuration()
 
 $client = new \Avalara\SDK\ApiClient($config);
 
-$apiInstance = new AvalaraSDK\Api\DocumentsApi($client);
+$apiInstance = new Avalara\SDK\Api\DocumentsApi($client);
 
 $avalara_version = 1.4; // string | The HTTP Header meant to specify the version of the API intended to be used
 $accept = application/pdf; // string | This header indicates the MIME type of the document
@@ -81,7 +81,7 @@ Name | Type | Description  | Notes
 ## `fetchDocuments()`
 
 ```php
-fetchDocuments($avalara_version, $fetch_documents_request, $x_avalara_client): \AvalaraSDK\ModelEInvoicingV1\DocumentFetch
+fetchDocuments($avalara_version, $fetch_documents_request, $x_avalara_client): \Avalara\SDK\Model\EInvoicing\V1\DocumentFetch
 ```
 
 Fetch the inbound document from a tax authority
@@ -104,10 +104,10 @@ $config = new \Avalara\SDK\Configuration()
 
 $client = new \Avalara\SDK\ApiClient($config);
 
-$apiInstance = new AvalaraSDK\Api\DocumentsApi($client);
+$apiInstance = new Avalara\SDK\Api\DocumentsApi($client);
 
 $avalara_version = 1.4; // string | The HTTP Header meant to specify the version of the API intended to be used
-$fetch_documents_request = new \AvalaraSDK\ModelEInvoicingV1\FetchDocumentsRequest(); // \AvalaraSDK\ModelEInvoicingV1\FetchDocumentsRequest
+$fetch_documents_request = new \Avalara\SDK\Model\EInvoicing\V1\FetchDocumentsRequest(); // \Avalara\SDK\Model\EInvoicing\V1\FetchDocumentsRequest
 $x_avalara_client = John's E-Invoicing-API Client; // string | You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a fingerprint.
 
 try {
@@ -123,12 +123,12 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **avalara_version** | **string**| The HTTP Header meant to specify the version of the API intended to be used |
- **fetch_documents_request** | [**\AvalaraSDK\ModelEInvoicingV1\FetchDocumentsRequest**](../Model/FetchDocumentsRequest.md)|  |
+ **fetch_documents_request** | [**\Avalara\SDK\Model\EInvoicing\V1\FetchDocumentsRequest**](../Model/FetchDocumentsRequest.md)|  |
  **x_avalara_client** | **string**| You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a fingerprint. | [optional]
 
 ### Return type
 
-[**\AvalaraSDK\ModelEInvoicingV1\DocumentFetch**](../Model/DocumentFetch.md)
+[**\Avalara\SDK\Model\EInvoicing\V1\DocumentFetch**](../Model/DocumentFetch.md)
 
 ### Authorization
 
@@ -146,7 +146,7 @@ Name | Type | Description  | Notes
 ## `getDocumentList()`
 
 ```php
-getDocumentList($avalara_version, $x_avalara_client, $start_date, $end_date, $flow, $count, $count_only, $filter, $top, $skip): \AvalaraSDK\ModelEInvoicingV1\DocumentListResponse
+getDocumentList($avalara_version, $x_avalara_client, $start_date, $end_date, $flow, $count, $count_only, $filter, $top, $skip): \Avalara\SDK\Model\EInvoicing\V1\DocumentListResponse
 ```
 
 Returns a summary of documents for a date range
@@ -169,7 +169,7 @@ $config = new \Avalara\SDK\Configuration()
 
 $client = new \Avalara\SDK\ApiClient($config);
 
-$apiInstance = new AvalaraSDK\Api\DocumentsApi($client);
+$apiInstance = new Avalara\SDK\Api\DocumentsApi($client);
 
 $avalara_version = 1.4; // string | The HTTP Header meant to specify the version of the API intended to be used
 $x_avalara_client = John's E-Invoicing-API Client; // string | You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a fingerprint.
@@ -207,7 +207,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\AvalaraSDK\ModelEInvoicingV1\DocumentListResponse**](../Model/DocumentListResponse.md)
+[**\Avalara\SDK\Model\EInvoicing\V1\DocumentListResponse**](../Model/DocumentListResponse.md)
 
 ### Authorization
 
@@ -225,7 +225,7 @@ Name | Type | Description  | Notes
 ## `getDocumentStatus()`
 
 ```php
-getDocumentStatus($avalara_version, $document_id, $x_avalara_client): \AvalaraSDK\ModelEInvoicingV1\DocumentStatusResponse
+getDocumentStatus($avalara_version, $document_id, $x_avalara_client): \Avalara\SDK\Model\EInvoicing\V1\DocumentStatusResponse
 ```
 
 Checks the status of a document
@@ -248,7 +248,7 @@ $config = new \Avalara\SDK\Configuration()
 
 $client = new \Avalara\SDK\ApiClient($config);
 
-$apiInstance = new AvalaraSDK\Api\DocumentsApi($client);
+$apiInstance = new Avalara\SDK\Api\DocumentsApi($client);
 
 $avalara_version = 1.4; // string | The HTTP Header meant to specify the version of the API intended to be used
 $document_id = 'document_id_example'; // string | The unique ID for this document that was returned in the POST /einvoicing/documents response body
@@ -272,7 +272,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\AvalaraSDK\ModelEInvoicingV1\DocumentStatusResponse**](../Model/DocumentStatusResponse.md)
+[**\Avalara\SDK\Model\EInvoicing\V1\DocumentStatusResponse**](../Model/DocumentStatusResponse.md)
 
 ### Authorization
 
@@ -290,7 +290,7 @@ Name | Type | Description  | Notes
 ## `submitDocument()`
 
 ```php
-submitDocument($avalara_version, $metadata, $data, $x_avalara_client): \AvalaraSDK\ModelEInvoicingV1\DocumentSubmitResponse
+submitDocument($avalara_version, $metadata, $data, $x_avalara_client): \Avalara\SDK\Model\EInvoicing\V1\DocumentSubmitResponse
 ```
 
 Submits a document to Avalara E-Invoicing API
@@ -313,10 +313,10 @@ $config = new \Avalara\SDK\Configuration()
 
 $client = new \Avalara\SDK\ApiClient($config);
 
-$apiInstance = new AvalaraSDK\Api\DocumentsApi($client);
+$apiInstance = new Avalara\SDK\Api\DocumentsApi($client);
 
 $avalara_version = 1.4; // string | The HTTP Header meant to specify the version of the API intended to be used
-$metadata = new \AvalaraSDK\ModelEInvoicingV1\SubmitDocumentMetadata(); // \AvalaraSDK\ModelEInvoicingV1\SubmitDocumentMetadata
+$metadata = new \Avalara\SDK\Model\EInvoicing\V1\SubmitDocumentMetadata(); // \Avalara\SDK\Model\EInvoicing\V1\SubmitDocumentMetadata
 $data = array('key' => new \stdClass); // object | The document to be submitted, as indicated by the metadata fields 'dataFormat' and 'dataFormatVersion'
 $x_avalara_client = John's E-Invoicing-API Client; // string | You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a fingerprint.
 
@@ -333,13 +333,13 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **avalara_version** | **string**| The HTTP Header meant to specify the version of the API intended to be used |
- **metadata** | [**\AvalaraSDK\ModelEInvoicingV1\SubmitDocumentMetadata**](../Model/SubmitDocumentMetadata.md)|  |
+ **metadata** | [**\Avalara\SDK\Model\EInvoicing\V1\SubmitDocumentMetadata**](../Model/SubmitDocumentMetadata.md)|  |
  **data** | [**object**](../Model/object.md)| The document to be submitted, as indicated by the metadata fields &#39;dataFormat&#39; and &#39;dataFormatVersion&#39; |
  **x_avalara_client** | **string**| You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a fingerprint. | [optional]
 
 ### Return type
 
-[**\AvalaraSDK\ModelEInvoicingV1\DocumentSubmitResponse**](../Model/DocumentSubmitResponse.md)
+[**\Avalara\SDK\Model\EInvoicing\V1\DocumentSubmitResponse**](../Model/DocumentSubmitResponse.md)
 
 ### Authorization
 

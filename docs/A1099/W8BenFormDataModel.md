@@ -132,7 +132,7 @@ Name | Type | Description | Notes
 **part19_formation_or_resolution_date** | **\DateTime** |  | [optional]
 **part20_filing_date** | **\DateTime** |  | [optional]
 **part21_determination_date** | **\DateTime** |  | [optional]
-**substantial_us_owners** | [**\AvalaraSDK\ModelA1099V2\W8BenESubstantialUsOwnerDataModel[]**](W8BenESubstantialUsOwnerDataModel.md) |  | [optional]
+**substantial_us_owners** | [**\Avalara\SDK\Model\A1099\V2\W8BenESubstantialUsOwnerDataModel[]**](W8BenESubstantialUsOwnerDataModel.md) |  | [optional]
 **ein** | **string** | The employer identification number (EIN). | [optional]
 **ein_type** | **string** | The type of employer identification number (EIN). | [optional]
 **certify_box14** | **bool** | Indicates certification for box 14. | [optional]

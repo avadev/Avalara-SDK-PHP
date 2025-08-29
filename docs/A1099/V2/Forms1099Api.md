@@ -1,4 +1,4 @@
-# AvalaraSDK\Forms1099Api
+# Avalara\SDK\Forms1099Api
 
 All URIs are relative to https://api.sbx.avalara.com/avalara1099.
 
@@ -16,7 +16,7 @@ Method | HTTP request | Description
 ## `bulkUpsert1099Forms()`
 
 ```php
-bulkUpsert1099Forms($avalara_version, $dry_run, $x_correlation_id, $x_avalara_client, $form1099_list_request): \AvalaraSDK\ModelA1099V2\JobResponse
+bulkUpsert1099Forms($avalara_version, $dry_run, $x_correlation_id, $x_avalara_client, $form1099_list_request): \Avalara\SDK\Model\A1099\V2\JobResponse
 ```
 
 Create or update multiple 1099/1095/W2/1042S forms
@@ -39,13 +39,13 @@ $config = new \Avalara\SDK\Configuration()
 
 $client = new \Avalara\SDK\ApiClient($config);
 
-$apiInstance = new AvalaraSDK\Api\Forms1099Api($client);
+$apiInstance = new Avalara\SDK\Api\Forms1099Api($client);
 
 $avalara_version = 2.0.0; // string | API version
 $dry_run = false; // bool | defaults to false. If true, it will NOT change the DB. It will just return a report of what would've have been changed in the DB
-$x_correlation_id = 16e56e1f-e623-4f23-9904-21c29b5b4545; // string | Unique correlation Id in a GUID format
+$x_correlation_id = f50b386c-98d3-4d80-bf46-648bbc9bc974; // string | Unique correlation Id in a GUID format
 $x_avalara_client = Swagger UI; 22.1.0; // string | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
-$form1099_list_request = {"type":"1099-NEC","forms":[{"type":"1099-NEC","issuerId":"12345","issuerReferenceId":"ISSUER-REF-2024","taxYear":2024,"referenceId":"NEC-REF-001","tin":"123456789","recipientName":"John Doe","tinType":"SSN","recipientSecondName":"Doe Enterprises","address":"123 Main Street","address2":"Suite 100","city":"New York","state":"NY","zip":"10001","email":"john.doe@example.com","accountNumber":"ACC123456","officeCode":"NYC01","countryCode":"US","nonemployeeCompensation":15000.0,"directSalesIndicator":true,"federalIncomeTaxWithheld":3000.0,"secondTinNotice":false,"federalEfileDate":"2024-03-15","stateEfileDate":"2024-03-20","recipientEdeliveryDate":"2024-03-25","postalMail":false,"tinMatch":true,"addressVerification":true,"stateAndLocalWithholding":{"stateTaxWithheld":500.0,"state":"NY","stateIdNumber":"NY123456","stateIncome":15000.0,"localTaxWithheld":250.0,"locality":"New York City","localityIdNumber":"NYC789","localIncome":15000.0}}]}; // \AvalaraSDK\ModelA1099V2\Form1099ListRequest | 
+$form1099_list_request = {"type":"1099-NEC","forms":[{"type":"1099-NEC","issuerId":"12345","issuerReferenceId":"ISSUER-REF-2024","taxYear":2024,"referenceId":"NEC-REF-001","tin":"123456789","recipientName":"John Doe","tinType":"SSN","recipientSecondName":"Doe Enterprises","address":"123 Main Street","address2":"Suite 100","city":"New York","state":"NY","zip":"10001","email":"john.doe@example.com","accountNumber":"ACC123456","officeCode":"NYC01","countryCode":"US","nonemployeeCompensation":15000.0,"directSalesIndicator":true,"federalIncomeTaxWithheld":3000.0,"secondTinNotice":false,"federalEfileDate":"2024-03-15","stateEfileDate":"2024-03-20","recipientEdeliveryDate":"2024-03-25","postalMail":false,"tinMatch":true,"addressVerification":true,"stateAndLocalWithholding":{"stateTaxWithheld":500.0,"state":"NY","stateIdNumber":"NY123456","stateIncome":15000.0,"localTaxWithheld":250.0,"locality":"New York City","localityIdNumber":"NYC789","localIncome":15000.0}}]}; // \Avalara\SDK\Model\A1099\V2\Form1099ListRequest | 
 
 try {
     $result = $apiInstance->bulkUpsert1099Forms($avalara_version, $dry_run, $x_correlation_id, $x_avalara_client, $form1099_list_request);
@@ -63,11 +63,11 @@ Name | Type | Description  | Notes
  **dry_run** | **bool**| defaults to false. If true, it will NOT change the DB. It will just return a report of what would&#39;ve have been changed in the DB | [optional] [default to false]
  **x_correlation_id** | **string**| Unique correlation Id in a GUID format | [optional]
  **x_avalara_client** | **string**| Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) . | [optional]
- **form1099_list_request** | [**\AvalaraSDK\ModelA1099V2\Form1099ListRequest**](../Model/Form1099ListRequest.md)|  | [optional]
+ **form1099_list_request** | [**\Avalara\SDK\Model\A1099\V2\Form1099ListRequest**](../Model/Form1099ListRequest.md)|  | [optional]
 
 ### Return type
 
-[**\AvalaraSDK\ModelA1099V2\JobResponse**](../Model/JobResponse.md)
+[**\Avalara\SDK\Model\A1099\V2\JobResponse**](../Model/JobResponse.md)
 
 ### Authorization
 
@@ -85,7 +85,7 @@ Name | Type | Description  | Notes
 ## `create1099Form()`
 
 ```php
-create1099Form($avalara_version, $x_correlation_id, $x_avalara_client, $get1099_form200_response): \AvalaraSDK\ModelA1099V2\Get1099Form200Response
+create1099Form($avalara_version, $x_correlation_id, $x_avalara_client, $get1099_form200_response): \Avalara\SDK\Model\A1099\V2\Get1099Form200Response
 ```
 
 Create a 1099/1095/W2/1042S form
@@ -108,12 +108,12 @@ $config = new \Avalara\SDK\Configuration()
 
 $client = new \Avalara\SDK\ApiClient($config);
 
-$apiInstance = new AvalaraSDK\Api\Forms1099Api($client);
+$apiInstance = new Avalara\SDK\Api\Forms1099Api($client);
 
 $avalara_version = 2.0.0; // string | API version
-$x_correlation_id = e4a7bf40-da9f-452a-b2db-c8b64721610b; // string | Unique correlation Id in a GUID format
+$x_correlation_id = de4dccc9-cc2b-4d16-9254-ff1ca8a8a90b; // string | Unique correlation Id in a GUID format
 $x_avalara_client = Swagger UI; 22.1.0; // string | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
-$get1099_form200_response = {"type":"1099-NEC","issuerId":"12345","issuerReferenceId":"ISSUER-REF-2024","taxYear":2024,"referenceId":"NEC-REF-001","tin":"123456789","recipientName":"John Doe","tinType":"SSN","recipientSecondName":"Doe Enterprises","address":"123 Main Street","address2":"Suite 100","city":"New York","state":"NY","zip":"10001","email":"john.doe@example.com","accountNumber":"ACC123456","officeCode":"NYC01","countryCode":"US","nonemployeeCompensation":15000.0,"directSalesIndicator":true,"federalIncomeTaxWithheld":3000.0,"secondTinNotice":false,"federalEfileDate":"2024-03-15","stateEfileDate":"2024-03-20","recipientEdeliveryDate":"2024-03-25","postalMail":false,"tinMatch":true,"addressVerification":true,"stateAndLocalWithholding":{"stateTaxWithheld":500.0,"state":"NY","stateIdNumber":"NY123456","stateIncome":15000.0,"localTaxWithheld":250.0,"locality":"New York City","localityIdNumber":"NYC789","localIncome":15000.0}}; // \AvalaraSDK\ModelA1099V2\Get1099Form200Response
+$get1099_form200_response = {"type":"1099-NEC","issuerId":"12345","issuerReferenceId":"ISSUER-REF-2024","taxYear":2024,"referenceId":"NEC-REF-001","tin":"123456789","recipientName":"John Doe","tinType":"SSN","recipientSecondName":"Doe Enterprises","address":"123 Main Street","address2":"Suite 100","city":"New York","state":"NY","zip":"10001","email":"john.doe@example.com","accountNumber":"ACC123456","officeCode":"NYC01","countryCode":"US","nonemployeeCompensation":15000.0,"directSalesIndicator":true,"federalIncomeTaxWithheld":3000.0,"secondTinNotice":false,"federalEfileDate":"2024-03-15","stateEfileDate":"2024-03-20","recipientEdeliveryDate":"2024-03-25","postalMail":false,"tinMatch":true,"addressVerification":true,"stateAndLocalWithholding":{"stateTaxWithheld":500.0,"state":"NY","stateIdNumber":"NY123456","stateIncome":15000.0,"localTaxWithheld":250.0,"locality":"New York City","localityIdNumber":"NYC789","localIncome":15000.0}}; // \Avalara\SDK\Model\A1099\V2\Get1099Form200Response
 
 try {
     $result = $apiInstance->create1099Form($avalara_version, $x_correlation_id, $x_avalara_client, $get1099_form200_response);
@@ -130,11 +130,11 @@ Name | Type | Description  | Notes
  **avalara_version** | **string**| API version |
  **x_correlation_id** | **string**| Unique correlation Id in a GUID format | [optional]
  **x_avalara_client** | **string**| Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) . | [optional]
- **get1099_form200_response** | [**\AvalaraSDK\ModelA1099V2\Get1099Form200Response**](../Model/Get1099Form200Response.md)|  | [optional]
+ **get1099_form200_response** | [**\Avalara\SDK\Model\A1099\V2\Get1099Form200Response**](../Model/Get1099Form200Response.md)|  | [optional]
 
 ### Return type
 
-[**\AvalaraSDK\ModelA1099V2\Get1099Form200Response**](../Model/Get1099Form200Response.md)
+[**\Avalara\SDK\Model\A1099\V2\Get1099Form200Response**](../Model/Get1099Form200Response.md)
 
 ### Authorization
 
@@ -175,11 +175,11 @@ $config = new \Avalara\SDK\Configuration()
 
 $client = new \Avalara\SDK\ApiClient($config);
 
-$apiInstance = new AvalaraSDK\Api\Forms1099Api($client);
+$apiInstance = new Avalara\SDK\Api\Forms1099Api($client);
 
 $id = 'id_example'; // string | The unique identifier of the desired form to delete.
 $avalara_version = 2.0.0; // string | API version
-$x_correlation_id = 8e01e950-8e1c-4b1b-9120-2e2452c6d590; // string | Unique correlation Id in a GUID format
+$x_correlation_id = f9800afa-ef3a-4db7-856e-c48ee3f0c58f; // string | Unique correlation Id in a GUID format
 $x_avalara_client = Swagger UI; 22.1.0; // string | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
 
 try {
@@ -218,7 +218,7 @@ void (empty response body)
 ## `get1099Form()`
 
 ```php
-get1099Form($id, $avalara_version, $x_correlation_id, $x_avalara_client): \AvalaraSDK\ModelA1099V2\Get1099Form200Response
+get1099Form($id, $avalara_version, $x_correlation_id, $x_avalara_client): \Avalara\SDK\Model\A1099\V2\Get1099Form200Response
 ```
 
 Retrieve a 1099/1095/W2/1042S form
@@ -241,11 +241,11 @@ $config = new \Avalara\SDK\Configuration()
 
 $client = new \Avalara\SDK\ApiClient($config);
 
-$apiInstance = new AvalaraSDK\Api\Forms1099Api($client);
+$apiInstance = new Avalara\SDK\Api\Forms1099Api($client);
 
 $id = 'id_example'; // string
 $avalara_version = 2.0.0; // string | API version
-$x_correlation_id = 7b8174a3-a873-4a05-a619-f362955f4608; // string | Unique correlation Id in a GUID format
+$x_correlation_id = e8b98a82-a252-4cbb-81c4-bc4c4e435398; // string | Unique correlation Id in a GUID format
 $x_avalara_client = Swagger UI; 22.1.0; // string | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
 
 try {
@@ -267,7 +267,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\AvalaraSDK\ModelA1099V2\Get1099Form200Response**](../Model/Get1099Form200Response.md)
+[**\Avalara\SDK\Model\A1099\V2\Get1099Form200Response**](../Model/Get1099Form200Response.md)
 
 ### Authorization
 
@@ -308,12 +308,12 @@ $config = new \Avalara\SDK\Configuration()
 
 $client = new \Avalara\SDK\ApiClient($config);
 
-$apiInstance = new AvalaraSDK\Api\Forms1099Api($client);
+$apiInstance = new Avalara\SDK\Api\Forms1099Api($client);
 
 $id = 'id_example'; // string | The ID of the form
 $avalara_version = 2.0.0; // string | API version
 $mark_edelivered = True; // bool | Optional boolean that if set indicates that the form should be marked as having been successfully edelivered
-$x_correlation_id = a4dd3a23-ae45-45a5-8612-75e2fe4c1f36; // string | Unique correlation Id in a GUID format
+$x_correlation_id = d9d0d6ae-f4f4-4400-87e0-bbded84b3d8a; // string | Unique correlation Id in a GUID format
 $x_avalara_client = Swagger UI; 22.1.0; // string | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
 
 try {
@@ -354,7 +354,7 @@ Name | Type | Description  | Notes
 ## `list1099Forms()`
 
 ```php
-list1099Forms($avalara_version, $filter, $top, $skip, $order_by, $count, $count_only, $x_correlation_id, $x_avalara_client): \AvalaraSDK\ModelA1099V2\PaginatedQueryResultModelForm1099Base
+list1099Forms($avalara_version, $filter, $top, $skip, $order_by, $count, $count_only, $x_correlation_id, $x_avalara_client): \Avalara\SDK\Model\A1099\V2\PaginatedQueryResultModelForm1099Base
 ```
 
 List 1099/1095/W2/1042S forms
@@ -377,7 +377,7 @@ $config = new \Avalara\SDK\Configuration()
 
 $client = new \Avalara\SDK\ApiClient($config);
 
-$apiInstance = new AvalaraSDK\Api\Forms1099Api($client);
+$apiInstance = new Avalara\SDK\Api\Forms1099Api($client);
 
 $avalara_version = 2.0.0; // string | API version
 $filter = issuerId eq 884781823; // string | A filter statement to identify specific records to retrieve.  For more information on filtering, see <a href=\"https://developer.avalara.com/avatax/filtering-in-rest/\">Filtering in REST</a>.
@@ -386,7 +386,7 @@ $skip = 56; // int | If nonzero, skip this number of results before returning da
 $order_by = 'order_by_example'; // string | A comma separated list of sort statements in the format (fieldname) [ASC|DESC], for example id ASC.
 $count = True; // bool | If true, return the global count of elements in the collection.
 $count_only = True; // bool | If true, return ONLY the global count of elements in the collection.  It only applies when count=true.
-$x_correlation_id = f808e46a-fc55-4dd7-960d-13c6ba8176f2; // string | Unique correlation Id in a GUID format
+$x_correlation_id = 25895c3d-a7a0-4ca5-bc48-79970495b379; // string | Unique correlation Id in a GUID format
 $x_avalara_client = Swagger UI; 22.1.0; // string | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
 
 try {
@@ -413,7 +413,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\AvalaraSDK\ModelA1099V2\PaginatedQueryResultModelForm1099Base**](../Model/PaginatedQueryResultModelForm1099Base.md)
+[**\Avalara\SDK\Model\A1099\V2\PaginatedQueryResultModelForm1099Base**](../Model/PaginatedQueryResultModelForm1099Base.md)
 
 ### Authorization
 
@@ -431,7 +431,7 @@ Name | Type | Description  | Notes
 ## `update1099Form()`
 
 ```php
-update1099Form($id, $avalara_version, $x_correlation_id, $x_avalara_client, $get1099_form200_response): \AvalaraSDK\ModelA1099V2\Get1099Form200Response
+update1099Form($id, $avalara_version, $x_correlation_id, $x_avalara_client, $get1099_form200_response): \Avalara\SDK\Model\A1099\V2\Get1099Form200Response
 ```
 
 Update a 1099/1095/W2/1042S form
@@ -454,13 +454,13 @@ $config = new \Avalara\SDK\Configuration()
 
 $client = new \Avalara\SDK\ApiClient($config);
 
-$apiInstance = new AvalaraSDK\Api\Forms1099Api($client);
+$apiInstance = new Avalara\SDK\Api\Forms1099Api($client);
 
 $id = 'id_example'; // string
 $avalara_version = 2.0.0; // string | API version
-$x_correlation_id = 944ee583-b810-471c-852c-d3c6f8b93a4b; // string | Unique correlation Id in a GUID format
+$x_correlation_id = 4ac97a3a-ecbd-4fdb-8cde-67d3ae9d724d; // string | Unique correlation Id in a GUID format
 $x_avalara_client = Swagger UI; 22.1.0; // string | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
-$get1099_form200_response = {"type":"1099-NEC","issuerId":"12345","issuerReferenceId":"ISSUER-REF-2024","taxYear":2024,"referenceId":"NEC-REF-001","tin":"123456789","recipientName":"John Doe","tinType":"SSN","recipientSecondName":"Doe Enterprises","address":"123 Main Street","address2":"Suite 100","city":"New York","state":"NY","zip":"10001","email":"john.doe@example.com","accountNumber":"ACC123456","officeCode":"NYC01","countryCode":"US","nonemployeeCompensation":15000.0,"directSalesIndicator":true,"federalIncomeTaxWithheld":3000.0,"secondTinNotice":false,"federalEfileDate":"2024-03-15","stateEfileDate":"2024-03-20","recipientEdeliveryDate":"2024-03-25","postalMail":false,"tinMatch":true,"addressVerification":true,"stateAndLocalWithholding":{"stateTaxWithheld":500.0,"state":"NY","stateIdNumber":"NY123456","stateIncome":15000.0,"localTaxWithheld":250.0,"locality":"New York City","localityIdNumber":"NYC789","localIncome":15000.0}}; // \AvalaraSDK\ModelA1099V2\Get1099Form200Response
+$get1099_form200_response = {"type":"1099-NEC","issuerId":"12345","issuerReferenceId":"ISSUER-REF-2024","taxYear":2024,"referenceId":"NEC-REF-001","tin":"123456789","recipientName":"John Doe","tinType":"SSN","recipientSecondName":"Doe Enterprises","address":"123 Main Street","address2":"Suite 100","city":"New York","state":"NY","zip":"10001","email":"john.doe@example.com","accountNumber":"ACC123456","officeCode":"NYC01","countryCode":"US","nonemployeeCompensation":15000.0,"directSalesIndicator":true,"federalIncomeTaxWithheld":3000.0,"secondTinNotice":false,"federalEfileDate":"2024-03-15","stateEfileDate":"2024-03-20","recipientEdeliveryDate":"2024-03-25","postalMail":false,"tinMatch":true,"addressVerification":true,"stateAndLocalWithholding":{"stateTaxWithheld":500.0,"state":"NY","stateIdNumber":"NY123456","stateIncome":15000.0,"localTaxWithheld":250.0,"locality":"New York City","localityIdNumber":"NYC789","localIncome":15000.0}}; // \Avalara\SDK\Model\A1099\V2\Get1099Form200Response
 
 try {
     $result = $apiInstance->update1099Form($id, $avalara_version, $x_correlation_id, $x_avalara_client, $get1099_form200_response);
@@ -478,11 +478,11 @@ Name | Type | Description  | Notes
  **avalara_version** | **string**| API version |
  **x_correlation_id** | **string**| Unique correlation Id in a GUID format | [optional]
  **x_avalara_client** | **string**| Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) . | [optional]
- **get1099_form200_response** | [**\AvalaraSDK\ModelA1099V2\Get1099Form200Response**](../Model/Get1099Form200Response.md)|  | [optional]
+ **get1099_form200_response** | [**\Avalara\SDK\Model\A1099\V2\Get1099Form200Response**](../Model/Get1099Form200Response.md)|  | [optional]
 
 ### Return type
 
-[**\AvalaraSDK\ModelA1099V2\Get1099Form200Response**](../Model/Get1099Form200Response.md)
+[**\Avalara\SDK\Model\A1099\V2\Get1099Form200Response**](../Model/Get1099Form200Response.md)
 
 ### Authorization
 

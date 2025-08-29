@@ -14,8 +14,8 @@ Name | Type | Description | Notes
 **e_invoicing_flow_documentation_link** | **string** | Link to the documentation for this mandate&#39;s e-invoicing flow | [optional]
 **get_invoice_available_media_type** | **string[]** | List of available media types for downloading invoices for this mandate | [optional]
 **supports_inbound_digital_document** | **string** | Indicates whether this mandate supports inbound digital documents | [optional]
-**input_data_formats** | [**\AvalaraSDK\ModelEInvoicingV1\InputDataFormats[]**](InputDataFormats.md) | Format and version used when inputting the data | [optional]
-**output_data_formats** | [**\AvalaraSDK\ModelEInvoicingV1\OutputDataFormats[]**](OutputDataFormats.md) | Lists the supported output document formats for the country mandate. For countries where specifying an output document format is required (e.g., France), this array will contain the applicable formats. For other countries where output format selection is not necessary, the array will be empty. | [optional]
-**workflow_ids** | [**\AvalaraSDK\ModelEInvoicingV1\WorkflowIds[]**](WorkflowIds.md) | Workflow ID list | [optional]
+**input_data_formats** | [**\Avalara\SDK\Model\EInvoicing\V1\InputDataFormats[]**](InputDataFormats.md) | Format and version used when inputting the data | [optional]
+**output_data_formats** | [**\Avalara\SDK\Model\EInvoicing\V1\OutputDataFormats[]**](OutputDataFormats.md) | Lists the supported output document formats for the country mandate. For countries where specifying an output document format is required (e.g., France), this array will contain the applicable formats. For other countries where output format selection is not necessary, the array will be empty. | [optional]
+**workflow_ids** | [**\Avalara\SDK\Model\EInvoicing\V1\WorkflowIds[]**](WorkflowIds.md) | Workflow ID list | [optional]
 
 [[Back to Model list]](../../../README.md#models) [[Back to API list]](../../../README.md#endpoints) [[Back to README]](../../../README.md)
