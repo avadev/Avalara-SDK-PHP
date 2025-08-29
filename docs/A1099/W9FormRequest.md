@@ -23,10 +23,10 @@ Name | Type | Description | Notes
 **tin** | **string** | The taxpayer identification number (TIN). | [optional]
 **backup_withholding** | **bool** | Indicates whether backup withholding applies. | [optional]
 **is1099able** | **bool** | Indicates whether the individual or entity should be issued a 1099 form. | [optional]
-**company_id** | **string** | The ID of the associated company. | [optional]
-**reference_id** | **string** | A reference identifier for the form. | [optional]
-**email** | **string** | The email address of the individual associated with the form. | [optional]
 **e_delivery_consented_at** | **\DateTime** | The date when e-delivery was consented. | [optional]
 **signature** | **string** | The signature of the form. | [optional]
+**company_id** | **string** | The ID of the associated company. |
+**reference_id** | **string** | A reference identifier for the form. | [optional]
+**email** | **string** | The email address of the individual associated with the form. | [optional]
 
 [[Back to Model list]](../../../README.md#models) [[Back to API list]](../../../README.md#endpoints) [[Back to README]](../../../README.md)
