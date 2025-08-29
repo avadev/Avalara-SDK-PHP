@@ -72,25 +72,25 @@ class CompanyResponse implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'id' => 'string',
-        'reference_id' => 'string',
-        'group_name' => 'string',
+        'created_at' => '\DateTime',
+        'updated_at' => '\DateTime',
         'name' => 'string',
         'dba_name' => 'string',
+        'email' => 'string',
         'address' => 'string',
         'city' => 'string',
         'state' => 'string',
-        'foreign_province' => 'string',
         'zip' => 'string',
-        'country_code' => 'string',
-        'email' => 'string',
         'telephone' => 'string',
         'tin' => 'string',
+        'reference_id' => 'string',
         'do_tin_match' => 'bool',
+        'group_name' => 'string',
+        'foreign_province' => 'string',
+        'country_code' => 'string',
         'resend_requests' => 'bool',
         'resend_interval_days' => 'int',
-        'max_reminder_attempts' => 'int',
-        'created_at' => '\DateTime',
-        'updated_at' => '\DateTime'
+        'max_reminder_attempts' => 'int'
     ];
 
     /**
@@ -102,25 +102,25 @@ class CompanyResponse implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPIFormats = [
         'id' => null,
-        'reference_id' => null,
-        'group_name' => null,
+        'created_at' => 'date-time',
+        'updated_at' => 'date-time',
         'name' => null,
         'dba_name' => null,
+        'email' => null,
         'address' => null,
         'city' => null,
         'state' => null,
-        'foreign_province' => null,
         'zip' => null,
-        'country_code' => null,
-        'email' => null,
         'telephone' => null,
         'tin' => null,
+        'reference_id' => null,
         'do_tin_match' => null,
+        'group_name' => null,
+        'foreign_province' => null,
+        'country_code' => null,
         'resend_requests' => null,
         'resend_interval_days' => 'int32',
-        'max_reminder_attempts' => 'int32',
-        'created_at' => 'date-time',
-        'updated_at' => 'date-time'
+        'max_reminder_attempts' => 'int32'
     ];
 
     /**
@@ -151,25 +151,25 @@ class CompanyResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $attributeMap = [
         'id' => 'id',
-        'reference_id' => 'referenceId',
-        'group_name' => 'groupName',
+        'created_at' => 'createdAt',
+        'updated_at' => 'updatedAt',
         'name' => 'name',
         'dba_name' => 'dbaName',
+        'email' => 'email',
         'address' => 'address',
         'city' => 'city',
         'state' => 'state',
-        'foreign_province' => 'foreignProvince',
         'zip' => 'zip',
-        'country_code' => 'countryCode',
-        'email' => 'email',
         'telephone' => 'telephone',
         'tin' => 'tin',
+        'reference_id' => 'referenceId',
         'do_tin_match' => 'doTinMatch',
+        'group_name' => 'groupName',
+        'foreign_province' => 'foreignProvince',
+        'country_code' => 'countryCode',
         'resend_requests' => 'resendRequests',
         'resend_interval_days' => 'resendIntervalDays',
-        'max_reminder_attempts' => 'maxReminderAttempts',
-        'created_at' => 'createdAt',
-        'updated_at' => 'updatedAt'
+        'max_reminder_attempts' => 'maxReminderAttempts'
     ];
 
     /**
@@ -179,25 +179,25 @@ class CompanyResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $setters = [
         'id' => 'setId',
-        'reference_id' => 'setReferenceId',
-        'group_name' => 'setGroupName',
+        'created_at' => 'setCreatedAt',
+        'updated_at' => 'setUpdatedAt',
         'name' => 'setName',
         'dba_name' => 'setDbaName',
+        'email' => 'setEmail',
         'address' => 'setAddress',
         'city' => 'setCity',
         'state' => 'setState',
-        'foreign_province' => 'setForeignProvince',
         'zip' => 'setZip',
-        'country_code' => 'setCountryCode',
-        'email' => 'setEmail',
         'telephone' => 'setTelephone',
         'tin' => 'setTin',
+        'reference_id' => 'setReferenceId',
         'do_tin_match' => 'setDoTinMatch',
+        'group_name' => 'setGroupName',
+        'foreign_province' => 'setForeignProvince',
+        'country_code' => 'setCountryCode',
         'resend_requests' => 'setResendRequests',
         'resend_interval_days' => 'setResendIntervalDays',
-        'max_reminder_attempts' => 'setMaxReminderAttempts',
-        'created_at' => 'setCreatedAt',
-        'updated_at' => 'setUpdatedAt'
+        'max_reminder_attempts' => 'setMaxReminderAttempts'
     ];
 
     /**
@@ -207,25 +207,25 @@ class CompanyResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $getters = [
         'id' => 'getId',
-        'reference_id' => 'getReferenceId',
-        'group_name' => 'getGroupName',
+        'created_at' => 'getCreatedAt',
+        'updated_at' => 'getUpdatedAt',
         'name' => 'getName',
         'dba_name' => 'getDbaName',
+        'email' => 'getEmail',
         'address' => 'getAddress',
         'city' => 'getCity',
         'state' => 'getState',
-        'foreign_province' => 'getForeignProvince',
         'zip' => 'getZip',
-        'country_code' => 'getCountryCode',
-        'email' => 'getEmail',
         'telephone' => 'getTelephone',
         'tin' => 'getTin',
+        'reference_id' => 'getReferenceId',
         'do_tin_match' => 'getDoTinMatch',
+        'group_name' => 'getGroupName',
+        'foreign_province' => 'getForeignProvince',
+        'country_code' => 'getCountryCode',
         'resend_requests' => 'getResendRequests',
         'resend_interval_days' => 'getResendIntervalDays',
-        'max_reminder_attempts' => 'getMaxReminderAttempts',
-        'created_at' => 'getCreatedAt',
-        'updated_at' => 'getUpdatedAt'
+        'max_reminder_attempts' => 'getMaxReminderAttempts'
     ];
 
     /**
@@ -286,25 +286,25 @@ class CompanyResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     public function __construct(array $data = null)
     {
         $this->container['id'] = $data['id'] ?? null;
-        $this->container['reference_id'] = $data['reference_id'] ?? null;
-        $this->container['group_name'] = $data['group_name'] ?? null;
+        $this->container['created_at'] = $data['created_at'] ?? null;
+        $this->container['updated_at'] = $data['updated_at'] ?? null;
         $this->container['name'] = $data['name'] ?? null;
         $this->container['dba_name'] = $data['dba_name'] ?? null;
+        $this->container['email'] = $data['email'] ?? null;
         $this->container['address'] = $data['address'] ?? null;
         $this->container['city'] = $data['city'] ?? null;
         $this->container['state'] = $data['state'] ?? null;
-        $this->container['foreign_province'] = $data['foreign_province'] ?? null;
         $this->container['zip'] = $data['zip'] ?? null;
-        $this->container['country_code'] = $data['country_code'] ?? null;
-        $this->container['email'] = $data['email'] ?? null;
         $this->container['telephone'] = $data['telephone'] ?? null;
         $this->container['tin'] = $data['tin'] ?? null;
+        $this->container['reference_id'] = $data['reference_id'] ?? null;
         $this->container['do_tin_match'] = $data['do_tin_match'] ?? null;
+        $this->container['group_name'] = $data['group_name'] ?? null;
+        $this->container['foreign_province'] = $data['foreign_province'] ?? null;
+        $this->container['country_code'] = $data['country_code'] ?? null;
         $this->container['resend_requests'] = $data['resend_requests'] ?? null;
         $this->container['resend_interval_days'] = $data['resend_interval_days'] ?? null;
         $this->container['max_reminder_attempts'] = $data['max_reminder_attempts'] ?? null;
-        $this->container['created_at'] = $data['created_at'] ?? null;
-        $this->container['updated_at'] = $data['updated_at'] ?? null;
     }
 
     /**
@@ -316,6 +316,30 @@ class CompanyResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
+        if ($this->container['name'] === null) {
+            $invalidProperties[] = "'name' can't be null";
+        }
+        if ($this->container['email'] === null) {
+            $invalidProperties[] = "'email' can't be null";
+        }
+        if ($this->container['address'] === null) {
+            $invalidProperties[] = "'address' can't be null";
+        }
+        if ($this->container['city'] === null) {
+            $invalidProperties[] = "'city' can't be null";
+        }
+        if ($this->container['zip'] === null) {
+            $invalidProperties[] = "'zip' can't be null";
+        }
+        if ($this->container['telephone'] === null) {
+            $invalidProperties[] = "'telephone' can't be null";
+        }
+        if ($this->container['tin'] === null) {
+            $invalidProperties[] = "'tin' can't be null";
+        }
+        if ($this->container['country_code'] === null) {
+            $invalidProperties[] = "'country_code' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -344,421 +368,13 @@ class CompanyResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets id
      *
-     * @param string|null $id id
+     * @param string|null $id Unique identifier set when the record is created.
      *
      * @return self
      */
     public function setId($id)
     {
         $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets reference_id
-     *
-     * @return string|null
-     */
-    public function getReferenceId()
-    {
-        return $this->container['reference_id'];
-    }
-
-    /**
-     * Sets reference_id
-     *
-     * @param string|null $reference_id reference_id
-     *
-     * @return self
-     */
-    public function setReferenceId($reference_id)
-    {
-        $this->container['reference_id'] = $reference_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets group_name
-     *
-     * @return string|null
-     */
-    public function getGroupName()
-    {
-        return $this->container['group_name'];
-    }
-
-    /**
-     * Sets group_name
-     *
-     * @param string|null $group_name group_name
-     *
-     * @return self
-     */
-    public function setGroupName($group_name)
-    {
-        $this->container['group_name'] = $group_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets name
-     *
-     * @return string|null
-     */
-    public function getName()
-    {
-        return $this->container['name'];
-    }
-
-    /**
-     * Sets name
-     *
-     * @param string|null $name name
-     *
-     * @return self
-     */
-    public function setName($name)
-    {
-        $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets dba_name
-     *
-     * @return string|null
-     */
-    public function getDbaName()
-    {
-        return $this->container['dba_name'];
-    }
-
-    /**
-     * Sets dba_name
-     *
-     * @param string|null $dba_name dba_name
-     *
-     * @return self
-     */
-    public function setDbaName($dba_name)
-    {
-        $this->container['dba_name'] = $dba_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets address
-     *
-     * @return string|null
-     */
-    public function getAddress()
-    {
-        return $this->container['address'];
-    }
-
-    /**
-     * Sets address
-     *
-     * @param string|null $address address
-     *
-     * @return self
-     */
-    public function setAddress($address)
-    {
-        $this->container['address'] = $address;
-
-        return $this;
-    }
-
-    /**
-     * Gets city
-     *
-     * @return string|null
-     */
-    public function getCity()
-    {
-        return $this->container['city'];
-    }
-
-    /**
-     * Sets city
-     *
-     * @param string|null $city city
-     *
-     * @return self
-     */
-    public function setCity($city)
-    {
-        $this->container['city'] = $city;
-
-        return $this;
-    }
-
-    /**
-     * Gets state
-     *
-     * @return string|null
-     */
-    public function getState()
-    {
-        return $this->container['state'];
-    }
-
-    /**
-     * Sets state
-     *
-     * @param string|null $state state
-     *
-     * @return self
-     */
-    public function setState($state)
-    {
-        $this->container['state'] = $state;
-
-        return $this;
-    }
-
-    /**
-     * Gets foreign_province
-     *
-     * @return string|null
-     */
-    public function getForeignProvince()
-    {
-        return $this->container['foreign_province'];
-    }
-
-    /**
-     * Sets foreign_province
-     *
-     * @param string|null $foreign_province foreign_province
-     *
-     * @return self
-     */
-    public function setForeignProvince($foreign_province)
-    {
-        $this->container['foreign_province'] = $foreign_province;
-
-        return $this;
-    }
-
-    /**
-     * Gets zip
-     *
-     * @return string|null
-     */
-    public function getZip()
-    {
-        return $this->container['zip'];
-    }
-
-    /**
-     * Sets zip
-     *
-     * @param string|null $zip zip
-     *
-     * @return self
-     */
-    public function setZip($zip)
-    {
-        $this->container['zip'] = $zip;
-
-        return $this;
-    }
-
-    /**
-     * Gets country_code
-     *
-     * @return string|null
-     */
-    public function getCountryCode()
-    {
-        return $this->container['country_code'];
-    }
-
-    /**
-     * Sets country_code
-     *
-     * @param string|null $country_code country_code
-     *
-     * @return self
-     */
-    public function setCountryCode($country_code)
-    {
-        $this->container['country_code'] = $country_code;
-
-        return $this;
-    }
-
-    /**
-     * Gets email
-     *
-     * @return string|null
-     */
-    public function getEmail()
-    {
-        return $this->container['email'];
-    }
-
-    /**
-     * Sets email
-     *
-     * @param string|null $email email
-     *
-     * @return self
-     */
-    public function setEmail($email)
-    {
-        $this->container['email'] = $email;
-
-        return $this;
-    }
-
-    /**
-     * Gets telephone
-     *
-     * @return string|null
-     */
-    public function getTelephone()
-    {
-        return $this->container['telephone'];
-    }
-
-    /**
-     * Sets telephone
-     *
-     * @param string|null $telephone telephone
-     *
-     * @return self
-     */
-    public function setTelephone($telephone)
-    {
-        $this->container['telephone'] = $telephone;
-
-        return $this;
-    }
-
-    /**
-     * Gets tin
-     *
-     * @return string|null
-     */
-    public function getTin()
-    {
-        return $this->container['tin'];
-    }
-
-    /**
-     * Sets tin
-     *
-     * @param string|null $tin tin
-     *
-     * @return self
-     */
-    public function setTin($tin)
-    {
-        $this->container['tin'] = $tin;
-
-        return $this;
-    }
-
-    /**
-     * Gets do_tin_match
-     *
-     * @return bool|null
-     */
-    public function getDoTinMatch()
-    {
-        return $this->container['do_tin_match'];
-    }
-
-    /**
-     * Sets do_tin_match
-     *
-     * @param bool|null $do_tin_match do_tin_match
-     *
-     * @return self
-     */
-    public function setDoTinMatch($do_tin_match)
-    {
-        $this->container['do_tin_match'] = $do_tin_match;
-
-        return $this;
-    }
-
-    /**
-     * Gets resend_requests
-     *
-     * @return bool|null
-     */
-    public function getResendRequests()
-    {
-        return $this->container['resend_requests'];
-    }
-
-    /**
-     * Sets resend_requests
-     *
-     * @param bool|null $resend_requests resend_requests
-     *
-     * @return self
-     */
-    public function setResendRequests($resend_requests)
-    {
-        $this->container['resend_requests'] = $resend_requests;
-
-        return $this;
-    }
-
-    /**
-     * Gets resend_interval_days
-     *
-     * @return int|null
-     */
-    public function getResendIntervalDays()
-    {
-        return $this->container['resend_interval_days'];
-    }
-
-    /**
-     * Sets resend_interval_days
-     *
-     * @param int|null $resend_interval_days resend_interval_days
-     *
-     * @return self
-     */
-    public function setResendIntervalDays($resend_interval_days)
-    {
-        $this->container['resend_interval_days'] = $resend_interval_days;
-
-        return $this;
-    }
-
-    /**
-     * Gets max_reminder_attempts
-     *
-     * @return int|null
-     */
-    public function getMaxReminderAttempts()
-    {
-        return $this->container['max_reminder_attempts'];
-    }
-
-    /**
-     * Sets max_reminder_attempts
-     *
-     * @param int|null $max_reminder_attempts max_reminder_attempts
-     *
-     * @return self
-     */
-    public function setMaxReminderAttempts($max_reminder_attempts)
-    {
-        $this->container['max_reminder_attempts'] = $max_reminder_attempts;
 
         return $this;
     }
@@ -776,7 +392,7 @@ class CompanyResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets created_at
      *
-     * @param \DateTime|null $created_at created_at
+     * @param \DateTime|null $created_at Date time when the record was created.
      *
      * @return self
      */
@@ -800,13 +416,421 @@ class CompanyResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets updated_at
      *
-     * @param \DateTime|null $updated_at updated_at
+     * @param \DateTime|null $updated_at Date time when the record was last updated.
      *
      * @return self
      */
     public function setUpdatedAt($updated_at)
     {
         $this->container['updated_at'] = $updated_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param string $name Legal name. Not the DBA name.
+     *
+     * @return self
+     */
+    public function setName($name)
+    {
+        $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets dba_name
+     *
+     * @return string|null
+     */
+    public function getDbaName()
+    {
+        return $this->container['dba_name'];
+    }
+
+    /**
+     * Sets dba_name
+     *
+     * @param string|null $dba_name Doing Business As (DBA) name or continuation of a long legal name.
+     *
+     * @return self
+     */
+    public function setDbaName($dba_name)
+    {
+        $this->container['dba_name'] = $dba_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets email
+     *
+     * @return string
+     */
+    public function getEmail()
+    {
+        return $this->container['email'];
+    }
+
+    /**
+     * Sets email
+     *
+     * @param string $email Contact email address. For inquiries by vendors/employees.
+     *
+     * @return self
+     */
+    public function setEmail($email)
+    {
+        $this->container['email'] = $email;
+
+        return $this;
+    }
+
+    /**
+     * Gets address
+     *
+     * @return string
+     */
+    public function getAddress()
+    {
+        return $this->container['address'];
+    }
+
+    /**
+     * Sets address
+     *
+     * @param string $address Address.
+     *
+     * @return self
+     */
+    public function setAddress($address)
+    {
+        $this->container['address'] = $address;
+
+        return $this;
+    }
+
+    /**
+     * Gets city
+     *
+     * @return string
+     */
+    public function getCity()
+    {
+        return $this->container['city'];
+    }
+
+    /**
+     * Sets city
+     *
+     * @param string $city City.
+     *
+     * @return self
+     */
+    public function setCity($city)
+    {
+        $this->container['city'] = $city;
+
+        return $this;
+    }
+
+    /**
+     * Gets state
+     *
+     * @return string|null
+     */
+    public function getState()
+    {
+        return $this->container['state'];
+    }
+
+    /**
+     * Sets state
+     *
+     * @param string|null $state Two-letter US state or Canadian province code (required for US/CA addresses).
+     *
+     * @return self
+     */
+    public function setState($state)
+    {
+        $this->container['state'] = $state;
+
+        return $this;
+    }
+
+    /**
+     * Gets zip
+     *
+     * @return string
+     */
+    public function getZip()
+    {
+        return $this->container['zip'];
+    }
+
+    /**
+     * Sets zip
+     *
+     * @param string $zip ZIP/postal code.
+     *
+     * @return self
+     */
+    public function setZip($zip)
+    {
+        $this->container['zip'] = $zip;
+
+        return $this;
+    }
+
+    /**
+     * Gets telephone
+     *
+     * @return string
+     */
+    public function getTelephone()
+    {
+        return $this->container['telephone'];
+    }
+
+    /**
+     * Sets telephone
+     *
+     * @param string $telephone Contact phone number (must contain at least 10 digits, max 15 characters).
+     *
+     * @return self
+     */
+    public function setTelephone($telephone)
+    {
+        $this->container['telephone'] = $telephone;
+
+        return $this;
+    }
+
+    /**
+     * Gets tin
+     *
+     * @return string
+     */
+    public function getTin()
+    {
+        return $this->container['tin'];
+    }
+
+    /**
+     * Sets tin
+     *
+     * @param string $tin Federal Tax Identification Number (TIN). EIN/Tax ID (required for US companies).
+     *
+     * @return self
+     */
+    public function setTin($tin)
+    {
+        $this->container['tin'] = $tin;
+
+        return $this;
+    }
+
+    /**
+     * Gets reference_id
+     *
+     * @return string|null
+     */
+    public function getReferenceId()
+    {
+        return $this->container['reference_id'];
+    }
+
+    /**
+     * Sets reference_id
+     *
+     * @param string|null $reference_id Internal reference ID. Never shown to any agency or recipient.
+     *
+     * @return self
+     */
+    public function setReferenceId($reference_id)
+    {
+        $this->container['reference_id'] = $reference_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets do_tin_match
+     *
+     * @return bool|null
+     */
+    public function getDoTinMatch()
+    {
+        return $this->container['do_tin_match'];
+    }
+
+    /**
+     * Sets do_tin_match
+     *
+     * @param bool|null $do_tin_match Indicates whether the company authorizes IRS TIN matching.
+     *
+     * @return self
+     */
+    public function setDoTinMatch($do_tin_match)
+    {
+        $this->container['do_tin_match'] = $do_tin_match;
+
+        return $this;
+    }
+
+    /**
+     * Gets group_name
+     *
+     * @return string|null
+     */
+    public function getGroupName()
+    {
+        return $this->container['group_name'];
+    }
+
+    /**
+     * Sets group_name
+     *
+     * @param string|null $group_name Group name for organizing companies (creates or finds group by name).
+     *
+     * @return self
+     */
+    public function setGroupName($group_name)
+    {
+        $this->container['group_name'] = $group_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets foreign_province
+     *
+     * @return string|null
+     */
+    public function getForeignProvince()
+    {
+        return $this->container['foreign_province'];
+    }
+
+    /**
+     * Sets foreign_province
+     *
+     * @param string|null $foreign_province Province or region for non-US/CA addresses.
+     *
+     * @return self
+     */
+    public function setForeignProvince($foreign_province)
+    {
+        $this->container['foreign_province'] = $foreign_province;
+
+        return $this;
+    }
+
+    /**
+     * Gets country_code
+     *
+     * @return string
+     */
+    public function getCountryCode()
+    {
+        return $this->container['country_code'];
+    }
+
+    /**
+     * Sets country_code
+     *
+     * @param string $country_code Two-letter IRS country code (e.g., 'US', 'CA'), as defined at https://www.irs.gov/e-file-providers/country-codes.
+     *
+     * @return self
+     */
+    public function setCountryCode($country_code)
+    {
+        $this->container['country_code'] = $country_code;
+
+        return $this;
+    }
+
+    /**
+     * Gets resend_requests
+     *
+     * @return bool|null
+     */
+    public function getResendRequests()
+    {
+        return $this->container['resend_requests'];
+    }
+
+    /**
+     * Sets resend_requests
+     *
+     * @param bool|null $resend_requests Boolean to enable automatic reminder emails (default: false).
+     *
+     * @return self
+     */
+    public function setResendRequests($resend_requests)
+    {
+        $this->container['resend_requests'] = $resend_requests;
+
+        return $this;
+    }
+
+    /**
+     * Gets resend_interval_days
+     *
+     * @return int|null
+     */
+    public function getResendIntervalDays()
+    {
+        return $this->container['resend_interval_days'];
+    }
+
+    /**
+     * Sets resend_interval_days
+     *
+     * @param int|null $resend_interval_days Days between reminder emails (7-365, required if resendRequests is true).
+     *
+     * @return self
+     */
+    public function setResendIntervalDays($resend_interval_days)
+    {
+        $this->container['resend_interval_days'] = $resend_interval_days;
+
+        return $this;
+    }
+
+    /**
+     * Gets max_reminder_attempts
+     *
+     * @return int|null
+     */
+    public function getMaxReminderAttempts()
+    {
+        return $this->container['max_reminder_attempts'];
+    }
+
+    /**
+     * Sets max_reminder_attempts
+     *
+     * @param int|null $max_reminder_attempts Maximum number of reminder attempts (1-52, required if resendRequests is true).
+     *
+     * @return self
+     */
+    public function setMaxReminderAttempts($max_reminder_attempts)
+    {
+        $this->container['max_reminder_attempts'] = $max_reminder_attempts;
 
         return $this;
     }

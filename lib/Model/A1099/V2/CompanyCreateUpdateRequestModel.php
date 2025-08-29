@@ -72,6 +72,7 @@ class CompanyCreateUpdateRequestModel implements ModelInterface, ArrayAccess, \J
       */
     protected static $openAPITypes = [
         'name' => 'string',
+        'dba_name' => 'string',
         'email' => 'string',
         'address' => 'string',
         'city' => 'string',
@@ -79,7 +80,6 @@ class CompanyCreateUpdateRequestModel implements ModelInterface, ArrayAccess, \J
         'zip' => 'string',
         'telephone' => 'string',
         'tin' => 'string',
-        'dba_name' => 'string',
         'reference_id' => 'string',
         'do_tin_match' => 'bool',
         'group_name' => 'string',
@@ -99,6 +99,7 @@ class CompanyCreateUpdateRequestModel implements ModelInterface, ArrayAccess, \J
       */
     protected static $openAPIFormats = [
         'name' => null,
+        'dba_name' => null,
         'email' => null,
         'address' => null,
         'city' => null,
@@ -106,7 +107,6 @@ class CompanyCreateUpdateRequestModel implements ModelInterface, ArrayAccess, \J
         'zip' => null,
         'telephone' => null,
         'tin' => null,
-        'dba_name' => null,
         'reference_id' => null,
         'do_tin_match' => null,
         'group_name' => null,
@@ -145,6 +145,7 @@ class CompanyCreateUpdateRequestModel implements ModelInterface, ArrayAccess, \J
      */
     protected static $attributeMap = [
         'name' => 'name',
+        'dba_name' => 'dbaName',
         'email' => 'email',
         'address' => 'address',
         'city' => 'city',
@@ -152,7 +153,6 @@ class CompanyCreateUpdateRequestModel implements ModelInterface, ArrayAccess, \J
         'zip' => 'zip',
         'telephone' => 'telephone',
         'tin' => 'tin',
-        'dba_name' => 'dbaName',
         'reference_id' => 'referenceId',
         'do_tin_match' => 'doTinMatch',
         'group_name' => 'groupName',
@@ -170,6 +170,7 @@ class CompanyCreateUpdateRequestModel implements ModelInterface, ArrayAccess, \J
      */
     protected static $setters = [
         'name' => 'setName',
+        'dba_name' => 'setDbaName',
         'email' => 'setEmail',
         'address' => 'setAddress',
         'city' => 'setCity',
@@ -177,7 +178,6 @@ class CompanyCreateUpdateRequestModel implements ModelInterface, ArrayAccess, \J
         'zip' => 'setZip',
         'telephone' => 'setTelephone',
         'tin' => 'setTin',
-        'dba_name' => 'setDbaName',
         'reference_id' => 'setReferenceId',
         'do_tin_match' => 'setDoTinMatch',
         'group_name' => 'setGroupName',
@@ -195,6 +195,7 @@ class CompanyCreateUpdateRequestModel implements ModelInterface, ArrayAccess, \J
      */
     protected static $getters = [
         'name' => 'getName',
+        'dba_name' => 'getDbaName',
         'email' => 'getEmail',
         'address' => 'getAddress',
         'city' => 'getCity',
@@ -202,7 +203,6 @@ class CompanyCreateUpdateRequestModel implements ModelInterface, ArrayAccess, \J
         'zip' => 'getZip',
         'telephone' => 'getTelephone',
         'tin' => 'getTin',
-        'dba_name' => 'getDbaName',
         'reference_id' => 'getReferenceId',
         'do_tin_match' => 'getDoTinMatch',
         'group_name' => 'getGroupName',
@@ -271,6 +271,7 @@ class CompanyCreateUpdateRequestModel implements ModelInterface, ArrayAccess, \J
     public function __construct(array $data = null)
     {
         $this->container['name'] = $data['name'] ?? null;
+        $this->container['dba_name'] = $data['dba_name'] ?? null;
         $this->container['email'] = $data['email'] ?? null;
         $this->container['address'] = $data['address'] ?? null;
         $this->container['city'] = $data['city'] ?? null;
@@ -278,7 +279,6 @@ class CompanyCreateUpdateRequestModel implements ModelInterface, ArrayAccess, \J
         $this->container['zip'] = $data['zip'] ?? null;
         $this->container['telephone'] = $data['telephone'] ?? null;
         $this->container['tin'] = $data['tin'] ?? null;
-        $this->container['dba_name'] = $data['dba_name'] ?? null;
         $this->container['reference_id'] = $data['reference_id'] ?? null;
         $this->container['do_tin_match'] = $data['do_tin_match'] ?? null;
         $this->container['group_name'] = $data['group_name'] ?? null;
@@ -298,6 +298,30 @@ class CompanyCreateUpdateRequestModel implements ModelInterface, ArrayAccess, \J
     {
         $invalidProperties = [];
 
+        if ($this->container['name'] === null) {
+            $invalidProperties[] = "'name' can't be null";
+        }
+        if ($this->container['email'] === null) {
+            $invalidProperties[] = "'email' can't be null";
+        }
+        if ($this->container['address'] === null) {
+            $invalidProperties[] = "'address' can't be null";
+        }
+        if ($this->container['city'] === null) {
+            $invalidProperties[] = "'city' can't be null";
+        }
+        if ($this->container['zip'] === null) {
+            $invalidProperties[] = "'zip' can't be null";
+        }
+        if ($this->container['telephone'] === null) {
+            $invalidProperties[] = "'telephone' can't be null";
+        }
+        if ($this->container['tin'] === null) {
+            $invalidProperties[] = "'tin' can't be null";
+        }
+        if ($this->container['country_code'] === null) {
+            $invalidProperties[] = "'country_code' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -316,7 +340,7 @@ class CompanyCreateUpdateRequestModel implements ModelInterface, ArrayAccess, \J
     /**
      * Gets name
      *
-     * @return string|null
+     * @return string
      */
     public function getName()
     {
@@ -326,7 +350,7 @@ class CompanyCreateUpdateRequestModel implements ModelInterface, ArrayAccess, \J
     /**
      * Sets name
      *
-     * @param string|null $name name
+     * @param string $name Legal name. Not the DBA name.
      *
      * @return self
      */
@@ -338,9 +362,33 @@ class CompanyCreateUpdateRequestModel implements ModelInterface, ArrayAccess, \J
     }
 
     /**
-     * Gets email
+     * Gets dba_name
      *
      * @return string|null
+     */
+    public function getDbaName()
+    {
+        return $this->container['dba_name'];
+    }
+
+    /**
+     * Sets dba_name
+     *
+     * @param string|null $dba_name Doing Business As (DBA) name or continuation of a long legal name.
+     *
+     * @return self
+     */
+    public function setDbaName($dba_name)
+    {
+        $this->container['dba_name'] = $dba_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets email
+     *
+     * @return string
      */
     public function getEmail()
     {
@@ -350,7 +398,7 @@ class CompanyCreateUpdateRequestModel implements ModelInterface, ArrayAccess, \J
     /**
      * Sets email
      *
-     * @param string|null $email email
+     * @param string $email Contact email address. For inquiries by vendors/employees.
      *
      * @return self
      */
@@ -364,7 +412,7 @@ class CompanyCreateUpdateRequestModel implements ModelInterface, ArrayAccess, \J
     /**
      * Gets address
      *
-     * @return string|null
+     * @return string
      */
     public function getAddress()
     {
@@ -374,7 +422,7 @@ class CompanyCreateUpdateRequestModel implements ModelInterface, ArrayAccess, \J
     /**
      * Sets address
      *
-     * @param string|null $address address
+     * @param string $address Address.
      *
      * @return self
      */
@@ -388,7 +436,7 @@ class CompanyCreateUpdateRequestModel implements ModelInterface, ArrayAccess, \J
     /**
      * Gets city
      *
-     * @return string|null
+     * @return string
      */
     public function getCity()
     {
@@ -398,7 +446,7 @@ class CompanyCreateUpdateRequestModel implements ModelInterface, ArrayAccess, \J
     /**
      * Sets city
      *
-     * @param string|null $city city
+     * @param string $city City.
      *
      * @return self
      */
@@ -422,7 +470,7 @@ class CompanyCreateUpdateRequestModel implements ModelInterface, ArrayAccess, \J
     /**
      * Sets state
      *
-     * @param string|null $state state
+     * @param string|null $state Two-letter US state or Canadian province code (required for US/CA addresses).
      *
      * @return self
      */
@@ -436,7 +484,7 @@ class CompanyCreateUpdateRequestModel implements ModelInterface, ArrayAccess, \J
     /**
      * Gets zip
      *
-     * @return string|null
+     * @return string
      */
     public function getZip()
     {
@@ -446,7 +494,7 @@ class CompanyCreateUpdateRequestModel implements ModelInterface, ArrayAccess, \J
     /**
      * Sets zip
      *
-     * @param string|null $zip zip
+     * @param string $zip ZIP/postal code.
      *
      * @return self
      */
@@ -460,7 +508,7 @@ class CompanyCreateUpdateRequestModel implements ModelInterface, ArrayAccess, \J
     /**
      * Gets telephone
      *
-     * @return string|null
+     * @return string
      */
     public function getTelephone()
     {
@@ -470,7 +518,7 @@ class CompanyCreateUpdateRequestModel implements ModelInterface, ArrayAccess, \J
     /**
      * Sets telephone
      *
-     * @param string|null $telephone telephone
+     * @param string $telephone Contact phone number (must contain at least 10 digits, max 15 characters).
      *
      * @return self
      */
@@ -484,7 +532,7 @@ class CompanyCreateUpdateRequestModel implements ModelInterface, ArrayAccess, \J
     /**
      * Gets tin
      *
-     * @return string|null
+     * @return string
      */
     public function getTin()
     {
@@ -494,37 +542,13 @@ class CompanyCreateUpdateRequestModel implements ModelInterface, ArrayAccess, \J
     /**
      * Sets tin
      *
-     * @param string|null $tin tin
+     * @param string $tin Federal Tax Identification Number (TIN). EIN/Tax ID (required for US companies).
      *
      * @return self
      */
     public function setTin($tin)
     {
         $this->container['tin'] = $tin;
-
-        return $this;
-    }
-
-    /**
-     * Gets dba_name
-     *
-     * @return string|null
-     */
-    public function getDbaName()
-    {
-        return $this->container['dba_name'];
-    }
-
-    /**
-     * Sets dba_name
-     *
-     * @param string|null $dba_name dba_name
-     *
-     * @return self
-     */
-    public function setDbaName($dba_name)
-    {
-        $this->container['dba_name'] = $dba_name;
 
         return $this;
     }
@@ -542,7 +566,7 @@ class CompanyCreateUpdateRequestModel implements ModelInterface, ArrayAccess, \J
     /**
      * Sets reference_id
      *
-     * @param string|null $reference_id reference_id
+     * @param string|null $reference_id Internal reference ID. Never shown to any agency or recipient.
      *
      * @return self
      */
@@ -566,7 +590,7 @@ class CompanyCreateUpdateRequestModel implements ModelInterface, ArrayAccess, \J
     /**
      * Sets do_tin_match
      *
-     * @param bool|null $do_tin_match do_tin_match
+     * @param bool|null $do_tin_match Indicates whether the company authorizes IRS TIN matching.
      *
      * @return self
      */
@@ -590,7 +614,7 @@ class CompanyCreateUpdateRequestModel implements ModelInterface, ArrayAccess, \J
     /**
      * Sets group_name
      *
-     * @param string|null $group_name group_name
+     * @param string|null $group_name Group name for organizing companies (creates or finds group by name).
      *
      * @return self
      */
@@ -614,7 +638,7 @@ class CompanyCreateUpdateRequestModel implements ModelInterface, ArrayAccess, \J
     /**
      * Sets foreign_province
      *
-     * @param string|null $foreign_province foreign_province
+     * @param string|null $foreign_province Province or region for non-US/CA addresses.
      *
      * @return self
      */
@@ -628,7 +652,7 @@ class CompanyCreateUpdateRequestModel implements ModelInterface, ArrayAccess, \J
     /**
      * Gets country_code
      *
-     * @return string|null
+     * @return string
      */
     public function getCountryCode()
     {
@@ -638,7 +662,7 @@ class CompanyCreateUpdateRequestModel implements ModelInterface, ArrayAccess, \J
     /**
      * Sets country_code
      *
-     * @param string|null $country_code country_code
+     * @param string $country_code Two-letter IRS country code (e.g., 'US', 'CA'), as defined at https://www.irs.gov/e-file-providers/country-codes.
      *
      * @return self
      */
@@ -662,7 +686,7 @@ class CompanyCreateUpdateRequestModel implements ModelInterface, ArrayAccess, \J
     /**
      * Sets resend_requests
      *
-     * @param bool|null $resend_requests resend_requests
+     * @param bool|null $resend_requests Boolean to enable automatic reminder emails (default: false).
      *
      * @return self
      */
@@ -686,7 +710,7 @@ class CompanyCreateUpdateRequestModel implements ModelInterface, ArrayAccess, \J
     /**
      * Sets resend_interval_days
      *
-     * @param int|null $resend_interval_days resend_interval_days
+     * @param int|null $resend_interval_days Days between reminder emails (7-365, required if resendRequests is true).
      *
      * @return self
      */
@@ -710,7 +734,7 @@ class CompanyCreateUpdateRequestModel implements ModelInterface, ArrayAccess, \J
     /**
      * Sets max_reminder_attempts
      *
-     * @param int|null $max_reminder_attempts max_reminder_attempts
+     * @param int|null $max_reminder_attempts Maximum number of reminder attempts (1-52, required if resendRequests is true).
      *
      * @return self
      */

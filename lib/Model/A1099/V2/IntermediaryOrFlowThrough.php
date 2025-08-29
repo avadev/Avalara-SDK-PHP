@@ -47,6 +47,7 @@ use \Avalara\SDK\Model\ModelInterface;
  * IntermediaryOrFlowThrough Class Doc Comment
  *
  * @category Class
+ * @description Intermediary or flow-through entity information for tax forms
  * @package  Avalara\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -290,7 +291,7 @@ class IntermediaryOrFlowThrough implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets ein
      *
-     * @param string|null $ein ein
+     * @param string|null $ein EIN (Employer Identification Number) of the intermediary or flow-through entity
      *
      * @return self
      */
@@ -314,7 +315,7 @@ class IntermediaryOrFlowThrough implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets chap3_status_code
      *
-     * @param string|null $chap3_status_code chap3_status_code
+     * @param string|null $chap3_status_code Chapter 3 status code for the intermediary or flow-through entity
      *
      * @return self
      */
@@ -338,7 +339,7 @@ class IntermediaryOrFlowThrough implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets chap4_status_code
      *
-     * @param string|null $chap4_status_code chap4_status_code
+     * @param string|null $chap4_status_code Chapter 4 status code for the intermediary or flow-through entity
      *
      * @return self
      */
@@ -362,7 +363,7 @@ class IntermediaryOrFlowThrough implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets name
      *
-     * @param string|null $name name
+     * @param string|null $name Name of the intermediary or flow-through entity
      *
      * @return self
      */
@@ -386,7 +387,7 @@ class IntermediaryOrFlowThrough implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets giin
      *
-     * @param string|null $giin giin
+     * @param string|null $giin GIIN (Global Intermediary Identification Number) of the intermediary or flow-through entity
      *
      * @return self
      */
@@ -410,7 +411,7 @@ class IntermediaryOrFlowThrough implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets country_code
      *
-     * @param string|null $country_code country_code
+     * @param string|null $country_code Country code for the intermediary or flow-through entity
      *
      * @return self
      */
@@ -434,7 +435,7 @@ class IntermediaryOrFlowThrough implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets foreign_tin
      *
-     * @param string|null $foreign_tin foreign_tin
+     * @param string|null $foreign_tin Foreign TIN of the intermediary or flow-through entity
      *
      * @return self
      */
@@ -458,7 +459,7 @@ class IntermediaryOrFlowThrough implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets address
      *
-     * @param string|null $address address
+     * @param string|null $address Address of the intermediary or flow-through entity
      *
      * @return self
      */
@@ -482,7 +483,7 @@ class IntermediaryOrFlowThrough implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets city
      *
-     * @param string|null $city city
+     * @param string|null $city City of the intermediary or flow-through entity
      *
      * @return self
      */
@@ -506,7 +507,7 @@ class IntermediaryOrFlowThrough implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets state
      *
-     * @param string|null $state state
+     * @param string|null $state State of the intermediary or flow-through entity
      *
      * @return self
      */
@@ -530,7 +531,7 @@ class IntermediaryOrFlowThrough implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets zip
      *
-     * @param string|null $zip zip
+     * @param string|null $zip Zip code of the intermediary or flow-through entity
      *
      * @return self
      */

@@ -116,10 +116,10 @@ Name | Type | Description | Notes
 **sponsored_direct_reporting_nffe_certification** | **bool** | Certifies that the entity is a sponsored direct reporting NFFE. | [optional]
 **direct_reporting_nffe_sponsoring_entity** | **string** | The name of the entity that sponsors the direct reporting NFFE. | [optional]
 **signer_name** | **string** | The name of the signer. | [optional]
-**company_id** | **string** | The ID of the associated company. | [optional]
-**reference_id** | **string** | A reference identifier for the form. | [optional]
-**email** | **string** | The email address of the individual associated with the form. | [optional]
 **e_delivery_consented_at** | **\DateTime** | The date when e-delivery was consented. | [optional]
 **signature** | **string** | The signature of the form. | [optional]
+**company_id** | **string** | The ID of the associated company. |
+**reference_id** | **string** | A reference identifier for the form. | [optional]
+**email** | **string** | The email address of the individual associated with the form. | [optional]
 
 [[Back to Model list]](../../../README.md#models) [[Back to API list]](../../../README.md#endpoints) [[Back to README]](../../../README.md)

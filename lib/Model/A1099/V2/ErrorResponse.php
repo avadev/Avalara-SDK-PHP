@@ -72,7 +72,7 @@ class ErrorResponse implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'title' => 'string',
-        'errors' => '\Avalara\SDK\Model\A1099\V2\ErrorResponseErrorsInner[]'
+        'errors' => '\Avalara\SDK\Model\A1099\V2\ErrorResponseItem[]'
     ];
 
     /**
@@ -250,7 +250,7 @@ class ErrorResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets errors
      *
-     * @return \Avalara\SDK\Model\A1099\V2\ErrorResponseErrorsInner[]|null
+     * @return \Avalara\SDK\Model\A1099\V2\ErrorResponseItem[]|null
      */
     public function getErrors()
     {
@@ -260,7 +260,7 @@ class ErrorResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets errors
      *
-     * @param \Avalara\SDK\Model\A1099\V2\ErrorResponseErrorsInner[]|null $errors errors
+     * @param \Avalara\SDK\Model\A1099\V2\ErrorResponseItem[]|null $errors errors
      *
      * @return self
      */

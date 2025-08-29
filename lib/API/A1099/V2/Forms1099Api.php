@@ -79,7 +79,7 @@ class Forms1099Api
     private function setConfiguration($client): void
     {
         $this->verifyAPIClient($client);
-        $client->setSdkVersion("25.8.1");
+        $client->setSdkVersion("25.8.3");
         $this->headerSelector = new HeaderSelector(); 
         $this->client = $client;
     }
@@ -124,7 +124,7 @@ class Forms1099Api
      *
      * @throws \Avalara\SDK\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Avalara\SDK\Model\A1099\V2\Form1099ProccessResult|\Avalara\SDK\Model\A1099\V2\ErrorResponse|\Avalara\SDK\Model\A1099\V2\ErrorResponse|\Avalara\SDK\Model\A1099\V2\ErrorResponse
+     * @return \Avalara\SDK\Model\A1099\V2\JobResponse|\Avalara\SDK\Model\A1099\V2\ErrorResponse|\Avalara\SDK\Model\A1099\V2\ErrorResponse|\Avalara\SDK\Model\A1099\V2\ErrorResponse
      */
     public function bulkUpsert1099Forms($request_parameters)
     {
@@ -141,7 +141,7 @@ class Forms1099Api
      *
      * @throws \Avalara\SDK\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Avalara\SDK\Model\A1099\V2\Form1099ProccessResult|\Avalara\SDK\Model\A1099\V2\ErrorResponse|\Avalara\SDK\Model\A1099\V2\ErrorResponse|\Avalara\SDK\Model\A1099\V2\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Avalara\SDK\Model\A1099\V2\JobResponse|\Avalara\SDK\Model\A1099\V2\ErrorResponse|\Avalara\SDK\Model\A1099\V2\ErrorResponse|\Avalara\SDK\Model\A1099\V2\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function bulkUpsert1099FormsWithHttpInfo($request_parameters, $isRetry = false)
     {
@@ -197,7 +197,7 @@ class Forms1099Api
 
             switch($statusCode) {
                 case 200:
-                    if ('\Avalara\SDK\Model\A1099\V2\Form1099ProccessResult' === '\SplFileObject') {
+                    if ('\Avalara\SDK\Model\A1099\V2\JobResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -205,7 +205,7 @@ class Forms1099Api
                     $logObject->populateResponseInfo($content, $response);
                     $this->client->logger->info(json_encode($logObject));
                     return [
-                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\A1099\V2\Form1099ProccessResult', []),
+                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\A1099\V2\JobResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -250,7 +250,7 @@ class Forms1099Api
                     ];
             }
 
-            $returnType = '\Avalara\SDK\Model\A1099\V2\Form1099ProccessResult';
+            $returnType = '\Avalara\SDK\Model\A1099\V2\JobResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -269,7 +269,7 @@ class Forms1099Api
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Avalara\SDK\Model\A1099\V2\Form1099ProccessResult',
+                        '\Avalara\SDK\Model\A1099\V2\JobResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -336,7 +336,7 @@ class Forms1099Api
     public function bulkUpsert1099FormsAsyncWithHttpInfo($request_parameters, $isRetry = false)
     {
         $logObject = new LogObject($this->client->logRequestAndResponse);
-        $returnType = '\Avalara\SDK\Model\A1099\V2\Form1099ProccessResult';
+        $returnType = '\Avalara\SDK\Model\A1099\V2\JobResponse';
         $request = $this->bulkUpsert1099FormsRequest($request_parameters);
         $logObject->populateRequestInfo($request);
         return $this->client
@@ -403,7 +403,7 @@ class Forms1099Api
         $dry_run = $request_parameters->getDryRun();
         $x_correlation_id = $request_parameters->getXCorrelationId();
         $x_avalara_client = $request_parameters->getXAvalaraClient();
-        $bulk_upsert1099_forms_request = $request_parameters->getBulkUpsert1099FormsRequest();
+        $form1099_list_request = $request_parameters->getForm1099ListRequest();
 
         // verify the required parameter 'avalara_version' is set
         if ($avalara_version === null || (is_array($avalara_version) && count($avalara_version) === 0)) {
@@ -456,16 +456,16 @@ class Forms1099Api
                 ['application/json', 'text/json', 'application/*+json']
             );
         }
-        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.8.1; {$this->client->config->getMachineName()}";
+        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.8.3; {$this->client->config->getMachineName()}";
 
         $headers['X-Avalara-Client']=$clientId;
 
         // for model (json/xml)
-        if (isset($bulk_upsert1099_forms_request)) {
+        if (isset($form1099_list_request)) {
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($bulk_upsert1099_forms_request));
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($form1099_list_request));
             } else {
-                $httpBody = $bulk_upsert1099_forms_request;
+                $httpBody = $form1099_list_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -520,7 +520,7 @@ class Forms1099Api
      *
      * @throws \Avalara\SDK\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Avalara\SDK\Model\A1099\V2\Create1099Form201Response|\Avalara\SDK\Model\A1099\V2\ErrorResponse|\Avalara\SDK\Model\A1099\V2\ErrorResponse
+     * @return \Avalara\SDK\Model\A1099\V2\Get1099Form200Response|\Avalara\SDK\Model\A1099\V2\ErrorResponse|\Avalara\SDK\Model\A1099\V2\ErrorResponse
      */
     public function create1099Form($request_parameters)
     {
@@ -537,7 +537,7 @@ class Forms1099Api
      *
      * @throws \Avalara\SDK\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Avalara\SDK\Model\A1099\V2\Create1099Form201Response|\Avalara\SDK\Model\A1099\V2\ErrorResponse|\Avalara\SDK\Model\A1099\V2\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Avalara\SDK\Model\A1099\V2\Get1099Form200Response|\Avalara\SDK\Model\A1099\V2\ErrorResponse|\Avalara\SDK\Model\A1099\V2\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function create1099FormWithHttpInfo($request_parameters, $isRetry = false)
     {
@@ -593,7 +593,7 @@ class Forms1099Api
 
             switch($statusCode) {
                 case 201:
-                    if ('\Avalara\SDK\Model\A1099\V2\Create1099Form201Response' === '\SplFileObject') {
+                    if ('\Avalara\SDK\Model\A1099\V2\Get1099Form200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -601,7 +601,7 @@ class Forms1099Api
                     $logObject->populateResponseInfo($content, $response);
                     $this->client->logger->info(json_encode($logObject));
                     return [
-                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\A1099\V2\Create1099Form201Response', []),
+                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\A1099\V2\Get1099Form200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -633,7 +633,7 @@ class Forms1099Api
                     ];
             }
 
-            $returnType = '\Avalara\SDK\Model\A1099\V2\Create1099Form201Response';
+            $returnType = '\Avalara\SDK\Model\A1099\V2\Get1099Form200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -652,7 +652,7 @@ class Forms1099Api
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Avalara\SDK\Model\A1099\V2\Create1099Form201Response',
+                        '\Avalara\SDK\Model\A1099\V2\Get1099Form200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -711,7 +711,7 @@ class Forms1099Api
     public function create1099FormAsyncWithHttpInfo($request_parameters, $isRetry = false)
     {
         $logObject = new LogObject($this->client->logRequestAndResponse);
-        $returnType = '\Avalara\SDK\Model\A1099\V2\Create1099Form201Response';
+        $returnType = '\Avalara\SDK\Model\A1099\V2\Get1099Form200Response';
         $request = $this->create1099FormRequest($request_parameters);
         $logObject->populateRequestInfo($request);
         return $this->client
@@ -777,7 +777,7 @@ class Forms1099Api
         $avalara_version = $request_parameters->getAvalaraVersion();
         $x_correlation_id = $request_parameters->getXCorrelationId();
         $x_avalara_client = $request_parameters->getXAvalaraClient();
-        $i_create_form1099_request = $request_parameters->getICreateForm1099Request();
+        $get1099_form200_response = $request_parameters->getGet1099Form200Response();
 
         // verify the required parameter 'avalara_version' is set
         if ($avalara_version === null || (is_array($avalara_version) && count($avalara_version) === 0)) {
@@ -819,16 +819,16 @@ class Forms1099Api
                 ['application/json', 'text/json', 'application/*+json']
             );
         }
-        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.8.1; {$this->client->config->getMachineName()}";
+        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.8.3; {$this->client->config->getMachineName()}";
 
         $headers['X-Avalara-Client']=$clientId;
 
         // for model (json/xml)
-        if (isset($i_create_form1099_request)) {
+        if (isset($get1099_form200_response)) {
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($i_create_form1099_request));
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($get1099_form200_response));
             } else {
-                $httpBody = $i_create_form1099_request;
+                $httpBody = $get1099_form200_response;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -1138,7 +1138,7 @@ class Forms1099Api
                 []
             );
         }
-        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.8.1; {$this->client->config->getMachineName()}";
+        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.8.3; {$this->client->config->getMachineName()}";
 
         $headers['X-Avalara-Client']=$clientId;
 
@@ -1530,7 +1530,7 @@ class Forms1099Api
                 []
             );
         }
-        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.8.1; {$this->client->config->getMachineName()}";
+        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.8.3; {$this->client->config->getMachineName()}";
 
         $headers['X-Avalara-Client']=$clientId;
 
@@ -1934,7 +1934,7 @@ class Forms1099Api
                 []
             );
         }
-        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.8.1; {$this->client->config->getMachineName()}";
+        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.8.3; {$this->client->config->getMachineName()}";
 
         $headers['X-Avalara-Client']=$clientId;
 
@@ -1992,7 +1992,7 @@ class Forms1099Api
      *
      * @throws \Avalara\SDK\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Avalara\SDK\Model\A1099\V2\Form1099ListResponse|\Avalara\SDK\Model\A1099\V2\ErrorResponse|\Avalara\SDK\Model\A1099\V2\ErrorResponse|\Avalara\SDK\Model\A1099\V2\ErrorResponse
+     * @return \Avalara\SDK\Model\A1099\V2\PaginatedQueryResultModelForm1099Base|\Avalara\SDK\Model\A1099\V2\ErrorResponse|\Avalara\SDK\Model\A1099\V2\ErrorResponse|\Avalara\SDK\Model\A1099\V2\ErrorResponse
      */
     public function list1099Forms($request_parameters)
     {
@@ -2009,7 +2009,7 @@ class Forms1099Api
      *
      * @throws \Avalara\SDK\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Avalara\SDK\Model\A1099\V2\Form1099ListResponse|\Avalara\SDK\Model\A1099\V2\ErrorResponse|\Avalara\SDK\Model\A1099\V2\ErrorResponse|\Avalara\SDK\Model\A1099\V2\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Avalara\SDK\Model\A1099\V2\PaginatedQueryResultModelForm1099Base|\Avalara\SDK\Model\A1099\V2\ErrorResponse|\Avalara\SDK\Model\A1099\V2\ErrorResponse|\Avalara\SDK\Model\A1099\V2\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function list1099FormsWithHttpInfo($request_parameters, $isRetry = false)
     {
@@ -2065,7 +2065,7 @@ class Forms1099Api
 
             switch($statusCode) {
                 case 200:
-                    if ('\Avalara\SDK\Model\A1099\V2\Form1099ListResponse' === '\SplFileObject') {
+                    if ('\Avalara\SDK\Model\A1099\V2\PaginatedQueryResultModelForm1099Base' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -2073,7 +2073,7 @@ class Forms1099Api
                     $logObject->populateResponseInfo($content, $response);
                     $this->client->logger->info(json_encode($logObject));
                     return [
-                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\A1099\V2\Form1099ListResponse', []),
+                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\A1099\V2\PaginatedQueryResultModelForm1099Base', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -2118,7 +2118,7 @@ class Forms1099Api
                     ];
             }
 
-            $returnType = '\Avalara\SDK\Model\A1099\V2\Form1099ListResponse';
+            $returnType = '\Avalara\SDK\Model\A1099\V2\PaginatedQueryResultModelForm1099Base';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -2137,7 +2137,7 @@ class Forms1099Api
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Avalara\SDK\Model\A1099\V2\Form1099ListResponse',
+                        '\Avalara\SDK\Model\A1099\V2\PaginatedQueryResultModelForm1099Base',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2204,7 +2204,7 @@ class Forms1099Api
     public function list1099FormsAsyncWithHttpInfo($request_parameters, $isRetry = false)
     {
         $logObject = new LogObject($this->client->logRequestAndResponse);
-        $returnType = '\Avalara\SDK\Model\A1099\V2\Form1099ListResponse';
+        $returnType = '\Avalara\SDK\Model\A1099\V2\PaginatedQueryResultModelForm1099Base';
         $request = $this->list1099FormsRequest($request_parameters);
         $logObject->populateRequestInfo($request);
         return $this->client
@@ -2272,6 +2272,8 @@ class Forms1099Api
         $top = $request_parameters->getTop();
         $skip = $request_parameters->getSkip();
         $order_by = $request_parameters->getOrderBy();
+        $count = $request_parameters->getCount();
+        $count_only = $request_parameters->getCountOnly();
         $x_correlation_id = $request_parameters->getXCorrelationId();
         $x_avalara_client = $request_parameters->getXAvalaraClient();
 
@@ -2333,6 +2335,28 @@ class Forms1099Api
                 $queryParams['$orderBy'] = $order_by;
             }
         }
+        // query params
+        if ($count !== null) {
+            if('form' === 'form' && is_array($count)) {
+                foreach($count as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['count'] = $count;
+            }
+        }
+        // query params
+        if ($count_only !== null) {
+            if('form' === 'form' && is_array($count_only)) {
+                foreach($count_only as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['countOnly'] = $count_only;
+            }
+        }
 
         // header params
         if ($avalara_version !== null) {
@@ -2359,7 +2383,7 @@ class Forms1099Api
                 []
             );
         }
-        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.8.1; {$this->client->config->getMachineName()}";
+        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.8.3; {$this->client->config->getMachineName()}";
 
         $headers['X-Avalara-Client']=$clientId;
 
@@ -2417,7 +2441,7 @@ class Forms1099Api
      *
      * @throws \Avalara\SDK\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Avalara\SDK\Model\A1099\V2\Update1099Form200Response|\Avalara\SDK\Model\A1099\V2\ErrorResponse|\Avalara\SDK\Model\A1099\V2\ErrorResponse|\Avalara\SDK\Model\A1099\V2\ErrorResponse
+     * @return \Avalara\SDK\Model\A1099\V2\Get1099Form200Response|\Avalara\SDK\Model\A1099\V2\ErrorResponse|\Avalara\SDK\Model\A1099\V2\ErrorResponse|\Avalara\SDK\Model\A1099\V2\ErrorResponse
      */
     public function update1099Form($request_parameters)
     {
@@ -2434,7 +2458,7 @@ class Forms1099Api
      *
      * @throws \Avalara\SDK\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Avalara\SDK\Model\A1099\V2\Update1099Form200Response|\Avalara\SDK\Model\A1099\V2\ErrorResponse|\Avalara\SDK\Model\A1099\V2\ErrorResponse|\Avalara\SDK\Model\A1099\V2\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Avalara\SDK\Model\A1099\V2\Get1099Form200Response|\Avalara\SDK\Model\A1099\V2\ErrorResponse|\Avalara\SDK\Model\A1099\V2\ErrorResponse|\Avalara\SDK\Model\A1099\V2\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function update1099FormWithHttpInfo($request_parameters, $isRetry = false)
     {
@@ -2490,7 +2514,7 @@ class Forms1099Api
 
             switch($statusCode) {
                 case 200:
-                    if ('\Avalara\SDK\Model\A1099\V2\Update1099Form200Response' === '\SplFileObject') {
+                    if ('\Avalara\SDK\Model\A1099\V2\Get1099Form200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -2498,7 +2522,7 @@ class Forms1099Api
                     $logObject->populateResponseInfo($content, $response);
                     $this->client->logger->info(json_encode($logObject));
                     return [
-                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\A1099\V2\Update1099Form200Response', []),
+                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\A1099\V2\Get1099Form200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -2543,7 +2567,7 @@ class Forms1099Api
                     ];
             }
 
-            $returnType = '\Avalara\SDK\Model\A1099\V2\Update1099Form200Response';
+            $returnType = '\Avalara\SDK\Model\A1099\V2\Get1099Form200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -2562,7 +2586,7 @@ class Forms1099Api
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Avalara\SDK\Model\A1099\V2\Update1099Form200Response',
+                        '\Avalara\SDK\Model\A1099\V2\Get1099Form200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2629,7 +2653,7 @@ class Forms1099Api
     public function update1099FormAsyncWithHttpInfo($request_parameters, $isRetry = false)
     {
         $logObject = new LogObject($this->client->logRequestAndResponse);
-        $returnType = '\Avalara\SDK\Model\A1099\V2\Update1099Form200Response';
+        $returnType = '\Avalara\SDK\Model\A1099\V2\Get1099Form200Response';
         $request = $this->update1099FormRequest($request_parameters);
         $logObject->populateRequestInfo($request);
         return $this->client
@@ -2696,7 +2720,7 @@ class Forms1099Api
         $avalara_version = $request_parameters->getAvalaraVersion();
         $x_correlation_id = $request_parameters->getXCorrelationId();
         $x_avalara_client = $request_parameters->getXAvalaraClient();
-        $i_update_form1099_request = $request_parameters->getIUpdateForm1099Request();
+        $get1099_form200_response = $request_parameters->getGet1099Form200Response();
 
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
@@ -2752,16 +2776,16 @@ class Forms1099Api
                 ['application/json', 'text/json', 'application/*+json']
             );
         }
-        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.8.1; {$this->client->config->getMachineName()}";
+        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.8.3; {$this->client->config->getMachineName()}";
 
         $headers['X-Avalara-Client']=$clientId;
 
         // for model (json/xml)
-        if (isset($i_update_form1099_request)) {
+        if (isset($get1099_form200_response)) {
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($i_update_form1099_request));
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($get1099_form200_response));
             } else {
-                $httpBody = $i_update_form1099_request;
+                $httpBody = $get1099_form200_response;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -2812,17 +2836,17 @@ class Forms1099Api
      * Represents the Request object for the BulkUpsert1099Forms API
      *
      * @param  string $avalara_version API version (required)
-     * @param  bool $dry_run  (optional, default to false)
+     * @param  bool $dry_run defaults to false. If true, it will NOT change the DB. It will just return a report of what would&#39;ve have been changed in the DB (optional, default to false)
      * @param  string $x_correlation_id Unique correlation Id in a GUID format (optional)
      * @param  string $x_avalara_client Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) . (optional)
-     * @param  \Avalara\SDK\Model\A1099\V2\BulkUpsert1099FormsRequest $bulk_upsert1099_forms_request  (optional)
+     * @param  \Avalara\SDK\Model\A1099\V2\Form1099ListRequest $form1099_list_request  (optional)
      */
 class BulkUpsert1099FormsRequestSdk {
     private $avalara_version;
     private $dry_run;
     private $x_correlation_id;
     private $x_avalara_client;
-    private $bulk_upsert1099_forms_request;
+    private $form1099_list_request;
 
     public function __construct() {
     }
@@ -2854,12 +2878,12 @@ class BulkUpsert1099FormsRequestSdk {
     public function setXAvalaraClient($x_avalara_client) {
         $this->x_avalara_client = $x_avalara_client;
     }
-    public function getBulkUpsert1099FormsRequest() {
-        return $this->bulk_upsert1099_forms_request;
+    public function getForm1099ListRequest() {
+        return $this->form1099_list_request;
     }
 
-    public function setBulkUpsert1099FormsRequest($bulk_upsert1099_forms_request) {
-        $this->bulk_upsert1099_forms_request = $bulk_upsert1099_forms_request;
+    public function setForm1099ListRequest($form1099_list_request) {
+        $this->form1099_list_request = $form1099_list_request;
     }
 }
 
@@ -2869,13 +2893,13 @@ class BulkUpsert1099FormsRequestSdk {
      * @param  string $avalara_version API version (required)
      * @param  string $x_correlation_id Unique correlation Id in a GUID format (optional)
      * @param  string $x_avalara_client Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) . (optional)
-     * @param  \Avalara\SDK\Model\A1099\V2\ICreateForm1099Request $i_create_form1099_request i_create_form1099_request (optional)
+     * @param  \Avalara\SDK\Model\A1099\V2\Get1099Form200Response $get1099_form200_response get1099_form200_response (optional)
      */
 class Create1099FormRequestSdk {
     private $avalara_version;
     private $x_correlation_id;
     private $x_avalara_client;
-    private $i_create_form1099_request;
+    private $get1099_form200_response;
 
     public function __construct() {
     }
@@ -2900,12 +2924,12 @@ class Create1099FormRequestSdk {
     public function setXAvalaraClient($x_avalara_client) {
         $this->x_avalara_client = $x_avalara_client;
     }
-    public function getICreateForm1099Request() {
-        return $this->i_create_form1099_request;
+    public function getGet1099Form200Response() {
+        return $this->get1099_form200_response;
     }
 
-    public function setICreateForm1099Request($i_create_form1099_request) {
-        $this->i_create_form1099_request = $i_create_form1099_request;
+    public function setGet1099Form200Response($get1099_form200_response) {
+        $this->get1099_form200_response = $get1099_form200_response;
     }
 }
 
@@ -3060,10 +3084,12 @@ class Get1099FormPdfRequestSdk {
      * Represents the Request object for the List1099Forms API
      *
      * @param  string $avalara_version API version (required)
-     * @param  string $filter A filter statement to identify specific records to retrieve. For more information on filtering, see &lt;a href&#x3D;\&quot;https://developer.avalara.com/avatax/filtering-in-rest/\&quot;&gt;Filtering in REST&lt;/a&gt;.    Collections support filtering only on certain fields. An attempt to filter on an unsupported field will receive a 400 Bad Request response.    Supported filtering fields are as follows:        issuerId      issuerReferenceId      taxYear      addressVerificationStatus - possible values are: unknown, pending, failed, incomplete, unchanged, verified      createdAt      edeliveryStatus - possible values are: sent, unscheduled, bad_verify, bad_verify_limit, scheduled, bounced, accepted      email      federalEfileStatus - possible values are: unscheduled, scheduled, sent, corrected_scheduled, accepted, corrected, corrected_accepted, held      recipientName      mailStatus - possible values are: sent, unscheduled, pending, delivered      referenceId      tinMatchStatus - possible values are: none, pending, matched, failed      type - possible values are: 940, 941, 943, 944, 945, 1042, 1042-S, 1095-B, 1095-C, 1097-BTC, 1098, 1098-C, 1098-E, 1098-Q, 1098-T, 3921, 3922, 5498, 5498-ESA, 5498-SA, 1099-MISC, 1099-A, 1099-B, 1099-C, 1099-CAP, 1099-DIV, 1099-G, 1099-INT, 1099-K, 1099-LS, 1099-LTC, 1099-NEC, 1099-OID, 1099-PATR, 1099-Q, 1099-R, 1099-S, 1099-SA, T4A, W-2, W-2G, 1099-HC      updatedAt      validity - possible values are: true, false (optional)
-     * @param  int $top If nonzero, return no more than this number of results.     Used with skip to provide pagination for large datasets.     Unless otherwise specified, the maximum number of records that can be returned from an API call is 1,000 records. (optional, default to 10)
-     * @param  int $skip If nonzero, skip this number of results before returning data. Used with top to provide pagination for large datasets. (optional, default to 0)
-     * @param  string $order_by A comma separated list of sort statements in the format (fieldname) [ASC|DESC], for example issuerReferenceId ASC.    Supported sorting fields are:         issuerReferenceId       taxYear       createdAt       recipientName      updatedAt (optional)
+     * @param  string $filter A filter statement to identify specific records to retrieve.  For more information on filtering, see &lt;a href&#x3D;\&quot;https://developer.avalara.com/avatax/filtering-in-rest/\&quot;&gt;Filtering in REST&lt;/a&gt;. (optional)
+     * @param  int $top If zero or greater than 1000, return at most 1000 results.  Otherwise, return this number of results.  Used with skip to provide pagination for large datasets. (optional)
+     * @param  int $skip If nonzero, skip this number of results before returning data. Used with top to provide pagination for large datasets. (optional)
+     * @param  string $order_by A comma separated list of sort statements in the format (fieldname) [ASC|DESC], for example id ASC. (optional)
+     * @param  bool $count If true, return the global count of elements in the collection. (optional)
+     * @param  bool $count_only If true, return ONLY the global count of elements in the collection.  It only applies when count&#x3D;true. (optional)
      * @param  string $x_correlation_id Unique correlation Id in a GUID format (optional)
      * @param  string $x_avalara_client Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) . (optional)
      */
@@ -3073,6 +3099,8 @@ class List1099FormsRequestSdk {
     private $top;
     private $skip;
     private $order_by;
+    private $count;
+    private $count_only;
     private $x_correlation_id;
     private $x_avalara_client;
 
@@ -3113,6 +3141,20 @@ class List1099FormsRequestSdk {
     public function setOrderBy($order_by) {
         $this->order_by = $order_by;
     }
+    public function getCount() {
+        return $this->count;
+    }
+
+    public function setCount($count) {
+        $this->count = $count;
+    }
+    public function getCountOnly() {
+        return $this->count_only;
+    }
+
+    public function setCountOnly($count_only) {
+        $this->count_only = $count_only;
+    }
     public function getXCorrelationId() {
         return $this->x_correlation_id;
     }
@@ -3136,14 +3178,14 @@ class List1099FormsRequestSdk {
      * @param  string $avalara_version API version (required)
      * @param  string $x_correlation_id Unique correlation Id in a GUID format (optional)
      * @param  string $x_avalara_client Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) . (optional)
-     * @param  \Avalara\SDK\Model\A1099\V2\IUpdateForm1099Request $i_update_form1099_request i_update_form1099_request (optional)
+     * @param  \Avalara\SDK\Model\A1099\V2\Get1099Form200Response $get1099_form200_response get1099_form200_response (optional)
      */
 class Update1099FormRequestSdk {
     private $id;
     private $avalara_version;
     private $x_correlation_id;
     private $x_avalara_client;
-    private $i_update_form1099_request;
+    private $get1099_form200_response;
 
     public function __construct() {
     }
@@ -3175,12 +3217,12 @@ class Update1099FormRequestSdk {
     public function setXAvalaraClient($x_avalara_client) {
         $this->x_avalara_client = $x_avalara_client;
     }
-    public function getIUpdateForm1099Request() {
-        return $this->i_update_form1099_request;
+    public function getGet1099Form200Response() {
+        return $this->get1099_form200_response;
     }
 
-    public function setIUpdateForm1099Request($i_update_form1099_request) {
-        $this->i_update_form1099_request = $i_update_form1099_request;
+    public function setGet1099Form200Response($get1099_form200_response) {
+        $this->get1099_form200_response = $get1099_form200_response;
     }
 }
 

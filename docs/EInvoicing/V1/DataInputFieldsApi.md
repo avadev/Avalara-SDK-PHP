@@ -1,4 +1,4 @@
-# AvalaraSDK\DataInputFieldsApi
+# Avalara\SDK\DataInputFieldsApi
 
 All URIs are relative to https://api.sbx.avalara.com/einvoicing.
 
@@ -10,7 +10,7 @@ Method | HTTP request | Description
 ## `getDataInputFields()`
 
 ```php
-getDataInputFields($avalara_version, $x_avalara_client, $filter, $top, $skip, $count, $count_only): \AvalaraSDK\ModelEInvoicingV1\DataInputFieldsResponse
+getDataInputFields($avalara_version, $x_avalara_client, $filter, $top, $skip, $count, $count_only): \Avalara\SDK\Model\EInvoicing\V1\DataInputFieldsResponse
 ```
 
 Returns the optionality of document fields for different country mandates
@@ -33,7 +33,7 @@ $config = new \Avalara\SDK\Configuration()
 
 $client = new \Avalara\SDK\ApiClient($config);
 
-$apiInstance = new AvalaraSDK\Api\DataInputFieldsApi($client);
+$apiInstance = new Avalara\SDK\Api\DataInputFieldsApi($client);
 
 $avalara_version = 1.4; // string | The HTTP Header meant to specify the version of the API intended to be used
 $x_avalara_client = John's E-Invoicing-API Client; // string | You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a fingerprint.
@@ -65,7 +65,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\AvalaraSDK\ModelEInvoicingV1\DataInputFieldsResponse**](../Model/DataInputFieldsResponse.md)
+[**\Avalara\SDK\Model\EInvoicing\V1\DataInputFieldsResponse**](../Model/DataInputFieldsResponse.md)
 
 ### Authorization
 

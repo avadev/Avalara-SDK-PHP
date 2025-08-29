@@ -47,6 +47,7 @@ use \Avalara\SDK\Model\ModelInterface;
  * PrimaryWithholdingAgent Class Doc Comment
  *
  * @category Class
+ * @description Primary withholding agent information for tax forms
  * @package  Avalara\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -71,8 +72,8 @@ class PrimaryWithholdingAgent implements ModelInterface, ArrayAccess, \JsonSeria
       * @var string[]
       */
     protected static $openAPITypes = [
-        'primary_withholding_agent_name' => 'string',
-        'primary_withholding_agent_ein' => 'string'
+        'name' => 'string',
+        'ein' => 'string'
     ];
 
     /**
@@ -83,8 +84,8 @@ class PrimaryWithholdingAgent implements ModelInterface, ArrayAccess, \JsonSeria
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'primary_withholding_agent_name' => null,
-        'primary_withholding_agent_ein' => null
+        'name' => null,
+        'ein' => null
     ];
 
     /**
@@ -114,8 +115,8 @@ class PrimaryWithholdingAgent implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $attributeMap = [
-        'primary_withholding_agent_name' => 'primaryWithholdingAgentName',
-        'primary_withholding_agent_ein' => 'primaryWithholdingAgentEin'
+        'name' => 'name',
+        'ein' => 'ein'
     ];
 
     /**
@@ -124,8 +125,8 @@ class PrimaryWithholdingAgent implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $setters = [
-        'primary_withholding_agent_name' => 'setPrimaryWithholdingAgentName',
-        'primary_withholding_agent_ein' => 'setPrimaryWithholdingAgentEin'
+        'name' => 'setName',
+        'ein' => 'setEin'
     ];
 
     /**
@@ -134,8 +135,8 @@ class PrimaryWithholdingAgent implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $getters = [
-        'primary_withholding_agent_name' => 'getPrimaryWithholdingAgentName',
-        'primary_withholding_agent_ein' => 'getPrimaryWithholdingAgentEin'
+        'name' => 'getName',
+        'ein' => 'getEin'
     ];
 
     /**
@@ -195,8 +196,8 @@ class PrimaryWithholdingAgent implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function __construct(array $data = null)
     {
-        $this->container['primary_withholding_agent_name'] = $data['primary_withholding_agent_name'] ?? null;
-        $this->container['primary_withholding_agent_ein'] = $data['primary_withholding_agent_ein'] ?? null;
+        $this->container['name'] = $data['name'] ?? null;
+        $this->container['ein'] = $data['ein'] ?? null;
     }
 
     /**
@@ -208,6 +209,12 @@ class PrimaryWithholdingAgent implements ModelInterface, ArrayAccess, \JsonSeria
     {
         $invalidProperties = [];
 
+        if ($this->container['name'] === null) {
+            $invalidProperties[] = "'name' can't be null";
+        }
+        if ($this->container['ein'] === null) {
+            $invalidProperties[] = "'ein' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -224,49 +231,49 @@ class PrimaryWithholdingAgent implements ModelInterface, ArrayAccess, \JsonSeria
 
 
     /**
-     * Gets primary_withholding_agent_name
+     * Gets name
      *
-     * @return string|null
+     * @return string
      */
-    public function getPrimaryWithholdingAgentName()
+    public function getName()
     {
-        return $this->container['primary_withholding_agent_name'];
+        return $this->container['name'];
     }
 
     /**
-     * Sets primary_withholding_agent_name
+     * Sets name
      *
-     * @param string|null $primary_withholding_agent_name primary_withholding_agent_name
+     * @param string $name Name of the primary withholding agent
      *
      * @return self
      */
-    public function setPrimaryWithholdingAgentName($primary_withholding_agent_name)
+    public function setName($name)
     {
-        $this->container['primary_withholding_agent_name'] = $primary_withholding_agent_name;
+        $this->container['name'] = $name;
 
         return $this;
     }
 
     /**
-     * Gets primary_withholding_agent_ein
+     * Gets ein
      *
-     * @return string|null
+     * @return string
      */
-    public function getPrimaryWithholdingAgentEin()
+    public function getEin()
     {
-        return $this->container['primary_withholding_agent_ein'];
+        return $this->container['ein'];
     }
 
     /**
-     * Sets primary_withholding_agent_ein
+     * Sets ein
      *
-     * @param string|null $primary_withholding_agent_ein primary_withholding_agent_ein
+     * @param string $ein EIN (Employer Identification Number) of the primary withholding agent.
      *
      * @return self
      */
-    public function setPrimaryWithholdingAgentEin($primary_withholding_agent_ein)
+    public function setEin($ein)
     {
-        $this->container['primary_withholding_agent_ein'] = $primary_withholding_agent_ein;
+        $this->container['ein'] = $ein;
 
         return $this;
     }

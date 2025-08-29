@@ -24,10 +24,10 @@ Name | Type | Description | Notes
 **additional_withheld** | **float** | The additional amount withheld. | [optional]
 **exempt_from_withholding** | **bool** | Indicates whether the employee is exempt from withholding. | [optional]
 **office_code** | **string** | The office code associated with the form. | [optional]
-**company_id** | **string** | The ID of the associated company. | [optional]
-**reference_id** | **string** | A reference identifier for the form. | [optional]
-**email** | **string** | The email address of the individual associated with the form. | [optional]
 **e_delivery_consented_at** | **\DateTime** | The date when e-delivery was consented. | [optional]
 **signature** | **string** | The signature of the form. | [optional]
+**company_id** | **string** | The ID of the associated company. |
+**reference_id** | **string** | A reference identifier for the form. | [optional]
+**email** | **string** | The email address of the individual associated with the form. | [optional]
 
 [[Back to Model list]](../../../README.md#models) [[Back to API list]](../../../README.md#endpoints) [[Back to README]](../../../README.md)

@@ -20,7 +20,7 @@
  *
  * Avalara 1099 & W-9 API Definition
  *
- * ## 🔐 Authentication  Use **username/password** or generate a **license key** from: *Avalara Portal → Settings → License and API Keys*.  [More on authentication methods](https://developer.avalara.com/avatax-dm-combined-erp/common-setup/authentication/authentication-methods/)  [Test your credentials](https://developer.avalara.com/avatax/test-credentials/)  ## 📘 API & SDK Documentation  [Avalara SDK (.NET) on GitHub](https://github.com/avadev/Avalara-SDK-DotNet#avalarasdk--the-unified-c-library-for-next-gen-avalara-services)  [Code Examples – 1099 API](https://github.com/avadev/Avalara-SDK-DotNet/blob/main/docs/A1099/V2/Class1099IssuersApi.md#call1099issuersget)
+ * ## 🔐 Authentication  Generate a **license key** from: *[Avalara Portal](https://www.avalara.com/us/en/signin.html) → Settings → License and API Keys*.  [More on authentication methods](https://developer.avalara.com/avatax-dm-combined-erp/common-setup/authentication/authentication-methods/)  [Test your credentials](https://developer.avalara.com/avatax/test-credentials/)  ## 📘 API & SDK Documentation  [Avalara SDK (.NET) on GitHub](https://github.com/avadev/Avalara-SDK-DotNet#avalarasdk--the-unified-c-library-for-next-gen-avalara-services)  [Code Examples – 1099 API](https://github.com/avadev/Avalara-SDK-DotNet/blob/main/docs/A1099/V2/Class1099IssuersApi.md#call1099issuersget)
  *
  * @category   Avalara client libraries
  * @package    Avalara\SDK\API\A1099\V2
@@ -47,6 +47,7 @@ use \Avalara\SDK\Model\ModelInterface;
  * Form1099K Class Doc Comment
  *
  * @category Class
+ * @description Form 1099-K: Payment Card and Third Party Network Transactions
  * @package  Avalara\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -87,43 +88,49 @@ class Form1099K implements ModelInterface, ArrayAccess, \JsonSerializable
         'june' => 'float',
         'july' => 'float',
         'august' => 'float',
-        'sept' => 'float',
+        'september' => 'float',
         'october' => 'float',
         'november' => 'float',
         'december' => 'float',
-        'id' => 'string',
         'type' => 'string',
-        'issuer_id' => 'int',
+        'id' => 'string',
+        'issuer_id' => 'string',
         'issuer_reference_id' => 'string',
         'issuer_tin' => 'string',
         'tax_year' => 'int',
-        'federal_efile' => 'bool',
-        'federal_efile_status' => '\Avalara\SDK\Model\A1099\V2\Form1099StatusDetail',
-        'state_efile' => 'bool',
-        'state_efile_status' => '\Avalara\SDK\Model\A1099\V2\StateEfileStatusDetail[]',
-        'postal_mail' => 'bool',
-        'postal_mail_status' => '\Avalara\SDK\Model\A1099\V2\Form1099StatusDetail',
-        'tin_match' => 'bool',
-        'tin_match_status' => '\Avalara\SDK\Model\A1099\V2\Form1099StatusDetail',
-        'address_verification' => 'bool',
-        'address_verification_status' => '\Avalara\SDK\Model\A1099\V2\Form1099StatusDetail',
         'reference_id' => 'string',
-        'email' => 'string',
-        'tin_type' => 'string',
         'tin' => 'string',
         'recipient_name' => 'string',
+        'tin_type' => 'string',
         'recipient_second_name' => 'string',
         'address' => 'string',
         'address2' => 'string',
         'city' => 'string',
         'state' => 'string',
         'zip' => 'string',
-        'foreign_province' => 'string',
+        'email' => 'string',
+        'account_number' => 'string',
+        'office_code' => 'string',
+        'non_us_province' => 'string',
         'country_code' => 'string',
+        'federal_efile_date' => '\DateTime',
+        'postal_mail' => 'bool',
+        'state_efile_date' => '\DateTime',
+        'recipient_edelivery_date' => '\DateTime',
+        'tin_match' => 'bool',
+        'no_tin' => 'bool',
+        'address_verification' => 'bool',
+        'state_and_local_withholding' => '\Avalara\SDK\Model\A1099\V2\StateAndLocalWithholding',
+        'second_tin_notice' => 'bool',
+        'federal_efile_status' => '\Avalara\SDK\Model\A1099\V2\Form1099StatusDetail',
+        'state_efile_status' => '\Avalara\SDK\Model\A1099\V2\StateEfileStatusDetail[]',
+        'postal_mail_status' => '\Avalara\SDK\Model\A1099\V2\Form1099StatusDetail',
+        'tin_match_status' => '\Avalara\SDK\Model\A1099\V2\Form1099StatusDetail',
+        'address_verification_status' => '\Avalara\SDK\Model\A1099\V2\Form1099StatusDetail',
+        'e_delivery_status' => '\Avalara\SDK\Model\A1099\V2\Form1099StatusDetail',
         'validation_errors' => '\Avalara\SDK\Model\A1099\V2\ValidationError[]',
         'created_at' => '\DateTime',
-        'updated_at' => '\DateTime',
-        'state_and_local_withholding' => '\Avalara\SDK\Model\A1099\V2\StateAndLocalWithholding'
+        'updated_at' => '\DateTime'
     ];
 
     /**
@@ -150,43 +157,49 @@ class Form1099K implements ModelInterface, ArrayAccess, \JsonSerializable
         'june' => 'double',
         'july' => 'double',
         'august' => 'double',
-        'sept' => 'double',
+        'september' => 'double',
         'october' => 'double',
         'november' => 'double',
         'december' => 'double',
-        'id' => null,
         'type' => null,
-        'issuer_id' => 'int32',
+        'id' => null,
+        'issuer_id' => null,
         'issuer_reference_id' => null,
         'issuer_tin' => null,
         'tax_year' => 'int32',
-        'federal_efile' => null,
-        'federal_efile_status' => null,
-        'state_efile' => null,
-        'state_efile_status' => null,
-        'postal_mail' => null,
-        'postal_mail_status' => null,
-        'tin_match' => null,
-        'tin_match_status' => null,
-        'address_verification' => null,
-        'address_verification_status' => null,
         'reference_id' => null,
-        'email' => null,
-        'tin_type' => null,
         'tin' => null,
         'recipient_name' => null,
+        'tin_type' => null,
         'recipient_second_name' => null,
         'address' => null,
         'address2' => null,
         'city' => null,
         'state' => null,
         'zip' => null,
-        'foreign_province' => null,
+        'email' => null,
+        'account_number' => null,
+        'office_code' => null,
+        'non_us_province' => null,
         'country_code' => null,
+        'federal_efile_date' => 'date',
+        'postal_mail' => null,
+        'state_efile_date' => 'date',
+        'recipient_edelivery_date' => 'date',
+        'tin_match' => null,
+        'no_tin' => null,
+        'address_verification' => null,
+        'state_and_local_withholding' => null,
+        'second_tin_notice' => null,
+        'federal_efile_status' => null,
+        'state_efile_status' => null,
+        'postal_mail_status' => null,
+        'tin_match_status' => null,
+        'address_verification_status' => null,
+        'e_delivery_status' => null,
         'validation_errors' => null,
         'created_at' => 'date-time',
-        'updated_at' => 'date-time',
-        'state_and_local_withholding' => null
+        'updated_at' => 'date-time'
     ];
 
     /**
@@ -232,43 +245,49 @@ class Form1099K implements ModelInterface, ArrayAccess, \JsonSerializable
         'june' => 'june',
         'july' => 'july',
         'august' => 'august',
-        'sept' => 'sept',
+        'september' => 'september',
         'october' => 'october',
         'november' => 'november',
         'december' => 'december',
-        'id' => 'id',
         'type' => 'type',
+        'id' => 'id',
         'issuer_id' => 'issuerId',
         'issuer_reference_id' => 'issuerReferenceId',
         'issuer_tin' => 'issuerTin',
         'tax_year' => 'taxYear',
-        'federal_efile' => 'federalEfile',
-        'federal_efile_status' => 'federalEfileStatus',
-        'state_efile' => 'stateEfile',
-        'state_efile_status' => 'stateEfileStatus',
-        'postal_mail' => 'postalMail',
-        'postal_mail_status' => 'postalMailStatus',
-        'tin_match' => 'tinMatch',
-        'tin_match_status' => 'tinMatchStatus',
-        'address_verification' => 'addressVerification',
-        'address_verification_status' => 'addressVerificationStatus',
         'reference_id' => 'referenceId',
-        'email' => 'email',
-        'tin_type' => 'tinType',
         'tin' => 'tin',
         'recipient_name' => 'recipientName',
+        'tin_type' => 'tinType',
         'recipient_second_name' => 'recipientSecondName',
         'address' => 'address',
         'address2' => 'address2',
         'city' => 'city',
         'state' => 'state',
         'zip' => 'zip',
-        'foreign_province' => 'foreignProvince',
+        'email' => 'email',
+        'account_number' => 'accountNumber',
+        'office_code' => 'officeCode',
+        'non_us_province' => 'nonUsProvince',
         'country_code' => 'countryCode',
+        'federal_efile_date' => 'federalEfileDate',
+        'postal_mail' => 'postalMail',
+        'state_efile_date' => 'stateEfileDate',
+        'recipient_edelivery_date' => 'recipientEdeliveryDate',
+        'tin_match' => 'tinMatch',
+        'no_tin' => 'noTin',
+        'address_verification' => 'addressVerification',
+        'state_and_local_withholding' => 'stateAndLocalWithholding',
+        'second_tin_notice' => 'secondTinNotice',
+        'federal_efile_status' => 'federalEfileStatus',
+        'state_efile_status' => 'stateEfileStatus',
+        'postal_mail_status' => 'postalMailStatus',
+        'tin_match_status' => 'tinMatchStatus',
+        'address_verification_status' => 'addressVerificationStatus',
+        'e_delivery_status' => 'eDeliveryStatus',
         'validation_errors' => 'validationErrors',
         'created_at' => 'createdAt',
-        'updated_at' => 'updatedAt',
-        'state_and_local_withholding' => 'stateAndLocalWithholding'
+        'updated_at' => 'updatedAt'
     ];
 
     /**
@@ -293,43 +312,49 @@ class Form1099K implements ModelInterface, ArrayAccess, \JsonSerializable
         'june' => 'setJune',
         'july' => 'setJuly',
         'august' => 'setAugust',
-        'sept' => 'setSept',
+        'september' => 'setSeptember',
         'october' => 'setOctober',
         'november' => 'setNovember',
         'december' => 'setDecember',
-        'id' => 'setId',
         'type' => 'setType',
+        'id' => 'setId',
         'issuer_id' => 'setIssuerId',
         'issuer_reference_id' => 'setIssuerReferenceId',
         'issuer_tin' => 'setIssuerTin',
         'tax_year' => 'setTaxYear',
-        'federal_efile' => 'setFederalEfile',
-        'federal_efile_status' => 'setFederalEfileStatus',
-        'state_efile' => 'setStateEfile',
-        'state_efile_status' => 'setStateEfileStatus',
-        'postal_mail' => 'setPostalMail',
-        'postal_mail_status' => 'setPostalMailStatus',
-        'tin_match' => 'setTinMatch',
-        'tin_match_status' => 'setTinMatchStatus',
-        'address_verification' => 'setAddressVerification',
-        'address_verification_status' => 'setAddressVerificationStatus',
         'reference_id' => 'setReferenceId',
-        'email' => 'setEmail',
-        'tin_type' => 'setTinType',
         'tin' => 'setTin',
         'recipient_name' => 'setRecipientName',
+        'tin_type' => 'setTinType',
         'recipient_second_name' => 'setRecipientSecondName',
         'address' => 'setAddress',
         'address2' => 'setAddress2',
         'city' => 'setCity',
         'state' => 'setState',
         'zip' => 'setZip',
-        'foreign_province' => 'setForeignProvince',
+        'email' => 'setEmail',
+        'account_number' => 'setAccountNumber',
+        'office_code' => 'setOfficeCode',
+        'non_us_province' => 'setNonUsProvince',
         'country_code' => 'setCountryCode',
+        'federal_efile_date' => 'setFederalEfileDate',
+        'postal_mail' => 'setPostalMail',
+        'state_efile_date' => 'setStateEfileDate',
+        'recipient_edelivery_date' => 'setRecipientEdeliveryDate',
+        'tin_match' => 'setTinMatch',
+        'no_tin' => 'setNoTin',
+        'address_verification' => 'setAddressVerification',
+        'state_and_local_withholding' => 'setStateAndLocalWithholding',
+        'second_tin_notice' => 'setSecondTinNotice',
+        'federal_efile_status' => 'setFederalEfileStatus',
+        'state_efile_status' => 'setStateEfileStatus',
+        'postal_mail_status' => 'setPostalMailStatus',
+        'tin_match_status' => 'setTinMatchStatus',
+        'address_verification_status' => 'setAddressVerificationStatus',
+        'e_delivery_status' => 'setEDeliveryStatus',
         'validation_errors' => 'setValidationErrors',
         'created_at' => 'setCreatedAt',
-        'updated_at' => 'setUpdatedAt',
-        'state_and_local_withholding' => 'setStateAndLocalWithholding'
+        'updated_at' => 'setUpdatedAt'
     ];
 
     /**
@@ -354,43 +379,49 @@ class Form1099K implements ModelInterface, ArrayAccess, \JsonSerializable
         'june' => 'getJune',
         'july' => 'getJuly',
         'august' => 'getAugust',
-        'sept' => 'getSept',
+        'september' => 'getSeptember',
         'october' => 'getOctober',
         'november' => 'getNovember',
         'december' => 'getDecember',
-        'id' => 'getId',
         'type' => 'getType',
+        'id' => 'getId',
         'issuer_id' => 'getIssuerId',
         'issuer_reference_id' => 'getIssuerReferenceId',
         'issuer_tin' => 'getIssuerTin',
         'tax_year' => 'getTaxYear',
-        'federal_efile' => 'getFederalEfile',
-        'federal_efile_status' => 'getFederalEfileStatus',
-        'state_efile' => 'getStateEfile',
-        'state_efile_status' => 'getStateEfileStatus',
-        'postal_mail' => 'getPostalMail',
-        'postal_mail_status' => 'getPostalMailStatus',
-        'tin_match' => 'getTinMatch',
-        'tin_match_status' => 'getTinMatchStatus',
-        'address_verification' => 'getAddressVerification',
-        'address_verification_status' => 'getAddressVerificationStatus',
         'reference_id' => 'getReferenceId',
-        'email' => 'getEmail',
-        'tin_type' => 'getTinType',
         'tin' => 'getTin',
         'recipient_name' => 'getRecipientName',
+        'tin_type' => 'getTinType',
         'recipient_second_name' => 'getRecipientSecondName',
         'address' => 'getAddress',
         'address2' => 'getAddress2',
         'city' => 'getCity',
         'state' => 'getState',
         'zip' => 'getZip',
-        'foreign_province' => 'getForeignProvince',
+        'email' => 'getEmail',
+        'account_number' => 'getAccountNumber',
+        'office_code' => 'getOfficeCode',
+        'non_us_province' => 'getNonUsProvince',
         'country_code' => 'getCountryCode',
+        'federal_efile_date' => 'getFederalEfileDate',
+        'postal_mail' => 'getPostalMail',
+        'state_efile_date' => 'getStateEfileDate',
+        'recipient_edelivery_date' => 'getRecipientEdeliveryDate',
+        'tin_match' => 'getTinMatch',
+        'no_tin' => 'getNoTin',
+        'address_verification' => 'getAddressVerification',
+        'state_and_local_withholding' => 'getStateAndLocalWithholding',
+        'second_tin_notice' => 'getSecondTinNotice',
+        'federal_efile_status' => 'getFederalEfileStatus',
+        'state_efile_status' => 'getStateEfileStatus',
+        'postal_mail_status' => 'getPostalMailStatus',
+        'tin_match_status' => 'getTinMatchStatus',
+        'address_verification_status' => 'getAddressVerificationStatus',
+        'e_delivery_status' => 'getEDeliveryStatus',
         'validation_errors' => 'getValidationErrors',
         'created_at' => 'getCreatedAt',
-        'updated_at' => 'getUpdatedAt',
-        'state_and_local_withholding' => 'getStateAndLocalWithholding'
+        'updated_at' => 'getUpdatedAt'
     ];
 
     /**
@@ -439,6 +470,20 @@ class Form1099K implements ModelInterface, ArrayAccess, \JsonSerializable
     const FILER_TYPE_OTHER = 'Other';
     const PAYMENT_TYPE_MERCHANT_PAYMENT_CARD = 'MerchantPaymentCard';
     const PAYMENT_TYPE_THIRD_PARTY_NETWORK = 'ThirdPartyNetwork';
+    const TYPE__1099_NEC = '1099-NEC';
+    const TYPE__1099_MISC = '1099-MISC';
+    const TYPE__1099_DIV = '1099-DIV';
+    const TYPE__1099_R = '1099-R';
+    const TYPE__1099_K = '1099-K';
+    const TYPE__1095_B = '1095-B';
+    const TYPE__1042_S = '1042-S';
+    const TYPE__1095_C = '1095-C';
+    const TYPE__1099_INT = '1099-INT';
+    const TIN_TYPE__EMPTY = 'Empty';
+    const TIN_TYPE_EIN = 'EIN';
+    const TIN_TYPE_SSN = 'SSN';
+    const TIN_TYPE_ITIN = 'ITIN';
+    const TIN_TYPE_ATIN = 'ATIN';
 
     /**
      * Gets allowable values of the enum
@@ -464,6 +509,42 @@ class Form1099K implements ModelInterface, ArrayAccess, \JsonSerializable
         return [
             self::PAYMENT_TYPE_MERCHANT_PAYMENT_CARD,
             self::PAYMENT_TYPE_THIRD_PARTY_NETWORK,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE__1099_NEC,
+            self::TYPE__1099_MISC,
+            self::TYPE__1099_DIV,
+            self::TYPE__1099_R,
+            self::TYPE__1099_K,
+            self::TYPE__1095_B,
+            self::TYPE__1042_S,
+            self::TYPE__1095_C,
+            self::TYPE__1099_INT,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTinTypeAllowableValues()
+    {
+        return [
+            self::TIN_TYPE__EMPTY,
+            self::TIN_TYPE_EIN,
+            self::TIN_TYPE_SSN,
+            self::TIN_TYPE_ITIN,
+            self::TIN_TYPE_ATIN,
         ];
     }
 
@@ -498,43 +579,49 @@ class Form1099K implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['june'] = $data['june'] ?? null;
         $this->container['july'] = $data['july'] ?? null;
         $this->container['august'] = $data['august'] ?? null;
-        $this->container['sept'] = $data['sept'] ?? null;
+        $this->container['september'] = $data['september'] ?? null;
         $this->container['october'] = $data['october'] ?? null;
         $this->container['november'] = $data['november'] ?? null;
         $this->container['december'] = $data['december'] ?? null;
-        $this->container['id'] = $data['id'] ?? null;
         $this->container['type'] = $data['type'] ?? null;
+        $this->container['id'] = $data['id'] ?? null;
         $this->container['issuer_id'] = $data['issuer_id'] ?? null;
         $this->container['issuer_reference_id'] = $data['issuer_reference_id'] ?? null;
         $this->container['issuer_tin'] = $data['issuer_tin'] ?? null;
         $this->container['tax_year'] = $data['tax_year'] ?? null;
-        $this->container['federal_efile'] = $data['federal_efile'] ?? null;
-        $this->container['federal_efile_status'] = $data['federal_efile_status'] ?? null;
-        $this->container['state_efile'] = $data['state_efile'] ?? null;
-        $this->container['state_efile_status'] = $data['state_efile_status'] ?? null;
-        $this->container['postal_mail'] = $data['postal_mail'] ?? null;
-        $this->container['postal_mail_status'] = $data['postal_mail_status'] ?? null;
-        $this->container['tin_match'] = $data['tin_match'] ?? null;
-        $this->container['tin_match_status'] = $data['tin_match_status'] ?? null;
-        $this->container['address_verification'] = $data['address_verification'] ?? null;
-        $this->container['address_verification_status'] = $data['address_verification_status'] ?? null;
         $this->container['reference_id'] = $data['reference_id'] ?? null;
-        $this->container['email'] = $data['email'] ?? null;
-        $this->container['tin_type'] = $data['tin_type'] ?? null;
         $this->container['tin'] = $data['tin'] ?? null;
         $this->container['recipient_name'] = $data['recipient_name'] ?? null;
+        $this->container['tin_type'] = $data['tin_type'] ?? null;
         $this->container['recipient_second_name'] = $data['recipient_second_name'] ?? null;
         $this->container['address'] = $data['address'] ?? null;
         $this->container['address2'] = $data['address2'] ?? null;
         $this->container['city'] = $data['city'] ?? null;
         $this->container['state'] = $data['state'] ?? null;
         $this->container['zip'] = $data['zip'] ?? null;
-        $this->container['foreign_province'] = $data['foreign_province'] ?? null;
+        $this->container['email'] = $data['email'] ?? null;
+        $this->container['account_number'] = $data['account_number'] ?? null;
+        $this->container['office_code'] = $data['office_code'] ?? null;
+        $this->container['non_us_province'] = $data['non_us_province'] ?? null;
         $this->container['country_code'] = $data['country_code'] ?? null;
+        $this->container['federal_efile_date'] = $data['federal_efile_date'] ?? null;
+        $this->container['postal_mail'] = $data['postal_mail'] ?? null;
+        $this->container['state_efile_date'] = $data['state_efile_date'] ?? null;
+        $this->container['recipient_edelivery_date'] = $data['recipient_edelivery_date'] ?? null;
+        $this->container['tin_match'] = $data['tin_match'] ?? null;
+        $this->container['no_tin'] = $data['no_tin'] ?? null;
+        $this->container['address_verification'] = $data['address_verification'] ?? null;
+        $this->container['state_and_local_withholding'] = $data['state_and_local_withholding'] ?? null;
+        $this->container['second_tin_notice'] = $data['second_tin_notice'] ?? null;
+        $this->container['federal_efile_status'] = $data['federal_efile_status'] ?? null;
+        $this->container['state_efile_status'] = $data['state_efile_status'] ?? null;
+        $this->container['postal_mail_status'] = $data['postal_mail_status'] ?? null;
+        $this->container['tin_match_status'] = $data['tin_match_status'] ?? null;
+        $this->container['address_verification_status'] = $data['address_verification_status'] ?? null;
+        $this->container['e_delivery_status'] = $data['e_delivery_status'] ?? null;
         $this->container['validation_errors'] = $data['validation_errors'] ?? null;
         $this->container['created_at'] = $data['created_at'] ?? null;
         $this->container['updated_at'] = $data['updated_at'] ?? null;
-        $this->container['state_and_local_withholding'] = $data['state_and_local_withholding'] ?? null;
     }
 
     /**
@@ -564,6 +651,39 @@ class Form1099K implements ModelInterface, ArrayAccess, \JsonSerializable
             );
         }
 
+        if ($this->container['type'] === null) {
+            $invalidProperties[] = "'type' can't be null";
+        }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'type', must be one of '%s'",
+                $this->container['type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        if ($this->container['recipient_name'] === null) {
+            $invalidProperties[] = "'recipient_name' can't be null";
+        }
+        $allowedValues = $this->getTinTypeAllowableValues();
+        if (!is_null($this->container['tin_type']) && !in_array($this->container['tin_type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'tin_type', must be one of '%s'",
+                $this->container['tin_type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        if ($this->container['address'] === null) {
+            $invalidProperties[] = "'address' can't be null";
+        }
+        if ($this->container['city'] === null) {
+            $invalidProperties[] = "'city' can't be null";
+        }
+        if ($this->container['country_code'] === null) {
+            $invalidProperties[] = "'country_code' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -592,7 +712,7 @@ class Form1099K implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets filer_type
      *
-     * @param string|null $filer_type filer_type
+     * @param string|null $filer_type Filer type (PSE or EPF)
      *
      * @return self
      */
@@ -626,7 +746,7 @@ class Form1099K implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets payment_type
      *
-     * @param string|null $payment_type payment_type
+     * @param string|null $payment_type Payment type (payment card or third party network)
      *
      * @return self
      */
@@ -660,7 +780,7 @@ class Form1099K implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets payment_settlement_entity_name_phone_number
      *
-     * @param string|null $payment_settlement_entity_name_phone_number payment_settlement_entity_name_phone_number
+     * @param string|null $payment_settlement_entity_name_phone_number Payment settlement entity name and phone number
      *
      * @return self
      */
@@ -684,7 +804,7 @@ class Form1099K implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets gross_amount_payment_card
      *
-     * @param float|null $gross_amount_payment_card gross_amount_payment_card
+     * @param float|null $gross_amount_payment_card Gross amount of payment card/third party network transactions
      *
      * @return self
      */
@@ -708,7 +828,7 @@ class Form1099K implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets card_not_present_transactions
      *
-     * @param float|null $card_not_present_transactions card_not_present_transactions
+     * @param float|null $card_not_present_transactions Card not present transactions
      *
      * @return self
      */
@@ -732,7 +852,7 @@ class Form1099K implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets merchant_category_code
      *
-     * @param string|null $merchant_category_code merchant_category_code
+     * @param string|null $merchant_category_code Merchant category code
      *
      * @return self
      */
@@ -756,7 +876,7 @@ class Form1099K implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets payment_transaction_number
      *
-     * @param float|null $payment_transaction_number payment_transaction_number
+     * @param float|null $payment_transaction_number Number of payment transactions
      *
      * @return self
      */
@@ -780,7 +900,7 @@ class Form1099K implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets federal_income_tax_withheld
      *
-     * @param float|null $federal_income_tax_withheld federal_income_tax_withheld
+     * @param float|null $federal_income_tax_withheld Federal income tax withheld
      *
      * @return self
      */
@@ -804,7 +924,7 @@ class Form1099K implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets january
      *
-     * @param float|null $january january
+     * @param float|null $january January gross payments
      *
      * @return self
      */
@@ -828,7 +948,7 @@ class Form1099K implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets february
      *
-     * @param float|null $february february
+     * @param float|null $february February gross payments
      *
      * @return self
      */
@@ -852,7 +972,7 @@ class Form1099K implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets march
      *
-     * @param float|null $march march
+     * @param float|null $march March gross payments
      *
      * @return self
      */
@@ -876,7 +996,7 @@ class Form1099K implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets april
      *
-     * @param float|null $april april
+     * @param float|null $april April gross payments
      *
      * @return self
      */
@@ -900,7 +1020,7 @@ class Form1099K implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets may
      *
-     * @param float|null $may may
+     * @param float|null $may May gross payments
      *
      * @return self
      */
@@ -924,7 +1044,7 @@ class Form1099K implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets june
      *
-     * @param float|null $june june
+     * @param float|null $june June gross payments
      *
      * @return self
      */
@@ -948,7 +1068,7 @@ class Form1099K implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets july
      *
-     * @param float|null $july july
+     * @param float|null $july July gross payments
      *
      * @return self
      */
@@ -972,7 +1092,7 @@ class Form1099K implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets august
      *
-     * @param float|null $august august
+     * @param float|null $august August gross payments
      *
      * @return self
      */
@@ -984,25 +1104,25 @@ class Form1099K implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets sept
+     * Gets september
      *
      * @return float|null
      */
-    public function getSept()
+    public function getSeptember()
     {
-        return $this->container['sept'];
+        return $this->container['september'];
     }
 
     /**
-     * Sets sept
+     * Sets september
      *
-     * @param float|null $sept sept
+     * @param float|null $september September gross payments
      *
      * @return self
      */
-    public function setSept($sept)
+    public function setSeptember($september)
     {
-        $this->container['sept'] = $sept;
+        $this->container['september'] = $september;
 
         return $this;
     }
@@ -1020,7 +1140,7 @@ class Form1099K implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets october
      *
-     * @param float|null $october october
+     * @param float|null $october October gross payments
      *
      * @return self
      */
@@ -1044,7 +1164,7 @@ class Form1099K implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets november
      *
-     * @param float|null $november november
+     * @param float|null $november November gross payments
      *
      * @return self
      */
@@ -1068,13 +1188,47 @@ class Form1099K implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets december
      *
-     * @param float|null $december december
+     * @param float|null $december December gross payments
      *
      * @return self
      */
     public function setDecember($december)
     {
         $this->container['december'] = $december;
+
+        return $this;
+    }
+
+    /**
+     * Gets type
+     *
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->container['type'];
+    }
+
+    /**
+     * Sets type
+     *
+     * @param string $type Form type
+     *
+     * @return self
+     */
+    public function setType($type)
+    {
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!in_array($type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'type', must be one of '%s'",
+                    $type,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['type'] = $type;
 
         return $this;
     }
@@ -1092,7 +1246,7 @@ class Form1099K implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets id
      *
-     * @param string|null $id id
+     * @param string|null $id Form ID. Unique identifier set when the record is created.
      *
      * @return self
      */
@@ -1104,33 +1258,9 @@ class Form1099K implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets type
-     *
-     * @return string|null
-     */
-    public function getType()
-    {
-        return $this->container['type'];
-    }
-
-    /**
-     * Sets type
-     *
-     * @param string|null $type type
-     *
-     * @return self
-     */
-    public function setType($type)
-    {
-        $this->container['type'] = $type;
-
-        return $this;
-    }
-
-    /**
      * Gets issuer_id
      *
-     * @return int|null
+     * @return string|null
      */
     public function getIssuerId()
     {
@@ -1140,7 +1270,7 @@ class Form1099K implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets issuer_id
      *
-     * @param int|null $issuer_id issuer_id
+     * @param string|null $issuer_id Issuer ID - only required when creating forms
      *
      * @return self
      */
@@ -1164,7 +1294,7 @@ class Form1099K implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets issuer_reference_id
      *
-     * @param string|null $issuer_reference_id issuer_reference_id
+     * @param string|null $issuer_reference_id Issuer Reference ID - only required when creating forms
      *
      * @return self
      */
@@ -1188,7 +1318,7 @@ class Form1099K implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets issuer_tin
      *
-     * @param string|null $issuer_tin issuer_tin
+     * @param string|null $issuer_tin Issuer TIN - readonly
      *
      * @return self
      */
@@ -1212,255 +1342,13 @@ class Form1099K implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets tax_year
      *
-     * @param int|null $tax_year tax_year
+     * @param int|null $tax_year Tax Year - only required when creating forms
      *
      * @return self
      */
     public function setTaxYear($tax_year)
     {
         $this->container['tax_year'] = $tax_year;
-
-        return $this;
-    }
-
-    /**
-     * Gets federal_efile
-     *
-     * @return bool|null
-     */
-    public function getFederalEfile()
-    {
-        return $this->container['federal_efile'];
-    }
-
-    /**
-     * Sets federal_efile
-     *
-     * @param bool|null $federal_efile federal_efile
-     *
-     * @return self
-     */
-    public function setFederalEfile($federal_efile)
-    {
-        $this->container['federal_efile'] = $federal_efile;
-
-        return $this;
-    }
-
-    /**
-     * Gets federal_efile_status
-     *
-     * @return \Avalara\SDK\Model\A1099\V2\Form1099StatusDetail|null
-     */
-    public function getFederalEfileStatus()
-    {
-        return $this->container['federal_efile_status'];
-    }
-
-    /**
-     * Sets federal_efile_status
-     *
-     * @param \Avalara\SDK\Model\A1099\V2\Form1099StatusDetail|null $federal_efile_status federal_efile_status
-     *
-     * @return self
-     */
-    public function setFederalEfileStatus($federal_efile_status)
-    {
-        $this->container['federal_efile_status'] = $federal_efile_status;
-
-        return $this;
-    }
-
-    /**
-     * Gets state_efile
-     *
-     * @return bool|null
-     */
-    public function getStateEfile()
-    {
-        return $this->container['state_efile'];
-    }
-
-    /**
-     * Sets state_efile
-     *
-     * @param bool|null $state_efile state_efile
-     *
-     * @return self
-     */
-    public function setStateEfile($state_efile)
-    {
-        $this->container['state_efile'] = $state_efile;
-
-        return $this;
-    }
-
-    /**
-     * Gets state_efile_status
-     *
-     * @return \Avalara\SDK\Model\A1099\V2\StateEfileStatusDetail[]|null
-     */
-    public function getStateEfileStatus()
-    {
-        return $this->container['state_efile_status'];
-    }
-
-    /**
-     * Sets state_efile_status
-     *
-     * @param \Avalara\SDK\Model\A1099\V2\StateEfileStatusDetail[]|null $state_efile_status state_efile_status
-     *
-     * @return self
-     */
-    public function setStateEfileStatus($state_efile_status)
-    {
-
-
-        $this->container['state_efile_status'] = $state_efile_status;
-
-        return $this;
-    }
-
-    /**
-     * Gets postal_mail
-     *
-     * @return bool|null
-     */
-    public function getPostalMail()
-    {
-        return $this->container['postal_mail'];
-    }
-
-    /**
-     * Sets postal_mail
-     *
-     * @param bool|null $postal_mail postal_mail
-     *
-     * @return self
-     */
-    public function setPostalMail($postal_mail)
-    {
-        $this->container['postal_mail'] = $postal_mail;
-
-        return $this;
-    }
-
-    /**
-     * Gets postal_mail_status
-     *
-     * @return \Avalara\SDK\Model\A1099\V2\Form1099StatusDetail|null
-     */
-    public function getPostalMailStatus()
-    {
-        return $this->container['postal_mail_status'];
-    }
-
-    /**
-     * Sets postal_mail_status
-     *
-     * @param \Avalara\SDK\Model\A1099\V2\Form1099StatusDetail|null $postal_mail_status postal_mail_status
-     *
-     * @return self
-     */
-    public function setPostalMailStatus($postal_mail_status)
-    {
-        $this->container['postal_mail_status'] = $postal_mail_status;
-
-        return $this;
-    }
-
-    /**
-     * Gets tin_match
-     *
-     * @return bool|null
-     */
-    public function getTinMatch()
-    {
-        return $this->container['tin_match'];
-    }
-
-    /**
-     * Sets tin_match
-     *
-     * @param bool|null $tin_match tin_match
-     *
-     * @return self
-     */
-    public function setTinMatch($tin_match)
-    {
-        $this->container['tin_match'] = $tin_match;
-
-        return $this;
-    }
-
-    /**
-     * Gets tin_match_status
-     *
-     * @return \Avalara\SDK\Model\A1099\V2\Form1099StatusDetail|null
-     */
-    public function getTinMatchStatus()
-    {
-        return $this->container['tin_match_status'];
-    }
-
-    /**
-     * Sets tin_match_status
-     *
-     * @param \Avalara\SDK\Model\A1099\V2\Form1099StatusDetail|null $tin_match_status tin_match_status
-     *
-     * @return self
-     */
-    public function setTinMatchStatus($tin_match_status)
-    {
-        $this->container['tin_match_status'] = $tin_match_status;
-
-        return $this;
-    }
-
-    /**
-     * Gets address_verification
-     *
-     * @return bool|null
-     */
-    public function getAddressVerification()
-    {
-        return $this->container['address_verification'];
-    }
-
-    /**
-     * Sets address_verification
-     *
-     * @param bool|null $address_verification address_verification
-     *
-     * @return self
-     */
-    public function setAddressVerification($address_verification)
-    {
-        $this->container['address_verification'] = $address_verification;
-
-        return $this;
-    }
-
-    /**
-     * Gets address_verification_status
-     *
-     * @return \Avalara\SDK\Model\A1099\V2\Form1099StatusDetail|null
-     */
-    public function getAddressVerificationStatus()
-    {
-        return $this->container['address_verification_status'];
-    }
-
-    /**
-     * Sets address_verification_status
-     *
-     * @param \Avalara\SDK\Model\A1099\V2\Form1099StatusDetail|null $address_verification_status address_verification_status
-     *
-     * @return self
-     */
-    public function setAddressVerificationStatus($address_verification_status)
-    {
-        $this->container['address_verification_status'] = $address_verification_status;
 
         return $this;
     }
@@ -1478,61 +1366,13 @@ class Form1099K implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets reference_id
      *
-     * @param string|null $reference_id reference_id
+     * @param string|null $reference_id Internal reference ID. Never shown to any agency or recipient.
      *
      * @return self
      */
     public function setReferenceId($reference_id)
     {
         $this->container['reference_id'] = $reference_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets email
-     *
-     * @return string|null
-     */
-    public function getEmail()
-    {
-        return $this->container['email'];
-    }
-
-    /**
-     * Sets email
-     *
-     * @param string|null $email email
-     *
-     * @return self
-     */
-    public function setEmail($email)
-    {
-        $this->container['email'] = $email;
-
-        return $this;
-    }
-
-    /**
-     * Gets tin_type
-     *
-     * @return string|null
-     */
-    public function getTinType()
-    {
-        return $this->container['tin_type'];
-    }
-
-    /**
-     * Sets tin_type
-     *
-     * @param string|null $tin_type tin_type
-     *
-     * @return self
-     */
-    public function setTinType($tin_type)
-    {
-        $this->container['tin_type'] = $tin_type;
 
         return $this;
     }
@@ -1550,7 +1390,7 @@ class Form1099K implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets tin
      *
-     * @param string|null $tin tin
+     * @param string|null $tin Recipient's Federal Tax Identification Number (TIN).
      *
      * @return self
      */
@@ -1564,7 +1404,7 @@ class Form1099K implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets recipient_name
      *
-     * @return string|null
+     * @return string
      */
     public function getRecipientName()
     {
@@ -1574,13 +1414,47 @@ class Form1099K implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets recipient_name
      *
-     * @param string|null $recipient_name recipient_name
+     * @param string $recipient_name Recipient name
      *
      * @return self
      */
     public function setRecipientName($recipient_name)
     {
         $this->container['recipient_name'] = $recipient_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets tin_type
+     *
+     * @return string|null
+     */
+    public function getTinType()
+    {
+        return $this->container['tin_type'];
+    }
+
+    /**
+     * Sets tin_type
+     *
+     * @param string|null $tin_type Type of TIN (Tax ID Number)
+     *
+     * @return self
+     */
+    public function setTinType($tin_type)
+    {
+        $allowedValues = $this->getTinTypeAllowableValues();
+        if (!is_null($tin_type) && !in_array($tin_type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'tin_type', must be one of '%s'",
+                    $tin_type,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['tin_type'] = $tin_type;
 
         return $this;
     }
@@ -1598,7 +1472,7 @@ class Form1099K implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets recipient_second_name
      *
-     * @param string|null $recipient_second_name recipient_second_name
+     * @param string|null $recipient_second_name Recipient second name
      *
      * @return self
      */
@@ -1612,7 +1486,7 @@ class Form1099K implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets address
      *
-     * @return string|null
+     * @return string
      */
     public function getAddress()
     {
@@ -1622,7 +1496,7 @@ class Form1099K implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets address
      *
-     * @param string|null $address address
+     * @param string $address Address.
      *
      * @return self
      */
@@ -1646,7 +1520,7 @@ class Form1099K implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets address2
      *
-     * @param string|null $address2 address2
+     * @param string|null $address2 Address line 2.
      *
      * @return self
      */
@@ -1660,7 +1534,7 @@ class Form1099K implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets city
      *
-     * @return string|null
+     * @return string
      */
     public function getCity()
     {
@@ -1670,7 +1544,7 @@ class Form1099K implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets city
      *
-     * @param string|null $city city
+     * @param string $city City.
      *
      * @return self
      */
@@ -1694,7 +1568,7 @@ class Form1099K implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets state
      *
-     * @param string|null $state state
+     * @param string|null $state Two-letter US state or Canadian province code (required for US/CA addresses).
      *
      * @return self
      */
@@ -1718,7 +1592,7 @@ class Form1099K implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets zip
      *
-     * @param string|null $zip zip
+     * @param string|null $zip ZIP/postal code.
      *
      * @return self
      */
@@ -1730,25 +1604,97 @@ class Form1099K implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets foreign_province
+     * Gets email
      *
      * @return string|null
      */
-    public function getForeignProvince()
+    public function getEmail()
     {
-        return $this->container['foreign_province'];
+        return $this->container['email'];
     }
 
     /**
-     * Sets foreign_province
+     * Sets email
      *
-     * @param string|null $foreign_province foreign_province
+     * @param string|null $email Recipient's Contact email address.
      *
      * @return self
      */
-    public function setForeignProvince($foreign_province)
+    public function setEmail($email)
     {
-        $this->container['foreign_province'] = $foreign_province;
+        $this->container['email'] = $email;
+
+        return $this;
+    }
+
+    /**
+     * Gets account_number
+     *
+     * @return string|null
+     */
+    public function getAccountNumber()
+    {
+        return $this->container['account_number'];
+    }
+
+    /**
+     * Sets account_number
+     *
+     * @param string|null $account_number Account number
+     *
+     * @return self
+     */
+    public function setAccountNumber($account_number)
+    {
+        $this->container['account_number'] = $account_number;
+
+        return $this;
+    }
+
+    /**
+     * Gets office_code
+     *
+     * @return string|null
+     */
+    public function getOfficeCode()
+    {
+        return $this->container['office_code'];
+    }
+
+    /**
+     * Sets office_code
+     *
+     * @param string|null $office_code Office code
+     *
+     * @return self
+     */
+    public function setOfficeCode($office_code)
+    {
+        $this->container['office_code'] = $office_code;
+
+        return $this;
+    }
+
+    /**
+     * Gets non_us_province
+     *
+     * @return string|null
+     */
+    public function getNonUsProvince()
+    {
+        return $this->container['non_us_province'];
+    }
+
+    /**
+     * Sets non_us_province
+     *
+     * @param string|null $non_us_province Province or region for non-US/CA addresses.
+     *
+     * @return self
+     */
+    public function setNonUsProvince($non_us_province)
+    {
+        $this->container['non_us_province'] = $non_us_province;
 
         return $this;
     }
@@ -1756,7 +1702,7 @@ class Form1099K implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets country_code
      *
-     * @return string|null
+     * @return string
      */
     public function getCountryCode()
     {
@@ -1766,13 +1712,375 @@ class Form1099K implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets country_code
      *
-     * @param string|null $country_code country_code
+     * @param string $country_code Two-letter IRS country code (e.g., 'US', 'CA'), as defined at https://www.irs.gov/e-file-providers/country-codes.
      *
      * @return self
      */
     public function setCountryCode($country_code)
     {
         $this->container['country_code'] = $country_code;
+
+        return $this;
+    }
+
+    /**
+     * Gets federal_efile_date
+     *
+     * @return \DateTime|null
+     */
+    public function getFederalEfileDate()
+    {
+        return $this->container['federal_efile_date'];
+    }
+
+    /**
+     * Sets federal_efile_date
+     *
+     * @param \DateTime|null $federal_efile_date Date when federal e-filing should be scheduled for this form
+     *
+     * @return self
+     */
+    public function setFederalEfileDate($federal_efile_date)
+    {
+        $this->container['federal_efile_date'] = $federal_efile_date;
+
+        return $this;
+    }
+
+    /**
+     * Gets postal_mail
+     *
+     * @return bool|null
+     */
+    public function getPostalMail()
+    {
+        return $this->container['postal_mail'];
+    }
+
+    /**
+     * Sets postal_mail
+     *
+     * @param bool|null $postal_mail Boolean indicating that postal mailing to the recipient should be scheduled for this form
+     *
+     * @return self
+     */
+    public function setPostalMail($postal_mail)
+    {
+        $this->container['postal_mail'] = $postal_mail;
+
+        return $this;
+    }
+
+    /**
+     * Gets state_efile_date
+     *
+     * @return \DateTime|null
+     */
+    public function getStateEfileDate()
+    {
+        return $this->container['state_efile_date'];
+    }
+
+    /**
+     * Sets state_efile_date
+     *
+     * @param \DateTime|null $state_efile_date Date when state e-filing should be scheduled for this form
+     *
+     * @return self
+     */
+    public function setStateEfileDate($state_efile_date)
+    {
+        $this->container['state_efile_date'] = $state_efile_date;
+
+        return $this;
+    }
+
+    /**
+     * Gets recipient_edelivery_date
+     *
+     * @return \DateTime|null
+     */
+    public function getRecipientEdeliveryDate()
+    {
+        return $this->container['recipient_edelivery_date'];
+    }
+
+    /**
+     * Sets recipient_edelivery_date
+     *
+     * @param \DateTime|null $recipient_edelivery_date Date when recipient e-delivery should be scheduled for this form
+     *
+     * @return self
+     */
+    public function setRecipientEdeliveryDate($recipient_edelivery_date)
+    {
+        $this->container['recipient_edelivery_date'] = $recipient_edelivery_date;
+
+        return $this;
+    }
+
+    /**
+     * Gets tin_match
+     *
+     * @return bool|null
+     */
+    public function getTinMatch()
+    {
+        return $this->container['tin_match'];
+    }
+
+    /**
+     * Sets tin_match
+     *
+     * @param bool|null $tin_match Boolean indicating that TIN Matching should be scheduled for this form
+     *
+     * @return self
+     */
+    public function setTinMatch($tin_match)
+    {
+        $this->container['tin_match'] = $tin_match;
+
+        return $this;
+    }
+
+    /**
+     * Gets no_tin
+     *
+     * @return bool|null
+     */
+    public function getNoTin()
+    {
+        return $this->container['no_tin'];
+    }
+
+    /**
+     * Sets no_tin
+     *
+     * @param bool|null $no_tin No TIN indicator
+     *
+     * @return self
+     */
+    public function setNoTin($no_tin)
+    {
+        $this->container['no_tin'] = $no_tin;
+
+        return $this;
+    }
+
+    /**
+     * Gets address_verification
+     *
+     * @return bool|null
+     */
+    public function getAddressVerification()
+    {
+        return $this->container['address_verification'];
+    }
+
+    /**
+     * Sets address_verification
+     *
+     * @param bool|null $address_verification Boolean indicating that address verification should be scheduled for this form
+     *
+     * @return self
+     */
+    public function setAddressVerification($address_verification)
+    {
+        $this->container['address_verification'] = $address_verification;
+
+        return $this;
+    }
+
+    /**
+     * Gets state_and_local_withholding
+     *
+     * @return \Avalara\SDK\Model\A1099\V2\StateAndLocalWithholding|null
+     */
+    public function getStateAndLocalWithholding()
+    {
+        return $this->container['state_and_local_withholding'];
+    }
+
+    /**
+     * Sets state_and_local_withholding
+     *
+     * @param \Avalara\SDK\Model\A1099\V2\StateAndLocalWithholding|null $state_and_local_withholding State and local withholding information
+     *
+     * @return self
+     */
+    public function setStateAndLocalWithholding($state_and_local_withholding)
+    {
+        $this->container['state_and_local_withholding'] = $state_and_local_withholding;
+
+        return $this;
+    }
+
+    /**
+     * Gets second_tin_notice
+     *
+     * @return bool|null
+     */
+    public function getSecondTinNotice()
+    {
+        return $this->container['second_tin_notice'];
+    }
+
+    /**
+     * Sets second_tin_notice
+     *
+     * @param bool|null $second_tin_notice Second TIN notice
+     *
+     * @return self
+     */
+    public function setSecondTinNotice($second_tin_notice)
+    {
+        $this->container['second_tin_notice'] = $second_tin_notice;
+
+        return $this;
+    }
+
+    /**
+     * Gets federal_efile_status
+     *
+     * @return \Avalara\SDK\Model\A1099\V2\Form1099StatusDetail|null
+     */
+    public function getFederalEfileStatus()
+    {
+        return $this->container['federal_efile_status'];
+    }
+
+    /**
+     * Sets federal_efile_status
+     *
+     * @param \Avalara\SDK\Model\A1099\V2\Form1099StatusDetail|null $federal_efile_status Federal e-file status
+     *
+     * @return self
+     */
+    public function setFederalEfileStatus($federal_efile_status)
+    {
+        $this->container['federal_efile_status'] = $federal_efile_status;
+
+        return $this;
+    }
+
+    /**
+     * Gets state_efile_status
+     *
+     * @return \Avalara\SDK\Model\A1099\V2\StateEfileStatusDetail[]|null
+     */
+    public function getStateEfileStatus()
+    {
+        return $this->container['state_efile_status'];
+    }
+
+    /**
+     * Sets state_efile_status
+     *
+     * @param \Avalara\SDK\Model\A1099\V2\StateEfileStatusDetail[]|null $state_efile_status State e-file status
+     *
+     * @return self
+     */
+    public function setStateEfileStatus($state_efile_status)
+    {
+
+
+        $this->container['state_efile_status'] = $state_efile_status;
+
+        return $this;
+    }
+
+    /**
+     * Gets postal_mail_status
+     *
+     * @return \Avalara\SDK\Model\A1099\V2\Form1099StatusDetail|null
+     */
+    public function getPostalMailStatus()
+    {
+        return $this->container['postal_mail_status'];
+    }
+
+    /**
+     * Sets postal_mail_status
+     *
+     * @param \Avalara\SDK\Model\A1099\V2\Form1099StatusDetail|null $postal_mail_status Postal mail to recipient status
+     *
+     * @return self
+     */
+    public function setPostalMailStatus($postal_mail_status)
+    {
+        $this->container['postal_mail_status'] = $postal_mail_status;
+
+        return $this;
+    }
+
+    /**
+     * Gets tin_match_status
+     *
+     * @return \Avalara\SDK\Model\A1099\V2\Form1099StatusDetail|null
+     */
+    public function getTinMatchStatus()
+    {
+        return $this->container['tin_match_status'];
+    }
+
+    /**
+     * Sets tin_match_status
+     *
+     * @param \Avalara\SDK\Model\A1099\V2\Form1099StatusDetail|null $tin_match_status TIN Match status
+     *
+     * @return self
+     */
+    public function setTinMatchStatus($tin_match_status)
+    {
+        $this->container['tin_match_status'] = $tin_match_status;
+
+        return $this;
+    }
+
+    /**
+     * Gets address_verification_status
+     *
+     * @return \Avalara\SDK\Model\A1099\V2\Form1099StatusDetail|null
+     */
+    public function getAddressVerificationStatus()
+    {
+        return $this->container['address_verification_status'];
+    }
+
+    /**
+     * Sets address_verification_status
+     *
+     * @param \Avalara\SDK\Model\A1099\V2\Form1099StatusDetail|null $address_verification_status Address verification status
+     *
+     * @return self
+     */
+    public function setAddressVerificationStatus($address_verification_status)
+    {
+        $this->container['address_verification_status'] = $address_verification_status;
+
+        return $this;
+    }
+
+    /**
+     * Gets e_delivery_status
+     *
+     * @return \Avalara\SDK\Model\A1099\V2\Form1099StatusDetail|null
+     */
+    public function getEDeliveryStatus()
+    {
+        return $this->container['e_delivery_status'];
+    }
+
+    /**
+     * Sets e_delivery_status
+     *
+     * @param \Avalara\SDK\Model\A1099\V2\Form1099StatusDetail|null $e_delivery_status EDelivery status
+     *
+     * @return self
+     */
+    public function setEDeliveryStatus($e_delivery_status)
+    {
+        $this->container['e_delivery_status'] = $e_delivery_status;
 
         return $this;
     }
@@ -1790,7 +2098,7 @@ class Form1099K implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets validation_errors
      *
-     * @param \Avalara\SDK\Model\A1099\V2\ValidationError[]|null $validation_errors validation_errors
+     * @param \Avalara\SDK\Model\A1099\V2\ValidationError[]|null $validation_errors Validation errors
      *
      * @return self
      */
@@ -1816,7 +2124,7 @@ class Form1099K implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets created_at
      *
-     * @param \DateTime|null $created_at created_at
+     * @param \DateTime|null $created_at Date time when the record was created.
      *
      * @return self
      */
@@ -1840,37 +2148,13 @@ class Form1099K implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets updated_at
      *
-     * @param \DateTime|null $updated_at updated_at
+     * @param \DateTime|null $updated_at Date time when the record was last updated.
      *
      * @return self
      */
     public function setUpdatedAt($updated_at)
     {
         $this->container['updated_at'] = $updated_at;
-
-        return $this;
-    }
-
-    /**
-     * Gets state_and_local_withholding
-     *
-     * @return \Avalara\SDK\Model\A1099\V2\StateAndLocalWithholding|null
-     */
-    public function getStateAndLocalWithholding()
-    {
-        return $this->container['state_and_local_withholding'];
-    }
-
-    /**
-     * Sets state_and_local_withholding
-     *
-     * @param \Avalara\SDK\Model\A1099\V2\StateAndLocalWithholding|null $state_and_local_withholding state_and_local_withholding
-     *
-     * @return self
-     */
-    public function setStateAndLocalWithholding($state_and_local_withholding)
-    {
-        $this->container['state_and_local_withholding'] = $state_and_local_withholding;
 
         return $this;
     }

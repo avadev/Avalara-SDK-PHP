@@ -91,11 +91,11 @@ class W4FormRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         'additional_withheld' => 'float',
         'exempt_from_withholding' => 'bool',
         'office_code' => 'string',
+        'e_delivery_consented_at' => '\DateTime',
+        'signature' => 'string',
         'company_id' => 'string',
         'reference_id' => 'string',
-        'email' => 'string',
-        'e_delivery_consented_at' => '\DateTime',
-        'signature' => 'string'
+        'email' => 'string'
     ];
 
     /**
@@ -126,11 +126,11 @@ class W4FormRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         'additional_withheld' => 'float',
         'exempt_from_withholding' => null,
         'office_code' => null,
+        'e_delivery_consented_at' => 'date-time',
+        'signature' => null,
         'company_id' => null,
         'reference_id' => null,
-        'email' => null,
-        'e_delivery_consented_at' => 'date-time',
-        'signature' => null
+        'email' => null
     ];
 
     /**
@@ -180,11 +180,11 @@ class W4FormRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         'additional_withheld' => 'additionalWithheld',
         'exempt_from_withholding' => 'exemptFromWithholding',
         'office_code' => 'officeCode',
+        'e_delivery_consented_at' => 'eDeliveryConsentedAt',
+        'signature' => 'signature',
         'company_id' => 'companyId',
         'reference_id' => 'referenceId',
-        'email' => 'email',
-        'e_delivery_consented_at' => 'eDeliveryConsentedAt',
-        'signature' => 'signature'
+        'email' => 'email'
     ];
 
     /**
@@ -213,11 +213,11 @@ class W4FormRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         'additional_withheld' => 'setAdditionalWithheld',
         'exempt_from_withholding' => 'setExemptFromWithholding',
         'office_code' => 'setOfficeCode',
+        'e_delivery_consented_at' => 'setEDeliveryConsentedAt',
+        'signature' => 'setSignature',
         'company_id' => 'setCompanyId',
         'reference_id' => 'setReferenceId',
-        'email' => 'setEmail',
-        'e_delivery_consented_at' => 'setEDeliveryConsentedAt',
-        'signature' => 'setSignature'
+        'email' => 'setEmail'
     ];
 
     /**
@@ -246,11 +246,11 @@ class W4FormRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         'additional_withheld' => 'getAdditionalWithheld',
         'exempt_from_withholding' => 'getExemptFromWithholding',
         'office_code' => 'getOfficeCode',
+        'e_delivery_consented_at' => 'getEDeliveryConsentedAt',
+        'signature' => 'getSignature',
         'company_id' => 'getCompanyId',
         'reference_id' => 'getReferenceId',
-        'email' => 'getEmail',
-        'e_delivery_consented_at' => 'getEDeliveryConsentedAt',
-        'signature' => 'getSignature'
+        'email' => 'getEmail'
     ];
 
     /**
@@ -351,11 +351,11 @@ class W4FormRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['additional_withheld'] = $data['additional_withheld'] ?? null;
         $this->container['exempt_from_withholding'] = $data['exempt_from_withholding'] ?? null;
         $this->container['office_code'] = $data['office_code'] ?? null;
+        $this->container['e_delivery_consented_at'] = $data['e_delivery_consented_at'] ?? null;
+        $this->container['signature'] = $data['signature'] ?? null;
         $this->container['company_id'] = $data['company_id'] ?? null;
         $this->container['reference_id'] = $data['reference_id'] ?? null;
         $this->container['email'] = $data['email'] ?? null;
-        $this->container['e_delivery_consented_at'] = $data['e_delivery_consented_at'] ?? null;
-        $this->container['signature'] = $data['signature'] ?? null;
     }
 
     /**
@@ -374,6 +374,13 @@ class W4FormRequest implements ModelInterface, ArrayAccess, \JsonSerializable
                 $this->container['type'],
                 implode("', '", $allowedValues)
             );
+        }
+
+        if ($this->container['company_id'] === null) {
+            $invalidProperties[] = "'company_id' can't be null";
+        }
+        if ((mb_strlen($this->container['company_id']) < 1)) {
+            $invalidProperties[] = "invalid value for 'company_id', the character length must be bigger than or equal to 1.";
         }
 
         return $invalidProperties;
@@ -882,9 +889,57 @@ class W4FormRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets company_id
+     * Gets e_delivery_consented_at
+     *
+     * @return \DateTime|null
+     */
+    public function getEDeliveryConsentedAt()
+    {
+        return $this->container['e_delivery_consented_at'];
+    }
+
+    /**
+     * Sets e_delivery_consented_at
+     *
+     * @param \DateTime|null $e_delivery_consented_at The date when e-delivery was consented.
+     *
+     * @return self
+     */
+    public function setEDeliveryConsentedAt($e_delivery_consented_at)
+    {
+        $this->container['e_delivery_consented_at'] = $e_delivery_consented_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets signature
      *
      * @return string|null
+     */
+    public function getSignature()
+    {
+        return $this->container['signature'];
+    }
+
+    /**
+     * Sets signature
+     *
+     * @param string|null $signature The signature of the form.
+     *
+     * @return self
+     */
+    public function setSignature($signature)
+    {
+        $this->container['signature'] = $signature;
+
+        return $this;
+    }
+
+    /**
+     * Gets company_id
+     *
+     * @return string
      */
     public function getCompanyId()
     {
@@ -894,12 +949,17 @@ class W4FormRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets company_id
      *
-     * @param string|null $company_id The ID of the associated company.
+     * @param string $company_id The ID of the associated company.
      *
      * @return self
      */
     public function setCompanyId($company_id)
     {
+
+        if ((mb_strlen($company_id) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $company_id when calling W4FormRequest., must be bigger than or equal to 1.');
+        }
+
         $this->container['company_id'] = $company_id;
 
         return $this;
@@ -949,54 +1009,6 @@ class W4FormRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setEmail($email)
     {
         $this->container['email'] = $email;
-
-        return $this;
-    }
-
-    /**
-     * Gets e_delivery_consented_at
-     *
-     * @return \DateTime|null
-     */
-    public function getEDeliveryConsentedAt()
-    {
-        return $this->container['e_delivery_consented_at'];
-    }
-
-    /**
-     * Sets e_delivery_consented_at
-     *
-     * @param \DateTime|null $e_delivery_consented_at The date when e-delivery was consented.
-     *
-     * @return self
-     */
-    public function setEDeliveryConsentedAt($e_delivery_consented_at)
-    {
-        $this->container['e_delivery_consented_at'] = $e_delivery_consented_at;
-
-        return $this;
-    }
-
-    /**
-     * Gets signature
-     *
-     * @return string|null
-     */
-    public function getSignature()
-    {
-        return $this->container['signature'];
-    }
-
-    /**
-     * Sets signature
-     *
-     * @param string|null $signature The signature of the form.
-     *
-     * @return self
-     */
-    public function setSignature($signature)
-    {
-        $this->container['signature'] = $signature;
 
         return $this;
     }

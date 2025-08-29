@@ -183,11 +183,11 @@ class W8ImyFormRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         'sponsored_direct_reporting_nffe_certification' => 'bool',
         'direct_reporting_nffe_sponsoring_entity' => 'string',
         'signer_name' => 'string',
+        'e_delivery_consented_at' => '\DateTime',
+        'signature' => 'string',
         'company_id' => 'string',
         'reference_id' => 'string',
-        'email' => 'string',
-        'e_delivery_consented_at' => '\DateTime',
-        'signature' => 'string'
+        'email' => 'string'
     ];
 
     /**
@@ -310,11 +310,11 @@ class W8ImyFormRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         'sponsored_direct_reporting_nffe_certification' => null,
         'direct_reporting_nffe_sponsoring_entity' => null,
         'signer_name' => null,
+        'e_delivery_consented_at' => 'date-time',
+        'signature' => null,
         'company_id' => null,
         'reference_id' => null,
-        'email' => null,
-        'e_delivery_consented_at' => 'date-time',
-        'signature' => null
+        'email' => null
     ];
 
     /**
@@ -456,11 +456,11 @@ class W8ImyFormRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         'sponsored_direct_reporting_nffe_certification' => 'sponsoredDirectReportingNffeCertification',
         'direct_reporting_nffe_sponsoring_entity' => 'directReportingNffeSponsoringEntity',
         'signer_name' => 'signerName',
+        'e_delivery_consented_at' => 'eDeliveryConsentedAt',
+        'signature' => 'signature',
         'company_id' => 'companyId',
         'reference_id' => 'referenceId',
-        'email' => 'email',
-        'e_delivery_consented_at' => 'eDeliveryConsentedAt',
-        'signature' => 'signature'
+        'email' => 'email'
     ];
 
     /**
@@ -581,11 +581,11 @@ class W8ImyFormRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         'sponsored_direct_reporting_nffe_certification' => 'setSponsoredDirectReportingNffeCertification',
         'direct_reporting_nffe_sponsoring_entity' => 'setDirectReportingNffeSponsoringEntity',
         'signer_name' => 'setSignerName',
+        'e_delivery_consented_at' => 'setEDeliveryConsentedAt',
+        'signature' => 'setSignature',
         'company_id' => 'setCompanyId',
         'reference_id' => 'setReferenceId',
-        'email' => 'setEmail',
-        'e_delivery_consented_at' => 'setEDeliveryConsentedAt',
-        'signature' => 'setSignature'
+        'email' => 'setEmail'
     ];
 
     /**
@@ -706,11 +706,11 @@ class W8ImyFormRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         'sponsored_direct_reporting_nffe_certification' => 'getSponsoredDirectReportingNffeCertification',
         'direct_reporting_nffe_sponsoring_entity' => 'getDirectReportingNffeSponsoringEntity',
         'signer_name' => 'getSignerName',
+        'e_delivery_consented_at' => 'getEDeliveryConsentedAt',
+        'signature' => 'getSignature',
         'company_id' => 'getCompanyId',
         'reference_id' => 'getReferenceId',
-        'email' => 'getEmail',
-        'e_delivery_consented_at' => 'getEDeliveryConsentedAt',
-        'signature' => 'getSignature'
+        'email' => 'getEmail'
     ];
 
     /**
@@ -903,11 +903,11 @@ class W8ImyFormRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['sponsored_direct_reporting_nffe_certification'] = $data['sponsored_direct_reporting_nffe_certification'] ?? null;
         $this->container['direct_reporting_nffe_sponsoring_entity'] = $data['direct_reporting_nffe_sponsoring_entity'] ?? null;
         $this->container['signer_name'] = $data['signer_name'] ?? null;
+        $this->container['e_delivery_consented_at'] = $data['e_delivery_consented_at'] ?? null;
+        $this->container['signature'] = $data['signature'] ?? null;
         $this->container['company_id'] = $data['company_id'] ?? null;
         $this->container['reference_id'] = $data['reference_id'] ?? null;
         $this->container['email'] = $data['email'] ?? null;
-        $this->container['e_delivery_consented_at'] = $data['e_delivery_consented_at'] ?? null;
-        $this->container['signature'] = $data['signature'] ?? null;
     }
 
     /**
@@ -926,6 +926,13 @@ class W8ImyFormRequest implements ModelInterface, ArrayAccess, \JsonSerializable
                 $this->container['type'],
                 implode("', '", $allowedValues)
             );
+        }
+
+        if ($this->container['company_id'] === null) {
+            $invalidProperties[] = "'company_id' can't be null";
+        }
+        if ((mb_strlen($this->container['company_id']) < 1)) {
+            $invalidProperties[] = "invalid value for 'company_id', the character length must be bigger than or equal to 1.";
         }
 
         return $invalidProperties;
@@ -3642,9 +3649,57 @@ class W8ImyFormRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets company_id
+     * Gets e_delivery_consented_at
+     *
+     * @return \DateTime|null
+     */
+    public function getEDeliveryConsentedAt()
+    {
+        return $this->container['e_delivery_consented_at'];
+    }
+
+    /**
+     * Sets e_delivery_consented_at
+     *
+     * @param \DateTime|null $e_delivery_consented_at The date when e-delivery was consented.
+     *
+     * @return self
+     */
+    public function setEDeliveryConsentedAt($e_delivery_consented_at)
+    {
+        $this->container['e_delivery_consented_at'] = $e_delivery_consented_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets signature
      *
      * @return string|null
+     */
+    public function getSignature()
+    {
+        return $this->container['signature'];
+    }
+
+    /**
+     * Sets signature
+     *
+     * @param string|null $signature The signature of the form.
+     *
+     * @return self
+     */
+    public function setSignature($signature)
+    {
+        $this->container['signature'] = $signature;
+
+        return $this;
+    }
+
+    /**
+     * Gets company_id
+     *
+     * @return string
      */
     public function getCompanyId()
     {
@@ -3654,12 +3709,17 @@ class W8ImyFormRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets company_id
      *
-     * @param string|null $company_id The ID of the associated company.
+     * @param string $company_id The ID of the associated company.
      *
      * @return self
      */
     public function setCompanyId($company_id)
     {
+
+        if ((mb_strlen($company_id) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $company_id when calling W8ImyFormRequest., must be bigger than or equal to 1.');
+        }
+
         $this->container['company_id'] = $company_id;
 
         return $this;
@@ -3709,54 +3769,6 @@ class W8ImyFormRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setEmail($email)
     {
         $this->container['email'] = $email;
-
-        return $this;
-    }
-
-    /**
-     * Gets e_delivery_consented_at
-     *
-     * @return \DateTime|null
-     */
-    public function getEDeliveryConsentedAt()
-    {
-        return $this->container['e_delivery_consented_at'];
-    }
-
-    /**
-     * Sets e_delivery_consented_at
-     *
-     * @param \DateTime|null $e_delivery_consented_at The date when e-delivery was consented.
-     *
-     * @return self
-     */
-    public function setEDeliveryConsentedAt($e_delivery_consented_at)
-    {
-        $this->container['e_delivery_consented_at'] = $e_delivery_consented_at;
-
-        return $this;
-    }
-
-    /**
-     * Gets signature
-     *
-     * @return string|null
-     */
-    public function getSignature()
-    {
-        return $this->container['signature'];
-    }
-
-    /**
-     * Sets signature
-     *
-     * @param string|null $signature The signature of the form.
-     *
-     * @return self
-     */
-    public function setSignature($signature)
-    {
-        $this->container['signature'] = $signature;
 
         return $this;
     }

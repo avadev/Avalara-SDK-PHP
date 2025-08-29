@@ -72,8 +72,10 @@ class IssuerResponse implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'id' => 'string',
+        'created_at' => '\DateTime',
+        'updated_at' => '\DateTime',
         'name' => 'string',
-        'name_dba' => 'string',
+        'dba_name' => 'string',
         'tin' => 'string',
         'reference_id' => 'string',
         'telephone' => 'string',
@@ -86,9 +88,7 @@ class IssuerResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         'zip' => 'string',
         'foreign_province' => 'string',
         'transfer_agent_name' => 'string',
-        'last_filing' => 'bool',
-        'created_at' => '\DateTime',
-        'updated_at' => '\DateTime'
+        'last_filing' => 'bool'
     ];
 
     /**
@@ -100,8 +100,10 @@ class IssuerResponse implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPIFormats = [
         'id' => null,
+        'created_at' => 'date-time',
+        'updated_at' => 'date-time',
         'name' => null,
-        'name_dba' => null,
+        'dba_name' => null,
         'tin' => null,
         'reference_id' => null,
         'telephone' => null,
@@ -114,9 +116,7 @@ class IssuerResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         'zip' => null,
         'foreign_province' => null,
         'transfer_agent_name' => null,
-        'last_filing' => null,
-        'created_at' => 'date-time',
-        'updated_at' => 'date-time'
+        'last_filing' => null
     ];
 
     /**
@@ -147,8 +147,10 @@ class IssuerResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $attributeMap = [
         'id' => 'id',
+        'created_at' => 'createdAt',
+        'updated_at' => 'updatedAt',
         'name' => 'name',
-        'name_dba' => 'nameDba',
+        'dba_name' => 'dbaName',
         'tin' => 'tin',
         'reference_id' => 'referenceId',
         'telephone' => 'telephone',
@@ -161,9 +163,7 @@ class IssuerResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         'zip' => 'zip',
         'foreign_province' => 'foreignProvince',
         'transfer_agent_name' => 'transferAgentName',
-        'last_filing' => 'lastFiling',
-        'created_at' => 'createdAt',
-        'updated_at' => 'updatedAt'
+        'last_filing' => 'lastFiling'
     ];
 
     /**
@@ -173,8 +173,10 @@ class IssuerResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $setters = [
         'id' => 'setId',
+        'created_at' => 'setCreatedAt',
+        'updated_at' => 'setUpdatedAt',
         'name' => 'setName',
-        'name_dba' => 'setNameDba',
+        'dba_name' => 'setDbaName',
         'tin' => 'setTin',
         'reference_id' => 'setReferenceId',
         'telephone' => 'setTelephone',
@@ -187,9 +189,7 @@ class IssuerResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         'zip' => 'setZip',
         'foreign_province' => 'setForeignProvince',
         'transfer_agent_name' => 'setTransferAgentName',
-        'last_filing' => 'setLastFiling',
-        'created_at' => 'setCreatedAt',
-        'updated_at' => 'setUpdatedAt'
+        'last_filing' => 'setLastFiling'
     ];
 
     /**
@@ -199,8 +199,10 @@ class IssuerResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $getters = [
         'id' => 'getId',
+        'created_at' => 'getCreatedAt',
+        'updated_at' => 'getUpdatedAt',
         'name' => 'getName',
-        'name_dba' => 'getNameDba',
+        'dba_name' => 'getDbaName',
         'tin' => 'getTin',
         'reference_id' => 'getReferenceId',
         'telephone' => 'getTelephone',
@@ -213,9 +215,7 @@ class IssuerResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         'zip' => 'getZip',
         'foreign_province' => 'getForeignProvince',
         'transfer_agent_name' => 'getTransferAgentName',
-        'last_filing' => 'getLastFiling',
-        'created_at' => 'getCreatedAt',
-        'updated_at' => 'getUpdatedAt'
+        'last_filing' => 'getLastFiling'
     ];
 
     /**
@@ -276,8 +276,10 @@ class IssuerResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     public function __construct(array $data = null)
     {
         $this->container['id'] = $data['id'] ?? null;
+        $this->container['created_at'] = $data['created_at'] ?? null;
+        $this->container['updated_at'] = $data['updated_at'] ?? null;
         $this->container['name'] = $data['name'] ?? null;
-        $this->container['name_dba'] = $data['name_dba'] ?? null;
+        $this->container['dba_name'] = $data['dba_name'] ?? null;
         $this->container['tin'] = $data['tin'] ?? null;
         $this->container['reference_id'] = $data['reference_id'] ?? null;
         $this->container['telephone'] = $data['telephone'] ?? null;
@@ -291,8 +293,6 @@ class IssuerResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['foreign_province'] = $data['foreign_province'] ?? null;
         $this->container['transfer_agent_name'] = $data['transfer_agent_name'] ?? null;
         $this->container['last_filing'] = $data['last_filing'] ?? null;
-        $this->container['created_at'] = $data['created_at'] ?? null;
-        $this->container['updated_at'] = $data['updated_at'] ?? null;
     }
 
     /**
@@ -304,6 +304,33 @@ class IssuerResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
+        if ($this->container['name'] === null) {
+            $invalidProperties[] = "'name' can't be null";
+        }
+        if ($this->container['telephone'] === null) {
+            $invalidProperties[] = "'telephone' can't be null";
+        }
+        if ($this->container['tax_year'] === null) {
+            $invalidProperties[] = "'tax_year' can't be null";
+        }
+        if ($this->container['email'] === null) {
+            $invalidProperties[] = "'email' can't be null";
+        }
+        if ($this->container['address'] === null) {
+            $invalidProperties[] = "'address' can't be null";
+        }
+        if ($this->container['city'] === null) {
+            $invalidProperties[] = "'city' can't be null";
+        }
+        if ($this->container['state'] === null) {
+            $invalidProperties[] = "'state' can't be null";
+        }
+        if ($this->container['zip'] === null) {
+            $invalidProperties[] = "'zip' can't be null";
+        }
+        if ($this->container['last_filing'] === null) {
+            $invalidProperties[] = "'last_filing' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -332,373 +359,13 @@ class IssuerResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets id
      *
-     * @param string|null $id Unique identifier set when the record is created
+     * @param string|null $id Unique identifier set when the record is created.
      *
      * @return self
      */
     public function setId($id)
     {
         $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets name
-     *
-     * @return string|null
-     */
-    public function getName()
-    {
-        return $this->container['name'];
-    }
-
-    /**
-     * Sets name
-     *
-     * @param string|null $name Legal name, not DBA
-     *
-     * @return self
-     */
-    public function setName($name)
-    {
-        $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets name_dba
-     *
-     * @return string|null
-     */
-    public function getNameDba()
-    {
-        return $this->container['name_dba'];
-    }
-
-    /**
-     * Sets name_dba
-     *
-     * @param string|null $name_dba Optional DBA name or continuation of a long legal name
-     *
-     * @return self
-     */
-    public function setNameDba($name_dba)
-    {
-        $this->container['name_dba'] = $name_dba;
-
-        return $this;
-    }
-
-    /**
-     * Gets tin
-     *
-     * @return string|null
-     */
-    public function getTin()
-    {
-        return $this->container['tin'];
-    }
-
-    /**
-     * Sets tin
-     *
-     * @param string|null $tin Tax identification number
-     *
-     * @return self
-     */
-    public function setTin($tin)
-    {
-        $this->container['tin'] = $tin;
-
-        return $this;
-    }
-
-    /**
-     * Gets reference_id
-     *
-     * @return string|null
-     */
-    public function getReferenceId()
-    {
-        return $this->container['reference_id'];
-    }
-
-    /**
-     * Sets reference_id
-     *
-     * @param string|null $reference_id Optional identifier for your reference, never shown to any agency or recipient.  We will also prefix download filenames with this value, if present.  Can only include letters, numbers, dashes, underscores and spaces.
-     *
-     * @return self
-     */
-    public function setReferenceId($reference_id)
-    {
-        $this->container['reference_id'] = $reference_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets telephone
-     *
-     * @return string|null
-     */
-    public function getTelephone()
-    {
-        return $this->container['telephone'];
-    }
-
-    /**
-     * Sets telephone
-     *
-     * @param string|null $telephone Telephone number
-     *
-     * @return self
-     */
-    public function setTelephone($telephone)
-    {
-        $this->container['telephone'] = $telephone;
-
-        return $this;
-    }
-
-    /**
-     * Gets tax_year
-     *
-     * @return int|null
-     */
-    public function getTaxYear()
-    {
-        return $this->container['tax_year'];
-    }
-
-    /**
-     * Sets tax_year
-     *
-     * @param int|null $tax_year Tax year
-     *
-     * @return self
-     */
-    public function setTaxYear($tax_year)
-    {
-        $this->container['tax_year'] = $tax_year;
-
-        return $this;
-    }
-
-    /**
-     * Gets country_code
-     *
-     * @return string|null
-     */
-    public function getCountryCode()
-    {
-        return $this->container['country_code'];
-    }
-
-    /**
-     * Sets country_code
-     *
-     * @param string|null $country_code If there is a transfer agent, use the address of the transfer agent.
-     *
-     * @return self
-     */
-    public function setCountryCode($country_code)
-    {
-        $this->container['country_code'] = $country_code;
-
-        return $this;
-    }
-
-    /**
-     * Gets email
-     *
-     * @return string|null
-     */
-    public function getEmail()
-    {
-        return $this->container['email'];
-    }
-
-    /**
-     * Sets email
-     *
-     * @param string|null $email Email address
-     *
-     * @return self
-     */
-    public function setEmail($email)
-    {
-        $this->container['email'] = $email;
-
-        return $this;
-    }
-
-    /**
-     * Gets address
-     *
-     * @return string|null
-     */
-    public function getAddress()
-    {
-        return $this->container['address'];
-    }
-
-    /**
-     * Sets address
-     *
-     * @param string|null $address Address
-     *
-     * @return self
-     */
-    public function setAddress($address)
-    {
-        $this->container['address'] = $address;
-
-        return $this;
-    }
-
-    /**
-     * Gets city
-     *
-     * @return string|null
-     */
-    public function getCity()
-    {
-        return $this->container['city'];
-    }
-
-    /**
-     * Sets city
-     *
-     * @param string|null $city City
-     *
-     * @return self
-     */
-    public function setCity($city)
-    {
-        $this->container['city'] = $city;
-
-        return $this;
-    }
-
-    /**
-     * Gets state
-     *
-     * @return string|null
-     */
-    public function getState()
-    {
-        return $this->container['state'];
-    }
-
-    /**
-     * Sets state
-     *
-     * @param string|null $state State
-     *
-     * @return self
-     */
-    public function setState($state)
-    {
-        $this->container['state'] = $state;
-
-        return $this;
-    }
-
-    /**
-     * Gets zip
-     *
-     * @return string|null
-     */
-    public function getZip()
-    {
-        return $this->container['zip'];
-    }
-
-    /**
-     * Sets zip
-     *
-     * @param string|null $zip Zip code
-     *
-     * @return self
-     */
-    public function setZip($zip)
-    {
-        $this->container['zip'] = $zip;
-
-        return $this;
-    }
-
-    /**
-     * Gets foreign_province
-     *
-     * @return string|null
-     */
-    public function getForeignProvince()
-    {
-        return $this->container['foreign_province'];
-    }
-
-    /**
-     * Sets foreign_province
-     *
-     * @param string|null $foreign_province Foreign province
-     *
-     * @return self
-     */
-    public function setForeignProvince($foreign_province)
-    {
-        $this->container['foreign_province'] = $foreign_province;
-
-        return $this;
-    }
-
-    /**
-     * Gets transfer_agent_name
-     *
-     * @return string|null
-     */
-    public function getTransferAgentName()
-    {
-        return $this->container['transfer_agent_name'];
-    }
-
-    /**
-     * Sets transfer_agent_name
-     *
-     * @param string|null $transfer_agent_name Transfer Agent's Name
-     *
-     * @return self
-     */
-    public function setTransferAgentName($transfer_agent_name)
-    {
-        $this->container['transfer_agent_name'] = $transfer_agent_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets last_filing
-     *
-     * @return bool|null
-     */
-    public function getLastFiling()
-    {
-        return $this->container['last_filing'];
-    }
-
-    /**
-     * Sets last_filing
-     *
-     * @param bool|null $last_filing Last year of filing for this payer
-     *
-     * @return self
-     */
-    public function setLastFiling($last_filing)
-    {
-        $this->container['last_filing'] = $last_filing;
 
         return $this;
     }
@@ -716,7 +383,7 @@ class IssuerResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets created_at
      *
-     * @param \DateTime|null $created_at Date time when the issuer was created
+     * @param \DateTime|null $created_at Date time when the record was created.
      *
      * @return self
      */
@@ -740,13 +407,373 @@ class IssuerResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets updated_at
      *
-     * @param \DateTime|null $updated_at Date time when the issuer was updated
+     * @param \DateTime|null $updated_at Date time when the record was last updated.
      *
      * @return self
      */
     public function setUpdatedAt($updated_at)
     {
         $this->container['updated_at'] = $updated_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param string $name Legal name. Not the DBA name.
+     *
+     * @return self
+     */
+    public function setName($name)
+    {
+        $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets dba_name
+     *
+     * @return string|null
+     */
+    public function getDbaName()
+    {
+        return $this->container['dba_name'];
+    }
+
+    /**
+     * Sets dba_name
+     *
+     * @param string|null $dba_name Doing Business As (DBA) name or continuation of a long legal name. Use either this or 'transferAgentName'.
+     *
+     * @return self
+     */
+    public function setDbaName($dba_name)
+    {
+        $this->container['dba_name'] = $dba_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets tin
+     *
+     * @return string|null
+     */
+    public function getTin()
+    {
+        return $this->container['tin'];
+    }
+
+    /**
+     * Sets tin
+     *
+     * @param string|null $tin Federal Tax Identification Number (TIN).
+     *
+     * @return self
+     */
+    public function setTin($tin)
+    {
+        $this->container['tin'] = $tin;
+
+        return $this;
+    }
+
+    /**
+     * Gets reference_id
+     *
+     * @return string|null
+     */
+    public function getReferenceId()
+    {
+        return $this->container['reference_id'];
+    }
+
+    /**
+     * Sets reference_id
+     *
+     * @param string|null $reference_id Internal reference ID. Never shown to any agency or recipient. If present, it will prefix download filenames. Allowed characters: letters, numbers, dashes, underscores, and spaces.
+     *
+     * @return self
+     */
+    public function setReferenceId($reference_id)
+    {
+        $this->container['reference_id'] = $reference_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets telephone
+     *
+     * @return string
+     */
+    public function getTelephone()
+    {
+        return $this->container['telephone'];
+    }
+
+    /**
+     * Sets telephone
+     *
+     * @param string $telephone Contact phone number (must contain at least 10 digits, max 15 characters). For recipient inquiries.
+     *
+     * @return self
+     */
+    public function setTelephone($telephone)
+    {
+        $this->container['telephone'] = $telephone;
+
+        return $this;
+    }
+
+    /**
+     * Gets tax_year
+     *
+     * @return int
+     */
+    public function getTaxYear()
+    {
+        return $this->container['tax_year'];
+    }
+
+    /**
+     * Sets tax_year
+     *
+     * @param int $tax_year Tax year for which the forms are being filed (e.g., 2024). Must be within current tax year and current tax year - 4.
+     *
+     * @return self
+     */
+    public function setTaxYear($tax_year)
+    {
+        $this->container['tax_year'] = $tax_year;
+
+        return $this;
+    }
+
+    /**
+     * Gets country_code
+     *
+     * @return string|null
+     */
+    public function getCountryCode()
+    {
+        return $this->container['country_code'];
+    }
+
+    /**
+     * Sets country_code
+     *
+     * @param string|null $country_code Two-letter IRS country code (e.g., 'US', 'CA'), as defined at https://www.irs.gov/e-file-providers/country-codes. If there is a transfer agent, use the transfer agent's shipping address.
+     *
+     * @return self
+     */
+    public function setCountryCode($country_code)
+    {
+        $this->container['country_code'] = $country_code;
+
+        return $this;
+    }
+
+    /**
+     * Gets email
+     *
+     * @return string
+     */
+    public function getEmail()
+    {
+        return $this->container['email'];
+    }
+
+    /**
+     * Sets email
+     *
+     * @param string $email Contact email address. For recipient inquiries.
+     *
+     * @return self
+     */
+    public function setEmail($email)
+    {
+        $this->container['email'] = $email;
+
+        return $this;
+    }
+
+    /**
+     * Gets address
+     *
+     * @return string
+     */
+    public function getAddress()
+    {
+        return $this->container['address'];
+    }
+
+    /**
+     * Sets address
+     *
+     * @param string $address Address.
+     *
+     * @return self
+     */
+    public function setAddress($address)
+    {
+        $this->container['address'] = $address;
+
+        return $this;
+    }
+
+    /**
+     * Gets city
+     *
+     * @return string
+     */
+    public function getCity()
+    {
+        return $this->container['city'];
+    }
+
+    /**
+     * Sets city
+     *
+     * @param string $city City.
+     *
+     * @return self
+     */
+    public function setCity($city)
+    {
+        $this->container['city'] = $city;
+
+        return $this;
+    }
+
+    /**
+     * Gets state
+     *
+     * @return string
+     */
+    public function getState()
+    {
+        return $this->container['state'];
+    }
+
+    /**
+     * Sets state
+     *
+     * @param string $state Two-letter US state or Canadian province code (required for US/CA addresses).
+     *
+     * @return self
+     */
+    public function setState($state)
+    {
+        $this->container['state'] = $state;
+
+        return $this;
+    }
+
+    /**
+     * Gets zip
+     *
+     * @return string
+     */
+    public function getZip()
+    {
+        return $this->container['zip'];
+    }
+
+    /**
+     * Sets zip
+     *
+     * @param string $zip ZIP/postal code.
+     *
+     * @return self
+     */
+    public function setZip($zip)
+    {
+        $this->container['zip'] = $zip;
+
+        return $this;
+    }
+
+    /**
+     * Gets foreign_province
+     *
+     * @return string|null
+     */
+    public function getForeignProvince()
+    {
+        return $this->container['foreign_province'];
+    }
+
+    /**
+     * Sets foreign_province
+     *
+     * @param string|null $foreign_province Province or region for non-US/CA addresses.
+     *
+     * @return self
+     */
+    public function setForeignProvince($foreign_province)
+    {
+        $this->container['foreign_province'] = $foreign_province;
+
+        return $this;
+    }
+
+    /**
+     * Gets transfer_agent_name
+     *
+     * @return string|null
+     */
+    public function getTransferAgentName()
+    {
+        return $this->container['transfer_agent_name'];
+    }
+
+    /**
+     * Sets transfer_agent_name
+     *
+     * @param string|null $transfer_agent_name Name of the transfer agent, if applicable — optional; use either this or 'dbaName'.
+     *
+     * @return self
+     */
+    public function setTransferAgentName($transfer_agent_name)
+    {
+        $this->container['transfer_agent_name'] = $transfer_agent_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets last_filing
+     *
+     * @return bool
+     */
+    public function getLastFiling()
+    {
+        return $this->container['last_filing'];
+    }
+
+    /**
+     * Sets last_filing
+     *
+     * @param bool $last_filing Indicates if this is the issuer's final year filing.
+     *
+     * @return self
+     */
+    public function setLastFiling($last_filing)
+    {
+        $this->container['last_filing'] = $last_filing;
 
         return $this;
     }

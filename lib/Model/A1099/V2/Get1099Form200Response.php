@@ -71,45 +71,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
       * @var string[]
       */
     protected static $openAPITypes = [
-        'id' => 'string',
-        'type' => 'string',
-        'issuer_id' => 'int',
-        'issuer_reference_id' => 'string',
-        'issuer_tin' => 'string',
-        'tax_year' => 'int',
-        'federal_efile' => 'bool',
-        'federal_efile_status' => '\Avalara\SDK\Model\A1099\V2\StatusDetail',
-        'state_efile' => 'bool',
-        'state_efile_status' => '\Avalara\SDK\Model\A1099\V2\StateEfileStatusDetailResponse[]',
-        'postal_mail' => 'bool',
-        'postal_mail_status' => '\Avalara\SDK\Model\A1099\V2\StatusDetail',
-        'tin_match' => 'bool',
-        'tin_match_status' => '\Avalara\SDK\Model\A1099\V2\StatusDetail',
-        'address_verification' => 'bool',
-        'address_verification_status' => '\Avalara\SDK\Model\A1099\V2\StatusDetail',
-        'e_delivery_status' => '\Avalara\SDK\Model\A1099\V2\StatusDetail',
-        'reference_id' => 'string',
-        'email' => 'string',
         'tin_type' => 'string',
-        'tin' => 'string',
-        'no_tin' => 'bool',
-        'second_tin_notice' => 'bool',
-        'recipient_name' => 'string',
-        'recipient_second_name' => 'string',
-        'address' => 'string',
-        'address2' => 'string',
-        'city' => 'string',
-        'state' => 'string',
-        'zip' => 'string',
-        'non_us_province' => 'string',
-        'country_code' => 'string',
-        'account_number' => 'string',
-        'office_code' => 'string',
-        'fatca_filing_requirement' => 'bool',
-        'validation_errors' => '\Avalara\SDK\Model\A1099\V2\ValidationErrorResponse[]',
-        'created_at' => '\DateTime',
-        'updated_at' => '\DateTime',
-        'state_and_local_withholding' => '\Avalara\SDK\Model\A1099\V2\StateAndLocalWithholdingResponse',
         'unique_form_id' => 'string',
         'recipient_date_of_birth' => '\DateTime',
         'recipient_giin' => 'string',
@@ -131,28 +93,86 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
         'tax_paid_agent' => 'float',
         'chap3_status_code' => 'string',
         'chap4_status_code' => 'string',
-        'primary_withholding_agent' => '\Avalara\SDK\Model\A1099\V2\PrimaryWithholdingAgentResponse',
-        'intermediary_or_flow_through' => '\Avalara\SDK\Model\A1099\V2\IntermediaryOrFlowThroughResponse',
+        'primary_withholding_agent' => '\Avalara\SDK\Model\A1099\V2\PrimaryWithholdingAgent',
+        'intermediary_or_flow_through' => '\Avalara\SDK\Model\A1099\V2\IntermediaryOrFlowThrough',
+        'type' => 'string',
+        'id' => 'string',
+        'issuer_id' => 'string',
+        'issuer_reference_id' => 'string',
+        'issuer_tin' => 'string',
+        'tax_year' => 'int',
+        'reference_id' => 'string',
+        'tin' => 'string',
+        'recipient_name' => 'string',
+        'recipient_second_name' => 'string',
+        'address' => 'string',
+        'address2' => 'string',
+        'city' => 'string',
+        'state' => 'string',
+        'zip' => 'string',
+        'email' => 'string',
+        'account_number' => 'string',
+        'office_code' => 'string',
+        'non_us_province' => 'string',
+        'country_code' => 'string',
+        'federal_efile_date' => '\DateTime',
+        'postal_mail' => 'bool',
+        'state_efile_date' => '\DateTime',
+        'recipient_edelivery_date' => '\DateTime',
+        'tin_match' => 'bool',
+        'no_tin' => 'bool',
+        'address_verification' => 'bool',
+        'state_and_local_withholding' => '\Avalara\SDK\Model\A1099\V2\StateAndLocalWithholding',
+        'second_tin_notice' => 'bool',
+        'federal_efile_status' => '\Avalara\SDK\Model\A1099\V2\Form1099StatusDetail',
+        'state_efile_status' => '\Avalara\SDK\Model\A1099\V2\StateEfileStatusDetail[]',
+        'postal_mail_status' => '\Avalara\SDK\Model\A1099\V2\Form1099StatusDetail',
+        'tin_match_status' => '\Avalara\SDK\Model\A1099\V2\Form1099StatusDetail',
+        'address_verification_status' => '\Avalara\SDK\Model\A1099\V2\Form1099StatusDetail',
+        'e_delivery_status' => '\Avalara\SDK\Model\A1099\V2\Form1099StatusDetail',
+        'validation_errors' => '\Avalara\SDK\Model\A1099\V2\ValidationError[]',
+        'created_at' => '\DateTime',
+        'updated_at' => '\DateTime',
+        'employee_first_name' => 'string',
+        'employee_middle_name' => 'string',
+        'employee_last_name' => 'string',
+        'employee_name_suffix' => 'string',
+        'employee_date_of_birth' => '\DateTime',
         'origin_of_health_coverage_code' => 'string',
-        'covered_individuals' => '\Avalara\SDK\Model\A1099\V2\CoveredIndividualReferenceResponse[]',
-        'total_ordinary_dividends' => 'string',
-        'qualified_dividends' => 'string',
-        'total_capital_gain_distributions' => 'string',
-        'unrecaptured_section1250_gain' => 'string',
-        'section1202_gain' => 'string',
-        'collectibles_gain' => 'string',
-        'section897_ordinary_dividends' => 'string',
-        'section897_capital_gain' => 'string',
-        'nondividend_distributions' => 'string',
+        'covered_individuals' => '\Avalara\SDK\Model\A1099\V2\CoveredIndividual[]',
+        'plan_start_month' => 'string',
+        'employer_provided_si_coverage' => 'bool',
+        'offer_and_coverages' => '\Avalara\SDK\Model\A1099\V2\OfferAndCoverage[]',
+        'total_ordinary_dividends' => 'float',
+        'qualified_dividends' => 'float',
+        'total_capital_gain_distributions' => 'float',
+        'unrecaptured_section1250_gain' => 'float',
+        'section1202_gain' => 'float',
+        'collectibles_gain' => 'float',
+        'section897_ordinary_dividends' => 'float',
+        'section897_capital_gain' => 'float',
+        'nondividend_distributions' => 'float',
         'federal_income_tax_withheld' => 'float',
-        'section199_a_dividends' => 'string',
-        'investment_expenses' => 'string',
-        'foreign_tax_paid' => 'string',
+        'section199_a_dividends' => 'float',
+        'investment_expenses' => 'float',
+        'foreign_tax_paid' => 'float',
         'foreign_country_or_us_possession' => 'string',
-        'cash_liquidation_distributions' => 'string',
-        'noncash_liquidation_distributions' => 'string',
-        'exempt_interest_dividends' => 'string',
-        'specified_private_activity_bond_interest_dividends' => 'string',
+        'cash_liquidation_distributions' => 'float',
+        'noncash_liquidation_distributions' => 'float',
+        'exempt_interest_dividends' => 'float',
+        'specified_private_activity_bond_interest_dividends' => 'float',
+        'fatca_filing_requirement' => 'bool',
+        'interest_income' => 'float',
+        'early_withdrawal_penalty' => 'float',
+        'us_savings_bonds_interest' => 'float',
+        'foreign_country' => 'string',
+        'tax_exempt_interest' => 'float',
+        'specified_private_activity_bond_interest' => 'float',
+        'market_discount' => 'float',
+        'bond_premium' => 'float',
+        'bond_premium_on_treasury_obligations' => 'float',
+        'bond_premium_on_tax_exempt_bond' => 'float',
+        'tax_exempt_bond_cusip_number' => 'string',
         'filer_type' => 'string',
         'payment_type' => 'string',
         'payment_settlement_entity_name_phone_number' => 'string',
@@ -168,44 +188,42 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
         'june' => 'float',
         'july' => 'float',
         'august' => 'float',
-        'sept' => 'float',
+        'september' => 'float',
         'october' => 'float',
         'november' => 'float',
         'december' => 'float',
         'rents' => 'float',
         'royalties' => 'float',
         'other_income' => 'float',
-        'fed_income_tax_withheld' => 'float',
         'fishing_boat_proceeds' => 'float',
         'medical_and_health_care_payments' => 'float',
-        'substitute_payments' => 'float',
         'direct_sales_indicator' => 'bool',
+        'substitute_payments' => 'float',
         'crop_insurance_proceeds' => 'float',
-        'excess_golden_parachute_payments' => 'float',
         'gross_proceeds_paid_to_attorney' => 'float',
         'fish_purchased_for_resale' => 'float',
         'section409_a_deferrals' => 'float',
+        'excess_golden_parachute_payments' => 'float',
         'nonqualified_deferred_compensation' => 'float',
         'nonemployee_compensation' => 'float',
-        'gross_distributions' => 'float',
+        'gross_distribution' => 'float',
         'taxable_amount' => 'float',
         'taxable_amount_not_determined' => 'bool',
-        'total_distribution_indicator' => 'bool',
+        'total_distribution_determined' => 'bool',
         'capital_gain' => 'float',
-        'employee_contributions' => 'float',
-        'net_unrealized_appreciation' => 'float',
-        'distribution_code_required' => 'string',
-        'distribution_code_optional' => 'string',
-        'ira_sep_simple_indicator' => 'bool',
-        'total_ira_sep_simple_distribution' => 'float',
-        'other' => 'float',
-        'other_percent' => 'string',
-        'percentage_total_distribution' => 'string',
+        'employee_contributions_or_designated_roth_or_insurance_premiums' => 'float',
+        'net_unrealized_appreciation_in_employer_securities' => 'float',
+        'distribution_code' => 'string',
+        'second_distribution_code' => 'string',
+        'ira_sep_simple' => 'bool',
+        'traditional_ira_sep_simple_or_roth_conversion_amount' => 'float',
+        'other_amount' => 'float',
+        'other_percentage' => 'string',
+        'total_distribution_percentage' => 'string',
         'total_employee_contributions' => 'float',
-        'amount_allocable_to_irr' => 'float',
-        'first_year_designated_roth_contrib' => 'string',
-        'fatca_requirement_indicator' => 'bool',
-        'date_of_payment' => 'string'
+        'amount_allocable_to_irr_within5_years' => 'float',
+        'first_year_of_designated_roth_contribution' => 'string',
+        'date_of_payment' => '\DateTime'
     ];
 
     /**
@@ -216,47 +234,9 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'id' => null,
-        'type' => null,
-        'issuer_id' => 'int32',
-        'issuer_reference_id' => null,
-        'issuer_tin' => null,
-        'tax_year' => 'int32',
-        'federal_efile' => null,
-        'federal_efile_status' => null,
-        'state_efile' => null,
-        'state_efile_status' => null,
-        'postal_mail' => null,
-        'postal_mail_status' => null,
-        'tin_match' => null,
-        'tin_match_status' => null,
-        'address_verification' => null,
-        'address_verification_status' => null,
-        'e_delivery_status' => null,
-        'reference_id' => null,
-        'email' => null,
         'tin_type' => null,
-        'tin' => null,
-        'no_tin' => null,
-        'second_tin_notice' => null,
-        'recipient_name' => null,
-        'recipient_second_name' => null,
-        'address' => null,
-        'address2' => null,
-        'city' => null,
-        'state' => null,
-        'zip' => null,
-        'non_us_province' => null,
-        'country_code' => null,
-        'account_number' => null,
-        'office_code' => null,
-        'fatca_filing_requirement' => null,
-        'validation_errors' => null,
-        'created_at' => 'date-time',
-        'updated_at' => 'date-time',
-        'state_and_local_withholding' => null,
         'unique_form_id' => null,
-        'recipient_date_of_birth' => 'date-time',
+        'recipient_date_of_birth' => 'date',
         'recipient_giin' => null,
         'recipient_foreign_tin' => null,
         'lob_code' => null,
@@ -278,26 +258,84 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
         'chap4_status_code' => null,
         'primary_withholding_agent' => null,
         'intermediary_or_flow_through' => null,
+        'type' => null,
+        'id' => null,
+        'issuer_id' => null,
+        'issuer_reference_id' => null,
+        'issuer_tin' => null,
+        'tax_year' => 'int32',
+        'reference_id' => null,
+        'tin' => null,
+        'recipient_name' => null,
+        'recipient_second_name' => null,
+        'address' => null,
+        'address2' => null,
+        'city' => null,
+        'state' => null,
+        'zip' => null,
+        'email' => null,
+        'account_number' => null,
+        'office_code' => null,
+        'non_us_province' => null,
+        'country_code' => null,
+        'federal_efile_date' => 'date',
+        'postal_mail' => null,
+        'state_efile_date' => 'date',
+        'recipient_edelivery_date' => 'date',
+        'tin_match' => null,
+        'no_tin' => null,
+        'address_verification' => null,
+        'state_and_local_withholding' => null,
+        'second_tin_notice' => null,
+        'federal_efile_status' => null,
+        'state_efile_status' => null,
+        'postal_mail_status' => null,
+        'tin_match_status' => null,
+        'address_verification_status' => null,
+        'e_delivery_status' => null,
+        'validation_errors' => null,
+        'created_at' => 'date-time',
+        'updated_at' => 'date-time',
+        'employee_first_name' => null,
+        'employee_middle_name' => null,
+        'employee_last_name' => null,
+        'employee_name_suffix' => null,
+        'employee_date_of_birth' => 'date',
         'origin_of_health_coverage_code' => null,
         'covered_individuals' => null,
-        'total_ordinary_dividends' => null,
-        'qualified_dividends' => null,
-        'total_capital_gain_distributions' => null,
-        'unrecaptured_section1250_gain' => null,
-        'section1202_gain' => null,
-        'collectibles_gain' => null,
-        'section897_ordinary_dividends' => null,
-        'section897_capital_gain' => null,
-        'nondividend_distributions' => null,
+        'plan_start_month' => null,
+        'employer_provided_si_coverage' => null,
+        'offer_and_coverages' => null,
+        'total_ordinary_dividends' => 'double',
+        'qualified_dividends' => 'double',
+        'total_capital_gain_distributions' => 'double',
+        'unrecaptured_section1250_gain' => 'double',
+        'section1202_gain' => 'double',
+        'collectibles_gain' => 'double',
+        'section897_ordinary_dividends' => 'double',
+        'section897_capital_gain' => 'double',
+        'nondividend_distributions' => 'double',
         'federal_income_tax_withheld' => 'double',
-        'section199_a_dividends' => null,
-        'investment_expenses' => null,
-        'foreign_tax_paid' => null,
+        'section199_a_dividends' => 'double',
+        'investment_expenses' => 'double',
+        'foreign_tax_paid' => 'double',
         'foreign_country_or_us_possession' => null,
-        'cash_liquidation_distributions' => null,
-        'noncash_liquidation_distributions' => null,
-        'exempt_interest_dividends' => null,
-        'specified_private_activity_bond_interest_dividends' => null,
+        'cash_liquidation_distributions' => 'double',
+        'noncash_liquidation_distributions' => 'double',
+        'exempt_interest_dividends' => 'double',
+        'specified_private_activity_bond_interest_dividends' => 'double',
+        'fatca_filing_requirement' => null,
+        'interest_income' => 'double',
+        'early_withdrawal_penalty' => 'double',
+        'us_savings_bonds_interest' => 'double',
+        'foreign_country' => null,
+        'tax_exempt_interest' => 'double',
+        'specified_private_activity_bond_interest' => 'double',
+        'market_discount' => 'double',
+        'bond_premium' => 'double',
+        'bond_premium_on_treasury_obligations' => 'double',
+        'bond_premium_on_tax_exempt_bond' => 'double',
+        'tax_exempt_bond_cusip_number' => null,
         'filer_type' => null,
         'payment_type' => null,
         'payment_settlement_entity_name_phone_number' => null,
@@ -313,44 +351,42 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
         'june' => 'double',
         'july' => 'double',
         'august' => 'double',
-        'sept' => 'double',
+        'september' => 'double',
         'october' => 'double',
         'november' => 'double',
         'december' => 'double',
         'rents' => 'double',
         'royalties' => 'double',
         'other_income' => 'double',
-        'fed_income_tax_withheld' => 'double',
         'fishing_boat_proceeds' => 'double',
         'medical_and_health_care_payments' => 'double',
-        'substitute_payments' => 'double',
         'direct_sales_indicator' => null,
+        'substitute_payments' => 'double',
         'crop_insurance_proceeds' => 'double',
-        'excess_golden_parachute_payments' => 'double',
         'gross_proceeds_paid_to_attorney' => 'double',
         'fish_purchased_for_resale' => 'double',
         'section409_a_deferrals' => 'double',
+        'excess_golden_parachute_payments' => 'double',
         'nonqualified_deferred_compensation' => 'double',
         'nonemployee_compensation' => 'double',
-        'gross_distributions' => 'double',
+        'gross_distribution' => 'double',
         'taxable_amount' => 'double',
         'taxable_amount_not_determined' => null,
-        'total_distribution_indicator' => null,
+        'total_distribution_determined' => null,
         'capital_gain' => 'double',
-        'employee_contributions' => 'double',
-        'net_unrealized_appreciation' => 'double',
-        'distribution_code_required' => null,
-        'distribution_code_optional' => null,
-        'ira_sep_simple_indicator' => null,
-        'total_ira_sep_simple_distribution' => 'double',
-        'other' => 'double',
-        'other_percent' => null,
-        'percentage_total_distribution' => null,
+        'employee_contributions_or_designated_roth_or_insurance_premiums' => 'double',
+        'net_unrealized_appreciation_in_employer_securities' => 'double',
+        'distribution_code' => null,
+        'second_distribution_code' => null,
+        'ira_sep_simple' => null,
+        'traditional_ira_sep_simple_or_roth_conversion_amount' => 'double',
+        'other_amount' => 'double',
+        'other_percentage' => null,
+        'total_distribution_percentage' => null,
         'total_employee_contributions' => 'double',
-        'amount_allocable_to_irr' => 'double',
-        'first_year_designated_roth_contrib' => null,
-        'fatca_requirement_indicator' => null,
-        'date_of_payment' => null
+        'amount_allocable_to_irr_within5_years' => 'double',
+        'first_year_of_designated_roth_contribution' => null,
+        'date_of_payment' => 'date'
     ];
 
     /**
@@ -380,45 +416,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
-        'type' => 'type',
-        'issuer_id' => 'issuerId',
-        'issuer_reference_id' => 'issuerReferenceId',
-        'issuer_tin' => 'issuerTin',
-        'tax_year' => 'taxYear',
-        'federal_efile' => 'federalEfile',
-        'federal_efile_status' => 'federalEfileStatus',
-        'state_efile' => 'stateEfile',
-        'state_efile_status' => 'stateEfileStatus',
-        'postal_mail' => 'postalMail',
-        'postal_mail_status' => 'postalMailStatus',
-        'tin_match' => 'tinMatch',
-        'tin_match_status' => 'tinMatchStatus',
-        'address_verification' => 'addressVerification',
-        'address_verification_status' => 'addressVerificationStatus',
-        'e_delivery_status' => 'eDeliveryStatus',
-        'reference_id' => 'referenceId',
-        'email' => 'email',
         'tin_type' => 'tinType',
-        'tin' => 'tin',
-        'no_tin' => 'noTin',
-        'second_tin_notice' => 'secondTinNotice',
-        'recipient_name' => 'recipientName',
-        'recipient_second_name' => 'recipientSecondName',
-        'address' => 'address',
-        'address2' => 'address2',
-        'city' => 'city',
-        'state' => 'state',
-        'zip' => 'zip',
-        'non_us_province' => 'nonUsProvince',
-        'country_code' => 'countryCode',
-        'account_number' => 'accountNumber',
-        'office_code' => 'officeCode',
-        'fatca_filing_requirement' => 'fatcaFilingRequirement',
-        'validation_errors' => 'validationErrors',
-        'created_at' => 'createdAt',
-        'updated_at' => 'updatedAt',
-        'state_and_local_withholding' => 'stateAndLocalWithholding',
         'unique_form_id' => 'uniqueFormId',
         'recipient_date_of_birth' => 'recipientDateOfBirth',
         'recipient_giin' => 'recipientGiin',
@@ -442,8 +440,54 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
         'chap4_status_code' => 'chap4StatusCode',
         'primary_withholding_agent' => 'primaryWithholdingAgent',
         'intermediary_or_flow_through' => 'intermediaryOrFlowThrough',
+        'type' => 'type',
+        'id' => 'id',
+        'issuer_id' => 'issuerId',
+        'issuer_reference_id' => 'issuerReferenceId',
+        'issuer_tin' => 'issuerTin',
+        'tax_year' => 'taxYear',
+        'reference_id' => 'referenceId',
+        'tin' => 'tin',
+        'recipient_name' => 'recipientName',
+        'recipient_second_name' => 'recipientSecondName',
+        'address' => 'address',
+        'address2' => 'address2',
+        'city' => 'city',
+        'state' => 'state',
+        'zip' => 'zip',
+        'email' => 'email',
+        'account_number' => 'accountNumber',
+        'office_code' => 'officeCode',
+        'non_us_province' => 'nonUsProvince',
+        'country_code' => 'countryCode',
+        'federal_efile_date' => 'federalEfileDate',
+        'postal_mail' => 'postalMail',
+        'state_efile_date' => 'stateEfileDate',
+        'recipient_edelivery_date' => 'recipientEdeliveryDate',
+        'tin_match' => 'tinMatch',
+        'no_tin' => 'noTin',
+        'address_verification' => 'addressVerification',
+        'state_and_local_withholding' => 'stateAndLocalWithholding',
+        'second_tin_notice' => 'secondTinNotice',
+        'federal_efile_status' => 'federalEfileStatus',
+        'state_efile_status' => 'stateEfileStatus',
+        'postal_mail_status' => 'postalMailStatus',
+        'tin_match_status' => 'tinMatchStatus',
+        'address_verification_status' => 'addressVerificationStatus',
+        'e_delivery_status' => 'eDeliveryStatus',
+        'validation_errors' => 'validationErrors',
+        'created_at' => 'createdAt',
+        'updated_at' => 'updatedAt',
+        'employee_first_name' => 'employeeFirstName',
+        'employee_middle_name' => 'employeeMiddleName',
+        'employee_last_name' => 'employeeLastName',
+        'employee_name_suffix' => 'employeeNameSuffix',
+        'employee_date_of_birth' => 'employeeDateOfBirth',
         'origin_of_health_coverage_code' => 'originOfHealthCoverageCode',
         'covered_individuals' => 'coveredIndividuals',
+        'plan_start_month' => 'planStartMonth',
+        'employer_provided_si_coverage' => 'employerProvidedSiCoverage',
+        'offer_and_coverages' => 'offerAndCoverages',
         'total_ordinary_dividends' => 'totalOrdinaryDividends',
         'qualified_dividends' => 'qualifiedDividends',
         'total_capital_gain_distributions' => 'totalCapitalGainDistributions',
@@ -462,6 +506,18 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
         'noncash_liquidation_distributions' => 'noncashLiquidationDistributions',
         'exempt_interest_dividends' => 'exemptInterestDividends',
         'specified_private_activity_bond_interest_dividends' => 'specifiedPrivateActivityBondInterestDividends',
+        'fatca_filing_requirement' => 'fatcaFilingRequirement',
+        'interest_income' => 'interestIncome',
+        'early_withdrawal_penalty' => 'earlyWithdrawalPenalty',
+        'us_savings_bonds_interest' => 'usSavingsBondsInterest',
+        'foreign_country' => 'foreignCountry',
+        'tax_exempt_interest' => 'taxExemptInterest',
+        'specified_private_activity_bond_interest' => 'specifiedPrivateActivityBondInterest',
+        'market_discount' => 'marketDiscount',
+        'bond_premium' => 'bondPremium',
+        'bond_premium_on_treasury_obligations' => 'bondPremiumOnTreasuryObligations',
+        'bond_premium_on_tax_exempt_bond' => 'bondPremiumOnTaxExemptBond',
+        'tax_exempt_bond_cusip_number' => 'taxExemptBondCusipNumber',
         'filer_type' => 'filerType',
         'payment_type' => 'paymentType',
         'payment_settlement_entity_name_phone_number' => 'paymentSettlementEntityNamePhoneNumber',
@@ -477,43 +533,41 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
         'june' => 'june',
         'july' => 'july',
         'august' => 'august',
-        'sept' => 'sept',
+        'september' => 'september',
         'october' => 'october',
         'november' => 'november',
         'december' => 'december',
         'rents' => 'rents',
         'royalties' => 'royalties',
         'other_income' => 'otherIncome',
-        'fed_income_tax_withheld' => 'fedIncomeTaxWithheld',
         'fishing_boat_proceeds' => 'fishingBoatProceeds',
         'medical_and_health_care_payments' => 'medicalAndHealthCarePayments',
-        'substitute_payments' => 'substitutePayments',
         'direct_sales_indicator' => 'directSalesIndicator',
+        'substitute_payments' => 'substitutePayments',
         'crop_insurance_proceeds' => 'cropInsuranceProceeds',
-        'excess_golden_parachute_payments' => 'excessGoldenParachutePayments',
         'gross_proceeds_paid_to_attorney' => 'grossProceedsPaidToAttorney',
         'fish_purchased_for_resale' => 'fishPurchasedForResale',
         'section409_a_deferrals' => 'section409ADeferrals',
+        'excess_golden_parachute_payments' => 'excessGoldenParachutePayments',
         'nonqualified_deferred_compensation' => 'nonqualifiedDeferredCompensation',
         'nonemployee_compensation' => 'nonemployeeCompensation',
-        'gross_distributions' => 'grossDistributions',
+        'gross_distribution' => 'grossDistribution',
         'taxable_amount' => 'taxableAmount',
         'taxable_amount_not_determined' => 'taxableAmountNotDetermined',
-        'total_distribution_indicator' => 'totalDistributionIndicator',
+        'total_distribution_determined' => 'totalDistributionDetermined',
         'capital_gain' => 'capitalGain',
-        'employee_contributions' => 'employeeContributions',
-        'net_unrealized_appreciation' => 'netUnrealizedAppreciation',
-        'distribution_code_required' => 'distributionCodeRequired',
-        'distribution_code_optional' => 'distributionCodeOptional',
-        'ira_sep_simple_indicator' => 'iraSepSimpleIndicator',
-        'total_ira_sep_simple_distribution' => 'totalIraSepSimpleDistribution',
-        'other' => 'other',
-        'other_percent' => 'otherPercent',
-        'percentage_total_distribution' => 'percentageTotalDistribution',
+        'employee_contributions_or_designated_roth_or_insurance_premiums' => 'employeeContributionsOrDesignatedRothOrInsurancePremiums',
+        'net_unrealized_appreciation_in_employer_securities' => 'netUnrealizedAppreciationInEmployerSecurities',
+        'distribution_code' => 'distributionCode',
+        'second_distribution_code' => 'secondDistributionCode',
+        'ira_sep_simple' => 'iraSepSimple',
+        'traditional_ira_sep_simple_or_roth_conversion_amount' => 'traditionalIraSepSimpleOrRothConversionAmount',
+        'other_amount' => 'otherAmount',
+        'other_percentage' => 'otherPercentage',
+        'total_distribution_percentage' => 'totalDistributionPercentage',
         'total_employee_contributions' => 'totalEmployeeContributions',
-        'amount_allocable_to_irr' => 'amountAllocableToIrr',
-        'first_year_designated_roth_contrib' => 'firstYearDesignatedRothContrib',
-        'fatca_requirement_indicator' => 'fatcaRequirementIndicator',
+        'amount_allocable_to_irr_within5_years' => 'amountAllocableToIrrWithin5Years',
+        'first_year_of_designated_roth_contribution' => 'firstYearOfDesignatedRothContribution',
         'date_of_payment' => 'dateOfPayment'
     ];
 
@@ -523,45 +577,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
-        'type' => 'setType',
-        'issuer_id' => 'setIssuerId',
-        'issuer_reference_id' => 'setIssuerReferenceId',
-        'issuer_tin' => 'setIssuerTin',
-        'tax_year' => 'setTaxYear',
-        'federal_efile' => 'setFederalEfile',
-        'federal_efile_status' => 'setFederalEfileStatus',
-        'state_efile' => 'setStateEfile',
-        'state_efile_status' => 'setStateEfileStatus',
-        'postal_mail' => 'setPostalMail',
-        'postal_mail_status' => 'setPostalMailStatus',
-        'tin_match' => 'setTinMatch',
-        'tin_match_status' => 'setTinMatchStatus',
-        'address_verification' => 'setAddressVerification',
-        'address_verification_status' => 'setAddressVerificationStatus',
-        'e_delivery_status' => 'setEDeliveryStatus',
-        'reference_id' => 'setReferenceId',
-        'email' => 'setEmail',
         'tin_type' => 'setTinType',
-        'tin' => 'setTin',
-        'no_tin' => 'setNoTin',
-        'second_tin_notice' => 'setSecondTinNotice',
-        'recipient_name' => 'setRecipientName',
-        'recipient_second_name' => 'setRecipientSecondName',
-        'address' => 'setAddress',
-        'address2' => 'setAddress2',
-        'city' => 'setCity',
-        'state' => 'setState',
-        'zip' => 'setZip',
-        'non_us_province' => 'setNonUsProvince',
-        'country_code' => 'setCountryCode',
-        'account_number' => 'setAccountNumber',
-        'office_code' => 'setOfficeCode',
-        'fatca_filing_requirement' => 'setFatcaFilingRequirement',
-        'validation_errors' => 'setValidationErrors',
-        'created_at' => 'setCreatedAt',
-        'updated_at' => 'setUpdatedAt',
-        'state_and_local_withholding' => 'setStateAndLocalWithholding',
         'unique_form_id' => 'setUniqueFormId',
         'recipient_date_of_birth' => 'setRecipientDateOfBirth',
         'recipient_giin' => 'setRecipientGiin',
@@ -585,8 +601,54 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
         'chap4_status_code' => 'setChap4StatusCode',
         'primary_withholding_agent' => 'setPrimaryWithholdingAgent',
         'intermediary_or_flow_through' => 'setIntermediaryOrFlowThrough',
+        'type' => 'setType',
+        'id' => 'setId',
+        'issuer_id' => 'setIssuerId',
+        'issuer_reference_id' => 'setIssuerReferenceId',
+        'issuer_tin' => 'setIssuerTin',
+        'tax_year' => 'setTaxYear',
+        'reference_id' => 'setReferenceId',
+        'tin' => 'setTin',
+        'recipient_name' => 'setRecipientName',
+        'recipient_second_name' => 'setRecipientSecondName',
+        'address' => 'setAddress',
+        'address2' => 'setAddress2',
+        'city' => 'setCity',
+        'state' => 'setState',
+        'zip' => 'setZip',
+        'email' => 'setEmail',
+        'account_number' => 'setAccountNumber',
+        'office_code' => 'setOfficeCode',
+        'non_us_province' => 'setNonUsProvince',
+        'country_code' => 'setCountryCode',
+        'federal_efile_date' => 'setFederalEfileDate',
+        'postal_mail' => 'setPostalMail',
+        'state_efile_date' => 'setStateEfileDate',
+        'recipient_edelivery_date' => 'setRecipientEdeliveryDate',
+        'tin_match' => 'setTinMatch',
+        'no_tin' => 'setNoTin',
+        'address_verification' => 'setAddressVerification',
+        'state_and_local_withholding' => 'setStateAndLocalWithholding',
+        'second_tin_notice' => 'setSecondTinNotice',
+        'federal_efile_status' => 'setFederalEfileStatus',
+        'state_efile_status' => 'setStateEfileStatus',
+        'postal_mail_status' => 'setPostalMailStatus',
+        'tin_match_status' => 'setTinMatchStatus',
+        'address_verification_status' => 'setAddressVerificationStatus',
+        'e_delivery_status' => 'setEDeliveryStatus',
+        'validation_errors' => 'setValidationErrors',
+        'created_at' => 'setCreatedAt',
+        'updated_at' => 'setUpdatedAt',
+        'employee_first_name' => 'setEmployeeFirstName',
+        'employee_middle_name' => 'setEmployeeMiddleName',
+        'employee_last_name' => 'setEmployeeLastName',
+        'employee_name_suffix' => 'setEmployeeNameSuffix',
+        'employee_date_of_birth' => 'setEmployeeDateOfBirth',
         'origin_of_health_coverage_code' => 'setOriginOfHealthCoverageCode',
         'covered_individuals' => 'setCoveredIndividuals',
+        'plan_start_month' => 'setPlanStartMonth',
+        'employer_provided_si_coverage' => 'setEmployerProvidedSiCoverage',
+        'offer_and_coverages' => 'setOfferAndCoverages',
         'total_ordinary_dividends' => 'setTotalOrdinaryDividends',
         'qualified_dividends' => 'setQualifiedDividends',
         'total_capital_gain_distributions' => 'setTotalCapitalGainDistributions',
@@ -605,6 +667,18 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
         'noncash_liquidation_distributions' => 'setNoncashLiquidationDistributions',
         'exempt_interest_dividends' => 'setExemptInterestDividends',
         'specified_private_activity_bond_interest_dividends' => 'setSpecifiedPrivateActivityBondInterestDividends',
+        'fatca_filing_requirement' => 'setFatcaFilingRequirement',
+        'interest_income' => 'setInterestIncome',
+        'early_withdrawal_penalty' => 'setEarlyWithdrawalPenalty',
+        'us_savings_bonds_interest' => 'setUsSavingsBondsInterest',
+        'foreign_country' => 'setForeignCountry',
+        'tax_exempt_interest' => 'setTaxExemptInterest',
+        'specified_private_activity_bond_interest' => 'setSpecifiedPrivateActivityBondInterest',
+        'market_discount' => 'setMarketDiscount',
+        'bond_premium' => 'setBondPremium',
+        'bond_premium_on_treasury_obligations' => 'setBondPremiumOnTreasuryObligations',
+        'bond_premium_on_tax_exempt_bond' => 'setBondPremiumOnTaxExemptBond',
+        'tax_exempt_bond_cusip_number' => 'setTaxExemptBondCusipNumber',
         'filer_type' => 'setFilerType',
         'payment_type' => 'setPaymentType',
         'payment_settlement_entity_name_phone_number' => 'setPaymentSettlementEntityNamePhoneNumber',
@@ -620,43 +694,41 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
         'june' => 'setJune',
         'july' => 'setJuly',
         'august' => 'setAugust',
-        'sept' => 'setSept',
+        'september' => 'setSeptember',
         'october' => 'setOctober',
         'november' => 'setNovember',
         'december' => 'setDecember',
         'rents' => 'setRents',
         'royalties' => 'setRoyalties',
         'other_income' => 'setOtherIncome',
-        'fed_income_tax_withheld' => 'setFedIncomeTaxWithheld',
         'fishing_boat_proceeds' => 'setFishingBoatProceeds',
         'medical_and_health_care_payments' => 'setMedicalAndHealthCarePayments',
-        'substitute_payments' => 'setSubstitutePayments',
         'direct_sales_indicator' => 'setDirectSalesIndicator',
+        'substitute_payments' => 'setSubstitutePayments',
         'crop_insurance_proceeds' => 'setCropInsuranceProceeds',
-        'excess_golden_parachute_payments' => 'setExcessGoldenParachutePayments',
         'gross_proceeds_paid_to_attorney' => 'setGrossProceedsPaidToAttorney',
         'fish_purchased_for_resale' => 'setFishPurchasedForResale',
         'section409_a_deferrals' => 'setSection409ADeferrals',
+        'excess_golden_parachute_payments' => 'setExcessGoldenParachutePayments',
         'nonqualified_deferred_compensation' => 'setNonqualifiedDeferredCompensation',
         'nonemployee_compensation' => 'setNonemployeeCompensation',
-        'gross_distributions' => 'setGrossDistributions',
+        'gross_distribution' => 'setGrossDistribution',
         'taxable_amount' => 'setTaxableAmount',
         'taxable_amount_not_determined' => 'setTaxableAmountNotDetermined',
-        'total_distribution_indicator' => 'setTotalDistributionIndicator',
+        'total_distribution_determined' => 'setTotalDistributionDetermined',
         'capital_gain' => 'setCapitalGain',
-        'employee_contributions' => 'setEmployeeContributions',
-        'net_unrealized_appreciation' => 'setNetUnrealizedAppreciation',
-        'distribution_code_required' => 'setDistributionCodeRequired',
-        'distribution_code_optional' => 'setDistributionCodeOptional',
-        'ira_sep_simple_indicator' => 'setIraSepSimpleIndicator',
-        'total_ira_sep_simple_distribution' => 'setTotalIraSepSimpleDistribution',
-        'other' => 'setOther',
-        'other_percent' => 'setOtherPercent',
-        'percentage_total_distribution' => 'setPercentageTotalDistribution',
+        'employee_contributions_or_designated_roth_or_insurance_premiums' => 'setEmployeeContributionsOrDesignatedRothOrInsurancePremiums',
+        'net_unrealized_appreciation_in_employer_securities' => 'setNetUnrealizedAppreciationInEmployerSecurities',
+        'distribution_code' => 'setDistributionCode',
+        'second_distribution_code' => 'setSecondDistributionCode',
+        'ira_sep_simple' => 'setIraSepSimple',
+        'traditional_ira_sep_simple_or_roth_conversion_amount' => 'setTraditionalIraSepSimpleOrRothConversionAmount',
+        'other_amount' => 'setOtherAmount',
+        'other_percentage' => 'setOtherPercentage',
+        'total_distribution_percentage' => 'setTotalDistributionPercentage',
         'total_employee_contributions' => 'setTotalEmployeeContributions',
-        'amount_allocable_to_irr' => 'setAmountAllocableToIrr',
-        'first_year_designated_roth_contrib' => 'setFirstYearDesignatedRothContrib',
-        'fatca_requirement_indicator' => 'setFatcaRequirementIndicator',
+        'amount_allocable_to_irr_within5_years' => 'setAmountAllocableToIrrWithin5Years',
+        'first_year_of_designated_roth_contribution' => 'setFirstYearOfDesignatedRothContribution',
         'date_of_payment' => 'setDateOfPayment'
     ];
 
@@ -666,45 +738,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
-        'type' => 'getType',
-        'issuer_id' => 'getIssuerId',
-        'issuer_reference_id' => 'getIssuerReferenceId',
-        'issuer_tin' => 'getIssuerTin',
-        'tax_year' => 'getTaxYear',
-        'federal_efile' => 'getFederalEfile',
-        'federal_efile_status' => 'getFederalEfileStatus',
-        'state_efile' => 'getStateEfile',
-        'state_efile_status' => 'getStateEfileStatus',
-        'postal_mail' => 'getPostalMail',
-        'postal_mail_status' => 'getPostalMailStatus',
-        'tin_match' => 'getTinMatch',
-        'tin_match_status' => 'getTinMatchStatus',
-        'address_verification' => 'getAddressVerification',
-        'address_verification_status' => 'getAddressVerificationStatus',
-        'e_delivery_status' => 'getEDeliveryStatus',
-        'reference_id' => 'getReferenceId',
-        'email' => 'getEmail',
         'tin_type' => 'getTinType',
-        'tin' => 'getTin',
-        'no_tin' => 'getNoTin',
-        'second_tin_notice' => 'getSecondTinNotice',
-        'recipient_name' => 'getRecipientName',
-        'recipient_second_name' => 'getRecipientSecondName',
-        'address' => 'getAddress',
-        'address2' => 'getAddress2',
-        'city' => 'getCity',
-        'state' => 'getState',
-        'zip' => 'getZip',
-        'non_us_province' => 'getNonUsProvince',
-        'country_code' => 'getCountryCode',
-        'account_number' => 'getAccountNumber',
-        'office_code' => 'getOfficeCode',
-        'fatca_filing_requirement' => 'getFatcaFilingRequirement',
-        'validation_errors' => 'getValidationErrors',
-        'created_at' => 'getCreatedAt',
-        'updated_at' => 'getUpdatedAt',
-        'state_and_local_withholding' => 'getStateAndLocalWithholding',
         'unique_form_id' => 'getUniqueFormId',
         'recipient_date_of_birth' => 'getRecipientDateOfBirth',
         'recipient_giin' => 'getRecipientGiin',
@@ -728,8 +762,54 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
         'chap4_status_code' => 'getChap4StatusCode',
         'primary_withholding_agent' => 'getPrimaryWithholdingAgent',
         'intermediary_or_flow_through' => 'getIntermediaryOrFlowThrough',
+        'type' => 'getType',
+        'id' => 'getId',
+        'issuer_id' => 'getIssuerId',
+        'issuer_reference_id' => 'getIssuerReferenceId',
+        'issuer_tin' => 'getIssuerTin',
+        'tax_year' => 'getTaxYear',
+        'reference_id' => 'getReferenceId',
+        'tin' => 'getTin',
+        'recipient_name' => 'getRecipientName',
+        'recipient_second_name' => 'getRecipientSecondName',
+        'address' => 'getAddress',
+        'address2' => 'getAddress2',
+        'city' => 'getCity',
+        'state' => 'getState',
+        'zip' => 'getZip',
+        'email' => 'getEmail',
+        'account_number' => 'getAccountNumber',
+        'office_code' => 'getOfficeCode',
+        'non_us_province' => 'getNonUsProvince',
+        'country_code' => 'getCountryCode',
+        'federal_efile_date' => 'getFederalEfileDate',
+        'postal_mail' => 'getPostalMail',
+        'state_efile_date' => 'getStateEfileDate',
+        'recipient_edelivery_date' => 'getRecipientEdeliveryDate',
+        'tin_match' => 'getTinMatch',
+        'no_tin' => 'getNoTin',
+        'address_verification' => 'getAddressVerification',
+        'state_and_local_withholding' => 'getStateAndLocalWithholding',
+        'second_tin_notice' => 'getSecondTinNotice',
+        'federal_efile_status' => 'getFederalEfileStatus',
+        'state_efile_status' => 'getStateEfileStatus',
+        'postal_mail_status' => 'getPostalMailStatus',
+        'tin_match_status' => 'getTinMatchStatus',
+        'address_verification_status' => 'getAddressVerificationStatus',
+        'e_delivery_status' => 'getEDeliveryStatus',
+        'validation_errors' => 'getValidationErrors',
+        'created_at' => 'getCreatedAt',
+        'updated_at' => 'getUpdatedAt',
+        'employee_first_name' => 'getEmployeeFirstName',
+        'employee_middle_name' => 'getEmployeeMiddleName',
+        'employee_last_name' => 'getEmployeeLastName',
+        'employee_name_suffix' => 'getEmployeeNameSuffix',
+        'employee_date_of_birth' => 'getEmployeeDateOfBirth',
         'origin_of_health_coverage_code' => 'getOriginOfHealthCoverageCode',
         'covered_individuals' => 'getCoveredIndividuals',
+        'plan_start_month' => 'getPlanStartMonth',
+        'employer_provided_si_coverage' => 'getEmployerProvidedSiCoverage',
+        'offer_and_coverages' => 'getOfferAndCoverages',
         'total_ordinary_dividends' => 'getTotalOrdinaryDividends',
         'qualified_dividends' => 'getQualifiedDividends',
         'total_capital_gain_distributions' => 'getTotalCapitalGainDistributions',
@@ -748,6 +828,18 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
         'noncash_liquidation_distributions' => 'getNoncashLiquidationDistributions',
         'exempt_interest_dividends' => 'getExemptInterestDividends',
         'specified_private_activity_bond_interest_dividends' => 'getSpecifiedPrivateActivityBondInterestDividends',
+        'fatca_filing_requirement' => 'getFatcaFilingRequirement',
+        'interest_income' => 'getInterestIncome',
+        'early_withdrawal_penalty' => 'getEarlyWithdrawalPenalty',
+        'us_savings_bonds_interest' => 'getUsSavingsBondsInterest',
+        'foreign_country' => 'getForeignCountry',
+        'tax_exempt_interest' => 'getTaxExemptInterest',
+        'specified_private_activity_bond_interest' => 'getSpecifiedPrivateActivityBondInterest',
+        'market_discount' => 'getMarketDiscount',
+        'bond_premium' => 'getBondPremium',
+        'bond_premium_on_treasury_obligations' => 'getBondPremiumOnTreasuryObligations',
+        'bond_premium_on_tax_exempt_bond' => 'getBondPremiumOnTaxExemptBond',
+        'tax_exempt_bond_cusip_number' => 'getTaxExemptBondCusipNumber',
         'filer_type' => 'getFilerType',
         'payment_type' => 'getPaymentType',
         'payment_settlement_entity_name_phone_number' => 'getPaymentSettlementEntityNamePhoneNumber',
@@ -763,43 +855,41 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
         'june' => 'getJune',
         'july' => 'getJuly',
         'august' => 'getAugust',
-        'sept' => 'getSept',
+        'september' => 'getSeptember',
         'october' => 'getOctober',
         'november' => 'getNovember',
         'december' => 'getDecember',
         'rents' => 'getRents',
         'royalties' => 'getRoyalties',
         'other_income' => 'getOtherIncome',
-        'fed_income_tax_withheld' => 'getFedIncomeTaxWithheld',
         'fishing_boat_proceeds' => 'getFishingBoatProceeds',
         'medical_and_health_care_payments' => 'getMedicalAndHealthCarePayments',
-        'substitute_payments' => 'getSubstitutePayments',
         'direct_sales_indicator' => 'getDirectSalesIndicator',
+        'substitute_payments' => 'getSubstitutePayments',
         'crop_insurance_proceeds' => 'getCropInsuranceProceeds',
-        'excess_golden_parachute_payments' => 'getExcessGoldenParachutePayments',
         'gross_proceeds_paid_to_attorney' => 'getGrossProceedsPaidToAttorney',
         'fish_purchased_for_resale' => 'getFishPurchasedForResale',
         'section409_a_deferrals' => 'getSection409ADeferrals',
+        'excess_golden_parachute_payments' => 'getExcessGoldenParachutePayments',
         'nonqualified_deferred_compensation' => 'getNonqualifiedDeferredCompensation',
         'nonemployee_compensation' => 'getNonemployeeCompensation',
-        'gross_distributions' => 'getGrossDistributions',
+        'gross_distribution' => 'getGrossDistribution',
         'taxable_amount' => 'getTaxableAmount',
         'taxable_amount_not_determined' => 'getTaxableAmountNotDetermined',
-        'total_distribution_indicator' => 'getTotalDistributionIndicator',
+        'total_distribution_determined' => 'getTotalDistributionDetermined',
         'capital_gain' => 'getCapitalGain',
-        'employee_contributions' => 'getEmployeeContributions',
-        'net_unrealized_appreciation' => 'getNetUnrealizedAppreciation',
-        'distribution_code_required' => 'getDistributionCodeRequired',
-        'distribution_code_optional' => 'getDistributionCodeOptional',
-        'ira_sep_simple_indicator' => 'getIraSepSimpleIndicator',
-        'total_ira_sep_simple_distribution' => 'getTotalIraSepSimpleDistribution',
-        'other' => 'getOther',
-        'other_percent' => 'getOtherPercent',
-        'percentage_total_distribution' => 'getPercentageTotalDistribution',
+        'employee_contributions_or_designated_roth_or_insurance_premiums' => 'getEmployeeContributionsOrDesignatedRothOrInsurancePremiums',
+        'net_unrealized_appreciation_in_employer_securities' => 'getNetUnrealizedAppreciationInEmployerSecurities',
+        'distribution_code' => 'getDistributionCode',
+        'second_distribution_code' => 'getSecondDistributionCode',
+        'ira_sep_simple' => 'getIraSepSimple',
+        'traditional_ira_sep_simple_or_roth_conversion_amount' => 'getTraditionalIraSepSimpleOrRothConversionAmount',
+        'other_amount' => 'getOtherAmount',
+        'other_percentage' => 'getOtherPercentage',
+        'total_distribution_percentage' => 'getTotalDistributionPercentage',
         'total_employee_contributions' => 'getTotalEmployeeContributions',
-        'amount_allocable_to_irr' => 'getAmountAllocableToIrr',
-        'first_year_designated_roth_contrib' => 'getFirstYearDesignatedRothContrib',
-        'fatca_requirement_indicator' => 'getFatcaRequirementIndicator',
+        'amount_allocable_to_irr_within5_years' => 'getAmountAllocableToIrrWithin5Years',
+        'first_year_of_designated_roth_contribution' => 'getFirstYearOfDesignatedRothContribution',
         'date_of_payment' => 'getDateOfPayment'
     ];
 
@@ -844,11 +934,615 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
         return self::$openAPIModelName;
     }
 
+    const TIN_TYPE__EMPTY = 'Empty';
+    const TIN_TYPE_EIN = 'EIN';
+    const TIN_TYPE_SSN = 'SSN';
+    const TIN_TYPE_ITIN = 'ITIN';
+    const TIN_TYPE_ATIN = 'ATIN';
+    const LOB_CODE__01 = '01';
+    const LOB_CODE__02 = '02';
+    const LOB_CODE__03 = '03';
+    const LOB_CODE__04 = '04';
+    const LOB_CODE__05 = '05';
+    const LOB_CODE__06 = '06';
+    const LOB_CODE__07 = '07';
+    const LOB_CODE__08 = '08';
+    const LOB_CODE__09 = '09';
+    const LOB_CODE__10 = '10';
+    const LOB_CODE__11 = '11';
+    const LOB_CODE__12 = '12';
+    const INCOME_CODE__01 = '01';
+    const INCOME_CODE__02 = '02';
+    const INCOME_CODE__03 = '03';
+    const INCOME_CODE__04 = '04';
+    const INCOME_CODE__05 = '05';
+    const INCOME_CODE__22 = '22';
+    const INCOME_CODE__29 = '29';
+    const INCOME_CODE__30 = '30';
+    const INCOME_CODE__31 = '31';
+    const INCOME_CODE__33 = '33';
+    const INCOME_CODE__51 = '51';
+    const INCOME_CODE__54 = '54';
+    const INCOME_CODE__06 = '06';
+    const INCOME_CODE__07 = '07';
+    const INCOME_CODE__08 = '08';
+    const INCOME_CODE__34 = '34';
+    const INCOME_CODE__40 = '40';
+    const INCOME_CODE__52 = '52';
+    const INCOME_CODE__53 = '53';
+    const INCOME_CODE__56 = '56';
+    const INCOME_CODE__09 = '09';
+    const INCOME_CODE__10 = '10';
+    const INCOME_CODE__11 = '11';
+    const INCOME_CODE__12 = '12';
+    const INCOME_CODE__13 = '13';
+    const INCOME_CODE__14 = '14';
+    const INCOME_CODE__15 = '15';
+    const INCOME_CODE__16 = '16';
+    const INCOME_CODE__17 = '17';
+    const INCOME_CODE__18 = '18';
+    const INCOME_CODE__19 = '19';
+    const INCOME_CODE__20 = '20';
+    const INCOME_CODE__23 = '23';
+    const INCOME_CODE__24 = '24';
+    const INCOME_CODE__25 = '25';
+    const INCOME_CODE__26 = '26';
+    const INCOME_CODE__27 = '27';
+    const INCOME_CODE__28 = '28';
+    const INCOME_CODE__32 = '32';
+    const INCOME_CODE__35 = '35';
+    const INCOME_CODE__36 = '36';
+    const INCOME_CODE__37 = '37';
+    const INCOME_CODE__38 = '38';
+    const INCOME_CODE__39 = '39';
+    const INCOME_CODE__41 = '41';
+    const INCOME_CODE__42 = '42';
+    const INCOME_CODE__43 = '43';
+    const INCOME_CODE__44 = '44';
+    const INCOME_CODE__50 = '50';
+    const INCOME_CODE__55 = '55';
+    const INCOME_CODE__57 = '57';
+    const INCOME_CODE__58 = '58';
+    const WITHHOLDING_INDICATOR__3 = '3';
+    const WITHHOLDING_INDICATOR__4 = '4';
+    const EXEMPTION_CODE_CHAP3__00 = '00';
+    const EXEMPTION_CODE_CHAP3__01 = '01';
+    const EXEMPTION_CODE_CHAP3__02 = '02';
+    const EXEMPTION_CODE_CHAP3__03 = '03';
+    const EXEMPTION_CODE_CHAP3__04 = '04';
+    const EXEMPTION_CODE_CHAP3__05 = '05';
+    const EXEMPTION_CODE_CHAP3__06 = '06';
+    const EXEMPTION_CODE_CHAP3__07 = '07';
+    const EXEMPTION_CODE_CHAP3__08 = '08';
+    const EXEMPTION_CODE_CHAP3__09 = '09';
+    const EXEMPTION_CODE_CHAP3__10 = '10';
+    const EXEMPTION_CODE_CHAP3__11 = '11';
+    const EXEMPTION_CODE_CHAP3__12 = '12';
+    const EXEMPTION_CODE_CHAP3__22 = '22';
+    const EXEMPTION_CODE_CHAP3__23 = '23';
+    const EXEMPTION_CODE_CHAP3__24 = '24';
+    const EXEMPTION_CODE_CHAP4__00 = '00';
+    const EXEMPTION_CODE_CHAP4__13 = '13';
+    const EXEMPTION_CODE_CHAP4__14 = '14';
+    const EXEMPTION_CODE_CHAP4__15 = '15';
+    const EXEMPTION_CODE_CHAP4__16 = '16';
+    const EXEMPTION_CODE_CHAP4__17 = '17';
+    const EXEMPTION_CODE_CHAP4__18 = '18';
+    const EXEMPTION_CODE_CHAP4__19 = '19';
+    const EXEMPTION_CODE_CHAP4__20 = '20';
+    const EXEMPTION_CODE_CHAP4__21 = '21';
+    const TAX_RATE_CHAP3__00_00 = '00.00';
+    const TAX_RATE_CHAP3__02_00 = '02.00';
+    const TAX_RATE_CHAP3__04_00 = '04.00';
+    const TAX_RATE_CHAP3__04_90 = '04.90';
+    const TAX_RATE_CHAP3__04_95 = '04.95';
+    const TAX_RATE_CHAP3__05_00 = '05.00';
+    const TAX_RATE_CHAP3__07_00 = '07.00';
+    const TAX_RATE_CHAP3__08_00 = '08.00';
+    const TAX_RATE_CHAP3__10_00 = '10.00';
+    const TAX_RATE_CHAP3__12_00 = '12.00';
+    const TAX_RATE_CHAP3__12_50 = '12.50';
+    const TAX_RATE_CHAP3__14_00 = '14.00';
+    const TAX_RATE_CHAP3__15_00 = '15.00';
+    const TAX_RATE_CHAP3__17_50 = '17.50';
+    const TAX_RATE_CHAP3__20_00 = '20.00';
+    const TAX_RATE_CHAP3__21_00 = '21.00';
+    const TAX_RATE_CHAP3__24_00 = '24.00';
+    const TAX_RATE_CHAP3__25_00 = '25.00';
+    const TAX_RATE_CHAP3__27_50 = '27.50';
+    const TAX_RATE_CHAP3__28_00 = '28.00';
+    const TAX_RATE_CHAP3__30_00 = '30.00';
+    const TAX_RATE_CHAP3__37_00 = '37.00';
+    const CHAP3_STATUS_CODE__01 = '01';
+    const CHAP3_STATUS_CODE__02 = '02';
+    const CHAP3_STATUS_CODE__34 = '34';
+    const CHAP3_STATUS_CODE__03 = '03';
+    const CHAP3_STATUS_CODE__04 = '04';
+    const CHAP3_STATUS_CODE__05 = '05';
+    const CHAP3_STATUS_CODE__06 = '06';
+    const CHAP3_STATUS_CODE__07 = '07';
+    const CHAP3_STATUS_CODE__08 = '08';
+    const CHAP3_STATUS_CODE__09 = '09';
+    const CHAP3_STATUS_CODE__10 = '10';
+    const CHAP3_STATUS_CODE__11 = '11';
+    const CHAP3_STATUS_CODE__12 = '12';
+    const CHAP3_STATUS_CODE__13 = '13';
+    const CHAP3_STATUS_CODE__14 = '14';
+    const CHAP3_STATUS_CODE__15 = '15';
+    const CHAP3_STATUS_CODE__16 = '16';
+    const CHAP3_STATUS_CODE__17 = '17';
+    const CHAP3_STATUS_CODE__18 = '18';
+    const CHAP3_STATUS_CODE__19 = '19';
+    const CHAP3_STATUS_CODE__20 = '20';
+    const CHAP3_STATUS_CODE__21 = '21';
+    const CHAP3_STATUS_CODE__22 = '22';
+    const CHAP3_STATUS_CODE__23 = '23';
+    const CHAP3_STATUS_CODE__24 = '24';
+    const CHAP3_STATUS_CODE__25 = '25';
+    const CHAP3_STATUS_CODE__26 = '26';
+    const CHAP3_STATUS_CODE__27 = '27';
+    const CHAP3_STATUS_CODE__28 = '28';
+    const CHAP3_STATUS_CODE__29 = '29';
+    const CHAP3_STATUS_CODE__30 = '30';
+    const CHAP3_STATUS_CODE__31 = '31';
+    const CHAP3_STATUS_CODE__32 = '32';
+    const CHAP3_STATUS_CODE__35 = '35';
+    const CHAP3_STATUS_CODE__36 = '36';
+    const CHAP3_STATUS_CODE__37 = '37';
+    const CHAP3_STATUS_CODE__38 = '38';
+    const CHAP3_STATUS_CODE__39 = '39';
+    const CHAP4_STATUS_CODE__01 = '01';
+    const CHAP4_STATUS_CODE__02 = '02';
+    const CHAP4_STATUS_CODE__03 = '03';
+    const CHAP4_STATUS_CODE__04 = '04';
+    const CHAP4_STATUS_CODE__05 = '05';
+    const CHAP4_STATUS_CODE__06 = '06';
+    const CHAP4_STATUS_CODE__07 = '07';
+    const CHAP4_STATUS_CODE__08 = '08';
+    const CHAP4_STATUS_CODE__09 = '09';
+    const CHAP4_STATUS_CODE__10 = '10';
+    const CHAP4_STATUS_CODE__11 = '11';
+    const CHAP4_STATUS_CODE__12 = '12';
+    const CHAP4_STATUS_CODE__13 = '13';
+    const CHAP4_STATUS_CODE__14 = '14';
+    const CHAP4_STATUS_CODE__15 = '15';
+    const CHAP4_STATUS_CODE__16 = '16';
+    const CHAP4_STATUS_CODE__17 = '17';
+    const CHAP4_STATUS_CODE__18 = '18';
+    const CHAP4_STATUS_CODE__19 = '19';
+    const CHAP4_STATUS_CODE__20 = '20';
+    const CHAP4_STATUS_CODE__21 = '21';
+    const CHAP4_STATUS_CODE__22 = '22';
+    const CHAP4_STATUS_CODE__23 = '23';
+    const CHAP4_STATUS_CODE__24 = '24';
+    const CHAP4_STATUS_CODE__25 = '25';
+    const CHAP4_STATUS_CODE__26 = '26';
+    const CHAP4_STATUS_CODE__27 = '27';
+    const CHAP4_STATUS_CODE__28 = '28';
+    const CHAP4_STATUS_CODE__29 = '29';
+    const CHAP4_STATUS_CODE__30 = '30';
+    const CHAP4_STATUS_CODE__31 = '31';
+    const CHAP4_STATUS_CODE__32 = '32';
+    const CHAP4_STATUS_CODE__33 = '33';
+    const CHAP4_STATUS_CODE__34 = '34';
+    const CHAP4_STATUS_CODE__35 = '35';
+    const CHAP4_STATUS_CODE__36 = '36';
+    const CHAP4_STATUS_CODE__37 = '37';
+    const CHAP4_STATUS_CODE__38 = '38';
+    const CHAP4_STATUS_CODE__39 = '39';
+    const CHAP4_STATUS_CODE__40 = '40';
+    const CHAP4_STATUS_CODE__41 = '41';
+    const CHAP4_STATUS_CODE__42 = '42';
+    const CHAP4_STATUS_CODE__43 = '43';
+    const CHAP4_STATUS_CODE__44 = '44';
+    const CHAP4_STATUS_CODE__45 = '45';
+    const CHAP4_STATUS_CODE__46 = '46';
+    const CHAP4_STATUS_CODE__47 = '47';
+    const CHAP4_STATUS_CODE__48 = '48';
+    const CHAP4_STATUS_CODE__49 = '49';
+    const CHAP4_STATUS_CODE__50 = '50';
+    const TYPE__1099_NEC = '1099-NEC';
+    const TYPE__1099_MISC = '1099-MISC';
+    const TYPE__1099_DIV = '1099-DIV';
+    const TYPE__1099_R = '1099-R';
+    const TYPE__1099_K = '1099-K';
+    const TYPE__1095_B = '1095-B';
+    const TYPE__1042_S = '1042-S';
+    const TYPE__1095_C = '1095-C';
+    const TYPE__1099_INT = '1099-INT';
+    const ORIGIN_OF_HEALTH_COVERAGE_CODE_A = 'A';
+    const ORIGIN_OF_HEALTH_COVERAGE_CODE_B = 'B';
+    const ORIGIN_OF_HEALTH_COVERAGE_CODE_C = 'C';
+    const ORIGIN_OF_HEALTH_COVERAGE_CODE_D = 'D';
+    const ORIGIN_OF_HEALTH_COVERAGE_CODE_E = 'E';
+    const ORIGIN_OF_HEALTH_COVERAGE_CODE_F = 'F';
+    const ORIGIN_OF_HEALTH_COVERAGE_CODE_G = 'G';
+    const PLAN_START_MONTH__00 = '00';
+    const PLAN_START_MONTH__01 = '01';
+    const PLAN_START_MONTH__02 = '02';
+    const PLAN_START_MONTH__03 = '03';
+    const PLAN_START_MONTH__04 = '04';
+    const PLAN_START_MONTH__05 = '05';
+    const PLAN_START_MONTH__06 = '06';
+    const PLAN_START_MONTH__07 = '07';
+    const PLAN_START_MONTH__08 = '08';
+    const PLAN_START_MONTH__09 = '09';
+    const PLAN_START_MONTH__10 = '10';
+    const PLAN_START_MONTH__11 = '11';
+    const PLAN_START_MONTH__12 = '12';
     const FILER_TYPE_PSE = 'PSE';
     const FILER_TYPE_EPF = 'EPF';
     const FILER_TYPE_OTHER = 'Other';
     const PAYMENT_TYPE_MERCHANT_PAYMENT_CARD = 'MerchantPaymentCard';
     const PAYMENT_TYPE_THIRD_PARTY_NETWORK = 'ThirdPartyNetwork';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTinTypeAllowableValues()
+    {
+        return [
+            self::TIN_TYPE__EMPTY,
+            self::TIN_TYPE_EIN,
+            self::TIN_TYPE_SSN,
+            self::TIN_TYPE_ITIN,
+            self::TIN_TYPE_ATIN,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getLobCodeAllowableValues()
+    {
+        return [
+            self::LOB_CODE__01,
+            self::LOB_CODE__02,
+            self::LOB_CODE__03,
+            self::LOB_CODE__04,
+            self::LOB_CODE__05,
+            self::LOB_CODE__06,
+            self::LOB_CODE__07,
+            self::LOB_CODE__08,
+            self::LOB_CODE__09,
+            self::LOB_CODE__10,
+            self::LOB_CODE__11,
+            self::LOB_CODE__12,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getIncomeCodeAllowableValues()
+    {
+        return [
+            self::INCOME_CODE__01,
+            self::INCOME_CODE__02,
+            self::INCOME_CODE__03,
+            self::INCOME_CODE__04,
+            self::INCOME_CODE__05,
+            self::INCOME_CODE__22,
+            self::INCOME_CODE__29,
+            self::INCOME_CODE__30,
+            self::INCOME_CODE__31,
+            self::INCOME_CODE__33,
+            self::INCOME_CODE__51,
+            self::INCOME_CODE__54,
+            self::INCOME_CODE__06,
+            self::INCOME_CODE__07,
+            self::INCOME_CODE__08,
+            self::INCOME_CODE__34,
+            self::INCOME_CODE__40,
+            self::INCOME_CODE__52,
+            self::INCOME_CODE__53,
+            self::INCOME_CODE__56,
+            self::INCOME_CODE__09,
+            self::INCOME_CODE__10,
+            self::INCOME_CODE__11,
+            self::INCOME_CODE__12,
+            self::INCOME_CODE__13,
+            self::INCOME_CODE__14,
+            self::INCOME_CODE__15,
+            self::INCOME_CODE__16,
+            self::INCOME_CODE__17,
+            self::INCOME_CODE__18,
+            self::INCOME_CODE__19,
+            self::INCOME_CODE__20,
+            self::INCOME_CODE__23,
+            self::INCOME_CODE__24,
+            self::INCOME_CODE__25,
+            self::INCOME_CODE__26,
+            self::INCOME_CODE__27,
+            self::INCOME_CODE__28,
+            self::INCOME_CODE__32,
+            self::INCOME_CODE__35,
+            self::INCOME_CODE__36,
+            self::INCOME_CODE__37,
+            self::INCOME_CODE__38,
+            self::INCOME_CODE__39,
+            self::INCOME_CODE__41,
+            self::INCOME_CODE__42,
+            self::INCOME_CODE__43,
+            self::INCOME_CODE__44,
+            self::INCOME_CODE__50,
+            self::INCOME_CODE__55,
+            self::INCOME_CODE__57,
+            self::INCOME_CODE__58,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getWithholdingIndicatorAllowableValues()
+    {
+        return [
+            self::WITHHOLDING_INDICATOR__3,
+            self::WITHHOLDING_INDICATOR__4,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getExemptionCodeChap3AllowableValues()
+    {
+        return [
+            self::EXEMPTION_CODE_CHAP3__00,
+            self::EXEMPTION_CODE_CHAP3__01,
+            self::EXEMPTION_CODE_CHAP3__02,
+            self::EXEMPTION_CODE_CHAP3__03,
+            self::EXEMPTION_CODE_CHAP3__04,
+            self::EXEMPTION_CODE_CHAP3__05,
+            self::EXEMPTION_CODE_CHAP3__06,
+            self::EXEMPTION_CODE_CHAP3__07,
+            self::EXEMPTION_CODE_CHAP3__08,
+            self::EXEMPTION_CODE_CHAP3__09,
+            self::EXEMPTION_CODE_CHAP3__10,
+            self::EXEMPTION_CODE_CHAP3__11,
+            self::EXEMPTION_CODE_CHAP3__12,
+            self::EXEMPTION_CODE_CHAP3__22,
+            self::EXEMPTION_CODE_CHAP3__23,
+            self::EXEMPTION_CODE_CHAP3__24,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getExemptionCodeChap4AllowableValues()
+    {
+        return [
+            self::EXEMPTION_CODE_CHAP4__00,
+            self::EXEMPTION_CODE_CHAP4__13,
+            self::EXEMPTION_CODE_CHAP4__14,
+            self::EXEMPTION_CODE_CHAP4__15,
+            self::EXEMPTION_CODE_CHAP4__16,
+            self::EXEMPTION_CODE_CHAP4__17,
+            self::EXEMPTION_CODE_CHAP4__18,
+            self::EXEMPTION_CODE_CHAP4__19,
+            self::EXEMPTION_CODE_CHAP4__20,
+            self::EXEMPTION_CODE_CHAP4__21,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTaxRateChap3AllowableValues()
+    {
+        return [
+            self::TAX_RATE_CHAP3__00_00,
+            self::TAX_RATE_CHAP3__02_00,
+            self::TAX_RATE_CHAP3__04_00,
+            self::TAX_RATE_CHAP3__04_90,
+            self::TAX_RATE_CHAP3__04_95,
+            self::TAX_RATE_CHAP3__05_00,
+            self::TAX_RATE_CHAP3__07_00,
+            self::TAX_RATE_CHAP3__08_00,
+            self::TAX_RATE_CHAP3__10_00,
+            self::TAX_RATE_CHAP3__12_00,
+            self::TAX_RATE_CHAP3__12_50,
+            self::TAX_RATE_CHAP3__14_00,
+            self::TAX_RATE_CHAP3__15_00,
+            self::TAX_RATE_CHAP3__17_50,
+            self::TAX_RATE_CHAP3__20_00,
+            self::TAX_RATE_CHAP3__21_00,
+            self::TAX_RATE_CHAP3__24_00,
+            self::TAX_RATE_CHAP3__25_00,
+            self::TAX_RATE_CHAP3__27_50,
+            self::TAX_RATE_CHAP3__28_00,
+            self::TAX_RATE_CHAP3__30_00,
+            self::TAX_RATE_CHAP3__37_00,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getChap3StatusCodeAllowableValues()
+    {
+        return [
+            self::CHAP3_STATUS_CODE__01,
+            self::CHAP3_STATUS_CODE__02,
+            self::CHAP3_STATUS_CODE__34,
+            self::CHAP3_STATUS_CODE__03,
+            self::CHAP3_STATUS_CODE__04,
+            self::CHAP3_STATUS_CODE__05,
+            self::CHAP3_STATUS_CODE__06,
+            self::CHAP3_STATUS_CODE__07,
+            self::CHAP3_STATUS_CODE__08,
+            self::CHAP3_STATUS_CODE__09,
+            self::CHAP3_STATUS_CODE__10,
+            self::CHAP3_STATUS_CODE__11,
+            self::CHAP3_STATUS_CODE__12,
+            self::CHAP3_STATUS_CODE__13,
+            self::CHAP3_STATUS_CODE__14,
+            self::CHAP3_STATUS_CODE__15,
+            self::CHAP3_STATUS_CODE__16,
+            self::CHAP3_STATUS_CODE__17,
+            self::CHAP3_STATUS_CODE__18,
+            self::CHAP3_STATUS_CODE__19,
+            self::CHAP3_STATUS_CODE__20,
+            self::CHAP3_STATUS_CODE__21,
+            self::CHAP3_STATUS_CODE__22,
+            self::CHAP3_STATUS_CODE__23,
+            self::CHAP3_STATUS_CODE__24,
+            self::CHAP3_STATUS_CODE__25,
+            self::CHAP3_STATUS_CODE__26,
+            self::CHAP3_STATUS_CODE__27,
+            self::CHAP3_STATUS_CODE__28,
+            self::CHAP3_STATUS_CODE__29,
+            self::CHAP3_STATUS_CODE__30,
+            self::CHAP3_STATUS_CODE__31,
+            self::CHAP3_STATUS_CODE__32,
+            self::CHAP3_STATUS_CODE__35,
+            self::CHAP3_STATUS_CODE__36,
+            self::CHAP3_STATUS_CODE__37,
+            self::CHAP3_STATUS_CODE__38,
+            self::CHAP3_STATUS_CODE__39,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getChap4StatusCodeAllowableValues()
+    {
+        return [
+            self::CHAP4_STATUS_CODE__01,
+            self::CHAP4_STATUS_CODE__02,
+            self::CHAP4_STATUS_CODE__03,
+            self::CHAP4_STATUS_CODE__04,
+            self::CHAP4_STATUS_CODE__05,
+            self::CHAP4_STATUS_CODE__06,
+            self::CHAP4_STATUS_CODE__07,
+            self::CHAP4_STATUS_CODE__08,
+            self::CHAP4_STATUS_CODE__09,
+            self::CHAP4_STATUS_CODE__10,
+            self::CHAP4_STATUS_CODE__11,
+            self::CHAP4_STATUS_CODE__12,
+            self::CHAP4_STATUS_CODE__13,
+            self::CHAP4_STATUS_CODE__14,
+            self::CHAP4_STATUS_CODE__15,
+            self::CHAP4_STATUS_CODE__16,
+            self::CHAP4_STATUS_CODE__17,
+            self::CHAP4_STATUS_CODE__18,
+            self::CHAP4_STATUS_CODE__19,
+            self::CHAP4_STATUS_CODE__20,
+            self::CHAP4_STATUS_CODE__21,
+            self::CHAP4_STATUS_CODE__22,
+            self::CHAP4_STATUS_CODE__23,
+            self::CHAP4_STATUS_CODE__24,
+            self::CHAP4_STATUS_CODE__25,
+            self::CHAP4_STATUS_CODE__26,
+            self::CHAP4_STATUS_CODE__27,
+            self::CHAP4_STATUS_CODE__28,
+            self::CHAP4_STATUS_CODE__29,
+            self::CHAP4_STATUS_CODE__30,
+            self::CHAP4_STATUS_CODE__31,
+            self::CHAP4_STATUS_CODE__32,
+            self::CHAP4_STATUS_CODE__33,
+            self::CHAP4_STATUS_CODE__34,
+            self::CHAP4_STATUS_CODE__35,
+            self::CHAP4_STATUS_CODE__36,
+            self::CHAP4_STATUS_CODE__37,
+            self::CHAP4_STATUS_CODE__38,
+            self::CHAP4_STATUS_CODE__39,
+            self::CHAP4_STATUS_CODE__40,
+            self::CHAP4_STATUS_CODE__41,
+            self::CHAP4_STATUS_CODE__42,
+            self::CHAP4_STATUS_CODE__43,
+            self::CHAP4_STATUS_CODE__44,
+            self::CHAP4_STATUS_CODE__45,
+            self::CHAP4_STATUS_CODE__46,
+            self::CHAP4_STATUS_CODE__47,
+            self::CHAP4_STATUS_CODE__48,
+            self::CHAP4_STATUS_CODE__49,
+            self::CHAP4_STATUS_CODE__50,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE__1099_NEC,
+            self::TYPE__1099_MISC,
+            self::TYPE__1099_DIV,
+            self::TYPE__1099_R,
+            self::TYPE__1099_K,
+            self::TYPE__1095_B,
+            self::TYPE__1042_S,
+            self::TYPE__1095_C,
+            self::TYPE__1099_INT,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getOriginOfHealthCoverageCodeAllowableValues()
+    {
+        return [
+            self::ORIGIN_OF_HEALTH_COVERAGE_CODE_A,
+            self::ORIGIN_OF_HEALTH_COVERAGE_CODE_B,
+            self::ORIGIN_OF_HEALTH_COVERAGE_CODE_C,
+            self::ORIGIN_OF_HEALTH_COVERAGE_CODE_D,
+            self::ORIGIN_OF_HEALTH_COVERAGE_CODE_E,
+            self::ORIGIN_OF_HEALTH_COVERAGE_CODE_F,
+            self::ORIGIN_OF_HEALTH_COVERAGE_CODE_G,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getPlanStartMonthAllowableValues()
+    {
+        return [
+            self::PLAN_START_MONTH__00,
+            self::PLAN_START_MONTH__01,
+            self::PLAN_START_MONTH__02,
+            self::PLAN_START_MONTH__03,
+            self::PLAN_START_MONTH__04,
+            self::PLAN_START_MONTH__05,
+            self::PLAN_START_MONTH__06,
+            self::PLAN_START_MONTH__07,
+            self::PLAN_START_MONTH__08,
+            self::PLAN_START_MONTH__09,
+            self::PLAN_START_MONTH__10,
+            self::PLAN_START_MONTH__11,
+            self::PLAN_START_MONTH__12,
+        ];
+    }
 
     /**
      * Gets allowable values of the enum
@@ -892,45 +1586,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function __construct(array $data = null)
     {
-        $this->container['id'] = $data['id'] ?? null;
-        $this->container['type'] = $data['type'] ?? null;
-        $this->container['issuer_id'] = $data['issuer_id'] ?? null;
-        $this->container['issuer_reference_id'] = $data['issuer_reference_id'] ?? null;
-        $this->container['issuer_tin'] = $data['issuer_tin'] ?? null;
-        $this->container['tax_year'] = $data['tax_year'] ?? null;
-        $this->container['federal_efile'] = $data['federal_efile'] ?? null;
-        $this->container['federal_efile_status'] = $data['federal_efile_status'] ?? null;
-        $this->container['state_efile'] = $data['state_efile'] ?? null;
-        $this->container['state_efile_status'] = $data['state_efile_status'] ?? null;
-        $this->container['postal_mail'] = $data['postal_mail'] ?? null;
-        $this->container['postal_mail_status'] = $data['postal_mail_status'] ?? null;
-        $this->container['tin_match'] = $data['tin_match'] ?? null;
-        $this->container['tin_match_status'] = $data['tin_match_status'] ?? null;
-        $this->container['address_verification'] = $data['address_verification'] ?? null;
-        $this->container['address_verification_status'] = $data['address_verification_status'] ?? null;
-        $this->container['e_delivery_status'] = $data['e_delivery_status'] ?? null;
-        $this->container['reference_id'] = $data['reference_id'] ?? null;
-        $this->container['email'] = $data['email'] ?? null;
         $this->container['tin_type'] = $data['tin_type'] ?? null;
-        $this->container['tin'] = $data['tin'] ?? null;
-        $this->container['no_tin'] = $data['no_tin'] ?? null;
-        $this->container['second_tin_notice'] = $data['second_tin_notice'] ?? null;
-        $this->container['recipient_name'] = $data['recipient_name'] ?? null;
-        $this->container['recipient_second_name'] = $data['recipient_second_name'] ?? null;
-        $this->container['address'] = $data['address'] ?? null;
-        $this->container['address2'] = $data['address2'] ?? null;
-        $this->container['city'] = $data['city'] ?? null;
-        $this->container['state'] = $data['state'] ?? null;
-        $this->container['zip'] = $data['zip'] ?? null;
-        $this->container['non_us_province'] = $data['non_us_province'] ?? null;
-        $this->container['country_code'] = $data['country_code'] ?? null;
-        $this->container['account_number'] = $data['account_number'] ?? null;
-        $this->container['office_code'] = $data['office_code'] ?? null;
-        $this->container['fatca_filing_requirement'] = $data['fatca_filing_requirement'] ?? null;
-        $this->container['validation_errors'] = $data['validation_errors'] ?? null;
-        $this->container['created_at'] = $data['created_at'] ?? null;
-        $this->container['updated_at'] = $data['updated_at'] ?? null;
-        $this->container['state_and_local_withholding'] = $data['state_and_local_withholding'] ?? null;
         $this->container['unique_form_id'] = $data['unique_form_id'] ?? null;
         $this->container['recipient_date_of_birth'] = $data['recipient_date_of_birth'] ?? null;
         $this->container['recipient_giin'] = $data['recipient_giin'] ?? null;
@@ -954,8 +1610,54 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
         $this->container['chap4_status_code'] = $data['chap4_status_code'] ?? null;
         $this->container['primary_withholding_agent'] = $data['primary_withholding_agent'] ?? null;
         $this->container['intermediary_or_flow_through'] = $data['intermediary_or_flow_through'] ?? null;
+        $this->container['type'] = $data['type'] ?? null;
+        $this->container['id'] = $data['id'] ?? null;
+        $this->container['issuer_id'] = $data['issuer_id'] ?? null;
+        $this->container['issuer_reference_id'] = $data['issuer_reference_id'] ?? null;
+        $this->container['issuer_tin'] = $data['issuer_tin'] ?? null;
+        $this->container['tax_year'] = $data['tax_year'] ?? null;
+        $this->container['reference_id'] = $data['reference_id'] ?? null;
+        $this->container['tin'] = $data['tin'] ?? null;
+        $this->container['recipient_name'] = $data['recipient_name'] ?? null;
+        $this->container['recipient_second_name'] = $data['recipient_second_name'] ?? null;
+        $this->container['address'] = $data['address'] ?? null;
+        $this->container['address2'] = $data['address2'] ?? null;
+        $this->container['city'] = $data['city'] ?? null;
+        $this->container['state'] = $data['state'] ?? null;
+        $this->container['zip'] = $data['zip'] ?? null;
+        $this->container['email'] = $data['email'] ?? null;
+        $this->container['account_number'] = $data['account_number'] ?? null;
+        $this->container['office_code'] = $data['office_code'] ?? null;
+        $this->container['non_us_province'] = $data['non_us_province'] ?? null;
+        $this->container['country_code'] = $data['country_code'] ?? null;
+        $this->container['federal_efile_date'] = $data['federal_efile_date'] ?? null;
+        $this->container['postal_mail'] = $data['postal_mail'] ?? null;
+        $this->container['state_efile_date'] = $data['state_efile_date'] ?? null;
+        $this->container['recipient_edelivery_date'] = $data['recipient_edelivery_date'] ?? null;
+        $this->container['tin_match'] = $data['tin_match'] ?? null;
+        $this->container['no_tin'] = $data['no_tin'] ?? null;
+        $this->container['address_verification'] = $data['address_verification'] ?? null;
+        $this->container['state_and_local_withholding'] = $data['state_and_local_withholding'] ?? null;
+        $this->container['second_tin_notice'] = $data['second_tin_notice'] ?? null;
+        $this->container['federal_efile_status'] = $data['federal_efile_status'] ?? null;
+        $this->container['state_efile_status'] = $data['state_efile_status'] ?? null;
+        $this->container['postal_mail_status'] = $data['postal_mail_status'] ?? null;
+        $this->container['tin_match_status'] = $data['tin_match_status'] ?? null;
+        $this->container['address_verification_status'] = $data['address_verification_status'] ?? null;
+        $this->container['e_delivery_status'] = $data['e_delivery_status'] ?? null;
+        $this->container['validation_errors'] = $data['validation_errors'] ?? null;
+        $this->container['created_at'] = $data['created_at'] ?? null;
+        $this->container['updated_at'] = $data['updated_at'] ?? null;
+        $this->container['employee_first_name'] = $data['employee_first_name'] ?? null;
+        $this->container['employee_middle_name'] = $data['employee_middle_name'] ?? null;
+        $this->container['employee_last_name'] = $data['employee_last_name'] ?? null;
+        $this->container['employee_name_suffix'] = $data['employee_name_suffix'] ?? null;
+        $this->container['employee_date_of_birth'] = $data['employee_date_of_birth'] ?? null;
         $this->container['origin_of_health_coverage_code'] = $data['origin_of_health_coverage_code'] ?? null;
         $this->container['covered_individuals'] = $data['covered_individuals'] ?? null;
+        $this->container['plan_start_month'] = $data['plan_start_month'] ?? null;
+        $this->container['employer_provided_si_coverage'] = $data['employer_provided_si_coverage'] ?? null;
+        $this->container['offer_and_coverages'] = $data['offer_and_coverages'] ?? null;
         $this->container['total_ordinary_dividends'] = $data['total_ordinary_dividends'] ?? null;
         $this->container['qualified_dividends'] = $data['qualified_dividends'] ?? null;
         $this->container['total_capital_gain_distributions'] = $data['total_capital_gain_distributions'] ?? null;
@@ -974,6 +1676,18 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
         $this->container['noncash_liquidation_distributions'] = $data['noncash_liquidation_distributions'] ?? null;
         $this->container['exempt_interest_dividends'] = $data['exempt_interest_dividends'] ?? null;
         $this->container['specified_private_activity_bond_interest_dividends'] = $data['specified_private_activity_bond_interest_dividends'] ?? null;
+        $this->container['fatca_filing_requirement'] = $data['fatca_filing_requirement'] ?? null;
+        $this->container['interest_income'] = $data['interest_income'] ?? null;
+        $this->container['early_withdrawal_penalty'] = $data['early_withdrawal_penalty'] ?? null;
+        $this->container['us_savings_bonds_interest'] = $data['us_savings_bonds_interest'] ?? null;
+        $this->container['foreign_country'] = $data['foreign_country'] ?? null;
+        $this->container['tax_exempt_interest'] = $data['tax_exempt_interest'] ?? null;
+        $this->container['specified_private_activity_bond_interest'] = $data['specified_private_activity_bond_interest'] ?? null;
+        $this->container['market_discount'] = $data['market_discount'] ?? null;
+        $this->container['bond_premium'] = $data['bond_premium'] ?? null;
+        $this->container['bond_premium_on_treasury_obligations'] = $data['bond_premium_on_treasury_obligations'] ?? null;
+        $this->container['bond_premium_on_tax_exempt_bond'] = $data['bond_premium_on_tax_exempt_bond'] ?? null;
+        $this->container['tax_exempt_bond_cusip_number'] = $data['tax_exempt_bond_cusip_number'] ?? null;
         $this->container['filer_type'] = $data['filer_type'] ?? null;
         $this->container['payment_type'] = $data['payment_type'] ?? null;
         $this->container['payment_settlement_entity_name_phone_number'] = $data['payment_settlement_entity_name_phone_number'] ?? null;
@@ -989,43 +1703,41 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
         $this->container['june'] = $data['june'] ?? null;
         $this->container['july'] = $data['july'] ?? null;
         $this->container['august'] = $data['august'] ?? null;
-        $this->container['sept'] = $data['sept'] ?? null;
+        $this->container['september'] = $data['september'] ?? null;
         $this->container['october'] = $data['october'] ?? null;
         $this->container['november'] = $data['november'] ?? null;
         $this->container['december'] = $data['december'] ?? null;
         $this->container['rents'] = $data['rents'] ?? null;
         $this->container['royalties'] = $data['royalties'] ?? null;
         $this->container['other_income'] = $data['other_income'] ?? null;
-        $this->container['fed_income_tax_withheld'] = $data['fed_income_tax_withheld'] ?? null;
         $this->container['fishing_boat_proceeds'] = $data['fishing_boat_proceeds'] ?? null;
         $this->container['medical_and_health_care_payments'] = $data['medical_and_health_care_payments'] ?? null;
-        $this->container['substitute_payments'] = $data['substitute_payments'] ?? null;
         $this->container['direct_sales_indicator'] = $data['direct_sales_indicator'] ?? null;
+        $this->container['substitute_payments'] = $data['substitute_payments'] ?? null;
         $this->container['crop_insurance_proceeds'] = $data['crop_insurance_proceeds'] ?? null;
-        $this->container['excess_golden_parachute_payments'] = $data['excess_golden_parachute_payments'] ?? null;
         $this->container['gross_proceeds_paid_to_attorney'] = $data['gross_proceeds_paid_to_attorney'] ?? null;
         $this->container['fish_purchased_for_resale'] = $data['fish_purchased_for_resale'] ?? null;
         $this->container['section409_a_deferrals'] = $data['section409_a_deferrals'] ?? null;
+        $this->container['excess_golden_parachute_payments'] = $data['excess_golden_parachute_payments'] ?? null;
         $this->container['nonqualified_deferred_compensation'] = $data['nonqualified_deferred_compensation'] ?? null;
         $this->container['nonemployee_compensation'] = $data['nonemployee_compensation'] ?? null;
-        $this->container['gross_distributions'] = $data['gross_distributions'] ?? null;
+        $this->container['gross_distribution'] = $data['gross_distribution'] ?? null;
         $this->container['taxable_amount'] = $data['taxable_amount'] ?? null;
         $this->container['taxable_amount_not_determined'] = $data['taxable_amount_not_determined'] ?? null;
-        $this->container['total_distribution_indicator'] = $data['total_distribution_indicator'] ?? null;
+        $this->container['total_distribution_determined'] = $data['total_distribution_determined'] ?? null;
         $this->container['capital_gain'] = $data['capital_gain'] ?? null;
-        $this->container['employee_contributions'] = $data['employee_contributions'] ?? null;
-        $this->container['net_unrealized_appreciation'] = $data['net_unrealized_appreciation'] ?? null;
-        $this->container['distribution_code_required'] = $data['distribution_code_required'] ?? null;
-        $this->container['distribution_code_optional'] = $data['distribution_code_optional'] ?? null;
-        $this->container['ira_sep_simple_indicator'] = $data['ira_sep_simple_indicator'] ?? null;
-        $this->container['total_ira_sep_simple_distribution'] = $data['total_ira_sep_simple_distribution'] ?? null;
-        $this->container['other'] = $data['other'] ?? null;
-        $this->container['other_percent'] = $data['other_percent'] ?? null;
-        $this->container['percentage_total_distribution'] = $data['percentage_total_distribution'] ?? null;
+        $this->container['employee_contributions_or_designated_roth_or_insurance_premiums'] = $data['employee_contributions_or_designated_roth_or_insurance_premiums'] ?? null;
+        $this->container['net_unrealized_appreciation_in_employer_securities'] = $data['net_unrealized_appreciation_in_employer_securities'] ?? null;
+        $this->container['distribution_code'] = $data['distribution_code'] ?? null;
+        $this->container['second_distribution_code'] = $data['second_distribution_code'] ?? null;
+        $this->container['ira_sep_simple'] = $data['ira_sep_simple'] ?? null;
+        $this->container['traditional_ira_sep_simple_or_roth_conversion_amount'] = $data['traditional_ira_sep_simple_or_roth_conversion_amount'] ?? null;
+        $this->container['other_amount'] = $data['other_amount'] ?? null;
+        $this->container['other_percentage'] = $data['other_percentage'] ?? null;
+        $this->container['total_distribution_percentage'] = $data['total_distribution_percentage'] ?? null;
         $this->container['total_employee_contributions'] = $data['total_employee_contributions'] ?? null;
-        $this->container['amount_allocable_to_irr'] = $data['amount_allocable_to_irr'] ?? null;
-        $this->container['first_year_designated_roth_contrib'] = $data['first_year_designated_roth_contrib'] ?? null;
-        $this->container['fatca_requirement_indicator'] = $data['fatca_requirement_indicator'] ?? null;
+        $this->container['amount_allocable_to_irr_within5_years'] = $data['amount_allocable_to_irr_within5_years'] ?? null;
+        $this->container['first_year_of_designated_roth_contribution'] = $data['first_year_of_designated_roth_contribution'] ?? null;
         $this->container['date_of_payment'] = $data['date_of_payment'] ?? null;
     }
 
@@ -1038,37 +1750,158 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     {
         $invalidProperties = [];
 
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
+        $allowedValues = $this->getTinTypeAllowableValues();
+        if (!is_null($this->container['tin_type']) && !in_array($this->container['tin_type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'tin_type', must be one of '%s'",
+                $this->container['tin_type'],
+                implode("', '", $allowedValues)
+            );
         }
-        if ((mb_strlen($this->container['id']) < 1)) {
-            $invalidProperties[] = "invalid value for 'id', the character length must be bigger than or equal to 1.";
+
+        if ($this->container['unique_form_id'] === null) {
+            $invalidProperties[] = "'unique_form_id' can't be null";
+        }
+        $allowedValues = $this->getLobCodeAllowableValues();
+        if (!is_null($this->container['lob_code']) && !in_array($this->container['lob_code'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'lob_code', must be one of '%s'",
+                $this->container['lob_code'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        if ($this->container['income_code'] === null) {
+            $invalidProperties[] = "'income_code' can't be null";
+        }
+        $allowedValues = $this->getIncomeCodeAllowableValues();
+        if (!is_null($this->container['income_code']) && !in_array($this->container['income_code'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'income_code', must be one of '%s'",
+                $this->container['income_code'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        if ($this->container['gross_income'] === null) {
+            $invalidProperties[] = "'gross_income' can't be null";
+        }
+        if ($this->container['withholding_indicator'] === null) {
+            $invalidProperties[] = "'withholding_indicator' can't be null";
+        }
+        $allowedValues = $this->getWithholdingIndicatorAllowableValues();
+        if (!is_null($this->container['withholding_indicator']) && !in_array($this->container['withholding_indicator'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'withholding_indicator', must be one of '%s'",
+                $this->container['withholding_indicator'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        if ($this->container['tax_country_code'] === null) {
+            $invalidProperties[] = "'tax_country_code' can't be null";
+        }
+        $allowedValues = $this->getExemptionCodeChap3AllowableValues();
+        if (!is_null($this->container['exemption_code_chap3']) && !in_array($this->container['exemption_code_chap3'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'exemption_code_chap3', must be one of '%s'",
+                $this->container['exemption_code_chap3'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getExemptionCodeChap4AllowableValues();
+        if (!is_null($this->container['exemption_code_chap4']) && !in_array($this->container['exemption_code_chap4'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'exemption_code_chap4', must be one of '%s'",
+                $this->container['exemption_code_chap4'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getTaxRateChap3AllowableValues();
+        if (!is_null($this->container['tax_rate_chap3']) && !in_array($this->container['tax_rate_chap3'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'tax_rate_chap3', must be one of '%s'",
+                $this->container['tax_rate_chap3'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getChap3StatusCodeAllowableValues();
+        if (!is_null($this->container['chap3_status_code']) && !in_array($this->container['chap3_status_code'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'chap3_status_code', must be one of '%s'",
+                $this->container['chap3_status_code'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getChap4StatusCodeAllowableValues();
+        if (!is_null($this->container['chap4_status_code']) && !in_array($this->container['chap4_status_code'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'chap4_status_code', must be one of '%s'",
+                $this->container['chap4_status_code'],
+                implode("', '", $allowedValues)
+            );
         }
 
         if ($this->container['type'] === null) {
             $invalidProperties[] = "'type' can't be null";
         }
-        if ((mb_strlen($this->container['type']) < 1)) {
-            $invalidProperties[] = "invalid value for 'type', the character length must be bigger than or equal to 1.";
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'type', must be one of '%s'",
+                $this->container['type'],
+                implode("', '", $allowedValues)
+            );
         }
 
-        if ($this->container['issuer_id'] === null) {
-            $invalidProperties[] = "'issuer_id' can't be null";
+        if ($this->container['recipient_name'] === null) {
+            $invalidProperties[] = "'recipient_name' can't be null";
         }
-        if ($this->container['federal_efile'] === null) {
-            $invalidProperties[] = "'federal_efile' can't be null";
+        if ($this->container['address'] === null) {
+            $invalidProperties[] = "'address' can't be null";
         }
-        if ($this->container['state_efile'] === null) {
-            $invalidProperties[] = "'state_efile' can't be null";
+        if ($this->container['city'] === null) {
+            $invalidProperties[] = "'city' can't be null";
         }
-        if ($this->container['postal_mail'] === null) {
-            $invalidProperties[] = "'postal_mail' can't be null";
+        if ($this->container['country_code'] === null) {
+            $invalidProperties[] = "'country_code' can't be null";
         }
-        if ($this->container['tin_match'] === null) {
-            $invalidProperties[] = "'tin_match' can't be null";
+        if ($this->container['employee_first_name'] === null) {
+            $invalidProperties[] = "'employee_first_name' can't be null";
         }
-        if ($this->container['address_verification'] === null) {
-            $invalidProperties[] = "'address_verification' can't be null";
+        if ($this->container['employee_last_name'] === null) {
+            $invalidProperties[] = "'employee_last_name' can't be null";
+        }
+        if ($this->container['origin_of_health_coverage_code'] === null) {
+            $invalidProperties[] = "'origin_of_health_coverage_code' can't be null";
+        }
+        $allowedValues = $this->getOriginOfHealthCoverageCodeAllowableValues();
+        if (!is_null($this->container['origin_of_health_coverage_code']) && !in_array($this->container['origin_of_health_coverage_code'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'origin_of_health_coverage_code', must be one of '%s'",
+                $this->container['origin_of_health_coverage_code'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        if ($this->container['plan_start_month'] === null) {
+            $invalidProperties[] = "'plan_start_month' can't be null";
+        }
+        $allowedValues = $this->getPlanStartMonthAllowableValues();
+        if (!is_null($this->container['plan_start_month']) && !in_array($this->container['plan_start_month'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'plan_start_month', must be one of '%s'",
+                $this->container['plan_start_month'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        if ($this->container['offer_and_coverages'] === null) {
+            $invalidProperties[] = "'offer_and_coverages' can't be null";
         }
         $allowedValues = $this->getFilerTypeAllowableValues();
         if (!is_null($this->container['filer_type']) && !in_array($this->container['filer_type'], $allowedValues, true)) {
@@ -1088,6 +1921,9 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
             );
         }
 
+        if ($this->container['nonemployee_compensation'] === null) {
+            $invalidProperties[] = "'nonemployee_compensation' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -1104,474 +1940,6 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
 
 
     /**
-     * Gets id
-     *
-     * @return string
-     */
-    public function getId()
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     *
-     * @param string $id ID of the form
-     *
-     * @return self
-     */
-    public function setId($id)
-    {
-
-        if ((mb_strlen($id) < 1)) {
-            throw new \InvalidArgumentException('invalid length for $id when calling Get1099Form200Response., must be bigger than or equal to 1.');
-        }
-
-        $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets type
-     *
-     * @return string
-     */
-    public function getType()
-    {
-        return $this->container['type'];
-    }
-
-    /**
-     * Sets type
-     *
-     * @param string $type Type of the form. Will be one of:  * 940  * 941  * 943  * 944  * 945  * 1042  * 1042-S  * 1095-B  * 1095-C  * 1097-BTC  * 1098  * 1098-C  * 1098-E  * 1098-Q  * 1098-T  * 3921  * 3922  * 5498  * 5498-ESA  * 5498-SA  * 1099-MISC  * 1099-A  * 1099-B  * 1099-C  * 1099-CAP  * 1099-DIV  * 1099-G  * 1099-INT  * 1099-K  * 1099-LS  * 1099-LTC  * 1099-NEC  * 1099-OID  * 1099-PATR  * 1099-Q  * 1099-R  * 1099-S  * 1099-SA  * T4A  * W-2  * W-2G  * 1099-HC
-     *
-     * @return self
-     */
-    public function setType($type)
-    {
-
-        if ((mb_strlen($type) < 1)) {
-            throw new \InvalidArgumentException('invalid length for $type when calling Get1099Form200Response., must be bigger than or equal to 1.');
-        }
-
-        $this->container['type'] = $type;
-
-        return $this;
-    }
-
-    /**
-     * Gets issuer_id
-     *
-     * @return int
-     */
-    public function getIssuerId()
-    {
-        return $this->container['issuer_id'];
-    }
-
-    /**
-     * Sets issuer_id
-     *
-     * @param int $issuer_id Issuer ID
-     *
-     * @return self
-     */
-    public function setIssuerId($issuer_id)
-    {
-        $this->container['issuer_id'] = $issuer_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets issuer_reference_id
-     *
-     * @return string|null
-     */
-    public function getIssuerReferenceId()
-    {
-        return $this->container['issuer_reference_id'];
-    }
-
-    /**
-     * Sets issuer_reference_id
-     *
-     * @param string|null $issuer_reference_id Issuer Reference ID
-     *
-     * @return self
-     */
-    public function setIssuerReferenceId($issuer_reference_id)
-    {
-        $this->container['issuer_reference_id'] = $issuer_reference_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets issuer_tin
-     *
-     * @return string|null
-     */
-    public function getIssuerTin()
-    {
-        return $this->container['issuer_tin'];
-    }
-
-    /**
-     * Sets issuer_tin
-     *
-     * @param string|null $issuer_tin Issuer TIN
-     *
-     * @return self
-     */
-    public function setIssuerTin($issuer_tin)
-    {
-        $this->container['issuer_tin'] = $issuer_tin;
-
-        return $this;
-    }
-
-    /**
-     * Gets tax_year
-     *
-     * @return int|null
-     */
-    public function getTaxYear()
-    {
-        return $this->container['tax_year'];
-    }
-
-    /**
-     * Sets tax_year
-     *
-     * @param int|null $tax_year Tax year
-     *
-     * @return self
-     */
-    public function setTaxYear($tax_year)
-    {
-        $this->container['tax_year'] = $tax_year;
-
-        return $this;
-    }
-
-    /**
-     * Gets federal_efile
-     *
-     * @return bool
-     */
-    public function getFederalEfile()
-    {
-        return $this->container['federal_efile'];
-    }
-
-    /**
-     * Sets federal_efile
-     *
-     * @param bool $federal_efile Boolean indicating that federal e-filing has been scheduled for this form
-     *
-     * @return self
-     */
-    public function setFederalEfile($federal_efile)
-    {
-        $this->container['federal_efile'] = $federal_efile;
-
-        return $this;
-    }
-
-    /**
-     * Gets federal_efile_status
-     *
-     * @return \Avalara\SDK\Model\A1099\V2\StatusDetail|null
-     */
-    public function getFederalEfileStatus()
-    {
-        return $this->container['federal_efile_status'];
-    }
-
-    /**
-     * Sets federal_efile_status
-     *
-     * @param \Avalara\SDK\Model\A1099\V2\StatusDetail|null $federal_efile_status Federal e-file status
-     *
-     * @return self
-     */
-    public function setFederalEfileStatus($federal_efile_status)
-    {
-        $this->container['federal_efile_status'] = $federal_efile_status;
-
-        return $this;
-    }
-
-    /**
-     * Gets state_efile
-     *
-     * @return bool
-     */
-    public function getStateEfile()
-    {
-        return $this->container['state_efile'];
-    }
-
-    /**
-     * Sets state_efile
-     *
-     * @param bool $state_efile Boolean indicating that state e-filing has been scheduled for this form
-     *
-     * @return self
-     */
-    public function setStateEfile($state_efile)
-    {
-        $this->container['state_efile'] = $state_efile;
-
-        return $this;
-    }
-
-    /**
-     * Gets state_efile_status
-     *
-     * @return \Avalara\SDK\Model\A1099\V2\StateEfileStatusDetailResponse[]|null
-     */
-    public function getStateEfileStatus()
-    {
-        return $this->container['state_efile_status'];
-    }
-
-    /**
-     * Sets state_efile_status
-     *
-     * @param \Avalara\SDK\Model\A1099\V2\StateEfileStatusDetailResponse[]|null $state_efile_status State e-file status
-     *
-     * @return self
-     */
-    public function setStateEfileStatus($state_efile_status)
-    {
-
-
-        $this->container['state_efile_status'] = $state_efile_status;
-
-        return $this;
-    }
-
-    /**
-     * Gets postal_mail
-     *
-     * @return bool
-     */
-    public function getPostalMail()
-    {
-        return $this->container['postal_mail'];
-    }
-
-    /**
-     * Sets postal_mail
-     *
-     * @param bool $postal_mail Boolean indicating that postal mailing to the recipient has been scheduled for this form
-     *
-     * @return self
-     */
-    public function setPostalMail($postal_mail)
-    {
-        $this->container['postal_mail'] = $postal_mail;
-
-        return $this;
-    }
-
-    /**
-     * Gets postal_mail_status
-     *
-     * @return \Avalara\SDK\Model\A1099\V2\StatusDetail|null
-     */
-    public function getPostalMailStatus()
-    {
-        return $this->container['postal_mail_status'];
-    }
-
-    /**
-     * Sets postal_mail_status
-     *
-     * @param \Avalara\SDK\Model\A1099\V2\StatusDetail|null $postal_mail_status Postal mail to recipient status
-     *
-     * @return self
-     */
-    public function setPostalMailStatus($postal_mail_status)
-    {
-        $this->container['postal_mail_status'] = $postal_mail_status;
-
-        return $this;
-    }
-
-    /**
-     * Gets tin_match
-     *
-     * @return bool
-     */
-    public function getTinMatch()
-    {
-        return $this->container['tin_match'];
-    }
-
-    /**
-     * Sets tin_match
-     *
-     * @param bool $tin_match Boolean indicating that TIN Matching has been scheduled for this form
-     *
-     * @return self
-     */
-    public function setTinMatch($tin_match)
-    {
-        $this->container['tin_match'] = $tin_match;
-
-        return $this;
-    }
-
-    /**
-     * Gets tin_match_status
-     *
-     * @return \Avalara\SDK\Model\A1099\V2\StatusDetail|null
-     */
-    public function getTinMatchStatus()
-    {
-        return $this->container['tin_match_status'];
-    }
-
-    /**
-     * Sets tin_match_status
-     *
-     * @param \Avalara\SDK\Model\A1099\V2\StatusDetail|null $tin_match_status TIN Match status
-     *
-     * @return self
-     */
-    public function setTinMatchStatus($tin_match_status)
-    {
-        $this->container['tin_match_status'] = $tin_match_status;
-
-        return $this;
-    }
-
-    /**
-     * Gets address_verification
-     *
-     * @return bool
-     */
-    public function getAddressVerification()
-    {
-        return $this->container['address_verification'];
-    }
-
-    /**
-     * Sets address_verification
-     *
-     * @param bool $address_verification Boolean indicating that address verification has been scheduled for this form
-     *
-     * @return self
-     */
-    public function setAddressVerification($address_verification)
-    {
-        $this->container['address_verification'] = $address_verification;
-
-        return $this;
-    }
-
-    /**
-     * Gets address_verification_status
-     *
-     * @return \Avalara\SDK\Model\A1099\V2\StatusDetail|null
-     */
-    public function getAddressVerificationStatus()
-    {
-        return $this->container['address_verification_status'];
-    }
-
-    /**
-     * Sets address_verification_status
-     *
-     * @param \Avalara\SDK\Model\A1099\V2\StatusDetail|null $address_verification_status Address verification status
-     *
-     * @return self
-     */
-    public function setAddressVerificationStatus($address_verification_status)
-    {
-        $this->container['address_verification_status'] = $address_verification_status;
-
-        return $this;
-    }
-
-    /**
-     * Gets e_delivery_status
-     *
-     * @return \Avalara\SDK\Model\A1099\V2\StatusDetail|null
-     */
-    public function getEDeliveryStatus()
-    {
-        return $this->container['e_delivery_status'];
-    }
-
-    /**
-     * Sets e_delivery_status
-     *
-     * @param \Avalara\SDK\Model\A1099\V2\StatusDetail|null $e_delivery_status EDelivery status
-     *
-     * @return self
-     */
-    public function setEDeliveryStatus($e_delivery_status)
-    {
-        $this->container['e_delivery_status'] = $e_delivery_status;
-
-        return $this;
-    }
-
-    /**
-     * Gets reference_id
-     *
-     * @return string|null
-     */
-    public function getReferenceId()
-    {
-        return $this->container['reference_id'];
-    }
-
-    /**
-     * Sets reference_id
-     *
-     * @param string|null $reference_id Reference ID
-     *
-     * @return self
-     */
-    public function setReferenceId($reference_id)
-    {
-        $this->container['reference_id'] = $reference_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets email
-     *
-     * @return string|null
-     */
-    public function getEmail()
-    {
-        return $this->container['email'];
-    }
-
-    /**
-     * Sets email
-     *
-     * @param string|null $email Recipient email address
-     *
-     * @return self
-     */
-    public function setEmail($email)
-    {
-        $this->container['email'] = $email;
-
-        return $this;
-    }
-
-    /**
      * Gets tin_type
      *
      * @return string|null
@@ -1584,471 +1952,23 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets tin_type
      *
-     * @param string|null $tin_type Type of TIN (Tax ID Number). Will be one of:  * SSN  * EIN  * ITIN  * ATIN
+     * @param string|null $tin_type Type of TIN (Tax ID Number)
      *
      * @return self
      */
     public function setTinType($tin_type)
     {
+        $allowedValues = $this->getTinTypeAllowableValues();
+        if (!is_null($tin_type) && !in_array($tin_type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'tin_type', must be one of '%s'",
+                    $tin_type,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['tin_type'] = $tin_type;
-
-        return $this;
-    }
-
-    /**
-     * Gets tin
-     *
-     * @return string|null
-     */
-    public function getTin()
-    {
-        return $this->container['tin'];
-    }
-
-    /**
-     * Sets tin
-     *
-     * @param string|null $tin Recipient Tax ID Number
-     *
-     * @return self
-     */
-    public function setTin($tin)
-    {
-        $this->container['tin'] = $tin;
-
-        return $this;
-    }
-
-    /**
-     * Gets no_tin
-     *
-     * @return bool|null
-     */
-    public function getNoTin()
-    {
-        return $this->container['no_tin'];
-    }
-
-    /**
-     * Sets no_tin
-     *
-     * @param bool|null $no_tin Indicates whether the recipient has no TIN
-     *
-     * @return self
-     */
-    public function setNoTin($no_tin)
-    {
-        $this->container['no_tin'] = $no_tin;
-
-        return $this;
-    }
-
-    /**
-     * Gets second_tin_notice
-     *
-     * @return bool|null
-     */
-    public function getSecondTinNotice()
-    {
-        return $this->container['second_tin_notice'];
-    }
-
-    /**
-     * Sets second_tin_notice
-     *
-     * @param bool|null $second_tin_notice Second Tin Notice
-     *
-     * @return self
-     */
-    public function setSecondTinNotice($second_tin_notice)
-    {
-        $this->container['second_tin_notice'] = $second_tin_notice;
-
-        return $this;
-    }
-
-    /**
-     * Gets recipient_name
-     *
-     * @return string|null
-     */
-    public function getRecipientName()
-    {
-        return $this->container['recipient_name'];
-    }
-
-    /**
-     * Sets recipient_name
-     *
-     * @param string|null $recipient_name Recipient name
-     *
-     * @return self
-     */
-    public function setRecipientName($recipient_name)
-    {
-        $this->container['recipient_name'] = $recipient_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets recipient_second_name
-     *
-     * @return string|null
-     */
-    public function getRecipientSecondName()
-    {
-        return $this->container['recipient_second_name'];
-    }
-
-    /**
-     * Sets recipient_second_name
-     *
-     * @param string|null $recipient_second_name Recipient second name
-     *
-     * @return self
-     */
-    public function setRecipientSecondName($recipient_second_name)
-    {
-        $this->container['recipient_second_name'] = $recipient_second_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets address
-     *
-     * @return string|null
-     */
-    public function getAddress()
-    {
-        return $this->container['address'];
-    }
-
-    /**
-     * Sets address
-     *
-     * @param string|null $address Address
-     *
-     * @return self
-     */
-    public function setAddress($address)
-    {
-        $this->container['address'] = $address;
-
-        return $this;
-    }
-
-    /**
-     * Gets address2
-     *
-     * @return string|null
-     */
-    public function getAddress2()
-    {
-        return $this->container['address2'];
-    }
-
-    /**
-     * Sets address2
-     *
-     * @param string|null $address2 Address line 2
-     *
-     * @return self
-     */
-    public function setAddress2($address2)
-    {
-        $this->container['address2'] = $address2;
-
-        return $this;
-    }
-
-    /**
-     * Gets city
-     *
-     * @return string|null
-     */
-    public function getCity()
-    {
-        return $this->container['city'];
-    }
-
-    /**
-     * Sets city
-     *
-     * @param string|null $city City
-     *
-     * @return self
-     */
-    public function setCity($city)
-    {
-        $this->container['city'] = $city;
-
-        return $this;
-    }
-
-    /**
-     * Gets state
-     *
-     * @return string|null
-     */
-    public function getState()
-    {
-        return $this->container['state'];
-    }
-
-    /**
-     * Sets state
-     *
-     * @param string|null $state US state
-     *
-     * @return self
-     */
-    public function setState($state)
-    {
-        $this->container['state'] = $state;
-
-        return $this;
-    }
-
-    /**
-     * Gets zip
-     *
-     * @return string|null
-     */
-    public function getZip()
-    {
-        return $this->container['zip'];
-    }
-
-    /**
-     * Sets zip
-     *
-     * @param string|null $zip Zip/postal code
-     *
-     * @return self
-     */
-    public function setZip($zip)
-    {
-        $this->container['zip'] = $zip;
-
-        return $this;
-    }
-
-    /**
-     * Gets non_us_province
-     *
-     * @return string|null
-     */
-    public function getNonUsProvince()
-    {
-        return $this->container['non_us_province'];
-    }
-
-    /**
-     * Sets non_us_province
-     *
-     * @param string|null $non_us_province Foreign province
-     *
-     * @return self
-     */
-    public function setNonUsProvince($non_us_province)
-    {
-        $this->container['non_us_province'] = $non_us_province;
-
-        return $this;
-    }
-
-    /**
-     * Gets country_code
-     *
-     * @return string|null
-     */
-    public function getCountryCode()
-    {
-        return $this->container['country_code'];
-    }
-
-    /**
-     * Sets country_code
-     *
-     * @param string|null $country_code Country code, as defined at https://www.irs.gov/e-file-providers/country-codes
-     *
-     * @return self
-     */
-    public function setCountryCode($country_code)
-    {
-        $this->container['country_code'] = $country_code;
-
-        return $this;
-    }
-
-    /**
-     * Gets account_number
-     *
-     * @return string|null
-     */
-    public function getAccountNumber()
-    {
-        return $this->container['account_number'];
-    }
-
-    /**
-     * Sets account_number
-     *
-     * @param string|null $account_number Account Number
-     *
-     * @return self
-     */
-    public function setAccountNumber($account_number)
-    {
-        $this->container['account_number'] = $account_number;
-
-        return $this;
-    }
-
-    /**
-     * Gets office_code
-     *
-     * @return string|null
-     */
-    public function getOfficeCode()
-    {
-        return $this->container['office_code'];
-    }
-
-    /**
-     * Sets office_code
-     *
-     * @param string|null $office_code Office Code
-     *
-     * @return self
-     */
-    public function setOfficeCode($office_code)
-    {
-        $this->container['office_code'] = $office_code;
-
-        return $this;
-    }
-
-    /**
-     * Gets fatca_filing_requirement
-     *
-     * @return bool|null
-     */
-    public function getFatcaFilingRequirement()
-    {
-        return $this->container['fatca_filing_requirement'];
-    }
-
-    /**
-     * Sets fatca_filing_requirement
-     *
-     * @param bool|null $fatca_filing_requirement FATCA filing requirement
-     *
-     * @return self
-     */
-    public function setFatcaFilingRequirement($fatca_filing_requirement)
-    {
-        $this->container['fatca_filing_requirement'] = $fatca_filing_requirement;
-
-        return $this;
-    }
-
-    /**
-     * Gets validation_errors
-     *
-     * @return \Avalara\SDK\Model\A1099\V2\ValidationErrorResponse[]|null
-     */
-    public function getValidationErrors()
-    {
-        return $this->container['validation_errors'];
-    }
-
-    /**
-     * Sets validation_errors
-     *
-     * @param \Avalara\SDK\Model\A1099\V2\ValidationErrorResponse[]|null $validation_errors Validation errors
-     *
-     * @return self
-     */
-    public function setValidationErrors($validation_errors)
-    {
-
-
-        $this->container['validation_errors'] = $validation_errors;
-
-        return $this;
-    }
-
-    /**
-     * Gets created_at
-     *
-     * @return \DateTime|null
-     */
-    public function getCreatedAt()
-    {
-        return $this->container['created_at'];
-    }
-
-    /**
-     * Sets created_at
-     *
-     * @param \DateTime|null $created_at Creation time
-     *
-     * @return self
-     */
-    public function setCreatedAt($created_at)
-    {
-        $this->container['created_at'] = $created_at;
-
-        return $this;
-    }
-
-    /**
-     * Gets updated_at
-     *
-     * @return \DateTime|null
-     */
-    public function getUpdatedAt()
-    {
-        return $this->container['updated_at'];
-    }
-
-    /**
-     * Sets updated_at
-     *
-     * @param \DateTime|null $updated_at Update time
-     *
-     * @return self
-     */
-    public function setUpdatedAt($updated_at)
-    {
-        $this->container['updated_at'] = $updated_at;
-
-        return $this;
-    }
-
-    /**
-     * Gets state_and_local_withholding
-     *
-     * @return \Avalara\SDK\Model\A1099\V2\StateAndLocalWithholdingResponse|null
-     */
-    public function getStateAndLocalWithholding()
-    {
-        return $this->container['state_and_local_withholding'];
-    }
-
-    /**
-     * Sets state_and_local_withholding
-     *
-     * @param \Avalara\SDK\Model\A1099\V2\StateAndLocalWithholdingResponse|null $state_and_local_withholding state_and_local_withholding
-     *
-     * @return self
-     */
-    public function setStateAndLocalWithholding($state_and_local_withholding)
-    {
-        $this->container['state_and_local_withholding'] = $state_and_local_withholding;
 
         return $this;
     }
@@ -2056,7 +1976,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets unique_form_id
      *
-     * @return string|null
+     * @return string
      */
     public function getUniqueFormId()
     {
@@ -2066,7 +1986,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets unique_form_id
      *
-     * @param string|null $unique_form_id Unique form identifier
+     * @param string $unique_form_id Unique form identifier
      *
      * @return self
      */
@@ -2114,7 +2034,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets recipient_giin
      *
-     * @param string|null $recipient_giin Recipient's GIIN (Global Intermediary Identification Number)
+     * @param string|null $recipient_giin Recipient's Global Intermediary Identification Number (GIIN). A valid GIIN looks like 'XXXXXX.XXXXX.XX.XXX'.
      *
      * @return self
      */
@@ -2138,7 +2058,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets recipient_foreign_tin
      *
-     * @param string|null $recipient_foreign_tin Recipient's foreign TIN
+     * @param string|null $recipient_foreign_tin Recipient's foreign TIN. Required if email is specified, must fill either this or Chap3StatusCode.
      *
      * @return self
      */
@@ -2162,12 +2082,22 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets lob_code
      *
-     * @param string|null $lob_code Limitation on benefits code
+     * @param string|null $lob_code Limitation on Benefits (LOB) code for tax treaty purposes.  Available values:  - 01: Individual (Deprecated - valid only for tax years prior to 2019)  - 02: Government - contracting state/political subdivision/local authority  - 03: Tax exempt pension trust/Pension fund  - 04: Tax exempt/Charitable organization  - 05: Publicly-traded corporation  - 06: Subsidiary of publicly-traded corporation  - 07: Company that meets the ownership and base erosion test  - 08: Company that meets the derivative benefits test  - 09: Company with an item of income that meets the active trade or business test  - 10: Discretionary determination  - 11: Other  - 12: No LOB article in treaty
      *
      * @return self
      */
     public function setLobCode($lob_code)
     {
+        $allowedValues = $this->getLobCodeAllowableValues();
+        if (!is_null($lob_code) && !in_array($lob_code, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'lob_code', must be one of '%s'",
+                    $lob_code,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['lob_code'] = $lob_code;
 
         return $this;
@@ -2176,7 +2106,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets income_code
      *
-     * @return string|null
+     * @return string
      */
     public function getIncomeCode()
     {
@@ -2186,12 +2116,22 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets income_code
      *
-     * @param string|null $income_code Income code
+     * @param string $income_code Income code.  Available values:    Interest:  - 01: Interest paid by US obligors - general  - 02: Interest paid on real property mortgages  - 03: Interest paid to controlling foreign corporations  - 04: Interest paid by foreign corporations  - 05: Interest on tax-free covenant bonds  - 22: Interest paid on deposit with a foreign branch of a domestic corporation or partnership  - 29: Deposit interest  - 30: Original issue discount (OID)  - 31: Short-term OID  - 33: Substitute payment - interest  - 51: Interest paid on certain actively traded or publicly offered securities(1)  - 54: Substitute payments - interest from certain actively traded or publicly offered securities(1)    Dividend:  - 06: Dividends paid by U.S. corporations - general  - 07: Dividends qualifying for direct dividend rate  - 08: Dividends paid by foreign corporations  - 34: Substitute payment - dividends  - 40: Other dividend equivalents under IRC section 871(m) (formerly 871(l))  - 52: Dividends paid on certain actively traded or publicly offered securities(1)  - 53: Substitute payments - dividends from certain actively traded or publicly offered securities(1)  - 56: Dividend equivalents under IRC section 871(m) as a result of applying the combined transaction rules    Other:  - 09: Capital gains  - 10: Industrial royalties  - 11: Motion picture or television copyright royalties  - 12: Other royalties (for example, copyright, software, broadcasting, endorsement payments)  - 13: Royalties paid on certain publicly offered securities(1)  - 14: Real property income and natural resources royalties  - 15: Pensions, annuities, alimony, and/or insurance premiums  - 16: Scholarship or fellowship grants  - 17: Compensation for independent personal services(2)  - 18: Compensation for dependent personal services(2)  - 19: Compensation for teaching(2)  - 20: Compensation during studying and training(2)  - 23: Other income  - 24: Qualified investment entity (QIE) distributions of capital gains  - 25: Trust distributions subject to IRC section 1445  - 26: Unsevered growing crops and timber distributions by a trust subject to IRC section 1445  - 27: Publicly traded partnership distributions subject to IRC section 1446  - 28: Gambling winnings(3)  - 32: Notional principal contract income(4)  - 35: Substitute payment - other  - 36: Capital gains distributions  - 37: Return of capital  - 38: Eligible deferred compensation items subject to IRC section 877A(d)(1)  - 39: Distributions from a nongrantor trust subject to IRC section 877A(f)(1)  - 41: Guarantee of indebtedness  - 42: Earnings as an artist or athlete - no central withholding agreement(5)  - 43: Earnings as an artist or athlete - central withholding agreement(5)  - 44: Specified Federal procurement payments  - 50: Income previously reported under escrow procedure(6)  - 55: Taxable death benefits on life insurance contracts  - 57: Amount realized under IRC section 1446(f)  - 58: Publicly traded partnership distributions-undetermined
      *
      * @return self
      */
     public function setIncomeCode($income_code)
     {
+        $allowedValues = $this->getIncomeCodeAllowableValues();
+        if (!in_array($income_code, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'income_code', must be one of '%s'",
+                    $income_code,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['income_code'] = $income_code;
 
         return $this;
@@ -2200,7 +2140,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets gross_income
      *
-     * @return float|null
+     * @return float
      */
     public function getGrossIncome()
     {
@@ -2210,7 +2150,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets gross_income
      *
-     * @param float|null $gross_income Gross income
+     * @param float $gross_income Gross income
      *
      * @return self
      */
@@ -2224,7 +2164,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets withholding_indicator
      *
-     * @return string|null
+     * @return string
      */
     public function getWithholdingIndicator()
     {
@@ -2234,12 +2174,22 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets withholding_indicator
      *
-     * @param string|null $withholding_indicator Withholding indicator
+     * @param string $withholding_indicator Withholding indicator  Available values:  - 3: Chapter 3  - 4: Chapter 4
      *
      * @return self
      */
     public function setWithholdingIndicator($withholding_indicator)
     {
+        $allowedValues = $this->getWithholdingIndicatorAllowableValues();
+        if (!in_array($withholding_indicator, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'withholding_indicator', must be one of '%s'",
+                    $withholding_indicator,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['withholding_indicator'] = $withholding_indicator;
 
         return $this;
@@ -2248,7 +2198,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets tax_country_code
      *
-     * @return string|null
+     * @return string
      */
     public function getTaxCountryCode()
     {
@@ -2258,7 +2208,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets tax_country_code
      *
-     * @param string|null $tax_country_code Country code
+     * @param string $tax_country_code Country code
      *
      * @return self
      */
@@ -2282,12 +2232,22 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets exemption_code_chap3
      *
-     * @param string|null $exemption_code_chap3 Exemption code (Chapter 3)
+     * @param string|null $exemption_code_chap3 Exemption code (Chapter 3). Required if WithholdingIndicator is 3 (Chapter 3). Required when using TaxRateChap3.  Available values:  - Empty: Tax rate is due to backup withholding  - 00: Not exempt  - 01: Effectively connected income  - 02: Exempt under IRC (other than portfolio interest)  - 03: Income is not from US sources  - 04: Exempt under tax treaty  - 05: Portfolio interest exempt under IRC  - 06: QI that assumes primary withholding responsibility  - 07: WFP or WFT  - 08: U.S. branch treated as U.S. Person  - 09: Territory FI treated as U.S. Person  - 10: QI represents that income is exempt  - 11: QSL that assumes primary withholding responsibility  - 12: Payee subjected to chapter 4 withholding  - 22: QDD that assumes primary withholding responsibility  - 23: Exempt under section 897(l)  - 24: Exempt under section 892
      *
      * @return self
      */
     public function setExemptionCodeChap3($exemption_code_chap3)
     {
+        $allowedValues = $this->getExemptionCodeChap3AllowableValues();
+        if (!is_null($exemption_code_chap3) && !in_array($exemption_code_chap3, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'exemption_code_chap3', must be one of '%s'",
+                    $exemption_code_chap3,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['exemption_code_chap3'] = $exemption_code_chap3;
 
         return $this;
@@ -2306,12 +2266,22 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets exemption_code_chap4
      *
-     * @param string|null $exemption_code_chap4 Exemption code (Chapter 4)
+     * @param string|null $exemption_code_chap4 Exemption code (Chapter 4). Required if WithholdingIndicator is 4 (Chapter 4).  Available values:  - 00: Not exempt  - 13: Grandfathered payment  - 14: Effectively connected income  - 15: Payee not subject to chapter 4 withholding  - 16: Excluded nonfinancial payment  - 17: Foreign Entity that assumes primary withholding responsibility  - 18: U.S. Payees - of participating FFI or registered deemed - compliant FFI  - 19: Exempt from withholding under IGA(6)  - 20: Dormant account(7)  - 21: Other - payment not subject to chapter 4 withholding
      *
      * @return self
      */
     public function setExemptionCodeChap4($exemption_code_chap4)
     {
+        $allowedValues = $this->getExemptionCodeChap4AllowableValues();
+        if (!is_null($exemption_code_chap4) && !in_array($exemption_code_chap4, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'exemption_code_chap4', must be one of '%s'",
+                    $exemption_code_chap4,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['exemption_code_chap4'] = $exemption_code_chap4;
 
         return $this;
@@ -2330,12 +2300,22 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets tax_rate_chap3
      *
-     * @param string|null $tax_rate_chap3 Tax rate (Chapter 3)
+     * @param string|null $tax_rate_chap3 Tax rate (Chapter 3) - Required if WithholdingIndicator is 3 (Chapter 3).  Available values:  - 00.00: 0.00%  - 02.00: 2.00%  - 04.00: 4.00%  - 04.90: 4.90%  - 04.95: 4.95%  - 05.00: 5.00%  - 07.00: 7.00%  - 08.00: 8.00%  - 10.00: 10.00%  - 12.00: 12.00%  - 12.50: 12.50%  - 14.00: 14.00%  - 15.00: 15.00%  - 17.50: 17.50%  - 20.00: 20.00%  - 21.00: 21.00%  - 24.00: 24.00%  - 25.00: 25.00%  - 27.50: 27.50%  - 28.00: 28.00%  - 30.00: 30.00%  - 37.00: 37.00%
      *
      * @return self
      */
     public function setTaxRateChap3($tax_rate_chap3)
     {
+        $allowedValues = $this->getTaxRateChap3AllowableValues();
+        if (!is_null($tax_rate_chap3) && !in_array($tax_rate_chap3, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'tax_rate_chap3', must be one of '%s'",
+                    $tax_rate_chap3,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['tax_rate_chap3'] = $tax_rate_chap3;
 
         return $this;
@@ -2522,12 +2502,22 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets chap3_status_code
      *
-     * @param string|null $chap3_status_code Chapter 3 status code
+     * @param string|null $chap3_status_code Chapter 3 status code - Required if WithholdingIndicator is 3 (Chapter 3)  Available values:  - 01: U.S. Withholding Agent - FI (Deprecated - valid only for tax years prior to 2020)  - 02: U.S. Withholding Agent - Other (Deprecated - valid only for tax years prior to 2020)  - 03: Territory FI - treated as U.S. Person  - 04: Territory FI - not treated as U.S. Person  - 05: U.S. branch - treated as U.S. Person  - 06: U.S. branch - not treated as U.S. Person  - 07: U.S. branch - ECI presumption applied  - 08: Partnership other than Withholding Foreign Partnership  - 09: Withholding Foreign Partnership  - 10: Trust other than Withholding Foreign Trust  - 11: Withholding Foreign Trust  - 12: Qualified Intermediary  - 13: Qualified Securities Lender - Qualified Intermediary  - 14: Qualified Securities Lender - Other  - 15: Corporation  - 16: Individual  - 17: Estate  - 18: Private Foundation  - 19: Government or International Organization  - 20: Tax Exempt Organization (Section 501(c) entities)  - 21: Unknown Recipient  - 22: Artist or Athlete  - 23: Pension  - 24: Foreign Central Bank of Issue  - 25: Nonqualified Intermediary  - 26: Hybrid entity making Treaty Claim  - 27: Withholding Rate Pool - General  - 28: Withholding Rate Pool - Exempt Organization  - 29: PAI Withholding Rate Pool - General  - 30: PAI Withholding Rate Pool - Exempt Organization  - 31: Agency Withholding Rate Pool - General  - 32: Agency Withholding Rate Pool - Exempt Organization  - 34: U.S. Withholding Agent-Foreign branch of FI (Deprecated - valid only for tax years prior to 2020)  - 35: Qualified Derivatives Dealer  - 36: Foreign Government - Integral Part  - 37: Foreign Government - Controlled Entity  - 38: Publicly Traded Partnership  - 39: Disclosing Qualified Intermediary
      *
      * @return self
      */
     public function setChap3StatusCode($chap3_status_code)
     {
+        $allowedValues = $this->getChap3StatusCodeAllowableValues();
+        if (!is_null($chap3_status_code) && !in_array($chap3_status_code, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'chap3_status_code', must be one of '%s'",
+                    $chap3_status_code,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['chap3_status_code'] = $chap3_status_code;
 
         return $this;
@@ -2546,12 +2536,22 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets chap4_status_code
      *
-     * @param string|null $chap4_status_code Chapter 4 status code
+     * @param string|null $chap4_status_code Chapter 4 status code. Required if WithholdingIndicator is 4 (Chapter 4). Required if email is specified, must fill either this or RecipientForeignTin.  Available values:  - 01: U.S. Withholding Agent - FI  - 02: U.S. Withholding Agent - Other  - 03: Territory FI - not treated as U.S. Person  - 04: Territory FI - treated as U.S. Person  - 05: Participating FFI - Other  - 06: Participating FFI - Reporting Model 2 FFI  - 07: Registered Deemed - Compliant FFI-Reporting Model 1 FFI  - 08: Registered Deemed - Compliant FFI-Sponsored Entity  - 09: Registered Deemed - Compliant FFI-Other  - 10: Certified Deemed - Compliant FFI-Other  - 11: Certified Deemed - Compliant FFI-FFI with Low Value Accounts  - 12: Certified Deemed - Compliant FFI-Non-Registering Local Bank  - 13: Certified Deemed - Compliant FFI-Sponsored Entity  - 14: Certified Deemed - Compliant FFI-Investment Advisor or Investment Manager  - 15: Nonparticipating FFI  - 16: Owner-Documented FFI  - 17: U.S. Branch - treated as U.S. person  - 18: U.S. Branch - not treated as U.S. person (reporting under section 1471)  - 19: Passive NFFE identifying Substantial U.S. Owners  - 20: Passive NFFE with no Substantial U.S. Owners  - 21: Publicly Traded NFFE or Affiliate of Publicly Traded NFFE  - 22: Active NFFE  - 23: Individual  - 24: Section 501(c) Entities  - 25: Excepted Territory NFFE  - 26: Excepted NFFE - Other  - 27: Exempt Beneficial Owner  - 28: Entity Wholly Owned by Exempt Beneficial Owners  - 29: Unknown Recipient  - 30: Recalcitrant Account Holder  - 31: Nonreporting IGA FFI  - 32: Direct reporting NFFE  - 33: U.S. reportable account  - 34: Non-consenting U.S. account  - 35: Sponsored direct reporting NFFE  - 36: Excepted Inter-affiliate FFI  - 37: Undocumented Preexisting Obligation  - 38: U.S. Branch - ECI presumption applied  - 39: Account Holder of Excluded Financial Account  - 40: Passive NFFE reported by FFI  - 41: NFFE subject to 1472 withholding  - 42: Recalcitrant Pool - No U.S. Indicia  - 43: Recalcitrant Pool - U.S. Indicia  - 44: Recalcitrant Pool - Dormant Account  - 45: Recalcitrant Pool - U.S. Persons  - 46: Recalcitrant Pool - Passive NFFEs  - 47: Nonparticipating FFI Pool  - 48: U.S. Payees Pool  - 49: QI - Recalcitrant Pool-General  - 50: U.S. Withholding Agent-Foreign branch of FI
      *
      * @return self
      */
     public function setChap4StatusCode($chap4_status_code)
     {
+        $allowedValues = $this->getChap4StatusCodeAllowableValues();
+        if (!is_null($chap4_status_code) && !in_array($chap4_status_code, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'chap4_status_code', must be one of '%s'",
+                    $chap4_status_code,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['chap4_status_code'] = $chap4_status_code;
 
         return $this;
@@ -2560,7 +2560,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets primary_withholding_agent
      *
-     * @return \Avalara\SDK\Model\A1099\V2\PrimaryWithholdingAgentResponse|null
+     * @return \Avalara\SDK\Model\A1099\V2\PrimaryWithholdingAgent|null
      */
     public function getPrimaryWithholdingAgent()
     {
@@ -2570,7 +2570,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets primary_withholding_agent
      *
-     * @param \Avalara\SDK\Model\A1099\V2\PrimaryWithholdingAgentResponse|null $primary_withholding_agent Primary withholding agent information
+     * @param \Avalara\SDK\Model\A1099\V2\PrimaryWithholdingAgent|null $primary_withholding_agent Primary withholding agent information
      *
      * @return self
      */
@@ -2584,7 +2584,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets intermediary_or_flow_through
      *
-     * @return \Avalara\SDK\Model\A1099\V2\IntermediaryOrFlowThroughResponse|null
+     * @return \Avalara\SDK\Model\A1099\V2\IntermediaryOrFlowThrough|null
      */
     public function getIntermediaryOrFlowThrough()
     {
@@ -2594,7 +2594,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets intermediary_or_flow_through
      *
-     * @param \Avalara\SDK\Model\A1099\V2\IntermediaryOrFlowThroughResponse|null $intermediary_or_flow_through Intermediary or flow-through entity information
+     * @param \Avalara\SDK\Model\A1099\V2\IntermediaryOrFlowThrough|null $intermediary_or_flow_through Intermediary or flow-through entity information
      *
      * @return self
      */
@@ -2606,9 +2606,1055 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     }
 
     /**
-     * Gets origin_of_health_coverage_code
+     * Gets type
+     *
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->container['type'];
+    }
+
+    /**
+     * Sets type
+     *
+     * @param string $type Form type
+     *
+     * @return self
+     */
+    public function setType($type)
+    {
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!in_array($type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'type', must be one of '%s'",
+                    $type,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['type'] = $type;
+
+        return $this;
+    }
+
+    /**
+     * Gets id
      *
      * @return string|null
+     */
+    public function getId()
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param string|null $id Form ID. Unique identifier set when the record is created.
+     *
+     * @return self
+     */
+    public function setId($id)
+    {
+        $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets issuer_id
+     *
+     * @return string|null
+     */
+    public function getIssuerId()
+    {
+        return $this->container['issuer_id'];
+    }
+
+    /**
+     * Sets issuer_id
+     *
+     * @param string|null $issuer_id Issuer ID - only required when creating forms
+     *
+     * @return self
+     */
+    public function setIssuerId($issuer_id)
+    {
+        $this->container['issuer_id'] = $issuer_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets issuer_reference_id
+     *
+     * @return string|null
+     */
+    public function getIssuerReferenceId()
+    {
+        return $this->container['issuer_reference_id'];
+    }
+
+    /**
+     * Sets issuer_reference_id
+     *
+     * @param string|null $issuer_reference_id Issuer Reference ID - only required when creating forms
+     *
+     * @return self
+     */
+    public function setIssuerReferenceId($issuer_reference_id)
+    {
+        $this->container['issuer_reference_id'] = $issuer_reference_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets issuer_tin
+     *
+     * @return string|null
+     */
+    public function getIssuerTin()
+    {
+        return $this->container['issuer_tin'];
+    }
+
+    /**
+     * Sets issuer_tin
+     *
+     * @param string|null $issuer_tin Issuer TIN - readonly
+     *
+     * @return self
+     */
+    public function setIssuerTin($issuer_tin)
+    {
+        $this->container['issuer_tin'] = $issuer_tin;
+
+        return $this;
+    }
+
+    /**
+     * Gets tax_year
+     *
+     * @return int|null
+     */
+    public function getTaxYear()
+    {
+        return $this->container['tax_year'];
+    }
+
+    /**
+     * Sets tax_year
+     *
+     * @param int|null $tax_year Tax Year - only required when creating forms
+     *
+     * @return self
+     */
+    public function setTaxYear($tax_year)
+    {
+        $this->container['tax_year'] = $tax_year;
+
+        return $this;
+    }
+
+    /**
+     * Gets reference_id
+     *
+     * @return string|null
+     */
+    public function getReferenceId()
+    {
+        return $this->container['reference_id'];
+    }
+
+    /**
+     * Sets reference_id
+     *
+     * @param string|null $reference_id Internal reference ID. Never shown to any agency or recipient.
+     *
+     * @return self
+     */
+    public function setReferenceId($reference_id)
+    {
+        $this->container['reference_id'] = $reference_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets tin
+     *
+     * @return string|null
+     */
+    public function getTin()
+    {
+        return $this->container['tin'];
+    }
+
+    /**
+     * Sets tin
+     *
+     * @param string|null $tin Recipient's Federal Tax Identification Number (TIN).
+     *
+     * @return self
+     */
+    public function setTin($tin)
+    {
+        $this->container['tin'] = $tin;
+
+        return $this;
+    }
+
+    /**
+     * Gets recipient_name
+     *
+     * @return string
+     */
+    public function getRecipientName()
+    {
+        return $this->container['recipient_name'];
+    }
+
+    /**
+     * Sets recipient_name
+     *
+     * @param string $recipient_name Recipient name
+     *
+     * @return self
+     */
+    public function setRecipientName($recipient_name)
+    {
+        $this->container['recipient_name'] = $recipient_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets recipient_second_name
+     *
+     * @return string|null
+     */
+    public function getRecipientSecondName()
+    {
+        return $this->container['recipient_second_name'];
+    }
+
+    /**
+     * Sets recipient_second_name
+     *
+     * @param string|null $recipient_second_name Recipient second name
+     *
+     * @return self
+     */
+    public function setRecipientSecondName($recipient_second_name)
+    {
+        $this->container['recipient_second_name'] = $recipient_second_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets address
+     *
+     * @return string
+     */
+    public function getAddress()
+    {
+        return $this->container['address'];
+    }
+
+    /**
+     * Sets address
+     *
+     * @param string $address Address.
+     *
+     * @return self
+     */
+    public function setAddress($address)
+    {
+        $this->container['address'] = $address;
+
+        return $this;
+    }
+
+    /**
+     * Gets address2
+     *
+     * @return string|null
+     */
+    public function getAddress2()
+    {
+        return $this->container['address2'];
+    }
+
+    /**
+     * Sets address2
+     *
+     * @param string|null $address2 Address line 2.
+     *
+     * @return self
+     */
+    public function setAddress2($address2)
+    {
+        $this->container['address2'] = $address2;
+
+        return $this;
+    }
+
+    /**
+     * Gets city
+     *
+     * @return string
+     */
+    public function getCity()
+    {
+        return $this->container['city'];
+    }
+
+    /**
+     * Sets city
+     *
+     * @param string $city City.
+     *
+     * @return self
+     */
+    public function setCity($city)
+    {
+        $this->container['city'] = $city;
+
+        return $this;
+    }
+
+    /**
+     * Gets state
+     *
+     * @return string|null
+     */
+    public function getState()
+    {
+        return $this->container['state'];
+    }
+
+    /**
+     * Sets state
+     *
+     * @param string|null $state Two-letter US state or Canadian province code (required for US/CA addresses).
+     *
+     * @return self
+     */
+    public function setState($state)
+    {
+        $this->container['state'] = $state;
+
+        return $this;
+    }
+
+    /**
+     * Gets zip
+     *
+     * @return string|null
+     */
+    public function getZip()
+    {
+        return $this->container['zip'];
+    }
+
+    /**
+     * Sets zip
+     *
+     * @param string|null $zip ZIP/postal code.
+     *
+     * @return self
+     */
+    public function setZip($zip)
+    {
+        $this->container['zip'] = $zip;
+
+        return $this;
+    }
+
+    /**
+     * Gets email
+     *
+     * @return string|null
+     */
+    public function getEmail()
+    {
+        return $this->container['email'];
+    }
+
+    /**
+     * Sets email
+     *
+     * @param string|null $email Recipient's Contact email address.
+     *
+     * @return self
+     */
+    public function setEmail($email)
+    {
+        $this->container['email'] = $email;
+
+        return $this;
+    }
+
+    /**
+     * Gets account_number
+     *
+     * @return string|null
+     */
+    public function getAccountNumber()
+    {
+        return $this->container['account_number'];
+    }
+
+    /**
+     * Sets account_number
+     *
+     * @param string|null $account_number Account number
+     *
+     * @return self
+     */
+    public function setAccountNumber($account_number)
+    {
+        $this->container['account_number'] = $account_number;
+
+        return $this;
+    }
+
+    /**
+     * Gets office_code
+     *
+     * @return string|null
+     */
+    public function getOfficeCode()
+    {
+        return $this->container['office_code'];
+    }
+
+    /**
+     * Sets office_code
+     *
+     * @param string|null $office_code Office code
+     *
+     * @return self
+     */
+    public function setOfficeCode($office_code)
+    {
+        $this->container['office_code'] = $office_code;
+
+        return $this;
+    }
+
+    /**
+     * Gets non_us_province
+     *
+     * @return string|null
+     */
+    public function getNonUsProvince()
+    {
+        return $this->container['non_us_province'];
+    }
+
+    /**
+     * Sets non_us_province
+     *
+     * @param string|null $non_us_province Province or region for non-US/CA addresses.
+     *
+     * @return self
+     */
+    public function setNonUsProvince($non_us_province)
+    {
+        $this->container['non_us_province'] = $non_us_province;
+
+        return $this;
+    }
+
+    /**
+     * Gets country_code
+     *
+     * @return string
+     */
+    public function getCountryCode()
+    {
+        return $this->container['country_code'];
+    }
+
+    /**
+     * Sets country_code
+     *
+     * @param string $country_code Two-letter IRS country code (e.g., 'US', 'CA'), as defined at https://www.irs.gov/e-file-providers/country-codes.
+     *
+     * @return self
+     */
+    public function setCountryCode($country_code)
+    {
+        $this->container['country_code'] = $country_code;
+
+        return $this;
+    }
+
+    /**
+     * Gets federal_efile_date
+     *
+     * @return \DateTime|null
+     */
+    public function getFederalEfileDate()
+    {
+        return $this->container['federal_efile_date'];
+    }
+
+    /**
+     * Sets federal_efile_date
+     *
+     * @param \DateTime|null $federal_efile_date Date when federal e-filing should be scheduled for this form
+     *
+     * @return self
+     */
+    public function setFederalEfileDate($federal_efile_date)
+    {
+        $this->container['federal_efile_date'] = $federal_efile_date;
+
+        return $this;
+    }
+
+    /**
+     * Gets postal_mail
+     *
+     * @return bool|null
+     */
+    public function getPostalMail()
+    {
+        return $this->container['postal_mail'];
+    }
+
+    /**
+     * Sets postal_mail
+     *
+     * @param bool|null $postal_mail Boolean indicating that postal mailing to the recipient should be scheduled for this form
+     *
+     * @return self
+     */
+    public function setPostalMail($postal_mail)
+    {
+        $this->container['postal_mail'] = $postal_mail;
+
+        return $this;
+    }
+
+    /**
+     * Gets state_efile_date
+     *
+     * @return \DateTime|null
+     */
+    public function getStateEfileDate()
+    {
+        return $this->container['state_efile_date'];
+    }
+
+    /**
+     * Sets state_efile_date
+     *
+     * @param \DateTime|null $state_efile_date Date when state e-filing should be scheduled for this form
+     *
+     * @return self
+     */
+    public function setStateEfileDate($state_efile_date)
+    {
+        $this->container['state_efile_date'] = $state_efile_date;
+
+        return $this;
+    }
+
+    /**
+     * Gets recipient_edelivery_date
+     *
+     * @return \DateTime|null
+     */
+    public function getRecipientEdeliveryDate()
+    {
+        return $this->container['recipient_edelivery_date'];
+    }
+
+    /**
+     * Sets recipient_edelivery_date
+     *
+     * @param \DateTime|null $recipient_edelivery_date Date when recipient e-delivery should be scheduled for this form
+     *
+     * @return self
+     */
+    public function setRecipientEdeliveryDate($recipient_edelivery_date)
+    {
+        $this->container['recipient_edelivery_date'] = $recipient_edelivery_date;
+
+        return $this;
+    }
+
+    /**
+     * Gets tin_match
+     *
+     * @return bool|null
+     */
+    public function getTinMatch()
+    {
+        return $this->container['tin_match'];
+    }
+
+    /**
+     * Sets tin_match
+     *
+     * @param bool|null $tin_match Boolean indicating that TIN Matching should be scheduled for this form
+     *
+     * @return self
+     */
+    public function setTinMatch($tin_match)
+    {
+        $this->container['tin_match'] = $tin_match;
+
+        return $this;
+    }
+
+    /**
+     * Gets no_tin
+     *
+     * @return bool|null
+     */
+    public function getNoTin()
+    {
+        return $this->container['no_tin'];
+    }
+
+    /**
+     * Sets no_tin
+     *
+     * @param bool|null $no_tin No TIN indicator
+     *
+     * @return self
+     */
+    public function setNoTin($no_tin)
+    {
+        $this->container['no_tin'] = $no_tin;
+
+        return $this;
+    }
+
+    /**
+     * Gets address_verification
+     *
+     * @return bool|null
+     */
+    public function getAddressVerification()
+    {
+        return $this->container['address_verification'];
+    }
+
+    /**
+     * Sets address_verification
+     *
+     * @param bool|null $address_verification Boolean indicating that address verification should be scheduled for this form
+     *
+     * @return self
+     */
+    public function setAddressVerification($address_verification)
+    {
+        $this->container['address_verification'] = $address_verification;
+
+        return $this;
+    }
+
+    /**
+     * Gets state_and_local_withholding
+     *
+     * @return \Avalara\SDK\Model\A1099\V2\StateAndLocalWithholding|null
+     */
+    public function getStateAndLocalWithholding()
+    {
+        return $this->container['state_and_local_withholding'];
+    }
+
+    /**
+     * Sets state_and_local_withholding
+     *
+     * @param \Avalara\SDK\Model\A1099\V2\StateAndLocalWithholding|null $state_and_local_withholding State and local withholding information
+     *
+     * @return self
+     */
+    public function setStateAndLocalWithholding($state_and_local_withholding)
+    {
+        $this->container['state_and_local_withholding'] = $state_and_local_withholding;
+
+        return $this;
+    }
+
+    /**
+     * Gets second_tin_notice
+     *
+     * @return bool|null
+     */
+    public function getSecondTinNotice()
+    {
+        return $this->container['second_tin_notice'];
+    }
+
+    /**
+     * Sets second_tin_notice
+     *
+     * @param bool|null $second_tin_notice Second TIN notice
+     *
+     * @return self
+     */
+    public function setSecondTinNotice($second_tin_notice)
+    {
+        $this->container['second_tin_notice'] = $second_tin_notice;
+
+        return $this;
+    }
+
+    /**
+     * Gets federal_efile_status
+     *
+     * @return \Avalara\SDK\Model\A1099\V2\Form1099StatusDetail|null
+     */
+    public function getFederalEfileStatus()
+    {
+        return $this->container['federal_efile_status'];
+    }
+
+    /**
+     * Sets federal_efile_status
+     *
+     * @param \Avalara\SDK\Model\A1099\V2\Form1099StatusDetail|null $federal_efile_status Federal e-file status
+     *
+     * @return self
+     */
+    public function setFederalEfileStatus($federal_efile_status)
+    {
+        $this->container['federal_efile_status'] = $federal_efile_status;
+
+        return $this;
+    }
+
+    /**
+     * Gets state_efile_status
+     *
+     * @return \Avalara\SDK\Model\A1099\V2\StateEfileStatusDetail[]|null
+     */
+    public function getStateEfileStatus()
+    {
+        return $this->container['state_efile_status'];
+    }
+
+    /**
+     * Sets state_efile_status
+     *
+     * @param \Avalara\SDK\Model\A1099\V2\StateEfileStatusDetail[]|null $state_efile_status State e-file status
+     *
+     * @return self
+     */
+    public function setStateEfileStatus($state_efile_status)
+    {
+
+
+        $this->container['state_efile_status'] = $state_efile_status;
+
+        return $this;
+    }
+
+    /**
+     * Gets postal_mail_status
+     *
+     * @return \Avalara\SDK\Model\A1099\V2\Form1099StatusDetail|null
+     */
+    public function getPostalMailStatus()
+    {
+        return $this->container['postal_mail_status'];
+    }
+
+    /**
+     * Sets postal_mail_status
+     *
+     * @param \Avalara\SDK\Model\A1099\V2\Form1099StatusDetail|null $postal_mail_status Postal mail to recipient status
+     *
+     * @return self
+     */
+    public function setPostalMailStatus($postal_mail_status)
+    {
+        $this->container['postal_mail_status'] = $postal_mail_status;
+
+        return $this;
+    }
+
+    /**
+     * Gets tin_match_status
+     *
+     * @return \Avalara\SDK\Model\A1099\V2\Form1099StatusDetail|null
+     */
+    public function getTinMatchStatus()
+    {
+        return $this->container['tin_match_status'];
+    }
+
+    /**
+     * Sets tin_match_status
+     *
+     * @param \Avalara\SDK\Model\A1099\V2\Form1099StatusDetail|null $tin_match_status TIN Match status
+     *
+     * @return self
+     */
+    public function setTinMatchStatus($tin_match_status)
+    {
+        $this->container['tin_match_status'] = $tin_match_status;
+
+        return $this;
+    }
+
+    /**
+     * Gets address_verification_status
+     *
+     * @return \Avalara\SDK\Model\A1099\V2\Form1099StatusDetail|null
+     */
+    public function getAddressVerificationStatus()
+    {
+        return $this->container['address_verification_status'];
+    }
+
+    /**
+     * Sets address_verification_status
+     *
+     * @param \Avalara\SDK\Model\A1099\V2\Form1099StatusDetail|null $address_verification_status Address verification status
+     *
+     * @return self
+     */
+    public function setAddressVerificationStatus($address_verification_status)
+    {
+        $this->container['address_verification_status'] = $address_verification_status;
+
+        return $this;
+    }
+
+    /**
+     * Gets e_delivery_status
+     *
+     * @return \Avalara\SDK\Model\A1099\V2\Form1099StatusDetail|null
+     */
+    public function getEDeliveryStatus()
+    {
+        return $this->container['e_delivery_status'];
+    }
+
+    /**
+     * Sets e_delivery_status
+     *
+     * @param \Avalara\SDK\Model\A1099\V2\Form1099StatusDetail|null $e_delivery_status EDelivery status
+     *
+     * @return self
+     */
+    public function setEDeliveryStatus($e_delivery_status)
+    {
+        $this->container['e_delivery_status'] = $e_delivery_status;
+
+        return $this;
+    }
+
+    /**
+     * Gets validation_errors
+     *
+     * @return \Avalara\SDK\Model\A1099\V2\ValidationError[]|null
+     */
+    public function getValidationErrors()
+    {
+        return $this->container['validation_errors'];
+    }
+
+    /**
+     * Sets validation_errors
+     *
+     * @param \Avalara\SDK\Model\A1099\V2\ValidationError[]|null $validation_errors Validation errors
+     *
+     * @return self
+     */
+    public function setValidationErrors($validation_errors)
+    {
+
+
+        $this->container['validation_errors'] = $validation_errors;
+
+        return $this;
+    }
+
+    /**
+     * Gets created_at
+     *
+     * @return \DateTime|null
+     */
+    public function getCreatedAt()
+    {
+        return $this->container['created_at'];
+    }
+
+    /**
+     * Sets created_at
+     *
+     * @param \DateTime|null $created_at Date time when the record was created.
+     *
+     * @return self
+     */
+    public function setCreatedAt($created_at)
+    {
+        $this->container['created_at'] = $created_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets updated_at
+     *
+     * @return \DateTime|null
+     */
+    public function getUpdatedAt()
+    {
+        return $this->container['updated_at'];
+    }
+
+    /**
+     * Sets updated_at
+     *
+     * @param \DateTime|null $updated_at Date time when the record was last updated.
+     *
+     * @return self
+     */
+    public function setUpdatedAt($updated_at)
+    {
+        $this->container['updated_at'] = $updated_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets employee_first_name
+     *
+     * @return string
+     */
+    public function getEmployeeFirstName()
+    {
+        return $this->container['employee_first_name'];
+    }
+
+    /**
+     * Sets employee_first_name
+     *
+     * @param string $employee_first_name Employee's first name
+     *
+     * @return self
+     */
+    public function setEmployeeFirstName($employee_first_name)
+    {
+        $this->container['employee_first_name'] = $employee_first_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets employee_middle_name
+     *
+     * @return string|null
+     */
+    public function getEmployeeMiddleName()
+    {
+        return $this->container['employee_middle_name'];
+    }
+
+    /**
+     * Sets employee_middle_name
+     *
+     * @param string|null $employee_middle_name Employee's middle name
+     *
+     * @return self
+     */
+    public function setEmployeeMiddleName($employee_middle_name)
+    {
+        $this->container['employee_middle_name'] = $employee_middle_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets employee_last_name
+     *
+     * @return string
+     */
+    public function getEmployeeLastName()
+    {
+        return $this->container['employee_last_name'];
+    }
+
+    /**
+     * Sets employee_last_name
+     *
+     * @param string $employee_last_name Employee's last name
+     *
+     * @return self
+     */
+    public function setEmployeeLastName($employee_last_name)
+    {
+        $this->container['employee_last_name'] = $employee_last_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets employee_name_suffix
+     *
+     * @return string|null
+     */
+    public function getEmployeeNameSuffix()
+    {
+        return $this->container['employee_name_suffix'];
+    }
+
+    /**
+     * Sets employee_name_suffix
+     *
+     * @param string|null $employee_name_suffix Employee's name suffix
+     *
+     * @return self
+     */
+    public function setEmployeeNameSuffix($employee_name_suffix)
+    {
+        $this->container['employee_name_suffix'] = $employee_name_suffix;
+
+        return $this;
+    }
+
+    /**
+     * Gets employee_date_of_birth
+     *
+     * @return \DateTime|null
+     */
+    public function getEmployeeDateOfBirth()
+    {
+        return $this->container['employee_date_of_birth'];
+    }
+
+    /**
+     * Sets employee_date_of_birth
+     *
+     * @param \DateTime|null $employee_date_of_birth Employee's date of birth
+     *
+     * @return self
+     */
+    public function setEmployeeDateOfBirth($employee_date_of_birth)
+    {
+        $this->container['employee_date_of_birth'] = $employee_date_of_birth;
+
+        return $this;
+    }
+
+    /**
+     * Gets origin_of_health_coverage_code
+     *
+     * @return string
      */
     public function getOriginOfHealthCoverageCode()
     {
@@ -2618,12 +3664,22 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets origin_of_health_coverage_code
      *
-     * @param string|null $origin_of_health_coverage_code Origin of health coverage code
+     * @param string $origin_of_health_coverage_code Origin of health coverage code  Available values:  - A: Small Business Health Options Program (SHOP)  - B: Employer-sponsored coverage  - C: Government-sponsored program  - D: Individual market insurance  - E: Multiemployer plan  - F: Other designated minimum essential coverage  - G: Employer-sponsored coverage that is an individual coverage HRA (valid for tax years 2020 and later)
      *
      * @return self
      */
     public function setOriginOfHealthCoverageCode($origin_of_health_coverage_code)
     {
+        $allowedValues = $this->getOriginOfHealthCoverageCodeAllowableValues();
+        if (!in_array($origin_of_health_coverage_code, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'origin_of_health_coverage_code', must be one of '%s'",
+                    $origin_of_health_coverage_code,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['origin_of_health_coverage_code'] = $origin_of_health_coverage_code;
 
         return $this;
@@ -2632,7 +3688,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets covered_individuals
      *
-     * @return \Avalara\SDK\Model\A1099\V2\CoveredIndividualReferenceResponse[]|null
+     * @return \Avalara\SDK\Model\A1099\V2\CoveredIndividual[]|null
      */
     public function getCoveredIndividuals()
     {
@@ -2642,7 +3698,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets covered_individuals
      *
-     * @param \Avalara\SDK\Model\A1099\V2\CoveredIndividualReferenceResponse[]|null $covered_individuals Covered individuals information
+     * @param \Avalara\SDK\Model\A1099\V2\CoveredIndividual[]|null $covered_individuals Covered individuals information
      *
      * @return self
      */
@@ -2656,9 +3712,93 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     }
 
     /**
+     * Gets plan_start_month
+     *
+     * @return string
+     */
+    public function getPlanStartMonth()
+    {
+        return $this->container['plan_start_month'];
+    }
+
+    /**
+     * Sets plan_start_month
+     *
+     * @param string $plan_start_month Plan start month.  The calendar month during which the plan year begins of the health plan in which the employee is offered coverage (or would be offered coverage if the employee were eligible to participate in the plan).  Available values:  - 00: None  - 01: January  - 02: February  - 03: March  - 04: April  - 05: May  - 06: June  - 07: July  - 08: August  - 09: September  - 10: October  - 11: November  - 12: December
+     *
+     * @return self
+     */
+    public function setPlanStartMonth($plan_start_month)
+    {
+        $allowedValues = $this->getPlanStartMonthAllowableValues();
+        if (!in_array($plan_start_month, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'plan_start_month', must be one of '%s'",
+                    $plan_start_month,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['plan_start_month'] = $plan_start_month;
+
+        return $this;
+    }
+
+    /**
+     * Gets employer_provided_si_coverage
+     *
+     * @return bool|null
+     */
+    public function getEmployerProvidedSiCoverage()
+    {
+        return $this->container['employer_provided_si_coverage'];
+    }
+
+    /**
+     * Sets employer_provided_si_coverage
+     *
+     * @param bool|null $employer_provided_si_coverage Employer provided self-insured coverage
+     *
+     * @return self
+     */
+    public function setEmployerProvidedSiCoverage($employer_provided_si_coverage)
+    {
+        $this->container['employer_provided_si_coverage'] = $employer_provided_si_coverage;
+
+        return $this;
+    }
+
+    /**
+     * Gets offer_and_coverages
+     *
+     * @return \Avalara\SDK\Model\A1099\V2\OfferAndCoverage[]
+     */
+    public function getOfferAndCoverages()
+    {
+        return $this->container['offer_and_coverages'];
+    }
+
+    /**
+     * Sets offer_and_coverages
+     *
+     * @param \Avalara\SDK\Model\A1099\V2\OfferAndCoverage[] $offer_and_coverages Offer and coverage information
+     *
+     * @return self
+     */
+    public function setOfferAndCoverages($offer_and_coverages)
+    {
+
+
+        $this->container['offer_and_coverages'] = $offer_and_coverages;
+
+        return $this;
+    }
+
+    /**
      * Gets total_ordinary_dividends
      *
-     * @return string|null
+     * @return float|null
      */
     public function getTotalOrdinaryDividends()
     {
@@ -2668,7 +3808,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets total_ordinary_dividends
      *
-     * @param string|null $total_ordinary_dividends Total ordinary dividends
+     * @param float|null $total_ordinary_dividends Total ordinary dividends
      *
      * @return self
      */
@@ -2682,7 +3822,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets qualified_dividends
      *
-     * @return string|null
+     * @return float|null
      */
     public function getQualifiedDividends()
     {
@@ -2692,7 +3832,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets qualified_dividends
      *
-     * @param string|null $qualified_dividends Qualified dividends
+     * @param float|null $qualified_dividends Qualified dividends
      *
      * @return self
      */
@@ -2706,7 +3846,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets total_capital_gain_distributions
      *
-     * @return string|null
+     * @return float|null
      */
     public function getTotalCapitalGainDistributions()
     {
@@ -2716,7 +3856,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets total_capital_gain_distributions
      *
-     * @param string|null $total_capital_gain_distributions Total capital gain distributions
+     * @param float|null $total_capital_gain_distributions Total capital gain distributions
      *
      * @return self
      */
@@ -2730,7 +3870,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets unrecaptured_section1250_gain
      *
-     * @return string|null
+     * @return float|null
      */
     public function getUnrecapturedSection1250Gain()
     {
@@ -2740,7 +3880,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets unrecaptured_section1250_gain
      *
-     * @param string|null $unrecaptured_section1250_gain Unrecaptured Section 1250 gain
+     * @param float|null $unrecaptured_section1250_gain Unrecaptured Section 1250 gain
      *
      * @return self
      */
@@ -2754,7 +3894,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets section1202_gain
      *
-     * @return string|null
+     * @return float|null
      */
     public function getSection1202Gain()
     {
@@ -2764,7 +3904,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets section1202_gain
      *
-     * @param string|null $section1202_gain Section 1202 gain
+     * @param float|null $section1202_gain Section 1202 gain
      *
      * @return self
      */
@@ -2778,7 +3918,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets collectibles_gain
      *
-     * @return string|null
+     * @return float|null
      */
     public function getCollectiblesGain()
     {
@@ -2788,7 +3928,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets collectibles_gain
      *
-     * @param string|null $collectibles_gain Collectibles (28%) gain
+     * @param float|null $collectibles_gain Collectibles (28%) gain
      *
      * @return self
      */
@@ -2802,7 +3942,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets section897_ordinary_dividends
      *
-     * @return string|null
+     * @return float|null
      */
     public function getSection897OrdinaryDividends()
     {
@@ -2812,7 +3952,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets section897_ordinary_dividends
      *
-     * @param string|null $section897_ordinary_dividends Section 897 ordinary dividends
+     * @param float|null $section897_ordinary_dividends Section 897 ordinary dividends
      *
      * @return self
      */
@@ -2826,7 +3966,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets section897_capital_gain
      *
-     * @return string|null
+     * @return float|null
      */
     public function getSection897CapitalGain()
     {
@@ -2836,7 +3976,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets section897_capital_gain
      *
-     * @param string|null $section897_capital_gain Section 897 capital gain
+     * @param float|null $section897_capital_gain Section 897 capital gain
      *
      * @return self
      */
@@ -2850,7 +3990,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets nondividend_distributions
      *
-     * @return string|null
+     * @return float|null
      */
     public function getNondividendDistributions()
     {
@@ -2860,7 +4000,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets nondividend_distributions
      *
-     * @param string|null $nondividend_distributions Nondividend distributions
+     * @param float|null $nondividend_distributions Nondividend distributions
      *
      * @return self
      */
@@ -2898,7 +4038,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets section199_a_dividends
      *
-     * @return string|null
+     * @return float|null
      */
     public function getSection199ADividends()
     {
@@ -2908,7 +4048,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets section199_a_dividends
      *
-     * @param string|null $section199_a_dividends Section 199A dividends
+     * @param float|null $section199_a_dividends Section 199A dividends
      *
      * @return self
      */
@@ -2922,7 +4062,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets investment_expenses
      *
-     * @return string|null
+     * @return float|null
      */
     public function getInvestmentExpenses()
     {
@@ -2932,7 +4072,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets investment_expenses
      *
-     * @param string|null $investment_expenses Investment expenses
+     * @param float|null $investment_expenses Investment Expenses
      *
      * @return self
      */
@@ -2946,7 +4086,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets foreign_tax_paid
      *
-     * @return string|null
+     * @return float|null
      */
     public function getForeignTaxPaid()
     {
@@ -2956,7 +4096,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets foreign_tax_paid
      *
-     * @param string|null $foreign_tax_paid Foreign tax paid
+     * @param float|null $foreign_tax_paid Foreign tax paid
      *
      * @return self
      */
@@ -2994,7 +4134,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets cash_liquidation_distributions
      *
-     * @return string|null
+     * @return float|null
      */
     public function getCashLiquidationDistributions()
     {
@@ -3004,7 +4144,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets cash_liquidation_distributions
      *
-     * @param string|null $cash_liquidation_distributions Cash liquidation distributions
+     * @param float|null $cash_liquidation_distributions Cash liquidation distributions
      *
      * @return self
      */
@@ -3018,7 +4158,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets noncash_liquidation_distributions
      *
-     * @return string|null
+     * @return float|null
      */
     public function getNoncashLiquidationDistributions()
     {
@@ -3028,7 +4168,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets noncash_liquidation_distributions
      *
-     * @param string|null $noncash_liquidation_distributions Noncash liquidation distributions
+     * @param float|null $noncash_liquidation_distributions Noncash liquidation distributions
      *
      * @return self
      */
@@ -3042,7 +4182,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets exempt_interest_dividends
      *
-     * @return string|null
+     * @return float|null
      */
     public function getExemptInterestDividends()
     {
@@ -3052,7 +4192,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets exempt_interest_dividends
      *
-     * @param string|null $exempt_interest_dividends Exempt-interest dividends
+     * @param float|null $exempt_interest_dividends Exempt-interest dividends
      *
      * @return self
      */
@@ -3066,7 +4206,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets specified_private_activity_bond_interest_dividends
      *
-     * @return string|null
+     * @return float|null
      */
     public function getSpecifiedPrivateActivityBondInterestDividends()
     {
@@ -3076,13 +4216,301 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets specified_private_activity_bond_interest_dividends
      *
-     * @param string|null $specified_private_activity_bond_interest_dividends Specified private activity bond interest dividends
+     * @param float|null $specified_private_activity_bond_interest_dividends Specified private activity bond interest dividends
      *
      * @return self
      */
     public function setSpecifiedPrivateActivityBondInterestDividends($specified_private_activity_bond_interest_dividends)
     {
         $this->container['specified_private_activity_bond_interest_dividends'] = $specified_private_activity_bond_interest_dividends;
+
+        return $this;
+    }
+
+    /**
+     * Gets fatca_filing_requirement
+     *
+     * @return bool|null
+     */
+    public function getFatcaFilingRequirement()
+    {
+        return $this->container['fatca_filing_requirement'];
+    }
+
+    /**
+     * Sets fatca_filing_requirement
+     *
+     * @param bool|null $fatca_filing_requirement FATCA filing requirement
+     *
+     * @return self
+     */
+    public function setFatcaFilingRequirement($fatca_filing_requirement)
+    {
+        $this->container['fatca_filing_requirement'] = $fatca_filing_requirement;
+
+        return $this;
+    }
+
+    /**
+     * Gets interest_income
+     *
+     * @return float|null
+     */
+    public function getInterestIncome()
+    {
+        return $this->container['interest_income'];
+    }
+
+    /**
+     * Sets interest_income
+     *
+     * @param float|null $interest_income Interest Income
+     *
+     * @return self
+     */
+    public function setInterestIncome($interest_income)
+    {
+        $this->container['interest_income'] = $interest_income;
+
+        return $this;
+    }
+
+    /**
+     * Gets early_withdrawal_penalty
+     *
+     * @return float|null
+     */
+    public function getEarlyWithdrawalPenalty()
+    {
+        return $this->container['early_withdrawal_penalty'];
+    }
+
+    /**
+     * Sets early_withdrawal_penalty
+     *
+     * @param float|null $early_withdrawal_penalty Early Withdrawal Penalty
+     *
+     * @return self
+     */
+    public function setEarlyWithdrawalPenalty($early_withdrawal_penalty)
+    {
+        $this->container['early_withdrawal_penalty'] = $early_withdrawal_penalty;
+
+        return $this;
+    }
+
+    /**
+     * Gets us_savings_bonds_interest
+     *
+     * @return float|null
+     */
+    public function getUsSavingsBondsInterest()
+    {
+        return $this->container['us_savings_bonds_interest'];
+    }
+
+    /**
+     * Sets us_savings_bonds_interest
+     *
+     * @param float|null $us_savings_bonds_interest Interest on U.S. Savings Bonds and Treasury obligations
+     *
+     * @return self
+     */
+    public function setUsSavingsBondsInterest($us_savings_bonds_interest)
+    {
+        $this->container['us_savings_bonds_interest'] = $us_savings_bonds_interest;
+
+        return $this;
+    }
+
+    /**
+     * Gets foreign_country
+     *
+     * @return string|null
+     */
+    public function getForeignCountry()
+    {
+        return $this->container['foreign_country'];
+    }
+
+    /**
+     * Sets foreign_country
+     *
+     * @param string|null $foreign_country Foreign country or U.S. possession
+     *
+     * @return self
+     */
+    public function setForeignCountry($foreign_country)
+    {
+        $this->container['foreign_country'] = $foreign_country;
+
+        return $this;
+    }
+
+    /**
+     * Gets tax_exempt_interest
+     *
+     * @return float|null
+     */
+    public function getTaxExemptInterest()
+    {
+        return $this->container['tax_exempt_interest'];
+    }
+
+    /**
+     * Sets tax_exempt_interest
+     *
+     * @param float|null $tax_exempt_interest Tax-Exempt Interest
+     *
+     * @return self
+     */
+    public function setTaxExemptInterest($tax_exempt_interest)
+    {
+        $this->container['tax_exempt_interest'] = $tax_exempt_interest;
+
+        return $this;
+    }
+
+    /**
+     * Gets specified_private_activity_bond_interest
+     *
+     * @return float|null
+     */
+    public function getSpecifiedPrivateActivityBondInterest()
+    {
+        return $this->container['specified_private_activity_bond_interest'];
+    }
+
+    /**
+     * Sets specified_private_activity_bond_interest
+     *
+     * @param float|null $specified_private_activity_bond_interest Specified Private activity
+     *
+     * @return self
+     */
+    public function setSpecifiedPrivateActivityBondInterest($specified_private_activity_bond_interest)
+    {
+        $this->container['specified_private_activity_bond_interest'] = $specified_private_activity_bond_interest;
+
+        return $this;
+    }
+
+    /**
+     * Gets market_discount
+     *
+     * @return float|null
+     */
+    public function getMarketDiscount()
+    {
+        return $this->container['market_discount'];
+    }
+
+    /**
+     * Sets market_discount
+     *
+     * @param float|null $market_discount Market Discount
+     *
+     * @return self
+     */
+    public function setMarketDiscount($market_discount)
+    {
+        $this->container['market_discount'] = $market_discount;
+
+        return $this;
+    }
+
+    /**
+     * Gets bond_premium
+     *
+     * @return float|null
+     */
+    public function getBondPremium()
+    {
+        return $this->container['bond_premium'];
+    }
+
+    /**
+     * Sets bond_premium
+     *
+     * @param float|null $bond_premium Bond Premium
+     *
+     * @return self
+     */
+    public function setBondPremium($bond_premium)
+    {
+        $this->container['bond_premium'] = $bond_premium;
+
+        return $this;
+    }
+
+    /**
+     * Gets bond_premium_on_treasury_obligations
+     *
+     * @return float|null
+     */
+    public function getBondPremiumOnTreasuryObligations()
+    {
+        return $this->container['bond_premium_on_treasury_obligations'];
+    }
+
+    /**
+     * Sets bond_premium_on_treasury_obligations
+     *
+     * @param float|null $bond_premium_on_treasury_obligations Bond Premium on Treasury obligations
+     *
+     * @return self
+     */
+    public function setBondPremiumOnTreasuryObligations($bond_premium_on_treasury_obligations)
+    {
+        $this->container['bond_premium_on_treasury_obligations'] = $bond_premium_on_treasury_obligations;
+
+        return $this;
+    }
+
+    /**
+     * Gets bond_premium_on_tax_exempt_bond
+     *
+     * @return float|null
+     */
+    public function getBondPremiumOnTaxExemptBond()
+    {
+        return $this->container['bond_premium_on_tax_exempt_bond'];
+    }
+
+    /**
+     * Sets bond_premium_on_tax_exempt_bond
+     *
+     * @param float|null $bond_premium_on_tax_exempt_bond Bond Premium on tax exempt bond
+     *
+     * @return self
+     */
+    public function setBondPremiumOnTaxExemptBond($bond_premium_on_tax_exempt_bond)
+    {
+        $this->container['bond_premium_on_tax_exempt_bond'] = $bond_premium_on_tax_exempt_bond;
+
+        return $this;
+    }
+
+    /**
+     * Gets tax_exempt_bond_cusip_number
+     *
+     * @return string|null
+     */
+    public function getTaxExemptBondCusipNumber()
+    {
+        return $this->container['tax_exempt_bond_cusip_number'];
+    }
+
+    /**
+     * Sets tax_exempt_bond_cusip_number
+     *
+     * @param string|null $tax_exempt_bond_cusip_number Tax exempt bond CUSIP no.
+     *
+     * @return self
+     */
+    public function setTaxExemptBondCusipNumber($tax_exempt_bond_cusip_number)
+    {
+        $this->container['tax_exempt_bond_cusip_number'] = $tax_exempt_bond_cusip_number;
 
         return $this;
     }
@@ -3468,25 +4896,25 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     }
 
     /**
-     * Gets sept
+     * Gets september
      *
      * @return float|null
      */
-    public function getSept()
+    public function getSeptember()
     {
-        return $this->container['sept'];
+        return $this->container['september'];
     }
 
     /**
-     * Sets sept
+     * Sets september
      *
-     * @param float|null $sept September gross payments
+     * @param float|null $september September gross payments
      *
      * @return self
      */
-    public function setSept($sept)
+    public function setSeptember($september)
     {
-        $this->container['sept'] = $sept;
+        $this->container['september'] = $september;
 
         return $this;
     }
@@ -3636,30 +5064,6 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     }
 
     /**
-     * Gets fed_income_tax_withheld
-     *
-     * @return float|null
-     */
-    public function getFedIncomeTaxWithheld()
-    {
-        return $this->container['fed_income_tax_withheld'];
-    }
-
-    /**
-     * Sets fed_income_tax_withheld
-     *
-     * @param float|null $fed_income_tax_withheld Federal income tax withheld
-     *
-     * @return self
-     */
-    public function setFedIncomeTaxWithheld($fed_income_tax_withheld)
-    {
-        $this->container['fed_income_tax_withheld'] = $fed_income_tax_withheld;
-
-        return $this;
-    }
-
-    /**
      * Gets fishing_boat_proceeds
      *
      * @return float|null
@@ -3708,30 +5112,6 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     }
 
     /**
-     * Gets substitute_payments
-     *
-     * @return float|null
-     */
-    public function getSubstitutePayments()
-    {
-        return $this->container['substitute_payments'];
-    }
-
-    /**
-     * Sets substitute_payments
-     *
-     * @param float|null $substitute_payments Substitute payments in lieu of dividends or interest
-     *
-     * @return self
-     */
-    public function setSubstitutePayments($substitute_payments)
-    {
-        $this->container['substitute_payments'] = $substitute_payments;
-
-        return $this;
-    }
-
-    /**
      * Gets direct_sales_indicator
      *
      * @return bool|null
@@ -3756,6 +5136,30 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     }
 
     /**
+     * Gets substitute_payments
+     *
+     * @return float|null
+     */
+    public function getSubstitutePayments()
+    {
+        return $this->container['substitute_payments'];
+    }
+
+    /**
+     * Sets substitute_payments
+     *
+     * @param float|null $substitute_payments Substitute payments in lieu of dividends or interest
+     *
+     * @return self
+     */
+    public function setSubstitutePayments($substitute_payments)
+    {
+        $this->container['substitute_payments'] = $substitute_payments;
+
+        return $this;
+    }
+
+    /**
      * Gets crop_insurance_proceeds
      *
      * @return float|null
@@ -3775,30 +5179,6 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     public function setCropInsuranceProceeds($crop_insurance_proceeds)
     {
         $this->container['crop_insurance_proceeds'] = $crop_insurance_proceeds;
-
-        return $this;
-    }
-
-    /**
-     * Gets excess_golden_parachute_payments
-     *
-     * @return float|null
-     */
-    public function getExcessGoldenParachutePayments()
-    {
-        return $this->container['excess_golden_parachute_payments'];
-    }
-
-    /**
-     * Sets excess_golden_parachute_payments
-     *
-     * @param float|null $excess_golden_parachute_payments (Legacy field) Excess golden parachute payments
-     *
-     * @return self
-     */
-    public function setExcessGoldenParachutePayments($excess_golden_parachute_payments)
-    {
-        $this->container['excess_golden_parachute_payments'] = $excess_golden_parachute_payments;
 
         return $this;
     }
@@ -3876,6 +5256,30 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     }
 
     /**
+     * Gets excess_golden_parachute_payments
+     *
+     * @return float|null
+     */
+    public function getExcessGoldenParachutePayments()
+    {
+        return $this->container['excess_golden_parachute_payments'];
+    }
+
+    /**
+     * Sets excess_golden_parachute_payments
+     *
+     * @param float|null $excess_golden_parachute_payments (Legacy field) Excess golden parachute payments
+     *
+     * @return self
+     */
+    public function setExcessGoldenParachutePayments($excess_golden_parachute_payments)
+    {
+        $this->container['excess_golden_parachute_payments'] = $excess_golden_parachute_payments;
+
+        return $this;
+    }
+
+    /**
      * Gets nonqualified_deferred_compensation
      *
      * @return float|null
@@ -3902,7 +5306,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets nonemployee_compensation
      *
-     * @return float|null
+     * @return float
      */
     public function getNonemployeeCompensation()
     {
@@ -3912,7 +5316,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets nonemployee_compensation
      *
-     * @param float|null $nonemployee_compensation Nonemployee compensation
+     * @param float $nonemployee_compensation Nonemployee compensation
      *
      * @return self
      */
@@ -3924,25 +5328,25 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     }
 
     /**
-     * Gets gross_distributions
+     * Gets gross_distribution
      *
      * @return float|null
      */
-    public function getGrossDistributions()
+    public function getGrossDistribution()
     {
-        return $this->container['gross_distributions'];
+        return $this->container['gross_distribution'];
     }
 
     /**
-     * Sets gross_distributions
+     * Sets gross_distribution
      *
-     * @param float|null $gross_distributions Gross distribution
+     * @param float|null $gross_distribution Gross distribution
      *
      * @return self
      */
-    public function setGrossDistributions($gross_distributions)
+    public function setGrossDistribution($gross_distribution)
     {
-        $this->container['gross_distributions'] = $gross_distributions;
+        $this->container['gross_distribution'] = $gross_distribution;
 
         return $this;
     }
@@ -3996,25 +5400,25 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     }
 
     /**
-     * Gets total_distribution_indicator
+     * Gets total_distribution_determined
      *
      * @return bool|null
      */
-    public function getTotalDistributionIndicator()
+    public function getTotalDistributionDetermined()
     {
-        return $this->container['total_distribution_indicator'];
+        return $this->container['total_distribution_determined'];
     }
 
     /**
-     * Sets total_distribution_indicator
+     * Sets total_distribution_determined
      *
-     * @param bool|null $total_distribution_indicator Total distribution
+     * @param bool|null $total_distribution_determined Total distribution
      *
      * @return self
      */
-    public function setTotalDistributionIndicator($total_distribution_indicator)
+    public function setTotalDistributionDetermined($total_distribution_determined)
     {
-        $this->container['total_distribution_indicator'] = $total_distribution_indicator;
+        $this->container['total_distribution_determined'] = $total_distribution_determined;
 
         return $this;
     }
@@ -4044,217 +5448,217 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     }
 
     /**
-     * Gets employee_contributions
+     * Gets employee_contributions_or_designated_roth_or_insurance_premiums
      *
      * @return float|null
      */
-    public function getEmployeeContributions()
+    public function getEmployeeContributionsOrDesignatedRothOrInsurancePremiums()
     {
-        return $this->container['employee_contributions'];
+        return $this->container['employee_contributions_or_designated_roth_or_insurance_premiums'];
     }
 
     /**
-     * Sets employee_contributions
+     * Sets employee_contributions_or_designated_roth_or_insurance_premiums
      *
-     * @param float|null $employee_contributions Employee contributions/Designated Roth contributions or insurance premiums
+     * @param float|null $employee_contributions_or_designated_roth_or_insurance_premiums Employee contributions/Designated Roth contributions or insurance premiums
      *
      * @return self
      */
-    public function setEmployeeContributions($employee_contributions)
+    public function setEmployeeContributionsOrDesignatedRothOrInsurancePremiums($employee_contributions_or_designated_roth_or_insurance_premiums)
     {
-        $this->container['employee_contributions'] = $employee_contributions;
+        $this->container['employee_contributions_or_designated_roth_or_insurance_premiums'] = $employee_contributions_or_designated_roth_or_insurance_premiums;
 
         return $this;
     }
 
     /**
-     * Gets net_unrealized_appreciation
+     * Gets net_unrealized_appreciation_in_employer_securities
      *
      * @return float|null
      */
-    public function getNetUnrealizedAppreciation()
+    public function getNetUnrealizedAppreciationInEmployerSecurities()
     {
-        return $this->container['net_unrealized_appreciation'];
+        return $this->container['net_unrealized_appreciation_in_employer_securities'];
     }
 
     /**
-     * Sets net_unrealized_appreciation
+     * Sets net_unrealized_appreciation_in_employer_securities
      *
-     * @param float|null $net_unrealized_appreciation Net unrealized appreciation in employer's securities
+     * @param float|null $net_unrealized_appreciation_in_employer_securities Net unrealized appreciation in employer's securities
      *
      * @return self
      */
-    public function setNetUnrealizedAppreciation($net_unrealized_appreciation)
+    public function setNetUnrealizedAppreciationInEmployerSecurities($net_unrealized_appreciation_in_employer_securities)
     {
-        $this->container['net_unrealized_appreciation'] = $net_unrealized_appreciation;
+        $this->container['net_unrealized_appreciation_in_employer_securities'] = $net_unrealized_appreciation_in_employer_securities;
 
         return $this;
     }
 
     /**
-     * Gets distribution_code_required
+     * Gets distribution_code
      *
      * @return string|null
      */
-    public function getDistributionCodeRequired()
+    public function getDistributionCode()
     {
-        return $this->container['distribution_code_required'];
+        return $this->container['distribution_code'];
     }
 
     /**
-     * Sets distribution_code_required
+     * Sets distribution_code
      *
-     * @param string|null $distribution_code_required Distribution code
+     * @param string|null $distribution_code Distribution code
      *
      * @return self
      */
-    public function setDistributionCodeRequired($distribution_code_required)
+    public function setDistributionCode($distribution_code)
     {
-        $this->container['distribution_code_required'] = $distribution_code_required;
+        $this->container['distribution_code'] = $distribution_code;
 
         return $this;
     }
 
     /**
-     * Gets distribution_code_optional
+     * Gets second_distribution_code
      *
      * @return string|null
      */
-    public function getDistributionCodeOptional()
+    public function getSecondDistributionCode()
     {
-        return $this->container['distribution_code_optional'];
+        return $this->container['second_distribution_code'];
     }
 
     /**
-     * Sets distribution_code_optional
+     * Sets second_distribution_code
      *
-     * @param string|null $distribution_code_optional Second distribution code
+     * @param string|null $second_distribution_code Second distribution code
      *
      * @return self
      */
-    public function setDistributionCodeOptional($distribution_code_optional)
+    public function setSecondDistributionCode($second_distribution_code)
     {
-        $this->container['distribution_code_optional'] = $distribution_code_optional;
+        $this->container['second_distribution_code'] = $second_distribution_code;
 
         return $this;
     }
 
     /**
-     * Gets ira_sep_simple_indicator
+     * Gets ira_sep_simple
      *
      * @return bool|null
      */
-    public function getIraSepSimpleIndicator()
+    public function getIraSepSimple()
     {
-        return $this->container['ira_sep_simple_indicator'];
+        return $this->container['ira_sep_simple'];
     }
 
     /**
-     * Sets ira_sep_simple_indicator
+     * Sets ira_sep_simple
      *
-     * @param bool|null $ira_sep_simple_indicator IRA/SEP/SIMPLE
+     * @param bool|null $ira_sep_simple IRA/SEP/SIMPLE
      *
      * @return self
      */
-    public function setIraSepSimpleIndicator($ira_sep_simple_indicator)
+    public function setIraSepSimple($ira_sep_simple)
     {
-        $this->container['ira_sep_simple_indicator'] = $ira_sep_simple_indicator;
+        $this->container['ira_sep_simple'] = $ira_sep_simple;
 
         return $this;
     }
 
     /**
-     * Gets total_ira_sep_simple_distribution
+     * Gets traditional_ira_sep_simple_or_roth_conversion_amount
      *
      * @return float|null
      */
-    public function getTotalIraSepSimpleDistribution()
+    public function getTraditionalIraSepSimpleOrRothConversionAmount()
     {
-        return $this->container['total_ira_sep_simple_distribution'];
+        return $this->container['traditional_ira_sep_simple_or_roth_conversion_amount'];
     }
 
     /**
-     * Sets total_ira_sep_simple_distribution
+     * Sets traditional_ira_sep_simple_or_roth_conversion_amount
      *
-     * @param float|null $total_ira_sep_simple_distribution Traditional IRA/SEP/SIMPLE or Roth conversion amount
+     * @param float|null $traditional_ira_sep_simple_or_roth_conversion_amount Traditional IRA/SEP/SIMPLE or Roth conversion amount
      *
      * @return self
      */
-    public function setTotalIraSepSimpleDistribution($total_ira_sep_simple_distribution)
+    public function setTraditionalIraSepSimpleOrRothConversionAmount($traditional_ira_sep_simple_or_roth_conversion_amount)
     {
-        $this->container['total_ira_sep_simple_distribution'] = $total_ira_sep_simple_distribution;
+        $this->container['traditional_ira_sep_simple_or_roth_conversion_amount'] = $traditional_ira_sep_simple_or_roth_conversion_amount;
 
         return $this;
     }
 
     /**
-     * Gets other
+     * Gets other_amount
      *
      * @return float|null
      */
-    public function getOther()
+    public function getOtherAmount()
     {
-        return $this->container['other'];
+        return $this->container['other_amount'];
     }
 
     /**
-     * Sets other
+     * Sets other_amount
      *
-     * @param float|null $other Other amount
+     * @param float|null $other_amount Other amount
      *
      * @return self
      */
-    public function setOther($other)
+    public function setOtherAmount($other_amount)
     {
-        $this->container['other'] = $other;
+        $this->container['other_amount'] = $other_amount;
 
         return $this;
     }
 
     /**
-     * Gets other_percent
+     * Gets other_percentage
      *
      * @return string|null
      */
-    public function getOtherPercent()
+    public function getOtherPercentage()
     {
-        return $this->container['other_percent'];
+        return $this->container['other_percentage'];
     }
 
     /**
-     * Sets other_percent
+     * Sets other_percentage
      *
-     * @param string|null $other_percent Other percentage
+     * @param string|null $other_percentage Other percentage
      *
      * @return self
      */
-    public function setOtherPercent($other_percent)
+    public function setOtherPercentage($other_percentage)
     {
-        $this->container['other_percent'] = $other_percent;
+        $this->container['other_percentage'] = $other_percentage;
 
         return $this;
     }
 
     /**
-     * Gets percentage_total_distribution
+     * Gets total_distribution_percentage
      *
      * @return string|null
      */
-    public function getPercentageTotalDistribution()
+    public function getTotalDistributionPercentage()
     {
-        return $this->container['percentage_total_distribution'];
+        return $this->container['total_distribution_percentage'];
     }
 
     /**
-     * Sets percentage_total_distribution
+     * Sets total_distribution_percentage
      *
-     * @param string|null $percentage_total_distribution Total distribution percentage
+     * @param string|null $total_distribution_percentage Total distribution percentage
      *
      * @return self
      */
-    public function setPercentageTotalDistribution($percentage_total_distribution)
+    public function setTotalDistributionPercentage($total_distribution_percentage)
     {
-        $this->container['percentage_total_distribution'] = $percentage_total_distribution;
+        $this->container['total_distribution_percentage'] = $total_distribution_percentage;
 
         return $this;
     }
@@ -4284,73 +5688,49 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     }
 
     /**
-     * Gets amount_allocable_to_irr
+     * Gets amount_allocable_to_irr_within5_years
      *
      * @return float|null
      */
-    public function getAmountAllocableToIrr()
+    public function getAmountAllocableToIrrWithin5Years()
     {
-        return $this->container['amount_allocable_to_irr'];
+        return $this->container['amount_allocable_to_irr_within5_years'];
     }
 
     /**
-     * Sets amount_allocable_to_irr
+     * Sets amount_allocable_to_irr_within5_years
      *
-     * @param float|null $amount_allocable_to_irr Amount allocable to IRR within 5 years
+     * @param float|null $amount_allocable_to_irr_within5_years Amount allocable to IRR within 5 years
      *
      * @return self
      */
-    public function setAmountAllocableToIrr($amount_allocable_to_irr)
+    public function setAmountAllocableToIrrWithin5Years($amount_allocable_to_irr_within5_years)
     {
-        $this->container['amount_allocable_to_irr'] = $amount_allocable_to_irr;
+        $this->container['amount_allocable_to_irr_within5_years'] = $amount_allocable_to_irr_within5_years;
 
         return $this;
     }
 
     /**
-     * Gets first_year_designated_roth_contrib
+     * Gets first_year_of_designated_roth_contribution
      *
      * @return string|null
      */
-    public function getFirstYearDesignatedRothContrib()
+    public function getFirstYearOfDesignatedRothContribution()
     {
-        return $this->container['first_year_designated_roth_contrib'];
+        return $this->container['first_year_of_designated_roth_contribution'];
     }
 
     /**
-     * Sets first_year_designated_roth_contrib
+     * Sets first_year_of_designated_roth_contribution
      *
-     * @param string|null $first_year_designated_roth_contrib First year of designated Roth contribution
+     * @param string|null $first_year_of_designated_roth_contribution First year of designated Roth contribution
      *
      * @return self
      */
-    public function setFirstYearDesignatedRothContrib($first_year_designated_roth_contrib)
+    public function setFirstYearOfDesignatedRothContribution($first_year_of_designated_roth_contribution)
     {
-        $this->container['first_year_designated_roth_contrib'] = $first_year_designated_roth_contrib;
-
-        return $this;
-    }
-
-    /**
-     * Gets fatca_requirement_indicator
-     *
-     * @return bool|null
-     */
-    public function getFatcaRequirementIndicator()
-    {
-        return $this->container['fatca_requirement_indicator'];
-    }
-
-    /**
-     * Sets fatca_requirement_indicator
-     *
-     * @param bool|null $fatca_requirement_indicator FATCA filing requirement
-     *
-     * @return self
-     */
-    public function setFatcaRequirementIndicator($fatca_requirement_indicator)
-    {
-        $this->container['fatca_requirement_indicator'] = $fatca_requirement_indicator;
+        $this->container['first_year_of_designated_roth_contribution'] = $first_year_of_designated_roth_contribution;
 
         return $this;
     }
@@ -4358,7 +5738,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets date_of_payment
      *
-     * @return string|null
+     * @return \DateTime|null
      */
     public function getDateOfPayment()
     {
@@ -4368,7 +5748,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets date_of_payment
      *
-     * @param string|null $date_of_payment Date of payment
+     * @param \DateTime|null $date_of_payment Date of payment
      *
      * @return self
      */

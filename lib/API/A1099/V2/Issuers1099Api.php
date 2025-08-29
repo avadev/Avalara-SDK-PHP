@@ -79,7 +79,7 @@ class Issuers1099Api
     private function setConfiguration($client): void
     {
         $this->verifyAPIClient($client);
-        $client->setSdkVersion("25.8.1");
+        $client->setSdkVersion("25.8.3");
         $this->headerSelector = new HeaderSelector(); 
         $this->client = $client;
     }
@@ -381,7 +381,7 @@ class Issuers1099Api
         $avalara_version = $request_parameters->getAvalaraVersion();
         $x_correlation_id = $request_parameters->getXCorrelationId();
         $x_avalara_client = $request_parameters->getXAvalaraClient();
-        $issuer_command = $request_parameters->getIssuerCommand();
+        $create_issuer_request = $request_parameters->getCreateIssuerRequest();
 
         // verify the required parameter 'avalara_version' is set
         if ($avalara_version === null || (is_array($avalara_version) && count($avalara_version) === 0)) {
@@ -423,16 +423,16 @@ class Issuers1099Api
                 ['application/json', 'text/json', 'application/*+json']
             );
         }
-        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.8.1; {$this->client->config->getMachineName()}";
+        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.8.3; {$this->client->config->getMachineName()}";
 
         $headers['X-Avalara-Client']=$clientId;
 
         // for model (json/xml)
-        if (isset($issuer_command)) {
+        if (isset($create_issuer_request)) {
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($issuer_command));
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($create_issuer_request));
             } else {
-                $httpBody = $issuer_command;
+                $httpBody = $create_issuer_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -726,7 +726,7 @@ class Issuers1099Api
                 []
             );
         }
-        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.8.1; {$this->client->config->getMachineName()}";
+        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.8.3; {$this->client->config->getMachineName()}";
 
         $headers['X-Avalara-Client']=$clientId;
 
@@ -1097,7 +1097,7 @@ class Issuers1099Api
                 []
             );
         }
-        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.8.1; {$this->client->config->getMachineName()}";
+        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.8.3; {$this->client->config->getMachineName()}";
 
         $headers['X-Avalara-Client']=$clientId;
 
@@ -1567,7 +1567,7 @@ class Issuers1099Api
                 []
             );
         }
-        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.8.1; {$this->client->config->getMachineName()}";
+        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.8.3; {$this->client->config->getMachineName()}";
 
         $headers['X-Avalara-Client']=$clientId;
 
@@ -1809,7 +1809,7 @@ class Issuers1099Api
         $avalara_version = $request_parameters->getAvalaraVersion();
         $x_correlation_id = $request_parameters->getXCorrelationId();
         $x_avalara_client = $request_parameters->getXAvalaraClient();
-        $issuer_command = $request_parameters->getIssuerCommand();
+        $create_issuer_request = $request_parameters->getCreateIssuerRequest();
 
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
@@ -1865,16 +1865,16 @@ class Issuers1099Api
                 ['application/json', 'text/json', 'application/*+json']
             );
         }
-        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.8.1; {$this->client->config->getMachineName()}";
+        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.8.3; {$this->client->config->getMachineName()}";
 
         $headers['X-Avalara-Client']=$clientId;
 
         // for model (json/xml)
-        if (isset($issuer_command)) {
+        if (isset($create_issuer_request)) {
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($issuer_command));
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($create_issuer_request));
             } else {
-                $httpBody = $issuer_command;
+                $httpBody = $create_issuer_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -1927,13 +1927,13 @@ class Issuers1099Api
      * @param  string $avalara_version API version (required)
      * @param  string $x_correlation_id Unique correlation Id in a GUID format (optional)
      * @param  string $x_avalara_client Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) . (optional)
-     * @param  \Avalara\SDK\Model\A1099\V2\IssuerCommand $issuer_command The issuer to create (optional)
+     * @param  \Avalara\SDK\Model\A1099\V2\CreateIssuerRequest $create_issuer_request The issuer to create (optional)
      */
 class CreateIssuerRequestSdk {
     private $avalara_version;
     private $x_correlation_id;
     private $x_avalara_client;
-    private $issuer_command;
+    private $create_issuer_request;
 
     public function __construct() {
     }
@@ -1958,12 +1958,12 @@ class CreateIssuerRequestSdk {
     public function setXAvalaraClient($x_avalara_client) {
         $this->x_avalara_client = $x_avalara_client;
     }
-    public function getIssuerCommand() {
-        return $this->issuer_command;
+    public function getCreateIssuerRequest() {
+        return $this->create_issuer_request;
     }
 
-    public function setIssuerCommand($issuer_command) {
-        $this->issuer_command = $issuer_command;
+    public function setCreateIssuerRequest($create_issuer_request) {
+        $this->create_issuer_request = $create_issuer_request;
     }
 }
 
@@ -2157,14 +2157,14 @@ class GetIssuersRequestSdk {
      * @param  string $avalara_version API version (required)
      * @param  string $x_correlation_id Unique correlation Id in a GUID format (optional)
      * @param  string $x_avalara_client Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) . (optional)
-     * @param  \Avalara\SDK\Model\A1099\V2\IssuerCommand $issuer_command The issuer to update (optional)
+     * @param  \Avalara\SDK\Model\A1099\V2\CreateIssuerRequest $create_issuer_request The issuer to update (optional)
      */
 class UpdateIssuerRequestSdk {
     private $id;
     private $avalara_version;
     private $x_correlation_id;
     private $x_avalara_client;
-    private $issuer_command;
+    private $create_issuer_request;
 
     public function __construct() {
     }
@@ -2196,12 +2196,12 @@ class UpdateIssuerRequestSdk {
     public function setXAvalaraClient($x_avalara_client) {
         $this->x_avalara_client = $x_avalara_client;
     }
-    public function getIssuerCommand() {
-        return $this->issuer_command;
+    public function getCreateIssuerRequest() {
+        return $this->create_issuer_request;
     }
 
-    public function setIssuerCommand($issuer_command) {
-        $this->issuer_command = $issuer_command;
+    public function setCreateIssuerRequest($create_issuer_request) {
+        $this->create_issuer_request = $create_issuer_request;
     }
 }
 

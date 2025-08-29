@@ -72,7 +72,7 @@ class IssuerCommand implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'name' => 'string',
-        'name_dba' => 'string',
+        'dba_name' => 'string',
         'tin' => 'string',
         'reference_id' => 'string',
         'telephone' => 'string',
@@ -97,7 +97,7 @@ class IssuerCommand implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPIFormats = [
         'name' => null,
-        'name_dba' => null,
+        'dba_name' => null,
         'tin' => null,
         'reference_id' => null,
         'telephone' => null,
@@ -141,7 +141,7 @@ class IssuerCommand implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $attributeMap = [
         'name' => 'name',
-        'name_dba' => 'nameDba',
+        'dba_name' => 'dbaName',
         'tin' => 'tin',
         'reference_id' => 'referenceId',
         'telephone' => 'telephone',
@@ -164,7 +164,7 @@ class IssuerCommand implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $setters = [
         'name' => 'setName',
-        'name_dba' => 'setNameDba',
+        'dba_name' => 'setDbaName',
         'tin' => 'setTin',
         'reference_id' => 'setReferenceId',
         'telephone' => 'setTelephone',
@@ -187,7 +187,7 @@ class IssuerCommand implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $getters = [
         'name' => 'getName',
-        'name_dba' => 'getNameDba',
+        'dba_name' => 'getDbaName',
         'tin' => 'getTin',
         'reference_id' => 'getReferenceId',
         'telephone' => 'getTelephone',
@@ -261,7 +261,7 @@ class IssuerCommand implements ModelInterface, ArrayAccess, \JsonSerializable
     public function __construct(array $data = null)
     {
         $this->container['name'] = $data['name'] ?? null;
-        $this->container['name_dba'] = $data['name_dba'] ?? null;
+        $this->container['dba_name'] = $data['dba_name'] ?? null;
         $this->container['tin'] = $data['tin'] ?? null;
         $this->container['reference_id'] = $data['reference_id'] ?? null;
         $this->container['telephone'] = $data['telephone'] ?? null;
@@ -286,6 +286,33 @@ class IssuerCommand implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
+        if ($this->container['name'] === null) {
+            $invalidProperties[] = "'name' can't be null";
+        }
+        if ($this->container['telephone'] === null) {
+            $invalidProperties[] = "'telephone' can't be null";
+        }
+        if ($this->container['tax_year'] === null) {
+            $invalidProperties[] = "'tax_year' can't be null";
+        }
+        if ($this->container['email'] === null) {
+            $invalidProperties[] = "'email' can't be null";
+        }
+        if ($this->container['address'] === null) {
+            $invalidProperties[] = "'address' can't be null";
+        }
+        if ($this->container['city'] === null) {
+            $invalidProperties[] = "'city' can't be null";
+        }
+        if ($this->container['state'] === null) {
+            $invalidProperties[] = "'state' can't be null";
+        }
+        if ($this->container['zip'] === null) {
+            $invalidProperties[] = "'zip' can't be null";
+        }
+        if ($this->container['last_filing'] === null) {
+            $invalidProperties[] = "'last_filing' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -304,7 +331,7 @@ class IssuerCommand implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets name
      *
-     * @return string|null
+     * @return string
      */
     public function getName()
     {
@@ -314,7 +341,7 @@ class IssuerCommand implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets name
      *
-     * @param string|null $name Legal name, not DBA
+     * @param string $name Legal name. Not the DBA name.
      *
      * @return self
      */
@@ -326,25 +353,25 @@ class IssuerCommand implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets name_dba
+     * Gets dba_name
      *
      * @return string|null
      */
-    public function getNameDba()
+    public function getDbaName()
     {
-        return $this->container['name_dba'];
+        return $this->container['dba_name'];
     }
 
     /**
-     * Sets name_dba
+     * Sets dba_name
      *
-     * @param string|null $name_dba Optional DBA name or continuation of a long legal name
+     * @param string|null $dba_name Doing Business As (DBA) name or continuation of a long legal name. Use either this or 'transferAgentName'.
      *
      * @return self
      */
-    public function setNameDba($name_dba)
+    public function setDbaName($dba_name)
     {
-        $this->container['name_dba'] = $name_dba;
+        $this->container['dba_name'] = $dba_name;
 
         return $this;
     }
@@ -362,7 +389,7 @@ class IssuerCommand implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets tin
      *
-     * @param string|null $tin Tax identification number
+     * @param string|null $tin Federal Tax Identification Number (TIN).
      *
      * @return self
      */
@@ -386,7 +413,7 @@ class IssuerCommand implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets reference_id
      *
-     * @param string|null $reference_id Optional identifier for your reference, never shown to any agency or recipient.  We will also prefix download filenames with this value, if present.  Can only include letters, numbers, dashes, underscores and spaces.
+     * @param string|null $reference_id Internal reference ID. Never shown to any agency or recipient. If present, it will prefix download filenames. Allowed characters: letters, numbers, dashes, underscores, and spaces.
      *
      * @return self
      */
@@ -400,7 +427,7 @@ class IssuerCommand implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets telephone
      *
-     * @return string|null
+     * @return string
      */
     public function getTelephone()
     {
@@ -410,7 +437,7 @@ class IssuerCommand implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets telephone
      *
-     * @param string|null $telephone Telephone number
+     * @param string $telephone Contact phone number (must contain at least 10 digits, max 15 characters). For recipient inquiries.
      *
      * @return self
      */
@@ -424,7 +451,7 @@ class IssuerCommand implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets tax_year
      *
-     * @return int|null
+     * @return int
      */
     public function getTaxYear()
     {
@@ -434,7 +461,7 @@ class IssuerCommand implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets tax_year
      *
-     * @param int|null $tax_year Tax year
+     * @param int $tax_year Tax year for which the forms are being filed (e.g., 2024). Must be within current tax year and current tax year - 4.
      *
      * @return self
      */
@@ -458,7 +485,7 @@ class IssuerCommand implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets country_code
      *
-     * @param string|null $country_code If there is a transfer agent, use the shipping address of the transfer agent.
+     * @param string|null $country_code Two-letter IRS country code (e.g., 'US', 'CA'), as defined at https://www.irs.gov/e-file-providers/country-codes. If there is a transfer agent, use the transfer agent's shipping address.
      *
      * @return self
      */
@@ -472,7 +499,7 @@ class IssuerCommand implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets email
      *
-     * @return string|null
+     * @return string
      */
     public function getEmail()
     {
@@ -482,7 +509,7 @@ class IssuerCommand implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets email
      *
-     * @param string|null $email Email address
+     * @param string $email Contact email address. For recipient inquiries.
      *
      * @return self
      */
@@ -496,7 +523,7 @@ class IssuerCommand implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets address
      *
-     * @return string|null
+     * @return string
      */
     public function getAddress()
     {
@@ -506,7 +533,7 @@ class IssuerCommand implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets address
      *
-     * @param string|null $address Address
+     * @param string $address Address.
      *
      * @return self
      */
@@ -520,7 +547,7 @@ class IssuerCommand implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets city
      *
-     * @return string|null
+     * @return string
      */
     public function getCity()
     {
@@ -530,7 +557,7 @@ class IssuerCommand implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets city
      *
-     * @param string|null $city City
+     * @param string $city City.
      *
      * @return self
      */
@@ -544,7 +571,7 @@ class IssuerCommand implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets state
      *
-     * @return string|null
+     * @return string
      */
     public function getState()
     {
@@ -554,7 +581,7 @@ class IssuerCommand implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets state
      *
-     * @param string|null $state State
+     * @param string $state Two-letter US state or Canadian province code (required for US/CA addresses).
      *
      * @return self
      */
@@ -568,7 +595,7 @@ class IssuerCommand implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets zip
      *
-     * @return string|null
+     * @return string
      */
     public function getZip()
     {
@@ -578,7 +605,7 @@ class IssuerCommand implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets zip
      *
-     * @param string|null $zip Zip code
+     * @param string $zip ZIP/postal code.
      *
      * @return self
      */
@@ -602,7 +629,7 @@ class IssuerCommand implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets foreign_province
      *
-     * @param string|null $foreign_province Foreign province
+     * @param string|null $foreign_province Province or region for non-US/CA addresses.
      *
      * @return self
      */
@@ -626,7 +653,7 @@ class IssuerCommand implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets transfer_agent_name
      *
-     * @param string|null $transfer_agent_name Transfer Agent's Name
+     * @param string|null $transfer_agent_name Name of the transfer agent, if applicable — optional; use either this or 'dbaName'.
      *
      * @return self
      */
@@ -640,7 +667,7 @@ class IssuerCommand implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets last_filing
      *
-     * @return bool|null
+     * @return bool
      */
     public function getLastFiling()
     {
@@ -650,7 +677,7 @@ class IssuerCommand implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets last_filing
      *
-     * @param bool|null $last_filing Last year of filing for this payer
+     * @param bool $last_filing Indicates if this is the issuer's final year filing.
      *
      * @return self
      */

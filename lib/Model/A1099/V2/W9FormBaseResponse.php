@@ -56,7 +56,7 @@ use \Avalara\SDK\Model\ModelInterface;
  */
 class W9FormBaseResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    public const DISCRIMINATOR = null;
+    public const DISCRIMINATOR = 'type';
 
     /**
       * The original name of the model.
@@ -72,19 +72,19 @@ class W9FormBaseResponse implements ModelInterface, ArrayAccess, \JsonSerializab
       */
     protected static $openAPITypes = [
         'id' => 'string',
-        'type' => 'string',
-        'entry_status' => 'string',
-        'entry_status_date' => '\DateTime',
+        'entry_status' => '\Avalara\SDK\Model\A1099\V2\EntryStatusResponse',
         'reference_id' => 'string',
         'company_id' => 'string',
         'display_name' => 'string',
         'email' => 'string',
         'archived' => 'bool',
+        'ancestor_id' => 'string',
         'signature' => 'string',
         'signed_date' => '\DateTime',
         'e_delivery_consented_at' => '\DateTime',
         'created_at' => '\DateTime',
-        'updated_at' => '\DateTime'
+        'updated_at' => '\DateTime',
+        'type' => 'string'
     ];
 
     /**
@@ -96,19 +96,19 @@ class W9FormBaseResponse implements ModelInterface, ArrayAccess, \JsonSerializab
       */
     protected static $openAPIFormats = [
         'id' => null,
-        'type' => null,
         'entry_status' => null,
-        'entry_status_date' => 'date-time',
         'reference_id' => null,
         'company_id' => null,
         'display_name' => null,
         'email' => null,
         'archived' => null,
+        'ancestor_id' => null,
         'signature' => null,
         'signed_date' => 'date-time',
         'e_delivery_consented_at' => 'date-time',
         'created_at' => 'date-time',
-        'updated_at' => 'date-time'
+        'updated_at' => 'date-time',
+        'type' => null
     ];
 
     /**
@@ -139,19 +139,19 @@ class W9FormBaseResponse implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     protected static $attributeMap = [
         'id' => 'id',
-        'type' => 'type',
         'entry_status' => 'entryStatus',
-        'entry_status_date' => 'entryStatusDate',
         'reference_id' => 'referenceId',
         'company_id' => 'companyId',
         'display_name' => 'displayName',
         'email' => 'email',
         'archived' => 'archived',
+        'ancestor_id' => 'ancestorId',
         'signature' => 'signature',
         'signed_date' => 'signedDate',
         'e_delivery_consented_at' => 'eDeliveryConsentedAt',
         'created_at' => 'createdAt',
-        'updated_at' => 'updatedAt'
+        'updated_at' => 'updatedAt',
+        'type' => 'type'
     ];
 
     /**
@@ -161,19 +161,19 @@ class W9FormBaseResponse implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     protected static $setters = [
         'id' => 'setId',
-        'type' => 'setType',
         'entry_status' => 'setEntryStatus',
-        'entry_status_date' => 'setEntryStatusDate',
         'reference_id' => 'setReferenceId',
         'company_id' => 'setCompanyId',
         'display_name' => 'setDisplayName',
         'email' => 'setEmail',
         'archived' => 'setArchived',
+        'ancestor_id' => 'setAncestorId',
         'signature' => 'setSignature',
         'signed_date' => 'setSignedDate',
         'e_delivery_consented_at' => 'setEDeliveryConsentedAt',
         'created_at' => 'setCreatedAt',
-        'updated_at' => 'setUpdatedAt'
+        'updated_at' => 'setUpdatedAt',
+        'type' => 'setType'
     ];
 
     /**
@@ -183,19 +183,19 @@ class W9FormBaseResponse implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     protected static $getters = [
         'id' => 'getId',
-        'type' => 'getType',
         'entry_status' => 'getEntryStatus',
-        'entry_status_date' => 'getEntryStatusDate',
         'reference_id' => 'getReferenceId',
         'company_id' => 'getCompanyId',
         'display_name' => 'getDisplayName',
         'email' => 'getEmail',
         'archived' => 'getArchived',
+        'ancestor_id' => 'getAncestorId',
         'signature' => 'getSignature',
         'signed_date' => 'getSignedDate',
         'e_delivery_consented_at' => 'getEDeliveryConsentedAt',
         'created_at' => 'getCreatedAt',
-        'updated_at' => 'getUpdatedAt'
+        'updated_at' => 'getUpdatedAt',
+        'type' => 'getType'
     ];
 
     /**
@@ -256,19 +256,22 @@ class W9FormBaseResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     public function __construct(array $data = null)
     {
         $this->container['id'] = $data['id'] ?? null;
-        $this->container['type'] = $data['type'] ?? null;
         $this->container['entry_status'] = $data['entry_status'] ?? null;
-        $this->container['entry_status_date'] = $data['entry_status_date'] ?? null;
         $this->container['reference_id'] = $data['reference_id'] ?? null;
         $this->container['company_id'] = $data['company_id'] ?? null;
         $this->container['display_name'] = $data['display_name'] ?? null;
         $this->container['email'] = $data['email'] ?? null;
         $this->container['archived'] = $data['archived'] ?? null;
+        $this->container['ancestor_id'] = $data['ancestor_id'] ?? null;
         $this->container['signature'] = $data['signature'] ?? null;
         $this->container['signed_date'] = $data['signed_date'] ?? null;
         $this->container['e_delivery_consented_at'] = $data['e_delivery_consented_at'] ?? null;
         $this->container['created_at'] = $data['created_at'] ?? null;
         $this->container['updated_at'] = $data['updated_at'] ?? null;
+        $this->container['type'] = $data['type'] ?? null;
+
+        // Initialize discriminator property with the model name.
+        $this->container['type'] = static::$openAPIModelName;
     }
 
     /**
@@ -320,33 +323,9 @@ class W9FormBaseResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     }
 
     /**
-     * Gets type
-     *
-     * @return string|null
-     */
-    public function getType()
-    {
-        return $this->container['type'];
-    }
-
-    /**
-     * Sets type
-     *
-     * @param string|null $type The form type.
-     *
-     * @return self
-     */
-    public function setType($type)
-    {
-        $this->container['type'] = $type;
-
-        return $this;
-    }
-
-    /**
      * Gets entry_status
      *
-     * @return string|null
+     * @return \Avalara\SDK\Model\A1099\V2\EntryStatusResponse|null
      */
     public function getEntryStatus()
     {
@@ -356,37 +335,13 @@ class W9FormBaseResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets entry_status
      *
-     * @param string|null $entry_status The form status.
+     * @param \Avalara\SDK\Model\A1099\V2\EntryStatusResponse|null $entry_status The entry status information for the form.
      *
      * @return self
      */
     public function setEntryStatus($entry_status)
     {
         $this->container['entry_status'] = $entry_status;
-
-        return $this;
-    }
-
-    /**
-     * Gets entry_status_date
-     *
-     * @return \DateTime|null
-     */
-    public function getEntryStatusDate()
-    {
-        return $this->container['entry_status_date'];
-    }
-
-    /**
-     * Sets entry_status_date
-     *
-     * @param \DateTime|null $entry_status_date The timestamp for the latest status update.
-     *
-     * @return self
-     */
-    public function setEntryStatusDate($entry_status_date)
-    {
-        $this->container['entry_status_date'] = $entry_status_date;
 
         return $this;
     }
@@ -512,6 +467,30 @@ class W9FormBaseResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     }
 
     /**
+     * Gets ancestor_id
+     *
+     * @return string|null
+     */
+    public function getAncestorId()
+    {
+        return $this->container['ancestor_id'];
+    }
+
+    /**
+     * Sets ancestor_id
+     *
+     * @param string|null $ancestor_id Form ID of previous version.
+     *
+     * @return self
+     */
+    public function setAncestorId($ancestor_id)
+    {
+        $this->container['ancestor_id'] = $ancestor_id;
+
+        return $this;
+    }
+
+    /**
      * Gets signature
      *
      * @return string|null
@@ -627,6 +606,30 @@ class W9FormBaseResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     public function setUpdatedAt($updated_at)
     {
         $this->container['updated_at'] = $updated_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets type
+     *
+     * @return string|null
+     */
+    public function getType()
+    {
+        return $this->container['type'];
+    }
+
+    /**
+     * Sets type
+     *
+     * @param string|null $type The type of the response object.
+     *
+     * @return self
+     */
+    public function setType($type)
+    {
+        $this->container['type'] = $type;
 
         return $this;
     }

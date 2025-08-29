@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**primary_withholding_agent_name** | **string** |  | [optional]
-**primary_withholding_agent_ein** | **string** |  | [optional]
+**name** | **string** | Name of the primary withholding agent |
+**ein** | **string** | EIN (Employer Identification Number) of the primary withholding agent. |
 
 [[Back to Model list]](../../../README.md#models) [[Back to API list]](../../../README.md#endpoints) [[Back to README]](../../../README.md)

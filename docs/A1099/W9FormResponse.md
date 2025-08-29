@@ -22,6 +22,6 @@ Name | Type | Description | Notes
 **tin** | **string** | The taxpayer identification number (TIN). | [optional]
 **backup_withholding** | **bool** | Indicates whether backup withholding applies. | [optional]
 **is1099able** | **bool** | Indicates whether the individual or entity should be issued a 1099 form. | [optional]
-**tin_match_status** | [**\AvalaraSDK\ModelA1099V2\TinMatchStatusResponse**](TinMatchStatusResponse.md) | The TIN Match status from IRS. | [optional]
+**tin_match_status** | [**\Avalara\SDK\Model\A1099\V2\TinMatchStatusResponse**](TinMatchStatusResponse.md) | The TIN Match status from IRS. | [optional]
 
 [[Back to Model list]](../../../README.md#models) [[Back to API list]](../../../README.md#endpoints) [[Back to README]](../../../README.md)

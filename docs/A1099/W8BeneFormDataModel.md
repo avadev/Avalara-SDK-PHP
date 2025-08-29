@@ -106,7 +106,7 @@ Name | Type | Description | Notes
 **part19_formation_or_resolution_date** | **\DateTime** |  | [optional]
 **part20_filing_date** | **\DateTime** |  | [optional]
 **part21_determination_date** | **\DateTime** |  | [optional]
-**substantial_us_owners** | [**\AvalaraSDK\ModelA1099V2\W8BenESubstantialUsOwnerDataModel[]**](W8BenESubstantialUsOwnerDataModel.md) |  | [optional]
+**substantial_us_owners** | [**\Avalara\SDK\Model\A1099\V2\W8BenESubstantialUsOwnerDataModel[]**](W8BenESubstantialUsOwnerDataModel.md) |  | [optional]
 **employee_first_name** | **string** | The first name of the employee. | [optional]
 **employee_middle_name** | **string** | The middle name of the employee. | [optional]
 **employee_last_name** | **string** | The last name of the employee. | [optional]

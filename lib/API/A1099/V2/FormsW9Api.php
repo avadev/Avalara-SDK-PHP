@@ -79,7 +79,7 @@ class FormsW9Api
     private function setConfiguration($client): void
     {
         $this->verifyAPIClient($client);
-        $client->setSdkVersion("25.8.1");
+        $client->setSdkVersion("25.8.3");
         $this->headerSelector = new HeaderSelector(); 
         $this->client = $client;
     }
@@ -113,6 +113,348 @@ class FormsW9Api
     public function getConfig()
     {
         return $this->client->config;
+    }
+
+    /**
+     * Operation createAndSendW9FormEmail
+     *
+     * Create a minimal W9/W4/W8 form and sends the e-mail request
+     *
+     * @param CreateAndSendW9FormEmailRequestSdk The request parameters for the API call.
+     *
+     * @throws \Avalara\SDK\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \Avalara\SDK\Model\A1099\V2\CreateW9Form201Response|\Avalara\SDK\Model\A1099\V2\ErrorResponse
+     */
+    public function createAndSendW9FormEmail($request_parameters)
+    {
+        list($response) = $this->createAndSendW9FormEmailWithHttpInfo($request_parameters);
+        return $response;
+    }
+
+    /**
+     * Operation createAndSendW9FormEmailWithHttpInfo
+     *
+     * Create a minimal W9/W4/W8 form and sends the e-mail request
+     *
+     * @param CreateAndSendW9FormEmailRequestSdk The request parameters for the API call.
+     *
+     * @throws \Avalara\SDK\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \Avalara\SDK\Model\A1099\V2\CreateW9Form201Response|\Avalara\SDK\Model\A1099\V2\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function createAndSendW9FormEmailWithHttpInfo($request_parameters, $isRetry = false)
+    {
+        $logObject = new LogObject($this->client->logRequestAndResponse);
+        //OAuth2 Scopes
+        $requiredScopes = "";
+        $request = $this->createAndSendW9FormEmailRequest($request_parameters);
+        $logObject->populateRequestInfo($request);
+
+        try {
+            try {
+                $response = $this->client->send_sync($request, []);
+            } catch (RequestException $e) {
+                $statusCode = $e->getCode();
+                if (($statusCode == 401 || $statusCode == 403) && !$isRetry) {
+                    $this->client->refreshAuthToken($e->getRequest() ? $e->getRequest()->getHeaders() : null, $requiredScopes);
+                    list($response) = $this->createAndSendW9FormEmailWithHttpInfo($request_parameters, true);
+                    return $response;
+                }
+                $logObject->populateErrorInfo($e->getResponse());
+                $this->client->logger->error(json_encode($logObject));
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                $logObject->populateErrorMessage($e->getCode(), $e->getMessage());
+                $this->client->logger->error(json_encode($logObject));
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }         
+            
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 201:
+                    if ('\Avalara\SDK\Model\A1099\V2\CreateW9Form201Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+                    $logObject->populateResponseInfo($content, $response);
+                    $this->client->logger->info(json_encode($logObject));
+                    return [
+                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\A1099\V2\CreateW9Form201Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\Avalara\SDK\Model\A1099\V2\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+                    $logObject->populateResponseInfo($content, $response);
+                    $this->client->logger->info(json_encode($logObject));
+                    return [
+                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\A1099\V2\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\Avalara\SDK\Model\A1099\V2\CreateW9Form201Response';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+            }
+            $logObject->populateResponseInfo($content, $response);
+            $this->client->logger->info(json_encode($logObject));
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 201:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Avalara\SDK\Model\A1099\V2\CreateW9Form201Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Avalara\SDK\Model\A1099\V2\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation createAndSendW9FormEmailAsync
+     *
+     * Create a minimal W9/W4/W8 form and sends the e-mail request
+     *
+     * @param CreateAndSendW9FormEmailRequestSdk The request parameters for the API call.
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createAndSendW9FormEmailAsync($request_parameters)
+    {
+        return $this->createAndSendW9FormEmailAsyncWithHttpInfo($request_parameters)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation createAndSendW9FormEmailAsyncWithHttpInfo
+     *
+     * Create a minimal W9/W4/W8 form and sends the e-mail request
+     *
+     * @param CreateAndSendW9FormEmailRequestSdk The request parameters for the API call.
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createAndSendW9FormEmailAsyncWithHttpInfo($request_parameters, $isRetry = false)
+    {
+        $logObject = new LogObject($this->client->logRequestAndResponse);
+        $returnType = '\Avalara\SDK\Model\A1099\V2\CreateW9Form201Response';
+        $request = $this->createAndSendW9FormEmailRequest($request_parameters);
+        $logObject->populateRequestInfo($request);
+        return $this->client
+            ->send_async($request, [])
+            ->then(
+                function ($response) use ($returnType, $logObject) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+                    $logObject->populateResponseInfo($content, $response);
+                    $this->client->logger->info(json_encode($logObject));
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) use ($request_parameters, $isRetry, $request, $logObject) {
+                    //OAuth2 Scopes
+                    $requiredScopes = "";
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    if (($statusCode == 401 || $statusCode == 403) && !$isRetry) {
+                        $this->client->refreshAuthToken($request->getHeaders(), $requiredScopes);
+                        return $this->createAndSendW9FormEmailAsyncWithHttpInfo($request_parameters, true)
+                            ->then(
+                                function ($response) {
+                                    return $response[0];
+                                }
+                            );
+                    }
+                    $logObject->populateErrorInfo($response);
+                    $this->client->logger->error(json_encode($logObject));
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'createAndSendW9FormEmail'
+     *
+     * @param CreateAndSendW9FormEmailRequestSdk The request parameters for the API call.
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function createAndSendW9FormEmailRequest($request_parameters)
+    {
+        //OAuth2 Scopes
+        $requiredScopes = "";
+        
+        $avalara_version = $request_parameters->getAvalaraVersion();
+        $x_correlation_id = $request_parameters->getXCorrelationId();
+        $x_avalara_client = $request_parameters->getXAvalaraClient();
+        $create_and_send_w9_form_email_request = $request_parameters->getCreateAndSendW9FormEmailRequest();
+
+        // verify the required parameter 'avalara_version' is set
+        if ($avalara_version === null || (is_array($avalara_version) && count($avalara_version) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $avalara_version when calling createAndSendW9FormEmail'
+            );
+        }
+
+        $resourcePath = '/w9/forms/$create-and-send-email';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // header params
+        if ($avalara_version !== null) {
+            $headerParams['avalara-version'] = ObjectSerializer::toHeaderValue($avalara_version);
+        }
+        // header params
+        if ($x_correlation_id !== null) {
+            $headerParams['X-Correlation-Id'] = ObjectSerializer::toHeaderValue($x_correlation_id);
+        }
+        // header params
+        if ($x_avalara_client !== null) {
+            $headerParams['X-Avalara-Client'] = ObjectSerializer::toHeaderValue($x_avalara_client);
+        }
+
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json', 'text/json', 'application/*+json']
+            );
+        }
+        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.8.3; {$this->client->config->getMachineName()}";
+
+        $headers['X-Avalara-Client']=$clientId;
+
+        // for model (json/xml)
+        if (isset($create_and_send_w9_form_email_request)) {
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($create_and_send_w9_form_email_request));
+            } else {
+                $httpBody = $create_and_send_w9_form_email_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
+            }
+        }
+
+        $headers = $this->client->applyAuthToRequest($headers, $requiredScopes);
+
+        $defaultHeaders = [];
+        
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
+        $baseUrl = $this->client->config->getBasePath('A1099');
+        return new Request(
+            'POST',
+            $baseUrl . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
     }
 
     /**
@@ -402,7 +744,7 @@ class FormsW9Api
                 ['application/json', 'text/json', 'application/*+json']
             );
         }
-        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.8.1; {$this->client->config->getMachineName()}";
+        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.8.3; {$this->client->config->getMachineName()}";
 
         $headers['X-Avalara-Client']=$clientId;
 
@@ -705,7 +1047,7 @@ class FormsW9Api
                 []
             );
         }
-        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.8.1; {$this->client->config->getMachineName()}";
+        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.8.3; {$this->client->config->getMachineName()}";
 
         $headers['X-Avalara-Client']=$clientId;
 
@@ -1055,7 +1397,7 @@ class FormsW9Api
                 []
             );
         }
-        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.8.1; {$this->client->config->getMachineName()}";
+        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.8.3; {$this->client->config->getMachineName()}";
 
         $headers['X-Avalara-Client']=$clientId;
 
@@ -1113,7 +1455,7 @@ class FormsW9Api
      *
      * @throws \Avalara\SDK\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Avalara\SDK\Model\A1099\V2\PaginatedW9FormsModel|\Avalara\SDK\Model\A1099\V2\ErrorModel|string
+     * @return \Avalara\SDK\Model\A1099\V2\ErrorModel|string|\Avalara\SDK\Model\A1099\V2\PaginatedQueryResultModelW9FormBaseResponse
      */
     public function listW9Forms($request_parameters)
     {
@@ -1130,7 +1472,7 @@ class FormsW9Api
      *
      * @throws \Avalara\SDK\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Avalara\SDK\Model\A1099\V2\PaginatedW9FormsModel|\Avalara\SDK\Model\A1099\V2\ErrorModel|string, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Avalara\SDK\Model\A1099\V2\ErrorModel|string|\Avalara\SDK\Model\A1099\V2\PaginatedQueryResultModelW9FormBaseResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function listW9FormsWithHttpInfo($request_parameters, $isRetry = false)
     {
@@ -1185,19 +1527,6 @@ class FormsW9Api
             }
 
             switch($statusCode) {
-                case 200:
-                    if ('\Avalara\SDK\Model\A1099\V2\PaginatedW9FormsModel' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                    }
-                    $logObject->populateResponseInfo($content, $response);
-                    $this->client->logger->info(json_encode($logObject));
-                    return [
-                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\A1099\V2\PaginatedW9FormsModel', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
                 case 400:
                     if ('\Avalara\SDK\Model\A1099\V2\ErrorModel' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
@@ -1224,9 +1553,22 @@ class FormsW9Api
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
+                case 200:
+                    if ('\Avalara\SDK\Model\A1099\V2\PaginatedQueryResultModelW9FormBaseResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+                    $logObject->populateResponseInfo($content, $response);
+                    $this->client->logger->info(json_encode($logObject));
+                    return [
+                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\A1099\V2\PaginatedQueryResultModelW9FormBaseResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
             }
 
-            $returnType = '\Avalara\SDK\Model\A1099\V2\PaginatedW9FormsModel';
+            $returnType = '\Avalara\SDK\Model\A1099\V2\PaginatedQueryResultModelW9FormBaseResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1242,14 +1584,6 @@ class FormsW9Api
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Avalara\SDK\Model\A1099\V2\PaginatedW9FormsModel',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
@@ -1262,6 +1596,14 @@ class FormsW9Api
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         'string',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Avalara\SDK\Model\A1099\V2\PaginatedQueryResultModelW9FormBaseResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1304,7 +1646,7 @@ class FormsW9Api
     public function listW9FormsAsyncWithHttpInfo($request_parameters, $isRetry = false)
     {
         $logObject = new LogObject($this->client->logRequestAndResponse);
-        $returnType = '\Avalara\SDK\Model\A1099\V2\PaginatedW9FormsModel';
+        $returnType = '\Avalara\SDK\Model\A1099\V2\PaginatedQueryResultModelW9FormBaseResponse';
         $request = $this->listW9FormsRequest($request_parameters);
         $logObject->populateRequestInfo($request);
         return $this->client
@@ -1373,6 +1715,7 @@ class FormsW9Api
         $skip = $request_parameters->getSkip();
         $order_by = $request_parameters->getOrderBy();
         $count = $request_parameters->getCount();
+        $count_only = $request_parameters->getCountOnly();
         $x_correlation_id = $request_parameters->getXCorrelationId();
         $x_avalara_client = $request_parameters->getXAvalaraClient();
 
@@ -1445,6 +1788,17 @@ class FormsW9Api
                 $queryParams['count'] = $count;
             }
         }
+        // query params
+        if ($count_only !== null) {
+            if('form' === 'form' && is_array($count_only)) {
+                foreach($count_only as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['countOnly'] = $count_only;
+            }
+        }
 
         // header params
         if ($avalara_version !== null) {
@@ -1471,7 +1825,7 @@ class FormsW9Api
                 []
             );
         }
-        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.8.1; {$this->client->config->getMachineName()}";
+        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.8.3; {$this->client->config->getMachineName()}";
 
         $headers['X-Avalara-Client']=$clientId;
 
@@ -1529,7 +1883,7 @@ class FormsW9Api
      *
      * @throws \Avalara\SDK\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Avalara\SDK\Model\A1099\V2\IW9FormDataModelsOneOf|\Avalara\SDK\Model\A1099\V2\ErrorModel|string
+     * @return \Avalara\SDK\Model\A1099\V2\CreateW9Form201Response|\Avalara\SDK\Model\A1099\V2\CreateW9Form201Response|\Avalara\SDK\Model\A1099\V2\ErrorResponse|string
      */
     public function sendW9FormEmail($request_parameters)
     {
@@ -1546,7 +1900,7 @@ class FormsW9Api
      *
      * @throws \Avalara\SDK\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Avalara\SDK\Model\A1099\V2\IW9FormDataModelsOneOf|\Avalara\SDK\Model\A1099\V2\ErrorModel|string, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Avalara\SDK\Model\A1099\V2\CreateW9Form201Response|\Avalara\SDK\Model\A1099\V2\CreateW9Form201Response|\Avalara\SDK\Model\A1099\V2\ErrorResponse|string, HTTP status code, HTTP response headers (array of strings)
      */
     public function sendW9FormEmailWithHttpInfo($request_parameters, $isRetry = false)
     {
@@ -1602,7 +1956,7 @@ class FormsW9Api
 
             switch($statusCode) {
                 case 200:
-                    if ('\Avalara\SDK\Model\A1099\V2\IW9FormDataModelsOneOf' === '\SplFileObject') {
+                    if ('\Avalara\SDK\Model\A1099\V2\CreateW9Form201Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -1610,12 +1964,25 @@ class FormsW9Api
                     $logObject->populateResponseInfo($content, $response);
                     $this->client->logger->info(json_encode($logObject));
                     return [
-                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\A1099\V2\IW9FormDataModelsOneOf', []),
+                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\A1099\V2\CreateW9Form201Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 201:
+                    if ('\Avalara\SDK\Model\A1099\V2\CreateW9Form201Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+                    $logObject->populateResponseInfo($content, $response);
+                    $this->client->logger->info(json_encode($logObject));
+                    return [
+                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\A1099\V2\CreateW9Form201Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\Avalara\SDK\Model\A1099\V2\ErrorModel' === '\SplFileObject') {
+                    if ('\Avalara\SDK\Model\A1099\V2\ErrorResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -1623,7 +1990,7 @@ class FormsW9Api
                     $logObject->populateResponseInfo($content, $response);
                     $this->client->logger->info(json_encode($logObject));
                     return [
-                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\A1099\V2\ErrorModel', []),
+                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\A1099\V2\ErrorResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -1642,7 +2009,7 @@ class FormsW9Api
                     ];
             }
 
-            $returnType = '\Avalara\SDK\Model\A1099\V2\IW9FormDataModelsOneOf';
+            $returnType = '\Avalara\SDK\Model\A1099\V2\CreateW9Form201Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1661,7 +2028,15 @@ class FormsW9Api
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Avalara\SDK\Model\A1099\V2\IW9FormDataModelsOneOf',
+                        '\Avalara\SDK\Model\A1099\V2\CreateW9Form201Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 201:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Avalara\SDK\Model\A1099\V2\CreateW9Form201Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1669,7 +2044,7 @@ class FormsW9Api
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Avalara\SDK\Model\A1099\V2\ErrorModel',
+                        '\Avalara\SDK\Model\A1099\V2\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1720,7 +2095,7 @@ class FormsW9Api
     public function sendW9FormEmailAsyncWithHttpInfo($request_parameters, $isRetry = false)
     {
         $logObject = new LogObject($this->client->logRequestAndResponse);
-        $returnType = '\Avalara\SDK\Model\A1099\V2\IW9FormDataModelsOneOf';
+        $returnType = '\Avalara\SDK\Model\A1099\V2\CreateW9Form201Response';
         $request = $this->sendW9FormEmailRequest($request_parameters);
         $logObject->populateRequestInfo($request);
         return $this->client
@@ -1842,7 +2217,7 @@ class FormsW9Api
                 []
             );
         }
-        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.8.1; {$this->client->config->getMachineName()}";
+        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.8.3; {$this->client->config->getMachineName()}";
 
         $headers['X-Avalara-Client']=$clientId;
 
@@ -1900,7 +2275,7 @@ class FormsW9Api
      *
      * @throws \Avalara\SDK\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Avalara\SDK\Model\A1099\V2\IW9FormDataModelsOneOf|\Avalara\SDK\Model\A1099\V2\ErrorModel|string
+     * @return \Avalara\SDK\Model\A1099\V2\IW9FormDataModelsOneOf|\Avalara\SDK\Model\A1099\V2\ErrorResponse|\Avalara\SDK\Model\A1099\V2\ErrorResponse
      */
     public function updateW9Form($request_parameters)
     {
@@ -1917,7 +2292,7 @@ class FormsW9Api
      *
      * @throws \Avalara\SDK\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Avalara\SDK\Model\A1099\V2\IW9FormDataModelsOneOf|\Avalara\SDK\Model\A1099\V2\ErrorModel|string, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Avalara\SDK\Model\A1099\V2\IW9FormDataModelsOneOf|\Avalara\SDK\Model\A1099\V2\ErrorResponse|\Avalara\SDK\Model\A1099\V2\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateW9FormWithHttpInfo($request_parameters, $isRetry = false)
     {
@@ -1986,7 +2361,7 @@ class FormsW9Api
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\Avalara\SDK\Model\A1099\V2\ErrorModel' === '\SplFileObject') {
+                    if ('\Avalara\SDK\Model\A1099\V2\ErrorResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -1994,12 +2369,12 @@ class FormsW9Api
                     $logObject->populateResponseInfo($content, $response);
                     $this->client->logger->info(json_encode($logObject));
                     return [
-                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\A1099\V2\ErrorModel', []),
+                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\A1099\V2\ErrorResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
-                case 401:
-                    if ('string' === '\SplFileObject') {
+                case 404:
+                    if ('\Avalara\SDK\Model\A1099\V2\ErrorResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -2007,7 +2382,7 @@ class FormsW9Api
                     $logObject->populateResponseInfo($content, $response);
                     $this->client->logger->info(json_encode($logObject));
                     return [
-                        ObjectSerializer::deserialize($content, 'string', []),
+                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\A1099\V2\ErrorResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -2040,15 +2415,15 @@ class FormsW9Api
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Avalara\SDK\Model\A1099\V2\ErrorModel',
+                        '\Avalara\SDK\Model\A1099\V2\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
                     break;
-                case 401:
+                case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'string',
+                        '\Avalara\SDK\Model\A1099\V2\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2214,7 +2589,7 @@ class FormsW9Api
                 ['application/json', 'text/json', 'application/*+json']
             );
         }
-        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.8.1; {$this->client->config->getMachineName()}";
+        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.8.3; {$this->client->config->getMachineName()}";
 
         $headers['X-Avalara-Client']=$clientId;
 
@@ -2538,7 +2913,7 @@ class FormsW9Api
                 ['multipart/form-data']
             );
         }
-        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.8.1; {$this->client->config->getMachineName()}";
+        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.8.3; {$this->client->config->getMachineName()}";
 
         $headers['X-Avalara-Client']=$clientId;
 
@@ -2588,6 +2963,52 @@ class FormsW9Api
     }
 
 }
+    /**
+     * Represents the Request object for the CreateAndSendW9FormEmail API
+     *
+     * @param  string $avalara_version API version (required)
+     * @param  string $x_correlation_id Unique correlation Id in a GUID format (optional)
+     * @param  string $x_avalara_client Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) . (optional)
+     * @param  \Avalara\SDK\Model\A1099\V2\CreateAndSendW9FormEmailRequest $create_and_send_w9_form_email_request Form to be created (optional)
+     */
+class CreateAndSendW9FormEmailRequestSdk {
+    private $avalara_version;
+    private $x_correlation_id;
+    private $x_avalara_client;
+    private $create_and_send_w9_form_email_request;
+
+    public function __construct() {
+    }
+    public function getAvalaraVersion() {
+        return $this->avalara_version ?? '2.0';
+    }
+
+    public function setAvalaraVersion($avalara_version) {
+        $this->avalara_version = $avalara_version;
+    }
+    public function getXCorrelationId() {
+        return $this->x_correlation_id;
+    }
+
+    public function setXCorrelationId($x_correlation_id) {
+        $this->x_correlation_id = $x_correlation_id;
+    }
+    public function getXAvalaraClient() {
+        return $this->x_avalara_client;
+    }
+
+    public function setXAvalaraClient($x_avalara_client) {
+        $this->x_avalara_client = $x_avalara_client;
+    }
+    public function getCreateAndSendW9FormEmailRequest() {
+        return $this->create_and_send_w9_form_email_request;
+    }
+
+    public function setCreateAndSendW9FormEmailRequest($create_and_send_w9_form_email_request) {
+        $this->create_and_send_w9_form_email_request = $create_and_send_w9_form_email_request;
+    }
+}
+
     /**
      * Represents the Request object for the CreateW9Form API
      *
@@ -2730,11 +3151,12 @@ class GetW9FormRequestSdk {
      * Represents the Request object for the ListW9Forms API
      *
      * @param  string $avalara_version API version (required)
-     * @param  string $filter A filter statement to identify specific records to retrieve. For more information on filtering, see &lt;a href&#x3D;\&quot;https://developer.avalara.com/avatax/filtering-in-rest/\&quot;&gt;Filtering in REST&lt;/a&gt;. (optional)
-     * @param  int $top If nonzero, return no more than this number of results. Used with skip to provide pagination for large datasets. Unless otherwise specified, the maximum number of records that can be returned from an API call is 1,000 records. (optional, default to 10)
-     * @param  int $skip If nonzero, skip this number of results before returning data. Used with top to provide pagination for large datasets. (optional, default to 0)
+     * @param  string $filter A filter statement to identify specific records to retrieve.  For more information on filtering, see &lt;a href&#x3D;\&quot;https://developer.avalara.com/avatax/filtering-in-rest/\&quot;&gt;Filtering in REST&lt;/a&gt;. (optional)
+     * @param  int $top If zero or greater than 1000, return at most 1000 results.  Otherwise, return this number of results.  Used with skip to provide pagination for large datasets. (optional)
+     * @param  int $skip If nonzero, skip this number of results before returning data. Used with top to provide pagination for large datasets. (optional)
      * @param  string $order_by A comma separated list of sort statements in the format (fieldname) [ASC|DESC], for example id ASC. (optional)
-     * @param  bool $count When true, returns a @recordSetCount in the result set (optional)
+     * @param  bool $count If true, return the global count of elements in the collection. (optional)
+     * @param  bool $count_only If true, return ONLY the global count of elements in the collection.  It only applies when count&#x3D;true. (optional)
      * @param  string $x_correlation_id Unique correlation Id in a GUID format (optional)
      * @param  string $x_avalara_client Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) . (optional)
      */
@@ -2745,6 +3167,7 @@ class ListW9FormsRequestSdk {
     private $skip;
     private $order_by;
     private $count;
+    private $count_only;
     private $x_correlation_id;
     private $x_avalara_client;
 
@@ -2791,6 +3214,13 @@ class ListW9FormsRequestSdk {
 
     public function setCount($count) {
         $this->count = $count;
+    }
+    public function getCountOnly() {
+        return $this->count_only;
+    }
+
+    public function setCountOnly($count_only) {
+        $this->count_only = $count_only;
     }
     public function getXCorrelationId() {
         return $this->x_correlation_id;
