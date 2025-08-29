@@ -37,7 +37,7 @@ $apiInstance = new AvalaraSDK\Api\JobsApi($client);
 
 $id = 'id_example'; // string | Job id obtained from other API responses, like `/1099/bulk-upsert`.
 $avalara_version = 2.0.0; // string | API version
-$x_correlation_id = 19c729e6-45f1-4b1f-8a4c-a1293f8da8bd; // string | Unique correlation Id in a GUID format
+$x_correlation_id = b17e0df6-816d-45a2-8b6d-a2d79a90a02c; // string | Unique correlation Id in a GUID format
 $x_avalara_client = Swagger UI; 22.1.0; // string | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
 
 try {
