@@ -843,8 +843,6 @@ class JobResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setProcessedForms($processed_forms)
     {
-
-
         $this->container['processed_forms'] = $processed_forms;
 
         return $this;

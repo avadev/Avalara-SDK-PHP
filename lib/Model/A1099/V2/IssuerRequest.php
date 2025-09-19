@@ -1,6 +1,6 @@
 <?php
 /**
- * W9FormBaseResponse
+ * IssuerRequest
  *
  * PHP version 7.3
  *
@@ -44,7 +44,7 @@ use \ArrayAccess;
 use \Avalara\SDK\ObjectSerializer;
 use \Avalara\SDK\Model\ModelInterface;
 /**
- * W9FormBaseResponse Class Doc Comment
+ * IssuerRequest Class Doc Comment
  *
  * @category Class
  * @package  Avalara\SDK
@@ -54,7 +54,7 @@ use \Avalara\SDK\Model\ModelInterface;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class W9FormBaseResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class IssuerRequest implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -63,7 +63,7 @@ class W9FormBaseResponse implements ModelInterface, ArrayAccess, \JsonSerializab
       *
       * @var string
       */
-    protected static $openAPIModelName = 'W9FormBaseResponse';
+    protected static $openAPIModelName = 'IssuerRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -71,20 +71,21 @@ class W9FormBaseResponse implements ModelInterface, ArrayAccess, \JsonSerializab
       * @var string[]
       */
     protected static $openAPITypes = [
-        'type' => 'string',
-        'id' => 'string',
-        'entry_status' => '\Avalara\SDK\Model\A1099\V2\EntryStatusResponse',
+        'name' => 'string',
+        'dba_name' => 'string',
+        'tin' => 'string',
         'reference_id' => 'string',
-        'company_id' => 'string',
-        'display_name' => 'string',
+        'telephone' => 'string',
+        'tax_year' => 'int',
+        'country_code' => 'string',
         'email' => 'string',
-        'archived' => 'bool',
-        'ancestor_id' => 'string',
-        'signature' => 'string',
-        'signed_date' => '\DateTime',
-        'e_delivery_consented_at' => '\DateTime',
-        'created_at' => '\DateTime',
-        'updated_at' => '\DateTime'
+        'address' => 'string',
+        'city' => 'string',
+        'state' => 'string',
+        'zip' => 'string',
+        'foreign_province' => 'string',
+        'transfer_agent_name' => 'string',
+        'last_filing' => 'bool'
     ];
 
     /**
@@ -95,20 +96,21 @@ class W9FormBaseResponse implements ModelInterface, ArrayAccess, \JsonSerializab
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'type' => null,
-        'id' => null,
-        'entry_status' => null,
+        'name' => null,
+        'dba_name' => null,
+        'tin' => null,
         'reference_id' => null,
-        'company_id' => null,
-        'display_name' => null,
+        'telephone' => null,
+        'tax_year' => 'int32',
+        'country_code' => null,
         'email' => null,
-        'archived' => null,
-        'ancestor_id' => null,
-        'signature' => null,
-        'signed_date' => 'date-time',
-        'e_delivery_consented_at' => 'date-time',
-        'created_at' => 'date-time',
-        'updated_at' => 'date-time'
+        'address' => null,
+        'city' => null,
+        'state' => null,
+        'zip' => null,
+        'foreign_province' => null,
+        'transfer_agent_name' => null,
+        'last_filing' => null
     ];
 
     /**
@@ -138,20 +140,21 @@ class W9FormBaseResponse implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $attributeMap = [
-        'type' => 'type',
-        'id' => 'id',
-        'entry_status' => 'entryStatus',
+        'name' => 'name',
+        'dba_name' => 'dbaName',
+        'tin' => 'tin',
         'reference_id' => 'referenceId',
-        'company_id' => 'companyId',
-        'display_name' => 'displayName',
+        'telephone' => 'telephone',
+        'tax_year' => 'taxYear',
+        'country_code' => 'countryCode',
         'email' => 'email',
-        'archived' => 'archived',
-        'ancestor_id' => 'ancestorId',
-        'signature' => 'signature',
-        'signed_date' => 'signedDate',
-        'e_delivery_consented_at' => 'eDeliveryConsentedAt',
-        'created_at' => 'createdAt',
-        'updated_at' => 'updatedAt'
+        'address' => 'address',
+        'city' => 'city',
+        'state' => 'state',
+        'zip' => 'zip',
+        'foreign_province' => 'foreignProvince',
+        'transfer_agent_name' => 'transferAgentName',
+        'last_filing' => 'lastFiling'
     ];
 
     /**
@@ -160,20 +163,21 @@ class W9FormBaseResponse implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $setters = [
-        'type' => 'setType',
-        'id' => 'setId',
-        'entry_status' => 'setEntryStatus',
+        'name' => 'setName',
+        'dba_name' => 'setDbaName',
+        'tin' => 'setTin',
         'reference_id' => 'setReferenceId',
-        'company_id' => 'setCompanyId',
-        'display_name' => 'setDisplayName',
+        'telephone' => 'setTelephone',
+        'tax_year' => 'setTaxYear',
+        'country_code' => 'setCountryCode',
         'email' => 'setEmail',
-        'archived' => 'setArchived',
-        'ancestor_id' => 'setAncestorId',
-        'signature' => 'setSignature',
-        'signed_date' => 'setSignedDate',
-        'e_delivery_consented_at' => 'setEDeliveryConsentedAt',
-        'created_at' => 'setCreatedAt',
-        'updated_at' => 'setUpdatedAt'
+        'address' => 'setAddress',
+        'city' => 'setCity',
+        'state' => 'setState',
+        'zip' => 'setZip',
+        'foreign_province' => 'setForeignProvince',
+        'transfer_agent_name' => 'setTransferAgentName',
+        'last_filing' => 'setLastFiling'
     ];
 
     /**
@@ -182,20 +186,21 @@ class W9FormBaseResponse implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $getters = [
-        'type' => 'getType',
-        'id' => 'getId',
-        'entry_status' => 'getEntryStatus',
+        'name' => 'getName',
+        'dba_name' => 'getDbaName',
+        'tin' => 'getTin',
         'reference_id' => 'getReferenceId',
-        'company_id' => 'getCompanyId',
-        'display_name' => 'getDisplayName',
+        'telephone' => 'getTelephone',
+        'tax_year' => 'getTaxYear',
+        'country_code' => 'getCountryCode',
         'email' => 'getEmail',
-        'archived' => 'getArchived',
-        'ancestor_id' => 'getAncestorId',
-        'signature' => 'getSignature',
-        'signed_date' => 'getSignedDate',
-        'e_delivery_consented_at' => 'getEDeliveryConsentedAt',
-        'created_at' => 'getCreatedAt',
-        'updated_at' => 'getUpdatedAt'
+        'address' => 'getAddress',
+        'city' => 'getCity',
+        'state' => 'getState',
+        'zip' => 'getZip',
+        'foreign_province' => 'getForeignProvince',
+        'transfer_agent_name' => 'getTransferAgentName',
+        'last_filing' => 'getLastFiling'
     ];
 
     /**
@@ -239,27 +244,6 @@ class W9FormBaseResponse implements ModelInterface, ArrayAccess, \JsonSerializab
         return self::$openAPIModelName;
     }
 
-    const TYPE_W4 = 'W4';
-    const TYPE_W8_BEN = 'W8Ben';
-    const TYPE_W8_BEN_E = 'W8BenE';
-    const TYPE_W8_IMY = 'W8Imy';
-    const TYPE_W9 = 'W9';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getTypeAllowableValues()
-    {
-        return [
-            self::TYPE_W4,
-            self::TYPE_W8_BEN,
-            self::TYPE_W8_BEN_E,
-            self::TYPE_W8_IMY,
-            self::TYPE_W9,
-        ];
-    }
 
     /**
      * Associative array for storing property values
@@ -276,20 +260,21 @@ class W9FormBaseResponse implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function __construct(array $data = null)
     {
-        $this->container['type'] = $data['type'] ?? null;
-        $this->container['id'] = $data['id'] ?? null;
-        $this->container['entry_status'] = $data['entry_status'] ?? null;
+        $this->container['name'] = $data['name'] ?? null;
+        $this->container['dba_name'] = $data['dba_name'] ?? null;
+        $this->container['tin'] = $data['tin'] ?? null;
         $this->container['reference_id'] = $data['reference_id'] ?? null;
-        $this->container['company_id'] = $data['company_id'] ?? null;
-        $this->container['display_name'] = $data['display_name'] ?? null;
+        $this->container['telephone'] = $data['telephone'] ?? null;
+        $this->container['tax_year'] = $data['tax_year'] ?? null;
+        $this->container['country_code'] = $data['country_code'] ?? null;
         $this->container['email'] = $data['email'] ?? null;
-        $this->container['archived'] = $data['archived'] ?? null;
-        $this->container['ancestor_id'] = $data['ancestor_id'] ?? null;
-        $this->container['signature'] = $data['signature'] ?? null;
-        $this->container['signed_date'] = $data['signed_date'] ?? null;
-        $this->container['e_delivery_consented_at'] = $data['e_delivery_consented_at'] ?? null;
-        $this->container['created_at'] = $data['created_at'] ?? null;
-        $this->container['updated_at'] = $data['updated_at'] ?? null;
+        $this->container['address'] = $data['address'] ?? null;
+        $this->container['city'] = $data['city'] ?? null;
+        $this->container['state'] = $data['state'] ?? null;
+        $this->container['zip'] = $data['zip'] ?? null;
+        $this->container['foreign_province'] = $data['foreign_province'] ?? null;
+        $this->container['transfer_agent_name'] = $data['transfer_agent_name'] ?? null;
+        $this->container['last_filing'] = $data['last_filing'] ?? null;
     }
 
     /**
@@ -301,15 +286,33 @@ class W9FormBaseResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     {
         $invalidProperties = [];
 
-        $allowedValues = $this->getTypeAllowableValues();
-        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'type', must be one of '%s'",
-                $this->container['type'],
-                implode("', '", $allowedValues)
-            );
+        if ($this->container['name'] === null) {
+            $invalidProperties[] = "'name' can't be null";
         }
-
+        if ($this->container['telephone'] === null) {
+            $invalidProperties[] = "'telephone' can't be null";
+        }
+        if ($this->container['tax_year'] === null) {
+            $invalidProperties[] = "'tax_year' can't be null";
+        }
+        if ($this->container['email'] === null) {
+            $invalidProperties[] = "'email' can't be null";
+        }
+        if ($this->container['address'] === null) {
+            $invalidProperties[] = "'address' can't be null";
+        }
+        if ($this->container['city'] === null) {
+            $invalidProperties[] = "'city' can't be null";
+        }
+        if ($this->container['state'] === null) {
+            $invalidProperties[] = "'state' can't be null";
+        }
+        if ($this->container['zip'] === null) {
+            $invalidProperties[] = "'zip' can't be null";
+        }
+        if ($this->container['last_filing'] === null) {
+            $invalidProperties[] = "'last_filing' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -326,83 +329,73 @@ class W9FormBaseResponse implements ModelInterface, ArrayAccess, \JsonSerializab
 
 
     /**
-     * Gets type
+     * Gets name
      *
-     * @return string|null
+     * @return string
      */
-    public function getType()
+    public function getName()
     {
-        return $this->container['type'];
+        return $this->container['name'];
     }
 
     /**
-     * Sets type
+     * Sets name
      *
-     * @param string|null $type The form type.
+     * @param string $name Legal name. Not the DBA name.
      *
      * @return self
      */
-    public function setType($type)
+    public function setName($name)
     {
-        $allowedValues = $this->getTypeAllowableValues();
-        if (!is_null($type) && !in_array($type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'type', must be one of '%s'",
-                    $type,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['type'] = $type;
+        $this->container['name'] = $name;
 
         return $this;
     }
 
     /**
-     * Gets id
+     * Gets dba_name
      *
      * @return string|null
      */
-    public function getId()
+    public function getDbaName()
     {
-        return $this->container['id'];
+        return $this->container['dba_name'];
     }
 
     /**
-     * Sets id
+     * Sets dba_name
      *
-     * @param string|null $id The unique identifier for the form.
+     * @param string|null $dba_name Doing Business As (DBA) name or continuation of a long legal name. Use either this or 'transferAgentName'.
      *
      * @return self
      */
-    public function setId($id)
+    public function setDbaName($dba_name)
     {
-        $this->container['id'] = $id;
+        $this->container['dba_name'] = $dba_name;
 
         return $this;
     }
 
     /**
-     * Gets entry_status
+     * Gets tin
      *
-     * @return \Avalara\SDK\Model\A1099\V2\EntryStatusResponse|null
+     * @return string|null
      */
-    public function getEntryStatus()
+    public function getTin()
     {
-        return $this->container['entry_status'];
+        return $this->container['tin'];
     }
 
     /**
-     * Sets entry_status
+     * Sets tin
      *
-     * @param \Avalara\SDK\Model\A1099\V2\EntryStatusResponse|null $entry_status The entry status information for the form.
+     * @param string|null $tin Federal Tax Identification Number (TIN).
      *
      * @return self
      */
-    public function setEntryStatus($entry_status)
+    public function setTin($tin)
     {
-        $this->container['entry_status'] = $entry_status;
+        $this->container['tin'] = $tin;
 
         return $this;
     }
@@ -420,7 +413,7 @@ class W9FormBaseResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets reference_id
      *
-     * @param string|null $reference_id A reference identifier for the form.
+     * @param string|null $reference_id Internal reference ID. Never shown to any agency or recipient. If present, it will prefix download filenames. Allowed characters: letters, numbers, dashes, underscores, and spaces.
      *
      * @return self
      */
@@ -432,49 +425,73 @@ class W9FormBaseResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     }
 
     /**
-     * Gets company_id
+     * Gets telephone
      *
-     * @return string|null
+     * @return string
      */
-    public function getCompanyId()
+    public function getTelephone()
     {
-        return $this->container['company_id'];
+        return $this->container['telephone'];
     }
 
     /**
-     * Sets company_id
+     * Sets telephone
      *
-     * @param string|null $company_id The ID of the associated company.
+     * @param string $telephone Contact phone number (must contain at least 10 digits, max 15 characters). For recipient inquiries.
      *
      * @return self
      */
-    public function setCompanyId($company_id)
+    public function setTelephone($telephone)
     {
-        $this->container['company_id'] = $company_id;
+        $this->container['telephone'] = $telephone;
 
         return $this;
     }
 
     /**
-     * Gets display_name
+     * Gets tax_year
      *
-     * @return string|null
+     * @return int
      */
-    public function getDisplayName()
+    public function getTaxYear()
     {
-        return $this->container['display_name'];
+        return $this->container['tax_year'];
     }
 
     /**
-     * Sets display_name
+     * Sets tax_year
      *
-     * @param string|null $display_name The display name associated with the form.
+     * @param int $tax_year Tax year for which the forms are being filed (e.g., 2024). Must be within current tax year and current tax year - 4.
      *
      * @return self
      */
-    public function setDisplayName($display_name)
+    public function setTaxYear($tax_year)
     {
-        $this->container['display_name'] = $display_name;
+        $this->container['tax_year'] = $tax_year;
+
+        return $this;
+    }
+
+    /**
+     * Gets country_code
+     *
+     * @return string|null
+     */
+    public function getCountryCode()
+    {
+        return $this->container['country_code'];
+    }
+
+    /**
+     * Sets country_code
+     *
+     * @param string|null $country_code Two-letter IRS country code (e.g., 'US', 'CA'), as defined at https://www.irs.gov/e-file-providers/country-codes. If there is a transfer agent, use the transfer agent's shipping address.
+     *
+     * @return self
+     */
+    public function setCountryCode($country_code)
+    {
+        $this->container['country_code'] = $country_code;
 
         return $this;
     }
@@ -482,7 +499,7 @@ class W9FormBaseResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets email
      *
-     * @return string|null
+     * @return string
      */
     public function getEmail()
     {
@@ -492,7 +509,7 @@ class W9FormBaseResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets email
      *
-     * @param string|null $email The email address of the individual associated with the form.
+     * @param string $email Contact email address. For recipient inquiries.
      *
      * @return self
      */
@@ -504,169 +521,169 @@ class W9FormBaseResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     }
 
     /**
-     * Gets archived
+     * Gets address
      *
-     * @return bool|null
+     * @return string
      */
-    public function getArchived()
+    public function getAddress()
     {
-        return $this->container['archived'];
+        return $this->container['address'];
     }
 
     /**
-     * Sets archived
+     * Sets address
      *
-     * @param bool|null $archived Indicates whether the form is archived.
+     * @param string $address Address.
      *
      * @return self
      */
-    public function setArchived($archived)
+    public function setAddress($address)
     {
-        $this->container['archived'] = $archived;
+        $this->container['address'] = $address;
 
         return $this;
     }
 
     /**
-     * Gets ancestor_id
+     * Gets city
+     *
+     * @return string
+     */
+    public function getCity()
+    {
+        return $this->container['city'];
+    }
+
+    /**
+     * Sets city
+     *
+     * @param string $city City.
+     *
+     * @return self
+     */
+    public function setCity($city)
+    {
+        $this->container['city'] = $city;
+
+        return $this;
+    }
+
+    /**
+     * Gets state
+     *
+     * @return string
+     */
+    public function getState()
+    {
+        return $this->container['state'];
+    }
+
+    /**
+     * Sets state
+     *
+     * @param string $state Two-letter US state or Canadian province code (required for US/CA addresses).
+     *
+     * @return self
+     */
+    public function setState($state)
+    {
+        $this->container['state'] = $state;
+
+        return $this;
+    }
+
+    /**
+     * Gets zip
+     *
+     * @return string
+     */
+    public function getZip()
+    {
+        return $this->container['zip'];
+    }
+
+    /**
+     * Sets zip
+     *
+     * @param string $zip ZIP/postal code.
+     *
+     * @return self
+     */
+    public function setZip($zip)
+    {
+        $this->container['zip'] = $zip;
+
+        return $this;
+    }
+
+    /**
+     * Gets foreign_province
      *
      * @return string|null
      */
-    public function getAncestorId()
+    public function getForeignProvince()
     {
-        return $this->container['ancestor_id'];
+        return $this->container['foreign_province'];
     }
 
     /**
-     * Sets ancestor_id
+     * Sets foreign_province
      *
-     * @param string|null $ancestor_id Form ID of previous version.
+     * @param string|null $foreign_province Province or region for non-US/CA addresses.
      *
      * @return self
      */
-    public function setAncestorId($ancestor_id)
+    public function setForeignProvince($foreign_province)
     {
-        $this->container['ancestor_id'] = $ancestor_id;
+        $this->container['foreign_province'] = $foreign_province;
 
         return $this;
     }
 
     /**
-     * Gets signature
+     * Gets transfer_agent_name
      *
      * @return string|null
      */
-    public function getSignature()
+    public function getTransferAgentName()
     {
-        return $this->container['signature'];
+        return $this->container['transfer_agent_name'];
     }
 
     /**
-     * Sets signature
+     * Sets transfer_agent_name
      *
-     * @param string|null $signature The signature of the form.
+     * @param string|null $transfer_agent_name Name of the transfer agent, if applicable — optional; use either this or 'dbaName'.
      *
      * @return self
      */
-    public function setSignature($signature)
+    public function setTransferAgentName($transfer_agent_name)
     {
-        $this->container['signature'] = $signature;
+        $this->container['transfer_agent_name'] = $transfer_agent_name;
 
         return $this;
     }
 
     /**
-     * Gets signed_date
+     * Gets last_filing
      *
-     * @return \DateTime|null
+     * @return bool
      */
-    public function getSignedDate()
+    public function getLastFiling()
     {
-        return $this->container['signed_date'];
+        return $this->container['last_filing'];
     }
 
     /**
-     * Sets signed_date
+     * Sets last_filing
      *
-     * @param \DateTime|null $signed_date The date the form was signed.
+     * @param bool $last_filing Indicates if this is the issuer's final year filing.
      *
      * @return self
      */
-    public function setSignedDate($signed_date)
+    public function setLastFiling($last_filing)
     {
-        $this->container['signed_date'] = $signed_date;
-
-        return $this;
-    }
-
-    /**
-     * Gets e_delivery_consented_at
-     *
-     * @return \DateTime|null
-     */
-    public function getEDeliveryConsentedAt()
-    {
-        return $this->container['e_delivery_consented_at'];
-    }
-
-    /**
-     * Sets e_delivery_consented_at
-     *
-     * @param \DateTime|null $e_delivery_consented_at The date when e-delivery was consented.
-     *
-     * @return self
-     */
-    public function setEDeliveryConsentedAt($e_delivery_consented_at)
-    {
-        $this->container['e_delivery_consented_at'] = $e_delivery_consented_at;
-
-        return $this;
-    }
-
-    /**
-     * Gets created_at
-     *
-     * @return \DateTime|null
-     */
-    public function getCreatedAt()
-    {
-        return $this->container['created_at'];
-    }
-
-    /**
-     * Sets created_at
-     *
-     * @param \DateTime|null $created_at The creation date of the form.
-     *
-     * @return self
-     */
-    public function setCreatedAt($created_at)
-    {
-        $this->container['created_at'] = $created_at;
-
-        return $this;
-    }
-
-    /**
-     * Gets updated_at
-     *
-     * @return \DateTime|null
-     */
-    public function getUpdatedAt()
-    {
-        return $this->container['updated_at'];
-    }
-
-    /**
-     * Sets updated_at
-     *
-     * @param \DateTime|null $updated_at The last updated date of the form.
-     *
-     * @return self
-     */
-    public function setUpdatedAt($updated_at)
-    {
-        $this->container['updated_at'] = $updated_at;
+        $this->container['last_filing'] = $last_filing;
 
         return $this;
     }

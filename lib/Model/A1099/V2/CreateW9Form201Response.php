@@ -71,6 +71,39 @@ class CreateW9Form201Response implements ModelInterface, ArrayAccess, \JsonSeria
       * @var string[]
       */
     protected static $openAPITypes = [
+        'type' => 'string',
+        'employee_first_name' => 'string',
+        'employee_middle_name' => 'string',
+        'employee_last_name' => 'string',
+        'employee_name_suffix' => 'string',
+        'tin_type' => 'string',
+        'tin' => 'string',
+        'address' => 'string',
+        'city' => 'string',
+        'state' => 'string',
+        'zip' => 'string',
+        'marital_status' => 'string',
+        'last_name_differs' => 'bool',
+        'num_allowances' => 'int',
+        'other_dependents' => 'int',
+        'non_job_income' => 'float',
+        'deductions' => 'float',
+        'additional_withheld' => 'float',
+        'exempt_from_withholding' => 'bool',
+        'office_code' => 'string',
+        'id' => 'string',
+        'entry_status' => '\Avalara\SDK\Model\A1099\V2\EntryStatusResponse',
+        'reference_id' => 'string',
+        'company_id' => 'string',
+        'display_name' => 'string',
+        'email' => 'string',
+        'archived' => 'bool',
+        'ancestor_id' => 'string',
+        'signature' => 'string',
+        'signed_date' => '\DateTime',
+        'e_delivery_consented_at' => '\DateTime',
+        'created_at' => '\DateTime',
+        'updated_at' => '\DateTime',
         'name' => 'string',
         'citizenship_country' => 'string',
         'disregarded_entity' => 'string',
@@ -88,8 +121,6 @@ class CreateW9Form201Response implements ModelInterface, ArrayAccess, \JsonSeria
         'mailing_state' => 'string',
         'mailing_zip' => 'string',
         'mailing_country' => 'string',
-        'tin_type' => 'string',
-        'tin' => 'string',
         'giin' => 'string',
         'foreign_tin_not_required' => 'bool',
         'foreign_tin' => 'string',
@@ -167,20 +198,6 @@ class CreateW9Form201Response implements ModelInterface, ArrayAccess, \JsonSeria
         'substantial_us_owners' => '\Avalara\SDK\Model\A1099\V2\SubstantialUsOwnerResponse[]',
         'signer_name' => 'string',
         'capacity_to_sign_certification' => 'bool',
-        'id' => 'string',
-        'entry_status' => '\Avalara\SDK\Model\A1099\V2\EntryStatusResponse',
-        'reference_id' => 'string',
-        'company_id' => 'string',
-        'display_name' => 'string',
-        'email' => 'string',
-        'archived' => 'bool',
-        'ancestor_id' => 'string',
-        'signature' => 'string',
-        'signed_date' => '\DateTime',
-        'e_delivery_consented_at' => '\DateTime',
-        'created_at' => '\DateTime',
-        'updated_at' => '\DateTime',
-        'type' => 'string',
         'birthday' => '\DateTime',
         'signer_capacity' => 'string',
         'qualified_intermediary_certification' => 'bool',
@@ -229,11 +246,7 @@ class CreateW9Form201Response implements ModelInterface, ArrayAccess, \JsonSeria
         'exempt_payee_code' => 'string',
         'exempt_fatca_code' => 'string',
         'foreign_country_indicator' => 'bool',
-        'address' => 'string',
         'foreign_address' => 'string',
-        'city' => 'string',
-        'state' => 'string',
-        'zip' => 'string',
         'account_number' => 'string',
         'backup_withholding' => 'bool',
         'is1099able' => 'bool',
@@ -248,6 +261,39 @@ class CreateW9Form201Response implements ModelInterface, ArrayAccess, \JsonSeria
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'type' => null,
+        'employee_first_name' => null,
+        'employee_middle_name' => null,
+        'employee_last_name' => null,
+        'employee_name_suffix' => null,
+        'tin_type' => null,
+        'tin' => null,
+        'address' => null,
+        'city' => null,
+        'state' => null,
+        'zip' => null,
+        'marital_status' => null,
+        'last_name_differs' => null,
+        'num_allowances' => 'int32',
+        'other_dependents' => 'int32',
+        'non_job_income' => 'float',
+        'deductions' => 'float',
+        'additional_withheld' => 'float',
+        'exempt_from_withholding' => null,
+        'office_code' => null,
+        'id' => null,
+        'entry_status' => null,
+        'reference_id' => null,
+        'company_id' => null,
+        'display_name' => null,
+        'email' => null,
+        'archived' => null,
+        'ancestor_id' => null,
+        'signature' => null,
+        'signed_date' => 'date-time',
+        'e_delivery_consented_at' => 'date-time',
+        'created_at' => 'date-time',
+        'updated_at' => 'date-time',
         'name' => null,
         'citizenship_country' => null,
         'disregarded_entity' => null,
@@ -265,8 +311,6 @@ class CreateW9Form201Response implements ModelInterface, ArrayAccess, \JsonSeria
         'mailing_state' => null,
         'mailing_zip' => null,
         'mailing_country' => null,
-        'tin_type' => null,
-        'tin' => null,
         'giin' => null,
         'foreign_tin_not_required' => null,
         'foreign_tin' => null,
@@ -344,20 +388,6 @@ class CreateW9Form201Response implements ModelInterface, ArrayAccess, \JsonSeria
         'substantial_us_owners' => null,
         'signer_name' => null,
         'capacity_to_sign_certification' => null,
-        'id' => null,
-        'entry_status' => null,
-        'reference_id' => null,
-        'company_id' => null,
-        'display_name' => null,
-        'email' => null,
-        'archived' => null,
-        'ancestor_id' => null,
-        'signature' => null,
-        'signed_date' => 'date-time',
-        'e_delivery_consented_at' => 'date-time',
-        'created_at' => 'date-time',
-        'updated_at' => 'date-time',
-        'type' => null,
         'birthday' => 'date',
         'signer_capacity' => null,
         'qualified_intermediary_certification' => null,
@@ -406,11 +436,7 @@ class CreateW9Form201Response implements ModelInterface, ArrayAccess, \JsonSeria
         'exempt_payee_code' => null,
         'exempt_fatca_code' => null,
         'foreign_country_indicator' => null,
-        'address' => null,
         'foreign_address' => null,
-        'city' => null,
-        'state' => null,
-        'zip' => null,
         'account_number' => null,
         'backup_withholding' => null,
         'is1099able' => null,
@@ -444,6 +470,39 @@ class CreateW9Form201Response implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $attributeMap = [
+        'type' => 'type',
+        'employee_first_name' => 'employeeFirstName',
+        'employee_middle_name' => 'employeeMiddleName',
+        'employee_last_name' => 'employeeLastName',
+        'employee_name_suffix' => 'employeeNameSuffix',
+        'tin_type' => 'tinType',
+        'tin' => 'tin',
+        'address' => 'address',
+        'city' => 'city',
+        'state' => 'state',
+        'zip' => 'zip',
+        'marital_status' => 'maritalStatus',
+        'last_name_differs' => 'lastNameDiffers',
+        'num_allowances' => 'numAllowances',
+        'other_dependents' => 'otherDependents',
+        'non_job_income' => 'nonJobIncome',
+        'deductions' => 'deductions',
+        'additional_withheld' => 'additionalWithheld',
+        'exempt_from_withholding' => 'exemptFromWithholding',
+        'office_code' => 'officeCode',
+        'id' => 'id',
+        'entry_status' => 'entryStatus',
+        'reference_id' => 'referenceId',
+        'company_id' => 'companyId',
+        'display_name' => 'displayName',
+        'email' => 'email',
+        'archived' => 'archived',
+        'ancestor_id' => 'ancestorId',
+        'signature' => 'signature',
+        'signed_date' => 'signedDate',
+        'e_delivery_consented_at' => 'eDeliveryConsentedAt',
+        'created_at' => 'createdAt',
+        'updated_at' => 'updatedAt',
         'name' => 'name',
         'citizenship_country' => 'citizenshipCountry',
         'disregarded_entity' => 'disregardedEntity',
@@ -461,8 +520,6 @@ class CreateW9Form201Response implements ModelInterface, ArrayAccess, \JsonSeria
         'mailing_state' => 'mailingState',
         'mailing_zip' => 'mailingZip',
         'mailing_country' => 'mailingCountry',
-        'tin_type' => 'tinType',
-        'tin' => 'tin',
         'giin' => 'giin',
         'foreign_tin_not_required' => 'foreignTinNotRequired',
         'foreign_tin' => 'foreignTin',
@@ -540,20 +597,6 @@ class CreateW9Form201Response implements ModelInterface, ArrayAccess, \JsonSeria
         'substantial_us_owners' => 'substantialUsOwners',
         'signer_name' => 'signerName',
         'capacity_to_sign_certification' => 'capacityToSignCertification',
-        'id' => 'id',
-        'entry_status' => 'entryStatus',
-        'reference_id' => 'referenceId',
-        'company_id' => 'companyId',
-        'display_name' => 'displayName',
-        'email' => 'email',
-        'archived' => 'archived',
-        'ancestor_id' => 'ancestorId',
-        'signature' => 'signature',
-        'signed_date' => 'signedDate',
-        'e_delivery_consented_at' => 'eDeliveryConsentedAt',
-        'created_at' => 'createdAt',
-        'updated_at' => 'updatedAt',
-        'type' => 'type',
         'birthday' => 'birthday',
         'signer_capacity' => 'signerCapacity',
         'qualified_intermediary_certification' => 'qualifiedIntermediaryCertification',
@@ -602,11 +645,7 @@ class CreateW9Form201Response implements ModelInterface, ArrayAccess, \JsonSeria
         'exempt_payee_code' => 'exemptPayeeCode',
         'exempt_fatca_code' => 'exemptFatcaCode',
         'foreign_country_indicator' => 'foreignCountryIndicator',
-        'address' => 'address',
         'foreign_address' => 'foreignAddress',
-        'city' => 'city',
-        'state' => 'state',
-        'zip' => 'zip',
         'account_number' => 'accountNumber',
         'backup_withholding' => 'backupWithholding',
         'is1099able' => 'is1099able',
@@ -619,6 +658,39 @@ class CreateW9Form201Response implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $setters = [
+        'type' => 'setType',
+        'employee_first_name' => 'setEmployeeFirstName',
+        'employee_middle_name' => 'setEmployeeMiddleName',
+        'employee_last_name' => 'setEmployeeLastName',
+        'employee_name_suffix' => 'setEmployeeNameSuffix',
+        'tin_type' => 'setTinType',
+        'tin' => 'setTin',
+        'address' => 'setAddress',
+        'city' => 'setCity',
+        'state' => 'setState',
+        'zip' => 'setZip',
+        'marital_status' => 'setMaritalStatus',
+        'last_name_differs' => 'setLastNameDiffers',
+        'num_allowances' => 'setNumAllowances',
+        'other_dependents' => 'setOtherDependents',
+        'non_job_income' => 'setNonJobIncome',
+        'deductions' => 'setDeductions',
+        'additional_withheld' => 'setAdditionalWithheld',
+        'exempt_from_withholding' => 'setExemptFromWithholding',
+        'office_code' => 'setOfficeCode',
+        'id' => 'setId',
+        'entry_status' => 'setEntryStatus',
+        'reference_id' => 'setReferenceId',
+        'company_id' => 'setCompanyId',
+        'display_name' => 'setDisplayName',
+        'email' => 'setEmail',
+        'archived' => 'setArchived',
+        'ancestor_id' => 'setAncestorId',
+        'signature' => 'setSignature',
+        'signed_date' => 'setSignedDate',
+        'e_delivery_consented_at' => 'setEDeliveryConsentedAt',
+        'created_at' => 'setCreatedAt',
+        'updated_at' => 'setUpdatedAt',
         'name' => 'setName',
         'citizenship_country' => 'setCitizenshipCountry',
         'disregarded_entity' => 'setDisregardedEntity',
@@ -636,8 +708,6 @@ class CreateW9Form201Response implements ModelInterface, ArrayAccess, \JsonSeria
         'mailing_state' => 'setMailingState',
         'mailing_zip' => 'setMailingZip',
         'mailing_country' => 'setMailingCountry',
-        'tin_type' => 'setTinType',
-        'tin' => 'setTin',
         'giin' => 'setGiin',
         'foreign_tin_not_required' => 'setForeignTinNotRequired',
         'foreign_tin' => 'setForeignTin',
@@ -715,20 +785,6 @@ class CreateW9Form201Response implements ModelInterface, ArrayAccess, \JsonSeria
         'substantial_us_owners' => 'setSubstantialUsOwners',
         'signer_name' => 'setSignerName',
         'capacity_to_sign_certification' => 'setCapacityToSignCertification',
-        'id' => 'setId',
-        'entry_status' => 'setEntryStatus',
-        'reference_id' => 'setReferenceId',
-        'company_id' => 'setCompanyId',
-        'display_name' => 'setDisplayName',
-        'email' => 'setEmail',
-        'archived' => 'setArchived',
-        'ancestor_id' => 'setAncestorId',
-        'signature' => 'setSignature',
-        'signed_date' => 'setSignedDate',
-        'e_delivery_consented_at' => 'setEDeliveryConsentedAt',
-        'created_at' => 'setCreatedAt',
-        'updated_at' => 'setUpdatedAt',
-        'type' => 'setType',
         'birthday' => 'setBirthday',
         'signer_capacity' => 'setSignerCapacity',
         'qualified_intermediary_certification' => 'setQualifiedIntermediaryCertification',
@@ -777,11 +833,7 @@ class CreateW9Form201Response implements ModelInterface, ArrayAccess, \JsonSeria
         'exempt_payee_code' => 'setExemptPayeeCode',
         'exempt_fatca_code' => 'setExemptFatcaCode',
         'foreign_country_indicator' => 'setForeignCountryIndicator',
-        'address' => 'setAddress',
         'foreign_address' => 'setForeignAddress',
-        'city' => 'setCity',
-        'state' => 'setState',
-        'zip' => 'setZip',
         'account_number' => 'setAccountNumber',
         'backup_withholding' => 'setBackupWithholding',
         'is1099able' => 'setIs1099able',
@@ -794,6 +846,39 @@ class CreateW9Form201Response implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $getters = [
+        'type' => 'getType',
+        'employee_first_name' => 'getEmployeeFirstName',
+        'employee_middle_name' => 'getEmployeeMiddleName',
+        'employee_last_name' => 'getEmployeeLastName',
+        'employee_name_suffix' => 'getEmployeeNameSuffix',
+        'tin_type' => 'getTinType',
+        'tin' => 'getTin',
+        'address' => 'getAddress',
+        'city' => 'getCity',
+        'state' => 'getState',
+        'zip' => 'getZip',
+        'marital_status' => 'getMaritalStatus',
+        'last_name_differs' => 'getLastNameDiffers',
+        'num_allowances' => 'getNumAllowances',
+        'other_dependents' => 'getOtherDependents',
+        'non_job_income' => 'getNonJobIncome',
+        'deductions' => 'getDeductions',
+        'additional_withheld' => 'getAdditionalWithheld',
+        'exempt_from_withholding' => 'getExemptFromWithholding',
+        'office_code' => 'getOfficeCode',
+        'id' => 'getId',
+        'entry_status' => 'getEntryStatus',
+        'reference_id' => 'getReferenceId',
+        'company_id' => 'getCompanyId',
+        'display_name' => 'getDisplayName',
+        'email' => 'getEmail',
+        'archived' => 'getArchived',
+        'ancestor_id' => 'getAncestorId',
+        'signature' => 'getSignature',
+        'signed_date' => 'getSignedDate',
+        'e_delivery_consented_at' => 'getEDeliveryConsentedAt',
+        'created_at' => 'getCreatedAt',
+        'updated_at' => 'getUpdatedAt',
         'name' => 'getName',
         'citizenship_country' => 'getCitizenshipCountry',
         'disregarded_entity' => 'getDisregardedEntity',
@@ -811,8 +896,6 @@ class CreateW9Form201Response implements ModelInterface, ArrayAccess, \JsonSeria
         'mailing_state' => 'getMailingState',
         'mailing_zip' => 'getMailingZip',
         'mailing_country' => 'getMailingCountry',
-        'tin_type' => 'getTinType',
-        'tin' => 'getTin',
         'giin' => 'getGiin',
         'foreign_tin_not_required' => 'getForeignTinNotRequired',
         'foreign_tin' => 'getForeignTin',
@@ -890,20 +973,6 @@ class CreateW9Form201Response implements ModelInterface, ArrayAccess, \JsonSeria
         'substantial_us_owners' => 'getSubstantialUsOwners',
         'signer_name' => 'getSignerName',
         'capacity_to_sign_certification' => 'getCapacityToSignCertification',
-        'id' => 'getId',
-        'entry_status' => 'getEntryStatus',
-        'reference_id' => 'getReferenceId',
-        'company_id' => 'getCompanyId',
-        'display_name' => 'getDisplayName',
-        'email' => 'getEmail',
-        'archived' => 'getArchived',
-        'ancestor_id' => 'getAncestorId',
-        'signature' => 'getSignature',
-        'signed_date' => 'getSignedDate',
-        'e_delivery_consented_at' => 'getEDeliveryConsentedAt',
-        'created_at' => 'getCreatedAt',
-        'updated_at' => 'getUpdatedAt',
-        'type' => 'getType',
         'birthday' => 'getBirthday',
         'signer_capacity' => 'getSignerCapacity',
         'qualified_intermediary_certification' => 'getQualifiedIntermediaryCertification',
@@ -952,11 +1021,7 @@ class CreateW9Form201Response implements ModelInterface, ArrayAccess, \JsonSeria
         'exempt_payee_code' => 'getExemptPayeeCode',
         'exempt_fatca_code' => 'getExemptFatcaCode',
         'foreign_country_indicator' => 'getForeignCountryIndicator',
-        'address' => 'getAddress',
         'foreign_address' => 'getForeignAddress',
-        'city' => 'getCity',
-        'state' => 'getState',
-        'zip' => 'getZip',
         'account_number' => 'getAccountNumber',
         'backup_withholding' => 'getBackupWithholding',
         'is1099able' => 'getIs1099able',
@@ -1004,6 +1069,27 @@ class CreateW9Form201Response implements ModelInterface, ArrayAccess, \JsonSeria
         return self::$openAPIModelName;
     }
 
+    const TYPE_W4 = 'W4';
+    const TYPE_W8_BEN = 'W8Ben';
+    const TYPE_W8_BEN_E = 'W8BenE';
+    const TYPE_W8_IMY = 'W8Imy';
+    const TYPE_W9 = 'W9';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_W4,
+            self::TYPE_W8_BEN,
+            self::TYPE_W8_BEN_E,
+            self::TYPE_W8_IMY,
+            self::TYPE_W9,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -1020,6 +1106,39 @@ class CreateW9Form201Response implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function __construct(array $data = null)
     {
+        $this->container['type'] = $data['type'] ?? null;
+        $this->container['employee_first_name'] = $data['employee_first_name'] ?? null;
+        $this->container['employee_middle_name'] = $data['employee_middle_name'] ?? null;
+        $this->container['employee_last_name'] = $data['employee_last_name'] ?? null;
+        $this->container['employee_name_suffix'] = $data['employee_name_suffix'] ?? null;
+        $this->container['tin_type'] = $data['tin_type'] ?? null;
+        $this->container['tin'] = $data['tin'] ?? null;
+        $this->container['address'] = $data['address'] ?? null;
+        $this->container['city'] = $data['city'] ?? null;
+        $this->container['state'] = $data['state'] ?? null;
+        $this->container['zip'] = $data['zip'] ?? null;
+        $this->container['marital_status'] = $data['marital_status'] ?? null;
+        $this->container['last_name_differs'] = $data['last_name_differs'] ?? null;
+        $this->container['num_allowances'] = $data['num_allowances'] ?? null;
+        $this->container['other_dependents'] = $data['other_dependents'] ?? null;
+        $this->container['non_job_income'] = $data['non_job_income'] ?? null;
+        $this->container['deductions'] = $data['deductions'] ?? null;
+        $this->container['additional_withheld'] = $data['additional_withheld'] ?? null;
+        $this->container['exempt_from_withholding'] = $data['exempt_from_withholding'] ?? null;
+        $this->container['office_code'] = $data['office_code'] ?? null;
+        $this->container['id'] = $data['id'] ?? null;
+        $this->container['entry_status'] = $data['entry_status'] ?? null;
+        $this->container['reference_id'] = $data['reference_id'] ?? null;
+        $this->container['company_id'] = $data['company_id'] ?? null;
+        $this->container['display_name'] = $data['display_name'] ?? null;
+        $this->container['email'] = $data['email'] ?? null;
+        $this->container['archived'] = $data['archived'] ?? null;
+        $this->container['ancestor_id'] = $data['ancestor_id'] ?? null;
+        $this->container['signature'] = $data['signature'] ?? null;
+        $this->container['signed_date'] = $data['signed_date'] ?? null;
+        $this->container['e_delivery_consented_at'] = $data['e_delivery_consented_at'] ?? null;
+        $this->container['created_at'] = $data['created_at'] ?? null;
+        $this->container['updated_at'] = $data['updated_at'] ?? null;
         $this->container['name'] = $data['name'] ?? null;
         $this->container['citizenship_country'] = $data['citizenship_country'] ?? null;
         $this->container['disregarded_entity'] = $data['disregarded_entity'] ?? null;
@@ -1037,8 +1156,6 @@ class CreateW9Form201Response implements ModelInterface, ArrayAccess, \JsonSeria
         $this->container['mailing_state'] = $data['mailing_state'] ?? null;
         $this->container['mailing_zip'] = $data['mailing_zip'] ?? null;
         $this->container['mailing_country'] = $data['mailing_country'] ?? null;
-        $this->container['tin_type'] = $data['tin_type'] ?? null;
-        $this->container['tin'] = $data['tin'] ?? null;
         $this->container['giin'] = $data['giin'] ?? null;
         $this->container['foreign_tin_not_required'] = $data['foreign_tin_not_required'] ?? null;
         $this->container['foreign_tin'] = $data['foreign_tin'] ?? null;
@@ -1116,20 +1233,6 @@ class CreateW9Form201Response implements ModelInterface, ArrayAccess, \JsonSeria
         $this->container['substantial_us_owners'] = $data['substantial_us_owners'] ?? null;
         $this->container['signer_name'] = $data['signer_name'] ?? null;
         $this->container['capacity_to_sign_certification'] = $data['capacity_to_sign_certification'] ?? null;
-        $this->container['id'] = $data['id'] ?? null;
-        $this->container['entry_status'] = $data['entry_status'] ?? null;
-        $this->container['reference_id'] = $data['reference_id'] ?? null;
-        $this->container['company_id'] = $data['company_id'] ?? null;
-        $this->container['display_name'] = $data['display_name'] ?? null;
-        $this->container['email'] = $data['email'] ?? null;
-        $this->container['archived'] = $data['archived'] ?? null;
-        $this->container['ancestor_id'] = $data['ancestor_id'] ?? null;
-        $this->container['signature'] = $data['signature'] ?? null;
-        $this->container['signed_date'] = $data['signed_date'] ?? null;
-        $this->container['e_delivery_consented_at'] = $data['e_delivery_consented_at'] ?? null;
-        $this->container['created_at'] = $data['created_at'] ?? null;
-        $this->container['updated_at'] = $data['updated_at'] ?? null;
-        $this->container['type'] = $data['type'] ?? null;
         $this->container['birthday'] = $data['birthday'] ?? null;
         $this->container['signer_capacity'] = $data['signer_capacity'] ?? null;
         $this->container['qualified_intermediary_certification'] = $data['qualified_intermediary_certification'] ?? null;
@@ -1178,11 +1281,7 @@ class CreateW9Form201Response implements ModelInterface, ArrayAccess, \JsonSeria
         $this->container['exempt_payee_code'] = $data['exempt_payee_code'] ?? null;
         $this->container['exempt_fatca_code'] = $data['exempt_fatca_code'] ?? null;
         $this->container['foreign_country_indicator'] = $data['foreign_country_indicator'] ?? null;
-        $this->container['address'] = $data['address'] ?? null;
         $this->container['foreign_address'] = $data['foreign_address'] ?? null;
-        $this->container['city'] = $data['city'] ?? null;
-        $this->container['state'] = $data['state'] ?? null;
-        $this->container['zip'] = $data['zip'] ?? null;
         $this->container['account_number'] = $data['account_number'] ?? null;
         $this->container['backup_withholding'] = $data['backup_withholding'] ?? null;
         $this->container['is1099able'] = $data['is1099able'] ?? null;
@@ -1198,6 +1297,15 @@ class CreateW9Form201Response implements ModelInterface, ArrayAccess, \JsonSeria
     {
         $invalidProperties = [];
 
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'type', must be one of '%s'",
+                $this->container['type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -1212,6 +1320,808 @@ class CreateW9Form201Response implements ModelInterface, ArrayAccess, \JsonSeria
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets type
+     *
+     * @return string|null
+     */
+    public function getType()
+    {
+        return $this->container['type'];
+    }
+
+    /**
+     * Sets type
+     *
+     * @param string|null $type The form type.
+     *
+     * @return self
+     */
+    public function setType($type)
+    {
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($type) && !in_array($type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'type', must be one of '%s'",
+                    $type,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['type'] = $type;
+
+        return $this;
+    }
+
+    /**
+     * Gets employee_first_name
+     *
+     * @return string|null
+     */
+    public function getEmployeeFirstName()
+    {
+        return $this->container['employee_first_name'];
+    }
+
+    /**
+     * Sets employee_first_name
+     *
+     * @param string|null $employee_first_name The first name of the employee.
+     *
+     * @return self
+     */
+    public function setEmployeeFirstName($employee_first_name)
+    {
+        $this->container['employee_first_name'] = $employee_first_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets employee_middle_name
+     *
+     * @return string|null
+     */
+    public function getEmployeeMiddleName()
+    {
+        return $this->container['employee_middle_name'];
+    }
+
+    /**
+     * Sets employee_middle_name
+     *
+     * @param string|null $employee_middle_name The middle name of the employee.
+     *
+     * @return self
+     */
+    public function setEmployeeMiddleName($employee_middle_name)
+    {
+        $this->container['employee_middle_name'] = $employee_middle_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets employee_last_name
+     *
+     * @return string|null
+     */
+    public function getEmployeeLastName()
+    {
+        return $this->container['employee_last_name'];
+    }
+
+    /**
+     * Sets employee_last_name
+     *
+     * @param string|null $employee_last_name The last name of the employee.
+     *
+     * @return self
+     */
+    public function setEmployeeLastName($employee_last_name)
+    {
+        $this->container['employee_last_name'] = $employee_last_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets employee_name_suffix
+     *
+     * @return string|null
+     */
+    public function getEmployeeNameSuffix()
+    {
+        return $this->container['employee_name_suffix'];
+    }
+
+    /**
+     * Sets employee_name_suffix
+     *
+     * @param string|null $employee_name_suffix The name suffix of the employee.
+     *
+     * @return self
+     */
+    public function setEmployeeNameSuffix($employee_name_suffix)
+    {
+        $this->container['employee_name_suffix'] = $employee_name_suffix;
+
+        return $this;
+    }
+
+    /**
+     * Gets tin_type
+     *
+     * @return string|null
+     */
+    public function getTinType()
+    {
+        return $this->container['tin_type'];
+    }
+
+    /**
+     * Sets tin_type
+     *
+     * @param string|null $tin_type Tax Identification Number (TIN) type.
+     *
+     * @return self
+     */
+    public function setTinType($tin_type)
+    {
+        $this->container['tin_type'] = $tin_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets tin
+     *
+     * @return string|null
+     */
+    public function getTin()
+    {
+        return $this->container['tin'];
+    }
+
+    /**
+     * Sets tin
+     *
+     * @param string|null $tin The taxpayer identification number (TIN).
+     *
+     * @return self
+     */
+    public function setTin($tin)
+    {
+        $this->container['tin'] = $tin;
+
+        return $this;
+    }
+
+    /**
+     * Gets address
+     *
+     * @return string|null
+     */
+    public function getAddress()
+    {
+        return $this->container['address'];
+    }
+
+    /**
+     * Sets address
+     *
+     * @param string|null $address The address of the individual or entity.
+     *
+     * @return self
+     */
+    public function setAddress($address)
+    {
+        $this->container['address'] = $address;
+
+        return $this;
+    }
+
+    /**
+     * Gets city
+     *
+     * @return string|null
+     */
+    public function getCity()
+    {
+        return $this->container['city'];
+    }
+
+    /**
+     * Sets city
+     *
+     * @param string|null $city The city of the address.
+     *
+     * @return self
+     */
+    public function setCity($city)
+    {
+        $this->container['city'] = $city;
+
+        return $this;
+    }
+
+    /**
+     * Gets state
+     *
+     * @return string|null
+     */
+    public function getState()
+    {
+        return $this->container['state'];
+    }
+
+    /**
+     * Sets state
+     *
+     * @param string|null $state The state of the address.
+     *
+     * @return self
+     */
+    public function setState($state)
+    {
+        $this->container['state'] = $state;
+
+        return $this;
+    }
+
+    /**
+     * Gets zip
+     *
+     * @return string|null
+     */
+    public function getZip()
+    {
+        return $this->container['zip'];
+    }
+
+    /**
+     * Sets zip
+     *
+     * @param string|null $zip The ZIP code of the address.
+     *
+     * @return self
+     */
+    public function setZip($zip)
+    {
+        $this->container['zip'] = $zip;
+
+        return $this;
+    }
+
+    /**
+     * Gets marital_status
+     *
+     * @return string|null
+     */
+    public function getMaritalStatus()
+    {
+        return $this->container['marital_status'];
+    }
+
+    /**
+     * Sets marital_status
+     *
+     * @param string|null $marital_status The marital status of the employee.
+     *
+     * @return self
+     */
+    public function setMaritalStatus($marital_status)
+    {
+        $this->container['marital_status'] = $marital_status;
+
+        return $this;
+    }
+
+    /**
+     * Gets last_name_differs
+     *
+     * @return bool|null
+     */
+    public function getLastNameDiffers()
+    {
+        return $this->container['last_name_differs'];
+    }
+
+    /**
+     * Sets last_name_differs
+     *
+     * @param bool|null $last_name_differs Indicates whether the last name differs from prior records.
+     *
+     * @return self
+     */
+    public function setLastNameDiffers($last_name_differs)
+    {
+        $this->container['last_name_differs'] = $last_name_differs;
+
+        return $this;
+    }
+
+    /**
+     * Gets num_allowances
+     *
+     * @return int|null
+     */
+    public function getNumAllowances()
+    {
+        return $this->container['num_allowances'];
+    }
+
+    /**
+     * Sets num_allowances
+     *
+     * @param int|null $num_allowances The number of allowances claimed by the employee.
+     *
+     * @return self
+     */
+    public function setNumAllowances($num_allowances)
+    {
+        $this->container['num_allowances'] = $num_allowances;
+
+        return $this;
+    }
+
+    /**
+     * Gets other_dependents
+     *
+     * @return int|null
+     */
+    public function getOtherDependents()
+    {
+        return $this->container['other_dependents'];
+    }
+
+    /**
+     * Sets other_dependents
+     *
+     * @param int|null $other_dependents The number of dependents other than allowances.
+     *
+     * @return self
+     */
+    public function setOtherDependents($other_dependents)
+    {
+        $this->container['other_dependents'] = $other_dependents;
+
+        return $this;
+    }
+
+    /**
+     * Gets non_job_income
+     *
+     * @return float|null
+     */
+    public function getNonJobIncome()
+    {
+        return $this->container['non_job_income'];
+    }
+
+    /**
+     * Sets non_job_income
+     *
+     * @param float|null $non_job_income The amount of non-job income.
+     *
+     * @return self
+     */
+    public function setNonJobIncome($non_job_income)
+    {
+        $this->container['non_job_income'] = $non_job_income;
+
+        return $this;
+    }
+
+    /**
+     * Gets deductions
+     *
+     * @return float|null
+     */
+    public function getDeductions()
+    {
+        return $this->container['deductions'];
+    }
+
+    /**
+     * Sets deductions
+     *
+     * @param float|null $deductions The amount of deductions claimed.
+     *
+     * @return self
+     */
+    public function setDeductions($deductions)
+    {
+        $this->container['deductions'] = $deductions;
+
+        return $this;
+    }
+
+    /**
+     * Gets additional_withheld
+     *
+     * @return float|null
+     */
+    public function getAdditionalWithheld()
+    {
+        return $this->container['additional_withheld'];
+    }
+
+    /**
+     * Sets additional_withheld
+     *
+     * @param float|null $additional_withheld The additional amount withheld.
+     *
+     * @return self
+     */
+    public function setAdditionalWithheld($additional_withheld)
+    {
+        $this->container['additional_withheld'] = $additional_withheld;
+
+        return $this;
+    }
+
+    /**
+     * Gets exempt_from_withholding
+     *
+     * @return bool|null
+     */
+    public function getExemptFromWithholding()
+    {
+        return $this->container['exempt_from_withholding'];
+    }
+
+    /**
+     * Sets exempt_from_withholding
+     *
+     * @param bool|null $exempt_from_withholding Indicates whether the employee is exempt from withholding.
+     *
+     * @return self
+     */
+    public function setExemptFromWithholding($exempt_from_withholding)
+    {
+        $this->container['exempt_from_withholding'] = $exempt_from_withholding;
+
+        return $this;
+    }
+
+    /**
+     * Gets office_code
+     *
+     * @return string|null
+     */
+    public function getOfficeCode()
+    {
+        return $this->container['office_code'];
+    }
+
+    /**
+     * Sets office_code
+     *
+     * @param string|null $office_code The office code associated with the form.
+     *
+     * @return self
+     */
+    public function setOfficeCode($office_code)
+    {
+        $this->container['office_code'] = $office_code;
+
+        return $this;
+    }
+
+    /**
+     * Gets id
+     *
+     * @return string|null
+     */
+    public function getId()
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param string|null $id The unique identifier for the form.
+     *
+     * @return self
+     */
+    public function setId($id)
+    {
+        $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets entry_status
+     *
+     * @return \Avalara\SDK\Model\A1099\V2\EntryStatusResponse|null
+     */
+    public function getEntryStatus()
+    {
+        return $this->container['entry_status'];
+    }
+
+    /**
+     * Sets entry_status
+     *
+     * @param \Avalara\SDK\Model\A1099\V2\EntryStatusResponse|null $entry_status The entry status information for the form.
+     *
+     * @return self
+     */
+    public function setEntryStatus($entry_status)
+    {
+        $this->container['entry_status'] = $entry_status;
+
+        return $this;
+    }
+
+    /**
+     * Gets reference_id
+     *
+     * @return string|null
+     */
+    public function getReferenceId()
+    {
+        return $this->container['reference_id'];
+    }
+
+    /**
+     * Sets reference_id
+     *
+     * @param string|null $reference_id A reference identifier for the form.
+     *
+     * @return self
+     */
+    public function setReferenceId($reference_id)
+    {
+        $this->container['reference_id'] = $reference_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets company_id
+     *
+     * @return string|null
+     */
+    public function getCompanyId()
+    {
+        return $this->container['company_id'];
+    }
+
+    /**
+     * Sets company_id
+     *
+     * @param string|null $company_id The ID of the associated company.
+     *
+     * @return self
+     */
+    public function setCompanyId($company_id)
+    {
+        $this->container['company_id'] = $company_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets display_name
+     *
+     * @return string|null
+     */
+    public function getDisplayName()
+    {
+        return $this->container['display_name'];
+    }
+
+    /**
+     * Sets display_name
+     *
+     * @param string|null $display_name The display name associated with the form.
+     *
+     * @return self
+     */
+    public function setDisplayName($display_name)
+    {
+        $this->container['display_name'] = $display_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets email
+     *
+     * @return string|null
+     */
+    public function getEmail()
+    {
+        return $this->container['email'];
+    }
+
+    /**
+     * Sets email
+     *
+     * @param string|null $email The email address of the individual associated with the form.
+     *
+     * @return self
+     */
+    public function setEmail($email)
+    {
+        $this->container['email'] = $email;
+
+        return $this;
+    }
+
+    /**
+     * Gets archived
+     *
+     * @return bool|null
+     */
+    public function getArchived()
+    {
+        return $this->container['archived'];
+    }
+
+    /**
+     * Sets archived
+     *
+     * @param bool|null $archived Indicates whether the form is archived.
+     *
+     * @return self
+     */
+    public function setArchived($archived)
+    {
+        $this->container['archived'] = $archived;
+
+        return $this;
+    }
+
+    /**
+     * Gets ancestor_id
+     *
+     * @return string|null
+     */
+    public function getAncestorId()
+    {
+        return $this->container['ancestor_id'];
+    }
+
+    /**
+     * Sets ancestor_id
+     *
+     * @param string|null $ancestor_id Form ID of previous version.
+     *
+     * @return self
+     */
+    public function setAncestorId($ancestor_id)
+    {
+        $this->container['ancestor_id'] = $ancestor_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets signature
+     *
+     * @return string|null
+     */
+    public function getSignature()
+    {
+        return $this->container['signature'];
+    }
+
+    /**
+     * Sets signature
+     *
+     * @param string|null $signature The signature of the form.
+     *
+     * @return self
+     */
+    public function setSignature($signature)
+    {
+        $this->container['signature'] = $signature;
+
+        return $this;
+    }
+
+    /**
+     * Gets signed_date
+     *
+     * @return \DateTime|null
+     */
+    public function getSignedDate()
+    {
+        return $this->container['signed_date'];
+    }
+
+    /**
+     * Sets signed_date
+     *
+     * @param \DateTime|null $signed_date The date the form was signed.
+     *
+     * @return self
+     */
+    public function setSignedDate($signed_date)
+    {
+        $this->container['signed_date'] = $signed_date;
+
+        return $this;
+    }
+
+    /**
+     * Gets e_delivery_consented_at
+     *
+     * @return \DateTime|null
+     */
+    public function getEDeliveryConsentedAt()
+    {
+        return $this->container['e_delivery_consented_at'];
+    }
+
+    /**
+     * Sets e_delivery_consented_at
+     *
+     * @param \DateTime|null $e_delivery_consented_at The date when e-delivery was consented.
+     *
+     * @return self
+     */
+    public function setEDeliveryConsentedAt($e_delivery_consented_at)
+    {
+        $this->container['e_delivery_consented_at'] = $e_delivery_consented_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets created_at
+     *
+     * @return \DateTime|null
+     */
+    public function getCreatedAt()
+    {
+        return $this->container['created_at'];
+    }
+
+    /**
+     * Sets created_at
+     *
+     * @param \DateTime|null $created_at The creation date of the form.
+     *
+     * @return self
+     */
+    public function setCreatedAt($created_at)
+    {
+        $this->container['created_at'] = $created_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets updated_at
+     *
+     * @return \DateTime|null
+     */
+    public function getUpdatedAt()
+    {
+        return $this->container['updated_at'];
+    }
+
+    /**
+     * Sets updated_at
+     *
+     * @param \DateTime|null $updated_at The last updated date of the form.
+     *
+     * @return self
+     */
+    public function setUpdatedAt($updated_at)
+    {
+        $this->container['updated_at'] = $updated_at;
+
+        return $this;
+    }
 
     /**
      * Gets name
@@ -1617,54 +2527,6 @@ class CreateW9Form201Response implements ModelInterface, ArrayAccess, \JsonSeria
     public function setMailingCountry($mailing_country)
     {
         $this->container['mailing_country'] = $mailing_country;
-
-        return $this;
-    }
-
-    /**
-     * Gets tin_type
-     *
-     * @return string|null
-     */
-    public function getTinType()
-    {
-        return $this->container['tin_type'];
-    }
-
-    /**
-     * Sets tin_type
-     *
-     * @param string|null $tin_type The type of TIN provided.
-     *
-     * @return self
-     */
-    public function setTinType($tin_type)
-    {
-        $this->container['tin_type'] = $tin_type;
-
-        return $this;
-    }
-
-    /**
-     * Gets tin
-     *
-     * @return string|null
-     */
-    public function getTin()
-    {
-        return $this->container['tin'];
-    }
-
-    /**
-     * Sets tin
-     *
-     * @param string|null $tin The taxpayer identification number (TIN).
-     *
-     * @return self
-     */
-    public function setTin($tin)
-    {
-        $this->container['tin'] = $tin;
 
         return $this;
     }
@@ -3518,342 +4380,6 @@ class CreateW9Form201Response implements ModelInterface, ArrayAccess, \JsonSeria
     }
 
     /**
-     * Gets id
-     *
-     * @return string|null
-     */
-    public function getId()
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     *
-     * @param string|null $id The unique identifier for the form.
-     *
-     * @return self
-     */
-    public function setId($id)
-    {
-        $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets entry_status
-     *
-     * @return \Avalara\SDK\Model\A1099\V2\EntryStatusResponse|null
-     */
-    public function getEntryStatus()
-    {
-        return $this->container['entry_status'];
-    }
-
-    /**
-     * Sets entry_status
-     *
-     * @param \Avalara\SDK\Model\A1099\V2\EntryStatusResponse|null $entry_status The entry status information for the form.
-     *
-     * @return self
-     */
-    public function setEntryStatus($entry_status)
-    {
-        $this->container['entry_status'] = $entry_status;
-
-        return $this;
-    }
-
-    /**
-     * Gets reference_id
-     *
-     * @return string|null
-     */
-    public function getReferenceId()
-    {
-        return $this->container['reference_id'];
-    }
-
-    /**
-     * Sets reference_id
-     *
-     * @param string|null $reference_id A reference identifier for the form.
-     *
-     * @return self
-     */
-    public function setReferenceId($reference_id)
-    {
-        $this->container['reference_id'] = $reference_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets company_id
-     *
-     * @return string|null
-     */
-    public function getCompanyId()
-    {
-        return $this->container['company_id'];
-    }
-
-    /**
-     * Sets company_id
-     *
-     * @param string|null $company_id The ID of the associated company.
-     *
-     * @return self
-     */
-    public function setCompanyId($company_id)
-    {
-        $this->container['company_id'] = $company_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets display_name
-     *
-     * @return string|null
-     */
-    public function getDisplayName()
-    {
-        return $this->container['display_name'];
-    }
-
-    /**
-     * Sets display_name
-     *
-     * @param string|null $display_name The display name associated with the form.
-     *
-     * @return self
-     */
-    public function setDisplayName($display_name)
-    {
-        $this->container['display_name'] = $display_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets email
-     *
-     * @return string|null
-     */
-    public function getEmail()
-    {
-        return $this->container['email'];
-    }
-
-    /**
-     * Sets email
-     *
-     * @param string|null $email The email address of the individual associated with the form.
-     *
-     * @return self
-     */
-    public function setEmail($email)
-    {
-        $this->container['email'] = $email;
-
-        return $this;
-    }
-
-    /**
-     * Gets archived
-     *
-     * @return bool|null
-     */
-    public function getArchived()
-    {
-        return $this->container['archived'];
-    }
-
-    /**
-     * Sets archived
-     *
-     * @param bool|null $archived Indicates whether the form is archived.
-     *
-     * @return self
-     */
-    public function setArchived($archived)
-    {
-        $this->container['archived'] = $archived;
-
-        return $this;
-    }
-
-    /**
-     * Gets ancestor_id
-     *
-     * @return string|null
-     */
-    public function getAncestorId()
-    {
-        return $this->container['ancestor_id'];
-    }
-
-    /**
-     * Sets ancestor_id
-     *
-     * @param string|null $ancestor_id Form ID of previous version.
-     *
-     * @return self
-     */
-    public function setAncestorId($ancestor_id)
-    {
-        $this->container['ancestor_id'] = $ancestor_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets signature
-     *
-     * @return string|null
-     */
-    public function getSignature()
-    {
-        return $this->container['signature'];
-    }
-
-    /**
-     * Sets signature
-     *
-     * @param string|null $signature The signature of the form.
-     *
-     * @return self
-     */
-    public function setSignature($signature)
-    {
-        $this->container['signature'] = $signature;
-
-        return $this;
-    }
-
-    /**
-     * Gets signed_date
-     *
-     * @return \DateTime|null
-     */
-    public function getSignedDate()
-    {
-        return $this->container['signed_date'];
-    }
-
-    /**
-     * Sets signed_date
-     *
-     * @param \DateTime|null $signed_date The date the form was signed.
-     *
-     * @return self
-     */
-    public function setSignedDate($signed_date)
-    {
-        $this->container['signed_date'] = $signed_date;
-
-        return $this;
-    }
-
-    /**
-     * Gets e_delivery_consented_at
-     *
-     * @return \DateTime|null
-     */
-    public function getEDeliveryConsentedAt()
-    {
-        return $this->container['e_delivery_consented_at'];
-    }
-
-    /**
-     * Sets e_delivery_consented_at
-     *
-     * @param \DateTime|null $e_delivery_consented_at The date when e-delivery was consented.
-     *
-     * @return self
-     */
-    public function setEDeliveryConsentedAt($e_delivery_consented_at)
-    {
-        $this->container['e_delivery_consented_at'] = $e_delivery_consented_at;
-
-        return $this;
-    }
-
-    /**
-     * Gets created_at
-     *
-     * @return \DateTime|null
-     */
-    public function getCreatedAt()
-    {
-        return $this->container['created_at'];
-    }
-
-    /**
-     * Sets created_at
-     *
-     * @param \DateTime|null $created_at The creation date of the form.
-     *
-     * @return self
-     */
-    public function setCreatedAt($created_at)
-    {
-        $this->container['created_at'] = $created_at;
-
-        return $this;
-    }
-
-    /**
-     * Gets updated_at
-     *
-     * @return \DateTime|null
-     */
-    public function getUpdatedAt()
-    {
-        return $this->container['updated_at'];
-    }
-
-    /**
-     * Sets updated_at
-     *
-     * @param \DateTime|null $updated_at The last updated date of the form.
-     *
-     * @return self
-     */
-    public function setUpdatedAt($updated_at)
-    {
-        $this->container['updated_at'] = $updated_at;
-
-        return $this;
-    }
-
-    /**
-     * Gets type
-     *
-     * @return string|null
-     */
-    public function getType()
-    {
-        return $this->container['type'];
-    }
-
-    /**
-     * Sets type
-     *
-     * @param string|null $type The type of the response object.
-     *
-     * @return self
-     */
-    public function setType($type)
-    {
-        $this->container['type'] = $type;
-
-        return $this;
-    }
-
-    /**
      * Gets birthday
      *
      * @return \DateTime|null
@@ -5006,30 +5532,6 @@ class CreateW9Form201Response implements ModelInterface, ArrayAccess, \JsonSeria
     }
 
     /**
-     * Gets address
-     *
-     * @return string|null
-     */
-    public function getAddress()
-    {
-        return $this->container['address'];
-    }
-
-    /**
-     * Sets address
-     *
-     * @param string|null $address The address of the individual or entity.
-     *
-     * @return self
-     */
-    public function setAddress($address)
-    {
-        $this->container['address'] = $address;
-
-        return $this;
-    }
-
-    /**
      * Gets foreign_address
      *
      * @return string|null
@@ -5049,78 +5551,6 @@ class CreateW9Form201Response implements ModelInterface, ArrayAccess, \JsonSeria
     public function setForeignAddress($foreign_address)
     {
         $this->container['foreign_address'] = $foreign_address;
-
-        return $this;
-    }
-
-    /**
-     * Gets city
-     *
-     * @return string|null
-     */
-    public function getCity()
-    {
-        return $this->container['city'];
-    }
-
-    /**
-     * Sets city
-     *
-     * @param string|null $city The city of the address.
-     *
-     * @return self
-     */
-    public function setCity($city)
-    {
-        $this->container['city'] = $city;
-
-        return $this;
-    }
-
-    /**
-     * Gets state
-     *
-     * @return string|null
-     */
-    public function getState()
-    {
-        return $this->container['state'];
-    }
-
-    /**
-     * Sets state
-     *
-     * @param string|null $state The state of the address.
-     *
-     * @return self
-     */
-    public function setState($state)
-    {
-        $this->container['state'] = $state;
-
-        return $this;
-    }
-
-    /**
-     * Gets zip
-     *
-     * @return string|null
-     */
-    public function getZip()
-    {
-        return $this->container['zip'];
-    }
-
-    /**
-     * Sets zip
-     *
-     * @param string|null $zip The ZIP code of the address.
-     *
-     * @return self
-     */
-    public function setZip($zip)
-    {
-        $this->container['zip'] = $zip;
 
         return $this;
     }

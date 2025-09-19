@@ -832,13 +832,21 @@ class W8BenEFormRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
             );
         }
 
-        if ($this->container['company_id'] === null) {
-            $invalidProperties[] = "'company_id' can't be null";
+        if ($this->container['name'] === null) {
+            $invalidProperties[] = "'name' can't be null";
         }
-        if ((mb_strlen($this->container['company_id']) < 1)) {
-            $invalidProperties[] = "invalid value for 'company_id', the character length must be bigger than or equal to 1.";
+        if ($this->container['citizenship_country'] === null) {
+            $invalidProperties[] = "'citizenship_country' can't be null";
         }
-
+        if ($this->container['entity_type'] === null) {
+            $invalidProperties[] = "'entity_type' can't be null";
+        }
+        if ($this->container['fatca_status'] === null) {
+            $invalidProperties[] = "'fatca_status' can't be null";
+        }
+        if ($this->container['residence_country'] === null) {
+            $invalidProperties[] = "'residence_country' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -891,7 +899,7 @@ class W8BenEFormRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Gets name
      *
-     * @return string|null
+     * @return string
      */
     public function getName()
     {
@@ -901,7 +909,7 @@ class W8BenEFormRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets name
      *
-     * @param string|null $name The name of the individual or entity associated with the form.
+     * @param string $name The name of the individual or entity associated with the form.
      *
      * @return self
      */
@@ -915,7 +923,7 @@ class W8BenEFormRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Gets citizenship_country
      *
-     * @return string|null
+     * @return string
      */
     public function getCitizenshipCountry()
     {
@@ -925,7 +933,7 @@ class W8BenEFormRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets citizenship_country
      *
-     * @param string|null $citizenship_country The country of citizenship.
+     * @param string $citizenship_country The country of citizenship.
      *
      * @return self
      */
@@ -963,7 +971,7 @@ class W8BenEFormRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Gets entity_type
      *
-     * @return string|null
+     * @return string
      */
     public function getEntityType()
     {
@@ -973,7 +981,7 @@ class W8BenEFormRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets entity_type
      *
-     * @param string|null $entity_type The entity type.
+     * @param string $entity_type The entity type.  Available values:  - 1: Corporation  - 2: Disregarded entity  - 3: Partnership  - 4: Simple trust  - 5: Grantor trust  - 6: Complex trust  - 7: Estate  - 8: Foreign Government - Controlled Entity  - 9: Central Bank of Issue  - 10: Tax-exempt organization  - 11: Private foundation  - 12: International organization  - 13: Foreign Government - Controlled Integral Part
      *
      * @return self
      */
@@ -1011,7 +1019,7 @@ class W8BenEFormRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Gets fatca_status
      *
-     * @return string|null
+     * @return string
      */
     public function getFatcaStatus()
     {
@@ -1021,7 +1029,7 @@ class W8BenEFormRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets fatca_status
      *
-     * @param string|null $fatca_status The FATCA status.
+     * @param string $fatca_status The FATCA status.  Available values:  - 1: Nonparticipating FFI (including a limited FFI or an FFI related to a Reporting IGA FFI other than a deemed-compliant FFI, participating FFI, or exempt beneficial owner)  - 2: Participating FFI  - 3: Reporting Model 1 FFI  - 4: Reporting Model 2 FFI  - 5: Registered deemed-compliant FFI (other than a reporting Model 1 FFI, sponsored FFI, or nonreporting IGA FFI covered in Part XII)  - 6: Sponsored FFI that has not obtained a GIIN  - 7: Certified deemed-compliant nonregistering local bank  - 8: Certified deemed-compliant FFI with only low-value accounts  - 9: Certified deemed-compliant sponsored, closely held investment vehicle  - 10: Certified deemed-compliant limited life debt investment entity  - 11: Certified deemed-compliant investment advisors and investment managers  - 12: Owner-documented FFI  - 13: Restricted distributor  - 14: Nonreporting IGA FFI  - 15: Foreign government, government of a U.S. possession, or foreign central bank of issue  - 16: International organization  - 17: Exempt retirement plans  - 18: Entity wholly owned by exempt beneficial owners  - 19: Territory financial institution  - 20: Nonfinancial group entity  - 21: Excepted nonfinancial start-up company  - 22: Excepted nonfinancial entity in liquidation or bankruptcy  - 23: 501(c) organization  - 24: Nonprofit organization  - 25: Publicly traded NFFE or NFFE affiliate of a publicly traded corporation  - 26: Excepted territory NFFE  - 27: Active NFFE  - 28: Passive NFFE  - 29: Excepted inter-affiliate FFI  - 30: Direct reporting NFFE  - 31: Sponsored direct reporting NFFE  - 32: Account that is not a financial account
      *
      * @return self
      */
@@ -1131,7 +1139,7 @@ class W8BenEFormRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Gets residence_country
      *
-     * @return string|null
+     * @return string
      */
     public function getResidenceCountry()
     {
@@ -1141,7 +1149,7 @@ class W8BenEFormRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets residence_country
      *
-     * @param string|null $residence_country The country of residence.
+     * @param string $residence_country The country of residence.
      *
      * @return self
      */
@@ -1429,7 +1437,7 @@ class W8BenEFormRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets disregarded_entity_fatca_status
      *
-     * @param string|null $disregarded_entity_fatca_status The FATCA status of disregarded entity or branch receiving payment.
+     * @param string|null $disregarded_entity_fatca_status The FATCA status of disregarded entity or branch receiving payment.  Available values:  - 1: Limited Branch  - 2: U.S. Branch  - 3: Participating FFI  - 4: Reporting Model 1 FFI  - 5: Reporting Model 2 FFI
      *
      * @return self
      */
@@ -1669,7 +1677,7 @@ class W8BenEFormRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets benefit_limitation
      *
-     * @param string|null $benefit_limitation The benefit limitation for tax treaty claims.
+     * @param string|null $benefit_limitation The benefit limitation for tax treaty claims.  Available values:  - 1: Government  - 2: Tax exempt pension trust or pension fund  - 3: Other tax exempt organization  - 4: Publicly traded corporation  - 5: Subsidiary of a publicly traded corporation  - 6: Company that meets the ownership and base erosion test  - 7: Company that meets the derivative benefits test  - 8: Company with an item of income that meets active trade or business test  - 9: Favorable discretionary determination by the U.S. competent authority received  - 10: Other
      *
      * @return self
      */
@@ -2245,7 +2253,7 @@ class W8BenEFormRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets iga_model
      *
-     * @param string|null $iga_model The applicable IGA model.
+     * @param string|null $iga_model The applicable IGA model.  Available values:  - 1: Model 1 IGA  - 2: Model 2 IGA
      *
      * @return self
      */
@@ -3219,7 +3227,7 @@ class W8BenEFormRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Gets company_id
      *
-     * @return string
+     * @return string|null
      */
     public function getCompanyId()
     {
@@ -3229,17 +3237,12 @@ class W8BenEFormRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets company_id
      *
-     * @param string $company_id The ID of the associated company.
+     * @param string|null $company_id The ID of the associated company. Required when creating a form.
      *
      * @return self
      */
     public function setCompanyId($company_id)
     {
-
-        if ((mb_strlen($company_id) < 1)) {
-            throw new \InvalidArgumentException('invalid length for $company_id when calling W8BenEFormRequest., must be bigger than or equal to 1.');
-        }
-
         $this->container['company_id'] = $company_id;
 
         return $this;

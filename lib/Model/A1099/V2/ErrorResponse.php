@@ -266,8 +266,6 @@ class ErrorResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setErrors($errors)
     {
-
-
         $this->container['errors'] = $errors;
 
         return $this;

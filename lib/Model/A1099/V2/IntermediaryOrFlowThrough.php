@@ -225,6 +225,204 @@ class IntermediaryOrFlowThrough implements ModelInterface, ArrayAccess, \JsonSer
         return self::$openAPIModelName;
     }
 
+    const CHAP3_STATUS_CODE__01 = '01';
+    const CHAP3_STATUS_CODE__02 = '02';
+    const CHAP3_STATUS_CODE__34 = '34';
+    const CHAP3_STATUS_CODE__03 = '03';
+    const CHAP3_STATUS_CODE__04 = '04';
+    const CHAP3_STATUS_CODE__05 = '05';
+    const CHAP3_STATUS_CODE__06 = '06';
+    const CHAP3_STATUS_CODE__07 = '07';
+    const CHAP3_STATUS_CODE__08 = '08';
+    const CHAP3_STATUS_CODE__09 = '09';
+    const CHAP3_STATUS_CODE__10 = '10';
+    const CHAP3_STATUS_CODE__11 = '11';
+    const CHAP3_STATUS_CODE__12 = '12';
+    const CHAP3_STATUS_CODE__13 = '13';
+    const CHAP3_STATUS_CODE__14 = '14';
+    const CHAP3_STATUS_CODE__15 = '15';
+    const CHAP3_STATUS_CODE__16 = '16';
+    const CHAP3_STATUS_CODE__17 = '17';
+    const CHAP3_STATUS_CODE__18 = '18';
+    const CHAP3_STATUS_CODE__19 = '19';
+    const CHAP3_STATUS_CODE__20 = '20';
+    const CHAP3_STATUS_CODE__21 = '21';
+    const CHAP3_STATUS_CODE__22 = '22';
+    const CHAP3_STATUS_CODE__23 = '23';
+    const CHAP3_STATUS_CODE__24 = '24';
+    const CHAP3_STATUS_CODE__25 = '25';
+    const CHAP3_STATUS_CODE__26 = '26';
+    const CHAP3_STATUS_CODE__27 = '27';
+    const CHAP3_STATUS_CODE__28 = '28';
+    const CHAP3_STATUS_CODE__29 = '29';
+    const CHAP3_STATUS_CODE__30 = '30';
+    const CHAP3_STATUS_CODE__31 = '31';
+    const CHAP3_STATUS_CODE__32 = '32';
+    const CHAP3_STATUS_CODE__35 = '35';
+    const CHAP3_STATUS_CODE__36 = '36';
+    const CHAP3_STATUS_CODE__37 = '37';
+    const CHAP3_STATUS_CODE__38 = '38';
+    const CHAP3_STATUS_CODE__39 = '39';
+    const CHAP4_STATUS_CODE__01 = '01';
+    const CHAP4_STATUS_CODE__02 = '02';
+    const CHAP4_STATUS_CODE__03 = '03';
+    const CHAP4_STATUS_CODE__04 = '04';
+    const CHAP4_STATUS_CODE__05 = '05';
+    const CHAP4_STATUS_CODE__06 = '06';
+    const CHAP4_STATUS_CODE__07 = '07';
+    const CHAP4_STATUS_CODE__08 = '08';
+    const CHAP4_STATUS_CODE__09 = '09';
+    const CHAP4_STATUS_CODE__10 = '10';
+    const CHAP4_STATUS_CODE__11 = '11';
+    const CHAP4_STATUS_CODE__12 = '12';
+    const CHAP4_STATUS_CODE__13 = '13';
+    const CHAP4_STATUS_CODE__14 = '14';
+    const CHAP4_STATUS_CODE__15 = '15';
+    const CHAP4_STATUS_CODE__16 = '16';
+    const CHAP4_STATUS_CODE__17 = '17';
+    const CHAP4_STATUS_CODE__18 = '18';
+    const CHAP4_STATUS_CODE__19 = '19';
+    const CHAP4_STATUS_CODE__20 = '20';
+    const CHAP4_STATUS_CODE__21 = '21';
+    const CHAP4_STATUS_CODE__22 = '22';
+    const CHAP4_STATUS_CODE__23 = '23';
+    const CHAP4_STATUS_CODE__24 = '24';
+    const CHAP4_STATUS_CODE__25 = '25';
+    const CHAP4_STATUS_CODE__26 = '26';
+    const CHAP4_STATUS_CODE__27 = '27';
+    const CHAP4_STATUS_CODE__28 = '28';
+    const CHAP4_STATUS_CODE__29 = '29';
+    const CHAP4_STATUS_CODE__30 = '30';
+    const CHAP4_STATUS_CODE__31 = '31';
+    const CHAP4_STATUS_CODE__32 = '32';
+    const CHAP4_STATUS_CODE__33 = '33';
+    const CHAP4_STATUS_CODE__34 = '34';
+    const CHAP4_STATUS_CODE__35 = '35';
+    const CHAP4_STATUS_CODE__36 = '36';
+    const CHAP4_STATUS_CODE__37 = '37';
+    const CHAP4_STATUS_CODE__38 = '38';
+    const CHAP4_STATUS_CODE__39 = '39';
+    const CHAP4_STATUS_CODE__40 = '40';
+    const CHAP4_STATUS_CODE__41 = '41';
+    const CHAP4_STATUS_CODE__42 = '42';
+    const CHAP4_STATUS_CODE__43 = '43';
+    const CHAP4_STATUS_CODE__44 = '44';
+    const CHAP4_STATUS_CODE__45 = '45';
+    const CHAP4_STATUS_CODE__46 = '46';
+    const CHAP4_STATUS_CODE__47 = '47';
+    const CHAP4_STATUS_CODE__48 = '48';
+    const CHAP4_STATUS_CODE__49 = '49';
+    const CHAP4_STATUS_CODE__50 = '50';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getChap3StatusCodeAllowableValues()
+    {
+        return [
+            self::CHAP3_STATUS_CODE__01,
+            self::CHAP3_STATUS_CODE__02,
+            self::CHAP3_STATUS_CODE__34,
+            self::CHAP3_STATUS_CODE__03,
+            self::CHAP3_STATUS_CODE__04,
+            self::CHAP3_STATUS_CODE__05,
+            self::CHAP3_STATUS_CODE__06,
+            self::CHAP3_STATUS_CODE__07,
+            self::CHAP3_STATUS_CODE__08,
+            self::CHAP3_STATUS_CODE__09,
+            self::CHAP3_STATUS_CODE__10,
+            self::CHAP3_STATUS_CODE__11,
+            self::CHAP3_STATUS_CODE__12,
+            self::CHAP3_STATUS_CODE__13,
+            self::CHAP3_STATUS_CODE__14,
+            self::CHAP3_STATUS_CODE__15,
+            self::CHAP3_STATUS_CODE__16,
+            self::CHAP3_STATUS_CODE__17,
+            self::CHAP3_STATUS_CODE__18,
+            self::CHAP3_STATUS_CODE__19,
+            self::CHAP3_STATUS_CODE__20,
+            self::CHAP3_STATUS_CODE__21,
+            self::CHAP3_STATUS_CODE__22,
+            self::CHAP3_STATUS_CODE__23,
+            self::CHAP3_STATUS_CODE__24,
+            self::CHAP3_STATUS_CODE__25,
+            self::CHAP3_STATUS_CODE__26,
+            self::CHAP3_STATUS_CODE__27,
+            self::CHAP3_STATUS_CODE__28,
+            self::CHAP3_STATUS_CODE__29,
+            self::CHAP3_STATUS_CODE__30,
+            self::CHAP3_STATUS_CODE__31,
+            self::CHAP3_STATUS_CODE__32,
+            self::CHAP3_STATUS_CODE__35,
+            self::CHAP3_STATUS_CODE__36,
+            self::CHAP3_STATUS_CODE__37,
+            self::CHAP3_STATUS_CODE__38,
+            self::CHAP3_STATUS_CODE__39,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getChap4StatusCodeAllowableValues()
+    {
+        return [
+            self::CHAP4_STATUS_CODE__01,
+            self::CHAP4_STATUS_CODE__02,
+            self::CHAP4_STATUS_CODE__03,
+            self::CHAP4_STATUS_CODE__04,
+            self::CHAP4_STATUS_CODE__05,
+            self::CHAP4_STATUS_CODE__06,
+            self::CHAP4_STATUS_CODE__07,
+            self::CHAP4_STATUS_CODE__08,
+            self::CHAP4_STATUS_CODE__09,
+            self::CHAP4_STATUS_CODE__10,
+            self::CHAP4_STATUS_CODE__11,
+            self::CHAP4_STATUS_CODE__12,
+            self::CHAP4_STATUS_CODE__13,
+            self::CHAP4_STATUS_CODE__14,
+            self::CHAP4_STATUS_CODE__15,
+            self::CHAP4_STATUS_CODE__16,
+            self::CHAP4_STATUS_CODE__17,
+            self::CHAP4_STATUS_CODE__18,
+            self::CHAP4_STATUS_CODE__19,
+            self::CHAP4_STATUS_CODE__20,
+            self::CHAP4_STATUS_CODE__21,
+            self::CHAP4_STATUS_CODE__22,
+            self::CHAP4_STATUS_CODE__23,
+            self::CHAP4_STATUS_CODE__24,
+            self::CHAP4_STATUS_CODE__25,
+            self::CHAP4_STATUS_CODE__26,
+            self::CHAP4_STATUS_CODE__27,
+            self::CHAP4_STATUS_CODE__28,
+            self::CHAP4_STATUS_CODE__29,
+            self::CHAP4_STATUS_CODE__30,
+            self::CHAP4_STATUS_CODE__31,
+            self::CHAP4_STATUS_CODE__32,
+            self::CHAP4_STATUS_CODE__33,
+            self::CHAP4_STATUS_CODE__34,
+            self::CHAP4_STATUS_CODE__35,
+            self::CHAP4_STATUS_CODE__36,
+            self::CHAP4_STATUS_CODE__37,
+            self::CHAP4_STATUS_CODE__38,
+            self::CHAP4_STATUS_CODE__39,
+            self::CHAP4_STATUS_CODE__40,
+            self::CHAP4_STATUS_CODE__41,
+            self::CHAP4_STATUS_CODE__42,
+            self::CHAP4_STATUS_CODE__43,
+            self::CHAP4_STATUS_CODE__44,
+            self::CHAP4_STATUS_CODE__45,
+            self::CHAP4_STATUS_CODE__46,
+            self::CHAP4_STATUS_CODE__47,
+            self::CHAP4_STATUS_CODE__48,
+            self::CHAP4_STATUS_CODE__49,
+            self::CHAP4_STATUS_CODE__50,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -262,6 +460,24 @@ class IntermediaryOrFlowThrough implements ModelInterface, ArrayAccess, \JsonSer
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getChap3StatusCodeAllowableValues();
+        if (!is_null($this->container['chap3_status_code']) && !in_array($this->container['chap3_status_code'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'chap3_status_code', must be one of '%s'",
+                $this->container['chap3_status_code'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getChap4StatusCodeAllowableValues();
+        if (!is_null($this->container['chap4_status_code']) && !in_array($this->container['chap4_status_code'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'chap4_status_code', must be one of '%s'",
+                $this->container['chap4_status_code'],
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -315,12 +531,22 @@ class IntermediaryOrFlowThrough implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets chap3_status_code
      *
-     * @param string|null $chap3_status_code Chapter 3 status code for the intermediary or flow-through entity
+     * @param string|null $chap3_status_code Chapter 3 status code for the intermediary or flow-through entity. Available values: - 01: U.S. Withholding Agent - FI (Deprecated - valid only for tax years prior to 2020) - 02: U.S. Withholding Agent - Other (Deprecated - valid only for tax years prior to 2020) - 03: Territory FI - treated as U.S. Person - 04: Territory FI - not treated as U.S. Person - 05: U.S. branch - treated as U.S. Person - 06: U.S. branch - not treated as U.S. Person - 07: U.S. branch - ECI presumption applied - 08: Partnership other than Withholding Foreign Partnership - 09: Withholding Foreign Partnership - 10: Trust other than Withholding Foreign Trust - 11: Withholding Foreign Trust - 12: Qualified Intermediary - 13: Qualified Securities Lender - Qualified Intermediary - 14: Qualified Securities Lender - Other - 15: Corporation - 16: Individual - 17: Estate - 18: Private Foundation - 19: Government or International Organization - 20: Tax Exempt Organization (Section 501(c) entities) - 21: Unknown Recipient - 22: Artist or Athlete - 23: Pension - 24: Foreign Central Bank of Issue - 25: Nonqualified Intermediary - 26: Hybrid entity making Treaty Claim - 27: Withholding Rate Pool - General - 28: Withholding Rate Pool - Exempt Organization - 29: PAI Withholding Rate Pool - General - 30: PAI Withholding Rate Pool - Exempt Organization - 31: Agency Withholding Rate Pool - General - 32: Agency Withholding Rate Pool - Exempt Organization - 34: U.S. Withholding Agent-Foreign branch of FI (Deprecated - valid only for tax years prior to 2020) - 35: Qualified Derivatives Dealer - 36: Foreign Government - Integral Part - 37: Foreign Government - Controlled Entity - 38: Publicly Traded Partnership - 39: Disclosing Qualified Intermediary
      *
      * @return self
      */
     public function setChap3StatusCode($chap3_status_code)
     {
+        $allowedValues = $this->getChap3StatusCodeAllowableValues();
+        if (!is_null($chap3_status_code) && !in_array($chap3_status_code, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'chap3_status_code', must be one of '%s'",
+                    $chap3_status_code,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['chap3_status_code'] = $chap3_status_code;
 
         return $this;
@@ -339,12 +565,22 @@ class IntermediaryOrFlowThrough implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets chap4_status_code
      *
-     * @param string|null $chap4_status_code Chapter 4 status code for the intermediary or flow-through entity
+     * @param string|null $chap4_status_code Chapter 4 status code for the intermediary or flow-through entity. Available values: - 01: U.S. Withholding Agent - FI - 02: U.S. Withholding Agent - Other - 03: Territory FI - not treated as U.S. Person - 04: Territory FI - treated as U.S. Person - 05: Participating FFI - Other - 06: Participating FFI - Reporting Model 2 FFI - 07: Registered Deemed - Compliant FFI-Reporting Model 1 FFI - 08: Registered Deemed - Compliant FFI-Sponsored Entity - 09: Registered Deemed - Compliant FFI-Other - 10: Certified Deemed - Compliant FFI-Other - 11: Certified Deemed - Compliant FFI-FFI with Low Value Accounts - 12: Certified Deemed - Compliant FFI-Non-Registering Local Bank - 13: Certified Deemed - Compliant FFI-Sponsored Entity - 14: Certified Deemed - Compliant FFI-Investment Advisor or Investment Manager - 15: Nonparticipating FFI - 16: Owner-Documented FFI - 17: U.S. Branch - treated as U.S. person - 18: U.S. Branch - not treated as U.S. person (reporting under section 1471) - 19: Passive NFFE identifying Substantial U.S. Owners - 20: Passive NFFE with no Substantial U.S. Owners - 21: Publicly Traded NFFE or Affiliate of Publicly Traded NFFE - 22: Active NFFE - 23: Individual - 24: Section 501(c) Entities - 25: Excepted Territory NFFE - 26: Excepted NFFE - Other - 27: Exempt Beneficial Owner - 28: Entity Wholly Owned by Exempt Beneficial Owners - 29: Unknown Recipient - 30: Recalcitrant Account Holder - 31: Nonreporting IGA FFI - 32: Direct reporting NFFE - 33: U.S. reportable account - 34: Non-consenting U.S. account - 35: Sponsored direct reporting NFFE - 36: Excepted Inter-affiliate FFI - 37: Undocumented Preexisting Obligation - 38: U.S. Branch - ECI presumption applied - 39: Account Holder of Excluded Financial Account - 40: Passive NFFE reported by FFI - 41: NFFE subject to 1472 withholding - 42: Recalcitrant Pool - No U.S. Indicia - 43: Recalcitrant Pool - U.S. Indicia - 44: Recalcitrant Pool - Dormant Account - 45: Recalcitrant Pool - U.S. Persons - 46: Recalcitrant Pool - Passive NFFEs - 47: Nonparticipating FFI Pool - 48: U.S. Payees Pool - 49: QI - Recalcitrant Pool-General - 50: U.S. Withholding Agent-Foreign branch of FI
      *
      * @return self
      */
     public function setChap4StatusCode($chap4_status_code)
     {
+        $allowedValues = $this->getChap4StatusCodeAllowableValues();
+        if (!is_null($chap4_status_code) && !in_array($chap4_status_code, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'chap4_status_code', must be one of '%s'",
+                    $chap4_status_code,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['chap4_status_code'] = $chap4_status_code;
 
         return $this;

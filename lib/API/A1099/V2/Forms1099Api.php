@@ -79,7 +79,7 @@ class Forms1099Api
     private function setConfiguration($client): void
     {
         $this->verifyAPIClient($client);
-        $client->setSdkVersion("25.8.3");
+        $client->setSdkVersion("25.9.0");
         $this->headerSelector = new HeaderSelector(); 
         $this->client = $client;
     }
@@ -456,9 +456,8 @@ class Forms1099Api
                 ['application/json', 'text/json', 'application/*+json']
             );
         }
-        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.8.3; {$this->client->config->getMachineName()}";
-
-        $headers['X-Avalara-Client']=$clientId;
+        
+        $this->client->applyClientHeaders($headerParams);
 
         // for model (json/xml)
         if (isset($form1099_list_request)) {
@@ -819,9 +818,8 @@ class Forms1099Api
                 ['application/json', 'text/json', 'application/*+json']
             );
         }
-        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.8.3; {$this->client->config->getMachineName()}";
-
-        $headers['X-Avalara-Client']=$clientId;
+        
+        $this->client->applyClientHeaders($headerParams);
 
         // for model (json/xml)
         if (isset($get1099_form200_response)) {
@@ -1138,9 +1136,8 @@ class Forms1099Api
                 []
             );
         }
-        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.8.3; {$this->client->config->getMachineName()}";
-
-        $headers['X-Avalara-Client']=$clientId;
+        
+        $this->client->applyClientHeaders($headerParams);
 
         // for model (json/xml)
         if (count($formParams) > 0) {
@@ -1530,9 +1527,8 @@ class Forms1099Api
                 []
             );
         }
-        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.8.3; {$this->client->config->getMachineName()}";
-
-        $headers['X-Avalara-Client']=$clientId;
+        
+        $this->client->applyClientHeaders($headerParams);
 
         // for model (json/xml)
         if (count($formParams) > 0) {
@@ -1934,9 +1930,8 @@ class Forms1099Api
                 []
             );
         }
-        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.8.3; {$this->client->config->getMachineName()}";
-
-        $headers['X-Avalara-Client']=$clientId;
+        
+        $this->client->applyClientHeaders($headerParams);
 
         // for model (json/xml)
         if (count($formParams) > 0) {
@@ -2383,9 +2378,8 @@ class Forms1099Api
                 []
             );
         }
-        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.8.3; {$this->client->config->getMachineName()}";
-
-        $headers['X-Avalara-Client']=$clientId;
+        
+        $this->client->applyClientHeaders($headerParams);
 
         // for model (json/xml)
         if (count($formParams) > 0) {
@@ -2776,9 +2770,8 @@ class Forms1099Api
                 ['application/json', 'text/json', 'application/*+json']
             );
         }
-        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.8.3; {$this->client->config->getMachineName()}";
-
-        $headers['X-Avalara-Client']=$clientId;
+        
+        $this->client->applyClientHeaders($headerParams);
 
         // for model (json/xml)
         if (isset($get1099_form200_response)) {

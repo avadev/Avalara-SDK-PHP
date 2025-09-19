@@ -14,7 +14,7 @@ Method | HTTP request | Description
 ## `createCompany()`
 
 ```php
-createCompany($avalara_version, $x_correlation_id, $x_avalara_client, $create_company_request): \Avalara\SDK\Model\A1099\V2\CompanyResponse
+createCompany($avalara_version, $x_correlation_id, $x_avalara_client, $company_request): \Avalara\SDK\Model\A1099\V2\CompanyResponse
 ```
 
 Create a company
@@ -40,12 +40,12 @@ $client = new \Avalara\SDK\ApiClient($config);
 $apiInstance = new Avalara\SDK\Api\CompaniesW9Api($client);
 
 $avalara_version = 2.0.0; // string | API version
-$x_correlation_id = 1b926329-c509-4572-9e13-14675dd292dd; // string | Unique correlation Id in a GUID format
+$x_correlation_id = a607ad38-398e-43d2-918d-d809e43dbd6b; // string | Unique correlation Id in a GUID format
 $x_avalara_client = Swagger UI; 22.1.0; // string | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
-$create_company_request = {"name":"Acme Corporation","dbaName":"","email":"contact@acmecorp.com","address":"123 Business Ave","city":"Phoenix","state":"AZ","zip":"85001","telephone":"602-555-0123","tin":"12-3456789","referenceId":"","doTinMatch":null,"groupName":"","foreignProvince":"","countryCode":"US","resendRequests":null,"resendIntervalDays":null,"maxReminderAttempts":null}; // \Avalara\SDK\Model\A1099\V2\CreateCompanyRequest | The company to create
+$company_request = {"name":"Acme Corporation","dbaName":"","email":"contact@acmecorp.com","address":"123 Business Ave","city":"Phoenix","state":"AZ","zip":"85001","telephone":"602-555-0123","tin":"12-3456789","referenceId":"","doTinMatch":null,"groupName":"","foreignProvince":"","countryCode":"US","resendRequests":null,"resendIntervalDays":null,"maxReminderAttempts":null}; // \Avalara\SDK\Model\A1099\V2\CompanyRequest | The company to create
 
 try {
-    $result = $apiInstance->createCompany($avalara_version, $x_correlation_id, $x_avalara_client, $create_company_request);
+    $result = $apiInstance->createCompany($avalara_version, $x_correlation_id, $x_avalara_client, $company_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CompaniesW9Api->createCompany: ', $e->getMessage(), PHP_EOL;
@@ -59,7 +59,7 @@ Name | Type | Description  | Notes
  **avalara_version** | **string**| API version |
  **x_correlation_id** | **string**| Unique correlation Id in a GUID format | [optional]
  **x_avalara_client** | **string**| Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) . | [optional]
- **create_company_request** | [**\Avalara\SDK\Model\A1099\V2\CreateCompanyRequest**](../Model/CreateCompanyRequest.md)| The company to create | [optional]
+ **company_request** | [**\Avalara\SDK\Model\A1099\V2\CompanyRequest**](../Model/CompanyRequest.md)| The company to create | [optional]
 
 ### Return type
 
@@ -108,7 +108,7 @@ $apiInstance = new Avalara\SDK\Api\CompaniesW9Api($client);
 
 $id = 'id_example'; // string | The company to delete
 $avalara_version = 2.0.0; // string | API version
-$x_correlation_id = fe41a755-2a8b-4108-b391-6875275251fc; // string | Unique correlation Id in a GUID format
+$x_correlation_id = 54780530-dee1-472f-8626-a1ef1d6f3bfa; // string | Unique correlation Id in a GUID format
 $x_avalara_client = Swagger UI; 22.1.0; // string | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
 
 try {
@@ -179,7 +179,7 @@ $skip = 56; // int | If nonzero, skip this number of results before returning da
 $order_by = 'order_by_example'; // string | A comma separated list of sort statements in the format (fieldname) [ASC|DESC], for example id ASC.
 $count = True; // bool | If true, return the global count of elements in the collection.
 $count_only = True; // bool | If true, return ONLY the global count of elements in the collection.  It only applies when count=true.
-$x_correlation_id = 1d78b56b-626b-4ea9-ac91-219e9d26ecb2; // string | Unique correlation Id in a GUID format
+$x_correlation_id = 7ee6e06e-ae28-4317-9053-d966f0b24a94; // string | Unique correlation Id in a GUID format
 $x_avalara_client = Swagger UI; 22.1.0; // string | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
 
 try {
@@ -251,7 +251,7 @@ $apiInstance = new Avalara\SDK\Api\CompaniesW9Api($client);
 
 $id = 'id_example'; // string | Id of the company
 $avalara_version = 2.0.0; // string | API version
-$x_correlation_id = 2a6b8fe4-7092-4641-95db-24a0a37a881b; // string | Unique correlation Id in a GUID format
+$x_correlation_id = c2254966-bcae-4b32-a7b4-67f0518ca748; // string | Unique correlation Id in a GUID format
 $x_avalara_client = Swagger UI; 22.1.0; // string | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
 
 try {
@@ -291,7 +291,7 @@ Name | Type | Description  | Notes
 ## `updateCompany()`
 
 ```php
-updateCompany($id, $avalara_version, $x_correlation_id, $x_avalara_client, $create_company_request): \Avalara\SDK\Model\A1099\V2\CompanyResponse
+updateCompany($id, $avalara_version, $x_correlation_id, $x_avalara_client, $company_request): \Avalara\SDK\Model\A1099\V2\CompanyResponse
 ```
 
 Update a company
@@ -318,12 +318,12 @@ $apiInstance = new Avalara\SDK\Api\CompaniesW9Api($client);
 
 $id = 'id_example'; // string | The ID of the company to update
 $avalara_version = 2.0.0; // string | API version
-$x_correlation_id = d2497d39-235c-472f-b1b3-5fbeac3ffbdb; // string | Unique correlation Id in a GUID format
+$x_correlation_id = b730ea19-59f4-4cc8-8ef0-94a9d4637a6a; // string | Unique correlation Id in a GUID format
 $x_avalara_client = Swagger UI; 22.1.0; // string | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
-$create_company_request = {"name":"Acme Corporation","dbaName":"","email":"contact@acmecorp.com","address":"123 Business Ave","city":"Phoenix","state":"AZ","zip":"85001","telephone":"602-555-0123","tin":"12-3456789","referenceId":"","doTinMatch":null,"groupName":"","foreignProvince":"","countryCode":"US","resendRequests":null,"resendIntervalDays":null,"maxReminderAttempts":null}; // \Avalara\SDK\Model\A1099\V2\CreateCompanyRequest | The updated company data
+$company_request = {"name":"Acme Corporation","dbaName":"","email":"contact@acmecorp.com","address":"123 Business Ave","city":"Phoenix","state":"AZ","zip":"85001","telephone":"602-555-0123","tin":"12-3456789","referenceId":"","doTinMatch":null,"groupName":"","foreignProvince":"","countryCode":"US","resendRequests":null,"resendIntervalDays":null,"maxReminderAttempts":null}; // \Avalara\SDK\Model\A1099\V2\CompanyRequest | The updated company data
 
 try {
-    $result = $apiInstance->updateCompany($id, $avalara_version, $x_correlation_id, $x_avalara_client, $create_company_request);
+    $result = $apiInstance->updateCompany($id, $avalara_version, $x_correlation_id, $x_avalara_client, $company_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CompaniesW9Api->updateCompany: ', $e->getMessage(), PHP_EOL;
@@ -338,7 +338,7 @@ Name | Type | Description  | Notes
  **avalara_version** | **string**| API version |
  **x_correlation_id** | **string**| Unique correlation Id in a GUID format | [optional]
  **x_avalara_client** | **string**| Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) . | [optional]
- **create_company_request** | [**\Avalara\SDK\Model\A1099\V2\CreateCompanyRequest**](../Model/CreateCompanyRequest.md)| The updated company data | [optional]
+ **company_request** | [**\Avalara\SDK\Model\A1099\V2\CompanyRequest**](../Model/CompanyRequest.md)| The updated company data | [optional]
 
 ### Return type
 

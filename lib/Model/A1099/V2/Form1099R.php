@@ -47,7 +47,7 @@ use \Avalara\SDK\Model\ModelInterface;
  * Form1099R Class Doc Comment
  *
  * @category Class
- * @description Form 1099-R: Distributions From Pensions, Annuities, Retirement or Profit-Sharing Plans, IRAs, Insurance Contracts, etc.
+ * @description Form 1099-R: Distributions From Pensions, Annuities, Retirement or Profit-Sharing Plans, IRAs, Insurance Contracts, etc.                *At least one of the following amounts must be provided:*   Gross distribution, Taxable amount, Capital gain, Employee contributions/Designated Roth contributions or insurance premiums,  Net unrealized appreciation in employer&#39;s securities, Other amount, Total employee contributions,  Traditional IRA/SEP/SIMPLE or Roth conversion amount, or Amount allocable to IRR within 5 years
  * @package  Avalara\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -465,16 +465,73 @@ class Form1099R implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
-    const TYPE__1099_NEC = '1099-NEC';
-    const TYPE__1099_MISC = '1099-MISC';
-    const TYPE__1099_DIV = '1099-DIV';
-    const TYPE__1099_R = '1099-R';
-    const TYPE__1099_K = '1099-K';
-    const TYPE__1095_B = '1095-B';
-    const TYPE__1042_S = '1042-S';
-    const TYPE__1095_C = '1095-C';
-    const TYPE__1099_INT = '1099-INT';
-    const TIN_TYPE__EMPTY = 'Empty';
+    const DISTRIBUTION_CODE__1 = '1';
+    const DISTRIBUTION_CODE__2 = '2';
+    const DISTRIBUTION_CODE__3 = '3';
+    const DISTRIBUTION_CODE__4 = '4';
+    const DISTRIBUTION_CODE__5 = '5';
+    const DISTRIBUTION_CODE__6 = '6';
+    const DISTRIBUTION_CODE__7 = '7';
+    const DISTRIBUTION_CODE__8 = '8';
+    const DISTRIBUTION_CODE__9 = '9';
+    const DISTRIBUTION_CODE_A = 'A';
+    const DISTRIBUTION_CODE_B = 'B';
+    const DISTRIBUTION_CODE_C = 'C';
+    const DISTRIBUTION_CODE_D = 'D';
+    const DISTRIBUTION_CODE_E = 'E';
+    const DISTRIBUTION_CODE_F = 'F';
+    const DISTRIBUTION_CODE_G = 'G';
+    const DISTRIBUTION_CODE_H = 'H';
+    const DISTRIBUTION_CODE_J = 'J';
+    const DISTRIBUTION_CODE_K = 'K';
+    const DISTRIBUTION_CODE_L = 'L';
+    const DISTRIBUTION_CODE_M = 'M';
+    const DISTRIBUTION_CODE_N = 'N';
+    const DISTRIBUTION_CODE_P = 'P';
+    const DISTRIBUTION_CODE_Q = 'Q';
+    const DISTRIBUTION_CODE_R = 'R';
+    const DISTRIBUTION_CODE_S = 'S';
+    const DISTRIBUTION_CODE_T = 'T';
+    const DISTRIBUTION_CODE_U = 'U';
+    const DISTRIBUTION_CODE_W = 'W';
+    const SECOND_DISTRIBUTION_CODE__1 = '1';
+    const SECOND_DISTRIBUTION_CODE__2 = '2';
+    const SECOND_DISTRIBUTION_CODE__3 = '3';
+    const SECOND_DISTRIBUTION_CODE__4 = '4';
+    const SECOND_DISTRIBUTION_CODE__5 = '5';
+    const SECOND_DISTRIBUTION_CODE__6 = '6';
+    const SECOND_DISTRIBUTION_CODE__7 = '7';
+    const SECOND_DISTRIBUTION_CODE__8 = '8';
+    const SECOND_DISTRIBUTION_CODE__9 = '9';
+    const SECOND_DISTRIBUTION_CODE_A = 'A';
+    const SECOND_DISTRIBUTION_CODE_B = 'B';
+    const SECOND_DISTRIBUTION_CODE_C = 'C';
+    const SECOND_DISTRIBUTION_CODE_D = 'D';
+    const SECOND_DISTRIBUTION_CODE_E = 'E';
+    const SECOND_DISTRIBUTION_CODE_F = 'F';
+    const SECOND_DISTRIBUTION_CODE_G = 'G';
+    const SECOND_DISTRIBUTION_CODE_H = 'H';
+    const SECOND_DISTRIBUTION_CODE_J = 'J';
+    const SECOND_DISTRIBUTION_CODE_K = 'K';
+    const SECOND_DISTRIBUTION_CODE_L = 'L';
+    const SECOND_DISTRIBUTION_CODE_M = 'M';
+    const SECOND_DISTRIBUTION_CODE_N = 'N';
+    const SECOND_DISTRIBUTION_CODE_P = 'P';
+    const SECOND_DISTRIBUTION_CODE_Q = 'Q';
+    const SECOND_DISTRIBUTION_CODE_R = 'R';
+    const SECOND_DISTRIBUTION_CODE_S = 'S';
+    const SECOND_DISTRIBUTION_CODE_T = 'T';
+    const SECOND_DISTRIBUTION_CODE_U = 'U';
+    const SECOND_DISTRIBUTION_CODE_W = 'W';
+    const TYPE_FORM1099_NEC = 'Form1099Nec';
+    const TYPE_FORM1099_MISC = 'Form1099Misc';
+    const TYPE_FORM1099_DIV = 'Form1099Div';
+    const TYPE_FORM1099_R = 'Form1099R';
+    const TYPE_FORM1099_K = 'Form1099K';
+    const TYPE_FORM1095_B = 'Form1095B';
+    const TYPE_FORM1042_S = 'Form1042S';
+    const TYPE_FORM1095_C = 'Form1095C';
+    const TYPE_FORM1099_INT = 'Form1099Int';
     const TIN_TYPE_EIN = 'EIN';
     const TIN_TYPE_SSN = 'SSN';
     const TIN_TYPE_ITIN = 'ITIN';
@@ -485,18 +542,98 @@ class Form1099R implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return string[]
      */
+    public function getDistributionCodeAllowableValues()
+    {
+        return [
+            self::DISTRIBUTION_CODE__1,
+            self::DISTRIBUTION_CODE__2,
+            self::DISTRIBUTION_CODE__3,
+            self::DISTRIBUTION_CODE__4,
+            self::DISTRIBUTION_CODE__5,
+            self::DISTRIBUTION_CODE__6,
+            self::DISTRIBUTION_CODE__7,
+            self::DISTRIBUTION_CODE__8,
+            self::DISTRIBUTION_CODE__9,
+            self::DISTRIBUTION_CODE_A,
+            self::DISTRIBUTION_CODE_B,
+            self::DISTRIBUTION_CODE_C,
+            self::DISTRIBUTION_CODE_D,
+            self::DISTRIBUTION_CODE_E,
+            self::DISTRIBUTION_CODE_F,
+            self::DISTRIBUTION_CODE_G,
+            self::DISTRIBUTION_CODE_H,
+            self::DISTRIBUTION_CODE_J,
+            self::DISTRIBUTION_CODE_K,
+            self::DISTRIBUTION_CODE_L,
+            self::DISTRIBUTION_CODE_M,
+            self::DISTRIBUTION_CODE_N,
+            self::DISTRIBUTION_CODE_P,
+            self::DISTRIBUTION_CODE_Q,
+            self::DISTRIBUTION_CODE_R,
+            self::DISTRIBUTION_CODE_S,
+            self::DISTRIBUTION_CODE_T,
+            self::DISTRIBUTION_CODE_U,
+            self::DISTRIBUTION_CODE_W,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getSecondDistributionCodeAllowableValues()
+    {
+        return [
+            self::SECOND_DISTRIBUTION_CODE__1,
+            self::SECOND_DISTRIBUTION_CODE__2,
+            self::SECOND_DISTRIBUTION_CODE__3,
+            self::SECOND_DISTRIBUTION_CODE__4,
+            self::SECOND_DISTRIBUTION_CODE__5,
+            self::SECOND_DISTRIBUTION_CODE__6,
+            self::SECOND_DISTRIBUTION_CODE__7,
+            self::SECOND_DISTRIBUTION_CODE__8,
+            self::SECOND_DISTRIBUTION_CODE__9,
+            self::SECOND_DISTRIBUTION_CODE_A,
+            self::SECOND_DISTRIBUTION_CODE_B,
+            self::SECOND_DISTRIBUTION_CODE_C,
+            self::SECOND_DISTRIBUTION_CODE_D,
+            self::SECOND_DISTRIBUTION_CODE_E,
+            self::SECOND_DISTRIBUTION_CODE_F,
+            self::SECOND_DISTRIBUTION_CODE_G,
+            self::SECOND_DISTRIBUTION_CODE_H,
+            self::SECOND_DISTRIBUTION_CODE_J,
+            self::SECOND_DISTRIBUTION_CODE_K,
+            self::SECOND_DISTRIBUTION_CODE_L,
+            self::SECOND_DISTRIBUTION_CODE_M,
+            self::SECOND_DISTRIBUTION_CODE_N,
+            self::SECOND_DISTRIBUTION_CODE_P,
+            self::SECOND_DISTRIBUTION_CODE_Q,
+            self::SECOND_DISTRIBUTION_CODE_R,
+            self::SECOND_DISTRIBUTION_CODE_S,
+            self::SECOND_DISTRIBUTION_CODE_T,
+            self::SECOND_DISTRIBUTION_CODE_U,
+            self::SECOND_DISTRIBUTION_CODE_W,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
     public function getTypeAllowableValues()
     {
         return [
-            self::TYPE__1099_NEC,
-            self::TYPE__1099_MISC,
-            self::TYPE__1099_DIV,
-            self::TYPE__1099_R,
-            self::TYPE__1099_K,
-            self::TYPE__1095_B,
-            self::TYPE__1042_S,
-            self::TYPE__1095_C,
-            self::TYPE__1099_INT,
+            self::TYPE_FORM1099_NEC,
+            self::TYPE_FORM1099_MISC,
+            self::TYPE_FORM1099_DIV,
+            self::TYPE_FORM1099_R,
+            self::TYPE_FORM1099_K,
+            self::TYPE_FORM1095_B,
+            self::TYPE_FORM1042_S,
+            self::TYPE_FORM1095_C,
+            self::TYPE_FORM1099_INT,
         ];
     }
 
@@ -508,7 +645,6 @@ class Form1099R implements ModelInterface, ArrayAccess, \JsonSerializable
     public function getTinTypeAllowableValues()
     {
         return [
-            self::TIN_TYPE__EMPTY,
             self::TIN_TYPE_EIN,
             self::TIN_TYPE_SSN,
             self::TIN_TYPE_ITIN,
@@ -600,6 +736,27 @@ class Form1099R implements ModelInterface, ArrayAccess, \JsonSerializable
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        if ($this->container['distribution_code'] === null) {
+            $invalidProperties[] = "'distribution_code' can't be null";
+        }
+        $allowedValues = $this->getDistributionCodeAllowableValues();
+        if (!is_null($this->container['distribution_code']) && !in_array($this->container['distribution_code'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'distribution_code', must be one of '%s'",
+                $this->container['distribution_code'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getSecondDistributionCodeAllowableValues();
+        if (!is_null($this->container['second_distribution_code']) && !in_array($this->container['second_distribution_code'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'second_distribution_code', must be one of '%s'",
+                $this->container['second_distribution_code'],
+                implode("', '", $allowedValues)
+            );
+        }
 
         if ($this->container['type'] === null) {
             $invalidProperties[] = "'type' can't be null";
@@ -844,7 +1001,7 @@ class Form1099R implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets distribution_code
      *
-     * @return string|null
+     * @return string
      */
     public function getDistributionCode()
     {
@@ -854,12 +1011,22 @@ class Form1099R implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets distribution_code
      *
-     * @param string|null $distribution_code Distribution code
+     * @param string $distribution_code Distribution code.    Available values:  - 1: Early distribution, no known exception (in most cases, under age 59½)  - 2: Early distribution, exception applies (under age 59½)  - 3: Disability  - 4: Death  - 5: Prohibited transaction  - 6: Section 1035 exchange (a tax-free exchange of life insurance, annuity, qualified long-term care insurance, or endowment contracts)  - 7: Normal distribution  - 8: Excess contributions plus earnings/excess deferrals (and/or earnings) taxable in payment year  - 9: Cost of current life insurance protection (premiums paid by a trustee or custodian for current insurance protection)  - A: May be eligible for 10-year tax option  - B: Designated Roth account distribution  - C: Reportable Death Benefits Under Section 6050Y(c)  - D: Annuity payments from nonqualified annuity payments and distributions from life insurance contracts that may be subject to tax under section 1411  - E: Distribution under Employee Plans Compliance Resolution System (EPCRS)  - F: Charitable gift annuity  - G: Direct rollover and rollover contribution  - H: Direct rollover of distribution from a designated Roth account to a Roth IRA  - J: Early distribution from a Roth IRA (This code may be used with a Code 8 or P)  - K: Distribution of IRA Assets Not Having A Readily Available FMV  - L: Loans treated as deemed distributions under section 72(p)  - M: Qualified Plan Loan Offsets  - N: Recharacterized IRA contribution made for year following payment year  - P: Excess contributions plus earnings/excess deferrals taxable for year prior to payment year  - Q: Qualified distribution from a Roth IRA (Distribution from a Roth IRA when the 5-year holding period has been met, and the recipient has reached 59½, has died, or is disabled)  - R: Recharacterized IRA contribution made for year prior to payment year  - S: Early distribution from a SIMPLE IRA in first 2 years no known exceptions  - T: Roth IRA distribution exception applies because participant has reached 59½, died or is disabled, but it is unknown if the 5-year period has been met  - U: Distribution from ESOP under Section 404(k)  - W: Charges or payments for purchasing qualified long-term care insurance contracts under combined arrangements
      *
      * @return self
      */
     public function setDistributionCode($distribution_code)
     {
+        $allowedValues = $this->getDistributionCodeAllowableValues();
+        if (!in_array($distribution_code, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'distribution_code', must be one of '%s'",
+                    $distribution_code,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['distribution_code'] = $distribution_code;
 
         return $this;
@@ -878,12 +1045,22 @@ class Form1099R implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets second_distribution_code
      *
-     * @param string|null $second_distribution_code Second distribution code
+     * @param string|null $second_distribution_code Second distribution code. Must be a valid combination with the first distribution code.  See DistributionCode property documentation for code descriptions.    Valid combinations based on first distribution code:  - 1: _, 8, B, D, K, L, M, P  - 2: _, 8, B, D, K, L, M, P  - 3: _, D  - 4: _, 8, A, B, D, G, H, K, L, M, P  - 5: _  - 6: _, W  - 7: _, A, B, D, K, L, M  - 8: _, 1, 2, 4, B, J, K  - 9: _  - A: 4, 7  - B: _, 1, 2, 4, 7, 8, G, L, M, P, U  - C: _, D  - D: 1, 2, 3, 4, 7, C  - E: _  - F: _  - G: _, 4, B, K  - H: _, 4  - J: _, 8, P  - K: 1, 2, 4, 7, 8, G  - L: _, 1, 2, 4, 7, B  - M: _, 1, 2, 4, 7, B  - N: _  - P: _, 1, 2, 4, B, J  - Q: _  - R: _  - S: _  - T: _  - U: _, B  - W: _, 6                (_ indicates no second distribution code)    (format: firstDistributionCode: availableSecondDistributionCodes)
      *
      * @return self
      */
     public function setSecondDistributionCode($second_distribution_code)
     {
+        $allowedValues = $this->getSecondDistributionCodeAllowableValues();
+        if (!is_null($second_distribution_code) && !in_array($second_distribution_code, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'second_distribution_code', must be one of '%s'",
+                    $second_distribution_code,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['second_distribution_code'] = $second_distribution_code;
 
         return $this;
@@ -1118,7 +1295,7 @@ class Form1099R implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets fatca_filing_requirement
      *
-     * @param bool|null $fatca_filing_requirement FATCA filing requirement
+     * @param bool|null $fatca_filing_requirement FATCA filing requirement.
      *
      * @return self
      */
@@ -1142,7 +1319,7 @@ class Form1099R implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets type
      *
-     * @param string $type Form type
+     * @param string $type Form type.
      *
      * @return self
      */
@@ -1224,7 +1401,7 @@ class Form1099R implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets issuer_reference_id
      *
-     * @param string|null $issuer_reference_id Issuer Reference ID - only required when creating forms
+     * @param string|null $issuer_reference_id Issuer Reference ID - only required when creating forms via $bulk-upsert
      *
      * @return self
      */
@@ -1272,7 +1449,7 @@ class Form1099R implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets tax_year
      *
-     * @param int|null $tax_year Tax Year - only required when creating forms
+     * @param int|null $tax_year Tax Year - only required when creating forms via $bulk-upsert
      *
      * @return self
      */
@@ -1368,7 +1545,7 @@ class Form1099R implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets tin_type
      *
-     * @param string|null $tin_type Type of TIN (Tax ID Number)
+     * @param string|null $tin_type Tax Identification Number (TIN) type.  Available values: - EIN: Employer Identification Number - SSN: Social Security Number - ITIN: Individual Taxpayer Identification Number - ATIN: Adoption Taxpayer Identification Number
      *
      * @return self
      */
@@ -1666,7 +1843,7 @@ class Form1099R implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets federal_efile_date
      *
-     * @param \DateTime|null $federal_efile_date Date when federal e-filing should be scheduled for this form
+     * @param \DateTime|null $federal_efile_date Date when federal e-filing should be scheduled. If set between current date and beginning of blackout period, scheduled to that date. If in the past or blackout period, scheduled to next available date. For blackout period information, see https://www.track1099.com/info/IRS_info. Set to null to leave unscheduled.
      *
      * @return self
      */
@@ -1714,7 +1891,7 @@ class Form1099R implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets state_efile_date
      *
-     * @param \DateTime|null $state_efile_date Date when state e-filing should be scheduled for this form
+     * @param \DateTime|null $state_efile_date Date when state e-filing should be scheduled. Must be on or after federalEfileDate. If set between current date and beginning of blackout period, scheduled to that date. If in the past or blackout period, scheduled to next available date. For blackout period information, see https://www.track1099.com/info/IRS_info. Set to null to leave unscheduled.
      *
      * @return self
      */
@@ -1738,7 +1915,7 @@ class Form1099R implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets recipient_edelivery_date
      *
-     * @param \DateTime|null $recipient_edelivery_date Date when recipient e-delivery should be scheduled for this form
+     * @param \DateTime|null $recipient_edelivery_date Date when recipient e-delivery should be scheduled. If set between current date and beginning of blackout period, scheduled to that date. If in the past or blackout period, scheduled to next available date. For blackout period information, see https://www.track1099.com/info/IRS_info. Set to null to leave unscheduled.
      *
      * @return self
      */
@@ -1882,7 +2059,7 @@ class Form1099R implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets federal_efile_status
      *
-     * @param \Avalara\SDK\Model\A1099\V2\Form1099StatusDetail|null $federal_efile_status Federal e-file status
+     * @param \Avalara\SDK\Model\A1099\V2\Form1099StatusDetail|null $federal_efile_status Federal e-file status.  Available values:  - unscheduled: Form has not been scheduled for federal e-filing  - scheduled: Form is scheduled for federal e-filing  - airlock: Form is in process of being uploaded to the IRS (forms exist in this state for a very short period and cannot be updated while in this state)  - sent: Form has been sent to the IRS  - accepted: Form was accepted by the IRS  - corrected_scheduled: Correction is scheduled to be sent  - corrected_airlock: Correction is in process of being uploaded to the IRS (forms exist in this state for a very short period and cannot be updated while in this state)  - corrected: A correction has been sent to the IRS  - corrected_accepted: Correction was accepted by the IRS  - rejected: Form was rejected by the IRS  - corrected_rejected: Correction was rejected by the IRS  - held: Form is held and will not be submitted to IRS (used for certain forms submitted only to states)
      *
      * @return self
      */
@@ -1906,14 +2083,12 @@ class Form1099R implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets state_efile_status
      *
-     * @param \Avalara\SDK\Model\A1099\V2\StateEfileStatusDetail[]|null $state_efile_status State e-file status
+     * @param \Avalara\SDK\Model\A1099\V2\StateEfileStatusDetail[]|null $state_efile_status State e-file status.  Available values:  - unscheduled: Form has not been scheduled for state e-filing  - scheduled: Form is scheduled for state e-filing  - airlocked: Form is in process of being uploaded to the state  - sent: Form has been sent to the state  - rejected: Form was rejected by the state  - accepted: Form was accepted by the state  - corrected_scheduled: Correction is scheduled to be sent  - corrected_airlocked: Correction is in process of being uploaded to the state  - corrected_sent: Correction has been sent to the state  - corrected_rejected: Correction was rejected by the state  - corrected_accepted: Correction was accepted by the state
      *
      * @return self
      */
     public function setStateEfileStatus($state_efile_status)
     {
-
-
         $this->container['state_efile_status'] = $state_efile_status;
 
         return $this;
@@ -1932,7 +2107,7 @@ class Form1099R implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets postal_mail_status
      *
-     * @param \Avalara\SDK\Model\A1099\V2\Form1099StatusDetail|null $postal_mail_status Postal mail to recipient status
+     * @param \Avalara\SDK\Model\A1099\V2\Form1099StatusDetail|null $postal_mail_status Postal mail to recipient status.  Available values:  - unscheduled: Postal mail has not been scheduled  - pending: Postal mail is pending to be sent  - sent: Postal mail has been sent  - delivered: Postal mail has been delivered
      *
      * @return self
      */
@@ -1956,7 +2131,7 @@ class Form1099R implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets tin_match_status
      *
-     * @param \Avalara\SDK\Model\A1099\V2\Form1099StatusDetail|null $tin_match_status TIN Match status
+     * @param \Avalara\SDK\Model\A1099\V2\Form1099StatusDetail|null $tin_match_status TIN Match status.  Available values:  - none: TIN matching has not been performed  - pending: TIN matching request is pending  - matched: Name/TIN combination matches IRS records  - unknown: TIN is missing, invalid, or request contains errors  - rejected: Name/TIN combination does not match IRS records or TIN not currently issued
      *
      * @return self
      */
@@ -1980,7 +2155,7 @@ class Form1099R implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets address_verification_status
      *
-     * @param \Avalara\SDK\Model\A1099\V2\Form1099StatusDetail|null $address_verification_status Address verification status
+     * @param \Avalara\SDK\Model\A1099\V2\Form1099StatusDetail|null $address_verification_status Address verification status.  Available values:  - unknown: Address verification has not been checked  - pending: Address verification is in progress  - failed: Address verification failed  - incomplete: Address verification is incomplete  - unchanged: User declined address changes  - verified: Address has been verified and accepted
      *
      * @return self
      */
@@ -2004,7 +2179,7 @@ class Form1099R implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets e_delivery_status
      *
-     * @param \Avalara\SDK\Model\A1099\V2\Form1099StatusDetail|null $e_delivery_status EDelivery status
+     * @param \Avalara\SDK\Model\A1099\V2\Form1099StatusDetail|null $e_delivery_status EDelivery status.  Available values:  - unscheduled: E-delivery has not been scheduled  - scheduled: E-delivery is scheduled to be sent  - sent: E-delivery has been sent to recipient  - bounced: E-delivery bounced back (invalid email)  - refused: E-delivery was refused by recipient  - bad_verify: E-delivery failed verification  - accepted: E-delivery was accepted by recipient  - bad_verify_limit: E-delivery failed verification limit reached  - second_delivery: Second e-delivery attempt  - undelivered: E-delivery is undelivered (temporary state allowing resend)
      *
      * @return self
      */
@@ -2034,8 +2209,6 @@ class Form1099R implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setValidationErrors($validation_errors)
     {
-
-
         $this->container['validation_errors'] = $validation_errors;
 
         return $this;
