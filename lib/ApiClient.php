@@ -142,6 +142,28 @@ class ApiClient
     }
 
     /**
+     * Adds appropriate X-Avalara client headers to the array of headers passed in
+     *
+     * @param Array $headerParams The header parameters array
+     *
+     * @return Array The modified headers array
+     */
+    public function applyClientHeaders($headerParams) {
+        // Build the clientId string using the same pattern as in the API classes
+        $clientId = "{$this->config->getAppName()}; {$this->config->getAppVersion()}; PhpRestClient; {$this->sdkVersion}; {$this->config->getMachineName()}";
+        
+        // Always set X-Avalara-SDK-Client to the clientId
+        $headerParams['X-Avalara-SDK-Client'] = $clientId;
+        
+        // If X-Avalara-Client is NOT defined, set it to clientId, otherwise do nothing
+        if (!isset($headerParams['X-Avalara-Client'])) {
+            $headerParams['X-Avalara-Client'] = $clientId;
+        }
+        
+        return $headerParams;
+    }
+
+    /**
      * Adds appropriate Authentication header to the array of headers passed in
      *
      * @param Array $headers 
