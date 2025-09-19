@@ -406,13 +406,18 @@ class W8BenFormRequest implements ModelInterface, ArrayAccess, \JsonSerializable
             );
         }
 
-        if ($this->container['company_id'] === null) {
-            $invalidProperties[] = "'company_id' can't be null";
+        if ($this->container['name'] === null) {
+            $invalidProperties[] = "'name' can't be null";
         }
-        if ((mb_strlen($this->container['company_id']) < 1)) {
-            $invalidProperties[] = "invalid value for 'company_id', the character length must be bigger than or equal to 1.";
+        if ($this->container['citizenship_country'] === null) {
+            $invalidProperties[] = "'citizenship_country' can't be null";
         }
-
+        if ($this->container['residence_country'] === null) {
+            $invalidProperties[] = "'residence_country' can't be null";
+        }
+        if ($this->container['mailing_country'] === null) {
+            $invalidProperties[] = "'mailing_country' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -465,7 +470,7 @@ class W8BenFormRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets name
      *
-     * @return string|null
+     * @return string
      */
     public function getName()
     {
@@ -475,7 +480,7 @@ class W8BenFormRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets name
      *
-     * @param string|null $name The name of the individual or entity associated with the form.
+     * @param string $name The name of the individual or entity associated with the form.
      *
      * @return self
      */
@@ -489,7 +494,7 @@ class W8BenFormRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets citizenship_country
      *
-     * @return string|null
+     * @return string
      */
     public function getCitizenshipCountry()
     {
@@ -499,7 +504,7 @@ class W8BenFormRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets citizenship_country
      *
-     * @param string|null $citizenship_country The country of citizenship.
+     * @param string $citizenship_country The country of citizenship.
      *
      * @return self
      */
@@ -609,7 +614,7 @@ class W8BenFormRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets residence_country
      *
-     * @return string|null
+     * @return string
      */
     public function getResidenceCountry()
     {
@@ -619,7 +624,7 @@ class W8BenFormRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets residence_country
      *
-     * @param string|null $residence_country The country of residence.
+     * @param string $residence_country The country of residence.
      *
      * @return self
      */
@@ -753,7 +758,7 @@ class W8BenFormRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets mailing_country
      *
-     * @return string|null
+     * @return string
      */
     public function getMailingCountry()
     {
@@ -763,7 +768,7 @@ class W8BenFormRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets mailing_country
      *
-     * @param string|null $mailing_country The country of the mailing address.
+     * @param string $mailing_country The country of the mailing address.
      *
      * @return self
      */
@@ -1089,7 +1094,7 @@ class W8BenFormRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets company_id
      *
-     * @return string
+     * @return string|null
      */
     public function getCompanyId()
     {
@@ -1099,17 +1104,12 @@ class W8BenFormRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets company_id
      *
-     * @param string $company_id The ID of the associated company.
+     * @param string|null $company_id The ID of the associated company. Required when creating a form.
      *
      * @return self
      */
     public function setCompanyId($company_id)
     {
-
-        if ((mb_strlen($company_id) < 1)) {
-            throw new \InvalidArgumentException('invalid length for $company_id when calling W8BenFormRequest., must be bigger than or equal to 1.');
-        }
-
         $this->container['company_id'] = $company_id;
 
         return $this;

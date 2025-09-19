@@ -39,6 +39,8 @@
  */
 
 namespace Avalara\SDK\Model\A1099\V2;
+
+use \ArrayAccess;
 use \Avalara\SDK\ObjectSerializer;
 use \Avalara\SDK\Model\ModelInterface;
 /**
@@ -52,7 +54,7 @@ use \Avalara\SDK\Model\ModelInterface;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class W9FormResponse extends W9FormBaseResponse
+class W9FormResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -69,6 +71,7 @@ class W9FormResponse extends W9FormBaseResponse
       * @var string[]
       */
     protected static $openAPITypes = [
+        'type' => 'string',
         'name' => 'string',
         'business_name' => 'string',
         'business_classification' => 'string',
@@ -87,7 +90,20 @@ class W9FormResponse extends W9FormBaseResponse
         'tin' => 'string',
         'backup_withholding' => 'bool',
         'is1099able' => 'bool',
-        'tin_match_status' => '\Avalara\SDK\Model\A1099\V2\TinMatchStatusResponse'
+        'tin_match_status' => '\Avalara\SDK\Model\A1099\V2\TinMatchStatusResponse',
+        'id' => 'string',
+        'entry_status' => '\Avalara\SDK\Model\A1099\V2\EntryStatusResponse',
+        'reference_id' => 'string',
+        'company_id' => 'string',
+        'display_name' => 'string',
+        'email' => 'string',
+        'archived' => 'bool',
+        'ancestor_id' => 'string',
+        'signature' => 'string',
+        'signed_date' => '\DateTime',
+        'e_delivery_consented_at' => '\DateTime',
+        'created_at' => '\DateTime',
+        'updated_at' => '\DateTime'
     ];
 
     /**
@@ -98,6 +114,7 @@ class W9FormResponse extends W9FormBaseResponse
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'type' => null,
         'name' => null,
         'business_name' => null,
         'business_classification' => null,
@@ -116,7 +133,20 @@ class W9FormResponse extends W9FormBaseResponse
         'tin' => null,
         'backup_withholding' => null,
         'is1099able' => null,
-        'tin_match_status' => null
+        'tin_match_status' => null,
+        'id' => null,
+        'entry_status' => null,
+        'reference_id' => null,
+        'company_id' => null,
+        'display_name' => null,
+        'email' => null,
+        'archived' => null,
+        'ancestor_id' => null,
+        'signature' => null,
+        'signed_date' => 'date-time',
+        'e_delivery_consented_at' => 'date-time',
+        'created_at' => 'date-time',
+        'updated_at' => 'date-time'
     ];
 
     /**
@@ -126,7 +156,7 @@ class W9FormResponse extends W9FormBaseResponse
      */
     public static function openAPITypes()
     {
-        return self::$openAPITypes + parent::openAPITypes();
+        return self::$openAPITypes;
     }
 
     /**
@@ -136,7 +166,7 @@ class W9FormResponse extends W9FormBaseResponse
      */
     public static function openAPIFormats()
     {
-        return self::$openAPIFormats + parent::openAPIFormats();
+        return self::$openAPIFormats;
     }
 
     /**
@@ -146,6 +176,7 @@ class W9FormResponse extends W9FormBaseResponse
      * @var string[]
      */
     protected static $attributeMap = [
+        'type' => 'type',
         'name' => 'name',
         'business_name' => 'businessName',
         'business_classification' => 'businessClassification',
@@ -164,7 +195,20 @@ class W9FormResponse extends W9FormBaseResponse
         'tin' => 'tin',
         'backup_withholding' => 'backupWithholding',
         'is1099able' => 'is1099able',
-        'tin_match_status' => 'tinMatchStatus'
+        'tin_match_status' => 'tinMatchStatus',
+        'id' => 'id',
+        'entry_status' => 'entryStatus',
+        'reference_id' => 'referenceId',
+        'company_id' => 'companyId',
+        'display_name' => 'displayName',
+        'email' => 'email',
+        'archived' => 'archived',
+        'ancestor_id' => 'ancestorId',
+        'signature' => 'signature',
+        'signed_date' => 'signedDate',
+        'e_delivery_consented_at' => 'eDeliveryConsentedAt',
+        'created_at' => 'createdAt',
+        'updated_at' => 'updatedAt'
     ];
 
     /**
@@ -173,6 +217,7 @@ class W9FormResponse extends W9FormBaseResponse
      * @var string[]
      */
     protected static $setters = [
+        'type' => 'setType',
         'name' => 'setName',
         'business_name' => 'setBusinessName',
         'business_classification' => 'setBusinessClassification',
@@ -191,7 +236,20 @@ class W9FormResponse extends W9FormBaseResponse
         'tin' => 'setTin',
         'backup_withholding' => 'setBackupWithholding',
         'is1099able' => 'setIs1099able',
-        'tin_match_status' => 'setTinMatchStatus'
+        'tin_match_status' => 'setTinMatchStatus',
+        'id' => 'setId',
+        'entry_status' => 'setEntryStatus',
+        'reference_id' => 'setReferenceId',
+        'company_id' => 'setCompanyId',
+        'display_name' => 'setDisplayName',
+        'email' => 'setEmail',
+        'archived' => 'setArchived',
+        'ancestor_id' => 'setAncestorId',
+        'signature' => 'setSignature',
+        'signed_date' => 'setSignedDate',
+        'e_delivery_consented_at' => 'setEDeliveryConsentedAt',
+        'created_at' => 'setCreatedAt',
+        'updated_at' => 'setUpdatedAt'
     ];
 
     /**
@@ -200,6 +258,7 @@ class W9FormResponse extends W9FormBaseResponse
      * @var string[]
      */
     protected static $getters = [
+        'type' => 'getType',
         'name' => 'getName',
         'business_name' => 'getBusinessName',
         'business_classification' => 'getBusinessClassification',
@@ -218,7 +277,20 @@ class W9FormResponse extends W9FormBaseResponse
         'tin' => 'getTin',
         'backup_withholding' => 'getBackupWithholding',
         'is1099able' => 'getIs1099able',
-        'tin_match_status' => 'getTinMatchStatus'
+        'tin_match_status' => 'getTinMatchStatus',
+        'id' => 'getId',
+        'entry_status' => 'getEntryStatus',
+        'reference_id' => 'getReferenceId',
+        'company_id' => 'getCompanyId',
+        'display_name' => 'getDisplayName',
+        'email' => 'getEmail',
+        'archived' => 'getArchived',
+        'ancestor_id' => 'getAncestorId',
+        'signature' => 'getSignature',
+        'signed_date' => 'getSignedDate',
+        'e_delivery_consented_at' => 'getEDeliveryConsentedAt',
+        'created_at' => 'getCreatedAt',
+        'updated_at' => 'getUpdatedAt'
     ];
 
     /**
@@ -229,7 +301,7 @@ class W9FormResponse extends W9FormBaseResponse
      */
     public static function attributeMap()
     {
-        return parent::attributeMap() + self::$attributeMap;
+        return self::$attributeMap;
     }
 
     /**
@@ -239,7 +311,7 @@ class W9FormResponse extends W9FormBaseResponse
      */
     public static function setters()
     {
-        return parent::setters() + self::$setters;
+        return self::$setters;
     }
 
     /**
@@ -249,7 +321,7 @@ class W9FormResponse extends W9FormBaseResponse
      */
     public static function getters()
     {
-        return parent::getters() + self::$getters;
+        return self::$getters;
     }
 
     /**
@@ -262,7 +334,34 @@ class W9FormResponse extends W9FormBaseResponse
         return self::$openAPIModelName;
     }
 
+    const TYPE_W4 = 'W4';
+    const TYPE_W8_BEN = 'W8Ben';
+    const TYPE_W8_BEN_E = 'W8BenE';
+    const TYPE_W8_IMY = 'W8Imy';
+    const TYPE_W9 = 'W9';
 
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_W4,
+            self::TYPE_W8_BEN,
+            self::TYPE_W8_BEN_E,
+            self::TYPE_W8_IMY,
+            self::TYPE_W9,
+        ];
+    }
+
+    /**
+     * Associative array for storing property values
+     *
+     * @var mixed[]
+     */
+    protected $container = [];
 
     /**
      * Constructor
@@ -272,8 +371,7 @@ class W9FormResponse extends W9FormBaseResponse
      */
     public function __construct(array $data = null)
     {
-        parent::__construct($data);
-
+        $this->container['type'] = $data['type'] ?? null;
         $this->container['name'] = $data['name'] ?? null;
         $this->container['business_name'] = $data['business_name'] ?? null;
         $this->container['business_classification'] = $data['business_classification'] ?? null;
@@ -293,6 +391,19 @@ class W9FormResponse extends W9FormBaseResponse
         $this->container['backup_withholding'] = $data['backup_withholding'] ?? null;
         $this->container['is1099able'] = $data['is1099able'] ?? null;
         $this->container['tin_match_status'] = $data['tin_match_status'] ?? null;
+        $this->container['id'] = $data['id'] ?? null;
+        $this->container['entry_status'] = $data['entry_status'] ?? null;
+        $this->container['reference_id'] = $data['reference_id'] ?? null;
+        $this->container['company_id'] = $data['company_id'] ?? null;
+        $this->container['display_name'] = $data['display_name'] ?? null;
+        $this->container['email'] = $data['email'] ?? null;
+        $this->container['archived'] = $data['archived'] ?? null;
+        $this->container['ancestor_id'] = $data['ancestor_id'] ?? null;
+        $this->container['signature'] = $data['signature'] ?? null;
+        $this->container['signed_date'] = $data['signed_date'] ?? null;
+        $this->container['e_delivery_consented_at'] = $data['e_delivery_consented_at'] ?? null;
+        $this->container['created_at'] = $data['created_at'] ?? null;
+        $this->container['updated_at'] = $data['updated_at'] ?? null;
     }
 
     /**
@@ -302,7 +413,16 @@ class W9FormResponse extends W9FormBaseResponse
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = parent::listInvalidProperties();
+        $invalidProperties = [];
+
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'type', must be one of '%s'",
+                $this->container['type'],
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -318,6 +438,40 @@ class W9FormResponse extends W9FormBaseResponse
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets type
+     *
+     * @return string|null
+     */
+    public function getType()
+    {
+        return $this->container['type'];
+    }
+
+    /**
+     * Sets type
+     *
+     * @param string|null $type The form type (always \"W9\" for this model).
+     *
+     * @return self
+     */
+    public function setType($type)
+    {
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($type) && !in_array($type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'type', must be one of '%s'",
+                    $type,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['type'] = $type;
+
+        return $this;
+    }
 
     /**
      * Gets name
@@ -668,7 +822,7 @@ class W9FormResponse extends W9FormBaseResponse
     /**
      * Sets tin_type
      *
-     * @param string|null $tin_type The type of TIN provided.
+     * @param string|null $tin_type Tax Identification Number (TIN) type.
      *
      * @return self
      */
@@ -771,6 +925,318 @@ class W9FormResponse extends W9FormBaseResponse
     public function setTinMatchStatus($tin_match_status)
     {
         $this->container['tin_match_status'] = $tin_match_status;
+
+        return $this;
+    }
+
+    /**
+     * Gets id
+     *
+     * @return string|null
+     */
+    public function getId()
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param string|null $id The unique identifier for the form.
+     *
+     * @return self
+     */
+    public function setId($id)
+    {
+        $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets entry_status
+     *
+     * @return \Avalara\SDK\Model\A1099\V2\EntryStatusResponse|null
+     */
+    public function getEntryStatus()
+    {
+        return $this->container['entry_status'];
+    }
+
+    /**
+     * Sets entry_status
+     *
+     * @param \Avalara\SDK\Model\A1099\V2\EntryStatusResponse|null $entry_status The entry status information for the form.
+     *
+     * @return self
+     */
+    public function setEntryStatus($entry_status)
+    {
+        $this->container['entry_status'] = $entry_status;
+
+        return $this;
+    }
+
+    /**
+     * Gets reference_id
+     *
+     * @return string|null
+     */
+    public function getReferenceId()
+    {
+        return $this->container['reference_id'];
+    }
+
+    /**
+     * Sets reference_id
+     *
+     * @param string|null $reference_id A reference identifier for the form.
+     *
+     * @return self
+     */
+    public function setReferenceId($reference_id)
+    {
+        $this->container['reference_id'] = $reference_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets company_id
+     *
+     * @return string|null
+     */
+    public function getCompanyId()
+    {
+        return $this->container['company_id'];
+    }
+
+    /**
+     * Sets company_id
+     *
+     * @param string|null $company_id The ID of the associated company.
+     *
+     * @return self
+     */
+    public function setCompanyId($company_id)
+    {
+        $this->container['company_id'] = $company_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets display_name
+     *
+     * @return string|null
+     */
+    public function getDisplayName()
+    {
+        return $this->container['display_name'];
+    }
+
+    /**
+     * Sets display_name
+     *
+     * @param string|null $display_name The display name associated with the form.
+     *
+     * @return self
+     */
+    public function setDisplayName($display_name)
+    {
+        $this->container['display_name'] = $display_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets email
+     *
+     * @return string|null
+     */
+    public function getEmail()
+    {
+        return $this->container['email'];
+    }
+
+    /**
+     * Sets email
+     *
+     * @param string|null $email The email address of the individual associated with the form.
+     *
+     * @return self
+     */
+    public function setEmail($email)
+    {
+        $this->container['email'] = $email;
+
+        return $this;
+    }
+
+    /**
+     * Gets archived
+     *
+     * @return bool|null
+     */
+    public function getArchived()
+    {
+        return $this->container['archived'];
+    }
+
+    /**
+     * Sets archived
+     *
+     * @param bool|null $archived Indicates whether the form is archived.
+     *
+     * @return self
+     */
+    public function setArchived($archived)
+    {
+        $this->container['archived'] = $archived;
+
+        return $this;
+    }
+
+    /**
+     * Gets ancestor_id
+     *
+     * @return string|null
+     */
+    public function getAncestorId()
+    {
+        return $this->container['ancestor_id'];
+    }
+
+    /**
+     * Sets ancestor_id
+     *
+     * @param string|null $ancestor_id Form ID of previous version.
+     *
+     * @return self
+     */
+    public function setAncestorId($ancestor_id)
+    {
+        $this->container['ancestor_id'] = $ancestor_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets signature
+     *
+     * @return string|null
+     */
+    public function getSignature()
+    {
+        return $this->container['signature'];
+    }
+
+    /**
+     * Sets signature
+     *
+     * @param string|null $signature The signature of the form.
+     *
+     * @return self
+     */
+    public function setSignature($signature)
+    {
+        $this->container['signature'] = $signature;
+
+        return $this;
+    }
+
+    /**
+     * Gets signed_date
+     *
+     * @return \DateTime|null
+     */
+    public function getSignedDate()
+    {
+        return $this->container['signed_date'];
+    }
+
+    /**
+     * Sets signed_date
+     *
+     * @param \DateTime|null $signed_date The date the form was signed.
+     *
+     * @return self
+     */
+    public function setSignedDate($signed_date)
+    {
+        $this->container['signed_date'] = $signed_date;
+
+        return $this;
+    }
+
+    /**
+     * Gets e_delivery_consented_at
+     *
+     * @return \DateTime|null
+     */
+    public function getEDeliveryConsentedAt()
+    {
+        return $this->container['e_delivery_consented_at'];
+    }
+
+    /**
+     * Sets e_delivery_consented_at
+     *
+     * @param \DateTime|null $e_delivery_consented_at The date when e-delivery was consented.
+     *
+     * @return self
+     */
+    public function setEDeliveryConsentedAt($e_delivery_consented_at)
+    {
+        $this->container['e_delivery_consented_at'] = $e_delivery_consented_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets created_at
+     *
+     * @return \DateTime|null
+     */
+    public function getCreatedAt()
+    {
+        return $this->container['created_at'];
+    }
+
+    /**
+     * Sets created_at
+     *
+     * @param \DateTime|null $created_at The creation date of the form.
+     *
+     * @return self
+     */
+    public function setCreatedAt($created_at)
+    {
+        $this->container['created_at'] = $created_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets updated_at
+     *
+     * @return \DateTime|null
+     */
+    public function getUpdatedAt()
+    {
+        return $this->container['updated_at'];
+    }
+
+    /**
+     * Sets updated_at
+     *
+     * @param \DateTime|null $updated_at The last updated date of the form.
+     *
+     * @return self
+     */
+    public function setUpdatedAt($updated_at)
+    {
+        $this->container['updated_at'] = $updated_at;
 
         return $this;
     }

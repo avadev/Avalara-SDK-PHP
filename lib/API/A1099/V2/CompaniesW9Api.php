@@ -79,7 +79,7 @@ class CompaniesW9Api
     private function setConfiguration($client): void
     {
         $this->verifyAPIClient($client);
-        $client->setSdkVersion("25.8.3");
+        $client->setSdkVersion("25.9.0");
         $this->headerSelector = new HeaderSelector(); 
         $this->client = $client;
     }
@@ -124,7 +124,7 @@ class CompaniesW9Api
      *
      * @throws \Avalara\SDK\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Avalara\SDK\Model\A1099\V2\CompanyResponse|\Avalara\SDK\Model\A1099\V2\ErrorModel|string
+     * @return \Avalara\SDK\Model\A1099\V2\CompanyResponse|\Avalara\SDK\Model\A1099\V2\ErrorResponse|string
      */
     public function createCompany($request_parameters)
     {
@@ -141,7 +141,7 @@ class CompaniesW9Api
      *
      * @throws \Avalara\SDK\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Avalara\SDK\Model\A1099\V2\CompanyResponse|\Avalara\SDK\Model\A1099\V2\ErrorModel|string, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Avalara\SDK\Model\A1099\V2\CompanyResponse|\Avalara\SDK\Model\A1099\V2\ErrorResponse|string, HTTP status code, HTTP response headers (array of strings)
      */
     public function createCompanyWithHttpInfo($request_parameters, $isRetry = false)
     {
@@ -210,7 +210,7 @@ class CompaniesW9Api
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\Avalara\SDK\Model\A1099\V2\ErrorModel' === '\SplFileObject') {
+                    if ('\Avalara\SDK\Model\A1099\V2\ErrorResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -218,7 +218,7 @@ class CompaniesW9Api
                     $logObject->populateResponseInfo($content, $response);
                     $this->client->logger->info(json_encode($logObject));
                     return [
-                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\A1099\V2\ErrorModel', []),
+                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\A1099\V2\ErrorResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -264,7 +264,7 @@ class CompaniesW9Api
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Avalara\SDK\Model\A1099\V2\ErrorModel',
+                        '\Avalara\SDK\Model\A1099\V2\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -381,7 +381,7 @@ class CompaniesW9Api
         $avalara_version = $request_parameters->getAvalaraVersion();
         $x_correlation_id = $request_parameters->getXCorrelationId();
         $x_avalara_client = $request_parameters->getXAvalaraClient();
-        $create_company_request = $request_parameters->getCreateCompanyRequest();
+        $company_request = $request_parameters->getCompanyRequest();
 
         // verify the required parameter 'avalara_version' is set
         if ($avalara_version === null || (is_array($avalara_version) && count($avalara_version) === 0)) {
@@ -423,16 +423,15 @@ class CompaniesW9Api
                 ['application/json', 'text/json', 'application/*+json']
             );
         }
-        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.8.3; {$this->client->config->getMachineName()}";
-
-        $headers['X-Avalara-Client']=$clientId;
+        
+        $this->client->applyClientHeaders($headerParams);
 
         // for model (json/xml)
-        if (isset($create_company_request)) {
+        if (isset($company_request)) {
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($create_company_request));
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($company_request));
             } else {
-                $httpBody = $create_company_request;
+                $httpBody = $company_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -563,7 +562,7 @@ class CompaniesW9Api
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Avalara\SDK\Model\A1099\V2\ErrorModel',
+                        '\Avalara\SDK\Model\A1099\V2\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -587,7 +586,7 @@ class CompaniesW9Api
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Avalara\SDK\Model\A1099\V2\ErrorModel',
+                        '\Avalara\SDK\Model\A1099\V2\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -742,9 +741,8 @@ class CompaniesW9Api
                 []
             );
         }
-        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.8.3; {$this->client->config->getMachineName()}";
-
-        $headers['X-Avalara-Client']=$clientId;
+        
+        $this->client->applyClientHeaders($headerParams);
 
         // for model (json/xml)
         if (count($formParams) > 0) {
@@ -1212,9 +1210,8 @@ class CompaniesW9Api
                 []
             );
         }
-        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.8.3; {$this->client->config->getMachineName()}";
-
-        $headers['X-Avalara-Client']=$clientId;
+        
+        $this->client->applyClientHeaders($headerParams);
 
         // for model (json/xml)
         if (count($formParams) > 0) {
@@ -1625,9 +1622,8 @@ class CompaniesW9Api
                 []
             );
         }
-        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.8.3; {$this->client->config->getMachineName()}";
-
-        $headers['X-Avalara-Client']=$clientId;
+        
+        $this->client->applyClientHeaders($headerParams);
 
         // for model (json/xml)
         if (count($formParams) > 0) {
@@ -1683,7 +1679,7 @@ class CompaniesW9Api
      *
      * @throws \Avalara\SDK\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Avalara\SDK\Model\A1099\V2\CompanyResponse|\Avalara\SDK\Model\A1099\V2\ErrorModel|string|\Avalara\SDK\Model\A1099\V2\ErrorModel
+     * @return \Avalara\SDK\Model\A1099\V2\CompanyResponse|\Avalara\SDK\Model\A1099\V2\ErrorResponse|string|\Avalara\SDK\Model\A1099\V2\ErrorResponse
      */
     public function updateCompany($request_parameters)
     {
@@ -1700,7 +1696,7 @@ class CompaniesW9Api
      *
      * @throws \Avalara\SDK\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Avalara\SDK\Model\A1099\V2\CompanyResponse|\Avalara\SDK\Model\A1099\V2\ErrorModel|string|\Avalara\SDK\Model\A1099\V2\ErrorModel, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Avalara\SDK\Model\A1099\V2\CompanyResponse|\Avalara\SDK\Model\A1099\V2\ErrorResponse|string|\Avalara\SDK\Model\A1099\V2\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateCompanyWithHttpInfo($request_parameters, $isRetry = false)
     {
@@ -1769,7 +1765,7 @@ class CompaniesW9Api
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\Avalara\SDK\Model\A1099\V2\ErrorModel' === '\SplFileObject') {
+                    if ('\Avalara\SDK\Model\A1099\V2\ErrorResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -1777,7 +1773,7 @@ class CompaniesW9Api
                     $logObject->populateResponseInfo($content, $response);
                     $this->client->logger->info(json_encode($logObject));
                     return [
-                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\A1099\V2\ErrorModel', []),
+                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\A1099\V2\ErrorResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -1795,7 +1791,7 @@ class CompaniesW9Api
                         $response->getHeaders()
                     ];
                 case 404:
-                    if ('\Avalara\SDK\Model\A1099\V2\ErrorModel' === '\SplFileObject') {
+                    if ('\Avalara\SDK\Model\A1099\V2\ErrorResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -1803,7 +1799,7 @@ class CompaniesW9Api
                     $logObject->populateResponseInfo($content, $response);
                     $this->client->logger->info(json_encode($logObject));
                     return [
-                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\A1099\V2\ErrorModel', []),
+                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\A1099\V2\ErrorResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -1836,7 +1832,7 @@ class CompaniesW9Api
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Avalara\SDK\Model\A1099\V2\ErrorModel',
+                        '\Avalara\SDK\Model\A1099\V2\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1852,7 +1848,7 @@ class CompaniesW9Api
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Avalara\SDK\Model\A1099\V2\ErrorModel',
+                        '\Avalara\SDK\Model\A1099\V2\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1962,7 +1958,7 @@ class CompaniesW9Api
         $avalara_version = $request_parameters->getAvalaraVersion();
         $x_correlation_id = $request_parameters->getXCorrelationId();
         $x_avalara_client = $request_parameters->getXAvalaraClient();
-        $create_company_request = $request_parameters->getCreateCompanyRequest();
+        $company_request = $request_parameters->getCompanyRequest();
 
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
@@ -2018,16 +2014,15 @@ class CompaniesW9Api
                 ['application/json', 'text/json', 'application/*+json']
             );
         }
-        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.8.3; {$this->client->config->getMachineName()}";
-
-        $headers['X-Avalara-Client']=$clientId;
+        
+        $this->client->applyClientHeaders($headerParams);
 
         // for model (json/xml)
-        if (isset($create_company_request)) {
+        if (isset($company_request)) {
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($create_company_request));
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($company_request));
             } else {
-                $httpBody = $create_company_request;
+                $httpBody = $company_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -2080,13 +2075,13 @@ class CompaniesW9Api
      * @param  string $avalara_version API version (required)
      * @param  string $x_correlation_id Unique correlation Id in a GUID format (optional)
      * @param  string $x_avalara_client Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) . (optional)
-     * @param  \Avalara\SDK\Model\A1099\V2\CreateCompanyRequest $create_company_request The company to create (optional)
+     * @param  \Avalara\SDK\Model\A1099\V2\CompanyRequest $company_request The company to create (optional)
      */
 class CreateCompanyRequestSdk {
     private $avalara_version;
     private $x_correlation_id;
     private $x_avalara_client;
-    private $create_company_request;
+    private $company_request;
 
     public function __construct() {
     }
@@ -2111,12 +2106,12 @@ class CreateCompanyRequestSdk {
     public function setXAvalaraClient($x_avalara_client) {
         $this->x_avalara_client = $x_avalara_client;
     }
-    public function getCreateCompanyRequest() {
-        return $this->create_company_request;
+    public function getCompanyRequest() {
+        return $this->company_request;
     }
 
-    public function setCreateCompanyRequest($create_company_request) {
-        $this->create_company_request = $create_company_request;
+    public function setCompanyRequest($company_request) {
+        $this->company_request = $company_request;
     }
 }
 
@@ -2310,14 +2305,14 @@ class GetCompanyRequestSdk {
      * @param  string $avalara_version API version (required)
      * @param  string $x_correlation_id Unique correlation Id in a GUID format (optional)
      * @param  string $x_avalara_client Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) . (optional)
-     * @param  \Avalara\SDK\Model\A1099\V2\CreateCompanyRequest $create_company_request The updated company data (optional)
+     * @param  \Avalara\SDK\Model\A1099\V2\CompanyRequest $company_request The updated company data (optional)
      */
 class UpdateCompanyRequestSdk {
     private $id;
     private $avalara_version;
     private $x_correlation_id;
     private $x_avalara_client;
-    private $create_company_request;
+    private $company_request;
 
     public function __construct() {
     }
@@ -2349,12 +2344,12 @@ class UpdateCompanyRequestSdk {
     public function setXAvalaraClient($x_avalara_client) {
         $this->x_avalara_client = $x_avalara_client;
     }
-    public function getCreateCompanyRequest() {
-        return $this->create_company_request;
+    public function getCompanyRequest() {
+        return $this->company_request;
     }
 
-    public function setCreateCompanyRequest($create_company_request) {
-        $this->create_company_request = $create_company_request;
+    public function setCompanyRequest($company_request) {
+        $this->company_request = $company_request;
     }
 }
 

@@ -276,13 +276,6 @@ class W8BenFormMinimalRequest implements ModelInterface, ArrayAccess, \JsonSeria
             $invalidProperties[] = "invalid value for 'name', the character length must be bigger than or equal to 1.";
         }
 
-        if ($this->container['company_id'] === null) {
-            $invalidProperties[] = "'company_id' can't be null";
-        }
-        if ((mb_strlen($this->container['company_id']) < 1)) {
-            $invalidProperties[] = "invalid value for 'company_id', the character length must be bigger than or equal to 1.";
-        }
-
         return $invalidProperties;
     }
 
@@ -417,7 +410,7 @@ class W8BenFormMinimalRequest implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Gets company_id
      *
-     * @return string
+     * @return string|null
      */
     public function getCompanyId()
     {
@@ -427,17 +420,12 @@ class W8BenFormMinimalRequest implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets company_id
      *
-     * @param string $company_id The ID of the associated company.
+     * @param string|null $company_id The ID of the associated company. Required when creating a form.
      *
      * @return self
      */
     public function setCompanyId($company_id)
     {
-
-        if ((mb_strlen($company_id) < 1)) {
-            throw new \InvalidArgumentException('invalid length for $company_id when calling W8BenFormMinimalRequest., must be bigger than or equal to 1.');
-        }
-
         $this->container['company_id'] = $company_id;
 
         return $this;

@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**type** | **string** | The form type. | [optional] [readonly]
 **id** | **string** | The unique identifier for the form. | [optional]
 **entry_status** | [**\Avalara\SDK\Model\A1099\V2\EntryStatusResponse**](EntryStatusResponse.md) | The entry status information for the form. | [optional]
 **reference_id** | **string** | A reference identifier for the form. | [optional]
@@ -17,6 +18,5 @@ Name | Type | Description | Notes
 **e_delivery_consented_at** | **\DateTime** | The date when e-delivery was consented. | [optional]
 **created_at** | **\DateTime** | The creation date of the form. | [optional]
 **updated_at** | **\DateTime** | The last updated date of the form. | [optional]
-**type** | **string** | The type of the response object. | [optional]
 
 [[Back to Model list]](../../../README.md#models) [[Back to API list]](../../../README.md#endpoints) [[Back to README]](../../../README.md)

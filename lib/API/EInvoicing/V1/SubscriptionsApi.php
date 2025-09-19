@@ -79,7 +79,7 @@ class SubscriptionsApi
     private function setConfiguration($client): void
     {
         $this->verifyAPIClient($client);
-        $client->setSdkVersion("25.8.3");
+        $client->setSdkVersion("25.9.0");
         $this->headerSelector = new HeaderSelector(); 
         $this->client = $client;
     }
@@ -450,9 +450,8 @@ class SubscriptionsApi
                 ['application/json']
             );
         }
-        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.8.3; {$this->client->config->getMachineName()}";
-
-        $headers['X-Avalara-Client']=$clientId;
+        
+        $this->client->applyClientHeaders($headerParams);
 
         // for model (json/xml)
         if (isset($subscription_registration)) {
@@ -761,9 +760,8 @@ class SubscriptionsApi
                 []
             );
         }
-        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.8.3; {$this->client->config->getMachineName()}";
-
-        $headers['X-Avalara-Client']=$clientId;
+        
+        $this->client->applyClientHeaders($headerParams);
 
         // for model (json/xml)
         if (count($formParams) > 0) {
@@ -1153,9 +1151,8 @@ class SubscriptionsApi
                 []
             );
         }
-        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.8.3; {$this->client->config->getMachineName()}";
-
-        $headers['X-Avalara-Client']=$clientId;
+        
+        $this->client->applyClientHeaders($headerParams);
 
         // for model (json/xml)
         if (count($formParams) > 0) {
@@ -1578,9 +1575,8 @@ class SubscriptionsApi
                 []
             );
         }
-        $clientId="{$this->client->config->getAppName()}; {$this->client->config->getAppVersion()}; PhpRestClient; 25.8.3; {$this->client->config->getMachineName()}";
-
-        $headers['X-Avalara-Client']=$clientId;
+        
+        $this->client->applyClientHeaders($headerParams);
 
         // for model (json/xml)
         if (count($formParams) > 0) {

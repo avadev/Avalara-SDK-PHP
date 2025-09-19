@@ -370,13 +370,30 @@ class W9FormRequest implements ModelInterface, ArrayAccess, \JsonSerializable
             );
         }
 
-        if ($this->container['company_id'] === null) {
-            $invalidProperties[] = "'company_id' can't be null";
+        if ($this->container['name'] === null) {
+            $invalidProperties[] = "'name' can't be null";
         }
-        if ((mb_strlen($this->container['company_id']) < 1)) {
-            $invalidProperties[] = "invalid value for 'company_id', the character length must be bigger than or equal to 1.";
+        if ($this->container['business_classification'] === null) {
+            $invalidProperties[] = "'business_classification' can't be null";
         }
-
+        if ($this->container['address'] === null) {
+            $invalidProperties[] = "'address' can't be null";
+        }
+        if ($this->container['city'] === null) {
+            $invalidProperties[] = "'city' can't be null";
+        }
+        if ($this->container['state'] === null) {
+            $invalidProperties[] = "'state' can't be null";
+        }
+        if ($this->container['zip'] === null) {
+            $invalidProperties[] = "'zip' can't be null";
+        }
+        if ($this->container['tin_type'] === null) {
+            $invalidProperties[] = "'tin_type' can't be null";
+        }
+        if ($this->container['tin'] === null) {
+            $invalidProperties[] = "'tin' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -429,7 +446,7 @@ class W9FormRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets name
      *
-     * @return string|null
+     * @return string
      */
     public function getName()
     {
@@ -439,7 +456,7 @@ class W9FormRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets name
      *
-     * @param string|null $name The name of the individual or entity associated with the form.
+     * @param string $name The name of the individual or entity associated with the form.
      *
      * @return self
      */
@@ -477,7 +494,7 @@ class W9FormRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets business_classification
      *
-     * @return string|null
+     * @return string
      */
     public function getBusinessClassification()
     {
@@ -487,7 +504,7 @@ class W9FormRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets business_classification
      *
-     * @param string|null $business_classification The classification of the business.
+     * @param string $business_classification The classification of the business.  Available values:  - Individual: Individual/sole proprietor  - C Corporation: C Corporation  - S Corporation: S Corporation  - Partnership: Partnership  - Trust/estate: Trust/estate  - LLC-C: Limited liability company (C Corporation)  - LLC-S: Limited liability company (S Corporation)  - LLC-P: Limited liability company (Partnership)  - Other: Other (requires BusinessOther field to be populated)
      *
      * @return self
      */
@@ -621,7 +638,7 @@ class W9FormRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets address
      *
-     * @return string|null
+     * @return string
      */
     public function getAddress()
     {
@@ -631,7 +648,7 @@ class W9FormRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets address
      *
-     * @param string|null $address The address of the individual or entity.
+     * @param string $address The address of the individual or entity.
      *
      * @return self
      */
@@ -669,7 +686,7 @@ class W9FormRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets city
      *
-     * @return string|null
+     * @return string
      */
     public function getCity()
     {
@@ -679,7 +696,7 @@ class W9FormRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets city
      *
-     * @param string|null $city The city of the address.
+     * @param string $city The city of the address.
      *
      * @return self
      */
@@ -693,7 +710,7 @@ class W9FormRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets state
      *
-     * @return string|null
+     * @return string
      */
     public function getState()
     {
@@ -703,7 +720,7 @@ class W9FormRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets state
      *
-     * @param string|null $state The state of the address.
+     * @param string $state The state of the address.
      *
      * @return self
      */
@@ -717,7 +734,7 @@ class W9FormRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets zip
      *
-     * @return string|null
+     * @return string
      */
     public function getZip()
     {
@@ -727,7 +744,7 @@ class W9FormRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets zip
      *
-     * @param string|null $zip The ZIP code of the address.
+     * @param string $zip The ZIP code of the address.
      *
      * @return self
      */
@@ -765,7 +782,7 @@ class W9FormRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets tin_type
      *
-     * @return string|null
+     * @return string
      */
     public function getTinType()
     {
@@ -775,7 +792,7 @@ class W9FormRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets tin_type
      *
-     * @param string|null $tin_type The type of TIN provided.
+     * @param string $tin_type Tax Identification Number (TIN) type. SSN/ITIN (for individuals) and EIN (for businesses).
      *
      * @return self
      */
@@ -789,7 +806,7 @@ class W9FormRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets tin
      *
-     * @return string|null
+     * @return string
      */
     public function getTin()
     {
@@ -799,7 +816,7 @@ class W9FormRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets tin
      *
-     * @param string|null $tin The taxpayer identification number (TIN).
+     * @param string $tin The taxpayer identification number (TIN).
      *
      * @return self
      */
@@ -909,7 +926,7 @@ class W9FormRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets company_id
      *
-     * @return string
+     * @return string|null
      */
     public function getCompanyId()
     {
@@ -919,17 +936,12 @@ class W9FormRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets company_id
      *
-     * @param string $company_id The ID of the associated company.
+     * @param string|null $company_id The ID of the associated company. Required when creating a form.
      *
      * @return self
      */
     public function setCompanyId($company_id)
     {
-
-        if ((mb_strlen($company_id) < 1)) {
-            throw new \InvalidArgumentException('invalid length for $company_id when calling W9FormRequest., must be bigger than or equal to 1.');
-        }
-
         $this->container['company_id'] = $company_id;
 
         return $this;

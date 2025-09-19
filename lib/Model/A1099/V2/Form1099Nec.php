@@ -47,6 +47,7 @@ use \Avalara\SDK\Model\ModelInterface;
  * Form1099Nec Class Doc Comment
  *
  * @category Class
+ * @description Form 1099-NEC: Nonemployee Compensation
  * @package  Avalara\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -379,16 +380,15 @@ class Form1099Nec implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
-    const TYPE__1099_NEC = '1099-NEC';
-    const TYPE__1099_MISC = '1099-MISC';
-    const TYPE__1099_DIV = '1099-DIV';
-    const TYPE__1099_R = '1099-R';
-    const TYPE__1099_K = '1099-K';
-    const TYPE__1095_B = '1095-B';
-    const TYPE__1042_S = '1042-S';
-    const TYPE__1095_C = '1095-C';
-    const TYPE__1099_INT = '1099-INT';
-    const TIN_TYPE__EMPTY = 'Empty';
+    const TYPE_FORM1099_NEC = 'Form1099Nec';
+    const TYPE_FORM1099_MISC = 'Form1099Misc';
+    const TYPE_FORM1099_DIV = 'Form1099Div';
+    const TYPE_FORM1099_R = 'Form1099R';
+    const TYPE_FORM1099_K = 'Form1099K';
+    const TYPE_FORM1095_B = 'Form1095B';
+    const TYPE_FORM1042_S = 'Form1042S';
+    const TYPE_FORM1095_C = 'Form1095C';
+    const TYPE_FORM1099_INT = 'Form1099Int';
     const TIN_TYPE_EIN = 'EIN';
     const TIN_TYPE_SSN = 'SSN';
     const TIN_TYPE_ITIN = 'ITIN';
@@ -402,15 +402,15 @@ class Form1099Nec implements ModelInterface, ArrayAccess, \JsonSerializable
     public function getTypeAllowableValues()
     {
         return [
-            self::TYPE__1099_NEC,
-            self::TYPE__1099_MISC,
-            self::TYPE__1099_DIV,
-            self::TYPE__1099_R,
-            self::TYPE__1099_K,
-            self::TYPE__1095_B,
-            self::TYPE__1042_S,
-            self::TYPE__1095_C,
-            self::TYPE__1099_INT,
+            self::TYPE_FORM1099_NEC,
+            self::TYPE_FORM1099_MISC,
+            self::TYPE_FORM1099_DIV,
+            self::TYPE_FORM1099_R,
+            self::TYPE_FORM1099_K,
+            self::TYPE_FORM1095_B,
+            self::TYPE_FORM1042_S,
+            self::TYPE_FORM1095_C,
+            self::TYPE_FORM1099_INT,
         ];
     }
 
@@ -422,7 +422,6 @@ class Form1099Nec implements ModelInterface, ArrayAccess, \JsonSerializable
     public function getTinTypeAllowableValues()
     {
         return [
-            self::TIN_TYPE__EMPTY,
             self::TIN_TYPE_EIN,
             self::TIN_TYPE_SSN,
             self::TIN_TYPE_ITIN,
@@ -562,7 +561,7 @@ class Form1099Nec implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets nonemployee_compensation
      *
-     * @param float $nonemployee_compensation Nonemployee compensation
+     * @param float $nonemployee_compensation Nonemployee compensation. Required if DirectSalesIndicator is false.
      *
      * @return self
      */
@@ -586,7 +585,7 @@ class Form1099Nec implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets direct_sales_indicator
      *
-     * @param bool|null $direct_sales_indicator Payer made direct sales totaling $5,000 or more of consumer products to recipient for resale
+     * @param bool|null $direct_sales_indicator Payer made direct sales totaling $5,000 or more of consumer products to recipient for resale. Should be true if Nonemployee compensation is not provided.
      *
      * @return self
      */
@@ -610,7 +609,7 @@ class Form1099Nec implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets federal_income_tax_withheld
      *
-     * @param float|null $federal_income_tax_withheld Federal income tax withheld
+     * @param float|null $federal_income_tax_withheld Federal income tax withheld.
      *
      * @return self
      */
@@ -634,7 +633,7 @@ class Form1099Nec implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets type
      *
-     * @param string $type Form type
+     * @param string $type Form type.
      *
      * @return self
      */
@@ -716,7 +715,7 @@ class Form1099Nec implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets issuer_reference_id
      *
-     * @param string|null $issuer_reference_id Issuer Reference ID - only required when creating forms
+     * @param string|null $issuer_reference_id Issuer Reference ID - only required when creating forms via $bulk-upsert
      *
      * @return self
      */
@@ -764,7 +763,7 @@ class Form1099Nec implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets tax_year
      *
-     * @param int|null $tax_year Tax Year - only required when creating forms
+     * @param int|null $tax_year Tax Year - only required when creating forms via $bulk-upsert
      *
      * @return self
      */
@@ -860,7 +859,7 @@ class Form1099Nec implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets tin_type
      *
-     * @param string|null $tin_type Type of TIN (Tax ID Number)
+     * @param string|null $tin_type Tax Identification Number (TIN) type.  Available values: - EIN: Employer Identification Number - SSN: Social Security Number - ITIN: Individual Taxpayer Identification Number - ATIN: Adoption Taxpayer Identification Number
      *
      * @return self
      */
@@ -1158,7 +1157,7 @@ class Form1099Nec implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets federal_efile_date
      *
-     * @param \DateTime|null $federal_efile_date Date when federal e-filing should be scheduled for this form
+     * @param \DateTime|null $federal_efile_date Date when federal e-filing should be scheduled. If set between current date and beginning of blackout period, scheduled to that date. If in the past or blackout period, scheduled to next available date. For blackout period information, see https://www.track1099.com/info/IRS_info. Set to null to leave unscheduled.
      *
      * @return self
      */
@@ -1206,7 +1205,7 @@ class Form1099Nec implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets state_efile_date
      *
-     * @param \DateTime|null $state_efile_date Date when state e-filing should be scheduled for this form
+     * @param \DateTime|null $state_efile_date Date when state e-filing should be scheduled. Must be on or after federalEfileDate. If set between current date and beginning of blackout period, scheduled to that date. If in the past or blackout period, scheduled to next available date. For blackout period information, see https://www.track1099.com/info/IRS_info. Set to null to leave unscheduled.
      *
      * @return self
      */
@@ -1230,7 +1229,7 @@ class Form1099Nec implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets recipient_edelivery_date
      *
-     * @param \DateTime|null $recipient_edelivery_date Date when recipient e-delivery should be scheduled for this form
+     * @param \DateTime|null $recipient_edelivery_date Date when recipient e-delivery should be scheduled. If set between current date and beginning of blackout period, scheduled to that date. If in the past or blackout period, scheduled to next available date. For blackout period information, see https://www.track1099.com/info/IRS_info. Set to null to leave unscheduled.
      *
      * @return self
      */
@@ -1374,7 +1373,7 @@ class Form1099Nec implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets federal_efile_status
      *
-     * @param \Avalara\SDK\Model\A1099\V2\Form1099StatusDetail|null $federal_efile_status Federal e-file status
+     * @param \Avalara\SDK\Model\A1099\V2\Form1099StatusDetail|null $federal_efile_status Federal e-file status.  Available values:  - unscheduled: Form has not been scheduled for federal e-filing  - scheduled: Form is scheduled for federal e-filing  - airlock: Form is in process of being uploaded to the IRS (forms exist in this state for a very short period and cannot be updated while in this state)  - sent: Form has been sent to the IRS  - accepted: Form was accepted by the IRS  - corrected_scheduled: Correction is scheduled to be sent  - corrected_airlock: Correction is in process of being uploaded to the IRS (forms exist in this state for a very short period and cannot be updated while in this state)  - corrected: A correction has been sent to the IRS  - corrected_accepted: Correction was accepted by the IRS  - rejected: Form was rejected by the IRS  - corrected_rejected: Correction was rejected by the IRS  - held: Form is held and will not be submitted to IRS (used for certain forms submitted only to states)
      *
      * @return self
      */
@@ -1398,14 +1397,12 @@ class Form1099Nec implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets state_efile_status
      *
-     * @param \Avalara\SDK\Model\A1099\V2\StateEfileStatusDetail[]|null $state_efile_status State e-file status
+     * @param \Avalara\SDK\Model\A1099\V2\StateEfileStatusDetail[]|null $state_efile_status State e-file status.  Available values:  - unscheduled: Form has not been scheduled for state e-filing  - scheduled: Form is scheduled for state e-filing  - airlocked: Form is in process of being uploaded to the state  - sent: Form has been sent to the state  - rejected: Form was rejected by the state  - accepted: Form was accepted by the state  - corrected_scheduled: Correction is scheduled to be sent  - corrected_airlocked: Correction is in process of being uploaded to the state  - corrected_sent: Correction has been sent to the state  - corrected_rejected: Correction was rejected by the state  - corrected_accepted: Correction was accepted by the state
      *
      * @return self
      */
     public function setStateEfileStatus($state_efile_status)
     {
-
-
         $this->container['state_efile_status'] = $state_efile_status;
 
         return $this;
@@ -1424,7 +1421,7 @@ class Form1099Nec implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets postal_mail_status
      *
-     * @param \Avalara\SDK\Model\A1099\V2\Form1099StatusDetail|null $postal_mail_status Postal mail to recipient status
+     * @param \Avalara\SDK\Model\A1099\V2\Form1099StatusDetail|null $postal_mail_status Postal mail to recipient status.  Available values:  - unscheduled: Postal mail has not been scheduled  - pending: Postal mail is pending to be sent  - sent: Postal mail has been sent  - delivered: Postal mail has been delivered
      *
      * @return self
      */
@@ -1448,7 +1445,7 @@ class Form1099Nec implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets tin_match_status
      *
-     * @param \Avalara\SDK\Model\A1099\V2\Form1099StatusDetail|null $tin_match_status TIN Match status
+     * @param \Avalara\SDK\Model\A1099\V2\Form1099StatusDetail|null $tin_match_status TIN Match status.  Available values:  - none: TIN matching has not been performed  - pending: TIN matching request is pending  - matched: Name/TIN combination matches IRS records  - unknown: TIN is missing, invalid, or request contains errors  - rejected: Name/TIN combination does not match IRS records or TIN not currently issued
      *
      * @return self
      */
@@ -1472,7 +1469,7 @@ class Form1099Nec implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets address_verification_status
      *
-     * @param \Avalara\SDK\Model\A1099\V2\Form1099StatusDetail|null $address_verification_status Address verification status
+     * @param \Avalara\SDK\Model\A1099\V2\Form1099StatusDetail|null $address_verification_status Address verification status.  Available values:  - unknown: Address verification has not been checked  - pending: Address verification is in progress  - failed: Address verification failed  - incomplete: Address verification is incomplete  - unchanged: User declined address changes  - verified: Address has been verified and accepted
      *
      * @return self
      */
@@ -1496,7 +1493,7 @@ class Form1099Nec implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets e_delivery_status
      *
-     * @param \Avalara\SDK\Model\A1099\V2\Form1099StatusDetail|null $e_delivery_status EDelivery status
+     * @param \Avalara\SDK\Model\A1099\V2\Form1099StatusDetail|null $e_delivery_status EDelivery status.  Available values:  - unscheduled: E-delivery has not been scheduled  - scheduled: E-delivery is scheduled to be sent  - sent: E-delivery has been sent to recipient  - bounced: E-delivery bounced back (invalid email)  - refused: E-delivery was refused by recipient  - bad_verify: E-delivery failed verification  - accepted: E-delivery was accepted by recipient  - bad_verify_limit: E-delivery failed verification limit reached  - second_delivery: Second e-delivery attempt  - undelivered: E-delivery is undelivered (temporary state allowing resend)
      *
      * @return self
      */
@@ -1526,8 +1523,6 @@ class Form1099Nec implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setValidationErrors($validation_errors)
     {
-
-
         $this->container['validation_errors'] = $validation_errors;
 
         return $this;

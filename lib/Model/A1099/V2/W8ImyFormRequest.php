@@ -928,13 +928,18 @@ class W8ImyFormRequest implements ModelInterface, ArrayAccess, \JsonSerializable
             );
         }
 
-        if ($this->container['company_id'] === null) {
-            $invalidProperties[] = "'company_id' can't be null";
+        if ($this->container['name'] === null) {
+            $invalidProperties[] = "'name' can't be null";
         }
-        if ((mb_strlen($this->container['company_id']) < 1)) {
-            $invalidProperties[] = "invalid value for 'company_id', the character length must be bigger than or equal to 1.";
+        if ($this->container['citizenship_country'] === null) {
+            $invalidProperties[] = "'citizenship_country' can't be null";
         }
-
+        if ($this->container['entity_type'] === null) {
+            $invalidProperties[] = "'entity_type' can't be null";
+        }
+        if ($this->container['residence_country'] === null) {
+            $invalidProperties[] = "'residence_country' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -987,7 +992,7 @@ class W8ImyFormRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets name
      *
-     * @return string|null
+     * @return string
      */
     public function getName()
     {
@@ -997,7 +1002,7 @@ class W8ImyFormRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets name
      *
-     * @param string|null $name The name of the individual or entity associated with the form.
+     * @param string $name The name of the individual or entity associated with the form.
      *
      * @return self
      */
@@ -1011,7 +1016,7 @@ class W8ImyFormRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets citizenship_country
      *
-     * @return string|null
+     * @return string
      */
     public function getCitizenshipCountry()
     {
@@ -1021,7 +1026,7 @@ class W8ImyFormRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets citizenship_country
      *
-     * @param string|null $citizenship_country The country of citizenship.
+     * @param string $citizenship_country The country of citizenship.
      *
      * @return self
      */
@@ -1059,7 +1064,7 @@ class W8ImyFormRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets entity_type
      *
-     * @return string|null
+     * @return string
      */
     public function getEntityType()
     {
@@ -1069,7 +1074,7 @@ class W8ImyFormRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets entity_type
      *
-     * @param string|null $entity_type The entity type.
+     * @param string $entity_type The entity type.  Available values:  - 1: QI (including a QDD). Complete Part III.  - 2: Nonqualified intermediary. Complete Part IV.  - 3: Territory financial institution. Complete Part V.  - 4: U.S. branch. Complete Part VI.  - 5: Withholding foreign partnership. Complete Part VII.  - 6: Withholding foreign trust. Complete Part VII.  - 7: Nonwithholding foreign partnership. Complete Part VIII.  - 8: Nonwithholding foreign simple trust. Complete Part VIII.  - 9: Nonwithholding foreign grantor trust. Complete Part VIII.
      *
      * @return self
      */
@@ -1093,7 +1098,7 @@ class W8ImyFormRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets fatca_status
      *
-     * @param string|null $fatca_status The FATCA status.
+     * @param string|null $fatca_status The FATCA status.  Available values:  - 1: Nonparticipating foreign financial institution (FFI) (including an FFI related to a Reporting IGA FFI other than a deemed-compliant FFI, participating FFI, or exempt beneficial owner). Complete Part IX (if applicable).  - 2: Participating FFI.  - 3: Reporting Model 1 FFI.  - 4: Reporting Model 2 FFI.  - 5: Registered deemed-compliant FFI (other than a reporting Model 1 FFI, sponsored FFI, or nonreporting IGA FFI covered in Part XIX).  - 6: Territory financial institution. Complete Part V.  - 7: Sponsored FFI (other than a certified deemed-compliant sponsored, closely held investment vehicle). Complete Part X.  - 8: Certified deemed-compliant nonregistering local bank. Complete Part XII.  - 9: Certified deemed-compliant FFI with only low-value accounts. Complete Part XIII.  - 10: Certified deemed-compliant sponsored, closely held investment vehicle. Complete Part XIV.  - 11: Certified deemed-compliant limited life debt investment entity. Complete Part XV.  - 12: Certain investment entities that do not maintain financial accounts. Complete Part XVI.  - 13: Owner-documented FFI. Complete Part XI.  - 14: Restricted distributor. Complete Part XVII.  - 15: Foreign central bank of issue. Complete Part XVIII.  - 16: Nonreporting IGA FFI. Complete Part XIX.  - 17: Exempt retirement plans. Complete Part XX.  - 18: Excepted nonfinancial group entity. Complete Part XXI.  - 19: Excepted nonfinancial start-up company. Complete Part XXII.  - 20: Excepted nonfinancial entity in liquidation or bankruptcy. Complete Part XXIII.  - 21: Publicly traded NFFE or NFFE affiliate of a publicly traded corporation. Complete Part XXIV.  - 22: Excepted territory NFFE. Complete Part XXV.  - 23: Active NFFE. Complete Part XXVI.  - 24: Passive NFFE. Complete Part XXVII.  - 25: Direct reporting NFFE.  - 26: Sponsored direct reporting NFFE. Complete Part XXVIII.
      *
      * @return self
      */
@@ -1203,7 +1208,7 @@ class W8ImyFormRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets residence_country
      *
-     * @return string|null
+     * @return string
      */
     public function getResidenceCountry()
     {
@@ -1213,7 +1218,7 @@ class W8ImyFormRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets residence_country
      *
-     * @param string|null $residence_country The country of residence.
+     * @param string $residence_country The country of residence.
      *
      * @return self
      */
@@ -1381,7 +1386,7 @@ class W8ImyFormRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets tin_type
      *
-     * @param string|null $tin_type The type of TIN provided.
+     * @param string|null $tin_type Tax Identification Number (TIN) type.  Available values: - QI-EIN: Qualified Intermediary EIN - WP-EIN: Withholding Partnership EIN - WT-EIN: Withholding Trust EIN - EIN: Employer Identification Number
      *
      * @return self
      */
@@ -1501,7 +1506,7 @@ class W8ImyFormRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets disregarded_entity_fatca_status
      *
-     * @param string|null $disregarded_entity_fatca_status The FATCA status of disregarded entity or branch receiving payment.
+     * @param string|null $disregarded_entity_fatca_status The FATCA status of disregarded entity or branch receiving payment.  Available values:  - 1: Branch treated as nonparticipating FFI.  - 2: Participating FFI.  - 3: Reporting Model 1 FFI.  - 4: Reporting Model 2 FFI.  - 5: U.S. Branch
      *
      * @return self
      */
@@ -3037,7 +3042,7 @@ class W8ImyFormRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets iga_model
      *
-     * @param string|null $iga_model The applicable IGA model.
+     * @param string|null $iga_model The applicable IGA model.  Available values:  - 1: Model 1 IGA  - 2: Model 2 IGA
      *
      * @return self
      */
@@ -3699,7 +3704,7 @@ class W8ImyFormRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets company_id
      *
-     * @return string
+     * @return string|null
      */
     public function getCompanyId()
     {
@@ -3709,17 +3714,12 @@ class W8ImyFormRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets company_id
      *
-     * @param string $company_id The ID of the associated company.
+     * @param string|null $company_id The ID of the associated company. Required when creating a form.
      *
      * @return self
      */
     public function setCompanyId($company_id)
     {
-
-        if ((mb_strlen($company_id) < 1)) {
-            throw new \InvalidArgumentException('invalid length for $company_id when calling W8ImyFormRequest., must be bigger than or equal to 1.');
-        }
-
         $this->container['company_id'] = $company_id;
 
         return $this;

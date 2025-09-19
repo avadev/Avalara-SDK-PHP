@@ -376,13 +376,18 @@ class W4FormRequest implements ModelInterface, ArrayAccess, \JsonSerializable
             );
         }
 
-        if ($this->container['company_id'] === null) {
-            $invalidProperties[] = "'company_id' can't be null";
+        if ($this->container['employee_first_name'] === null) {
+            $invalidProperties[] = "'employee_first_name' can't be null";
         }
-        if ((mb_strlen($this->container['company_id']) < 1)) {
-            $invalidProperties[] = "invalid value for 'company_id', the character length must be bigger than or equal to 1.";
+        if ($this->container['employee_last_name'] === null) {
+            $invalidProperties[] = "'employee_last_name' can't be null";
         }
-
+        if ($this->container['tin_type'] === null) {
+            $invalidProperties[] = "'tin_type' can't be null";
+        }
+        if ($this->container['tin'] === null) {
+            $invalidProperties[] = "'tin' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -435,7 +440,7 @@ class W4FormRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets employee_first_name
      *
-     * @return string|null
+     * @return string
      */
     public function getEmployeeFirstName()
     {
@@ -445,7 +450,7 @@ class W4FormRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets employee_first_name
      *
-     * @param string|null $employee_first_name The first name of the employee.
+     * @param string $employee_first_name The first name of the employee.
      *
      * @return self
      */
@@ -483,7 +488,7 @@ class W4FormRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets employee_last_name
      *
-     * @return string|null
+     * @return string
      */
     public function getEmployeeLastName()
     {
@@ -493,7 +498,7 @@ class W4FormRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets employee_last_name
      *
-     * @param string|null $employee_last_name The last name of the employee.
+     * @param string $employee_last_name The last name of the employee.
      *
      * @return self
      */
@@ -531,7 +536,7 @@ class W4FormRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets tin_type
      *
-     * @return string|null
+     * @return string
      */
     public function getTinType()
     {
@@ -541,7 +546,7 @@ class W4FormRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets tin_type
      *
-     * @param string|null $tin_type The type of TIN provided.
+     * @param string $tin_type Tax Identification Number (TIN) type.
      *
      * @return self
      */
@@ -555,7 +560,7 @@ class W4FormRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets tin
      *
-     * @return string|null
+     * @return string
      */
     public function getTin()
     {
@@ -565,7 +570,7 @@ class W4FormRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets tin
      *
-     * @param string|null $tin The taxpayer identification number (TIN).
+     * @param string $tin The taxpayer identification number (TIN).
      *
      * @return self
      */
@@ -589,7 +594,7 @@ class W4FormRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets address
      *
-     * @param string|null $address The address of the employee.
+     * @param string|null $address The address of the employee. Required unless exempt.
      *
      * @return self
      */
@@ -613,7 +618,7 @@ class W4FormRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets city
      *
-     * @param string|null $city The city of residence of the employee.
+     * @param string|null $city The city of residence of the employee. Required unless exempt.
      *
      * @return self
      */
@@ -637,7 +642,7 @@ class W4FormRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets state
      *
-     * @param string|null $state The state of residence of the employee.
+     * @param string|null $state The state of residence of the employee. Required unless exempt.
      *
      * @return self
      */
@@ -661,7 +666,7 @@ class W4FormRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets zip
      *
-     * @param string|null $zip The ZIP code of residence of the employee.
+     * @param string|null $zip The ZIP code of residence of the employee. Required unless exempt.
      *
      * @return self
      */
@@ -685,7 +690,7 @@ class W4FormRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets marital_status
      *
-     * @param string|null $marital_status The marital status of the employee.
+     * @param string|null $marital_status The marital status of the employee. Required unless exempt.  Available values:  - Single: Single or Married filing separately  - Married: Married filing jointly or qualifying surviving spouse  - MarriedBut: Head of household. Check only if you're unmarried and pay more than half the costs of keeping up a home for yourself and a qualifying individual.
      *
      * @return self
      */
@@ -939,7 +944,7 @@ class W4FormRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets company_id
      *
-     * @return string
+     * @return string|null
      */
     public function getCompanyId()
     {
@@ -949,17 +954,12 @@ class W4FormRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets company_id
      *
-     * @param string $company_id The ID of the associated company.
+     * @param string|null $company_id The ID of the associated company. Required when creating a form.
      *
      * @return self
      */
     public function setCompanyId($company_id)
     {
-
-        if ((mb_strlen($company_id) < 1)) {
-            throw new \InvalidArgumentException('invalid length for $company_id when calling W4FormRequest., must be bigger than or equal to 1.');
-        }
-
         $this->container['company_id'] = $company_id;
 
         return $this;

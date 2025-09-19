@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **employee_first_name** | **string** | The first name of the employee. |
 **employee_last_name** | **string** | The last name of the employee. |
 **office_code** | **string** | The office code associated with the form. | [optional]
-**company_id** | **string** | The ID of the associated company. |
+**company_id** | **string** | The ID of the associated company. Required when creating a form. | [optional]
 **reference_id** | **string** | A reference identifier for the form. | [optional]
 
 [[Back to Model list]](../../../README.md#models) [[Back to API list]](../../../README.md#endpoints) [[Back to README]](../../../README.md)

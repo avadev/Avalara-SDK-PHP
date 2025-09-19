@@ -934,7 +934,6 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
         return self::$openAPIModelName;
     }
 
-    const TIN_TYPE__EMPTY = 'Empty';
     const TIN_TYPE_EIN = 'EIN';
     const TIN_TYPE_SSN = 'SSN';
     const TIN_TYPE_ITIN = 'ITIN';
@@ -1141,15 +1140,15 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     const CHAP4_STATUS_CODE__48 = '48';
     const CHAP4_STATUS_CODE__49 = '49';
     const CHAP4_STATUS_CODE__50 = '50';
-    const TYPE__1099_NEC = '1099-NEC';
-    const TYPE__1099_MISC = '1099-MISC';
-    const TYPE__1099_DIV = '1099-DIV';
-    const TYPE__1099_R = '1099-R';
-    const TYPE__1099_K = '1099-K';
-    const TYPE__1095_B = '1095-B';
-    const TYPE__1042_S = '1042-S';
-    const TYPE__1095_C = '1095-C';
-    const TYPE__1099_INT = '1099-INT';
+    const TYPE_FORM1099_NEC = 'Form1099Nec';
+    const TYPE_FORM1099_MISC = 'Form1099Misc';
+    const TYPE_FORM1099_DIV = 'Form1099Div';
+    const TYPE_FORM1099_R = 'Form1099R';
+    const TYPE_FORM1099_K = 'Form1099K';
+    const TYPE_FORM1095_B = 'Form1095B';
+    const TYPE_FORM1042_S = 'Form1042S';
+    const TYPE_FORM1095_C = 'Form1095C';
+    const TYPE_FORM1099_INT = 'Form1099Int';
     const ORIGIN_OF_HEALTH_COVERAGE_CODE_A = 'A';
     const ORIGIN_OF_HEALTH_COVERAGE_CODE_B = 'B';
     const ORIGIN_OF_HEALTH_COVERAGE_CODE_C = 'C';
@@ -1172,9 +1171,66 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     const PLAN_START_MONTH__12 = '12';
     const FILER_TYPE_PSE = 'PSE';
     const FILER_TYPE_EPF = 'EPF';
-    const FILER_TYPE_OTHER = 'Other';
-    const PAYMENT_TYPE_MERCHANT_PAYMENT_CARD = 'MerchantPaymentCard';
+    const PAYMENT_TYPE_PAYMENT_CARD = 'PaymentCard';
     const PAYMENT_TYPE_THIRD_PARTY_NETWORK = 'ThirdPartyNetwork';
+    const DISTRIBUTION_CODE__1 = '1';
+    const DISTRIBUTION_CODE__2 = '2';
+    const DISTRIBUTION_CODE__3 = '3';
+    const DISTRIBUTION_CODE__4 = '4';
+    const DISTRIBUTION_CODE__5 = '5';
+    const DISTRIBUTION_CODE__6 = '6';
+    const DISTRIBUTION_CODE__7 = '7';
+    const DISTRIBUTION_CODE__8 = '8';
+    const DISTRIBUTION_CODE__9 = '9';
+    const DISTRIBUTION_CODE_A = 'A';
+    const DISTRIBUTION_CODE_B = 'B';
+    const DISTRIBUTION_CODE_C = 'C';
+    const DISTRIBUTION_CODE_D = 'D';
+    const DISTRIBUTION_CODE_E = 'E';
+    const DISTRIBUTION_CODE_F = 'F';
+    const DISTRIBUTION_CODE_G = 'G';
+    const DISTRIBUTION_CODE_H = 'H';
+    const DISTRIBUTION_CODE_J = 'J';
+    const DISTRIBUTION_CODE_K = 'K';
+    const DISTRIBUTION_CODE_L = 'L';
+    const DISTRIBUTION_CODE_M = 'M';
+    const DISTRIBUTION_CODE_N = 'N';
+    const DISTRIBUTION_CODE_P = 'P';
+    const DISTRIBUTION_CODE_Q = 'Q';
+    const DISTRIBUTION_CODE_R = 'R';
+    const DISTRIBUTION_CODE_S = 'S';
+    const DISTRIBUTION_CODE_T = 'T';
+    const DISTRIBUTION_CODE_U = 'U';
+    const DISTRIBUTION_CODE_W = 'W';
+    const SECOND_DISTRIBUTION_CODE__1 = '1';
+    const SECOND_DISTRIBUTION_CODE__2 = '2';
+    const SECOND_DISTRIBUTION_CODE__3 = '3';
+    const SECOND_DISTRIBUTION_CODE__4 = '4';
+    const SECOND_DISTRIBUTION_CODE__5 = '5';
+    const SECOND_DISTRIBUTION_CODE__6 = '6';
+    const SECOND_DISTRIBUTION_CODE__7 = '7';
+    const SECOND_DISTRIBUTION_CODE__8 = '8';
+    const SECOND_DISTRIBUTION_CODE__9 = '9';
+    const SECOND_DISTRIBUTION_CODE_A = 'A';
+    const SECOND_DISTRIBUTION_CODE_B = 'B';
+    const SECOND_DISTRIBUTION_CODE_C = 'C';
+    const SECOND_DISTRIBUTION_CODE_D = 'D';
+    const SECOND_DISTRIBUTION_CODE_E = 'E';
+    const SECOND_DISTRIBUTION_CODE_F = 'F';
+    const SECOND_DISTRIBUTION_CODE_G = 'G';
+    const SECOND_DISTRIBUTION_CODE_H = 'H';
+    const SECOND_DISTRIBUTION_CODE_J = 'J';
+    const SECOND_DISTRIBUTION_CODE_K = 'K';
+    const SECOND_DISTRIBUTION_CODE_L = 'L';
+    const SECOND_DISTRIBUTION_CODE_M = 'M';
+    const SECOND_DISTRIBUTION_CODE_N = 'N';
+    const SECOND_DISTRIBUTION_CODE_P = 'P';
+    const SECOND_DISTRIBUTION_CODE_Q = 'Q';
+    const SECOND_DISTRIBUTION_CODE_R = 'R';
+    const SECOND_DISTRIBUTION_CODE_S = 'S';
+    const SECOND_DISTRIBUTION_CODE_T = 'T';
+    const SECOND_DISTRIBUTION_CODE_U = 'U';
+    const SECOND_DISTRIBUTION_CODE_W = 'W';
 
     /**
      * Gets allowable values of the enum
@@ -1184,7 +1240,6 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     public function getTinTypeAllowableValues()
     {
         return [
-            self::TIN_TYPE__EMPTY,
             self::TIN_TYPE_EIN,
             self::TIN_TYPE_SSN,
             self::TIN_TYPE_ITIN,
@@ -1490,15 +1545,15 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     public function getTypeAllowableValues()
     {
         return [
-            self::TYPE__1099_NEC,
-            self::TYPE__1099_MISC,
-            self::TYPE__1099_DIV,
-            self::TYPE__1099_R,
-            self::TYPE__1099_K,
-            self::TYPE__1095_B,
-            self::TYPE__1042_S,
-            self::TYPE__1095_C,
-            self::TYPE__1099_INT,
+            self::TYPE_FORM1099_NEC,
+            self::TYPE_FORM1099_MISC,
+            self::TYPE_FORM1099_DIV,
+            self::TYPE_FORM1099_R,
+            self::TYPE_FORM1099_K,
+            self::TYPE_FORM1095_B,
+            self::TYPE_FORM1042_S,
+            self::TYPE_FORM1095_C,
+            self::TYPE_FORM1099_INT,
         ];
     }
 
@@ -1554,7 +1609,6 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
         return [
             self::FILER_TYPE_PSE,
             self::FILER_TYPE_EPF,
-            self::FILER_TYPE_OTHER,
         ];
     }
 
@@ -1566,8 +1620,88 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     public function getPaymentTypeAllowableValues()
     {
         return [
-            self::PAYMENT_TYPE_MERCHANT_PAYMENT_CARD,
+            self::PAYMENT_TYPE_PAYMENT_CARD,
             self::PAYMENT_TYPE_THIRD_PARTY_NETWORK,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getDistributionCodeAllowableValues()
+    {
+        return [
+            self::DISTRIBUTION_CODE__1,
+            self::DISTRIBUTION_CODE__2,
+            self::DISTRIBUTION_CODE__3,
+            self::DISTRIBUTION_CODE__4,
+            self::DISTRIBUTION_CODE__5,
+            self::DISTRIBUTION_CODE__6,
+            self::DISTRIBUTION_CODE__7,
+            self::DISTRIBUTION_CODE__8,
+            self::DISTRIBUTION_CODE__9,
+            self::DISTRIBUTION_CODE_A,
+            self::DISTRIBUTION_CODE_B,
+            self::DISTRIBUTION_CODE_C,
+            self::DISTRIBUTION_CODE_D,
+            self::DISTRIBUTION_CODE_E,
+            self::DISTRIBUTION_CODE_F,
+            self::DISTRIBUTION_CODE_G,
+            self::DISTRIBUTION_CODE_H,
+            self::DISTRIBUTION_CODE_J,
+            self::DISTRIBUTION_CODE_K,
+            self::DISTRIBUTION_CODE_L,
+            self::DISTRIBUTION_CODE_M,
+            self::DISTRIBUTION_CODE_N,
+            self::DISTRIBUTION_CODE_P,
+            self::DISTRIBUTION_CODE_Q,
+            self::DISTRIBUTION_CODE_R,
+            self::DISTRIBUTION_CODE_S,
+            self::DISTRIBUTION_CODE_T,
+            self::DISTRIBUTION_CODE_U,
+            self::DISTRIBUTION_CODE_W,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getSecondDistributionCodeAllowableValues()
+    {
+        return [
+            self::SECOND_DISTRIBUTION_CODE__1,
+            self::SECOND_DISTRIBUTION_CODE__2,
+            self::SECOND_DISTRIBUTION_CODE__3,
+            self::SECOND_DISTRIBUTION_CODE__4,
+            self::SECOND_DISTRIBUTION_CODE__5,
+            self::SECOND_DISTRIBUTION_CODE__6,
+            self::SECOND_DISTRIBUTION_CODE__7,
+            self::SECOND_DISTRIBUTION_CODE__8,
+            self::SECOND_DISTRIBUTION_CODE__9,
+            self::SECOND_DISTRIBUTION_CODE_A,
+            self::SECOND_DISTRIBUTION_CODE_B,
+            self::SECOND_DISTRIBUTION_CODE_C,
+            self::SECOND_DISTRIBUTION_CODE_D,
+            self::SECOND_DISTRIBUTION_CODE_E,
+            self::SECOND_DISTRIBUTION_CODE_F,
+            self::SECOND_DISTRIBUTION_CODE_G,
+            self::SECOND_DISTRIBUTION_CODE_H,
+            self::SECOND_DISTRIBUTION_CODE_J,
+            self::SECOND_DISTRIBUTION_CODE_K,
+            self::SECOND_DISTRIBUTION_CODE_L,
+            self::SECOND_DISTRIBUTION_CODE_M,
+            self::SECOND_DISTRIBUTION_CODE_N,
+            self::SECOND_DISTRIBUTION_CODE_P,
+            self::SECOND_DISTRIBUTION_CODE_Q,
+            self::SECOND_DISTRIBUTION_CODE_R,
+            self::SECOND_DISTRIBUTION_CODE_S,
+            self::SECOND_DISTRIBUTION_CODE_T,
+            self::SECOND_DISTRIBUTION_CODE_U,
+            self::SECOND_DISTRIBUTION_CODE_W,
         ];
     }
 
@@ -1903,6 +2037,9 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
         if ($this->container['offer_and_coverages'] === null) {
             $invalidProperties[] = "'offer_and_coverages' can't be null";
         }
+        if ($this->container['filer_type'] === null) {
+            $invalidProperties[] = "'filer_type' can't be null";
+        }
         $allowedValues = $this->getFilerTypeAllowableValues();
         if (!is_null($this->container['filer_type']) && !in_array($this->container['filer_type'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -1912,6 +2049,9 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
             );
         }
 
+        if ($this->container['payment_type'] === null) {
+            $invalidProperties[] = "'payment_type' can't be null";
+        }
         $allowedValues = $this->getPaymentTypeAllowableValues();
         if (!is_null($this->container['payment_type']) && !in_array($this->container['payment_type'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -1921,9 +2061,36 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
             );
         }
 
+        if ($this->container['gross_amount_payment_card'] === null) {
+            $invalidProperties[] = "'gross_amount_payment_card' can't be null";
+        }
+        if ($this->container['payment_transaction_number'] === null) {
+            $invalidProperties[] = "'payment_transaction_number' can't be null";
+        }
         if ($this->container['nonemployee_compensation'] === null) {
             $invalidProperties[] = "'nonemployee_compensation' can't be null";
         }
+        if ($this->container['distribution_code'] === null) {
+            $invalidProperties[] = "'distribution_code' can't be null";
+        }
+        $allowedValues = $this->getDistributionCodeAllowableValues();
+        if (!is_null($this->container['distribution_code']) && !in_array($this->container['distribution_code'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'distribution_code', must be one of '%s'",
+                $this->container['distribution_code'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getSecondDistributionCodeAllowableValues();
+        if (!is_null($this->container['second_distribution_code']) && !in_array($this->container['second_distribution_code'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'second_distribution_code', must be one of '%s'",
+                $this->container['second_distribution_code'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -1952,7 +2119,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets tin_type
      *
-     * @param string|null $tin_type Type of TIN (Tax ID Number)
+     * @param string|null $tin_type Tax Identification Number (TIN) type.  Available values: - EIN: Employer Identification Number - SSN: Social Security Number - ITIN: Individual Taxpayer Identification Number - ATIN: Adoption Taxpayer Identification Number
      *
      * @return self
      */
@@ -2502,7 +2669,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets chap3_status_code
      *
-     * @param string|null $chap3_status_code Chapter 3 status code - Required if WithholdingIndicator is 3 (Chapter 3)  Available values:  - 01: U.S. Withholding Agent - FI (Deprecated - valid only for tax years prior to 2020)  - 02: U.S. Withholding Agent - Other (Deprecated - valid only for tax years prior to 2020)  - 03: Territory FI - treated as U.S. Person  - 04: Territory FI - not treated as U.S. Person  - 05: U.S. branch - treated as U.S. Person  - 06: U.S. branch - not treated as U.S. Person  - 07: U.S. branch - ECI presumption applied  - 08: Partnership other than Withholding Foreign Partnership  - 09: Withholding Foreign Partnership  - 10: Trust other than Withholding Foreign Trust  - 11: Withholding Foreign Trust  - 12: Qualified Intermediary  - 13: Qualified Securities Lender - Qualified Intermediary  - 14: Qualified Securities Lender - Other  - 15: Corporation  - 16: Individual  - 17: Estate  - 18: Private Foundation  - 19: Government or International Organization  - 20: Tax Exempt Organization (Section 501(c) entities)  - 21: Unknown Recipient  - 22: Artist or Athlete  - 23: Pension  - 24: Foreign Central Bank of Issue  - 25: Nonqualified Intermediary  - 26: Hybrid entity making Treaty Claim  - 27: Withholding Rate Pool - General  - 28: Withholding Rate Pool - Exempt Organization  - 29: PAI Withholding Rate Pool - General  - 30: PAI Withholding Rate Pool - Exempt Organization  - 31: Agency Withholding Rate Pool - General  - 32: Agency Withholding Rate Pool - Exempt Organization  - 34: U.S. Withholding Agent-Foreign branch of FI (Deprecated - valid only for tax years prior to 2020)  - 35: Qualified Derivatives Dealer  - 36: Foreign Government - Integral Part  - 37: Foreign Government - Controlled Entity  - 38: Publicly Traded Partnership  - 39: Disclosing Qualified Intermediary
+     * @param string|null $chap3_status_code Chapter 3 status code - Required if WithholdingIndicator is 3 (Chapter 3). Available values: - 01: U.S. Withholding Agent - FI (Deprecated - valid only for tax years prior to 2020) - 02: U.S. Withholding Agent - Other (Deprecated - valid only for tax years prior to 2020) - 03: Territory FI - treated as U.S. Person - 04: Territory FI - not treated as U.S. Person - 05: U.S. branch - treated as U.S. Person - 06: U.S. branch - not treated as U.S. Person - 07: U.S. branch - ECI presumption applied - 08: Partnership other than Withholding Foreign Partnership - 09: Withholding Foreign Partnership - 10: Trust other than Withholding Foreign Trust - 11: Withholding Foreign Trust - 12: Qualified Intermediary - 13: Qualified Securities Lender - Qualified Intermediary - 14: Qualified Securities Lender - Other - 15: Corporation - 16: Individual - 17: Estate - 18: Private Foundation - 19: Government or International Organization - 20: Tax Exempt Organization (Section 501(c) entities) - 21: Unknown Recipient - 22: Artist or Athlete - 23: Pension - 24: Foreign Central Bank of Issue - 25: Nonqualified Intermediary - 26: Hybrid entity making Treaty Claim - 27: Withholding Rate Pool - General - 28: Withholding Rate Pool - Exempt Organization - 29: PAI Withholding Rate Pool - General - 30: PAI Withholding Rate Pool - Exempt Organization - 31: Agency Withholding Rate Pool - General - 32: Agency Withholding Rate Pool - Exempt Organization - 34: U.S. Withholding Agent-Foreign branch of FI (Deprecated - valid only for tax years prior to 2020) - 35: Qualified Derivatives Dealer - 36: Foreign Government - Integral Part - 37: Foreign Government - Controlled Entity - 38: Publicly Traded Partnership - 39: Disclosing Qualified Intermediary
      *
      * @return self
      */
@@ -2536,7 +2703,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets chap4_status_code
      *
-     * @param string|null $chap4_status_code Chapter 4 status code. Required if WithholdingIndicator is 4 (Chapter 4). Required if email is specified, must fill either this or RecipientForeignTin.  Available values:  - 01: U.S. Withholding Agent - FI  - 02: U.S. Withholding Agent - Other  - 03: Territory FI - not treated as U.S. Person  - 04: Territory FI - treated as U.S. Person  - 05: Participating FFI - Other  - 06: Participating FFI - Reporting Model 2 FFI  - 07: Registered Deemed - Compliant FFI-Reporting Model 1 FFI  - 08: Registered Deemed - Compliant FFI-Sponsored Entity  - 09: Registered Deemed - Compliant FFI-Other  - 10: Certified Deemed - Compliant FFI-Other  - 11: Certified Deemed - Compliant FFI-FFI with Low Value Accounts  - 12: Certified Deemed - Compliant FFI-Non-Registering Local Bank  - 13: Certified Deemed - Compliant FFI-Sponsored Entity  - 14: Certified Deemed - Compliant FFI-Investment Advisor or Investment Manager  - 15: Nonparticipating FFI  - 16: Owner-Documented FFI  - 17: U.S. Branch - treated as U.S. person  - 18: U.S. Branch - not treated as U.S. person (reporting under section 1471)  - 19: Passive NFFE identifying Substantial U.S. Owners  - 20: Passive NFFE with no Substantial U.S. Owners  - 21: Publicly Traded NFFE or Affiliate of Publicly Traded NFFE  - 22: Active NFFE  - 23: Individual  - 24: Section 501(c) Entities  - 25: Excepted Territory NFFE  - 26: Excepted NFFE - Other  - 27: Exempt Beneficial Owner  - 28: Entity Wholly Owned by Exempt Beneficial Owners  - 29: Unknown Recipient  - 30: Recalcitrant Account Holder  - 31: Nonreporting IGA FFI  - 32: Direct reporting NFFE  - 33: U.S. reportable account  - 34: Non-consenting U.S. account  - 35: Sponsored direct reporting NFFE  - 36: Excepted Inter-affiliate FFI  - 37: Undocumented Preexisting Obligation  - 38: U.S. Branch - ECI presumption applied  - 39: Account Holder of Excluded Financial Account  - 40: Passive NFFE reported by FFI  - 41: NFFE subject to 1472 withholding  - 42: Recalcitrant Pool - No U.S. Indicia  - 43: Recalcitrant Pool - U.S. Indicia  - 44: Recalcitrant Pool - Dormant Account  - 45: Recalcitrant Pool - U.S. Persons  - 46: Recalcitrant Pool - Passive NFFEs  - 47: Nonparticipating FFI Pool  - 48: U.S. Payees Pool  - 49: QI - Recalcitrant Pool-General  - 50: U.S. Withholding Agent-Foreign branch of FI
+     * @param string|null $chap4_status_code Chapter 4 status code. Required if WithholdingIndicator is 4 (Chapter 4). Required if email is specified, must fill either this or RecipientForeignTin. Available values: - 01: U.S. Withholding Agent - FI - 02: U.S. Withholding Agent - Other - 03: Territory FI - not treated as U.S. Person - 04: Territory FI - treated as U.S. Person - 05: Participating FFI - Other - 06: Participating FFI - Reporting Model 2 FFI - 07: Registered Deemed - Compliant FFI-Reporting Model 1 FFI - 08: Registered Deemed - Compliant FFI-Sponsored Entity - 09: Registered Deemed - Compliant FFI-Other - 10: Certified Deemed - Compliant FFI-Other - 11: Certified Deemed - Compliant FFI-FFI with Low Value Accounts - 12: Certified Deemed - Compliant FFI-Non-Registering Local Bank - 13: Certified Deemed - Compliant FFI-Sponsored Entity - 14: Certified Deemed - Compliant FFI-Investment Advisor or Investment Manager - 15: Nonparticipating FFI - 16: Owner-Documented FFI - 17: U.S. Branch - treated as U.S. person - 18: U.S. Branch - not treated as U.S. person (reporting under section 1471) - 19: Passive NFFE identifying Substantial U.S. Owners - 20: Passive NFFE with no Substantial U.S. Owners - 21: Publicly Traded NFFE or Affiliate of Publicly Traded NFFE - 22: Active NFFE - 23: Individual - 24: Section 501(c) Entities - 25: Excepted Territory NFFE - 26: Excepted NFFE - Other - 27: Exempt Beneficial Owner - 28: Entity Wholly Owned by Exempt Beneficial Owners - 29: Unknown Recipient - 30: Recalcitrant Account Holder - 31: Nonreporting IGA FFI - 32: Direct reporting NFFE - 33: U.S. reportable account - 34: Non-consenting U.S. account - 35: Sponsored direct reporting NFFE - 36: Excepted Inter-affiliate FFI - 37: Undocumented Preexisting Obligation - 38: U.S. Branch - ECI presumption applied - 39: Account Holder of Excluded Financial Account - 40: Passive NFFE reported by FFI - 41: NFFE subject to 1472 withholding - 42: Recalcitrant Pool - No U.S. Indicia - 43: Recalcitrant Pool - U.S. Indicia - 44: Recalcitrant Pool - Dormant Account - 45: Recalcitrant Pool - U.S. Persons - 46: Recalcitrant Pool - Passive NFFEs - 47: Nonparticipating FFI Pool - 48: U.S. Payees Pool - 49: QI - Recalcitrant Pool-General - 50: U.S. Withholding Agent-Foreign branch of FI
      *
      * @return self
      */
@@ -2618,7 +2785,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets type
      *
-     * @param string $type Form type
+     * @param string $type Form type.
      *
      * @return self
      */
@@ -2700,7 +2867,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets issuer_reference_id
      *
-     * @param string|null $issuer_reference_id Issuer Reference ID - only required when creating forms
+     * @param string|null $issuer_reference_id Issuer Reference ID - only required when creating forms via $bulk-upsert
      *
      * @return self
      */
@@ -2748,7 +2915,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets tax_year
      *
-     * @param int|null $tax_year Tax Year - only required when creating forms
+     * @param int|null $tax_year Tax Year - only required when creating forms via $bulk-upsert
      *
      * @return self
      */
@@ -3108,7 +3275,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets federal_efile_date
      *
-     * @param \DateTime|null $federal_efile_date Date when federal e-filing should be scheduled for this form
+     * @param \DateTime|null $federal_efile_date Date when federal e-filing should be scheduled. If set between current date and beginning of blackout period, scheduled to that date. If in the past or blackout period, scheduled to next available date. For blackout period information, see https://www.track1099.com/info/IRS_info. Set to null to leave unscheduled.
      *
      * @return self
      */
@@ -3156,7 +3323,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets state_efile_date
      *
-     * @param \DateTime|null $state_efile_date Date when state e-filing should be scheduled for this form
+     * @param \DateTime|null $state_efile_date Date when state e-filing should be scheduled. Must be on or after federalEfileDate. If set between current date and beginning of blackout period, scheduled to that date. If in the past or blackout period, scheduled to next available date. For blackout period information, see https://www.track1099.com/info/IRS_info. Set to null to leave unscheduled.
      *
      * @return self
      */
@@ -3180,7 +3347,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets recipient_edelivery_date
      *
-     * @param \DateTime|null $recipient_edelivery_date Date when recipient e-delivery should be scheduled for this form
+     * @param \DateTime|null $recipient_edelivery_date Date when recipient e-delivery should be scheduled. If set between current date and beginning of blackout period, scheduled to that date. If in the past or blackout period, scheduled to next available date. For blackout period information, see https://www.track1099.com/info/IRS_info. Set to null to leave unscheduled.
      *
      * @return self
      */
@@ -3324,7 +3491,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets federal_efile_status
      *
-     * @param \Avalara\SDK\Model\A1099\V2\Form1099StatusDetail|null $federal_efile_status Federal e-file status
+     * @param \Avalara\SDK\Model\A1099\V2\Form1099StatusDetail|null $federal_efile_status Federal e-file status.  Available values:  - unscheduled: Form has not been scheduled for federal e-filing  - scheduled: Form is scheduled for federal e-filing  - airlock: Form is in process of being uploaded to the IRS (forms exist in this state for a very short period and cannot be updated while in this state)  - sent: Form has been sent to the IRS  - accepted: Form was accepted by the IRS  - corrected_scheduled: Correction is scheduled to be sent  - corrected_airlock: Correction is in process of being uploaded to the IRS (forms exist in this state for a very short period and cannot be updated while in this state)  - corrected: A correction has been sent to the IRS  - corrected_accepted: Correction was accepted by the IRS  - rejected: Form was rejected by the IRS  - corrected_rejected: Correction was rejected by the IRS  - held: Form is held and will not be submitted to IRS (used for certain forms submitted only to states)
      *
      * @return self
      */
@@ -3348,14 +3515,12 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets state_efile_status
      *
-     * @param \Avalara\SDK\Model\A1099\V2\StateEfileStatusDetail[]|null $state_efile_status State e-file status
+     * @param \Avalara\SDK\Model\A1099\V2\StateEfileStatusDetail[]|null $state_efile_status State e-file status.  Available values:  - unscheduled: Form has not been scheduled for state e-filing  - scheduled: Form is scheduled for state e-filing  - airlocked: Form is in process of being uploaded to the state  - sent: Form has been sent to the state  - rejected: Form was rejected by the state  - accepted: Form was accepted by the state  - corrected_scheduled: Correction is scheduled to be sent  - corrected_airlocked: Correction is in process of being uploaded to the state  - corrected_sent: Correction has been sent to the state  - corrected_rejected: Correction was rejected by the state  - corrected_accepted: Correction was accepted by the state
      *
      * @return self
      */
     public function setStateEfileStatus($state_efile_status)
     {
-
-
         $this->container['state_efile_status'] = $state_efile_status;
 
         return $this;
@@ -3374,7 +3539,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets postal_mail_status
      *
-     * @param \Avalara\SDK\Model\A1099\V2\Form1099StatusDetail|null $postal_mail_status Postal mail to recipient status
+     * @param \Avalara\SDK\Model\A1099\V2\Form1099StatusDetail|null $postal_mail_status Postal mail to recipient status.  Available values:  - unscheduled: Postal mail has not been scheduled  - pending: Postal mail is pending to be sent  - sent: Postal mail has been sent  - delivered: Postal mail has been delivered
      *
      * @return self
      */
@@ -3398,7 +3563,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets tin_match_status
      *
-     * @param \Avalara\SDK\Model\A1099\V2\Form1099StatusDetail|null $tin_match_status TIN Match status
+     * @param \Avalara\SDK\Model\A1099\V2\Form1099StatusDetail|null $tin_match_status TIN Match status.  Available values:  - none: TIN matching has not been performed  - pending: TIN matching request is pending  - matched: Name/TIN combination matches IRS records  - unknown: TIN is missing, invalid, or request contains errors  - rejected: Name/TIN combination does not match IRS records or TIN not currently issued
      *
      * @return self
      */
@@ -3422,7 +3587,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets address_verification_status
      *
-     * @param \Avalara\SDK\Model\A1099\V2\Form1099StatusDetail|null $address_verification_status Address verification status
+     * @param \Avalara\SDK\Model\A1099\V2\Form1099StatusDetail|null $address_verification_status Address verification status.  Available values:  - unknown: Address verification has not been checked  - pending: Address verification is in progress  - failed: Address verification failed  - incomplete: Address verification is incomplete  - unchanged: User declined address changes  - verified: Address has been verified and accepted
      *
      * @return self
      */
@@ -3446,7 +3611,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets e_delivery_status
      *
-     * @param \Avalara\SDK\Model\A1099\V2\Form1099StatusDetail|null $e_delivery_status EDelivery status
+     * @param \Avalara\SDK\Model\A1099\V2\Form1099StatusDetail|null $e_delivery_status EDelivery status.  Available values:  - unscheduled: E-delivery has not been scheduled  - scheduled: E-delivery is scheduled to be sent  - sent: E-delivery has been sent to recipient  - bounced: E-delivery bounced back (invalid email)  - refused: E-delivery was refused by recipient  - bad_verify: E-delivery failed verification  - accepted: E-delivery was accepted by recipient  - bad_verify_limit: E-delivery failed verification limit reached  - second_delivery: Second e-delivery attempt  - undelivered: E-delivery is undelivered (temporary state allowing resend)
      *
      * @return self
      */
@@ -3476,8 +3641,6 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function setValidationErrors($validation_errors)
     {
-
-
         $this->container['validation_errors'] = $validation_errors;
 
         return $this;
@@ -3664,7 +3827,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets origin_of_health_coverage_code
      *
-     * @param string $origin_of_health_coverage_code Origin of health coverage code  Available values:  - A: Small Business Health Options Program (SHOP)  - B: Employer-sponsored coverage  - C: Government-sponsored program  - D: Individual market insurance  - E: Multiemployer plan  - F: Other designated minimum essential coverage  - G: Employer-sponsored coverage that is an individual coverage HRA (valid for tax years 2020 and later)
+     * @param string $origin_of_health_coverage_code Origin of health coverage code.    Available values:  - A: Small Business Health Options Program (SHOP)  - B: Employer-sponsored coverage  - C: Government-sponsored program  - D: Individual market insurance  - E: Multiemployer plan  - F: Other designated minimum essential coverage  - G: Employer-sponsored coverage that is an individual coverage HRA (valid for tax years 2020 and later)
      *
      * @return self
      */
@@ -3704,8 +3867,6 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function setCoveredIndividuals($covered_individuals)
     {
-
-
         $this->container['covered_individuals'] = $covered_individuals;
 
         return $this;
@@ -3788,8 +3949,6 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function setOfferAndCoverages($offer_and_coverages)
     {
-
-
         $this->container['offer_and_coverages'] = $offer_and_coverages;
 
         return $this;
@@ -4240,7 +4399,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets fatca_filing_requirement
      *
-     * @param bool|null $fatca_filing_requirement FATCA filing requirement
+     * @param bool|null $fatca_filing_requirement FATCA filing requirement.
      *
      * @return self
      */
@@ -4504,7 +4663,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets tax_exempt_bond_cusip_number
      *
-     * @param string|null $tax_exempt_bond_cusip_number Tax exempt bond CUSIP no.
+     * @param string|null $tax_exempt_bond_cusip_number Tax exempt bond CUSIP no.   Enter VARIOUS if the tax-exempt interest is reported in the aggregate for multiple bonds or accounts.
      *
      * @return self
      */
@@ -4518,7 +4677,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets filer_type
      *
-     * @return string|null
+     * @return string
      */
     public function getFilerType()
     {
@@ -4528,14 +4687,14 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets filer_type
      *
-     * @param string|null $filer_type Filer type (PSE or EPF)
+     * @param string $filer_type Filer type for tax reporting purposes.  Available values:  - PSE: Payment Settlement Entity  - EPF: Electronic Payment Facilitator or other third party
      *
      * @return self
      */
     public function setFilerType($filer_type)
     {
         $allowedValues = $this->getFilerTypeAllowableValues();
-        if (!is_null($filer_type) && !in_array($filer_type, $allowedValues, true)) {
+        if (!in_array($filer_type, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'filer_type', must be one of '%s'",
@@ -4552,7 +4711,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets payment_type
      *
-     * @return string|null
+     * @return string
      */
     public function getPaymentType()
     {
@@ -4562,14 +4721,14 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets payment_type
      *
-     * @param string|null $payment_type Payment type (payment card or third party network)
+     * @param string $payment_type Payment type for transaction classification.  Available values:  - PaymentCard: Payment card transactions  - ThirdPartyNetwork: Third party network transactions
      *
      * @return self
      */
     public function setPaymentType($payment_type)
     {
         $allowedValues = $this->getPaymentTypeAllowableValues();
-        if (!is_null($payment_type) && !in_array($payment_type, $allowedValues, true)) {
+        if (!in_array($payment_type, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'payment_type', must be one of '%s'",
@@ -4596,7 +4755,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets payment_settlement_entity_name_phone_number
      *
-     * @param string|null $payment_settlement_entity_name_phone_number Payment settlement entity name and phone number
+     * @param string|null $payment_settlement_entity_name_phone_number Payment settlement entity name and phone number, if different from Filer's
      *
      * @return self
      */
@@ -4610,7 +4769,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets gross_amount_payment_card
      *
-     * @return float|null
+     * @return float
      */
     public function getGrossAmountPaymentCard()
     {
@@ -4620,7 +4779,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets gross_amount_payment_card
      *
-     * @param float|null $gross_amount_payment_card Gross amount of payment card/third party network transactions
+     * @param float $gross_amount_payment_card Gross amount of payment card/third party network transactions. This value must equal the total of all monthly payment amounts (January through December).
      *
      * @return self
      */
@@ -4668,7 +4827,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets merchant_category_code
      *
-     * @param string|null $merchant_category_code Merchant category code
+     * @param string|null $merchant_category_code Merchant category code (4 numbers)
      *
      * @return self
      */
@@ -4682,7 +4841,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets payment_transaction_number
      *
-     * @return float|null
+     * @return float
      */
     public function getPaymentTransactionNumber()
     {
@@ -4692,7 +4851,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets payment_transaction_number
      *
-     * @param float|null $payment_transaction_number Number of payment transactions
+     * @param float $payment_transaction_number Number of payment transactions
      *
      * @return self
      */
@@ -5124,7 +5283,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets direct_sales_indicator
      *
-     * @param bool|null $direct_sales_indicator Payer made direct sales totaling $5,000 or more of consumer products to recipient for resale
+     * @param bool|null $direct_sales_indicator Payer made direct sales totaling $5,000 or more of consumer products to recipient for resale. Should be true if Nonemployee compensation is not provided.
      *
      * @return self
      */
@@ -5316,7 +5475,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets nonemployee_compensation
      *
-     * @param float $nonemployee_compensation Nonemployee compensation
+     * @param float $nonemployee_compensation Nonemployee compensation. Required if DirectSalesIndicator is false.
      *
      * @return self
      */
@@ -5498,7 +5657,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets distribution_code
      *
-     * @return string|null
+     * @return string
      */
     public function getDistributionCode()
     {
@@ -5508,12 +5667,22 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets distribution_code
      *
-     * @param string|null $distribution_code Distribution code
+     * @param string $distribution_code Distribution code.    Available values:  - 1: Early distribution, no known exception (in most cases, under age 59½)  - 2: Early distribution, exception applies (under age 59½)  - 3: Disability  - 4: Death  - 5: Prohibited transaction  - 6: Section 1035 exchange (a tax-free exchange of life insurance, annuity, qualified long-term care insurance, or endowment contracts)  - 7: Normal distribution  - 8: Excess contributions plus earnings/excess deferrals (and/or earnings) taxable in payment year  - 9: Cost of current life insurance protection (premiums paid by a trustee or custodian for current insurance protection)  - A: May be eligible for 10-year tax option  - B: Designated Roth account distribution  - C: Reportable Death Benefits Under Section 6050Y(c)  - D: Annuity payments from nonqualified annuity payments and distributions from life insurance contracts that may be subject to tax under section 1411  - E: Distribution under Employee Plans Compliance Resolution System (EPCRS)  - F: Charitable gift annuity  - G: Direct rollover and rollover contribution  - H: Direct rollover of distribution from a designated Roth account to a Roth IRA  - J: Early distribution from a Roth IRA (This code may be used with a Code 8 or P)  - K: Distribution of IRA Assets Not Having A Readily Available FMV  - L: Loans treated as deemed distributions under section 72(p)  - M: Qualified Plan Loan Offsets  - N: Recharacterized IRA contribution made for year following payment year  - P: Excess contributions plus earnings/excess deferrals taxable for year prior to payment year  - Q: Qualified distribution from a Roth IRA (Distribution from a Roth IRA when the 5-year holding period has been met, and the recipient has reached 59½, has died, or is disabled)  - R: Recharacterized IRA contribution made for year prior to payment year  - S: Early distribution from a SIMPLE IRA in first 2 years no known exceptions  - T: Roth IRA distribution exception applies because participant has reached 59½, died or is disabled, but it is unknown if the 5-year period has been met  - U: Distribution from ESOP under Section 404(k)  - W: Charges or payments for purchasing qualified long-term care insurance contracts under combined arrangements
      *
      * @return self
      */
     public function setDistributionCode($distribution_code)
     {
+        $allowedValues = $this->getDistributionCodeAllowableValues();
+        if (!in_array($distribution_code, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'distribution_code', must be one of '%s'",
+                    $distribution_code,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['distribution_code'] = $distribution_code;
 
         return $this;
@@ -5532,12 +5701,22 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets second_distribution_code
      *
-     * @param string|null $second_distribution_code Second distribution code
+     * @param string|null $second_distribution_code Second distribution code. Must be a valid combination with the first distribution code.  See DistributionCode property documentation for code descriptions.    Valid combinations based on first distribution code:  - 1: _, 8, B, D, K, L, M, P  - 2: _, 8, B, D, K, L, M, P  - 3: _, D  - 4: _, 8, A, B, D, G, H, K, L, M, P  - 5: _  - 6: _, W  - 7: _, A, B, D, K, L, M  - 8: _, 1, 2, 4, B, J, K  - 9: _  - A: 4, 7  - B: _, 1, 2, 4, 7, 8, G, L, M, P, U  - C: _, D  - D: 1, 2, 3, 4, 7, C  - E: _  - F: _  - G: _, 4, B, K  - H: _, 4  - J: _, 8, P  - K: 1, 2, 4, 7, 8, G  - L: _, 1, 2, 4, 7, B  - M: _, 1, 2, 4, 7, B  - N: _  - P: _, 1, 2, 4, B, J  - Q: _  - R: _  - S: _  - T: _  - U: _, B  - W: _, 6                (_ indicates no second distribution code)    (format: firstDistributionCode: availableSecondDistributionCodes)
      *
      * @return self
      */
     public function setSecondDistributionCode($second_distribution_code)
     {
+        $allowedValues = $this->getSecondDistributionCodeAllowableValues();
+        if (!is_null($second_distribution_code) && !in_array($second_distribution_code, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'second_distribution_code', must be one of '%s'",
+                    $second_distribution_code,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['second_distribution_code'] = $second_distribution_code;
 
         return $this;
