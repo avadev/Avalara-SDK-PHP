@@ -43,7 +43,7 @@ $client = new \Avalara\SDK\ApiClient($config);
 $apiInstance = new Avalara\SDK\Api\FormsW9Api($client);
 
 $avalara_version = 2.0.0; // string | API version
-$x_correlation_id = 96f3173e-05e5-496d-b7a2-8f3c8711164f; // string | Unique correlation Id in a GUID format
+$x_correlation_id = 0ab9baaf-56ae-484d-a812-1586d6141797; // string | Unique correlation Id in a GUID format
 $x_avalara_client = Swagger UI; 22.1.0; // string | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
 $create_and_send_w9_form_email_request = {"type":"W9","email":"john.doe@example.com","name":"John Doe","accountNumber":"ACC01","companyId":"12345","referenceId":"REF-12345"}; // \Avalara\SDK\Model\A1099\V2\CreateAndSendW9FormEmailRequest | Form to be created
 
@@ -110,7 +110,7 @@ $client = new \Avalara\SDK\ApiClient($config);
 $apiInstance = new Avalara\SDK\Api\FormsW9Api($client);
 
 $avalara_version = 2.0.0; // string | API version
-$x_correlation_id = 4fef31cf-2985-471b-83bb-59b4bf4cee0e; // string | Unique correlation Id in a GUID format
+$x_correlation_id = d1c7d02a-c0be-4a64-9fbb-0b4aed2f526c; // string | Unique correlation Id in a GUID format
 $x_avalara_client = Swagger UI; 22.1.0; // string | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
 $create_w9_form_request = {"type":"W9","name":"John Doe","businessName":"Acme Inc.","businessClassification":"Individual","businessOther":null,"foreignPartnerOwnerOrBeneficiary":false,"exemptPayeeCode":"5","exemptFatcaCode":"A","foreignCountryIndicator":false,"address":"123 Main St.","foreignAddress":null,"city":"Anytown","state":"CA","zip":"12345","accountNumber":"ACC123456","tinType":"SSN","tin":"543456789","backupWithholding":false,"is1099able":true,"eDeliveryConsentedAt":"2024-05-01T10:30:10.000000","signature":null,"companyId":"32553266","referenceId":"REF12345","email":"johndoe@example.com"}; // \Avalara\SDK\Model\A1099\V2\CreateW9FormRequest | Form to be created
 
@@ -178,7 +178,7 @@ $apiInstance = new Avalara\SDK\Api\FormsW9Api($client);
 
 $id = 'id_example'; // string | ID of the form to delete
 $avalara_version = 2.0.0; // string | API version
-$x_correlation_id = b1cd71dd-2fd3-483d-b611-0dd8306b5201; // string | Unique correlation Id in a GUID format
+$x_correlation_id = 5c349318-0f66-4478-bcc0-ce6af3c9f485; // string | Unique correlation Id in a GUID format
 $x_avalara_client = Swagger UI; 22.1.0; // string | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
 
 try {
@@ -244,7 +244,7 @@ $apiInstance = new Avalara\SDK\Api\FormsW9Api($client);
 
 $id = 'id_example'; // string | ID of the form
 $avalara_version = 2.0.0; // string | API version
-$x_correlation_id = 6d803604-fec0-4f42-9114-e77ddd25d823; // string | Unique correlation Id in a GUID format
+$x_correlation_id = f39583e2-33c6-460f-aed2-66bc23ef3b6a; // string | Unique correlation Id in a GUID format
 $x_avalara_client = Swagger UI; 22.1.0; // string | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
 
 try {
@@ -316,7 +316,7 @@ $skip = 56; // int | If nonzero, skip this number of results before returning da
 $order_by = 'order_by_example'; // string | A comma separated list of sort statements in the format (fieldname) [ASC|DESC], for example id ASC.
 $count = True; // bool | If true, return the global count of elements in the collection.
 $count_only = True; // bool | If true, return ONLY the global count of elements in the collection.  It only applies when count=true.
-$x_correlation_id = 5473c6dd-8986-4b62-b027-9a94c94f9401; // string | Unique correlation Id in a GUID format
+$x_correlation_id = a60536fb-e758-4f92-a0cd-7d99addcc735; // string | Unique correlation Id in a GUID format
 $x_avalara_client = Swagger UI; 22.1.0; // string | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
 
 try {
@@ -388,7 +388,7 @@ $apiInstance = new Avalara\SDK\Api\FormsW9Api($client);
 
 $id = 'id_example'; // string | The ID of the W9/W4/W8 form.
 $avalara_version = 2.0.0; // string | API version
-$x_correlation_id = 1204a47d-7c4d-4b63-8776-560f89e236e6; // string | Unique correlation Id in a GUID format
+$x_correlation_id = 8f2f717b-24cb-4bf1-9820-ded88ed93798; // string | Unique correlation Id in a GUID format
 $x_avalara_client = Swagger UI; 22.1.0; // string | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
 
 try {
@@ -455,7 +455,7 @@ $apiInstance = new Avalara\SDK\Api\FormsW9Api($client);
 
 $id = 'id_example'; // string | ID of the form to update
 $avalara_version = 2.0.0; // string | API version
-$x_correlation_id = 2f240777-dd4f-4aaf-b4b6-fcb22df6de90; // string | Unique correlation Id in a GUID format
+$x_correlation_id = 8688fb2d-d79c-433a-9abf-4f96ea744f32; // string | Unique correlation Id in a GUID format
 $x_avalara_client = Swagger UI; 22.1.0; // string | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
 $create_w9_form_request = {"type":"W9","name":"John Doe","businessName":"Acme Inc.","businessClassification":"Individual","businessOther":null,"foreignPartnerOwnerOrBeneficiary":false,"exemptPayeeCode":"5","exemptFatcaCode":"A","foreignCountryIndicator":false,"address":"123 Main St.","foreignAddress":null,"city":"Anytown","state":"CA","zip":"12345","accountNumber":"ACC123456","tinType":"SSN","tin":"543456789","backupWithholding":false,"is1099able":true,"eDeliveryConsentedAt":"2024-05-01T10:30:10.000000","signature":null,"referenceId":"REF12345","email":"johndoe@example.com"}; // \Avalara\SDK\Model\A1099\V2\CreateW9FormRequest | Form to be updated
 
@@ -524,7 +524,7 @@ $apiInstance = new Avalara\SDK\Api\FormsW9Api($client);
 
 $id = 'id_example'; // string | Id of the form
 $avalara_version = 2.0.0; // string | API version
-$x_correlation_id = ba65d92c-2a2a-4b4e-9731-c7b385d7fb59; // string | Unique correlation Id in a GUID format
+$x_correlation_id = 13008974-9cbc-417c-a3d1-7779277a2077; // string | Unique correlation Id in a GUID format
 $x_avalara_client = Swagger UI; 22.1.0; // string | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
 $file = "/path/to/file.txt"; // \SplFileObject
 

@@ -236,7 +236,7 @@ class ErrorResponseItem implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets type
      *
-     * @param string|null $type type
+     * @param string|null $type An identifier for this occurrence of the problem.  It is the name of a request's field when specific to that field.  Otherwise, for other types of errors, its value is empty.
      *
      * @return self
      */
@@ -260,7 +260,7 @@ class ErrorResponseItem implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets detail
      *
-     * @param string|null $detail detail
+     * @param string|null $detail An explanation specific to this occurrence of the problem.
      *
      * @return self
      */

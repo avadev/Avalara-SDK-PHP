@@ -1024,6 +1024,80 @@ class CreateW9FormRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     const TYPE_W8_BEN_E = 'W8BenE';
     const TYPE_W8_IMY = 'W8Imy';
     const TYPE_W9 = 'W9';
+    const BUSINESS_CLASSIFICATION_INDIVIDUAL = 'Individual';
+    const BUSINESS_CLASSIFICATION_C_CORPORATION = 'CCorporation';
+    const BUSINESS_CLASSIFICATION_S_CORPORATION = 'SCorporation';
+    const BUSINESS_CLASSIFICATION_PARTNERSHIP = 'Partnership';
+    const BUSINESS_CLASSIFICATION_TRUST_ESTATE = 'TrustEstate';
+    const BUSINESS_CLASSIFICATION_LLC_C = 'LlcC';
+    const BUSINESS_CLASSIFICATION_LLC_S = 'LlcS';
+    const BUSINESS_CLASSIFICATION_LLC_P = 'LlcP';
+    const BUSINESS_CLASSIFICATION_OTHER = 'Other';
+    const STATE_AA = 'AA';
+    const STATE_AE = 'AE';
+    const STATE_AK = 'AK';
+    const STATE_AL = 'AL';
+    const STATE_AP = 'AP';
+    const STATE_AR = 'AR';
+    const STATE__AS = 'AS';
+    const STATE_AZ = 'AZ';
+    const STATE_CA = 'CA';
+    const STATE_CO = 'CO';
+    const STATE_CT = 'CT';
+    const STATE_DC = 'DC';
+    const STATE_DE = 'DE';
+    const STATE_FL = 'FL';
+    const STATE_FM = 'FM';
+    const STATE_GA = 'GA';
+    const STATE_GU = 'GU';
+    const STATE_HI = 'HI';
+    const STATE_IA = 'IA';
+    const STATE_ID = 'ID';
+    const STATE_IL = 'IL';
+    const STATE_IN = 'IN';
+    const STATE_KS = 'KS';
+    const STATE_KY = 'KY';
+    const STATE_LA = 'LA';
+    const STATE_MA = 'MA';
+    const STATE_MD = 'MD';
+    const STATE_ME = 'ME';
+    const STATE_MH = 'MH';
+    const STATE_MI = 'MI';
+    const STATE_MN = 'MN';
+    const STATE_MO = 'MO';
+    const STATE_MP = 'MP';
+    const STATE_MS = 'MS';
+    const STATE_MT = 'MT';
+    const STATE_NC = 'NC';
+    const STATE_ND = 'ND';
+    const STATE_NE = 'NE';
+    const STATE_NH = 'NH';
+    const STATE_NJ = 'NJ';
+    const STATE_NM = 'NM';
+    const STATE_NV = 'NV';
+    const STATE_NY = 'NY';
+    const STATE_OH = 'OH';
+    const STATE_OK = 'OK';
+    const STATE__OR = 'OR';
+    const STATE_PA = 'PA';
+    const STATE_PR = 'PR';
+    const STATE_PW = 'PW';
+    const STATE_RI = 'RI';
+    const STATE_SC = 'SC';
+    const STATE_SD = 'SD';
+    const STATE_TN = 'TN';
+    const STATE_TX = 'TX';
+    const STATE_UT = 'UT';
+    const STATE_VA = 'VA';
+    const STATE_VI = 'VI';
+    const STATE_VT = 'VT';
+    const STATE_WA = 'WA';
+    const STATE_WI = 'WI';
+    const STATE_WV = 'WV';
+    const STATE_WY = 'WY';
+    const MARITAL_STATUS_SINGLE = 'Single';
+    const MARITAL_STATUS_MARRIED = 'Married';
+    const MARITAL_STATUS_MARRIED_BUT = 'MarriedBut';
 
     /**
      * Gets allowable values of the enum
@@ -1038,6 +1112,113 @@ class CreateW9FormRequest implements ModelInterface, ArrayAccess, \JsonSerializa
             self::TYPE_W8_BEN_E,
             self::TYPE_W8_IMY,
             self::TYPE_W9,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getBusinessClassificationAllowableValues()
+    {
+        return [
+            self::BUSINESS_CLASSIFICATION_INDIVIDUAL,
+            self::BUSINESS_CLASSIFICATION_C_CORPORATION,
+            self::BUSINESS_CLASSIFICATION_S_CORPORATION,
+            self::BUSINESS_CLASSIFICATION_PARTNERSHIP,
+            self::BUSINESS_CLASSIFICATION_TRUST_ESTATE,
+            self::BUSINESS_CLASSIFICATION_LLC_C,
+            self::BUSINESS_CLASSIFICATION_LLC_S,
+            self::BUSINESS_CLASSIFICATION_LLC_P,
+            self::BUSINESS_CLASSIFICATION_OTHER,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getStateAllowableValues()
+    {
+        return [
+            self::STATE_AA,
+            self::STATE_AE,
+            self::STATE_AK,
+            self::STATE_AL,
+            self::STATE_AP,
+            self::STATE_AR,
+            self::STATE__AS,
+            self::STATE_AZ,
+            self::STATE_CA,
+            self::STATE_CO,
+            self::STATE_CT,
+            self::STATE_DC,
+            self::STATE_DE,
+            self::STATE_FL,
+            self::STATE_FM,
+            self::STATE_GA,
+            self::STATE_GU,
+            self::STATE_HI,
+            self::STATE_IA,
+            self::STATE_ID,
+            self::STATE_IL,
+            self::STATE_IN,
+            self::STATE_KS,
+            self::STATE_KY,
+            self::STATE_LA,
+            self::STATE_MA,
+            self::STATE_MD,
+            self::STATE_ME,
+            self::STATE_MH,
+            self::STATE_MI,
+            self::STATE_MN,
+            self::STATE_MO,
+            self::STATE_MP,
+            self::STATE_MS,
+            self::STATE_MT,
+            self::STATE_NC,
+            self::STATE_ND,
+            self::STATE_NE,
+            self::STATE_NH,
+            self::STATE_NJ,
+            self::STATE_NM,
+            self::STATE_NV,
+            self::STATE_NY,
+            self::STATE_OH,
+            self::STATE_OK,
+            self::STATE__OR,
+            self::STATE_PA,
+            self::STATE_PR,
+            self::STATE_PW,
+            self::STATE_RI,
+            self::STATE_SC,
+            self::STATE_SD,
+            self::STATE_TN,
+            self::STATE_TX,
+            self::STATE_UT,
+            self::STATE_VA,
+            self::STATE_VI,
+            self::STATE_VT,
+            self::STATE_WA,
+            self::STATE_WI,
+            self::STATE_WV,
+            self::STATE_WY,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getMaritalStatusAllowableValues()
+    {
+        return [
+            self::MARITAL_STATUS_SINGLE,
+            self::MARITAL_STATUS_MARRIED,
+            self::MARITAL_STATUS_MARRIED_BUT,
         ];
     }
 
@@ -1252,6 +1433,15 @@ class CreateW9FormRequest implements ModelInterface, ArrayAccess, \JsonSerializa
         if ($this->container['business_classification'] === null) {
             $invalidProperties[] = "'business_classification' can't be null";
         }
+        $allowedValues = $this->getBusinessClassificationAllowableValues();
+        if (!is_null($this->container['business_classification']) && !in_array($this->container['business_classification'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'business_classification', must be one of '%s'",
+                $this->container['business_classification'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['address'] === null) {
             $invalidProperties[] = "'address' can't be null";
         }
@@ -1261,6 +1451,15 @@ class CreateW9FormRequest implements ModelInterface, ArrayAccess, \JsonSerializa
         if ($this->container['state'] === null) {
             $invalidProperties[] = "'state' can't be null";
         }
+        $allowedValues = $this->getStateAllowableValues();
+        if (!is_null($this->container['state']) && !in_array($this->container['state'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'state', must be one of '%s'",
+                $this->container['state'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['zip'] === null) {
             $invalidProperties[] = "'zip' can't be null";
         }
@@ -1291,6 +1490,15 @@ class CreateW9FormRequest implements ModelInterface, ArrayAccess, \JsonSerializa
         if ($this->container['employee_last_name'] === null) {
             $invalidProperties[] = "'employee_last_name' can't be null";
         }
+        $allowedValues = $this->getMaritalStatusAllowableValues();
+        if (!is_null($this->container['marital_status']) && !in_array($this->container['marital_status'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'marital_status', must be one of '%s'",
+                $this->container['marital_status'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -1407,6 +1615,16 @@ class CreateW9FormRequest implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function setBusinessClassification($business_classification)
     {
+        $allowedValues = $this->getBusinessClassificationAllowableValues();
+        if (!in_array($business_classification, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'business_classification', must be one of '%s'",
+                    $business_classification,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['business_classification'] = $business_classification;
 
         return $this;
@@ -1473,7 +1691,7 @@ class CreateW9FormRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets exempt_payee_code
      *
-     * @param string|null $exempt_payee_code The exempt payee code.
+     * @param string|null $exempt_payee_code The exempt payee code. Allowed values (1–13):  - 1 — Organization exempt under §501(a) or IRA; custodial account under §403(b)(7)  - 2 — U.S. government or its agencies/instrumentalities  - 3 — U.S. state, DC, U.S. territory/possession, or their political subdivisions/agencies/instrumentalities  - 4 — Foreign government or its political subdivisions/agencies/instrumentalities  - 5 — Corporation  - 6 — Dealer in securities or commodities required to register in the U.S., DC, or U.S. territory/possession  - 7 — Futures commission merchant registered with the CFTC  - 8 — Real estate investment trust (REIT)  - 9 — Entity registered at all times during the tax year under the Investment Company Act of 1940  - 10 — Common trust fund operated by a bank under §584(a)  - 11 — Financial institution (see §581)  - 12 — Broker (nominee/custodian)  - 13 — Trust exempt under §664 or described in §4947
      *
      * @return self
      */
@@ -1497,7 +1715,7 @@ class CreateW9FormRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets exempt_fatca_code
      *
-     * @param string|null $exempt_fatca_code The exemption from FATCA reporting code.
+     * @param string|null $exempt_fatca_code The exemption from FATCA reporting code. Allowed values (A–M):  - A — Tax‑exempt organization under §501(a) or IRA (§7701(a)(37))  - B — U.S. government or any of its agencies/instrumentalities  - C — U.S. state, DC, territory/possession, or their political subdivisions/instrumentalities  - D — Corporation whose stock is regularly traded on an established securities market  - E — Corporation that is a member of the same expanded affiliated group as a D corporation  - F — Registered dealer in securities/commodities/derivatives  - G — REIT (Real Estate Investment Trust)  - H — Regulated investment company (§851) or entity registered all year under the Investment Company Act of 1940  - I — Common trust fund (§584(a))  - J — Bank (§581)  - K — Broker  - L — Charitable remainder trust (§664) or trust described in §4947(a)(1)  - M — Trust under §403(b) plan or §457(g) plan
      *
      * @return self
      */
@@ -1623,6 +1841,16 @@ class CreateW9FormRequest implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function setState($state)
     {
+        $allowedValues = $this->getStateAllowableValues();
+        if (!in_array($state, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'state', must be one of '%s'",
+                    $state,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['state'] = $state;
 
         return $this;
@@ -5199,6 +5427,16 @@ class CreateW9FormRequest implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function setMaritalStatus($marital_status)
     {
+        $allowedValues = $this->getMaritalStatusAllowableValues();
+        if (!is_null($marital_status) && !in_array($marital_status, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'marital_status', must be one of '%s'",
+                    $marital_status,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['marital_status'] = $marital_status;
 
         return $this;
