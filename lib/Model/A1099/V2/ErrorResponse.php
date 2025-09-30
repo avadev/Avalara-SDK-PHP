@@ -236,7 +236,7 @@ class ErrorResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets title
      *
-     * @param string|null $title title
+     * @param string|null $title A summary of the problem type.
      *
      * @return self
      */
@@ -260,7 +260,7 @@ class ErrorResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets errors
      *
-     * @param \Avalara\SDK\Model\A1099\V2\ErrorResponseItem[]|null $errors errors
+     * @param \Avalara\SDK\Model\A1099\V2\ErrorResponseItem[]|null $errors A list of errors detailing the problem type.
      *
      * @return self
      */

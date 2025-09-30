@@ -759,6 +759,48 @@ class W8ImyFormRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     const TYPE_W8_BEN_E = 'W8BenE';
     const TYPE_W8_IMY = 'W8Imy';
     const TYPE_W9 = 'W9';
+    const ENTITY_TYPE_QI = 'QI';
+    const ENTITY_TYPE_NONQUALIFIED_INTERMEDIARY = 'NonqualifiedIntermediary';
+    const ENTITY_TYPE_TERRITORY_FINANCIAL_INSTITUTION = 'TerritoryFinancialInstitution';
+    const ENTITY_TYPE_US_BRANCH = 'USBranch';
+    const ENTITY_TYPE_WITHHOLDING_FOREIGN_PARTNERSHIP = 'WithholdingForeignPartnership';
+    const ENTITY_TYPE_WITHHOLDING_FOREIGN_TRUST = 'WithholdingForeignTrust';
+    const ENTITY_TYPE_NONWITHHOLDING_FOREIGN_PARTNERSHIP = 'NonwithholdingForeignPartnership';
+    const ENTITY_TYPE_NONWITHHOLDING_FOREIGN_SIMPLE_TRUST = 'NonwithholdingForeignSimpleTrust';
+    const ENTITY_TYPE_NONWITHHOLDING_FOREIGN_GRANTOR_TRUST = 'NonwithholdingForeignGrantorTrust';
+    const FATCA_STATUS_NONPARTICIPATING_FFI = 'NonparticipatingFFI';
+    const FATCA_STATUS_PARTICIPATING_FFI = 'ParticipatingFFI';
+    const FATCA_STATUS_REPORTING_MODEL1_FFI = 'ReportingModel1FFI';
+    const FATCA_STATUS_REPORTING_MODEL2_FFI = 'ReportingModel2FFI';
+    const FATCA_STATUS_REGISTERED_DEEMED_COMPLIANT_FFI = 'RegisteredDeemedCompliantFFI';
+    const FATCA_STATUS_TERRITORY_FINANCIAL_INSTITUTION = 'TerritoryFinancialInstitution';
+    const FATCA_STATUS_SPONSORED_FFI = 'SponsoredFFI';
+    const FATCA_STATUS_CERTIFIED_DEEMED_COMPLIANT_NONREGISTERING_LOCAL_BANK = 'CertifiedDeemedCompliantNonregisteringLocalBank';
+    const FATCA_STATUS_CERTIFIED_DEEMED_COMPLIANT_FFI_WITH_LOW_VALUE_ACCOUNTS = 'CertifiedDeemedCompliantFFIWithLowValueAccounts';
+    const FATCA_STATUS_CERTIFIED_DEEMED_COMPLIANT_SPONSORED_CLOSELY_HELD_INVESTMENT_VEHICLE = 'CertifiedDeemedCompliantSponsoredCloselyHeldInvestmentVehicle';
+    const FATCA_STATUS_CERTIFIED_DEEMED_COMPLIANT_LIMITED_LIFE_DEBT_INVESTMENT_ENTITY = 'CertifiedDeemedCompliantLimitedLifeDebtInvestmentEntity';
+    const FATCA_STATUS_CERTAIN_INVESTMENT_ENTITIES_WITHOUT_FINANCIAL_ACCOUNTS = 'CertainInvestmentEntitiesWithoutFinancialAccounts';
+    const FATCA_STATUS_OWNER_DOCUMENTED_FFI = 'OwnerDocumentedFFI';
+    const FATCA_STATUS_RESTRICTED_DISTRIBUTOR = 'RestrictedDistributor';
+    const FATCA_STATUS_FOREIGN_CENTRAL_BANK_OF_ISSUE = 'ForeignCentralBankOfIssue';
+    const FATCA_STATUS_NONREPORTING_IGAFFI = 'NonreportingIGAFFI';
+    const FATCA_STATUS_EXEMPT_RETIREMENT_PLANS = 'ExemptRetirementPlans';
+    const FATCA_STATUS_EXCEPTED_NONFINANCIAL_GROUP_ENTITY = 'ExceptedNonfinancialGroupEntity';
+    const FATCA_STATUS_EXCEPTED_NONFINANCIAL_START_UP_COMPANY = 'ExceptedNonfinancialStartUpCompany';
+    const FATCA_STATUS_EXCEPTED_NONFINANCIAL_ENTITY_IN_LIQUIDATION_OR_BANKRUPTCY = 'ExceptedNonfinancialEntityInLiquidationOrBankruptcy';
+    const FATCA_STATUS_PUBLICLY_TRADED_NFFEOR_AFFILIATE_OF_PUBLICLY_TRADED_CORPORATION = 'PubliclyTradedNFFEOrAffiliateOfPubliclyTradedCorporation';
+    const FATCA_STATUS_EXCEPTED_TERRITORY_NFFE = 'ExceptedTerritoryNFFE';
+    const FATCA_STATUS_ACTIVE_NFFE = 'ActiveNFFE';
+    const FATCA_STATUS_PASSIVE_NFFE = 'PassiveNFFE';
+    const FATCA_STATUS_DIRECT_REPORTING_NFFE = 'DirectReportingNFFE';
+    const FATCA_STATUS_SPONSORED_DIRECT_REPORTING_NFFE = 'SponsoredDirectReportingNFFE';
+    const DISREGARDED_ENTITY_FATCA_STATUS__1 = '1';
+    const DISREGARDED_ENTITY_FATCA_STATUS__2 = '2';
+    const DISREGARDED_ENTITY_FATCA_STATUS__3 = '3';
+    const DISREGARDED_ENTITY_FATCA_STATUS__4 = '4';
+    const DISREGARDED_ENTITY_FATCA_STATUS__5 = '5';
+    const IGA_MODEL__1 = '1';
+    const IGA_MODEL__2 = '2';
 
     /**
      * Gets allowable values of the enum
@@ -773,6 +815,92 @@ class W8ImyFormRequest implements ModelInterface, ArrayAccess, \JsonSerializable
             self::TYPE_W8_BEN_E,
             self::TYPE_W8_IMY,
             self::TYPE_W9,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getEntityTypeAllowableValues()
+    {
+        return [
+            self::ENTITY_TYPE_QI,
+            self::ENTITY_TYPE_NONQUALIFIED_INTERMEDIARY,
+            self::ENTITY_TYPE_TERRITORY_FINANCIAL_INSTITUTION,
+            self::ENTITY_TYPE_US_BRANCH,
+            self::ENTITY_TYPE_WITHHOLDING_FOREIGN_PARTNERSHIP,
+            self::ENTITY_TYPE_WITHHOLDING_FOREIGN_TRUST,
+            self::ENTITY_TYPE_NONWITHHOLDING_FOREIGN_PARTNERSHIP,
+            self::ENTITY_TYPE_NONWITHHOLDING_FOREIGN_SIMPLE_TRUST,
+            self::ENTITY_TYPE_NONWITHHOLDING_FOREIGN_GRANTOR_TRUST,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getFatcaStatusAllowableValues()
+    {
+        return [
+            self::FATCA_STATUS_NONPARTICIPATING_FFI,
+            self::FATCA_STATUS_PARTICIPATING_FFI,
+            self::FATCA_STATUS_REPORTING_MODEL1_FFI,
+            self::FATCA_STATUS_REPORTING_MODEL2_FFI,
+            self::FATCA_STATUS_REGISTERED_DEEMED_COMPLIANT_FFI,
+            self::FATCA_STATUS_TERRITORY_FINANCIAL_INSTITUTION,
+            self::FATCA_STATUS_SPONSORED_FFI,
+            self::FATCA_STATUS_CERTIFIED_DEEMED_COMPLIANT_NONREGISTERING_LOCAL_BANK,
+            self::FATCA_STATUS_CERTIFIED_DEEMED_COMPLIANT_FFI_WITH_LOW_VALUE_ACCOUNTS,
+            self::FATCA_STATUS_CERTIFIED_DEEMED_COMPLIANT_SPONSORED_CLOSELY_HELD_INVESTMENT_VEHICLE,
+            self::FATCA_STATUS_CERTIFIED_DEEMED_COMPLIANT_LIMITED_LIFE_DEBT_INVESTMENT_ENTITY,
+            self::FATCA_STATUS_CERTAIN_INVESTMENT_ENTITIES_WITHOUT_FINANCIAL_ACCOUNTS,
+            self::FATCA_STATUS_OWNER_DOCUMENTED_FFI,
+            self::FATCA_STATUS_RESTRICTED_DISTRIBUTOR,
+            self::FATCA_STATUS_FOREIGN_CENTRAL_BANK_OF_ISSUE,
+            self::FATCA_STATUS_NONREPORTING_IGAFFI,
+            self::FATCA_STATUS_EXEMPT_RETIREMENT_PLANS,
+            self::FATCA_STATUS_EXCEPTED_NONFINANCIAL_GROUP_ENTITY,
+            self::FATCA_STATUS_EXCEPTED_NONFINANCIAL_START_UP_COMPANY,
+            self::FATCA_STATUS_EXCEPTED_NONFINANCIAL_ENTITY_IN_LIQUIDATION_OR_BANKRUPTCY,
+            self::FATCA_STATUS_PUBLICLY_TRADED_NFFEOR_AFFILIATE_OF_PUBLICLY_TRADED_CORPORATION,
+            self::FATCA_STATUS_EXCEPTED_TERRITORY_NFFE,
+            self::FATCA_STATUS_ACTIVE_NFFE,
+            self::FATCA_STATUS_PASSIVE_NFFE,
+            self::FATCA_STATUS_DIRECT_REPORTING_NFFE,
+            self::FATCA_STATUS_SPONSORED_DIRECT_REPORTING_NFFE,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getDisregardedEntityFatcaStatusAllowableValues()
+    {
+        return [
+            self::DISREGARDED_ENTITY_FATCA_STATUS__1,
+            self::DISREGARDED_ENTITY_FATCA_STATUS__2,
+            self::DISREGARDED_ENTITY_FATCA_STATUS__3,
+            self::DISREGARDED_ENTITY_FATCA_STATUS__4,
+            self::DISREGARDED_ENTITY_FATCA_STATUS__5,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getIgaModelAllowableValues()
+    {
+        return [
+            self::IGA_MODEL__1,
+            self::IGA_MODEL__2,
         ];
     }
 
@@ -937,9 +1065,45 @@ class W8ImyFormRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['entity_type'] === null) {
             $invalidProperties[] = "'entity_type' can't be null";
         }
+        $allowedValues = $this->getEntityTypeAllowableValues();
+        if (!is_null($this->container['entity_type']) && !in_array($this->container['entity_type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'entity_type', must be one of '%s'",
+                $this->container['entity_type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getFatcaStatusAllowableValues();
+        if (!is_null($this->container['fatca_status']) && !in_array($this->container['fatca_status'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'fatca_status', must be one of '%s'",
+                $this->container['fatca_status'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['residence_country'] === null) {
             $invalidProperties[] = "'residence_country' can't be null";
         }
+        $allowedValues = $this->getDisregardedEntityFatcaStatusAllowableValues();
+        if (!is_null($this->container['disregarded_entity_fatca_status']) && !in_array($this->container['disregarded_entity_fatca_status'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'disregarded_entity_fatca_status', must be one of '%s'",
+                $this->container['disregarded_entity_fatca_status'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getIgaModelAllowableValues();
+        if (!is_null($this->container['iga_model']) && !in_array($this->container['iga_model'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'iga_model', must be one of '%s'",
+                $this->container['iga_model'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -1074,12 +1238,22 @@ class W8ImyFormRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets entity_type
      *
-     * @param string $entity_type The entity type.  Available values:  - 1: QI (including a QDD). Complete Part III.  - 2: Nonqualified intermediary. Complete Part IV.  - 3: Territory financial institution. Complete Part V.  - 4: U.S. branch. Complete Part VI.  - 5: Withholding foreign partnership. Complete Part VII.  - 6: Withholding foreign trust. Complete Part VII.  - 7: Nonwithholding foreign partnership. Complete Part VIII.  - 8: Nonwithholding foreign simple trust. Complete Part VIII.  - 9: Nonwithholding foreign grantor trust. Complete Part VIII.
+     * @param string $entity_type Represents the entity type for W-8IMY tax forms.  W-8IMY forms only accept entity types 1-9, which is a subset of the full EntityType enum.
      *
      * @return self
      */
     public function setEntityType($entity_type)
     {
+        $allowedValues = $this->getEntityTypeAllowableValues();
+        if (!in_array($entity_type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'entity_type', must be one of '%s'",
+                    $entity_type,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['entity_type'] = $entity_type;
 
         return $this;
@@ -1098,12 +1272,22 @@ class W8ImyFormRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets fatca_status
      *
-     * @param string|null $fatca_status The FATCA status.  Available values:  - 1: Nonparticipating foreign financial institution (FFI) (including an FFI related to a Reporting IGA FFI other than a deemed-compliant FFI, participating FFI, or exempt beneficial owner). Complete Part IX (if applicable).  - 2: Participating FFI.  - 3: Reporting Model 1 FFI.  - 4: Reporting Model 2 FFI.  - 5: Registered deemed-compliant FFI (other than a reporting Model 1 FFI, sponsored FFI, or nonreporting IGA FFI covered in Part XIX).  - 6: Territory financial institution. Complete Part V.  - 7: Sponsored FFI (other than a certified deemed-compliant sponsored, closely held investment vehicle). Complete Part X.  - 8: Certified deemed-compliant nonregistering local bank. Complete Part XII.  - 9: Certified deemed-compliant FFI with only low-value accounts. Complete Part XIII.  - 10: Certified deemed-compliant sponsored, closely held investment vehicle. Complete Part XIV.  - 11: Certified deemed-compliant limited life debt investment entity. Complete Part XV.  - 12: Certain investment entities that do not maintain financial accounts. Complete Part XVI.  - 13: Owner-documented FFI. Complete Part XI.  - 14: Restricted distributor. Complete Part XVII.  - 15: Foreign central bank of issue. Complete Part XVIII.  - 16: Nonreporting IGA FFI. Complete Part XIX.  - 17: Exempt retirement plans. Complete Part XX.  - 18: Excepted nonfinancial group entity. Complete Part XXI.  - 19: Excepted nonfinancial start-up company. Complete Part XXII.  - 20: Excepted nonfinancial entity in liquidation or bankruptcy. Complete Part XXIII.  - 21: Publicly traded NFFE or NFFE affiliate of a publicly traded corporation. Complete Part XXIV.  - 22: Excepted territory NFFE. Complete Part XXV.  - 23: Active NFFE. Complete Part XXVI.  - 24: Passive NFFE. Complete Part XXVII.  - 25: Direct reporting NFFE.  - 26: Sponsored direct reporting NFFE. Complete Part XXVIII.
+     * @param string|null $fatca_status Represents the FATCA status types specifically for W8-IMY forms.  This is a subset of the full FatcaStatus enum, restricted to values 1-26 for W8-IMY forms.
      *
      * @return self
      */
     public function setFatcaStatus($fatca_status)
     {
+        $allowedValues = $this->getFatcaStatusAllowableValues();
+        if (!is_null($fatca_status) && !in_array($fatca_status, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'fatca_status', must be one of '%s'",
+                    $fatca_status,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['fatca_status'] = $fatca_status;
 
         return $this;
@@ -1512,6 +1696,16 @@ class W8ImyFormRequest implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setDisregardedEntityFatcaStatus($disregarded_entity_fatca_status)
     {
+        $allowedValues = $this->getDisregardedEntityFatcaStatusAllowableValues();
+        if (!is_null($disregarded_entity_fatca_status) && !in_array($disregarded_entity_fatca_status, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'disregarded_entity_fatca_status', must be one of '%s'",
+                    $disregarded_entity_fatca_status,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['disregarded_entity_fatca_status'] = $disregarded_entity_fatca_status;
 
         return $this;
@@ -3048,6 +3242,16 @@ class W8ImyFormRequest implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setIgaModel($iga_model)
     {
+        $allowedValues = $this->getIgaModelAllowableValues();
+        if (!is_null($iga_model) && !in_array($iga_model, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'iga_model', must be one of '%s'",
+                    $iga_model,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['iga_model'] = $iga_model;
 
         return $this;
