@@ -79,7 +79,7 @@ class FormsW9Api
     private function setConfiguration($client): void
     {
         $this->verifyAPIClient($client);
-        $client->setSdkVersion("25.10.0");
+        $client->setSdkVersion("25.10.1");
         $this->headerSelector = new HeaderSelector(); 
         $this->client = $client;
     }
@@ -1383,6 +1383,302 @@ class FormsW9Api
         } else {
             $headers = $this->headerSelector->selectHeaders(
                 ['application/json'],
+                []
+            );
+        }
+        
+        $this->client->applyClientHeaders($headerParams);
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
+            }
+        }
+
+        $headers = $this->client->applyAuthToRequest($headers, $requiredScopes);
+
+        $defaultHeaders = [];
+        
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
+        $baseUrl = $this->client->config->getBasePath('A1099');
+        return new Request(
+            'GET',
+            $baseUrl . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getW9FormPdf
+     *
+     * Download the PDF for a W9/W4/W8 form.
+     *
+     * @param GetW9FormPdfRequestSdk The request parameters for the API call.
+     *
+     * @throws \Avalara\SDK\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function getW9FormPdf($request_parameters)
+    {
+        $this->getW9FormPdfWithHttpInfo($request_parameters);
+    }
+
+    /**
+     * Operation getW9FormPdfWithHttpInfo
+     *
+     * Download the PDF for a W9/W4/W8 form.
+     *
+     * @param GetW9FormPdfRequestSdk The request parameters for the API call.
+     *
+     * @throws \Avalara\SDK\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getW9FormPdfWithHttpInfo($request_parameters, $isRetry = false)
+    {
+        $logObject = new LogObject($this->client->logRequestAndResponse);
+        //OAuth2 Scopes
+        $requiredScopes = "";
+        $request = $this->getW9FormPdfRequest($request_parameters);
+        $logObject->populateRequestInfo($request);
+
+        try {
+            try {
+                $response = $this->client->send_sync($request, []);
+            } catch (RequestException $e) {
+                $statusCode = $e->getCode();
+                if (($statusCode == 401 || $statusCode == 403) && !$isRetry) {
+                    $this->client->refreshAuthToken($e->getRequest() ? $e->getRequest()->getHeaders() : null, $requiredScopes);
+                    $this->getW9FormPdfWithHttpInfo($request_parameters, true);
+                }
+                $logObject->populateErrorInfo($e->getResponse());
+                $this->client->logger->error(json_encode($logObject));
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                $logObject->populateErrorMessage($e->getCode(), $e->getMessage());
+                $this->client->logger->error(json_encode($logObject));
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }         
+            
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return [null, $statusCode, $response->getHeaders()];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Avalara\SDK\Model\A1099\V2\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Avalara\SDK\Model\A1099\V2\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getW9FormPdfAsync
+     *
+     * Download the PDF for a W9/W4/W8 form.
+     *
+     * @param GetW9FormPdfRequestSdk The request parameters for the API call.
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getW9FormPdfAsync($request_parameters)
+    {
+        return $this->getW9FormPdfAsyncWithHttpInfo($request_parameters)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getW9FormPdfAsyncWithHttpInfo
+     *
+     * Download the PDF for a W9/W4/W8 form.
+     *
+     * @param GetW9FormPdfRequestSdk The request parameters for the API call.
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getW9FormPdfAsyncWithHttpInfo($request_parameters, $isRetry = false)
+    {
+        $logObject = new LogObject($this->client->logRequestAndResponse);
+        $returnType = '';
+        $request = $this->getW9FormPdfRequest($request_parameters);
+        $logObject->populateRequestInfo($request);
+        return $this->client
+            ->send_async($request, [])
+            ->then(
+                function ($response) use ($returnType, $logObject) {
+                    $this->client->logger->info(json_encode($logObject));
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) use ($request_parameters, $isRetry, $request, $logObject) {
+                    //OAuth2 Scopes
+                    $requiredScopes = "";
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    if (($statusCode == 401 || $statusCode == 403) && !$isRetry) {
+                        $this->client->refreshAuthToken($request->getHeaders(), $requiredScopes);
+                        return $this->getW9FormPdfAsyncWithHttpInfo($request_parameters, true)
+                            ->then(
+                                function ($response) {
+                                    return $response[0];
+                                }
+                            );
+                    }
+                    $logObject->populateErrorInfo($response);
+                    $this->client->logger->error(json_encode($logObject));
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getW9FormPdf'
+     *
+     * @param GetW9FormPdfRequestSdk The request parameters for the API call.
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getW9FormPdfRequest($request_parameters)
+    {
+        //OAuth2 Scopes
+        $requiredScopes = "";
+        
+        $id = $request_parameters->getId();
+        $avalara_version = $request_parameters->getAvalaraVersion();
+        $x_correlation_id = $request_parameters->getXCorrelationId();
+        $x_avalara_client = $request_parameters->getXAvalaraClient();
+
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling getW9FormPdf'
+            );
+        }
+        // verify the required parameter 'avalara_version' is set
+        if ($avalara_version === null || (is_array($avalara_version) && count($avalara_version) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $avalara_version when calling getW9FormPdf'
+            );
+        }
+
+        $resourcePath = '/w9/forms/{id}/pdf';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // header params
+        if ($avalara_version !== null) {
+            $headerParams['avalara-version'] = ObjectSerializer::toHeaderValue($avalara_version);
+        }
+        // header params
+        if ($x_correlation_id !== null) {
+            $headerParams['X-Correlation-Id'] = ObjectSerializer::toHeaderValue($x_correlation_id);
+        }
+        // header params
+        if ($x_avalara_client !== null) {
+            $headerParams['X-Avalara-Client'] = ObjectSerializer::toHeaderValue($x_avalara_client);
+        }
+
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/pdf', 'application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/pdf', 'application/json'],
                 []
             );
         }
@@ -3065,6 +3361,52 @@ class DeleteW9FormRequestSdk {
      * @param  string $x_avalara_client Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) . (optional)
      */
 class GetW9FormRequestSdk {
+    private $id;
+    private $avalara_version;
+    private $x_correlation_id;
+    private $x_avalara_client;
+
+    public function __construct() {
+    }
+    public function getId() {
+        return $this->id;
+    }
+
+    public function setId($id) {
+        $this->id = $id;
+    }
+    public function getAvalaraVersion() {
+        return $this->avalara_version ?? '2.0';
+    }
+
+    public function setAvalaraVersion($avalara_version) {
+        $this->avalara_version = $avalara_version;
+    }
+    public function getXCorrelationId() {
+        return $this->x_correlation_id;
+    }
+
+    public function setXCorrelationId($x_correlation_id) {
+        $this->x_correlation_id = $x_correlation_id;
+    }
+    public function getXAvalaraClient() {
+        return $this->x_avalara_client;
+    }
+
+    public function setXAvalaraClient($x_avalara_client) {
+        $this->x_avalara_client = $x_avalara_client;
+    }
+}
+
+    /**
+     * Represents the Request object for the GetW9FormPdf API
+     *
+     * @param  string $id Id of the form (required)
+     * @param  string $avalara_version API version (required)
+     * @param  string $x_correlation_id Unique correlation Id in a GUID format (optional)
+     * @param  string $x_avalara_client Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) . (optional)
+     */
+class GetW9FormPdfRequestSdk {
     private $id;
     private $avalara_version;
     private $x_correlation_id;
