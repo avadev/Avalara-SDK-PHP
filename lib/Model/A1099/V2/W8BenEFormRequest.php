@@ -679,6 +679,255 @@ class W8BenEFormRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
     const TYPE_W8_BEN_E = 'W8BenE';
     const TYPE_W8_IMY = 'W8Imy';
     const TYPE_W9 = 'W9';
+    const ENTITY_TYPE_CORPORATION = 'Corporation';
+    const ENTITY_TYPE_DISREGARDED_ENTITY = 'DisregardedEntity';
+    const ENTITY_TYPE_PARTNERSHIP = 'Partnership';
+    const ENTITY_TYPE_SIMPLE_TRUST = 'SimpleTrust';
+    const ENTITY_TYPE_GRANTOR_TRUST = 'GrantorTrust';
+    const ENTITY_TYPE_COMPLEX_TRUST = 'ComplexTrust';
+    const ENTITY_TYPE_ESTATE = 'Estate';
+    const ENTITY_TYPE_FOREIGN_GOVERNMENT_CONTROLLED_ENTITY = 'ForeignGovernmentControlledEntity';
+    const ENTITY_TYPE_CENTRAL_BANK_OF_ISSUE = 'CentralBankOfIssue';
+    const ENTITY_TYPE_TAX_EXEMPT_ORGANIZATION = 'TaxExemptOrganization';
+    const ENTITY_TYPE_PRIVATE_FOUNDATION = 'PrivateFoundation';
+    const ENTITY_TYPE_INTERNATIONAL_ORGANIZATION = 'InternationalOrganization';
+    const ENTITY_TYPE_FOREIGN_GOVERNMENT_CONTROLLED_INTEGRAL_PART = 'ForeignGovernmentControlledIntegralPart';
+    const FATCA_STATUS_NONPARTICIPATING_FFI = 'NonparticipatingFFI';
+    const FATCA_STATUS_PARTICIPATING_FFI = 'ParticipatingFFI';
+    const FATCA_STATUS_REPORTING_MODEL1_FFI = 'ReportingModel1FFI';
+    const FATCA_STATUS_REPORTING_MODEL2_FFI = 'ReportingModel2FFI';
+    const FATCA_STATUS_REGISTERED_DEEMED_COMPLIANT_FFI = 'RegisteredDeemedCompliantFFI';
+    const FATCA_STATUS_SPONSORED_FFI_WITHOUT_GIIN = 'SponsoredFFIWithoutGIIN';
+    const FATCA_STATUS_CERTIFIED_DEEMED_COMPLIANT_NONREGISTERING_LOCAL_BANK = 'CertifiedDeemedCompliantNonregisteringLocalBank';
+    const FATCA_STATUS_CERTIFIED_DEEMED_COMPLIANT_FFI_WITH_LOW_VALUE_ACCOUNTS = 'CertifiedDeemedCompliantFFIWithLowValueAccounts';
+    const FATCA_STATUS_CERTIFIED_DEEMED_COMPLIANT_SPONSORED_CLOSELY_HELD_INVESTMENT_VEHICLE = 'CertifiedDeemedCompliantSponsoredCloselyHeldInvestmentVehicle';
+    const FATCA_STATUS_CERTIFIED_DEEMED_COMPLIANT_LIMITED_LIFE_DEBT_INVESTMENT_ENTITY = 'CertifiedDeemedCompliantLimitedLifeDebtInvestmentEntity';
+    const FATCA_STATUS_CERTAIN_INVESTMENT_ENTITIES_WITHOUT_FINANCIAL_ACCOUNTS = 'CertainInvestmentEntitiesWithoutFinancialAccounts';
+    const FATCA_STATUS_OWNER_DOCUMENTED_FFI = 'OwnerDocumentedFFI';
+    const FATCA_STATUS_RESTRICTED_DISTRIBUTOR = 'RestrictedDistributor';
+    const FATCA_STATUS_NONREPORTING_IGAFFI = 'NonreportingIGAFFI';
+    const FATCA_STATUS_FOREIGN_GOVERNMENT_OR_US_POSSESSION_OR_FOREIGN_CENTRAL_BANK = 'ForeignGovernmentOrUSPossessionOrForeignCentralBank';
+    const FATCA_STATUS_INTERNATIONAL_ORGANIZATION = 'InternationalOrganization';
+    const FATCA_STATUS_EXEMPT_RETIREMENT_PLANS = 'ExemptRetirementPlans';
+    const FATCA_STATUS_ENTITY_WHOLLY_OWNED_BY_EXEMPT_BENEFICIAL_OWNERS = 'EntityWhollyOwnedByExemptBeneficialOwners';
+    const FATCA_STATUS_TERRITORY_FINANCIAL_INSTITUTION = 'TerritoryFinancialInstitution';
+    const FATCA_STATUS_NONFINANCIAL_GROUP_ENTITY = 'NonfinancialGroupEntity';
+    const FATCA_STATUS_EXCEPTED_NONFINANCIAL_START_UP_COMPANY = 'ExceptedNonfinancialStartUpCompany';
+    const FATCA_STATUS_EXCEPTED_NONFINANCIAL_ENTITY_IN_LIQUIDATION_OR_BANKRUPTCY = 'ExceptedNonfinancialEntityInLiquidationOrBankruptcy';
+    const FATCA_STATUS_ORGANIZATION501C = 'Organization501c';
+    const FATCA_STATUS_NONPROFIT_ORGANIZATION = 'NonprofitOrganization';
+    const FATCA_STATUS_PUBLICLY_TRADED_NFFEOR_AFFILIATE_OF_PUBLICLY_TRADED_CORPORATION = 'PubliclyTradedNFFEOrAffiliateOfPubliclyTradedCorporation';
+    const FATCA_STATUS_EXCEPTED_TERRITORY_NFFE = 'ExceptedTerritoryNFFE';
+    const FATCA_STATUS_ACTIVE_NFFE = 'ActiveNFFE';
+    const FATCA_STATUS_PASSIVE_NFFE = 'PassiveNFFE';
+    const FATCA_STATUS_EXCEPTED_INTER_AFFILIATE_FFI = 'ExceptedInterAffiliateFFI';
+    const FATCA_STATUS_DIRECT_REPORTING_NFFE = 'DirectReportingNFFE';
+    const FATCA_STATUS_SPONSORED_DIRECT_REPORTING_NFFE = 'SponsoredDirectReportingNFFE';
+    const FATCA_STATUS_ACCOUNT_THAT_IS_NOT_FINANCIAL_ACCOUNT = 'AccountThatIsNotFinancialAccount';
+    const RESIDENCE_STATE_AA = 'AA';
+    const RESIDENCE_STATE_AE = 'AE';
+    const RESIDENCE_STATE_AK = 'AK';
+    const RESIDENCE_STATE_AL = 'AL';
+    const RESIDENCE_STATE_AP = 'AP';
+    const RESIDENCE_STATE_AR = 'AR';
+    const RESIDENCE_STATE__AS = 'AS';
+    const RESIDENCE_STATE_AZ = 'AZ';
+    const RESIDENCE_STATE_CA = 'CA';
+    const RESIDENCE_STATE_CO = 'CO';
+    const RESIDENCE_STATE_CT = 'CT';
+    const RESIDENCE_STATE_DC = 'DC';
+    const RESIDENCE_STATE_DE = 'DE';
+    const RESIDENCE_STATE_FL = 'FL';
+    const RESIDENCE_STATE_FM = 'FM';
+    const RESIDENCE_STATE_GA = 'GA';
+    const RESIDENCE_STATE_GU = 'GU';
+    const RESIDENCE_STATE_HI = 'HI';
+    const RESIDENCE_STATE_IA = 'IA';
+    const RESIDENCE_STATE_ID = 'ID';
+    const RESIDENCE_STATE_IL = 'IL';
+    const RESIDENCE_STATE_IN = 'IN';
+    const RESIDENCE_STATE_KS = 'KS';
+    const RESIDENCE_STATE_KY = 'KY';
+    const RESIDENCE_STATE_LA = 'LA';
+    const RESIDENCE_STATE_MA = 'MA';
+    const RESIDENCE_STATE_MD = 'MD';
+    const RESIDENCE_STATE_ME = 'ME';
+    const RESIDENCE_STATE_MH = 'MH';
+    const RESIDENCE_STATE_MI = 'MI';
+    const RESIDENCE_STATE_MN = 'MN';
+    const RESIDENCE_STATE_MO = 'MO';
+    const RESIDENCE_STATE_MP = 'MP';
+    const RESIDENCE_STATE_MS = 'MS';
+    const RESIDENCE_STATE_MT = 'MT';
+    const RESIDENCE_STATE_NC = 'NC';
+    const RESIDENCE_STATE_ND = 'ND';
+    const RESIDENCE_STATE_NE = 'NE';
+    const RESIDENCE_STATE_NH = 'NH';
+    const RESIDENCE_STATE_NJ = 'NJ';
+    const RESIDENCE_STATE_NM = 'NM';
+    const RESIDENCE_STATE_NV = 'NV';
+    const RESIDENCE_STATE_NY = 'NY';
+    const RESIDENCE_STATE_OH = 'OH';
+    const RESIDENCE_STATE_OK = 'OK';
+    const RESIDENCE_STATE__OR = 'OR';
+    const RESIDENCE_STATE_PA = 'PA';
+    const RESIDENCE_STATE_PR = 'PR';
+    const RESIDENCE_STATE_PW = 'PW';
+    const RESIDENCE_STATE_RI = 'RI';
+    const RESIDENCE_STATE_SC = 'SC';
+    const RESIDENCE_STATE_SD = 'SD';
+    const RESIDENCE_STATE_TN = 'TN';
+    const RESIDENCE_STATE_TX = 'TX';
+    const RESIDENCE_STATE_UT = 'UT';
+    const RESIDENCE_STATE_VA = 'VA';
+    const RESIDENCE_STATE_VI = 'VI';
+    const RESIDENCE_STATE_VT = 'VT';
+    const RESIDENCE_STATE_WA = 'WA';
+    const RESIDENCE_STATE_WI = 'WI';
+    const RESIDENCE_STATE_WV = 'WV';
+    const RESIDENCE_STATE_WY = 'WY';
+    const MAILING_STATE_AA = 'AA';
+    const MAILING_STATE_AE = 'AE';
+    const MAILING_STATE_AK = 'AK';
+    const MAILING_STATE_AL = 'AL';
+    const MAILING_STATE_AP = 'AP';
+    const MAILING_STATE_AR = 'AR';
+    const MAILING_STATE__AS = 'AS';
+    const MAILING_STATE_AZ = 'AZ';
+    const MAILING_STATE_CA = 'CA';
+    const MAILING_STATE_CO = 'CO';
+    const MAILING_STATE_CT = 'CT';
+    const MAILING_STATE_DC = 'DC';
+    const MAILING_STATE_DE = 'DE';
+    const MAILING_STATE_FL = 'FL';
+    const MAILING_STATE_FM = 'FM';
+    const MAILING_STATE_GA = 'GA';
+    const MAILING_STATE_GU = 'GU';
+    const MAILING_STATE_HI = 'HI';
+    const MAILING_STATE_IA = 'IA';
+    const MAILING_STATE_ID = 'ID';
+    const MAILING_STATE_IL = 'IL';
+    const MAILING_STATE_IN = 'IN';
+    const MAILING_STATE_KS = 'KS';
+    const MAILING_STATE_KY = 'KY';
+    const MAILING_STATE_LA = 'LA';
+    const MAILING_STATE_MA = 'MA';
+    const MAILING_STATE_MD = 'MD';
+    const MAILING_STATE_ME = 'ME';
+    const MAILING_STATE_MH = 'MH';
+    const MAILING_STATE_MI = 'MI';
+    const MAILING_STATE_MN = 'MN';
+    const MAILING_STATE_MO = 'MO';
+    const MAILING_STATE_MP = 'MP';
+    const MAILING_STATE_MS = 'MS';
+    const MAILING_STATE_MT = 'MT';
+    const MAILING_STATE_NC = 'NC';
+    const MAILING_STATE_ND = 'ND';
+    const MAILING_STATE_NE = 'NE';
+    const MAILING_STATE_NH = 'NH';
+    const MAILING_STATE_NJ = 'NJ';
+    const MAILING_STATE_NM = 'NM';
+    const MAILING_STATE_NV = 'NV';
+    const MAILING_STATE_NY = 'NY';
+    const MAILING_STATE_OH = 'OH';
+    const MAILING_STATE_OK = 'OK';
+    const MAILING_STATE__OR = 'OR';
+    const MAILING_STATE_PA = 'PA';
+    const MAILING_STATE_PR = 'PR';
+    const MAILING_STATE_PW = 'PW';
+    const MAILING_STATE_RI = 'RI';
+    const MAILING_STATE_SC = 'SC';
+    const MAILING_STATE_SD = 'SD';
+    const MAILING_STATE_TN = 'TN';
+    const MAILING_STATE_TX = 'TX';
+    const MAILING_STATE_UT = 'UT';
+    const MAILING_STATE_VA = 'VA';
+    const MAILING_STATE_VI = 'VI';
+    const MAILING_STATE_VT = 'VT';
+    const MAILING_STATE_WA = 'WA';
+    const MAILING_STATE_WI = 'WI';
+    const MAILING_STATE_WV = 'WV';
+    const MAILING_STATE_WY = 'WY';
+    const DISREGARDED_ENTITY_FATCA_STATUS_BRANCH_TREATED_AS_NONPARTICIPATING_FFI = 'BranchTreatedAsNonparticipatingFFI';
+    const DISREGARDED_ENTITY_FATCA_STATUS_US_BRANCH = 'USBranch';
+    const DISREGARDED_ENTITY_FATCA_STATUS_PARTICIPATING_FFI = 'ParticipatingFFI';
+    const DISREGARDED_ENTITY_FATCA_STATUS_REPORTING_MODEL1_FFI = 'ReportingModel1FFI';
+    const DISREGARDED_ENTITY_FATCA_STATUS_REPORTING_MODEL2_FFI = 'ReportingModel2FFI';
+    const DISREGARDED_STATE_AA = 'AA';
+    const DISREGARDED_STATE_AE = 'AE';
+    const DISREGARDED_STATE_AK = 'AK';
+    const DISREGARDED_STATE_AL = 'AL';
+    const DISREGARDED_STATE_AP = 'AP';
+    const DISREGARDED_STATE_AR = 'AR';
+    const DISREGARDED_STATE__AS = 'AS';
+    const DISREGARDED_STATE_AZ = 'AZ';
+    const DISREGARDED_STATE_CA = 'CA';
+    const DISREGARDED_STATE_CO = 'CO';
+    const DISREGARDED_STATE_CT = 'CT';
+    const DISREGARDED_STATE_DC = 'DC';
+    const DISREGARDED_STATE_DE = 'DE';
+    const DISREGARDED_STATE_FL = 'FL';
+    const DISREGARDED_STATE_FM = 'FM';
+    const DISREGARDED_STATE_GA = 'GA';
+    const DISREGARDED_STATE_GU = 'GU';
+    const DISREGARDED_STATE_HI = 'HI';
+    const DISREGARDED_STATE_IA = 'IA';
+    const DISREGARDED_STATE_ID = 'ID';
+    const DISREGARDED_STATE_IL = 'IL';
+    const DISREGARDED_STATE_IN = 'IN';
+    const DISREGARDED_STATE_KS = 'KS';
+    const DISREGARDED_STATE_KY = 'KY';
+    const DISREGARDED_STATE_LA = 'LA';
+    const DISREGARDED_STATE_MA = 'MA';
+    const DISREGARDED_STATE_MD = 'MD';
+    const DISREGARDED_STATE_ME = 'ME';
+    const DISREGARDED_STATE_MH = 'MH';
+    const DISREGARDED_STATE_MI = 'MI';
+    const DISREGARDED_STATE_MN = 'MN';
+    const DISREGARDED_STATE_MO = 'MO';
+    const DISREGARDED_STATE_MP = 'MP';
+    const DISREGARDED_STATE_MS = 'MS';
+    const DISREGARDED_STATE_MT = 'MT';
+    const DISREGARDED_STATE_NC = 'NC';
+    const DISREGARDED_STATE_ND = 'ND';
+    const DISREGARDED_STATE_NE = 'NE';
+    const DISREGARDED_STATE_NH = 'NH';
+    const DISREGARDED_STATE_NJ = 'NJ';
+    const DISREGARDED_STATE_NM = 'NM';
+    const DISREGARDED_STATE_NV = 'NV';
+    const DISREGARDED_STATE_NY = 'NY';
+    const DISREGARDED_STATE_OH = 'OH';
+    const DISREGARDED_STATE_OK = 'OK';
+    const DISREGARDED_STATE__OR = 'OR';
+    const DISREGARDED_STATE_PA = 'PA';
+    const DISREGARDED_STATE_PR = 'PR';
+    const DISREGARDED_STATE_PW = 'PW';
+    const DISREGARDED_STATE_RI = 'RI';
+    const DISREGARDED_STATE_SC = 'SC';
+    const DISREGARDED_STATE_SD = 'SD';
+    const DISREGARDED_STATE_TN = 'TN';
+    const DISREGARDED_STATE_TX = 'TX';
+    const DISREGARDED_STATE_UT = 'UT';
+    const DISREGARDED_STATE_VA = 'VA';
+    const DISREGARDED_STATE_VI = 'VI';
+    const DISREGARDED_STATE_VT = 'VT';
+    const DISREGARDED_STATE_WA = 'WA';
+    const DISREGARDED_STATE_WI = 'WI';
+    const DISREGARDED_STATE_WV = 'WV';
+    const DISREGARDED_STATE_WY = 'WY';
+    const BENEFIT_LIMITATION_GOVERNMENT = 'Government';
+    const BENEFIT_LIMITATION_TAX_EXEMPT_PENSION_TRUST_OR_PENSION_FUND = 'TaxExemptPensionTrustOrPensionFund';
+    const BENEFIT_LIMITATION_OTHER_TAX_EXEMPT_ORGANIZATION = 'OtherTaxExemptOrganization';
+    const BENEFIT_LIMITATION_PUBLICLY_TRADED_CORPORATION = 'PubliclyTradedCorporation';
+    const BENEFIT_LIMITATION_SUBSIDIARY_OF_PUBLICLY_TRADED_CORPORATION = 'SubsidiaryOfPubliclyTradedCorporation';
+    const BENEFIT_LIMITATION_COMPANY_THAT_MEETS_OWNERSHIP_AND_BASE_EROSION_TEST = 'CompanyThatMeetsOwnershipAndBaseErosionTest';
+    const BENEFIT_LIMITATION_COMPANY_THAT_MEETS_DERIVATIVE_BENEFITS_TEST = 'CompanyThatMeetsDerivativeBenefitsTest';
+    const BENEFIT_LIMITATION_COMPANY_WITH_ITEM_OF_INCOME_THAT_MEETS_ACTIVE_TRADE_OR_BUSINESS_TEST = 'CompanyWithItemOfIncomeThatMeetsActiveTradeOrBusinessTest';
+    const BENEFIT_LIMITATION_FAVORABLE_DISCRETIONARY_DETERMINATION_BY_US_COMPETENT_AUTHORITY_RECEIVED = 'FavorableDiscretionaryDeterminationByUSCompetentAuthorityReceived';
+    const BENEFIT_LIMITATION_OTHER = 'Other';
+    const BENEFIT_LIMITATION_NO_LOB_ARTICLE_IN_TREATY = 'NoLOBArticleInTreaty';
+    const IGA_MODEL_MODEL1_IGA = 'Model1IGA';
+    const IGA_MODEL_MODEL2_IGA = 'Model2IGA';
 
     /**
      * Gets allowable values of the enum
@@ -693,6 +942,343 @@ class W8BenEFormRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
             self::TYPE_W8_BEN_E,
             self::TYPE_W8_IMY,
             self::TYPE_W9,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getEntityTypeAllowableValues()
+    {
+        return [
+            self::ENTITY_TYPE_CORPORATION,
+            self::ENTITY_TYPE_DISREGARDED_ENTITY,
+            self::ENTITY_TYPE_PARTNERSHIP,
+            self::ENTITY_TYPE_SIMPLE_TRUST,
+            self::ENTITY_TYPE_GRANTOR_TRUST,
+            self::ENTITY_TYPE_COMPLEX_TRUST,
+            self::ENTITY_TYPE_ESTATE,
+            self::ENTITY_TYPE_FOREIGN_GOVERNMENT_CONTROLLED_ENTITY,
+            self::ENTITY_TYPE_CENTRAL_BANK_OF_ISSUE,
+            self::ENTITY_TYPE_TAX_EXEMPT_ORGANIZATION,
+            self::ENTITY_TYPE_PRIVATE_FOUNDATION,
+            self::ENTITY_TYPE_INTERNATIONAL_ORGANIZATION,
+            self::ENTITY_TYPE_FOREIGN_GOVERNMENT_CONTROLLED_INTEGRAL_PART,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getFatcaStatusAllowableValues()
+    {
+        return [
+            self::FATCA_STATUS_NONPARTICIPATING_FFI,
+            self::FATCA_STATUS_PARTICIPATING_FFI,
+            self::FATCA_STATUS_REPORTING_MODEL1_FFI,
+            self::FATCA_STATUS_REPORTING_MODEL2_FFI,
+            self::FATCA_STATUS_REGISTERED_DEEMED_COMPLIANT_FFI,
+            self::FATCA_STATUS_SPONSORED_FFI_WITHOUT_GIIN,
+            self::FATCA_STATUS_CERTIFIED_DEEMED_COMPLIANT_NONREGISTERING_LOCAL_BANK,
+            self::FATCA_STATUS_CERTIFIED_DEEMED_COMPLIANT_FFI_WITH_LOW_VALUE_ACCOUNTS,
+            self::FATCA_STATUS_CERTIFIED_DEEMED_COMPLIANT_SPONSORED_CLOSELY_HELD_INVESTMENT_VEHICLE,
+            self::FATCA_STATUS_CERTIFIED_DEEMED_COMPLIANT_LIMITED_LIFE_DEBT_INVESTMENT_ENTITY,
+            self::FATCA_STATUS_CERTAIN_INVESTMENT_ENTITIES_WITHOUT_FINANCIAL_ACCOUNTS,
+            self::FATCA_STATUS_OWNER_DOCUMENTED_FFI,
+            self::FATCA_STATUS_RESTRICTED_DISTRIBUTOR,
+            self::FATCA_STATUS_NONREPORTING_IGAFFI,
+            self::FATCA_STATUS_FOREIGN_GOVERNMENT_OR_US_POSSESSION_OR_FOREIGN_CENTRAL_BANK,
+            self::FATCA_STATUS_INTERNATIONAL_ORGANIZATION,
+            self::FATCA_STATUS_EXEMPT_RETIREMENT_PLANS,
+            self::FATCA_STATUS_ENTITY_WHOLLY_OWNED_BY_EXEMPT_BENEFICIAL_OWNERS,
+            self::FATCA_STATUS_TERRITORY_FINANCIAL_INSTITUTION,
+            self::FATCA_STATUS_NONFINANCIAL_GROUP_ENTITY,
+            self::FATCA_STATUS_EXCEPTED_NONFINANCIAL_START_UP_COMPANY,
+            self::FATCA_STATUS_EXCEPTED_NONFINANCIAL_ENTITY_IN_LIQUIDATION_OR_BANKRUPTCY,
+            self::FATCA_STATUS_ORGANIZATION501C,
+            self::FATCA_STATUS_NONPROFIT_ORGANIZATION,
+            self::FATCA_STATUS_PUBLICLY_TRADED_NFFEOR_AFFILIATE_OF_PUBLICLY_TRADED_CORPORATION,
+            self::FATCA_STATUS_EXCEPTED_TERRITORY_NFFE,
+            self::FATCA_STATUS_ACTIVE_NFFE,
+            self::FATCA_STATUS_PASSIVE_NFFE,
+            self::FATCA_STATUS_EXCEPTED_INTER_AFFILIATE_FFI,
+            self::FATCA_STATUS_DIRECT_REPORTING_NFFE,
+            self::FATCA_STATUS_SPONSORED_DIRECT_REPORTING_NFFE,
+            self::FATCA_STATUS_ACCOUNT_THAT_IS_NOT_FINANCIAL_ACCOUNT,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getResidenceStateAllowableValues()
+    {
+        return [
+            self::RESIDENCE_STATE_AA,
+            self::RESIDENCE_STATE_AE,
+            self::RESIDENCE_STATE_AK,
+            self::RESIDENCE_STATE_AL,
+            self::RESIDENCE_STATE_AP,
+            self::RESIDENCE_STATE_AR,
+            self::RESIDENCE_STATE__AS,
+            self::RESIDENCE_STATE_AZ,
+            self::RESIDENCE_STATE_CA,
+            self::RESIDENCE_STATE_CO,
+            self::RESIDENCE_STATE_CT,
+            self::RESIDENCE_STATE_DC,
+            self::RESIDENCE_STATE_DE,
+            self::RESIDENCE_STATE_FL,
+            self::RESIDENCE_STATE_FM,
+            self::RESIDENCE_STATE_GA,
+            self::RESIDENCE_STATE_GU,
+            self::RESIDENCE_STATE_HI,
+            self::RESIDENCE_STATE_IA,
+            self::RESIDENCE_STATE_ID,
+            self::RESIDENCE_STATE_IL,
+            self::RESIDENCE_STATE_IN,
+            self::RESIDENCE_STATE_KS,
+            self::RESIDENCE_STATE_KY,
+            self::RESIDENCE_STATE_LA,
+            self::RESIDENCE_STATE_MA,
+            self::RESIDENCE_STATE_MD,
+            self::RESIDENCE_STATE_ME,
+            self::RESIDENCE_STATE_MH,
+            self::RESIDENCE_STATE_MI,
+            self::RESIDENCE_STATE_MN,
+            self::RESIDENCE_STATE_MO,
+            self::RESIDENCE_STATE_MP,
+            self::RESIDENCE_STATE_MS,
+            self::RESIDENCE_STATE_MT,
+            self::RESIDENCE_STATE_NC,
+            self::RESIDENCE_STATE_ND,
+            self::RESIDENCE_STATE_NE,
+            self::RESIDENCE_STATE_NH,
+            self::RESIDENCE_STATE_NJ,
+            self::RESIDENCE_STATE_NM,
+            self::RESIDENCE_STATE_NV,
+            self::RESIDENCE_STATE_NY,
+            self::RESIDENCE_STATE_OH,
+            self::RESIDENCE_STATE_OK,
+            self::RESIDENCE_STATE__OR,
+            self::RESIDENCE_STATE_PA,
+            self::RESIDENCE_STATE_PR,
+            self::RESIDENCE_STATE_PW,
+            self::RESIDENCE_STATE_RI,
+            self::RESIDENCE_STATE_SC,
+            self::RESIDENCE_STATE_SD,
+            self::RESIDENCE_STATE_TN,
+            self::RESIDENCE_STATE_TX,
+            self::RESIDENCE_STATE_UT,
+            self::RESIDENCE_STATE_VA,
+            self::RESIDENCE_STATE_VI,
+            self::RESIDENCE_STATE_VT,
+            self::RESIDENCE_STATE_WA,
+            self::RESIDENCE_STATE_WI,
+            self::RESIDENCE_STATE_WV,
+            self::RESIDENCE_STATE_WY,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getMailingStateAllowableValues()
+    {
+        return [
+            self::MAILING_STATE_AA,
+            self::MAILING_STATE_AE,
+            self::MAILING_STATE_AK,
+            self::MAILING_STATE_AL,
+            self::MAILING_STATE_AP,
+            self::MAILING_STATE_AR,
+            self::MAILING_STATE__AS,
+            self::MAILING_STATE_AZ,
+            self::MAILING_STATE_CA,
+            self::MAILING_STATE_CO,
+            self::MAILING_STATE_CT,
+            self::MAILING_STATE_DC,
+            self::MAILING_STATE_DE,
+            self::MAILING_STATE_FL,
+            self::MAILING_STATE_FM,
+            self::MAILING_STATE_GA,
+            self::MAILING_STATE_GU,
+            self::MAILING_STATE_HI,
+            self::MAILING_STATE_IA,
+            self::MAILING_STATE_ID,
+            self::MAILING_STATE_IL,
+            self::MAILING_STATE_IN,
+            self::MAILING_STATE_KS,
+            self::MAILING_STATE_KY,
+            self::MAILING_STATE_LA,
+            self::MAILING_STATE_MA,
+            self::MAILING_STATE_MD,
+            self::MAILING_STATE_ME,
+            self::MAILING_STATE_MH,
+            self::MAILING_STATE_MI,
+            self::MAILING_STATE_MN,
+            self::MAILING_STATE_MO,
+            self::MAILING_STATE_MP,
+            self::MAILING_STATE_MS,
+            self::MAILING_STATE_MT,
+            self::MAILING_STATE_NC,
+            self::MAILING_STATE_ND,
+            self::MAILING_STATE_NE,
+            self::MAILING_STATE_NH,
+            self::MAILING_STATE_NJ,
+            self::MAILING_STATE_NM,
+            self::MAILING_STATE_NV,
+            self::MAILING_STATE_NY,
+            self::MAILING_STATE_OH,
+            self::MAILING_STATE_OK,
+            self::MAILING_STATE__OR,
+            self::MAILING_STATE_PA,
+            self::MAILING_STATE_PR,
+            self::MAILING_STATE_PW,
+            self::MAILING_STATE_RI,
+            self::MAILING_STATE_SC,
+            self::MAILING_STATE_SD,
+            self::MAILING_STATE_TN,
+            self::MAILING_STATE_TX,
+            self::MAILING_STATE_UT,
+            self::MAILING_STATE_VA,
+            self::MAILING_STATE_VI,
+            self::MAILING_STATE_VT,
+            self::MAILING_STATE_WA,
+            self::MAILING_STATE_WI,
+            self::MAILING_STATE_WV,
+            self::MAILING_STATE_WY,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getDisregardedEntityFatcaStatusAllowableValues()
+    {
+        return [
+            self::DISREGARDED_ENTITY_FATCA_STATUS_BRANCH_TREATED_AS_NONPARTICIPATING_FFI,
+            self::DISREGARDED_ENTITY_FATCA_STATUS_US_BRANCH,
+            self::DISREGARDED_ENTITY_FATCA_STATUS_PARTICIPATING_FFI,
+            self::DISREGARDED_ENTITY_FATCA_STATUS_REPORTING_MODEL1_FFI,
+            self::DISREGARDED_ENTITY_FATCA_STATUS_REPORTING_MODEL2_FFI,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getDisregardedStateAllowableValues()
+    {
+        return [
+            self::DISREGARDED_STATE_AA,
+            self::DISREGARDED_STATE_AE,
+            self::DISREGARDED_STATE_AK,
+            self::DISREGARDED_STATE_AL,
+            self::DISREGARDED_STATE_AP,
+            self::DISREGARDED_STATE_AR,
+            self::DISREGARDED_STATE__AS,
+            self::DISREGARDED_STATE_AZ,
+            self::DISREGARDED_STATE_CA,
+            self::DISREGARDED_STATE_CO,
+            self::DISREGARDED_STATE_CT,
+            self::DISREGARDED_STATE_DC,
+            self::DISREGARDED_STATE_DE,
+            self::DISREGARDED_STATE_FL,
+            self::DISREGARDED_STATE_FM,
+            self::DISREGARDED_STATE_GA,
+            self::DISREGARDED_STATE_GU,
+            self::DISREGARDED_STATE_HI,
+            self::DISREGARDED_STATE_IA,
+            self::DISREGARDED_STATE_ID,
+            self::DISREGARDED_STATE_IL,
+            self::DISREGARDED_STATE_IN,
+            self::DISREGARDED_STATE_KS,
+            self::DISREGARDED_STATE_KY,
+            self::DISREGARDED_STATE_LA,
+            self::DISREGARDED_STATE_MA,
+            self::DISREGARDED_STATE_MD,
+            self::DISREGARDED_STATE_ME,
+            self::DISREGARDED_STATE_MH,
+            self::DISREGARDED_STATE_MI,
+            self::DISREGARDED_STATE_MN,
+            self::DISREGARDED_STATE_MO,
+            self::DISREGARDED_STATE_MP,
+            self::DISREGARDED_STATE_MS,
+            self::DISREGARDED_STATE_MT,
+            self::DISREGARDED_STATE_NC,
+            self::DISREGARDED_STATE_ND,
+            self::DISREGARDED_STATE_NE,
+            self::DISREGARDED_STATE_NH,
+            self::DISREGARDED_STATE_NJ,
+            self::DISREGARDED_STATE_NM,
+            self::DISREGARDED_STATE_NV,
+            self::DISREGARDED_STATE_NY,
+            self::DISREGARDED_STATE_OH,
+            self::DISREGARDED_STATE_OK,
+            self::DISREGARDED_STATE__OR,
+            self::DISREGARDED_STATE_PA,
+            self::DISREGARDED_STATE_PR,
+            self::DISREGARDED_STATE_PW,
+            self::DISREGARDED_STATE_RI,
+            self::DISREGARDED_STATE_SC,
+            self::DISREGARDED_STATE_SD,
+            self::DISREGARDED_STATE_TN,
+            self::DISREGARDED_STATE_TX,
+            self::DISREGARDED_STATE_UT,
+            self::DISREGARDED_STATE_VA,
+            self::DISREGARDED_STATE_VI,
+            self::DISREGARDED_STATE_VT,
+            self::DISREGARDED_STATE_WA,
+            self::DISREGARDED_STATE_WI,
+            self::DISREGARDED_STATE_WV,
+            self::DISREGARDED_STATE_WY,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getBenefitLimitationAllowableValues()
+    {
+        return [
+            self::BENEFIT_LIMITATION_GOVERNMENT,
+            self::BENEFIT_LIMITATION_TAX_EXEMPT_PENSION_TRUST_OR_PENSION_FUND,
+            self::BENEFIT_LIMITATION_OTHER_TAX_EXEMPT_ORGANIZATION,
+            self::BENEFIT_LIMITATION_PUBLICLY_TRADED_CORPORATION,
+            self::BENEFIT_LIMITATION_SUBSIDIARY_OF_PUBLICLY_TRADED_CORPORATION,
+            self::BENEFIT_LIMITATION_COMPANY_THAT_MEETS_OWNERSHIP_AND_BASE_EROSION_TEST,
+            self::BENEFIT_LIMITATION_COMPANY_THAT_MEETS_DERIVATIVE_BENEFITS_TEST,
+            self::BENEFIT_LIMITATION_COMPANY_WITH_ITEM_OF_INCOME_THAT_MEETS_ACTIVE_TRADE_OR_BUSINESS_TEST,
+            self::BENEFIT_LIMITATION_FAVORABLE_DISCRETIONARY_DETERMINATION_BY_US_COMPETENT_AUTHORITY_RECEIVED,
+            self::BENEFIT_LIMITATION_OTHER,
+            self::BENEFIT_LIMITATION_NO_LOB_ARTICLE_IN_TREATY,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getIgaModelAllowableValues()
+    {
+        return [
+            self::IGA_MODEL_MODEL1_IGA,
+            self::IGA_MODEL_MODEL2_IGA,
         ];
     }
 
@@ -841,12 +1427,84 @@ class W8BenEFormRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
         if ($this->container['entity_type'] === null) {
             $invalidProperties[] = "'entity_type' can't be null";
         }
+        $allowedValues = $this->getEntityTypeAllowableValues();
+        if (!is_null($this->container['entity_type']) && !in_array($this->container['entity_type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'entity_type', must be one of '%s'",
+                $this->container['entity_type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['fatca_status'] === null) {
             $invalidProperties[] = "'fatca_status' can't be null";
         }
+        $allowedValues = $this->getFatcaStatusAllowableValues();
+        if (!is_null($this->container['fatca_status']) && !in_array($this->container['fatca_status'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'fatca_status', must be one of '%s'",
+                $this->container['fatca_status'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getResidenceStateAllowableValues();
+        if (!is_null($this->container['residence_state']) && !in_array($this->container['residence_state'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'residence_state', must be one of '%s'",
+                $this->container['residence_state'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['residence_country'] === null) {
             $invalidProperties[] = "'residence_country' can't be null";
         }
+        $allowedValues = $this->getMailingStateAllowableValues();
+        if (!is_null($this->container['mailing_state']) && !in_array($this->container['mailing_state'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'mailing_state', must be one of '%s'",
+                $this->container['mailing_state'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getDisregardedEntityFatcaStatusAllowableValues();
+        if (!is_null($this->container['disregarded_entity_fatca_status']) && !in_array($this->container['disregarded_entity_fatca_status'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'disregarded_entity_fatca_status', must be one of '%s'",
+                $this->container['disregarded_entity_fatca_status'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getDisregardedStateAllowableValues();
+        if (!is_null($this->container['disregarded_state']) && !in_array($this->container['disregarded_state'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'disregarded_state', must be one of '%s'",
+                $this->container['disregarded_state'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getBenefitLimitationAllowableValues();
+        if (!is_null($this->container['benefit_limitation']) && !in_array($this->container['benefit_limitation'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'benefit_limitation', must be one of '%s'",
+                $this->container['benefit_limitation'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getIgaModelAllowableValues();
+        if (!is_null($this->container['iga_model']) && !in_array($this->container['iga_model'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'iga_model', must be one of '%s'",
+                $this->container['iga_model'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -981,12 +1639,22 @@ class W8BenEFormRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets entity_type
      *
-     * @param string $entity_type The entity type.  Available values:  - 1: Corporation  - 2: Disregarded entity  - 3: Partnership  - 4: Simple trust  - 5: Grantor trust  - 6: Complex trust  - 7: Estate  - 8: Foreign Government - Controlled Entity  - 9: Central Bank of Issue  - 10: Tax-exempt organization  - 11: Private foundation  - 12: International organization  - 13: Foreign Government - Controlled Integral Part
+     * @param string $entity_type Represents the entity type for tax forms.  Each value corresponds to a specific entity classification.  - 1: Corporation  - 2: Disregarded entity  - 3: Partnership  - 4: Simple trust  - 5: Grantor trust  - 6: Complex trust  - 7: Estate  - 8: Foreign Government - Controlled Entity  - 9: Central Bank of Issue  - 10: Tax-exempt organization  - 11: Private foundation  - 12: International organization  - 13: Foreign Government - Controlled Integral Part
      *
      * @return self
      */
     public function setEntityType($entity_type)
     {
+        $allowedValues = $this->getEntityTypeAllowableValues();
+        if (!in_array($entity_type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'entity_type', must be one of '%s'",
+                    $entity_type,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['entity_type'] = $entity_type;
 
         return $this;
@@ -1029,12 +1697,22 @@ class W8BenEFormRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets fatca_status
      *
-     * @param string $fatca_status The FATCA status.  Available values:  - 1: Nonparticipating FFI (including a limited FFI or an FFI related to a Reporting IGA FFI other than a deemed-compliant FFI, participating FFI, or exempt beneficial owner)  - 2: Participating FFI  - 3: Reporting Model 1 FFI  - 4: Reporting Model 2 FFI  - 5: Registered deemed-compliant FFI (other than a reporting Model 1 FFI, sponsored FFI, or nonreporting IGA FFI covered in Part XII)  - 6: Sponsored FFI that has not obtained a GIIN  - 7: Certified deemed-compliant nonregistering local bank  - 8: Certified deemed-compliant FFI with only low-value accounts  - 9: Certified deemed-compliant sponsored, closely held investment vehicle  - 10: Certified deemed-compliant limited life debt investment entity  - 11: Certified deemed-compliant investment advisors and investment managers  - 12: Owner-documented FFI  - 13: Restricted distributor  - 14: Nonreporting IGA FFI  - 15: Foreign government, government of a U.S. possession, or foreign central bank of issue  - 16: International organization  - 17: Exempt retirement plans  - 18: Entity wholly owned by exempt beneficial owners  - 19: Territory financial institution  - 20: Nonfinancial group entity  - 21: Excepted nonfinancial start-up company  - 22: Excepted nonfinancial entity in liquidation or bankruptcy  - 23: 501(c) organization  - 24: Nonprofit organization  - 25: Publicly traded NFFE or NFFE affiliate of a publicly traded corporation  - 26: Excepted territory NFFE  - 27: Active NFFE  - 28: Passive NFFE  - 29: Excepted inter-affiliate FFI  - 30: Direct reporting NFFE  - 31: Sponsored direct reporting NFFE  - 32: Account that is not a financial account
+     * @param string $fatca_status Represents the FATCA status types for tax forms.  Used for W8-BEN-E forms and FATCA compliance validations.  Values correspond to numeric identifiers used in forms.  - 1: Nonparticipating FFI (including a limited FFI or an FFI related to a Reporting IGA FFI other than a deemed-compliant FFI, participating FFI, or exempt beneficial owner)  - 2: Participating FFI  - 3: Reporting Model 1 FFI  - 4: Reporting Model 2 FFI  - 5: Registered deemed-compliant FFI (other than a reporting Model 1 FFI, sponsored FFI, or nonreporting IGA FFI covered in Part XII)  - 6: Sponsored FFI that has not obtained a GIIN  - 7: Certified deemed-compliant nonregistering local bank  - 8: Certified deemed-compliant FFI with only low-value accounts  - 9: Certified deemed-compliant sponsored, closely held investment vehicle  - 10: Certified deemed-compliant limited life debt investment entity  - 11: Certified deemed-compliant investment advisors and investment managers  - 12: Owner-documented FFI  - 13: Restricted distributor  - 14: Nonreporting IGA FFI  - 15: Foreign government, government of a U.S. possession, or foreign central bank of issue  - 16: International organization  - 17: Exempt retirement plans  - 18: Entity wholly owned by exempt beneficial owners  - 19: Territory financial institution  - 20: Nonfinancial group entity  - 21: Excepted nonfinancial start-up company  - 22: Excepted nonfinancial entity in liquidation or bankruptcy  - 23: 501(c) organization  - 24: Nonprofit organization  - 25: Publicly traded NFFE or NFFE affiliate of a publicly traded corporation  - 26: Excepted territory NFFE  - 27: Active NFFE  - 28: Passive NFFE  - 29: Excepted inter-affiliate FFI  - 30: Direct reporting NFFE  - 31: Sponsored direct reporting NFFE  - 32: Account that is not a financial account
      *
      * @return self
      */
     public function setFatcaStatus($fatca_status)
     {
+        $allowedValues = $this->getFatcaStatusAllowableValues();
+        if (!in_array($fatca_status, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'fatca_status', must be one of '%s'",
+                    $fatca_status,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['fatca_status'] = $fatca_status;
 
         return $this;
@@ -1107,6 +1785,16 @@ class W8BenEFormRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function setResidenceState($residence_state)
     {
+        $allowedValues = $this->getResidenceStateAllowableValues();
+        if (!is_null($residence_state) && !in_array($residence_state, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'residence_state', must be one of '%s'",
+                    $residence_state,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['residence_state'] = $residence_state;
 
         return $this;
@@ -1251,6 +1939,16 @@ class W8BenEFormRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function setMailingState($mailing_state)
     {
+        $allowedValues = $this->getMailingStateAllowableValues();
+        if (!is_null($mailing_state) && !in_array($mailing_state, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'mailing_state', must be one of '%s'",
+                    $mailing_state,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['mailing_state'] = $mailing_state;
 
         return $this;
@@ -1437,12 +2135,22 @@ class W8BenEFormRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets disregarded_entity_fatca_status
      *
-     * @param string|null $disregarded_entity_fatca_status The FATCA status of disregarded entity or branch receiving payment.  Available values:  - 1: Limited Branch  - 2: U.S. Branch  - 3: Participating FFI  - 4: Reporting Model 1 FFI  - 5: Reporting Model 2 FFI
+     * @param string|null $disregarded_entity_fatca_status The FATCA status of disregarded entity or branch receiving payment.  Available values:  - 1: Branch treated as nonparticipating FFI  - 2: U.S. Branch  - 3: Participating FFI  - 4: Reporting Model 1 FFI  - 5: Reporting Model 2 FFI
      *
      * @return self
      */
     public function setDisregardedEntityFatcaStatus($disregarded_entity_fatca_status)
     {
+        $allowedValues = $this->getDisregardedEntityFatcaStatusAllowableValues();
+        if (!is_null($disregarded_entity_fatca_status) && !in_array($disregarded_entity_fatca_status, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'disregarded_entity_fatca_status', must be one of '%s'",
+                    $disregarded_entity_fatca_status,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['disregarded_entity_fatca_status'] = $disregarded_entity_fatca_status;
 
         return $this;
@@ -1515,6 +2223,16 @@ class W8BenEFormRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function setDisregardedState($disregarded_state)
     {
+        $allowedValues = $this->getDisregardedStateAllowableValues();
+        if (!is_null($disregarded_state) && !in_array($disregarded_state, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'disregarded_state', must be one of '%s'",
+                    $disregarded_state,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['disregarded_state'] = $disregarded_state;
 
         return $this;
@@ -1677,12 +2395,22 @@ class W8BenEFormRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets benefit_limitation
      *
-     * @param string|null $benefit_limitation The benefit limitation for tax treaty claims.  Available values:  - 1: Government  - 2: Tax exempt pension trust or pension fund  - 3: Other tax exempt organization  - 4: Publicly traded corporation  - 5: Subsidiary of a publicly traded corporation  - 6: Company that meets the ownership and base erosion test  - 7: Company that meets the derivative benefits test  - 8: Company with an item of income that meets active trade or business test  - 9: Favorable discretionary determination by the U.S. competent authority received  - 10: Other
+     * @param string|null $benefit_limitation The benefit limitation for tax treaty claims.  Available values:  - 1: Government  - 2: Tax exempt pension trust or pension fund  - 3: Other tax exempt organization  - 4: Publicly traded corporation  - 5: Subsidiary of a publicly traded corporation  - 6: Company that meets the ownership and base erosion test  - 7: Company that meets the derivative benefits test  - 8: Company with an item of income that meets active trade or business test  - 9: Favorable discretionary determination by the U.S. competent authority received  - 10: Other  - 11: No LOB article in treaty
      *
      * @return self
      */
     public function setBenefitLimitation($benefit_limitation)
     {
+        $allowedValues = $this->getBenefitLimitationAllowableValues();
+        if (!is_null($benefit_limitation) && !in_array($benefit_limitation, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'benefit_limitation', must be one of '%s'",
+                    $benefit_limitation,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['benefit_limitation'] = $benefit_limitation;
 
         return $this;
@@ -2259,6 +2987,16 @@ class W8BenEFormRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function setIgaModel($iga_model)
     {
+        $allowedValues = $this->getIgaModelAllowableValues();
+        if (!is_null($iga_model) && !in_array($iga_model, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'iga_model', must be one of '%s'",
+                    $iga_model,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['iga_model'] = $iga_model;
 
         return $this;

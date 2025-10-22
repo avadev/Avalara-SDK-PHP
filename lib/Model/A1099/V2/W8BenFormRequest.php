@@ -324,6 +324,1199 @@ class W8BenFormRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     const TYPE_W8_BEN_E = 'W8BenE';
     const TYPE_W8_IMY = 'W8Imy';
     const TYPE_W9 = 'W9';
+    const CITIZENSHIP_COUNTRY_US = 'US';
+    const CITIZENSHIP_COUNTRY_AF = 'AF';
+    const CITIZENSHIP_COUNTRY_AX = 'AX';
+    const CITIZENSHIP_COUNTRY_AL = 'AL';
+    const CITIZENSHIP_COUNTRY_AG = 'AG';
+    const CITIZENSHIP_COUNTRY_AQ = 'AQ';
+    const CITIZENSHIP_COUNTRY_AN = 'AN';
+    const CITIZENSHIP_COUNTRY_AO = 'AO';
+    const CITIZENSHIP_COUNTRY_AV = 'AV';
+    const CITIZENSHIP_COUNTRY_AY = 'AY';
+    const CITIZENSHIP_COUNTRY_AC = 'AC';
+    const CITIZENSHIP_COUNTRY_AR = 'AR';
+    const CITIZENSHIP_COUNTRY_AM = 'AM';
+    const CITIZENSHIP_COUNTRY_AA = 'AA';
+    const CITIZENSHIP_COUNTRY_AT = 'AT';
+    const CITIZENSHIP_COUNTRY__AS = 'AS';
+    const CITIZENSHIP_COUNTRY_AU = 'AU';
+    const CITIZENSHIP_COUNTRY_AJ = 'AJ';
+    const CITIZENSHIP_COUNTRY_BF = 'BF';
+    const CITIZENSHIP_COUNTRY_BA = 'BA';
+    const CITIZENSHIP_COUNTRY_FQ = 'FQ';
+    const CITIZENSHIP_COUNTRY_BG = 'BG';
+    const CITIZENSHIP_COUNTRY_BB = 'BB';
+    const CITIZENSHIP_COUNTRY_BO = 'BO';
+    const CITIZENSHIP_COUNTRY_BE = 'BE';
+    const CITIZENSHIP_COUNTRY_BH = 'BH';
+    const CITIZENSHIP_COUNTRY_BN = 'BN';
+    const CITIZENSHIP_COUNTRY_BD = 'BD';
+    const CITIZENSHIP_COUNTRY_BT = 'BT';
+    const CITIZENSHIP_COUNTRY_BL = 'BL';
+    const CITIZENSHIP_COUNTRY_BK = 'BK';
+    const CITIZENSHIP_COUNTRY_BC = 'BC';
+    const CITIZENSHIP_COUNTRY_BV = 'BV';
+    const CITIZENSHIP_COUNTRY_BR = 'BR';
+    const CITIZENSHIP_COUNTRY_IO = 'IO';
+    const CITIZENSHIP_COUNTRY_VI = 'VI';
+    const CITIZENSHIP_COUNTRY_BX = 'BX';
+    const CITIZENSHIP_COUNTRY_BU = 'BU';
+    const CITIZENSHIP_COUNTRY_UV = 'UV';
+    const CITIZENSHIP_COUNTRY_BM = 'BM';
+    const CITIZENSHIP_COUNTRY_BY = 'BY';
+    const CITIZENSHIP_COUNTRY_CB = 'CB';
+    const CITIZENSHIP_COUNTRY_CM = 'CM';
+    const CITIZENSHIP_COUNTRY_CA = 'CA';
+    const CITIZENSHIP_COUNTRY_CV = 'CV';
+    const CITIZENSHIP_COUNTRY_CJ = 'CJ';
+    const CITIZENSHIP_COUNTRY_CT = 'CT';
+    const CITIZENSHIP_COUNTRY_CD = 'CD';
+    const CITIZENSHIP_COUNTRY_CI = 'CI';
+    const CITIZENSHIP_COUNTRY_CH = 'CH';
+    const CITIZENSHIP_COUNTRY_KT = 'KT';
+    const CITIZENSHIP_COUNTRY_IP = 'IP';
+    const CITIZENSHIP_COUNTRY_CK = 'CK';
+    const CITIZENSHIP_COUNTRY_CO = 'CO';
+    const CITIZENSHIP_COUNTRY_CN = 'CN';
+    const CITIZENSHIP_COUNTRY_CF = 'CF';
+    const CITIZENSHIP_COUNTRY_CG = 'CG';
+    const CITIZENSHIP_COUNTRY_CW = 'CW';
+    const CITIZENSHIP_COUNTRY_CR = 'CR';
+    const CITIZENSHIP_COUNTRY_CS = 'CS';
+    const CITIZENSHIP_COUNTRY_IV = 'IV';
+    const CITIZENSHIP_COUNTRY_HR = 'HR';
+    const CITIZENSHIP_COUNTRY_CU = 'CU';
+    const CITIZENSHIP_COUNTRY_UC = 'UC';
+    const CITIZENSHIP_COUNTRY_CY = 'CY';
+    const CITIZENSHIP_COUNTRY_EZ = 'EZ';
+    const CITIZENSHIP_COUNTRY_DA = 'DA';
+    const CITIZENSHIP_COUNTRY_DX = 'DX';
+    const CITIZENSHIP_COUNTRY_DJ = 'DJ';
+    const CITIZENSHIP_COUNTRY__DO = 'DO';
+    const CITIZENSHIP_COUNTRY_DR = 'DR';
+    const CITIZENSHIP_COUNTRY_TT = 'TT';
+    const CITIZENSHIP_COUNTRY_EC = 'EC';
+    const CITIZENSHIP_COUNTRY_EG = 'EG';
+    const CITIZENSHIP_COUNTRY_ES = 'ES';
+    const CITIZENSHIP_COUNTRY_EK = 'EK';
+    const CITIZENSHIP_COUNTRY_ER = 'ER';
+    const CITIZENSHIP_COUNTRY_EN = 'EN';
+    const CITIZENSHIP_COUNTRY_ET = 'ET';
+    const CITIZENSHIP_COUNTRY_FK = 'FK';
+    const CITIZENSHIP_COUNTRY_FO = 'FO';
+    const CITIZENSHIP_COUNTRY_FM = 'FM';
+    const CITIZENSHIP_COUNTRY_FJ = 'FJ';
+    const CITIZENSHIP_COUNTRY_FI = 'FI';
+    const CITIZENSHIP_COUNTRY_FR = 'FR';
+    const CITIZENSHIP_COUNTRY_FP = 'FP';
+    const CITIZENSHIP_COUNTRY_FS = 'FS';
+    const CITIZENSHIP_COUNTRY_GB = 'GB';
+    const CITIZENSHIP_COUNTRY_GA = 'GA';
+    const CITIZENSHIP_COUNTRY_GG = 'GG';
+    const CITIZENSHIP_COUNTRY_GM = 'GM';
+    const CITIZENSHIP_COUNTRY_GH = 'GH';
+    const CITIZENSHIP_COUNTRY_GI = 'GI';
+    const CITIZENSHIP_COUNTRY_GR = 'GR';
+    const CITIZENSHIP_COUNTRY_GL = 'GL';
+    const CITIZENSHIP_COUNTRY_GJ = 'GJ';
+    const CITIZENSHIP_COUNTRY_GQ = 'GQ';
+    const CITIZENSHIP_COUNTRY_GT = 'GT';
+    const CITIZENSHIP_COUNTRY_GK = 'GK';
+    const CITIZENSHIP_COUNTRY_GV = 'GV';
+    const CITIZENSHIP_COUNTRY_PU = 'PU';
+    const CITIZENSHIP_COUNTRY_GY = 'GY';
+    const CITIZENSHIP_COUNTRY_HA = 'HA';
+    const CITIZENSHIP_COUNTRY_HM = 'HM';
+    const CITIZENSHIP_COUNTRY_VT = 'VT';
+    const CITIZENSHIP_COUNTRY_HO = 'HO';
+    const CITIZENSHIP_COUNTRY_HK = 'HK';
+    const CITIZENSHIP_COUNTRY_HQ = 'HQ';
+    const CITIZENSHIP_COUNTRY_HU = 'HU';
+    const CITIZENSHIP_COUNTRY_IC = 'IC';
+    const CITIZENSHIP_COUNTRY_IN = 'IN';
+    const CITIZENSHIP_COUNTRY_ID = 'ID';
+    const CITIZENSHIP_COUNTRY_IR = 'IR';
+    const CITIZENSHIP_COUNTRY_IZ = 'IZ';
+    const CITIZENSHIP_COUNTRY_EI = 'EI';
+    const CITIZENSHIP_COUNTRY_IS = 'IS';
+    const CITIZENSHIP_COUNTRY_IT = 'IT';
+    const CITIZENSHIP_COUNTRY_JM = 'JM';
+    const CITIZENSHIP_COUNTRY_JN = 'JN';
+    const CITIZENSHIP_COUNTRY_JA = 'JA';
+    const CITIZENSHIP_COUNTRY_DQ = 'DQ';
+    const CITIZENSHIP_COUNTRY_JE = 'JE';
+    const CITIZENSHIP_COUNTRY_JQ = 'JQ';
+    const CITIZENSHIP_COUNTRY_JO = 'JO';
+    const CITIZENSHIP_COUNTRY_KZ = 'KZ';
+    const CITIZENSHIP_COUNTRY_KE = 'KE';
+    const CITIZENSHIP_COUNTRY_KQ = 'KQ';
+    const CITIZENSHIP_COUNTRY_KR = 'KR';
+    const CITIZENSHIP_COUNTRY_KN = 'KN';
+    const CITIZENSHIP_COUNTRY_KS = 'KS';
+    const CITIZENSHIP_COUNTRY_KV = 'KV';
+    const CITIZENSHIP_COUNTRY_KU = 'KU';
+    const CITIZENSHIP_COUNTRY_KG = 'KG';
+    const CITIZENSHIP_COUNTRY_LA = 'LA';
+    const CITIZENSHIP_COUNTRY_LG = 'LG';
+    const CITIZENSHIP_COUNTRY_LE = 'LE';
+    const CITIZENSHIP_COUNTRY_LT = 'LT';
+    const CITIZENSHIP_COUNTRY_LI = 'LI';
+    const CITIZENSHIP_COUNTRY_LY = 'LY';
+    const CITIZENSHIP_COUNTRY_LS = 'LS';
+    const CITIZENSHIP_COUNTRY_LH = 'LH';
+    const CITIZENSHIP_COUNTRY_LU = 'LU';
+    const CITIZENSHIP_COUNTRY_MC = 'MC';
+    const CITIZENSHIP_COUNTRY_MK = 'MK';
+    const CITIZENSHIP_COUNTRY_MA = 'MA';
+    const CITIZENSHIP_COUNTRY_MI = 'MI';
+    const CITIZENSHIP_COUNTRY_MY = 'MY';
+    const CITIZENSHIP_COUNTRY_MV = 'MV';
+    const CITIZENSHIP_COUNTRY_ML = 'ML';
+    const CITIZENSHIP_COUNTRY_MT = 'MT';
+    const CITIZENSHIP_COUNTRY_IM = 'IM';
+    const CITIZENSHIP_COUNTRY_RM = 'RM';
+    const CITIZENSHIP_COUNTRY_MR = 'MR';
+    const CITIZENSHIP_COUNTRY_MP = 'MP';
+    const CITIZENSHIP_COUNTRY_MX = 'MX';
+    const CITIZENSHIP_COUNTRY_MQ = 'MQ';
+    const CITIZENSHIP_COUNTRY_MD = 'MD';
+    const CITIZENSHIP_COUNTRY_MN = 'MN';
+    const CITIZENSHIP_COUNTRY_MG = 'MG';
+    const CITIZENSHIP_COUNTRY_MJ = 'MJ';
+    const CITIZENSHIP_COUNTRY_MH = 'MH';
+    const CITIZENSHIP_COUNTRY_MO = 'MO';
+    const CITIZENSHIP_COUNTRY_MZ = 'MZ';
+    const CITIZENSHIP_COUNTRY_WA = 'WA';
+    const CITIZENSHIP_COUNTRY_NR = 'NR';
+    const CITIZENSHIP_COUNTRY_BQ = 'BQ';
+    const CITIZENSHIP_COUNTRY_NP = 'NP';
+    const CITIZENSHIP_COUNTRY_NL = 'NL';
+    const CITIZENSHIP_COUNTRY_NC = 'NC';
+    const CITIZENSHIP_COUNTRY_NZ = 'NZ';
+    const CITIZENSHIP_COUNTRY_NU = 'NU';
+    const CITIZENSHIP_COUNTRY_NG = 'NG';
+    const CITIZENSHIP_COUNTRY_NI = 'NI';
+    const CITIZENSHIP_COUNTRY_NE = 'NE';
+    const CITIZENSHIP_COUNTRY_NF = 'NF';
+    const CITIZENSHIP_COUNTRY_CQ = 'CQ';
+    const CITIZENSHIP_COUNTRY_NO = 'NO';
+    const CITIZENSHIP_COUNTRY_MU = 'MU';
+    const CITIZENSHIP_COUNTRY_OC = 'OC';
+    const CITIZENSHIP_COUNTRY_PK = 'PK';
+    const CITIZENSHIP_COUNTRY_PS = 'PS';
+    const CITIZENSHIP_COUNTRY_LQ = 'LQ';
+    const CITIZENSHIP_COUNTRY_PM = 'PM';
+    const CITIZENSHIP_COUNTRY_PP = 'PP';
+    const CITIZENSHIP_COUNTRY_PF = 'PF';
+    const CITIZENSHIP_COUNTRY_PA = 'PA';
+    const CITIZENSHIP_COUNTRY_PE = 'PE';
+    const CITIZENSHIP_COUNTRY_RP = 'RP';
+    const CITIZENSHIP_COUNTRY_PC = 'PC';
+    const CITIZENSHIP_COUNTRY_PL = 'PL';
+    const CITIZENSHIP_COUNTRY_PO = 'PO';
+    const CITIZENSHIP_COUNTRY_RQ = 'RQ';
+    const CITIZENSHIP_COUNTRY_QA = 'QA';
+    const CITIZENSHIP_COUNTRY_RO = 'RO';
+    const CITIZENSHIP_COUNTRY_RS = 'RS';
+    const CITIZENSHIP_COUNTRY_RW = 'RW';
+    const CITIZENSHIP_COUNTRY_TB = 'TB';
+    const CITIZENSHIP_COUNTRY_RN = 'RN';
+    const CITIZENSHIP_COUNTRY_WS = 'WS';
+    const CITIZENSHIP_COUNTRY_SM = 'SM';
+    const CITIZENSHIP_COUNTRY_TP = 'TP';
+    const CITIZENSHIP_COUNTRY_SA = 'SA';
+    const CITIZENSHIP_COUNTRY_SG = 'SG';
+    const CITIZENSHIP_COUNTRY_RI = 'RI';
+    const CITIZENSHIP_COUNTRY_SE = 'SE';
+    const CITIZENSHIP_COUNTRY_SL = 'SL';
+    const CITIZENSHIP_COUNTRY_SN = 'SN';
+    const CITIZENSHIP_COUNTRY_NN = 'NN';
+    const CITIZENSHIP_COUNTRY_LO = 'LO';
+    const CITIZENSHIP_COUNTRY_SI = 'SI';
+    const CITIZENSHIP_COUNTRY_BP = 'BP';
+    const CITIZENSHIP_COUNTRY_SO = 'SO';
+    const CITIZENSHIP_COUNTRY_SF = 'SF';
+    const CITIZENSHIP_COUNTRY_SX = 'SX';
+    const CITIZENSHIP_COUNTRY_SP = 'SP';
+    const CITIZENSHIP_COUNTRY_PG = 'PG';
+    const CITIZENSHIP_COUNTRY_CE = 'CE';
+    const CITIZENSHIP_COUNTRY_SH = 'SH';
+    const CITIZENSHIP_COUNTRY_SC = 'SC';
+    const CITIZENSHIP_COUNTRY_ST = 'ST';
+    const CITIZENSHIP_COUNTRY_SB = 'SB';
+    const CITIZENSHIP_COUNTRY_VC = 'VC';
+    const CITIZENSHIP_COUNTRY_SU = 'SU';
+    const CITIZENSHIP_COUNTRY_NS = 'NS';
+    const CITIZENSHIP_COUNTRY_SV = 'SV';
+    const CITIZENSHIP_COUNTRY_WZ = 'WZ';
+    const CITIZENSHIP_COUNTRY_SW = 'SW';
+    const CITIZENSHIP_COUNTRY_SZ = 'SZ';
+    const CITIZENSHIP_COUNTRY_SY = 'SY';
+    const CITIZENSHIP_COUNTRY_TW = 'TW';
+    const CITIZENSHIP_COUNTRY_TI = 'TI';
+    const CITIZENSHIP_COUNTRY_TZ = 'TZ';
+    const CITIZENSHIP_COUNTRY_TH = 'TH';
+    const CITIZENSHIP_COUNTRY_TO = 'TO';
+    const CITIZENSHIP_COUNTRY_TL = 'TL';
+    const CITIZENSHIP_COUNTRY_TN = 'TN';
+    const CITIZENSHIP_COUNTRY_TD = 'TD';
+    const CITIZENSHIP_COUNTRY_TS = 'TS';
+    const CITIZENSHIP_COUNTRY_TU = 'TU';
+    const CITIZENSHIP_COUNTRY_TX = 'TX';
+    const CITIZENSHIP_COUNTRY_TK = 'TK';
+    const CITIZENSHIP_COUNTRY_TV = 'TV';
+    const CITIZENSHIP_COUNTRY_UG = 'UG';
+    const CITIZENSHIP_COUNTRY_UP = 'UP';
+    const CITIZENSHIP_COUNTRY_AE = 'AE';
+    const CITIZENSHIP_COUNTRY_UK = 'UK';
+    const CITIZENSHIP_COUNTRY_UY = 'UY';
+    const CITIZENSHIP_COUNTRY_UZ = 'UZ';
+    const CITIZENSHIP_COUNTRY_NH = 'NH';
+    const CITIZENSHIP_COUNTRY_VE = 'VE';
+    const CITIZENSHIP_COUNTRY_VM = 'VM';
+    const CITIZENSHIP_COUNTRY_VQ = 'VQ';
+    const CITIZENSHIP_COUNTRY_WQ = 'WQ';
+    const CITIZENSHIP_COUNTRY_WF = 'WF';
+    const CITIZENSHIP_COUNTRY_WI = 'WI';
+    const CITIZENSHIP_COUNTRY_YM = 'YM';
+    const CITIZENSHIP_COUNTRY_ZA = 'ZA';
+    const CITIZENSHIP_COUNTRY_ZI = 'ZI';
+    const RESIDENCE_STATE_AA = 'AA';
+    const RESIDENCE_STATE_AE = 'AE';
+    const RESIDENCE_STATE_AK = 'AK';
+    const RESIDENCE_STATE_AL = 'AL';
+    const RESIDENCE_STATE_AP = 'AP';
+    const RESIDENCE_STATE_AR = 'AR';
+    const RESIDENCE_STATE__AS = 'AS';
+    const RESIDENCE_STATE_AZ = 'AZ';
+    const RESIDENCE_STATE_CA = 'CA';
+    const RESIDENCE_STATE_CO = 'CO';
+    const RESIDENCE_STATE_CT = 'CT';
+    const RESIDENCE_STATE_DC = 'DC';
+    const RESIDENCE_STATE_DE = 'DE';
+    const RESIDENCE_STATE_FL = 'FL';
+    const RESIDENCE_STATE_FM = 'FM';
+    const RESIDENCE_STATE_GA = 'GA';
+    const RESIDENCE_STATE_GU = 'GU';
+    const RESIDENCE_STATE_HI = 'HI';
+    const RESIDENCE_STATE_IA = 'IA';
+    const RESIDENCE_STATE_ID = 'ID';
+    const RESIDENCE_STATE_IL = 'IL';
+    const RESIDENCE_STATE_IN = 'IN';
+    const RESIDENCE_STATE_KS = 'KS';
+    const RESIDENCE_STATE_KY = 'KY';
+    const RESIDENCE_STATE_LA = 'LA';
+    const RESIDENCE_STATE_MA = 'MA';
+    const RESIDENCE_STATE_MD = 'MD';
+    const RESIDENCE_STATE_ME = 'ME';
+    const RESIDENCE_STATE_MH = 'MH';
+    const RESIDENCE_STATE_MI = 'MI';
+    const RESIDENCE_STATE_MN = 'MN';
+    const RESIDENCE_STATE_MO = 'MO';
+    const RESIDENCE_STATE_MP = 'MP';
+    const RESIDENCE_STATE_MS = 'MS';
+    const RESIDENCE_STATE_MT = 'MT';
+    const RESIDENCE_STATE_NC = 'NC';
+    const RESIDENCE_STATE_ND = 'ND';
+    const RESIDENCE_STATE_NE = 'NE';
+    const RESIDENCE_STATE_NH = 'NH';
+    const RESIDENCE_STATE_NJ = 'NJ';
+    const RESIDENCE_STATE_NM = 'NM';
+    const RESIDENCE_STATE_NV = 'NV';
+    const RESIDENCE_STATE_NY = 'NY';
+    const RESIDENCE_STATE_OH = 'OH';
+    const RESIDENCE_STATE_OK = 'OK';
+    const RESIDENCE_STATE__OR = 'OR';
+    const RESIDENCE_STATE_PA = 'PA';
+    const RESIDENCE_STATE_PR = 'PR';
+    const RESIDENCE_STATE_PW = 'PW';
+    const RESIDENCE_STATE_RI = 'RI';
+    const RESIDENCE_STATE_SC = 'SC';
+    const RESIDENCE_STATE_SD = 'SD';
+    const RESIDENCE_STATE_TN = 'TN';
+    const RESIDENCE_STATE_TX = 'TX';
+    const RESIDENCE_STATE_UT = 'UT';
+    const RESIDENCE_STATE_VA = 'VA';
+    const RESIDENCE_STATE_VI = 'VI';
+    const RESIDENCE_STATE_VT = 'VT';
+    const RESIDENCE_STATE_WA = 'WA';
+    const RESIDENCE_STATE_WI = 'WI';
+    const RESIDENCE_STATE_WV = 'WV';
+    const RESIDENCE_STATE_WY = 'WY';
+    const RESIDENCE_STATE_AB = 'AB';
+    const RESIDENCE_STATE_BC = 'BC';
+    const RESIDENCE_STATE_MB = 'MB';
+    const RESIDENCE_STATE_NB = 'NB';
+    const RESIDENCE_STATE_NL = 'NL';
+    const RESIDENCE_STATE_NS = 'NS';
+    const RESIDENCE_STATE_NT = 'NT';
+    const RESIDENCE_STATE_NU = 'NU';
+    const RESIDENCE_STATE_ON = 'ON';
+    const RESIDENCE_STATE_PE = 'PE';
+    const RESIDENCE_STATE_QC = 'QC';
+    const RESIDENCE_STATE_SK = 'SK';
+    const RESIDENCE_STATE_YT = 'YT';
+    const RESIDENCE_COUNTRY_US = 'US';
+    const RESIDENCE_COUNTRY_AF = 'AF';
+    const RESIDENCE_COUNTRY_AX = 'AX';
+    const RESIDENCE_COUNTRY_AL = 'AL';
+    const RESIDENCE_COUNTRY_AG = 'AG';
+    const RESIDENCE_COUNTRY_AQ = 'AQ';
+    const RESIDENCE_COUNTRY_AN = 'AN';
+    const RESIDENCE_COUNTRY_AO = 'AO';
+    const RESIDENCE_COUNTRY_AV = 'AV';
+    const RESIDENCE_COUNTRY_AY = 'AY';
+    const RESIDENCE_COUNTRY_AC = 'AC';
+    const RESIDENCE_COUNTRY_AR = 'AR';
+    const RESIDENCE_COUNTRY_AM = 'AM';
+    const RESIDENCE_COUNTRY_AA = 'AA';
+    const RESIDENCE_COUNTRY_AT = 'AT';
+    const RESIDENCE_COUNTRY__AS = 'AS';
+    const RESIDENCE_COUNTRY_AU = 'AU';
+    const RESIDENCE_COUNTRY_AJ = 'AJ';
+    const RESIDENCE_COUNTRY_BF = 'BF';
+    const RESIDENCE_COUNTRY_BA = 'BA';
+    const RESIDENCE_COUNTRY_FQ = 'FQ';
+    const RESIDENCE_COUNTRY_BG = 'BG';
+    const RESIDENCE_COUNTRY_BB = 'BB';
+    const RESIDENCE_COUNTRY_BO = 'BO';
+    const RESIDENCE_COUNTRY_BE = 'BE';
+    const RESIDENCE_COUNTRY_BH = 'BH';
+    const RESIDENCE_COUNTRY_BN = 'BN';
+    const RESIDENCE_COUNTRY_BD = 'BD';
+    const RESIDENCE_COUNTRY_BT = 'BT';
+    const RESIDENCE_COUNTRY_BL = 'BL';
+    const RESIDENCE_COUNTRY_BK = 'BK';
+    const RESIDENCE_COUNTRY_BC = 'BC';
+    const RESIDENCE_COUNTRY_BV = 'BV';
+    const RESIDENCE_COUNTRY_BR = 'BR';
+    const RESIDENCE_COUNTRY_IO = 'IO';
+    const RESIDENCE_COUNTRY_VI = 'VI';
+    const RESIDENCE_COUNTRY_BX = 'BX';
+    const RESIDENCE_COUNTRY_BU = 'BU';
+    const RESIDENCE_COUNTRY_UV = 'UV';
+    const RESIDENCE_COUNTRY_BM = 'BM';
+    const RESIDENCE_COUNTRY_BY = 'BY';
+    const RESIDENCE_COUNTRY_CB = 'CB';
+    const RESIDENCE_COUNTRY_CM = 'CM';
+    const RESIDENCE_COUNTRY_CA = 'CA';
+    const RESIDENCE_COUNTRY_CV = 'CV';
+    const RESIDENCE_COUNTRY_CJ = 'CJ';
+    const RESIDENCE_COUNTRY_CT = 'CT';
+    const RESIDENCE_COUNTRY_CD = 'CD';
+    const RESIDENCE_COUNTRY_CI = 'CI';
+    const RESIDENCE_COUNTRY_CH = 'CH';
+    const RESIDENCE_COUNTRY_KT = 'KT';
+    const RESIDENCE_COUNTRY_IP = 'IP';
+    const RESIDENCE_COUNTRY_CK = 'CK';
+    const RESIDENCE_COUNTRY_CO = 'CO';
+    const RESIDENCE_COUNTRY_CN = 'CN';
+    const RESIDENCE_COUNTRY_CF = 'CF';
+    const RESIDENCE_COUNTRY_CG = 'CG';
+    const RESIDENCE_COUNTRY_CW = 'CW';
+    const RESIDENCE_COUNTRY_CR = 'CR';
+    const RESIDENCE_COUNTRY_CS = 'CS';
+    const RESIDENCE_COUNTRY_IV = 'IV';
+    const RESIDENCE_COUNTRY_HR = 'HR';
+    const RESIDENCE_COUNTRY_CU = 'CU';
+    const RESIDENCE_COUNTRY_UC = 'UC';
+    const RESIDENCE_COUNTRY_CY = 'CY';
+    const RESIDENCE_COUNTRY_EZ = 'EZ';
+    const RESIDENCE_COUNTRY_DA = 'DA';
+    const RESIDENCE_COUNTRY_DX = 'DX';
+    const RESIDENCE_COUNTRY_DJ = 'DJ';
+    const RESIDENCE_COUNTRY__DO = 'DO';
+    const RESIDENCE_COUNTRY_DR = 'DR';
+    const RESIDENCE_COUNTRY_TT = 'TT';
+    const RESIDENCE_COUNTRY_EC = 'EC';
+    const RESIDENCE_COUNTRY_EG = 'EG';
+    const RESIDENCE_COUNTRY_ES = 'ES';
+    const RESIDENCE_COUNTRY_EK = 'EK';
+    const RESIDENCE_COUNTRY_ER = 'ER';
+    const RESIDENCE_COUNTRY_EN = 'EN';
+    const RESIDENCE_COUNTRY_ET = 'ET';
+    const RESIDENCE_COUNTRY_FK = 'FK';
+    const RESIDENCE_COUNTRY_FO = 'FO';
+    const RESIDENCE_COUNTRY_FM = 'FM';
+    const RESIDENCE_COUNTRY_FJ = 'FJ';
+    const RESIDENCE_COUNTRY_FI = 'FI';
+    const RESIDENCE_COUNTRY_FR = 'FR';
+    const RESIDENCE_COUNTRY_FP = 'FP';
+    const RESIDENCE_COUNTRY_FS = 'FS';
+    const RESIDENCE_COUNTRY_GB = 'GB';
+    const RESIDENCE_COUNTRY_GA = 'GA';
+    const RESIDENCE_COUNTRY_GG = 'GG';
+    const RESIDENCE_COUNTRY_GM = 'GM';
+    const RESIDENCE_COUNTRY_GH = 'GH';
+    const RESIDENCE_COUNTRY_GI = 'GI';
+    const RESIDENCE_COUNTRY_GR = 'GR';
+    const RESIDENCE_COUNTRY_GL = 'GL';
+    const RESIDENCE_COUNTRY_GJ = 'GJ';
+    const RESIDENCE_COUNTRY_GQ = 'GQ';
+    const RESIDENCE_COUNTRY_GT = 'GT';
+    const RESIDENCE_COUNTRY_GK = 'GK';
+    const RESIDENCE_COUNTRY_GV = 'GV';
+    const RESIDENCE_COUNTRY_PU = 'PU';
+    const RESIDENCE_COUNTRY_GY = 'GY';
+    const RESIDENCE_COUNTRY_HA = 'HA';
+    const RESIDENCE_COUNTRY_HM = 'HM';
+    const RESIDENCE_COUNTRY_VT = 'VT';
+    const RESIDENCE_COUNTRY_HO = 'HO';
+    const RESIDENCE_COUNTRY_HK = 'HK';
+    const RESIDENCE_COUNTRY_HQ = 'HQ';
+    const RESIDENCE_COUNTRY_HU = 'HU';
+    const RESIDENCE_COUNTRY_IC = 'IC';
+    const RESIDENCE_COUNTRY_IN = 'IN';
+    const RESIDENCE_COUNTRY_ID = 'ID';
+    const RESIDENCE_COUNTRY_IR = 'IR';
+    const RESIDENCE_COUNTRY_IZ = 'IZ';
+    const RESIDENCE_COUNTRY_EI = 'EI';
+    const RESIDENCE_COUNTRY_IS = 'IS';
+    const RESIDENCE_COUNTRY_IT = 'IT';
+    const RESIDENCE_COUNTRY_JM = 'JM';
+    const RESIDENCE_COUNTRY_JN = 'JN';
+    const RESIDENCE_COUNTRY_JA = 'JA';
+    const RESIDENCE_COUNTRY_DQ = 'DQ';
+    const RESIDENCE_COUNTRY_JE = 'JE';
+    const RESIDENCE_COUNTRY_JQ = 'JQ';
+    const RESIDENCE_COUNTRY_JO = 'JO';
+    const RESIDENCE_COUNTRY_KZ = 'KZ';
+    const RESIDENCE_COUNTRY_KE = 'KE';
+    const RESIDENCE_COUNTRY_KQ = 'KQ';
+    const RESIDENCE_COUNTRY_KR = 'KR';
+    const RESIDENCE_COUNTRY_KN = 'KN';
+    const RESIDENCE_COUNTRY_KS = 'KS';
+    const RESIDENCE_COUNTRY_KV = 'KV';
+    const RESIDENCE_COUNTRY_KU = 'KU';
+    const RESIDENCE_COUNTRY_KG = 'KG';
+    const RESIDENCE_COUNTRY_LA = 'LA';
+    const RESIDENCE_COUNTRY_LG = 'LG';
+    const RESIDENCE_COUNTRY_LE = 'LE';
+    const RESIDENCE_COUNTRY_LT = 'LT';
+    const RESIDENCE_COUNTRY_LI = 'LI';
+    const RESIDENCE_COUNTRY_LY = 'LY';
+    const RESIDENCE_COUNTRY_LS = 'LS';
+    const RESIDENCE_COUNTRY_LH = 'LH';
+    const RESIDENCE_COUNTRY_LU = 'LU';
+    const RESIDENCE_COUNTRY_MC = 'MC';
+    const RESIDENCE_COUNTRY_MK = 'MK';
+    const RESIDENCE_COUNTRY_MA = 'MA';
+    const RESIDENCE_COUNTRY_MI = 'MI';
+    const RESIDENCE_COUNTRY_MY = 'MY';
+    const RESIDENCE_COUNTRY_MV = 'MV';
+    const RESIDENCE_COUNTRY_ML = 'ML';
+    const RESIDENCE_COUNTRY_MT = 'MT';
+    const RESIDENCE_COUNTRY_IM = 'IM';
+    const RESIDENCE_COUNTRY_RM = 'RM';
+    const RESIDENCE_COUNTRY_MR = 'MR';
+    const RESIDENCE_COUNTRY_MP = 'MP';
+    const RESIDENCE_COUNTRY_MX = 'MX';
+    const RESIDENCE_COUNTRY_MQ = 'MQ';
+    const RESIDENCE_COUNTRY_MD = 'MD';
+    const RESIDENCE_COUNTRY_MN = 'MN';
+    const RESIDENCE_COUNTRY_MG = 'MG';
+    const RESIDENCE_COUNTRY_MJ = 'MJ';
+    const RESIDENCE_COUNTRY_MH = 'MH';
+    const RESIDENCE_COUNTRY_MO = 'MO';
+    const RESIDENCE_COUNTRY_MZ = 'MZ';
+    const RESIDENCE_COUNTRY_WA = 'WA';
+    const RESIDENCE_COUNTRY_NR = 'NR';
+    const RESIDENCE_COUNTRY_BQ = 'BQ';
+    const RESIDENCE_COUNTRY_NP = 'NP';
+    const RESIDENCE_COUNTRY_NL = 'NL';
+    const RESIDENCE_COUNTRY_NC = 'NC';
+    const RESIDENCE_COUNTRY_NZ = 'NZ';
+    const RESIDENCE_COUNTRY_NU = 'NU';
+    const RESIDENCE_COUNTRY_NG = 'NG';
+    const RESIDENCE_COUNTRY_NI = 'NI';
+    const RESIDENCE_COUNTRY_NE = 'NE';
+    const RESIDENCE_COUNTRY_NF = 'NF';
+    const RESIDENCE_COUNTRY_CQ = 'CQ';
+    const RESIDENCE_COUNTRY_NO = 'NO';
+    const RESIDENCE_COUNTRY_MU = 'MU';
+    const RESIDENCE_COUNTRY_OC = 'OC';
+    const RESIDENCE_COUNTRY_PK = 'PK';
+    const RESIDENCE_COUNTRY_PS = 'PS';
+    const RESIDENCE_COUNTRY_LQ = 'LQ';
+    const RESIDENCE_COUNTRY_PM = 'PM';
+    const RESIDENCE_COUNTRY_PP = 'PP';
+    const RESIDENCE_COUNTRY_PF = 'PF';
+    const RESIDENCE_COUNTRY_PA = 'PA';
+    const RESIDENCE_COUNTRY_PE = 'PE';
+    const RESIDENCE_COUNTRY_RP = 'RP';
+    const RESIDENCE_COUNTRY_PC = 'PC';
+    const RESIDENCE_COUNTRY_PL = 'PL';
+    const RESIDENCE_COUNTRY_PO = 'PO';
+    const RESIDENCE_COUNTRY_RQ = 'RQ';
+    const RESIDENCE_COUNTRY_QA = 'QA';
+    const RESIDENCE_COUNTRY_RO = 'RO';
+    const RESIDENCE_COUNTRY_RS = 'RS';
+    const RESIDENCE_COUNTRY_RW = 'RW';
+    const RESIDENCE_COUNTRY_TB = 'TB';
+    const RESIDENCE_COUNTRY_RN = 'RN';
+    const RESIDENCE_COUNTRY_WS = 'WS';
+    const RESIDENCE_COUNTRY_SM = 'SM';
+    const RESIDENCE_COUNTRY_TP = 'TP';
+    const RESIDENCE_COUNTRY_SA = 'SA';
+    const RESIDENCE_COUNTRY_SG = 'SG';
+    const RESIDENCE_COUNTRY_RI = 'RI';
+    const RESIDENCE_COUNTRY_SE = 'SE';
+    const RESIDENCE_COUNTRY_SL = 'SL';
+    const RESIDENCE_COUNTRY_SN = 'SN';
+    const RESIDENCE_COUNTRY_NN = 'NN';
+    const RESIDENCE_COUNTRY_LO = 'LO';
+    const RESIDENCE_COUNTRY_SI = 'SI';
+    const RESIDENCE_COUNTRY_BP = 'BP';
+    const RESIDENCE_COUNTRY_SO = 'SO';
+    const RESIDENCE_COUNTRY_SF = 'SF';
+    const RESIDENCE_COUNTRY_SX = 'SX';
+    const RESIDENCE_COUNTRY_SP = 'SP';
+    const RESIDENCE_COUNTRY_PG = 'PG';
+    const RESIDENCE_COUNTRY_CE = 'CE';
+    const RESIDENCE_COUNTRY_SH = 'SH';
+    const RESIDENCE_COUNTRY_SC = 'SC';
+    const RESIDENCE_COUNTRY_ST = 'ST';
+    const RESIDENCE_COUNTRY_SB = 'SB';
+    const RESIDENCE_COUNTRY_VC = 'VC';
+    const RESIDENCE_COUNTRY_SU = 'SU';
+    const RESIDENCE_COUNTRY_NS = 'NS';
+    const RESIDENCE_COUNTRY_SV = 'SV';
+    const RESIDENCE_COUNTRY_WZ = 'WZ';
+    const RESIDENCE_COUNTRY_SW = 'SW';
+    const RESIDENCE_COUNTRY_SZ = 'SZ';
+    const RESIDENCE_COUNTRY_SY = 'SY';
+    const RESIDENCE_COUNTRY_TW = 'TW';
+    const RESIDENCE_COUNTRY_TI = 'TI';
+    const RESIDENCE_COUNTRY_TZ = 'TZ';
+    const RESIDENCE_COUNTRY_TH = 'TH';
+    const RESIDENCE_COUNTRY_TO = 'TO';
+    const RESIDENCE_COUNTRY_TL = 'TL';
+    const RESIDENCE_COUNTRY_TN = 'TN';
+    const RESIDENCE_COUNTRY_TD = 'TD';
+    const RESIDENCE_COUNTRY_TS = 'TS';
+    const RESIDENCE_COUNTRY_TU = 'TU';
+    const RESIDENCE_COUNTRY_TX = 'TX';
+    const RESIDENCE_COUNTRY_TK = 'TK';
+    const RESIDENCE_COUNTRY_TV = 'TV';
+    const RESIDENCE_COUNTRY_UG = 'UG';
+    const RESIDENCE_COUNTRY_UP = 'UP';
+    const RESIDENCE_COUNTRY_AE = 'AE';
+    const RESIDENCE_COUNTRY_UK = 'UK';
+    const RESIDENCE_COUNTRY_UY = 'UY';
+    const RESIDENCE_COUNTRY_UZ = 'UZ';
+    const RESIDENCE_COUNTRY_NH = 'NH';
+    const RESIDENCE_COUNTRY_VE = 'VE';
+    const RESIDENCE_COUNTRY_VM = 'VM';
+    const RESIDENCE_COUNTRY_VQ = 'VQ';
+    const RESIDENCE_COUNTRY_WQ = 'WQ';
+    const RESIDENCE_COUNTRY_WF = 'WF';
+    const RESIDENCE_COUNTRY_WI = 'WI';
+    const RESIDENCE_COUNTRY_YM = 'YM';
+    const RESIDENCE_COUNTRY_ZA = 'ZA';
+    const RESIDENCE_COUNTRY_ZI = 'ZI';
+    const MAILING_STATE_AA = 'AA';
+    const MAILING_STATE_AE = 'AE';
+    const MAILING_STATE_AK = 'AK';
+    const MAILING_STATE_AL = 'AL';
+    const MAILING_STATE_AP = 'AP';
+    const MAILING_STATE_AR = 'AR';
+    const MAILING_STATE__AS = 'AS';
+    const MAILING_STATE_AZ = 'AZ';
+    const MAILING_STATE_CA = 'CA';
+    const MAILING_STATE_CO = 'CO';
+    const MAILING_STATE_CT = 'CT';
+    const MAILING_STATE_DC = 'DC';
+    const MAILING_STATE_DE = 'DE';
+    const MAILING_STATE_FL = 'FL';
+    const MAILING_STATE_FM = 'FM';
+    const MAILING_STATE_GA = 'GA';
+    const MAILING_STATE_GU = 'GU';
+    const MAILING_STATE_HI = 'HI';
+    const MAILING_STATE_IA = 'IA';
+    const MAILING_STATE_ID = 'ID';
+    const MAILING_STATE_IL = 'IL';
+    const MAILING_STATE_IN = 'IN';
+    const MAILING_STATE_KS = 'KS';
+    const MAILING_STATE_KY = 'KY';
+    const MAILING_STATE_LA = 'LA';
+    const MAILING_STATE_MA = 'MA';
+    const MAILING_STATE_MD = 'MD';
+    const MAILING_STATE_ME = 'ME';
+    const MAILING_STATE_MH = 'MH';
+    const MAILING_STATE_MI = 'MI';
+    const MAILING_STATE_MN = 'MN';
+    const MAILING_STATE_MO = 'MO';
+    const MAILING_STATE_MP = 'MP';
+    const MAILING_STATE_MS = 'MS';
+    const MAILING_STATE_MT = 'MT';
+    const MAILING_STATE_NC = 'NC';
+    const MAILING_STATE_ND = 'ND';
+    const MAILING_STATE_NE = 'NE';
+    const MAILING_STATE_NH = 'NH';
+    const MAILING_STATE_NJ = 'NJ';
+    const MAILING_STATE_NM = 'NM';
+    const MAILING_STATE_NV = 'NV';
+    const MAILING_STATE_NY = 'NY';
+    const MAILING_STATE_OH = 'OH';
+    const MAILING_STATE_OK = 'OK';
+    const MAILING_STATE__OR = 'OR';
+    const MAILING_STATE_PA = 'PA';
+    const MAILING_STATE_PR = 'PR';
+    const MAILING_STATE_PW = 'PW';
+    const MAILING_STATE_RI = 'RI';
+    const MAILING_STATE_SC = 'SC';
+    const MAILING_STATE_SD = 'SD';
+    const MAILING_STATE_TN = 'TN';
+    const MAILING_STATE_TX = 'TX';
+    const MAILING_STATE_UT = 'UT';
+    const MAILING_STATE_VA = 'VA';
+    const MAILING_STATE_VI = 'VI';
+    const MAILING_STATE_VT = 'VT';
+    const MAILING_STATE_WA = 'WA';
+    const MAILING_STATE_WI = 'WI';
+    const MAILING_STATE_WV = 'WV';
+    const MAILING_STATE_WY = 'WY';
+    const MAILING_STATE_AB = 'AB';
+    const MAILING_STATE_BC = 'BC';
+    const MAILING_STATE_MB = 'MB';
+    const MAILING_STATE_NB = 'NB';
+    const MAILING_STATE_NL = 'NL';
+    const MAILING_STATE_NS = 'NS';
+    const MAILING_STATE_NT = 'NT';
+    const MAILING_STATE_NU = 'NU';
+    const MAILING_STATE_ON = 'ON';
+    const MAILING_STATE_PE = 'PE';
+    const MAILING_STATE_QC = 'QC';
+    const MAILING_STATE_SK = 'SK';
+    const MAILING_STATE_YT = 'YT';
+    const MAILING_COUNTRY_US = 'US';
+    const MAILING_COUNTRY_AF = 'AF';
+    const MAILING_COUNTRY_AX = 'AX';
+    const MAILING_COUNTRY_AL = 'AL';
+    const MAILING_COUNTRY_AG = 'AG';
+    const MAILING_COUNTRY_AQ = 'AQ';
+    const MAILING_COUNTRY_AN = 'AN';
+    const MAILING_COUNTRY_AO = 'AO';
+    const MAILING_COUNTRY_AV = 'AV';
+    const MAILING_COUNTRY_AY = 'AY';
+    const MAILING_COUNTRY_AC = 'AC';
+    const MAILING_COUNTRY_AR = 'AR';
+    const MAILING_COUNTRY_AM = 'AM';
+    const MAILING_COUNTRY_AA = 'AA';
+    const MAILING_COUNTRY_AT = 'AT';
+    const MAILING_COUNTRY__AS = 'AS';
+    const MAILING_COUNTRY_AU = 'AU';
+    const MAILING_COUNTRY_AJ = 'AJ';
+    const MAILING_COUNTRY_BF = 'BF';
+    const MAILING_COUNTRY_BA = 'BA';
+    const MAILING_COUNTRY_FQ = 'FQ';
+    const MAILING_COUNTRY_BG = 'BG';
+    const MAILING_COUNTRY_BB = 'BB';
+    const MAILING_COUNTRY_BO = 'BO';
+    const MAILING_COUNTRY_BE = 'BE';
+    const MAILING_COUNTRY_BH = 'BH';
+    const MAILING_COUNTRY_BN = 'BN';
+    const MAILING_COUNTRY_BD = 'BD';
+    const MAILING_COUNTRY_BT = 'BT';
+    const MAILING_COUNTRY_BL = 'BL';
+    const MAILING_COUNTRY_BK = 'BK';
+    const MAILING_COUNTRY_BC = 'BC';
+    const MAILING_COUNTRY_BV = 'BV';
+    const MAILING_COUNTRY_BR = 'BR';
+    const MAILING_COUNTRY_IO = 'IO';
+    const MAILING_COUNTRY_VI = 'VI';
+    const MAILING_COUNTRY_BX = 'BX';
+    const MAILING_COUNTRY_BU = 'BU';
+    const MAILING_COUNTRY_UV = 'UV';
+    const MAILING_COUNTRY_BM = 'BM';
+    const MAILING_COUNTRY_BY = 'BY';
+    const MAILING_COUNTRY_CB = 'CB';
+    const MAILING_COUNTRY_CM = 'CM';
+    const MAILING_COUNTRY_CA = 'CA';
+    const MAILING_COUNTRY_CV = 'CV';
+    const MAILING_COUNTRY_CJ = 'CJ';
+    const MAILING_COUNTRY_CT = 'CT';
+    const MAILING_COUNTRY_CD = 'CD';
+    const MAILING_COUNTRY_CI = 'CI';
+    const MAILING_COUNTRY_CH = 'CH';
+    const MAILING_COUNTRY_KT = 'KT';
+    const MAILING_COUNTRY_IP = 'IP';
+    const MAILING_COUNTRY_CK = 'CK';
+    const MAILING_COUNTRY_CO = 'CO';
+    const MAILING_COUNTRY_CN = 'CN';
+    const MAILING_COUNTRY_CF = 'CF';
+    const MAILING_COUNTRY_CG = 'CG';
+    const MAILING_COUNTRY_CW = 'CW';
+    const MAILING_COUNTRY_CR = 'CR';
+    const MAILING_COUNTRY_CS = 'CS';
+    const MAILING_COUNTRY_IV = 'IV';
+    const MAILING_COUNTRY_HR = 'HR';
+    const MAILING_COUNTRY_CU = 'CU';
+    const MAILING_COUNTRY_UC = 'UC';
+    const MAILING_COUNTRY_CY = 'CY';
+    const MAILING_COUNTRY_EZ = 'EZ';
+    const MAILING_COUNTRY_DA = 'DA';
+    const MAILING_COUNTRY_DX = 'DX';
+    const MAILING_COUNTRY_DJ = 'DJ';
+    const MAILING_COUNTRY__DO = 'DO';
+    const MAILING_COUNTRY_DR = 'DR';
+    const MAILING_COUNTRY_TT = 'TT';
+    const MAILING_COUNTRY_EC = 'EC';
+    const MAILING_COUNTRY_EG = 'EG';
+    const MAILING_COUNTRY_ES = 'ES';
+    const MAILING_COUNTRY_EK = 'EK';
+    const MAILING_COUNTRY_ER = 'ER';
+    const MAILING_COUNTRY_EN = 'EN';
+    const MAILING_COUNTRY_ET = 'ET';
+    const MAILING_COUNTRY_FK = 'FK';
+    const MAILING_COUNTRY_FO = 'FO';
+    const MAILING_COUNTRY_FM = 'FM';
+    const MAILING_COUNTRY_FJ = 'FJ';
+    const MAILING_COUNTRY_FI = 'FI';
+    const MAILING_COUNTRY_FR = 'FR';
+    const MAILING_COUNTRY_FP = 'FP';
+    const MAILING_COUNTRY_FS = 'FS';
+    const MAILING_COUNTRY_GB = 'GB';
+    const MAILING_COUNTRY_GA = 'GA';
+    const MAILING_COUNTRY_GG = 'GG';
+    const MAILING_COUNTRY_GM = 'GM';
+    const MAILING_COUNTRY_GH = 'GH';
+    const MAILING_COUNTRY_GI = 'GI';
+    const MAILING_COUNTRY_GR = 'GR';
+    const MAILING_COUNTRY_GL = 'GL';
+    const MAILING_COUNTRY_GJ = 'GJ';
+    const MAILING_COUNTRY_GQ = 'GQ';
+    const MAILING_COUNTRY_GT = 'GT';
+    const MAILING_COUNTRY_GK = 'GK';
+    const MAILING_COUNTRY_GV = 'GV';
+    const MAILING_COUNTRY_PU = 'PU';
+    const MAILING_COUNTRY_GY = 'GY';
+    const MAILING_COUNTRY_HA = 'HA';
+    const MAILING_COUNTRY_HM = 'HM';
+    const MAILING_COUNTRY_VT = 'VT';
+    const MAILING_COUNTRY_HO = 'HO';
+    const MAILING_COUNTRY_HK = 'HK';
+    const MAILING_COUNTRY_HQ = 'HQ';
+    const MAILING_COUNTRY_HU = 'HU';
+    const MAILING_COUNTRY_IC = 'IC';
+    const MAILING_COUNTRY_IN = 'IN';
+    const MAILING_COUNTRY_ID = 'ID';
+    const MAILING_COUNTRY_IR = 'IR';
+    const MAILING_COUNTRY_IZ = 'IZ';
+    const MAILING_COUNTRY_EI = 'EI';
+    const MAILING_COUNTRY_IS = 'IS';
+    const MAILING_COUNTRY_IT = 'IT';
+    const MAILING_COUNTRY_JM = 'JM';
+    const MAILING_COUNTRY_JN = 'JN';
+    const MAILING_COUNTRY_JA = 'JA';
+    const MAILING_COUNTRY_DQ = 'DQ';
+    const MAILING_COUNTRY_JE = 'JE';
+    const MAILING_COUNTRY_JQ = 'JQ';
+    const MAILING_COUNTRY_JO = 'JO';
+    const MAILING_COUNTRY_KZ = 'KZ';
+    const MAILING_COUNTRY_KE = 'KE';
+    const MAILING_COUNTRY_KQ = 'KQ';
+    const MAILING_COUNTRY_KR = 'KR';
+    const MAILING_COUNTRY_KN = 'KN';
+    const MAILING_COUNTRY_KS = 'KS';
+    const MAILING_COUNTRY_KV = 'KV';
+    const MAILING_COUNTRY_KU = 'KU';
+    const MAILING_COUNTRY_KG = 'KG';
+    const MAILING_COUNTRY_LA = 'LA';
+    const MAILING_COUNTRY_LG = 'LG';
+    const MAILING_COUNTRY_LE = 'LE';
+    const MAILING_COUNTRY_LT = 'LT';
+    const MAILING_COUNTRY_LI = 'LI';
+    const MAILING_COUNTRY_LY = 'LY';
+    const MAILING_COUNTRY_LS = 'LS';
+    const MAILING_COUNTRY_LH = 'LH';
+    const MAILING_COUNTRY_LU = 'LU';
+    const MAILING_COUNTRY_MC = 'MC';
+    const MAILING_COUNTRY_MK = 'MK';
+    const MAILING_COUNTRY_MA = 'MA';
+    const MAILING_COUNTRY_MI = 'MI';
+    const MAILING_COUNTRY_MY = 'MY';
+    const MAILING_COUNTRY_MV = 'MV';
+    const MAILING_COUNTRY_ML = 'ML';
+    const MAILING_COUNTRY_MT = 'MT';
+    const MAILING_COUNTRY_IM = 'IM';
+    const MAILING_COUNTRY_RM = 'RM';
+    const MAILING_COUNTRY_MR = 'MR';
+    const MAILING_COUNTRY_MP = 'MP';
+    const MAILING_COUNTRY_MX = 'MX';
+    const MAILING_COUNTRY_MQ = 'MQ';
+    const MAILING_COUNTRY_MD = 'MD';
+    const MAILING_COUNTRY_MN = 'MN';
+    const MAILING_COUNTRY_MG = 'MG';
+    const MAILING_COUNTRY_MJ = 'MJ';
+    const MAILING_COUNTRY_MH = 'MH';
+    const MAILING_COUNTRY_MO = 'MO';
+    const MAILING_COUNTRY_MZ = 'MZ';
+    const MAILING_COUNTRY_WA = 'WA';
+    const MAILING_COUNTRY_NR = 'NR';
+    const MAILING_COUNTRY_BQ = 'BQ';
+    const MAILING_COUNTRY_NP = 'NP';
+    const MAILING_COUNTRY_NL = 'NL';
+    const MAILING_COUNTRY_NC = 'NC';
+    const MAILING_COUNTRY_NZ = 'NZ';
+    const MAILING_COUNTRY_NU = 'NU';
+    const MAILING_COUNTRY_NG = 'NG';
+    const MAILING_COUNTRY_NI = 'NI';
+    const MAILING_COUNTRY_NE = 'NE';
+    const MAILING_COUNTRY_NF = 'NF';
+    const MAILING_COUNTRY_CQ = 'CQ';
+    const MAILING_COUNTRY_NO = 'NO';
+    const MAILING_COUNTRY_MU = 'MU';
+    const MAILING_COUNTRY_OC = 'OC';
+    const MAILING_COUNTRY_PK = 'PK';
+    const MAILING_COUNTRY_PS = 'PS';
+    const MAILING_COUNTRY_LQ = 'LQ';
+    const MAILING_COUNTRY_PM = 'PM';
+    const MAILING_COUNTRY_PP = 'PP';
+    const MAILING_COUNTRY_PF = 'PF';
+    const MAILING_COUNTRY_PA = 'PA';
+    const MAILING_COUNTRY_PE = 'PE';
+    const MAILING_COUNTRY_RP = 'RP';
+    const MAILING_COUNTRY_PC = 'PC';
+    const MAILING_COUNTRY_PL = 'PL';
+    const MAILING_COUNTRY_PO = 'PO';
+    const MAILING_COUNTRY_RQ = 'RQ';
+    const MAILING_COUNTRY_QA = 'QA';
+    const MAILING_COUNTRY_RO = 'RO';
+    const MAILING_COUNTRY_RS = 'RS';
+    const MAILING_COUNTRY_RW = 'RW';
+    const MAILING_COUNTRY_TB = 'TB';
+    const MAILING_COUNTRY_RN = 'RN';
+    const MAILING_COUNTRY_WS = 'WS';
+    const MAILING_COUNTRY_SM = 'SM';
+    const MAILING_COUNTRY_TP = 'TP';
+    const MAILING_COUNTRY_SA = 'SA';
+    const MAILING_COUNTRY_SG = 'SG';
+    const MAILING_COUNTRY_RI = 'RI';
+    const MAILING_COUNTRY_SE = 'SE';
+    const MAILING_COUNTRY_SL = 'SL';
+    const MAILING_COUNTRY_SN = 'SN';
+    const MAILING_COUNTRY_NN = 'NN';
+    const MAILING_COUNTRY_LO = 'LO';
+    const MAILING_COUNTRY_SI = 'SI';
+    const MAILING_COUNTRY_BP = 'BP';
+    const MAILING_COUNTRY_SO = 'SO';
+    const MAILING_COUNTRY_SF = 'SF';
+    const MAILING_COUNTRY_SX = 'SX';
+    const MAILING_COUNTRY_SP = 'SP';
+    const MAILING_COUNTRY_PG = 'PG';
+    const MAILING_COUNTRY_CE = 'CE';
+    const MAILING_COUNTRY_SH = 'SH';
+    const MAILING_COUNTRY_SC = 'SC';
+    const MAILING_COUNTRY_ST = 'ST';
+    const MAILING_COUNTRY_SB = 'SB';
+    const MAILING_COUNTRY_VC = 'VC';
+    const MAILING_COUNTRY_SU = 'SU';
+    const MAILING_COUNTRY_NS = 'NS';
+    const MAILING_COUNTRY_SV = 'SV';
+    const MAILING_COUNTRY_WZ = 'WZ';
+    const MAILING_COUNTRY_SW = 'SW';
+    const MAILING_COUNTRY_SZ = 'SZ';
+    const MAILING_COUNTRY_SY = 'SY';
+    const MAILING_COUNTRY_TW = 'TW';
+    const MAILING_COUNTRY_TI = 'TI';
+    const MAILING_COUNTRY_TZ = 'TZ';
+    const MAILING_COUNTRY_TH = 'TH';
+    const MAILING_COUNTRY_TO = 'TO';
+    const MAILING_COUNTRY_TL = 'TL';
+    const MAILING_COUNTRY_TN = 'TN';
+    const MAILING_COUNTRY_TD = 'TD';
+    const MAILING_COUNTRY_TS = 'TS';
+    const MAILING_COUNTRY_TU = 'TU';
+    const MAILING_COUNTRY_TX = 'TX';
+    const MAILING_COUNTRY_TK = 'TK';
+    const MAILING_COUNTRY_TV = 'TV';
+    const MAILING_COUNTRY_UG = 'UG';
+    const MAILING_COUNTRY_UP = 'UP';
+    const MAILING_COUNTRY_AE = 'AE';
+    const MAILING_COUNTRY_UK = 'UK';
+    const MAILING_COUNTRY_UY = 'UY';
+    const MAILING_COUNTRY_UZ = 'UZ';
+    const MAILING_COUNTRY_NH = 'NH';
+    const MAILING_COUNTRY_VE = 'VE';
+    const MAILING_COUNTRY_VM = 'VM';
+    const MAILING_COUNTRY_VQ = 'VQ';
+    const MAILING_COUNTRY_WQ = 'WQ';
+    const MAILING_COUNTRY_WF = 'WF';
+    const MAILING_COUNTRY_WI = 'WI';
+    const MAILING_COUNTRY_YM = 'YM';
+    const MAILING_COUNTRY_ZA = 'ZA';
+    const MAILING_COUNTRY_ZI = 'ZI';
+    const TREATY_COUNTRY_US = 'US';
+    const TREATY_COUNTRY_AF = 'AF';
+    const TREATY_COUNTRY_AX = 'AX';
+    const TREATY_COUNTRY_AL = 'AL';
+    const TREATY_COUNTRY_AG = 'AG';
+    const TREATY_COUNTRY_AQ = 'AQ';
+    const TREATY_COUNTRY_AN = 'AN';
+    const TREATY_COUNTRY_AO = 'AO';
+    const TREATY_COUNTRY_AV = 'AV';
+    const TREATY_COUNTRY_AY = 'AY';
+    const TREATY_COUNTRY_AC = 'AC';
+    const TREATY_COUNTRY_AR = 'AR';
+    const TREATY_COUNTRY_AM = 'AM';
+    const TREATY_COUNTRY_AA = 'AA';
+    const TREATY_COUNTRY_AT = 'AT';
+    const TREATY_COUNTRY__AS = 'AS';
+    const TREATY_COUNTRY_AU = 'AU';
+    const TREATY_COUNTRY_AJ = 'AJ';
+    const TREATY_COUNTRY_BF = 'BF';
+    const TREATY_COUNTRY_BA = 'BA';
+    const TREATY_COUNTRY_FQ = 'FQ';
+    const TREATY_COUNTRY_BG = 'BG';
+    const TREATY_COUNTRY_BB = 'BB';
+    const TREATY_COUNTRY_BO = 'BO';
+    const TREATY_COUNTRY_BE = 'BE';
+    const TREATY_COUNTRY_BH = 'BH';
+    const TREATY_COUNTRY_BN = 'BN';
+    const TREATY_COUNTRY_BD = 'BD';
+    const TREATY_COUNTRY_BT = 'BT';
+    const TREATY_COUNTRY_BL = 'BL';
+    const TREATY_COUNTRY_BK = 'BK';
+    const TREATY_COUNTRY_BC = 'BC';
+    const TREATY_COUNTRY_BV = 'BV';
+    const TREATY_COUNTRY_BR = 'BR';
+    const TREATY_COUNTRY_IO = 'IO';
+    const TREATY_COUNTRY_VI = 'VI';
+    const TREATY_COUNTRY_BX = 'BX';
+    const TREATY_COUNTRY_BU = 'BU';
+    const TREATY_COUNTRY_UV = 'UV';
+    const TREATY_COUNTRY_BM = 'BM';
+    const TREATY_COUNTRY_BY = 'BY';
+    const TREATY_COUNTRY_CB = 'CB';
+    const TREATY_COUNTRY_CM = 'CM';
+    const TREATY_COUNTRY_CA = 'CA';
+    const TREATY_COUNTRY_CV = 'CV';
+    const TREATY_COUNTRY_CJ = 'CJ';
+    const TREATY_COUNTRY_CT = 'CT';
+    const TREATY_COUNTRY_CD = 'CD';
+    const TREATY_COUNTRY_CI = 'CI';
+    const TREATY_COUNTRY_CH = 'CH';
+    const TREATY_COUNTRY_KT = 'KT';
+    const TREATY_COUNTRY_IP = 'IP';
+    const TREATY_COUNTRY_CK = 'CK';
+    const TREATY_COUNTRY_CO = 'CO';
+    const TREATY_COUNTRY_CN = 'CN';
+    const TREATY_COUNTRY_CF = 'CF';
+    const TREATY_COUNTRY_CG = 'CG';
+    const TREATY_COUNTRY_CW = 'CW';
+    const TREATY_COUNTRY_CR = 'CR';
+    const TREATY_COUNTRY_CS = 'CS';
+    const TREATY_COUNTRY_IV = 'IV';
+    const TREATY_COUNTRY_HR = 'HR';
+    const TREATY_COUNTRY_CU = 'CU';
+    const TREATY_COUNTRY_UC = 'UC';
+    const TREATY_COUNTRY_CY = 'CY';
+    const TREATY_COUNTRY_EZ = 'EZ';
+    const TREATY_COUNTRY_DA = 'DA';
+    const TREATY_COUNTRY_DX = 'DX';
+    const TREATY_COUNTRY_DJ = 'DJ';
+    const TREATY_COUNTRY__DO = 'DO';
+    const TREATY_COUNTRY_DR = 'DR';
+    const TREATY_COUNTRY_TT = 'TT';
+    const TREATY_COUNTRY_EC = 'EC';
+    const TREATY_COUNTRY_EG = 'EG';
+    const TREATY_COUNTRY_ES = 'ES';
+    const TREATY_COUNTRY_EK = 'EK';
+    const TREATY_COUNTRY_ER = 'ER';
+    const TREATY_COUNTRY_EN = 'EN';
+    const TREATY_COUNTRY_ET = 'ET';
+    const TREATY_COUNTRY_FK = 'FK';
+    const TREATY_COUNTRY_FO = 'FO';
+    const TREATY_COUNTRY_FM = 'FM';
+    const TREATY_COUNTRY_FJ = 'FJ';
+    const TREATY_COUNTRY_FI = 'FI';
+    const TREATY_COUNTRY_FR = 'FR';
+    const TREATY_COUNTRY_FP = 'FP';
+    const TREATY_COUNTRY_FS = 'FS';
+    const TREATY_COUNTRY_GB = 'GB';
+    const TREATY_COUNTRY_GA = 'GA';
+    const TREATY_COUNTRY_GG = 'GG';
+    const TREATY_COUNTRY_GM = 'GM';
+    const TREATY_COUNTRY_GH = 'GH';
+    const TREATY_COUNTRY_GI = 'GI';
+    const TREATY_COUNTRY_GR = 'GR';
+    const TREATY_COUNTRY_GL = 'GL';
+    const TREATY_COUNTRY_GJ = 'GJ';
+    const TREATY_COUNTRY_GQ = 'GQ';
+    const TREATY_COUNTRY_GT = 'GT';
+    const TREATY_COUNTRY_GK = 'GK';
+    const TREATY_COUNTRY_GV = 'GV';
+    const TREATY_COUNTRY_PU = 'PU';
+    const TREATY_COUNTRY_GY = 'GY';
+    const TREATY_COUNTRY_HA = 'HA';
+    const TREATY_COUNTRY_HM = 'HM';
+    const TREATY_COUNTRY_VT = 'VT';
+    const TREATY_COUNTRY_HO = 'HO';
+    const TREATY_COUNTRY_HK = 'HK';
+    const TREATY_COUNTRY_HQ = 'HQ';
+    const TREATY_COUNTRY_HU = 'HU';
+    const TREATY_COUNTRY_IC = 'IC';
+    const TREATY_COUNTRY_IN = 'IN';
+    const TREATY_COUNTRY_ID = 'ID';
+    const TREATY_COUNTRY_IR = 'IR';
+    const TREATY_COUNTRY_IZ = 'IZ';
+    const TREATY_COUNTRY_EI = 'EI';
+    const TREATY_COUNTRY_IS = 'IS';
+    const TREATY_COUNTRY_IT = 'IT';
+    const TREATY_COUNTRY_JM = 'JM';
+    const TREATY_COUNTRY_JN = 'JN';
+    const TREATY_COUNTRY_JA = 'JA';
+    const TREATY_COUNTRY_DQ = 'DQ';
+    const TREATY_COUNTRY_JE = 'JE';
+    const TREATY_COUNTRY_JQ = 'JQ';
+    const TREATY_COUNTRY_JO = 'JO';
+    const TREATY_COUNTRY_KZ = 'KZ';
+    const TREATY_COUNTRY_KE = 'KE';
+    const TREATY_COUNTRY_KQ = 'KQ';
+    const TREATY_COUNTRY_KR = 'KR';
+    const TREATY_COUNTRY_KN = 'KN';
+    const TREATY_COUNTRY_KS = 'KS';
+    const TREATY_COUNTRY_KV = 'KV';
+    const TREATY_COUNTRY_KU = 'KU';
+    const TREATY_COUNTRY_KG = 'KG';
+    const TREATY_COUNTRY_LA = 'LA';
+    const TREATY_COUNTRY_LG = 'LG';
+    const TREATY_COUNTRY_LE = 'LE';
+    const TREATY_COUNTRY_LT = 'LT';
+    const TREATY_COUNTRY_LI = 'LI';
+    const TREATY_COUNTRY_LY = 'LY';
+    const TREATY_COUNTRY_LS = 'LS';
+    const TREATY_COUNTRY_LH = 'LH';
+    const TREATY_COUNTRY_LU = 'LU';
+    const TREATY_COUNTRY_MC = 'MC';
+    const TREATY_COUNTRY_MK = 'MK';
+    const TREATY_COUNTRY_MA = 'MA';
+    const TREATY_COUNTRY_MI = 'MI';
+    const TREATY_COUNTRY_MY = 'MY';
+    const TREATY_COUNTRY_MV = 'MV';
+    const TREATY_COUNTRY_ML = 'ML';
+    const TREATY_COUNTRY_MT = 'MT';
+    const TREATY_COUNTRY_IM = 'IM';
+    const TREATY_COUNTRY_RM = 'RM';
+    const TREATY_COUNTRY_MR = 'MR';
+    const TREATY_COUNTRY_MP = 'MP';
+    const TREATY_COUNTRY_MX = 'MX';
+    const TREATY_COUNTRY_MQ = 'MQ';
+    const TREATY_COUNTRY_MD = 'MD';
+    const TREATY_COUNTRY_MN = 'MN';
+    const TREATY_COUNTRY_MG = 'MG';
+    const TREATY_COUNTRY_MJ = 'MJ';
+    const TREATY_COUNTRY_MH = 'MH';
+    const TREATY_COUNTRY_MO = 'MO';
+    const TREATY_COUNTRY_MZ = 'MZ';
+    const TREATY_COUNTRY_WA = 'WA';
+    const TREATY_COUNTRY_NR = 'NR';
+    const TREATY_COUNTRY_BQ = 'BQ';
+    const TREATY_COUNTRY_NP = 'NP';
+    const TREATY_COUNTRY_NL = 'NL';
+    const TREATY_COUNTRY_NC = 'NC';
+    const TREATY_COUNTRY_NZ = 'NZ';
+    const TREATY_COUNTRY_NU = 'NU';
+    const TREATY_COUNTRY_NG = 'NG';
+    const TREATY_COUNTRY_NI = 'NI';
+    const TREATY_COUNTRY_NE = 'NE';
+    const TREATY_COUNTRY_NF = 'NF';
+    const TREATY_COUNTRY_CQ = 'CQ';
+    const TREATY_COUNTRY_NO = 'NO';
+    const TREATY_COUNTRY_MU = 'MU';
+    const TREATY_COUNTRY_OC = 'OC';
+    const TREATY_COUNTRY_PK = 'PK';
+    const TREATY_COUNTRY_PS = 'PS';
+    const TREATY_COUNTRY_LQ = 'LQ';
+    const TREATY_COUNTRY_PM = 'PM';
+    const TREATY_COUNTRY_PP = 'PP';
+    const TREATY_COUNTRY_PF = 'PF';
+    const TREATY_COUNTRY_PA = 'PA';
+    const TREATY_COUNTRY_PE = 'PE';
+    const TREATY_COUNTRY_RP = 'RP';
+    const TREATY_COUNTRY_PC = 'PC';
+    const TREATY_COUNTRY_PL = 'PL';
+    const TREATY_COUNTRY_PO = 'PO';
+    const TREATY_COUNTRY_RQ = 'RQ';
+    const TREATY_COUNTRY_QA = 'QA';
+    const TREATY_COUNTRY_RO = 'RO';
+    const TREATY_COUNTRY_RS = 'RS';
+    const TREATY_COUNTRY_RW = 'RW';
+    const TREATY_COUNTRY_TB = 'TB';
+    const TREATY_COUNTRY_RN = 'RN';
+    const TREATY_COUNTRY_WS = 'WS';
+    const TREATY_COUNTRY_SM = 'SM';
+    const TREATY_COUNTRY_TP = 'TP';
+    const TREATY_COUNTRY_SA = 'SA';
+    const TREATY_COUNTRY_SG = 'SG';
+    const TREATY_COUNTRY_RI = 'RI';
+    const TREATY_COUNTRY_SE = 'SE';
+    const TREATY_COUNTRY_SL = 'SL';
+    const TREATY_COUNTRY_SN = 'SN';
+    const TREATY_COUNTRY_NN = 'NN';
+    const TREATY_COUNTRY_LO = 'LO';
+    const TREATY_COUNTRY_SI = 'SI';
+    const TREATY_COUNTRY_BP = 'BP';
+    const TREATY_COUNTRY_SO = 'SO';
+    const TREATY_COUNTRY_SF = 'SF';
+    const TREATY_COUNTRY_SX = 'SX';
+    const TREATY_COUNTRY_SP = 'SP';
+    const TREATY_COUNTRY_PG = 'PG';
+    const TREATY_COUNTRY_CE = 'CE';
+    const TREATY_COUNTRY_SH = 'SH';
+    const TREATY_COUNTRY_SC = 'SC';
+    const TREATY_COUNTRY_ST = 'ST';
+    const TREATY_COUNTRY_SB = 'SB';
+    const TREATY_COUNTRY_VC = 'VC';
+    const TREATY_COUNTRY_SU = 'SU';
+    const TREATY_COUNTRY_NS = 'NS';
+    const TREATY_COUNTRY_SV = 'SV';
+    const TREATY_COUNTRY_WZ = 'WZ';
+    const TREATY_COUNTRY_SW = 'SW';
+    const TREATY_COUNTRY_SZ = 'SZ';
+    const TREATY_COUNTRY_SY = 'SY';
+    const TREATY_COUNTRY_TW = 'TW';
+    const TREATY_COUNTRY_TI = 'TI';
+    const TREATY_COUNTRY_TZ = 'TZ';
+    const TREATY_COUNTRY_TH = 'TH';
+    const TREATY_COUNTRY_TO = 'TO';
+    const TREATY_COUNTRY_TL = 'TL';
+    const TREATY_COUNTRY_TN = 'TN';
+    const TREATY_COUNTRY_TD = 'TD';
+    const TREATY_COUNTRY_TS = 'TS';
+    const TREATY_COUNTRY_TU = 'TU';
+    const TREATY_COUNTRY_TX = 'TX';
+    const TREATY_COUNTRY_TK = 'TK';
+    const TREATY_COUNTRY_TV = 'TV';
+    const TREATY_COUNTRY_UG = 'UG';
+    const TREATY_COUNTRY_UP = 'UP';
+    const TREATY_COUNTRY_AE = 'AE';
+    const TREATY_COUNTRY_UK = 'UK';
+    const TREATY_COUNTRY_UY = 'UY';
+    const TREATY_COUNTRY_UZ = 'UZ';
+    const TREATY_COUNTRY_NH = 'NH';
+    const TREATY_COUNTRY_VE = 'VE';
+    const TREATY_COUNTRY_VM = 'VM';
+    const TREATY_COUNTRY_VQ = 'VQ';
+    const TREATY_COUNTRY_WQ = 'WQ';
+    const TREATY_COUNTRY_WF = 'WF';
+    const TREATY_COUNTRY_WI = 'WI';
+    const TREATY_COUNTRY_YM = 'YM';
+    const TREATY_COUNTRY_ZA = 'ZA';
+    const TREATY_COUNTRY_ZI = 'ZI';
+    const WITHHOLDING_RATE__0 = '0';
+    const WITHHOLDING_RATE__0_0 = '0.0';
+    const WITHHOLDING_RATE__0_00 = '0.00';
+    const WITHHOLDING_RATE__5 = '5';
+    const WITHHOLDING_RATE__5_5 = '5.5';
+    const WITHHOLDING_RATE__10 = '10';
+    const WITHHOLDING_RATE__12_50 = '12.50';
+    const WITHHOLDING_RATE__15 = '15';
+    const WITHHOLDING_RATE__20 = '20';
+    const WITHHOLDING_RATE__25 = '25';
+    const WITHHOLDING_RATE__30 = '30';
 
     /**
      * Gets allowable values of the enum
@@ -338,6 +1531,1276 @@ class W8BenFormRequest implements ModelInterface, ArrayAccess, \JsonSerializable
             self::TYPE_W8_BEN_E,
             self::TYPE_W8_IMY,
             self::TYPE_W9,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getCitizenshipCountryAllowableValues()
+    {
+        return [
+            self::CITIZENSHIP_COUNTRY_US,
+            self::CITIZENSHIP_COUNTRY_AF,
+            self::CITIZENSHIP_COUNTRY_AX,
+            self::CITIZENSHIP_COUNTRY_AL,
+            self::CITIZENSHIP_COUNTRY_AG,
+            self::CITIZENSHIP_COUNTRY_AQ,
+            self::CITIZENSHIP_COUNTRY_AN,
+            self::CITIZENSHIP_COUNTRY_AO,
+            self::CITIZENSHIP_COUNTRY_AV,
+            self::CITIZENSHIP_COUNTRY_AY,
+            self::CITIZENSHIP_COUNTRY_AC,
+            self::CITIZENSHIP_COUNTRY_AR,
+            self::CITIZENSHIP_COUNTRY_AM,
+            self::CITIZENSHIP_COUNTRY_AA,
+            self::CITIZENSHIP_COUNTRY_AT,
+            self::CITIZENSHIP_COUNTRY__AS,
+            self::CITIZENSHIP_COUNTRY_AU,
+            self::CITIZENSHIP_COUNTRY_AJ,
+            self::CITIZENSHIP_COUNTRY_BF,
+            self::CITIZENSHIP_COUNTRY_BA,
+            self::CITIZENSHIP_COUNTRY_FQ,
+            self::CITIZENSHIP_COUNTRY_BG,
+            self::CITIZENSHIP_COUNTRY_BB,
+            self::CITIZENSHIP_COUNTRY_BO,
+            self::CITIZENSHIP_COUNTRY_BE,
+            self::CITIZENSHIP_COUNTRY_BH,
+            self::CITIZENSHIP_COUNTRY_BN,
+            self::CITIZENSHIP_COUNTRY_BD,
+            self::CITIZENSHIP_COUNTRY_BT,
+            self::CITIZENSHIP_COUNTRY_BL,
+            self::CITIZENSHIP_COUNTRY_BK,
+            self::CITIZENSHIP_COUNTRY_BC,
+            self::CITIZENSHIP_COUNTRY_BV,
+            self::CITIZENSHIP_COUNTRY_BR,
+            self::CITIZENSHIP_COUNTRY_IO,
+            self::CITIZENSHIP_COUNTRY_VI,
+            self::CITIZENSHIP_COUNTRY_BX,
+            self::CITIZENSHIP_COUNTRY_BU,
+            self::CITIZENSHIP_COUNTRY_UV,
+            self::CITIZENSHIP_COUNTRY_BM,
+            self::CITIZENSHIP_COUNTRY_BY,
+            self::CITIZENSHIP_COUNTRY_CB,
+            self::CITIZENSHIP_COUNTRY_CM,
+            self::CITIZENSHIP_COUNTRY_CA,
+            self::CITIZENSHIP_COUNTRY_CV,
+            self::CITIZENSHIP_COUNTRY_CJ,
+            self::CITIZENSHIP_COUNTRY_CT,
+            self::CITIZENSHIP_COUNTRY_CD,
+            self::CITIZENSHIP_COUNTRY_CI,
+            self::CITIZENSHIP_COUNTRY_CH,
+            self::CITIZENSHIP_COUNTRY_KT,
+            self::CITIZENSHIP_COUNTRY_IP,
+            self::CITIZENSHIP_COUNTRY_CK,
+            self::CITIZENSHIP_COUNTRY_CO,
+            self::CITIZENSHIP_COUNTRY_CN,
+            self::CITIZENSHIP_COUNTRY_CF,
+            self::CITIZENSHIP_COUNTRY_CG,
+            self::CITIZENSHIP_COUNTRY_CW,
+            self::CITIZENSHIP_COUNTRY_CR,
+            self::CITIZENSHIP_COUNTRY_CS,
+            self::CITIZENSHIP_COUNTRY_IV,
+            self::CITIZENSHIP_COUNTRY_HR,
+            self::CITIZENSHIP_COUNTRY_CU,
+            self::CITIZENSHIP_COUNTRY_UC,
+            self::CITIZENSHIP_COUNTRY_CY,
+            self::CITIZENSHIP_COUNTRY_EZ,
+            self::CITIZENSHIP_COUNTRY_DA,
+            self::CITIZENSHIP_COUNTRY_DX,
+            self::CITIZENSHIP_COUNTRY_DJ,
+            self::CITIZENSHIP_COUNTRY__DO,
+            self::CITIZENSHIP_COUNTRY_DR,
+            self::CITIZENSHIP_COUNTRY_TT,
+            self::CITIZENSHIP_COUNTRY_EC,
+            self::CITIZENSHIP_COUNTRY_EG,
+            self::CITIZENSHIP_COUNTRY_ES,
+            self::CITIZENSHIP_COUNTRY_EK,
+            self::CITIZENSHIP_COUNTRY_ER,
+            self::CITIZENSHIP_COUNTRY_EN,
+            self::CITIZENSHIP_COUNTRY_ET,
+            self::CITIZENSHIP_COUNTRY_FK,
+            self::CITIZENSHIP_COUNTRY_FO,
+            self::CITIZENSHIP_COUNTRY_FM,
+            self::CITIZENSHIP_COUNTRY_FJ,
+            self::CITIZENSHIP_COUNTRY_FI,
+            self::CITIZENSHIP_COUNTRY_FR,
+            self::CITIZENSHIP_COUNTRY_FP,
+            self::CITIZENSHIP_COUNTRY_FS,
+            self::CITIZENSHIP_COUNTRY_GB,
+            self::CITIZENSHIP_COUNTRY_GA,
+            self::CITIZENSHIP_COUNTRY_GG,
+            self::CITIZENSHIP_COUNTRY_GM,
+            self::CITIZENSHIP_COUNTRY_GH,
+            self::CITIZENSHIP_COUNTRY_GI,
+            self::CITIZENSHIP_COUNTRY_GR,
+            self::CITIZENSHIP_COUNTRY_GL,
+            self::CITIZENSHIP_COUNTRY_GJ,
+            self::CITIZENSHIP_COUNTRY_GQ,
+            self::CITIZENSHIP_COUNTRY_GT,
+            self::CITIZENSHIP_COUNTRY_GK,
+            self::CITIZENSHIP_COUNTRY_GV,
+            self::CITIZENSHIP_COUNTRY_PU,
+            self::CITIZENSHIP_COUNTRY_GY,
+            self::CITIZENSHIP_COUNTRY_HA,
+            self::CITIZENSHIP_COUNTRY_HM,
+            self::CITIZENSHIP_COUNTRY_VT,
+            self::CITIZENSHIP_COUNTRY_HO,
+            self::CITIZENSHIP_COUNTRY_HK,
+            self::CITIZENSHIP_COUNTRY_HQ,
+            self::CITIZENSHIP_COUNTRY_HU,
+            self::CITIZENSHIP_COUNTRY_IC,
+            self::CITIZENSHIP_COUNTRY_IN,
+            self::CITIZENSHIP_COUNTRY_ID,
+            self::CITIZENSHIP_COUNTRY_IR,
+            self::CITIZENSHIP_COUNTRY_IZ,
+            self::CITIZENSHIP_COUNTRY_EI,
+            self::CITIZENSHIP_COUNTRY_IS,
+            self::CITIZENSHIP_COUNTRY_IT,
+            self::CITIZENSHIP_COUNTRY_JM,
+            self::CITIZENSHIP_COUNTRY_JN,
+            self::CITIZENSHIP_COUNTRY_JA,
+            self::CITIZENSHIP_COUNTRY_DQ,
+            self::CITIZENSHIP_COUNTRY_JE,
+            self::CITIZENSHIP_COUNTRY_JQ,
+            self::CITIZENSHIP_COUNTRY_JO,
+            self::CITIZENSHIP_COUNTRY_KZ,
+            self::CITIZENSHIP_COUNTRY_KE,
+            self::CITIZENSHIP_COUNTRY_KQ,
+            self::CITIZENSHIP_COUNTRY_KR,
+            self::CITIZENSHIP_COUNTRY_KN,
+            self::CITIZENSHIP_COUNTRY_KS,
+            self::CITIZENSHIP_COUNTRY_KV,
+            self::CITIZENSHIP_COUNTRY_KU,
+            self::CITIZENSHIP_COUNTRY_KG,
+            self::CITIZENSHIP_COUNTRY_LA,
+            self::CITIZENSHIP_COUNTRY_LG,
+            self::CITIZENSHIP_COUNTRY_LE,
+            self::CITIZENSHIP_COUNTRY_LT,
+            self::CITIZENSHIP_COUNTRY_LI,
+            self::CITIZENSHIP_COUNTRY_LY,
+            self::CITIZENSHIP_COUNTRY_LS,
+            self::CITIZENSHIP_COUNTRY_LH,
+            self::CITIZENSHIP_COUNTRY_LU,
+            self::CITIZENSHIP_COUNTRY_MC,
+            self::CITIZENSHIP_COUNTRY_MK,
+            self::CITIZENSHIP_COUNTRY_MA,
+            self::CITIZENSHIP_COUNTRY_MI,
+            self::CITIZENSHIP_COUNTRY_MY,
+            self::CITIZENSHIP_COUNTRY_MV,
+            self::CITIZENSHIP_COUNTRY_ML,
+            self::CITIZENSHIP_COUNTRY_MT,
+            self::CITIZENSHIP_COUNTRY_IM,
+            self::CITIZENSHIP_COUNTRY_RM,
+            self::CITIZENSHIP_COUNTRY_MR,
+            self::CITIZENSHIP_COUNTRY_MP,
+            self::CITIZENSHIP_COUNTRY_MX,
+            self::CITIZENSHIP_COUNTRY_MQ,
+            self::CITIZENSHIP_COUNTRY_MD,
+            self::CITIZENSHIP_COUNTRY_MN,
+            self::CITIZENSHIP_COUNTRY_MG,
+            self::CITIZENSHIP_COUNTRY_MJ,
+            self::CITIZENSHIP_COUNTRY_MH,
+            self::CITIZENSHIP_COUNTRY_MO,
+            self::CITIZENSHIP_COUNTRY_MZ,
+            self::CITIZENSHIP_COUNTRY_WA,
+            self::CITIZENSHIP_COUNTRY_NR,
+            self::CITIZENSHIP_COUNTRY_BQ,
+            self::CITIZENSHIP_COUNTRY_NP,
+            self::CITIZENSHIP_COUNTRY_NL,
+            self::CITIZENSHIP_COUNTRY_NC,
+            self::CITIZENSHIP_COUNTRY_NZ,
+            self::CITIZENSHIP_COUNTRY_NU,
+            self::CITIZENSHIP_COUNTRY_NG,
+            self::CITIZENSHIP_COUNTRY_NI,
+            self::CITIZENSHIP_COUNTRY_NE,
+            self::CITIZENSHIP_COUNTRY_NF,
+            self::CITIZENSHIP_COUNTRY_CQ,
+            self::CITIZENSHIP_COUNTRY_NO,
+            self::CITIZENSHIP_COUNTRY_MU,
+            self::CITIZENSHIP_COUNTRY_OC,
+            self::CITIZENSHIP_COUNTRY_PK,
+            self::CITIZENSHIP_COUNTRY_PS,
+            self::CITIZENSHIP_COUNTRY_LQ,
+            self::CITIZENSHIP_COUNTRY_PM,
+            self::CITIZENSHIP_COUNTRY_PP,
+            self::CITIZENSHIP_COUNTRY_PF,
+            self::CITIZENSHIP_COUNTRY_PA,
+            self::CITIZENSHIP_COUNTRY_PE,
+            self::CITIZENSHIP_COUNTRY_RP,
+            self::CITIZENSHIP_COUNTRY_PC,
+            self::CITIZENSHIP_COUNTRY_PL,
+            self::CITIZENSHIP_COUNTRY_PO,
+            self::CITIZENSHIP_COUNTRY_RQ,
+            self::CITIZENSHIP_COUNTRY_QA,
+            self::CITIZENSHIP_COUNTRY_RO,
+            self::CITIZENSHIP_COUNTRY_RS,
+            self::CITIZENSHIP_COUNTRY_RW,
+            self::CITIZENSHIP_COUNTRY_TB,
+            self::CITIZENSHIP_COUNTRY_RN,
+            self::CITIZENSHIP_COUNTRY_WS,
+            self::CITIZENSHIP_COUNTRY_SM,
+            self::CITIZENSHIP_COUNTRY_TP,
+            self::CITIZENSHIP_COUNTRY_SA,
+            self::CITIZENSHIP_COUNTRY_SG,
+            self::CITIZENSHIP_COUNTRY_RI,
+            self::CITIZENSHIP_COUNTRY_SE,
+            self::CITIZENSHIP_COUNTRY_SL,
+            self::CITIZENSHIP_COUNTRY_SN,
+            self::CITIZENSHIP_COUNTRY_NN,
+            self::CITIZENSHIP_COUNTRY_LO,
+            self::CITIZENSHIP_COUNTRY_SI,
+            self::CITIZENSHIP_COUNTRY_BP,
+            self::CITIZENSHIP_COUNTRY_SO,
+            self::CITIZENSHIP_COUNTRY_SF,
+            self::CITIZENSHIP_COUNTRY_SX,
+            self::CITIZENSHIP_COUNTRY_SP,
+            self::CITIZENSHIP_COUNTRY_PG,
+            self::CITIZENSHIP_COUNTRY_CE,
+            self::CITIZENSHIP_COUNTRY_SH,
+            self::CITIZENSHIP_COUNTRY_SC,
+            self::CITIZENSHIP_COUNTRY_ST,
+            self::CITIZENSHIP_COUNTRY_SB,
+            self::CITIZENSHIP_COUNTRY_VC,
+            self::CITIZENSHIP_COUNTRY_SU,
+            self::CITIZENSHIP_COUNTRY_NS,
+            self::CITIZENSHIP_COUNTRY_SV,
+            self::CITIZENSHIP_COUNTRY_WZ,
+            self::CITIZENSHIP_COUNTRY_SW,
+            self::CITIZENSHIP_COUNTRY_SZ,
+            self::CITIZENSHIP_COUNTRY_SY,
+            self::CITIZENSHIP_COUNTRY_TW,
+            self::CITIZENSHIP_COUNTRY_TI,
+            self::CITIZENSHIP_COUNTRY_TZ,
+            self::CITIZENSHIP_COUNTRY_TH,
+            self::CITIZENSHIP_COUNTRY_TO,
+            self::CITIZENSHIP_COUNTRY_TL,
+            self::CITIZENSHIP_COUNTRY_TN,
+            self::CITIZENSHIP_COUNTRY_TD,
+            self::CITIZENSHIP_COUNTRY_TS,
+            self::CITIZENSHIP_COUNTRY_TU,
+            self::CITIZENSHIP_COUNTRY_TX,
+            self::CITIZENSHIP_COUNTRY_TK,
+            self::CITIZENSHIP_COUNTRY_TV,
+            self::CITIZENSHIP_COUNTRY_UG,
+            self::CITIZENSHIP_COUNTRY_UP,
+            self::CITIZENSHIP_COUNTRY_AE,
+            self::CITIZENSHIP_COUNTRY_UK,
+            self::CITIZENSHIP_COUNTRY_UY,
+            self::CITIZENSHIP_COUNTRY_UZ,
+            self::CITIZENSHIP_COUNTRY_NH,
+            self::CITIZENSHIP_COUNTRY_VE,
+            self::CITIZENSHIP_COUNTRY_VM,
+            self::CITIZENSHIP_COUNTRY_VQ,
+            self::CITIZENSHIP_COUNTRY_WQ,
+            self::CITIZENSHIP_COUNTRY_WF,
+            self::CITIZENSHIP_COUNTRY_WI,
+            self::CITIZENSHIP_COUNTRY_YM,
+            self::CITIZENSHIP_COUNTRY_ZA,
+            self::CITIZENSHIP_COUNTRY_ZI,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getResidenceStateAllowableValues()
+    {
+        return [
+            self::RESIDENCE_STATE_AA,
+            self::RESIDENCE_STATE_AE,
+            self::RESIDENCE_STATE_AK,
+            self::RESIDENCE_STATE_AL,
+            self::RESIDENCE_STATE_AP,
+            self::RESIDENCE_STATE_AR,
+            self::RESIDENCE_STATE__AS,
+            self::RESIDENCE_STATE_AZ,
+            self::RESIDENCE_STATE_CA,
+            self::RESIDENCE_STATE_CO,
+            self::RESIDENCE_STATE_CT,
+            self::RESIDENCE_STATE_DC,
+            self::RESIDENCE_STATE_DE,
+            self::RESIDENCE_STATE_FL,
+            self::RESIDENCE_STATE_FM,
+            self::RESIDENCE_STATE_GA,
+            self::RESIDENCE_STATE_GU,
+            self::RESIDENCE_STATE_HI,
+            self::RESIDENCE_STATE_IA,
+            self::RESIDENCE_STATE_ID,
+            self::RESIDENCE_STATE_IL,
+            self::RESIDENCE_STATE_IN,
+            self::RESIDENCE_STATE_KS,
+            self::RESIDENCE_STATE_KY,
+            self::RESIDENCE_STATE_LA,
+            self::RESIDENCE_STATE_MA,
+            self::RESIDENCE_STATE_MD,
+            self::RESIDENCE_STATE_ME,
+            self::RESIDENCE_STATE_MH,
+            self::RESIDENCE_STATE_MI,
+            self::RESIDENCE_STATE_MN,
+            self::RESIDENCE_STATE_MO,
+            self::RESIDENCE_STATE_MP,
+            self::RESIDENCE_STATE_MS,
+            self::RESIDENCE_STATE_MT,
+            self::RESIDENCE_STATE_NC,
+            self::RESIDENCE_STATE_ND,
+            self::RESIDENCE_STATE_NE,
+            self::RESIDENCE_STATE_NH,
+            self::RESIDENCE_STATE_NJ,
+            self::RESIDENCE_STATE_NM,
+            self::RESIDENCE_STATE_NV,
+            self::RESIDENCE_STATE_NY,
+            self::RESIDENCE_STATE_OH,
+            self::RESIDENCE_STATE_OK,
+            self::RESIDENCE_STATE__OR,
+            self::RESIDENCE_STATE_PA,
+            self::RESIDENCE_STATE_PR,
+            self::RESIDENCE_STATE_PW,
+            self::RESIDENCE_STATE_RI,
+            self::RESIDENCE_STATE_SC,
+            self::RESIDENCE_STATE_SD,
+            self::RESIDENCE_STATE_TN,
+            self::RESIDENCE_STATE_TX,
+            self::RESIDENCE_STATE_UT,
+            self::RESIDENCE_STATE_VA,
+            self::RESIDENCE_STATE_VI,
+            self::RESIDENCE_STATE_VT,
+            self::RESIDENCE_STATE_WA,
+            self::RESIDENCE_STATE_WI,
+            self::RESIDENCE_STATE_WV,
+            self::RESIDENCE_STATE_WY,
+            self::RESIDENCE_STATE_AB,
+            self::RESIDENCE_STATE_BC,
+            self::RESIDENCE_STATE_MB,
+            self::RESIDENCE_STATE_NB,
+            self::RESIDENCE_STATE_NL,
+            self::RESIDENCE_STATE_NS,
+            self::RESIDENCE_STATE_NT,
+            self::RESIDENCE_STATE_NU,
+            self::RESIDENCE_STATE_ON,
+            self::RESIDENCE_STATE_PE,
+            self::RESIDENCE_STATE_QC,
+            self::RESIDENCE_STATE_SK,
+            self::RESIDENCE_STATE_YT,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getResidenceCountryAllowableValues()
+    {
+        return [
+            self::RESIDENCE_COUNTRY_US,
+            self::RESIDENCE_COUNTRY_AF,
+            self::RESIDENCE_COUNTRY_AX,
+            self::RESIDENCE_COUNTRY_AL,
+            self::RESIDENCE_COUNTRY_AG,
+            self::RESIDENCE_COUNTRY_AQ,
+            self::RESIDENCE_COUNTRY_AN,
+            self::RESIDENCE_COUNTRY_AO,
+            self::RESIDENCE_COUNTRY_AV,
+            self::RESIDENCE_COUNTRY_AY,
+            self::RESIDENCE_COUNTRY_AC,
+            self::RESIDENCE_COUNTRY_AR,
+            self::RESIDENCE_COUNTRY_AM,
+            self::RESIDENCE_COUNTRY_AA,
+            self::RESIDENCE_COUNTRY_AT,
+            self::RESIDENCE_COUNTRY__AS,
+            self::RESIDENCE_COUNTRY_AU,
+            self::RESIDENCE_COUNTRY_AJ,
+            self::RESIDENCE_COUNTRY_BF,
+            self::RESIDENCE_COUNTRY_BA,
+            self::RESIDENCE_COUNTRY_FQ,
+            self::RESIDENCE_COUNTRY_BG,
+            self::RESIDENCE_COUNTRY_BB,
+            self::RESIDENCE_COUNTRY_BO,
+            self::RESIDENCE_COUNTRY_BE,
+            self::RESIDENCE_COUNTRY_BH,
+            self::RESIDENCE_COUNTRY_BN,
+            self::RESIDENCE_COUNTRY_BD,
+            self::RESIDENCE_COUNTRY_BT,
+            self::RESIDENCE_COUNTRY_BL,
+            self::RESIDENCE_COUNTRY_BK,
+            self::RESIDENCE_COUNTRY_BC,
+            self::RESIDENCE_COUNTRY_BV,
+            self::RESIDENCE_COUNTRY_BR,
+            self::RESIDENCE_COUNTRY_IO,
+            self::RESIDENCE_COUNTRY_VI,
+            self::RESIDENCE_COUNTRY_BX,
+            self::RESIDENCE_COUNTRY_BU,
+            self::RESIDENCE_COUNTRY_UV,
+            self::RESIDENCE_COUNTRY_BM,
+            self::RESIDENCE_COUNTRY_BY,
+            self::RESIDENCE_COUNTRY_CB,
+            self::RESIDENCE_COUNTRY_CM,
+            self::RESIDENCE_COUNTRY_CA,
+            self::RESIDENCE_COUNTRY_CV,
+            self::RESIDENCE_COUNTRY_CJ,
+            self::RESIDENCE_COUNTRY_CT,
+            self::RESIDENCE_COUNTRY_CD,
+            self::RESIDENCE_COUNTRY_CI,
+            self::RESIDENCE_COUNTRY_CH,
+            self::RESIDENCE_COUNTRY_KT,
+            self::RESIDENCE_COUNTRY_IP,
+            self::RESIDENCE_COUNTRY_CK,
+            self::RESIDENCE_COUNTRY_CO,
+            self::RESIDENCE_COUNTRY_CN,
+            self::RESIDENCE_COUNTRY_CF,
+            self::RESIDENCE_COUNTRY_CG,
+            self::RESIDENCE_COUNTRY_CW,
+            self::RESIDENCE_COUNTRY_CR,
+            self::RESIDENCE_COUNTRY_CS,
+            self::RESIDENCE_COUNTRY_IV,
+            self::RESIDENCE_COUNTRY_HR,
+            self::RESIDENCE_COUNTRY_CU,
+            self::RESIDENCE_COUNTRY_UC,
+            self::RESIDENCE_COUNTRY_CY,
+            self::RESIDENCE_COUNTRY_EZ,
+            self::RESIDENCE_COUNTRY_DA,
+            self::RESIDENCE_COUNTRY_DX,
+            self::RESIDENCE_COUNTRY_DJ,
+            self::RESIDENCE_COUNTRY__DO,
+            self::RESIDENCE_COUNTRY_DR,
+            self::RESIDENCE_COUNTRY_TT,
+            self::RESIDENCE_COUNTRY_EC,
+            self::RESIDENCE_COUNTRY_EG,
+            self::RESIDENCE_COUNTRY_ES,
+            self::RESIDENCE_COUNTRY_EK,
+            self::RESIDENCE_COUNTRY_ER,
+            self::RESIDENCE_COUNTRY_EN,
+            self::RESIDENCE_COUNTRY_ET,
+            self::RESIDENCE_COUNTRY_FK,
+            self::RESIDENCE_COUNTRY_FO,
+            self::RESIDENCE_COUNTRY_FM,
+            self::RESIDENCE_COUNTRY_FJ,
+            self::RESIDENCE_COUNTRY_FI,
+            self::RESIDENCE_COUNTRY_FR,
+            self::RESIDENCE_COUNTRY_FP,
+            self::RESIDENCE_COUNTRY_FS,
+            self::RESIDENCE_COUNTRY_GB,
+            self::RESIDENCE_COUNTRY_GA,
+            self::RESIDENCE_COUNTRY_GG,
+            self::RESIDENCE_COUNTRY_GM,
+            self::RESIDENCE_COUNTRY_GH,
+            self::RESIDENCE_COUNTRY_GI,
+            self::RESIDENCE_COUNTRY_GR,
+            self::RESIDENCE_COUNTRY_GL,
+            self::RESIDENCE_COUNTRY_GJ,
+            self::RESIDENCE_COUNTRY_GQ,
+            self::RESIDENCE_COUNTRY_GT,
+            self::RESIDENCE_COUNTRY_GK,
+            self::RESIDENCE_COUNTRY_GV,
+            self::RESIDENCE_COUNTRY_PU,
+            self::RESIDENCE_COUNTRY_GY,
+            self::RESIDENCE_COUNTRY_HA,
+            self::RESIDENCE_COUNTRY_HM,
+            self::RESIDENCE_COUNTRY_VT,
+            self::RESIDENCE_COUNTRY_HO,
+            self::RESIDENCE_COUNTRY_HK,
+            self::RESIDENCE_COUNTRY_HQ,
+            self::RESIDENCE_COUNTRY_HU,
+            self::RESIDENCE_COUNTRY_IC,
+            self::RESIDENCE_COUNTRY_IN,
+            self::RESIDENCE_COUNTRY_ID,
+            self::RESIDENCE_COUNTRY_IR,
+            self::RESIDENCE_COUNTRY_IZ,
+            self::RESIDENCE_COUNTRY_EI,
+            self::RESIDENCE_COUNTRY_IS,
+            self::RESIDENCE_COUNTRY_IT,
+            self::RESIDENCE_COUNTRY_JM,
+            self::RESIDENCE_COUNTRY_JN,
+            self::RESIDENCE_COUNTRY_JA,
+            self::RESIDENCE_COUNTRY_DQ,
+            self::RESIDENCE_COUNTRY_JE,
+            self::RESIDENCE_COUNTRY_JQ,
+            self::RESIDENCE_COUNTRY_JO,
+            self::RESIDENCE_COUNTRY_KZ,
+            self::RESIDENCE_COUNTRY_KE,
+            self::RESIDENCE_COUNTRY_KQ,
+            self::RESIDENCE_COUNTRY_KR,
+            self::RESIDENCE_COUNTRY_KN,
+            self::RESIDENCE_COUNTRY_KS,
+            self::RESIDENCE_COUNTRY_KV,
+            self::RESIDENCE_COUNTRY_KU,
+            self::RESIDENCE_COUNTRY_KG,
+            self::RESIDENCE_COUNTRY_LA,
+            self::RESIDENCE_COUNTRY_LG,
+            self::RESIDENCE_COUNTRY_LE,
+            self::RESIDENCE_COUNTRY_LT,
+            self::RESIDENCE_COUNTRY_LI,
+            self::RESIDENCE_COUNTRY_LY,
+            self::RESIDENCE_COUNTRY_LS,
+            self::RESIDENCE_COUNTRY_LH,
+            self::RESIDENCE_COUNTRY_LU,
+            self::RESIDENCE_COUNTRY_MC,
+            self::RESIDENCE_COUNTRY_MK,
+            self::RESIDENCE_COUNTRY_MA,
+            self::RESIDENCE_COUNTRY_MI,
+            self::RESIDENCE_COUNTRY_MY,
+            self::RESIDENCE_COUNTRY_MV,
+            self::RESIDENCE_COUNTRY_ML,
+            self::RESIDENCE_COUNTRY_MT,
+            self::RESIDENCE_COUNTRY_IM,
+            self::RESIDENCE_COUNTRY_RM,
+            self::RESIDENCE_COUNTRY_MR,
+            self::RESIDENCE_COUNTRY_MP,
+            self::RESIDENCE_COUNTRY_MX,
+            self::RESIDENCE_COUNTRY_MQ,
+            self::RESIDENCE_COUNTRY_MD,
+            self::RESIDENCE_COUNTRY_MN,
+            self::RESIDENCE_COUNTRY_MG,
+            self::RESIDENCE_COUNTRY_MJ,
+            self::RESIDENCE_COUNTRY_MH,
+            self::RESIDENCE_COUNTRY_MO,
+            self::RESIDENCE_COUNTRY_MZ,
+            self::RESIDENCE_COUNTRY_WA,
+            self::RESIDENCE_COUNTRY_NR,
+            self::RESIDENCE_COUNTRY_BQ,
+            self::RESIDENCE_COUNTRY_NP,
+            self::RESIDENCE_COUNTRY_NL,
+            self::RESIDENCE_COUNTRY_NC,
+            self::RESIDENCE_COUNTRY_NZ,
+            self::RESIDENCE_COUNTRY_NU,
+            self::RESIDENCE_COUNTRY_NG,
+            self::RESIDENCE_COUNTRY_NI,
+            self::RESIDENCE_COUNTRY_NE,
+            self::RESIDENCE_COUNTRY_NF,
+            self::RESIDENCE_COUNTRY_CQ,
+            self::RESIDENCE_COUNTRY_NO,
+            self::RESIDENCE_COUNTRY_MU,
+            self::RESIDENCE_COUNTRY_OC,
+            self::RESIDENCE_COUNTRY_PK,
+            self::RESIDENCE_COUNTRY_PS,
+            self::RESIDENCE_COUNTRY_LQ,
+            self::RESIDENCE_COUNTRY_PM,
+            self::RESIDENCE_COUNTRY_PP,
+            self::RESIDENCE_COUNTRY_PF,
+            self::RESIDENCE_COUNTRY_PA,
+            self::RESIDENCE_COUNTRY_PE,
+            self::RESIDENCE_COUNTRY_RP,
+            self::RESIDENCE_COUNTRY_PC,
+            self::RESIDENCE_COUNTRY_PL,
+            self::RESIDENCE_COUNTRY_PO,
+            self::RESIDENCE_COUNTRY_RQ,
+            self::RESIDENCE_COUNTRY_QA,
+            self::RESIDENCE_COUNTRY_RO,
+            self::RESIDENCE_COUNTRY_RS,
+            self::RESIDENCE_COUNTRY_RW,
+            self::RESIDENCE_COUNTRY_TB,
+            self::RESIDENCE_COUNTRY_RN,
+            self::RESIDENCE_COUNTRY_WS,
+            self::RESIDENCE_COUNTRY_SM,
+            self::RESIDENCE_COUNTRY_TP,
+            self::RESIDENCE_COUNTRY_SA,
+            self::RESIDENCE_COUNTRY_SG,
+            self::RESIDENCE_COUNTRY_RI,
+            self::RESIDENCE_COUNTRY_SE,
+            self::RESIDENCE_COUNTRY_SL,
+            self::RESIDENCE_COUNTRY_SN,
+            self::RESIDENCE_COUNTRY_NN,
+            self::RESIDENCE_COUNTRY_LO,
+            self::RESIDENCE_COUNTRY_SI,
+            self::RESIDENCE_COUNTRY_BP,
+            self::RESIDENCE_COUNTRY_SO,
+            self::RESIDENCE_COUNTRY_SF,
+            self::RESIDENCE_COUNTRY_SX,
+            self::RESIDENCE_COUNTRY_SP,
+            self::RESIDENCE_COUNTRY_PG,
+            self::RESIDENCE_COUNTRY_CE,
+            self::RESIDENCE_COUNTRY_SH,
+            self::RESIDENCE_COUNTRY_SC,
+            self::RESIDENCE_COUNTRY_ST,
+            self::RESIDENCE_COUNTRY_SB,
+            self::RESIDENCE_COUNTRY_VC,
+            self::RESIDENCE_COUNTRY_SU,
+            self::RESIDENCE_COUNTRY_NS,
+            self::RESIDENCE_COUNTRY_SV,
+            self::RESIDENCE_COUNTRY_WZ,
+            self::RESIDENCE_COUNTRY_SW,
+            self::RESIDENCE_COUNTRY_SZ,
+            self::RESIDENCE_COUNTRY_SY,
+            self::RESIDENCE_COUNTRY_TW,
+            self::RESIDENCE_COUNTRY_TI,
+            self::RESIDENCE_COUNTRY_TZ,
+            self::RESIDENCE_COUNTRY_TH,
+            self::RESIDENCE_COUNTRY_TO,
+            self::RESIDENCE_COUNTRY_TL,
+            self::RESIDENCE_COUNTRY_TN,
+            self::RESIDENCE_COUNTRY_TD,
+            self::RESIDENCE_COUNTRY_TS,
+            self::RESIDENCE_COUNTRY_TU,
+            self::RESIDENCE_COUNTRY_TX,
+            self::RESIDENCE_COUNTRY_TK,
+            self::RESIDENCE_COUNTRY_TV,
+            self::RESIDENCE_COUNTRY_UG,
+            self::RESIDENCE_COUNTRY_UP,
+            self::RESIDENCE_COUNTRY_AE,
+            self::RESIDENCE_COUNTRY_UK,
+            self::RESIDENCE_COUNTRY_UY,
+            self::RESIDENCE_COUNTRY_UZ,
+            self::RESIDENCE_COUNTRY_NH,
+            self::RESIDENCE_COUNTRY_VE,
+            self::RESIDENCE_COUNTRY_VM,
+            self::RESIDENCE_COUNTRY_VQ,
+            self::RESIDENCE_COUNTRY_WQ,
+            self::RESIDENCE_COUNTRY_WF,
+            self::RESIDENCE_COUNTRY_WI,
+            self::RESIDENCE_COUNTRY_YM,
+            self::RESIDENCE_COUNTRY_ZA,
+            self::RESIDENCE_COUNTRY_ZI,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getMailingStateAllowableValues()
+    {
+        return [
+            self::MAILING_STATE_AA,
+            self::MAILING_STATE_AE,
+            self::MAILING_STATE_AK,
+            self::MAILING_STATE_AL,
+            self::MAILING_STATE_AP,
+            self::MAILING_STATE_AR,
+            self::MAILING_STATE__AS,
+            self::MAILING_STATE_AZ,
+            self::MAILING_STATE_CA,
+            self::MAILING_STATE_CO,
+            self::MAILING_STATE_CT,
+            self::MAILING_STATE_DC,
+            self::MAILING_STATE_DE,
+            self::MAILING_STATE_FL,
+            self::MAILING_STATE_FM,
+            self::MAILING_STATE_GA,
+            self::MAILING_STATE_GU,
+            self::MAILING_STATE_HI,
+            self::MAILING_STATE_IA,
+            self::MAILING_STATE_ID,
+            self::MAILING_STATE_IL,
+            self::MAILING_STATE_IN,
+            self::MAILING_STATE_KS,
+            self::MAILING_STATE_KY,
+            self::MAILING_STATE_LA,
+            self::MAILING_STATE_MA,
+            self::MAILING_STATE_MD,
+            self::MAILING_STATE_ME,
+            self::MAILING_STATE_MH,
+            self::MAILING_STATE_MI,
+            self::MAILING_STATE_MN,
+            self::MAILING_STATE_MO,
+            self::MAILING_STATE_MP,
+            self::MAILING_STATE_MS,
+            self::MAILING_STATE_MT,
+            self::MAILING_STATE_NC,
+            self::MAILING_STATE_ND,
+            self::MAILING_STATE_NE,
+            self::MAILING_STATE_NH,
+            self::MAILING_STATE_NJ,
+            self::MAILING_STATE_NM,
+            self::MAILING_STATE_NV,
+            self::MAILING_STATE_NY,
+            self::MAILING_STATE_OH,
+            self::MAILING_STATE_OK,
+            self::MAILING_STATE__OR,
+            self::MAILING_STATE_PA,
+            self::MAILING_STATE_PR,
+            self::MAILING_STATE_PW,
+            self::MAILING_STATE_RI,
+            self::MAILING_STATE_SC,
+            self::MAILING_STATE_SD,
+            self::MAILING_STATE_TN,
+            self::MAILING_STATE_TX,
+            self::MAILING_STATE_UT,
+            self::MAILING_STATE_VA,
+            self::MAILING_STATE_VI,
+            self::MAILING_STATE_VT,
+            self::MAILING_STATE_WA,
+            self::MAILING_STATE_WI,
+            self::MAILING_STATE_WV,
+            self::MAILING_STATE_WY,
+            self::MAILING_STATE_AB,
+            self::MAILING_STATE_BC,
+            self::MAILING_STATE_MB,
+            self::MAILING_STATE_NB,
+            self::MAILING_STATE_NL,
+            self::MAILING_STATE_NS,
+            self::MAILING_STATE_NT,
+            self::MAILING_STATE_NU,
+            self::MAILING_STATE_ON,
+            self::MAILING_STATE_PE,
+            self::MAILING_STATE_QC,
+            self::MAILING_STATE_SK,
+            self::MAILING_STATE_YT,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getMailingCountryAllowableValues()
+    {
+        return [
+            self::MAILING_COUNTRY_US,
+            self::MAILING_COUNTRY_AF,
+            self::MAILING_COUNTRY_AX,
+            self::MAILING_COUNTRY_AL,
+            self::MAILING_COUNTRY_AG,
+            self::MAILING_COUNTRY_AQ,
+            self::MAILING_COUNTRY_AN,
+            self::MAILING_COUNTRY_AO,
+            self::MAILING_COUNTRY_AV,
+            self::MAILING_COUNTRY_AY,
+            self::MAILING_COUNTRY_AC,
+            self::MAILING_COUNTRY_AR,
+            self::MAILING_COUNTRY_AM,
+            self::MAILING_COUNTRY_AA,
+            self::MAILING_COUNTRY_AT,
+            self::MAILING_COUNTRY__AS,
+            self::MAILING_COUNTRY_AU,
+            self::MAILING_COUNTRY_AJ,
+            self::MAILING_COUNTRY_BF,
+            self::MAILING_COUNTRY_BA,
+            self::MAILING_COUNTRY_FQ,
+            self::MAILING_COUNTRY_BG,
+            self::MAILING_COUNTRY_BB,
+            self::MAILING_COUNTRY_BO,
+            self::MAILING_COUNTRY_BE,
+            self::MAILING_COUNTRY_BH,
+            self::MAILING_COUNTRY_BN,
+            self::MAILING_COUNTRY_BD,
+            self::MAILING_COUNTRY_BT,
+            self::MAILING_COUNTRY_BL,
+            self::MAILING_COUNTRY_BK,
+            self::MAILING_COUNTRY_BC,
+            self::MAILING_COUNTRY_BV,
+            self::MAILING_COUNTRY_BR,
+            self::MAILING_COUNTRY_IO,
+            self::MAILING_COUNTRY_VI,
+            self::MAILING_COUNTRY_BX,
+            self::MAILING_COUNTRY_BU,
+            self::MAILING_COUNTRY_UV,
+            self::MAILING_COUNTRY_BM,
+            self::MAILING_COUNTRY_BY,
+            self::MAILING_COUNTRY_CB,
+            self::MAILING_COUNTRY_CM,
+            self::MAILING_COUNTRY_CA,
+            self::MAILING_COUNTRY_CV,
+            self::MAILING_COUNTRY_CJ,
+            self::MAILING_COUNTRY_CT,
+            self::MAILING_COUNTRY_CD,
+            self::MAILING_COUNTRY_CI,
+            self::MAILING_COUNTRY_CH,
+            self::MAILING_COUNTRY_KT,
+            self::MAILING_COUNTRY_IP,
+            self::MAILING_COUNTRY_CK,
+            self::MAILING_COUNTRY_CO,
+            self::MAILING_COUNTRY_CN,
+            self::MAILING_COUNTRY_CF,
+            self::MAILING_COUNTRY_CG,
+            self::MAILING_COUNTRY_CW,
+            self::MAILING_COUNTRY_CR,
+            self::MAILING_COUNTRY_CS,
+            self::MAILING_COUNTRY_IV,
+            self::MAILING_COUNTRY_HR,
+            self::MAILING_COUNTRY_CU,
+            self::MAILING_COUNTRY_UC,
+            self::MAILING_COUNTRY_CY,
+            self::MAILING_COUNTRY_EZ,
+            self::MAILING_COUNTRY_DA,
+            self::MAILING_COUNTRY_DX,
+            self::MAILING_COUNTRY_DJ,
+            self::MAILING_COUNTRY__DO,
+            self::MAILING_COUNTRY_DR,
+            self::MAILING_COUNTRY_TT,
+            self::MAILING_COUNTRY_EC,
+            self::MAILING_COUNTRY_EG,
+            self::MAILING_COUNTRY_ES,
+            self::MAILING_COUNTRY_EK,
+            self::MAILING_COUNTRY_ER,
+            self::MAILING_COUNTRY_EN,
+            self::MAILING_COUNTRY_ET,
+            self::MAILING_COUNTRY_FK,
+            self::MAILING_COUNTRY_FO,
+            self::MAILING_COUNTRY_FM,
+            self::MAILING_COUNTRY_FJ,
+            self::MAILING_COUNTRY_FI,
+            self::MAILING_COUNTRY_FR,
+            self::MAILING_COUNTRY_FP,
+            self::MAILING_COUNTRY_FS,
+            self::MAILING_COUNTRY_GB,
+            self::MAILING_COUNTRY_GA,
+            self::MAILING_COUNTRY_GG,
+            self::MAILING_COUNTRY_GM,
+            self::MAILING_COUNTRY_GH,
+            self::MAILING_COUNTRY_GI,
+            self::MAILING_COUNTRY_GR,
+            self::MAILING_COUNTRY_GL,
+            self::MAILING_COUNTRY_GJ,
+            self::MAILING_COUNTRY_GQ,
+            self::MAILING_COUNTRY_GT,
+            self::MAILING_COUNTRY_GK,
+            self::MAILING_COUNTRY_GV,
+            self::MAILING_COUNTRY_PU,
+            self::MAILING_COUNTRY_GY,
+            self::MAILING_COUNTRY_HA,
+            self::MAILING_COUNTRY_HM,
+            self::MAILING_COUNTRY_VT,
+            self::MAILING_COUNTRY_HO,
+            self::MAILING_COUNTRY_HK,
+            self::MAILING_COUNTRY_HQ,
+            self::MAILING_COUNTRY_HU,
+            self::MAILING_COUNTRY_IC,
+            self::MAILING_COUNTRY_IN,
+            self::MAILING_COUNTRY_ID,
+            self::MAILING_COUNTRY_IR,
+            self::MAILING_COUNTRY_IZ,
+            self::MAILING_COUNTRY_EI,
+            self::MAILING_COUNTRY_IS,
+            self::MAILING_COUNTRY_IT,
+            self::MAILING_COUNTRY_JM,
+            self::MAILING_COUNTRY_JN,
+            self::MAILING_COUNTRY_JA,
+            self::MAILING_COUNTRY_DQ,
+            self::MAILING_COUNTRY_JE,
+            self::MAILING_COUNTRY_JQ,
+            self::MAILING_COUNTRY_JO,
+            self::MAILING_COUNTRY_KZ,
+            self::MAILING_COUNTRY_KE,
+            self::MAILING_COUNTRY_KQ,
+            self::MAILING_COUNTRY_KR,
+            self::MAILING_COUNTRY_KN,
+            self::MAILING_COUNTRY_KS,
+            self::MAILING_COUNTRY_KV,
+            self::MAILING_COUNTRY_KU,
+            self::MAILING_COUNTRY_KG,
+            self::MAILING_COUNTRY_LA,
+            self::MAILING_COUNTRY_LG,
+            self::MAILING_COUNTRY_LE,
+            self::MAILING_COUNTRY_LT,
+            self::MAILING_COUNTRY_LI,
+            self::MAILING_COUNTRY_LY,
+            self::MAILING_COUNTRY_LS,
+            self::MAILING_COUNTRY_LH,
+            self::MAILING_COUNTRY_LU,
+            self::MAILING_COUNTRY_MC,
+            self::MAILING_COUNTRY_MK,
+            self::MAILING_COUNTRY_MA,
+            self::MAILING_COUNTRY_MI,
+            self::MAILING_COUNTRY_MY,
+            self::MAILING_COUNTRY_MV,
+            self::MAILING_COUNTRY_ML,
+            self::MAILING_COUNTRY_MT,
+            self::MAILING_COUNTRY_IM,
+            self::MAILING_COUNTRY_RM,
+            self::MAILING_COUNTRY_MR,
+            self::MAILING_COUNTRY_MP,
+            self::MAILING_COUNTRY_MX,
+            self::MAILING_COUNTRY_MQ,
+            self::MAILING_COUNTRY_MD,
+            self::MAILING_COUNTRY_MN,
+            self::MAILING_COUNTRY_MG,
+            self::MAILING_COUNTRY_MJ,
+            self::MAILING_COUNTRY_MH,
+            self::MAILING_COUNTRY_MO,
+            self::MAILING_COUNTRY_MZ,
+            self::MAILING_COUNTRY_WA,
+            self::MAILING_COUNTRY_NR,
+            self::MAILING_COUNTRY_BQ,
+            self::MAILING_COUNTRY_NP,
+            self::MAILING_COUNTRY_NL,
+            self::MAILING_COUNTRY_NC,
+            self::MAILING_COUNTRY_NZ,
+            self::MAILING_COUNTRY_NU,
+            self::MAILING_COUNTRY_NG,
+            self::MAILING_COUNTRY_NI,
+            self::MAILING_COUNTRY_NE,
+            self::MAILING_COUNTRY_NF,
+            self::MAILING_COUNTRY_CQ,
+            self::MAILING_COUNTRY_NO,
+            self::MAILING_COUNTRY_MU,
+            self::MAILING_COUNTRY_OC,
+            self::MAILING_COUNTRY_PK,
+            self::MAILING_COUNTRY_PS,
+            self::MAILING_COUNTRY_LQ,
+            self::MAILING_COUNTRY_PM,
+            self::MAILING_COUNTRY_PP,
+            self::MAILING_COUNTRY_PF,
+            self::MAILING_COUNTRY_PA,
+            self::MAILING_COUNTRY_PE,
+            self::MAILING_COUNTRY_RP,
+            self::MAILING_COUNTRY_PC,
+            self::MAILING_COUNTRY_PL,
+            self::MAILING_COUNTRY_PO,
+            self::MAILING_COUNTRY_RQ,
+            self::MAILING_COUNTRY_QA,
+            self::MAILING_COUNTRY_RO,
+            self::MAILING_COUNTRY_RS,
+            self::MAILING_COUNTRY_RW,
+            self::MAILING_COUNTRY_TB,
+            self::MAILING_COUNTRY_RN,
+            self::MAILING_COUNTRY_WS,
+            self::MAILING_COUNTRY_SM,
+            self::MAILING_COUNTRY_TP,
+            self::MAILING_COUNTRY_SA,
+            self::MAILING_COUNTRY_SG,
+            self::MAILING_COUNTRY_RI,
+            self::MAILING_COUNTRY_SE,
+            self::MAILING_COUNTRY_SL,
+            self::MAILING_COUNTRY_SN,
+            self::MAILING_COUNTRY_NN,
+            self::MAILING_COUNTRY_LO,
+            self::MAILING_COUNTRY_SI,
+            self::MAILING_COUNTRY_BP,
+            self::MAILING_COUNTRY_SO,
+            self::MAILING_COUNTRY_SF,
+            self::MAILING_COUNTRY_SX,
+            self::MAILING_COUNTRY_SP,
+            self::MAILING_COUNTRY_PG,
+            self::MAILING_COUNTRY_CE,
+            self::MAILING_COUNTRY_SH,
+            self::MAILING_COUNTRY_SC,
+            self::MAILING_COUNTRY_ST,
+            self::MAILING_COUNTRY_SB,
+            self::MAILING_COUNTRY_VC,
+            self::MAILING_COUNTRY_SU,
+            self::MAILING_COUNTRY_NS,
+            self::MAILING_COUNTRY_SV,
+            self::MAILING_COUNTRY_WZ,
+            self::MAILING_COUNTRY_SW,
+            self::MAILING_COUNTRY_SZ,
+            self::MAILING_COUNTRY_SY,
+            self::MAILING_COUNTRY_TW,
+            self::MAILING_COUNTRY_TI,
+            self::MAILING_COUNTRY_TZ,
+            self::MAILING_COUNTRY_TH,
+            self::MAILING_COUNTRY_TO,
+            self::MAILING_COUNTRY_TL,
+            self::MAILING_COUNTRY_TN,
+            self::MAILING_COUNTRY_TD,
+            self::MAILING_COUNTRY_TS,
+            self::MAILING_COUNTRY_TU,
+            self::MAILING_COUNTRY_TX,
+            self::MAILING_COUNTRY_TK,
+            self::MAILING_COUNTRY_TV,
+            self::MAILING_COUNTRY_UG,
+            self::MAILING_COUNTRY_UP,
+            self::MAILING_COUNTRY_AE,
+            self::MAILING_COUNTRY_UK,
+            self::MAILING_COUNTRY_UY,
+            self::MAILING_COUNTRY_UZ,
+            self::MAILING_COUNTRY_NH,
+            self::MAILING_COUNTRY_VE,
+            self::MAILING_COUNTRY_VM,
+            self::MAILING_COUNTRY_VQ,
+            self::MAILING_COUNTRY_WQ,
+            self::MAILING_COUNTRY_WF,
+            self::MAILING_COUNTRY_WI,
+            self::MAILING_COUNTRY_YM,
+            self::MAILING_COUNTRY_ZA,
+            self::MAILING_COUNTRY_ZI,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTreatyCountryAllowableValues()
+    {
+        return [
+            self::TREATY_COUNTRY_US,
+            self::TREATY_COUNTRY_AF,
+            self::TREATY_COUNTRY_AX,
+            self::TREATY_COUNTRY_AL,
+            self::TREATY_COUNTRY_AG,
+            self::TREATY_COUNTRY_AQ,
+            self::TREATY_COUNTRY_AN,
+            self::TREATY_COUNTRY_AO,
+            self::TREATY_COUNTRY_AV,
+            self::TREATY_COUNTRY_AY,
+            self::TREATY_COUNTRY_AC,
+            self::TREATY_COUNTRY_AR,
+            self::TREATY_COUNTRY_AM,
+            self::TREATY_COUNTRY_AA,
+            self::TREATY_COUNTRY_AT,
+            self::TREATY_COUNTRY__AS,
+            self::TREATY_COUNTRY_AU,
+            self::TREATY_COUNTRY_AJ,
+            self::TREATY_COUNTRY_BF,
+            self::TREATY_COUNTRY_BA,
+            self::TREATY_COUNTRY_FQ,
+            self::TREATY_COUNTRY_BG,
+            self::TREATY_COUNTRY_BB,
+            self::TREATY_COUNTRY_BO,
+            self::TREATY_COUNTRY_BE,
+            self::TREATY_COUNTRY_BH,
+            self::TREATY_COUNTRY_BN,
+            self::TREATY_COUNTRY_BD,
+            self::TREATY_COUNTRY_BT,
+            self::TREATY_COUNTRY_BL,
+            self::TREATY_COUNTRY_BK,
+            self::TREATY_COUNTRY_BC,
+            self::TREATY_COUNTRY_BV,
+            self::TREATY_COUNTRY_BR,
+            self::TREATY_COUNTRY_IO,
+            self::TREATY_COUNTRY_VI,
+            self::TREATY_COUNTRY_BX,
+            self::TREATY_COUNTRY_BU,
+            self::TREATY_COUNTRY_UV,
+            self::TREATY_COUNTRY_BM,
+            self::TREATY_COUNTRY_BY,
+            self::TREATY_COUNTRY_CB,
+            self::TREATY_COUNTRY_CM,
+            self::TREATY_COUNTRY_CA,
+            self::TREATY_COUNTRY_CV,
+            self::TREATY_COUNTRY_CJ,
+            self::TREATY_COUNTRY_CT,
+            self::TREATY_COUNTRY_CD,
+            self::TREATY_COUNTRY_CI,
+            self::TREATY_COUNTRY_CH,
+            self::TREATY_COUNTRY_KT,
+            self::TREATY_COUNTRY_IP,
+            self::TREATY_COUNTRY_CK,
+            self::TREATY_COUNTRY_CO,
+            self::TREATY_COUNTRY_CN,
+            self::TREATY_COUNTRY_CF,
+            self::TREATY_COUNTRY_CG,
+            self::TREATY_COUNTRY_CW,
+            self::TREATY_COUNTRY_CR,
+            self::TREATY_COUNTRY_CS,
+            self::TREATY_COUNTRY_IV,
+            self::TREATY_COUNTRY_HR,
+            self::TREATY_COUNTRY_CU,
+            self::TREATY_COUNTRY_UC,
+            self::TREATY_COUNTRY_CY,
+            self::TREATY_COUNTRY_EZ,
+            self::TREATY_COUNTRY_DA,
+            self::TREATY_COUNTRY_DX,
+            self::TREATY_COUNTRY_DJ,
+            self::TREATY_COUNTRY__DO,
+            self::TREATY_COUNTRY_DR,
+            self::TREATY_COUNTRY_TT,
+            self::TREATY_COUNTRY_EC,
+            self::TREATY_COUNTRY_EG,
+            self::TREATY_COUNTRY_ES,
+            self::TREATY_COUNTRY_EK,
+            self::TREATY_COUNTRY_ER,
+            self::TREATY_COUNTRY_EN,
+            self::TREATY_COUNTRY_ET,
+            self::TREATY_COUNTRY_FK,
+            self::TREATY_COUNTRY_FO,
+            self::TREATY_COUNTRY_FM,
+            self::TREATY_COUNTRY_FJ,
+            self::TREATY_COUNTRY_FI,
+            self::TREATY_COUNTRY_FR,
+            self::TREATY_COUNTRY_FP,
+            self::TREATY_COUNTRY_FS,
+            self::TREATY_COUNTRY_GB,
+            self::TREATY_COUNTRY_GA,
+            self::TREATY_COUNTRY_GG,
+            self::TREATY_COUNTRY_GM,
+            self::TREATY_COUNTRY_GH,
+            self::TREATY_COUNTRY_GI,
+            self::TREATY_COUNTRY_GR,
+            self::TREATY_COUNTRY_GL,
+            self::TREATY_COUNTRY_GJ,
+            self::TREATY_COUNTRY_GQ,
+            self::TREATY_COUNTRY_GT,
+            self::TREATY_COUNTRY_GK,
+            self::TREATY_COUNTRY_GV,
+            self::TREATY_COUNTRY_PU,
+            self::TREATY_COUNTRY_GY,
+            self::TREATY_COUNTRY_HA,
+            self::TREATY_COUNTRY_HM,
+            self::TREATY_COUNTRY_VT,
+            self::TREATY_COUNTRY_HO,
+            self::TREATY_COUNTRY_HK,
+            self::TREATY_COUNTRY_HQ,
+            self::TREATY_COUNTRY_HU,
+            self::TREATY_COUNTRY_IC,
+            self::TREATY_COUNTRY_IN,
+            self::TREATY_COUNTRY_ID,
+            self::TREATY_COUNTRY_IR,
+            self::TREATY_COUNTRY_IZ,
+            self::TREATY_COUNTRY_EI,
+            self::TREATY_COUNTRY_IS,
+            self::TREATY_COUNTRY_IT,
+            self::TREATY_COUNTRY_JM,
+            self::TREATY_COUNTRY_JN,
+            self::TREATY_COUNTRY_JA,
+            self::TREATY_COUNTRY_DQ,
+            self::TREATY_COUNTRY_JE,
+            self::TREATY_COUNTRY_JQ,
+            self::TREATY_COUNTRY_JO,
+            self::TREATY_COUNTRY_KZ,
+            self::TREATY_COUNTRY_KE,
+            self::TREATY_COUNTRY_KQ,
+            self::TREATY_COUNTRY_KR,
+            self::TREATY_COUNTRY_KN,
+            self::TREATY_COUNTRY_KS,
+            self::TREATY_COUNTRY_KV,
+            self::TREATY_COUNTRY_KU,
+            self::TREATY_COUNTRY_KG,
+            self::TREATY_COUNTRY_LA,
+            self::TREATY_COUNTRY_LG,
+            self::TREATY_COUNTRY_LE,
+            self::TREATY_COUNTRY_LT,
+            self::TREATY_COUNTRY_LI,
+            self::TREATY_COUNTRY_LY,
+            self::TREATY_COUNTRY_LS,
+            self::TREATY_COUNTRY_LH,
+            self::TREATY_COUNTRY_LU,
+            self::TREATY_COUNTRY_MC,
+            self::TREATY_COUNTRY_MK,
+            self::TREATY_COUNTRY_MA,
+            self::TREATY_COUNTRY_MI,
+            self::TREATY_COUNTRY_MY,
+            self::TREATY_COUNTRY_MV,
+            self::TREATY_COUNTRY_ML,
+            self::TREATY_COUNTRY_MT,
+            self::TREATY_COUNTRY_IM,
+            self::TREATY_COUNTRY_RM,
+            self::TREATY_COUNTRY_MR,
+            self::TREATY_COUNTRY_MP,
+            self::TREATY_COUNTRY_MX,
+            self::TREATY_COUNTRY_MQ,
+            self::TREATY_COUNTRY_MD,
+            self::TREATY_COUNTRY_MN,
+            self::TREATY_COUNTRY_MG,
+            self::TREATY_COUNTRY_MJ,
+            self::TREATY_COUNTRY_MH,
+            self::TREATY_COUNTRY_MO,
+            self::TREATY_COUNTRY_MZ,
+            self::TREATY_COUNTRY_WA,
+            self::TREATY_COUNTRY_NR,
+            self::TREATY_COUNTRY_BQ,
+            self::TREATY_COUNTRY_NP,
+            self::TREATY_COUNTRY_NL,
+            self::TREATY_COUNTRY_NC,
+            self::TREATY_COUNTRY_NZ,
+            self::TREATY_COUNTRY_NU,
+            self::TREATY_COUNTRY_NG,
+            self::TREATY_COUNTRY_NI,
+            self::TREATY_COUNTRY_NE,
+            self::TREATY_COUNTRY_NF,
+            self::TREATY_COUNTRY_CQ,
+            self::TREATY_COUNTRY_NO,
+            self::TREATY_COUNTRY_MU,
+            self::TREATY_COUNTRY_OC,
+            self::TREATY_COUNTRY_PK,
+            self::TREATY_COUNTRY_PS,
+            self::TREATY_COUNTRY_LQ,
+            self::TREATY_COUNTRY_PM,
+            self::TREATY_COUNTRY_PP,
+            self::TREATY_COUNTRY_PF,
+            self::TREATY_COUNTRY_PA,
+            self::TREATY_COUNTRY_PE,
+            self::TREATY_COUNTRY_RP,
+            self::TREATY_COUNTRY_PC,
+            self::TREATY_COUNTRY_PL,
+            self::TREATY_COUNTRY_PO,
+            self::TREATY_COUNTRY_RQ,
+            self::TREATY_COUNTRY_QA,
+            self::TREATY_COUNTRY_RO,
+            self::TREATY_COUNTRY_RS,
+            self::TREATY_COUNTRY_RW,
+            self::TREATY_COUNTRY_TB,
+            self::TREATY_COUNTRY_RN,
+            self::TREATY_COUNTRY_WS,
+            self::TREATY_COUNTRY_SM,
+            self::TREATY_COUNTRY_TP,
+            self::TREATY_COUNTRY_SA,
+            self::TREATY_COUNTRY_SG,
+            self::TREATY_COUNTRY_RI,
+            self::TREATY_COUNTRY_SE,
+            self::TREATY_COUNTRY_SL,
+            self::TREATY_COUNTRY_SN,
+            self::TREATY_COUNTRY_NN,
+            self::TREATY_COUNTRY_LO,
+            self::TREATY_COUNTRY_SI,
+            self::TREATY_COUNTRY_BP,
+            self::TREATY_COUNTRY_SO,
+            self::TREATY_COUNTRY_SF,
+            self::TREATY_COUNTRY_SX,
+            self::TREATY_COUNTRY_SP,
+            self::TREATY_COUNTRY_PG,
+            self::TREATY_COUNTRY_CE,
+            self::TREATY_COUNTRY_SH,
+            self::TREATY_COUNTRY_SC,
+            self::TREATY_COUNTRY_ST,
+            self::TREATY_COUNTRY_SB,
+            self::TREATY_COUNTRY_VC,
+            self::TREATY_COUNTRY_SU,
+            self::TREATY_COUNTRY_NS,
+            self::TREATY_COUNTRY_SV,
+            self::TREATY_COUNTRY_WZ,
+            self::TREATY_COUNTRY_SW,
+            self::TREATY_COUNTRY_SZ,
+            self::TREATY_COUNTRY_SY,
+            self::TREATY_COUNTRY_TW,
+            self::TREATY_COUNTRY_TI,
+            self::TREATY_COUNTRY_TZ,
+            self::TREATY_COUNTRY_TH,
+            self::TREATY_COUNTRY_TO,
+            self::TREATY_COUNTRY_TL,
+            self::TREATY_COUNTRY_TN,
+            self::TREATY_COUNTRY_TD,
+            self::TREATY_COUNTRY_TS,
+            self::TREATY_COUNTRY_TU,
+            self::TREATY_COUNTRY_TX,
+            self::TREATY_COUNTRY_TK,
+            self::TREATY_COUNTRY_TV,
+            self::TREATY_COUNTRY_UG,
+            self::TREATY_COUNTRY_UP,
+            self::TREATY_COUNTRY_AE,
+            self::TREATY_COUNTRY_UK,
+            self::TREATY_COUNTRY_UY,
+            self::TREATY_COUNTRY_UZ,
+            self::TREATY_COUNTRY_NH,
+            self::TREATY_COUNTRY_VE,
+            self::TREATY_COUNTRY_VM,
+            self::TREATY_COUNTRY_VQ,
+            self::TREATY_COUNTRY_WQ,
+            self::TREATY_COUNTRY_WF,
+            self::TREATY_COUNTRY_WI,
+            self::TREATY_COUNTRY_YM,
+            self::TREATY_COUNTRY_ZA,
+            self::TREATY_COUNTRY_ZI,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getWithholdingRateAllowableValues()
+    {
+        return [
+            self::WITHHOLDING_RATE__0,
+            self::WITHHOLDING_RATE__0_0,
+            self::WITHHOLDING_RATE__0_00,
+            self::WITHHOLDING_RATE__5,
+            self::WITHHOLDING_RATE__5_5,
+            self::WITHHOLDING_RATE__10,
+            self::WITHHOLDING_RATE__12_50,
+            self::WITHHOLDING_RATE__15,
+            self::WITHHOLDING_RATE__20,
+            self::WITHHOLDING_RATE__25,
+            self::WITHHOLDING_RATE__30,
         ];
     }
 
@@ -412,12 +2875,75 @@ class W8BenFormRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['citizenship_country'] === null) {
             $invalidProperties[] = "'citizenship_country' can't be null";
         }
+        $allowedValues = $this->getCitizenshipCountryAllowableValues();
+        if (!is_null($this->container['citizenship_country']) && !in_array($this->container['citizenship_country'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'citizenship_country', must be one of '%s'",
+                $this->container['citizenship_country'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getResidenceStateAllowableValues();
+        if (!is_null($this->container['residence_state']) && !in_array($this->container['residence_state'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'residence_state', must be one of '%s'",
+                $this->container['residence_state'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['residence_country'] === null) {
             $invalidProperties[] = "'residence_country' can't be null";
         }
+        $allowedValues = $this->getResidenceCountryAllowableValues();
+        if (!is_null($this->container['residence_country']) && !in_array($this->container['residence_country'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'residence_country', must be one of '%s'",
+                $this->container['residence_country'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getMailingStateAllowableValues();
+        if (!is_null($this->container['mailing_state']) && !in_array($this->container['mailing_state'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'mailing_state', must be one of '%s'",
+                $this->container['mailing_state'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['mailing_country'] === null) {
             $invalidProperties[] = "'mailing_country' can't be null";
         }
+        $allowedValues = $this->getMailingCountryAllowableValues();
+        if (!is_null($this->container['mailing_country']) && !in_array($this->container['mailing_country'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'mailing_country', must be one of '%s'",
+                $this->container['mailing_country'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getTreatyCountryAllowableValues();
+        if (!is_null($this->container['treaty_country']) && !in_array($this->container['treaty_country'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'treaty_country', must be one of '%s'",
+                $this->container['treaty_country'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getWithholdingRateAllowableValues();
+        if (!is_null($this->container['withholding_rate']) && !in_array($this->container['withholding_rate'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'withholding_rate', must be one of '%s'",
+                $this->container['withholding_rate'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -504,12 +3030,22 @@ class W8BenFormRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets citizenship_country
      *
-     * @param string $citizenship_country The country of citizenship.
+     * @param string $citizenship_country The country of citizenship.. Allowed values: US, AF, AX, AL, AG, AQ, AN, AO, AV, AY (and 248 more)
      *
      * @return self
      */
     public function setCitizenshipCountry($citizenship_country)
     {
+        $allowedValues = $this->getCitizenshipCountryAllowableValues();
+        if (!in_array($citizenship_country, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'citizenship_country', must be one of '%s'",
+                    $citizenship_country,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['citizenship_country'] = $citizenship_country;
 
         return $this;
@@ -576,12 +3112,22 @@ class W8BenFormRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets residence_state
      *
-     * @param string|null $residence_state The state of residence.
+     * @param string|null $residence_state The state of residence. Required for US and Canada.. Allowed values: AA, AE, AK, AL, AP, AR, AS, AZ, CA, CO (and 65 more)
      *
      * @return self
      */
     public function setResidenceState($residence_state)
     {
+        $allowedValues = $this->getResidenceStateAllowableValues();
+        if (!is_null($residence_state) && !in_array($residence_state, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'residence_state', must be one of '%s'",
+                    $residence_state,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['residence_state'] = $residence_state;
 
         return $this;
@@ -624,12 +3170,22 @@ class W8BenFormRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets residence_country
      *
-     * @param string $residence_country The country of residence.
+     * @param string $residence_country The country of residence.. Allowed values: US, AF, AX, AL, AG, AQ, AN, AO, AV, AY (and 248 more)
      *
      * @return self
      */
     public function setResidenceCountry($residence_country)
     {
+        $allowedValues = $this->getResidenceCountryAllowableValues();
+        if (!in_array($residence_country, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'residence_country', must be one of '%s'",
+                    $residence_country,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['residence_country'] = $residence_country;
 
         return $this;
@@ -720,12 +3276,22 @@ class W8BenFormRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets mailing_state
      *
-     * @param string|null $mailing_state The state of the mailing address.
+     * @param string|null $mailing_state The state of the mailing address. Required for US and Canada.. Allowed values: AA, AE, AK, AL, AP, AR, AS, AZ, CA, CO (and 65 more)
      *
      * @return self
      */
     public function setMailingState($mailing_state)
     {
+        $allowedValues = $this->getMailingStateAllowableValues();
+        if (!is_null($mailing_state) && !in_array($mailing_state, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'mailing_state', must be one of '%s'",
+                    $mailing_state,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['mailing_state'] = $mailing_state;
 
         return $this;
@@ -768,12 +3334,22 @@ class W8BenFormRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets mailing_country
      *
-     * @param string $mailing_country The country of the mailing address.
+     * @param string $mailing_country The country of the mailing address.. Allowed values: US, AF, AX, AL, AG, AQ, AN, AO, AV, AY (and 248 more)
      *
      * @return self
      */
     public function setMailingCountry($mailing_country)
     {
+        $allowedValues = $this->getMailingCountryAllowableValues();
+        if (!in_array($mailing_country, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'mailing_country', must be one of '%s'",
+                    $mailing_country,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['mailing_country'] = $mailing_country;
 
         return $this;
@@ -912,12 +3488,22 @@ class W8BenFormRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets treaty_country
      *
-     * @param string|null $treaty_country The country for which the treaty applies.
+     * @param string|null $treaty_country The country for which the treaty applies.. Allowed values: US, AF, AX, AL, AG, AQ, AN, AO, AV, AY (and 248 more)
      *
      * @return self
      */
     public function setTreatyCountry($treaty_country)
     {
+        $allowedValues = $this->getTreatyCountryAllowableValues();
+        if (!is_null($treaty_country) && !in_array($treaty_country, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'treaty_country', must be one of '%s'",
+                    $treaty_country,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['treaty_country'] = $treaty_country;
 
         return $this;
@@ -984,12 +3570,22 @@ class W8BenFormRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets withholding_rate
      *
-     * @param string|null $withholding_rate The withholding rate applied as per the treaty.
+     * @param string|null $withholding_rate The withholding rate applied as per the treaty. Must be a percentage with up to two decimals (e.g., 12.50, 0).. Allowed values: 0, 0.0, 0.00, 5, 5.5, 10, 12.50, 15, 20, 25 (and 1 more)
      *
      * @return self
      */
     public function setWithholdingRate($withholding_rate)
     {
+        $allowedValues = $this->getWithholdingRateAllowableValues();
+        if (!is_null($withholding_rate) && !in_array($withholding_rate, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'withholding_rate', must be one of '%s'",
+                    $withholding_rate,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['withholding_rate'] = $withholding_rate;
 
         return $this;

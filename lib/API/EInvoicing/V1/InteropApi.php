@@ -79,7 +79,7 @@ class InteropApi
     private function setConfiguration($client): void
     {
         $this->verifyAPIClient($client);
-        $client->setSdkVersion("25.10.0");
+        $client->setSdkVersion("25.10.1");
         $this->headerSelector = new HeaderSelector(); 
         $this->client = $client;
     }
