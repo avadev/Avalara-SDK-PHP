@@ -918,7 +918,7 @@ class Form1099Misc implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets excess_golden_parachute_payments
      *
-     * @param float|null $excess_golden_parachute_payments (Legacy field) Excess golden parachute payments
+     * @param float|null $excess_golden_parachute_payments Excess golden parachute payments - Available only for tax year 2024 and earlier
      *
      * @return self
      */

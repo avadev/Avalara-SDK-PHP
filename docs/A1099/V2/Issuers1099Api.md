@@ -40,9 +40,9 @@ $client = new \Avalara\SDK\ApiClient($config);
 $apiInstance = new Avalara\SDK\Api\Issuers1099Api($client);
 
 $avalara_version = 2.0.0; // string | API version
-$x_correlation_id = 0183bbfe-d8da-48ad-a320-b999accf40bd; // string | Unique correlation Id in a GUID format
+$x_correlation_id = 8783a532-9268-4e0b-a0ff-44de4f71b537; // string | Unique correlation Id in a GUID format
 $x_avalara_client = Swagger UI; 22.1.0; // string | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
-$issuer_request = {"name":"Acme Corporation","dbaName":"Acme Widgets","tin":"94-2765431","referenceId":"issuer-001","telephone":"+1-555-123-4567","taxYear":2024,"countryCode":"US","email":"support@acmecorp.com","address":"123 Main Street","city":"San Francisco","state":"CA","zip":"94105","foreignProvince":"","transferAgentName":"","lastFiling":false}; // \Avalara\SDK\Model\A1099\V2\IssuerRequest | The issuer to create
+$issuer_request = {"name":"Acme Corporation","dbaName":"Acme Widgets","tin":"94-2765431","referenceId":"issuer-001","telephone":"+1-555-123-4567","taxYear":2025,"countryCode":"US","email":"support@acmecorp.com","address":"123 Main Street","city":"San Francisco","state":"CA","zip":"94105","foreignProvince":"","transferAgentName":"","lastFiling":false}; // \Avalara\SDK\Model\A1099\V2\IssuerRequest | The issuer to create
 
 try {
     $result = $apiInstance->createIssuer($avalara_version, $x_correlation_id, $x_avalara_client, $issuer_request);
@@ -108,7 +108,7 @@ $apiInstance = new Avalara\SDK\Api\Issuers1099Api($client);
 
 $id = 'id_example'; // string | Id of the issuer to delete
 $avalara_version = 2.0.0; // string | API version
-$x_correlation_id = c0d08fe4-5eaf-4902-aa48-db347d045ba2; // string | Unique correlation Id in a GUID format
+$x_correlation_id = 5d63e7f2-9ded-4877-b46c-d4a9deaf226d; // string | Unique correlation Id in a GUID format
 $x_avalara_client = Swagger UI; 22.1.0; // string | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
 
 try {
@@ -174,7 +174,7 @@ $apiInstance = new Avalara\SDK\Api\Issuers1099Api($client);
 
 $id = 'id_example'; // string | Id of the issuer to retrieve
 $avalara_version = 2.0.0; // string | API version
-$x_correlation_id = 126ca6ac-f595-4b34-ada2-22cdd14960f5; // string | Unique correlation Id in a GUID format
+$x_correlation_id = d4b90233-dbcb-43a4-bbf7-d4c5d4e8ea6f; // string | Unique correlation Id in a GUID format
 $x_avalara_client = Swagger UI; 22.1.0; // string | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
 
 try {
@@ -240,13 +240,13 @@ $client = new \Avalara\SDK\ApiClient($config);
 $apiInstance = new Avalara\SDK\Api\Issuers1099Api($client);
 
 $avalara_version = 2.0.0; // string | API version
-$filter = taxYear eq 2024; // string | A filter statement to identify specific records to retrieve.  For more information on filtering, see <a href=\"https://developer.avalara.com/avatax/filtering-in-rest/\">Filtering in REST</a>.
+$filter = taxYear eq 2025; // string | A filter statement to identify specific records to retrieve.  For more information on filtering, see <a href=\"https://developer.avalara.com/avatax/filtering-in-rest/\">Filtering in REST</a>.
 $top = 56; // int | If zero or greater than 1000, return at most 1000 results.  Otherwise, return this number of results.  Used with skip to provide pagination for large datasets.
 $skip = 56; // int | If nonzero, skip this number of results before returning data. Used with top to provide pagination for large datasets.
 $order_by = 'order_by_example'; // string | A comma separated list of sort statements in the format (fieldname) [ASC|DESC], for example id ASC.
 $count = True; // bool | If true, return the global count of elements in the collection.
 $count_only = True; // bool | If true, return ONLY the global count of elements in the collection.  It only applies when count=true.
-$x_correlation_id = 51f8e5b5-bb09-4b2c-954f-f0f7b119003b; // string | Unique correlation Id in a GUID format
+$x_correlation_id = 67f66334-e4f2-4d38-aca7-47de8ea93dc0; // string | Unique correlation Id in a GUID format
 $x_avalara_client = Swagger UI; 22.1.0; // string | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
 
 try {
@@ -318,9 +318,9 @@ $apiInstance = new Avalara\SDK\Api\Issuers1099Api($client);
 
 $id = 'id_example'; // string | Id of the issuer to update
 $avalara_version = 2.0.0; // string | API version
-$x_correlation_id = 508db50e-5f2e-404d-9974-509003a9dfa8; // string | Unique correlation Id in a GUID format
+$x_correlation_id = 88269912-43b9-460b-b285-28c036924f06; // string | Unique correlation Id in a GUID format
 $x_avalara_client = Swagger UI; 22.1.0; // string | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
-$issuer_request = {"name":"Acme Corporation","dbaName":"Acme Widgets","tin":"94-2765431","referenceId":"issuer-001","telephone":"+1-555-123-4567","taxYear":2024,"countryCode":"US","email":"support@acmecorp.com","address":"123 Main Street","city":"San Francisco","state":"CA","zip":"94105","foreignProvince":"","transferAgentName":"","lastFiling":false}; // \Avalara\SDK\Model\A1099\V2\IssuerRequest | The issuer to update
+$issuer_request = {"name":"Acme Corporation","dbaName":"Acme Widgets","tin":"94-2765431","referenceId":"issuer-001","telephone":"+1-555-123-4567","taxYear":2025,"countryCode":"US","email":"support@acmecorp.com","address":"123 Main Street","city":"San Francisco","state":"CA","zip":"94105","foreignProvince":"","transferAgentName":"","lastFiling":false}; // \Avalara\SDK\Model\A1099\V2\IssuerRequest | The issuer to update
 
 try {
     $apiInstance->updateIssuer($id, $avalara_version, $x_correlation_id, $x_avalara_client, $issuer_request);

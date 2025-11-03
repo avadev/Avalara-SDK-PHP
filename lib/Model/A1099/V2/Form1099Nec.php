@@ -74,6 +74,7 @@ class Form1099Nec implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPITypes = [
         'nonemployee_compensation' => 'float',
         'direct_sales_indicator' => 'bool',
+        'excess_golden_parachute_payments' => 'float',
         'federal_income_tax_withheld' => 'float',
         'type' => 'string',
         'id' => 'string',
@@ -126,6 +127,7 @@ class Form1099Nec implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPIFormats = [
         'nonemployee_compensation' => 'double',
         'direct_sales_indicator' => null,
+        'excess_golden_parachute_payments' => 'double',
         'federal_income_tax_withheld' => 'double',
         'type' => null,
         'id' => null,
@@ -197,6 +199,7 @@ class Form1099Nec implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $attributeMap = [
         'nonemployee_compensation' => 'nonemployeeCompensation',
         'direct_sales_indicator' => 'directSalesIndicator',
+        'excess_golden_parachute_payments' => 'excessGoldenParachutePayments',
         'federal_income_tax_withheld' => 'federalIncomeTaxWithheld',
         'type' => 'type',
         'id' => 'id',
@@ -247,6 +250,7 @@ class Form1099Nec implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $setters = [
         'nonemployee_compensation' => 'setNonemployeeCompensation',
         'direct_sales_indicator' => 'setDirectSalesIndicator',
+        'excess_golden_parachute_payments' => 'setExcessGoldenParachutePayments',
         'federal_income_tax_withheld' => 'setFederalIncomeTaxWithheld',
         'type' => 'setType',
         'id' => 'setId',
@@ -297,6 +301,7 @@ class Form1099Nec implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $getters = [
         'nonemployee_compensation' => 'getNonemployeeCompensation',
         'direct_sales_indicator' => 'getDirectSalesIndicator',
+        'excess_golden_parachute_payments' => 'getExcessGoldenParachutePayments',
         'federal_income_tax_withheld' => 'getFederalIncomeTaxWithheld',
         'type' => 'getType',
         'id' => 'getId',
@@ -446,6 +451,7 @@ class Form1099Nec implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $this->container['nonemployee_compensation'] = $data['nonemployee_compensation'] ?? null;
         $this->container['direct_sales_indicator'] = $data['direct_sales_indicator'] ?? null;
+        $this->container['excess_golden_parachute_payments'] = $data['excess_golden_parachute_payments'] ?? null;
         $this->container['federal_income_tax_withheld'] = $data['federal_income_tax_withheld'] ?? null;
         $this->container['type'] = $data['type'] ?? null;
         $this->container['id'] = $data['id'] ?? null;
@@ -592,6 +598,30 @@ class Form1099Nec implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setDirectSalesIndicator($direct_sales_indicator)
     {
         $this->container['direct_sales_indicator'] = $direct_sales_indicator;
+
+        return $this;
+    }
+
+    /**
+     * Gets excess_golden_parachute_payments
+     *
+     * @return float|null
+     */
+    public function getExcessGoldenParachutePayments()
+    {
+        return $this->container['excess_golden_parachute_payments'];
+    }
+
+    /**
+     * Sets excess_golden_parachute_payments
+     *
+     * @param float|null $excess_golden_parachute_payments Excess golden parachute payments - Available only for tax year 2025 and later
+     *
+     * @return self
+     */
+    public function setExcessGoldenParachutePayments($excess_golden_parachute_payments)
+    {
+        $this->container['excess_golden_parachute_payments'] = $excess_golden_parachute_payments;
 
         return $this;
     }

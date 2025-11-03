@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **gross_proceeds_paid_to_attorney** | **float** | Gross proceeds paid to an attorney | [optional]
 **fish_purchased_for_resale** | **float** | Fish purchased for resale | [optional]
 **section409_a_deferrals** | **float** | Section 409A deferrals | [optional]
-**excess_golden_parachute_payments** | **float** | (Legacy field) Excess golden parachute payments | [optional]
+**excess_golden_parachute_payments** | **float** | Excess golden parachute payments - Available only for tax year 2024 and earlier | [optional]
 **nonqualified_deferred_compensation** | **float** | Nonqualified deferred compensation | [optional]
 **fatca_filing_requirement** | **bool** | FATCA filing requirement. | [optional]
 **type** | **string** | Form type. |
