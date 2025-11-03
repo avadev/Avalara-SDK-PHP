@@ -79,7 +79,7 @@ class FormsW9Api
     private function setConfiguration($client): void
     {
         $this->verifyAPIClient($client);
-        $client->setSdkVersion("25.10.1");
+        $client->setSdkVersion("25.11.0");
         $this->headerSelector = new HeaderSelector(); 
         $this->client = $client;
     }
@@ -1443,11 +1443,12 @@ class FormsW9Api
      *
      * @throws \Avalara\SDK\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return void
+     * @return \SplFileObject|\Avalara\SDK\Model\A1099\V2\ErrorResponse|\Avalara\SDK\Model\A1099\V2\ErrorResponse
      */
     public function getW9FormPdf($request_parameters)
     {
-        $this->getW9FormPdfWithHttpInfo($request_parameters);
+        list($response) = $this->getW9FormPdfWithHttpInfo($request_parameters);
+        return $response;
     }
 
     /**
@@ -1459,7 +1460,7 @@ class FormsW9Api
      *
      * @throws \Avalara\SDK\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SplFileObject|\Avalara\SDK\Model\A1099\V2\ErrorResponse|\Avalara\SDK\Model\A1099\V2\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getW9FormPdfWithHttpInfo($request_parameters, $isRetry = false)
     {
@@ -1476,7 +1477,8 @@ class FormsW9Api
                 $statusCode = $e->getCode();
                 if (($statusCode == 401 || $statusCode == 403) && !$isRetry) {
                     $this->client->refreshAuthToken($e->getRequest() ? $e->getRequest()->getHeaders() : null, $requiredScopes);
-                    $this->getW9FormPdfWithHttpInfo($request_parameters, true);
+                    list($response) = $this->getW9FormPdfWithHttpInfo($request_parameters, true);
+                    return $response;
                 }
                 $logObject->populateErrorInfo($e->getResponse());
                 $this->client->logger->error(json_encode($logObject));
@@ -1512,10 +1514,72 @@ class FormsW9Api
                 );
             }
 
-            return [null, $statusCode, $response->getHeaders()];
+            switch($statusCode) {
+                case 200:
+                    if ('\SplFileObject' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+                    $logObject->populateResponseInfo($content, $response);
+                    $this->client->logger->info(json_encode($logObject));
+                    return [
+                        ObjectSerializer::deserialize($content, '\SplFileObject', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\Avalara\SDK\Model\A1099\V2\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+                    $logObject->populateResponseInfo($content, $response);
+                    $this->client->logger->info(json_encode($logObject));
+                    return [
+                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\A1099\V2\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 404:
+                    if ('\Avalara\SDK\Model\A1099\V2\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+                    $logObject->populateResponseInfo($content, $response);
+                    $this->client->logger->info(json_encode($logObject));
+                    return [
+                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\A1099\V2\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\SplFileObject';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+            }
+            $logObject->populateResponseInfo($content, $response);
+            $this->client->logger->info(json_encode($logObject));
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\SplFileObject',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
@@ -1570,15 +1634,25 @@ class FormsW9Api
     public function getW9FormPdfAsyncWithHttpInfo($request_parameters, $isRetry = false)
     {
         $logObject = new LogObject($this->client->logRequestAndResponse);
-        $returnType = '';
+        $returnType = '\SplFileObject';
         $request = $this->getW9FormPdfRequest($request_parameters);
         $logObject->populateRequestInfo($request);
         return $this->client
             ->send_async($request, [])
             ->then(
                 function ($response) use ($returnType, $logObject) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+                    $logObject->populateResponseInfo($content, $response);
                     $this->client->logger->info(json_encode($logObject));
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
                 },
                 function ($exception) use ($request_parameters, $isRetry, $request, $logObject) {
                     //OAuth2 Scopes

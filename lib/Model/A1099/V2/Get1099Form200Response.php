@@ -5427,7 +5427,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets excess_golden_parachute_payments
      *
-     * @param float|null $excess_golden_parachute_payments (Legacy field) Excess golden parachute payments
+     * @param float|null $excess_golden_parachute_payments Excess golden parachute payments - Available only for tax year 2025 and later
      *
      * @return self
      */

@@ -73,7 +73,8 @@ class StateEfileStatusDetail implements ModelInterface, ArrayAccess, \JsonSerial
     protected static $openAPITypes = [
         'status' => 'string',
         'time' => 'string',
-        'jurisdiction' => 'string'
+        'jurisdiction' => 'string',
+        'rejected_reason' => 'string'
     ];
 
     /**
@@ -86,7 +87,8 @@ class StateEfileStatusDetail implements ModelInterface, ArrayAccess, \JsonSerial
     protected static $openAPIFormats = [
         'status' => null,
         'time' => null,
-        'jurisdiction' => null
+        'jurisdiction' => null,
+        'rejected_reason' => null
     ];
 
     /**
@@ -118,7 +120,8 @@ class StateEfileStatusDetail implements ModelInterface, ArrayAccess, \JsonSerial
     protected static $attributeMap = [
         'status' => 'status',
         'time' => 'time',
-        'jurisdiction' => 'jurisdiction'
+        'jurisdiction' => 'jurisdiction',
+        'rejected_reason' => 'rejectedReason'
     ];
 
     /**
@@ -129,7 +132,8 @@ class StateEfileStatusDetail implements ModelInterface, ArrayAccess, \JsonSerial
     protected static $setters = [
         'status' => 'setStatus',
         'time' => 'setTime',
-        'jurisdiction' => 'setJurisdiction'
+        'jurisdiction' => 'setJurisdiction',
+        'rejected_reason' => 'setRejectedReason'
     ];
 
     /**
@@ -140,7 +144,8 @@ class StateEfileStatusDetail implements ModelInterface, ArrayAccess, \JsonSerial
     protected static $getters = [
         'status' => 'getStatus',
         'time' => 'getTime',
-        'jurisdiction' => 'getJurisdiction'
+        'jurisdiction' => 'getJurisdiction',
+        'rejected_reason' => 'getRejectedReason'
     ];
 
     /**
@@ -203,6 +208,7 @@ class StateEfileStatusDetail implements ModelInterface, ArrayAccess, \JsonSerial
         $this->container['status'] = $data['status'] ?? null;
         $this->container['time'] = $data['time'] ?? null;
         $this->container['jurisdiction'] = $data['jurisdiction'] ?? null;
+        $this->container['rejected_reason'] = $data['rejected_reason'] ?? null;
     }
 
     /**
@@ -297,6 +303,30 @@ class StateEfileStatusDetail implements ModelInterface, ArrayAccess, \JsonSerial
     public function setJurisdiction($jurisdiction)
     {
         $this->container['jurisdiction'] = $jurisdiction;
+
+        return $this;
+    }
+
+    /**
+     * Gets rejected_reason
+     *
+     * @return string|null
+     */
+    public function getRejectedReason()
+    {
+        return $this->container['rejected_reason'];
+    }
+
+    /**
+     * Sets rejected_reason
+     *
+     * @param string|null $rejected_reason rejected_reason
+     *
+     * @return self
+     */
+    public function setRejectedReason($rejected_reason)
+    {
+        $this->container['rejected_reason'] = $rejected_reason;
 
         return $this;
     }
