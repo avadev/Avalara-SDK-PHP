@@ -494,6 +494,7 @@ class Form1099R implements ModelInterface, ArrayAccess, \JsonSerializable
     const DISTRIBUTION_CODE_T = 'T';
     const DISTRIBUTION_CODE_U = 'U';
     const DISTRIBUTION_CODE_W = 'W';
+    const DISTRIBUTION_CODE_Y = 'Y';
     const SECOND_DISTRIBUTION_CODE__1 = '1';
     const SECOND_DISTRIBUTION_CODE__2 = '2';
     const SECOND_DISTRIBUTION_CODE__3 = '3';
@@ -523,15 +524,15 @@ class Form1099R implements ModelInterface, ArrayAccess, \JsonSerializable
     const SECOND_DISTRIBUTION_CODE_T = 'T';
     const SECOND_DISTRIBUTION_CODE_U = 'U';
     const SECOND_DISTRIBUTION_CODE_W = 'W';
-    const TYPE_FORM1099_NEC = 'Form1099Nec';
-    const TYPE_FORM1099_MISC = 'Form1099Misc';
-    const TYPE_FORM1099_DIV = 'Form1099Div';
-    const TYPE_FORM1099_R = 'Form1099R';
-    const TYPE_FORM1099_K = 'Form1099K';
-    const TYPE_FORM1095_B = 'Form1095B';
-    const TYPE_FORM1042_S = 'Form1042S';
-    const TYPE_FORM1095_C = 'Form1095C';
-    const TYPE_FORM1099_INT = 'Form1099Int';
+    const TYPE__1042_S = '1042-S';
+    const TYPE__1095_B = '1095-B';
+    const TYPE__1095_C = '1095-C';
+    const TYPE__1099_DIV = '1099-DIV';
+    const TYPE__1099_INT = '1099-INT';
+    const TYPE__1099_K = '1099-K';
+    const TYPE__1099_MISC = '1099-MISC';
+    const TYPE__1099_NEC = '1099-NEC';
+    const TYPE__1099_R = '1099-R';
     const TIN_TYPE_EIN = 'EIN';
     const TIN_TYPE_SSN = 'SSN';
     const TIN_TYPE_ITIN = 'ITIN';
@@ -574,6 +575,7 @@ class Form1099R implements ModelInterface, ArrayAccess, \JsonSerializable
             self::DISTRIBUTION_CODE_T,
             self::DISTRIBUTION_CODE_U,
             self::DISTRIBUTION_CODE_W,
+            self::DISTRIBUTION_CODE_Y,
         ];
     }
 
@@ -625,15 +627,15 @@ class Form1099R implements ModelInterface, ArrayAccess, \JsonSerializable
     public function getTypeAllowableValues()
     {
         return [
-            self::TYPE_FORM1099_NEC,
-            self::TYPE_FORM1099_MISC,
-            self::TYPE_FORM1099_DIV,
-            self::TYPE_FORM1099_R,
-            self::TYPE_FORM1099_K,
-            self::TYPE_FORM1095_B,
-            self::TYPE_FORM1042_S,
-            self::TYPE_FORM1095_C,
-            self::TYPE_FORM1099_INT,
+            self::TYPE__1042_S,
+            self::TYPE__1095_B,
+            self::TYPE__1095_C,
+            self::TYPE__1099_DIV,
+            self::TYPE__1099_INT,
+            self::TYPE__1099_K,
+            self::TYPE__1099_MISC,
+            self::TYPE__1099_NEC,
+            self::TYPE__1099_R,
         ];
     }
 
@@ -1011,7 +1013,7 @@ class Form1099R implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets distribution_code
      *
-     * @param string $distribution_code Distribution code.    Available values:  - 1: Early distribution, no known exception (in most cases, under age 59½)  - 2: Early distribution, exception applies (under age 59½)  - 3: Disability  - 4: Death  - 5: Prohibited transaction  - 6: Section 1035 exchange (a tax-free exchange of life insurance, annuity, qualified long-term care insurance, or endowment contracts)  - 7: Normal distribution  - 8: Excess contributions plus earnings/excess deferrals (and/or earnings) taxable in payment year  - 9: Cost of current life insurance protection (premiums paid by a trustee or custodian for current insurance protection)  - A: May be eligible for 10-year tax option  - B: Designated Roth account distribution  - C: Reportable Death Benefits Under Section 6050Y(c)  - D: Annuity payments from nonqualified annuity payments and distributions from life insurance contracts that may be subject to tax under section 1411  - E: Distribution under Employee Plans Compliance Resolution System (EPCRS)  - F: Charitable gift annuity  - G: Direct rollover and rollover contribution  - H: Direct rollover of distribution from a designated Roth account to a Roth IRA  - J: Early distribution from a Roth IRA (This code may be used with a Code 8 or P)  - K: Distribution of IRA Assets Not Having A Readily Available FMV  - L: Loans treated as deemed distributions under section 72(p)  - M: Qualified Plan Loan Offsets  - N: Recharacterized IRA contribution made for year following payment year  - P: Excess contributions plus earnings/excess deferrals taxable for year prior to payment year  - Q: Qualified distribution from a Roth IRA (Distribution from a Roth IRA when the 5-year holding period has been met, and the recipient has reached 59½, has died, or is disabled)  - R: Recharacterized IRA contribution made for year prior to payment year  - S: Early distribution from a SIMPLE IRA in first 2 years no known exceptions  - T: Roth IRA distribution exception applies because participant has reached 59½, died or is disabled, but it is unknown if the 5-year period has been met  - U: Distribution from ESOP under Section 404(k)  - W: Charges or payments for purchasing qualified long-term care insurance contracts under combined arrangements
+     * @param string $distribution_code Distribution code.    Available values:  - 1: Early distribution, no known exception (in most cases, under age 59½)  - 2: Early distribution, exception applies (under age 59½)  - 3: Disability  - 4: Death  - 5: Prohibited transaction  - 6: Section 1035 exchange (a tax-free exchange of life insurance, annuity, qualified long-term care insurance, or endowment contracts)  - 7: Normal distribution  - 8: Excess contributions plus earnings/excess deferrals (and/or earnings) taxable in payment year  - 9: Cost of current life insurance protection (premiums paid by a trustee or custodian for current insurance protection)  - A: May be eligible for 10-year tax option  - B: Designated Roth account distribution  - C: Reportable Death Benefits Under Section 6050Y(c)  - D: Annuity payments from nonqualified annuity payments and distributions from life insurance contracts that may be subject to tax under section 1411  - E: Distribution under Employee Plans Compliance Resolution System (EPCRS)  - F: Charitable gift annuity  - G: Direct rollover and rollover contribution  - H: Direct rollover of distribution from a designated Roth account to a Roth IRA  - J: Early distribution from a Roth IRA (This code may be used with a Code 8 or P)  - K: Distribution of IRA Assets Not Having A Readily Available FMV  - L: Loans treated as deemed distributions under section 72(p)  - M: Qualified Plan Loan Offsets  - N: Recharacterized IRA contribution made for year following payment year  - P: Excess contributions plus earnings/excess deferrals taxable for year prior to payment year  - Q: Qualified distribution from a Roth IRA (Distribution from a Roth IRA when the 5-year holding period has been met, and the recipient has reached 59½, has died, or is disabled)  - R: Recharacterized IRA contribution made for year prior to payment year  - S: Early distribution from a SIMPLE IRA in first 2 years no known exceptions  - T: Roth IRA distribution exception applies because participant has reached 59½, died or is disabled, but it is unknown if the 5-year period has been met  - U: Distribution from ESOP under Section 404(k)  - W: Charges or payments for purchasing qualified long-term care insurance contracts under combined arrangements  - Y: Qualified charitable distribution (QCD) claimed under section 408(d)(8) (Available for 2025 on)
      *
      * @return self
      */
@@ -1045,7 +1047,7 @@ class Form1099R implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets second_distribution_code
      *
-     * @param string|null $second_distribution_code Second distribution code. Must be a valid combination with the first distribution code.  See DistributionCode property documentation for code descriptions.    Valid combinations based on first distribution code:  - 1: _, 8, B, D, K, L, M, P  - 2: _, 8, B, D, K, L, M, P  - 3: _, D  - 4: _, 8, A, B, D, G, H, K, L, M, P  - 5: _  - 6: _, W  - 7: _, A, B, D, K, L, M  - 8: _, 1, 2, 4, B, J, K  - 9: _  - A: 4, 7  - B: _, 1, 2, 4, 7, 8, G, L, M, P, U  - C: _, D  - D: 1, 2, 3, 4, 7, C  - E: _  - F: _  - G: _, 4, B, K  - H: _, 4  - J: _, 8, P  - K: 1, 2, 4, 7, 8, G  - L: _, 1, 2, 4, 7, B  - M: _, 1, 2, 4, 7, B  - N: _  - P: _, 1, 2, 4, B, J  - Q: _  - R: _  - S: _  - T: _  - U: _, B  - W: _, 6                (_ indicates no second distribution code)    (format: firstDistributionCode: availableSecondDistributionCodes)
+     * @param string|null $second_distribution_code Second distribution code. Must be a valid combination with the first distribution code.  See DistributionCode property documentation for code descriptions.    Valid combinations based on first distribution code:  - 1: _, 8, B, D, K, L, M, P  - 2: _, 8, B, D, K, L, M, P  - 3: _, D  - 4: _, 8, A, B, D, G, H, K, L, M, P  - 5: _  - 6: _, W  - 7: _, A, B, D, K, L, M  - 8: _, 1, 2, 4, B, J, K  - 9: _  - A: 4, 7  - B: _, 1, 2, 4, 7, 8, G, L, M, P, U  - C: _, D  - D: 1, 2, 3, 4, 7, C  - E: _  - F: _  - G: _, 4, B, K  - H: _, 4  - J: _, 8, P  - K: 1, 2, 4, 7, 8, G  - L: _, 1, 2, 4, 7, B  - M: _, 1, 2, 4, 7, B  - N: _  - P: _, 1, 2, 4, B, J  - Q: _  - R: _  - S: _  - T: _  - U: _, B  - W: _, 6  - Y: 4, 7, K                (_ indicates no second distribution code)    (format: firstDistributionCode: availableSecondDistributionCodes)
      *
      * @return self
      */
