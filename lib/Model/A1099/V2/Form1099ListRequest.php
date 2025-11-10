@@ -179,15 +179,15 @@ class Form1099ListRequest implements ModelInterface, ArrayAccess, \JsonSerializa
         return self::$openAPIModelName;
     }
 
-    const TYPE_FORM1099_NEC = 'Form1099Nec';
-    const TYPE_FORM1099_MISC = 'Form1099Misc';
-    const TYPE_FORM1099_DIV = 'Form1099Div';
-    const TYPE_FORM1099_R = 'Form1099R';
-    const TYPE_FORM1099_K = 'Form1099K';
-    const TYPE_FORM1095_B = 'Form1095B';
-    const TYPE_FORM1042_S = 'Form1042S';
-    const TYPE_FORM1095_C = 'Form1095C';
-    const TYPE_FORM1099_INT = 'Form1099Int';
+    const TYPE__1042_S = '1042-S';
+    const TYPE__1095_B = '1095-B';
+    const TYPE__1095_C = '1095-C';
+    const TYPE__1099_DIV = '1099-DIV';
+    const TYPE__1099_INT = '1099-INT';
+    const TYPE__1099_K = '1099-K';
+    const TYPE__1099_MISC = '1099-MISC';
+    const TYPE__1099_NEC = '1099-NEC';
+    const TYPE__1099_R = '1099-R';
 
     /**
      * Gets allowable values of the enum
@@ -197,15 +197,15 @@ class Form1099ListRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     public function getTypeAllowableValues()
     {
         return [
-            self::TYPE_FORM1099_NEC,
-            self::TYPE_FORM1099_MISC,
-            self::TYPE_FORM1099_DIV,
-            self::TYPE_FORM1099_R,
-            self::TYPE_FORM1099_K,
-            self::TYPE_FORM1095_B,
-            self::TYPE_FORM1042_S,
-            self::TYPE_FORM1095_C,
-            self::TYPE_FORM1099_INT,
+            self::TYPE__1042_S,
+            self::TYPE__1095_B,
+            self::TYPE__1095_C,
+            self::TYPE__1099_DIV,
+            self::TYPE__1099_INT,
+            self::TYPE__1099_K,
+            self::TYPE__1099_MISC,
+            self::TYPE__1099_NEC,
+            self::TYPE__1099_R,
         ];
     }
 
@@ -274,7 +274,7 @@ class Form1099ListRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets type
      *
-     * @param string|null $type type
+     * @param string|null $type Available form types: * `1042-S` * `1095-B` * `1095-C` * `1099-DIV` * `1099-INT` * `1099-K` * `1099-MISC` * `1099-NEC` * `1099-R`
      *
      * @return self
      */

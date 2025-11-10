@@ -79,7 +79,7 @@ class FormsW9Api
     private function setConfiguration($client): void
     {
         $this->verifyAPIClient($client);
-        $client->setSdkVersion("25.11.0");
+        $client->setSdkVersion("25.11.1");
         $this->headerSelector = new HeaderSelector(); 
         $this->client = $client;
     }

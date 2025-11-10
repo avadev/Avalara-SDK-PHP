@@ -79,7 +79,6 @@ class CoveredIndividual implements ModelInterface, ArrayAccess, \JsonSerializabl
         'name_suffix' => 'string',
         'tin' => 'string',
         'birth_date' => '\DateTime',
-        'covered_all_months' => 'bool',
         'covered_january' => 'bool',
         'covered_february' => 'bool',
         'covered_march' => 'bool',
@@ -109,7 +108,6 @@ class CoveredIndividual implements ModelInterface, ArrayAccess, \JsonSerializabl
         'name_suffix' => null,
         'tin' => null,
         'birth_date' => 'date',
-        'covered_all_months' => null,
         'covered_january' => null,
         'covered_february' => null,
         'covered_march' => null,
@@ -158,7 +156,6 @@ class CoveredIndividual implements ModelInterface, ArrayAccess, \JsonSerializabl
         'name_suffix' => 'nameSuffix',
         'tin' => 'tin',
         'birth_date' => 'birthDate',
-        'covered_all_months' => 'coveredAllMonths',
         'covered_january' => 'coveredJanuary',
         'covered_february' => 'coveredFebruary',
         'covered_march' => 'coveredMarch',
@@ -186,7 +183,6 @@ class CoveredIndividual implements ModelInterface, ArrayAccess, \JsonSerializabl
         'name_suffix' => 'setNameSuffix',
         'tin' => 'setTin',
         'birth_date' => 'setBirthDate',
-        'covered_all_months' => 'setCoveredAllMonths',
         'covered_january' => 'setCoveredJanuary',
         'covered_february' => 'setCoveredFebruary',
         'covered_march' => 'setCoveredMarch',
@@ -214,7 +210,6 @@ class CoveredIndividual implements ModelInterface, ArrayAccess, \JsonSerializabl
         'name_suffix' => 'getNameSuffix',
         'tin' => 'getTin',
         'birth_date' => 'getBirthDate',
-        'covered_all_months' => 'getCoveredAllMonths',
         'covered_january' => 'getCoveredJanuary',
         'covered_february' => 'getCoveredFebruary',
         'covered_march' => 'getCoveredMarch',
@@ -293,7 +288,6 @@ class CoveredIndividual implements ModelInterface, ArrayAccess, \JsonSerializabl
         $this->container['name_suffix'] = $data['name_suffix'] ?? null;
         $this->container['tin'] = $data['tin'] ?? null;
         $this->container['birth_date'] = $data['birth_date'] ?? null;
-        $this->container['covered_all_months'] = $data['covered_all_months'] ?? null;
         $this->container['covered_january'] = $data['covered_january'] ?? null;
         $this->container['covered_february'] = $data['covered_february'] ?? null;
         $this->container['covered_march'] = $data['covered_march'] ?? null;
@@ -502,30 +496,6 @@ class CoveredIndividual implements ModelInterface, ArrayAccess, \JsonSerializabl
     public function setBirthDate($birth_date)
     {
         $this->container['birth_date'] = $birth_date;
-
-        return $this;
-    }
-
-    /**
-     * Gets covered_all_months
-     *
-     * @return bool|null
-     */
-    public function getCoveredAllMonths()
-    {
-        return $this->container['covered_all_months'];
-    }
-
-    /**
-     * Sets covered_all_months
-     *
-     * @param bool|null $covered_all_months Coverage indicator for all 12 months
-     *
-     * @return self
-     */
-    public function setCoveredAllMonths($covered_all_months)
-    {
-        $this->container['covered_all_months'] = $covered_all_months;
 
         return $this;
     }
