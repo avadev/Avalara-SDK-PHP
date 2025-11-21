@@ -313,8 +313,8 @@ class IssuerResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['tax_year'] === null) {
             $invalidProperties[] = "'tax_year' can't be null";
         }
-        if ($this->container['email'] === null) {
-            $invalidProperties[] = "'email' can't be null";
+        if ($this->container['country_code'] === null) {
+            $invalidProperties[] = "'country_code' can't be null";
         }
         if ($this->container['address'] === null) {
             $invalidProperties[] = "'address' can't be null";
@@ -551,7 +551,7 @@ class IssuerResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets tax_year
      *
-     * @param int $tax_year Tax year for which the forms are being filed (e.g., 2024). Must be within current tax year and current tax year - 4.
+     * @param int $tax_year Tax year for which the forms are being filed (e.g., 2024). Must be within current tax year and current tax year - 4. It's only required on creation, and cannot be modified on update.
      *
      * @return self
      */
@@ -565,7 +565,7 @@ class IssuerResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets country_code
      *
-     * @return string|null
+     * @return string
      */
     public function getCountryCode()
     {
@@ -575,7 +575,7 @@ class IssuerResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets country_code
      *
-     * @param string|null $country_code Two-letter IRS country code (e.g., 'US', 'CA'), as defined at https://www.irs.gov/e-file-providers/country-codes. If there is a transfer agent, use the transfer agent's shipping address.
+     * @param string $country_code Two-letter IRS country code (e.g., 'US', 'CA'), as defined at https://www.irs.gov/e-file-providers/country-codes. If there is a transfer agent, use the transfer agent's shipping address.
      *
      * @return self
      */
@@ -589,7 +589,7 @@ class IssuerResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets email
      *
-     * @return string
+     * @return string|null
      */
     public function getEmail()
     {
@@ -599,7 +599,7 @@ class IssuerResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets email
      *
-     * @param string $email Contact email address. For recipient inquiries.
+     * @param string|null $email Contact email address. For recipient inquiries. Phone will be used on communications if you don't specify an email
      *
      * @return self
      */

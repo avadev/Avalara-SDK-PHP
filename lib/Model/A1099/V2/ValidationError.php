@@ -72,7 +72,8 @@ class ValidationError implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'field' => 'string',
-        'errors' => 'string[]'
+        'errors' => 'string[]',
+        'error_codes' => 'string[]'
     ];
 
     /**
@@ -84,7 +85,8 @@ class ValidationError implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPIFormats = [
         'field' => null,
-        'errors' => null
+        'errors' => null,
+        'error_codes' => null
     ];
 
     /**
@@ -115,7 +117,8 @@ class ValidationError implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $attributeMap = [
         'field' => 'field',
-        'errors' => 'errors'
+        'errors' => 'errors',
+        'error_codes' => 'errorCodes'
     ];
 
     /**
@@ -125,7 +128,8 @@ class ValidationError implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $setters = [
         'field' => 'setField',
-        'errors' => 'setErrors'
+        'errors' => 'setErrors',
+        'error_codes' => 'setErrorCodes'
     ];
 
     /**
@@ -135,7 +139,8 @@ class ValidationError implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $getters = [
         'field' => 'getField',
-        'errors' => 'getErrors'
+        'errors' => 'getErrors',
+        'error_codes' => 'getErrorCodes'
     ];
 
     /**
@@ -197,6 +202,7 @@ class ValidationError implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $this->container['field'] = $data['field'] ?? null;
         $this->container['errors'] = $data['errors'] ?? null;
+        $this->container['error_codes'] = $data['error_codes'] ?? null;
     }
 
     /**
@@ -267,6 +273,30 @@ class ValidationError implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setErrors($errors)
     {
         $this->container['errors'] = $errors;
+
+        return $this;
+    }
+
+    /**
+     * Gets error_codes
+     *
+     * @return string[]|null
+     */
+    public function getErrorCodes()
+    {
+        return $this->container['error_codes'];
+    }
+
+    /**
+     * Sets error_codes
+     *
+     * @param string[]|null $error_codes The list of error codes (only present when api_error_codes flag is enabled)
+     *
+     * @return self
+     */
+    public function setErrorCodes($error_codes)
+    {
+        $this->container['error_codes'] = $error_codes;
 
         return $this;
     }

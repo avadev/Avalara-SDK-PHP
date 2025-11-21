@@ -73,11 +73,11 @@ class StateAndLocalWithholding implements ModelInterface, ArrayAccess, \JsonSeri
     protected static $openAPITypes = [
         'state_tax_withheld' => 'float',
         'state' => 'string',
-        'state_id_number' => 'string',
+        'state_id' => 'string',
         'state_income' => 'float',
         'local_tax_withheld' => 'float',
         'locality' => 'string',
-        'locality_id_number' => 'string',
+        'locality_id' => 'string',
         'local_income' => 'float'
     ];
 
@@ -91,11 +91,11 @@ class StateAndLocalWithholding implements ModelInterface, ArrayAccess, \JsonSeri
     protected static $openAPIFormats = [
         'state_tax_withheld' => 'double',
         'state' => null,
-        'state_id_number' => null,
+        'state_id' => null,
         'state_income' => 'double',
         'local_tax_withheld' => 'double',
         'locality' => null,
-        'locality_id_number' => null,
+        'locality_id' => null,
         'local_income' => 'double'
     ];
 
@@ -128,11 +128,11 @@ class StateAndLocalWithholding implements ModelInterface, ArrayAccess, \JsonSeri
     protected static $attributeMap = [
         'state_tax_withheld' => 'stateTaxWithheld',
         'state' => 'state',
-        'state_id_number' => 'stateIdNumber',
+        'state_id' => 'stateId',
         'state_income' => 'stateIncome',
         'local_tax_withheld' => 'localTaxWithheld',
         'locality' => 'locality',
-        'locality_id_number' => 'localityIdNumber',
+        'locality_id' => 'localityId',
         'local_income' => 'localIncome'
     ];
 
@@ -144,11 +144,11 @@ class StateAndLocalWithholding implements ModelInterface, ArrayAccess, \JsonSeri
     protected static $setters = [
         'state_tax_withheld' => 'setStateTaxWithheld',
         'state' => 'setState',
-        'state_id_number' => 'setStateIdNumber',
+        'state_id' => 'setStateId',
         'state_income' => 'setStateIncome',
         'local_tax_withheld' => 'setLocalTaxWithheld',
         'locality' => 'setLocality',
-        'locality_id_number' => 'setLocalityIdNumber',
+        'locality_id' => 'setLocalityId',
         'local_income' => 'setLocalIncome'
     ];
 
@@ -160,11 +160,11 @@ class StateAndLocalWithholding implements ModelInterface, ArrayAccess, \JsonSeri
     protected static $getters = [
         'state_tax_withheld' => 'getStateTaxWithheld',
         'state' => 'getState',
-        'state_id_number' => 'getStateIdNumber',
+        'state_id' => 'getStateId',
         'state_income' => 'getStateIncome',
         'local_tax_withheld' => 'getLocalTaxWithheld',
         'locality' => 'getLocality',
-        'locality_id_number' => 'getLocalityIdNumber',
+        'locality_id' => 'getLocalityId',
         'local_income' => 'getLocalIncome'
     ];
 
@@ -227,11 +227,11 @@ class StateAndLocalWithholding implements ModelInterface, ArrayAccess, \JsonSeri
     {
         $this->container['state_tax_withheld'] = $data['state_tax_withheld'] ?? null;
         $this->container['state'] = $data['state'] ?? null;
-        $this->container['state_id_number'] = $data['state_id_number'] ?? null;
+        $this->container['state_id'] = $data['state_id'] ?? null;
         $this->container['state_income'] = $data['state_income'] ?? null;
         $this->container['local_tax_withheld'] = $data['local_tax_withheld'] ?? null;
         $this->container['locality'] = $data['locality'] ?? null;
-        $this->container['locality_id_number'] = $data['locality_id_number'] ?? null;
+        $this->container['locality_id'] = $data['locality_id'] ?? null;
         $this->container['local_income'] = $data['local_income'] ?? null;
     }
 
@@ -308,25 +308,25 @@ class StateAndLocalWithholding implements ModelInterface, ArrayAccess, \JsonSeri
     }
 
     /**
-     * Gets state_id_number
+     * Gets state_id
      *
      * @return string|null
      */
-    public function getStateIdNumber()
+    public function getStateId()
     {
-        return $this->container['state_id_number'];
+        return $this->container['state_id'];
     }
 
     /**
-     * Sets state_id_number
+     * Sets state_id
      *
-     * @param string|null $state_id_number State ID number of the entity issuing the form
+     * @param string|null $state_id State ID of the entity issuing the form
      *
      * @return self
      */
-    public function setStateIdNumber($state_id_number)
+    public function setStateId($state_id)
     {
-        $this->container['state_id_number'] = $state_id_number;
+        $this->container['state_id'] = $state_id;
 
         return $this;
     }
@@ -404,25 +404,25 @@ class StateAndLocalWithholding implements ModelInterface, ArrayAccess, \JsonSeri
     }
 
     /**
-     * Gets locality_id_number
+     * Gets locality_id
      *
      * @return string|null
      */
-    public function getLocalityIdNumber()
+    public function getLocalityId()
     {
-        return $this->container['locality_id_number'];
+        return $this->container['locality_id'];
     }
 
     /**
-     * Sets locality_id_number
+     * Sets locality_id
      *
-     * @param string|null $locality_id_number Locality ID number of the entity issuing the form
+     * @param string|null $locality_id Locality ID of the entity issuing the form
      *
      * @return self
      */
-    public function setLocalityIdNumber($locality_id_number)
+    public function setLocalityId($locality_id)
     {
-        $this->container['locality_id_number'] = $locality_id_number;
+        $this->container['locality_id'] = $locality_id;
 
         return $this;
     }
