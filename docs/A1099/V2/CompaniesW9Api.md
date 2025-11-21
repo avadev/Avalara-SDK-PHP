@@ -40,7 +40,7 @@ $client = new \Avalara\SDK\ApiClient($config);
 $apiInstance = new Avalara\SDK\Api\CompaniesW9Api($client);
 
 $avalara_version = 2.0.0; // string | API version
-$x_correlation_id = 7c95bc18-e364-4e63-aab4-9260cdc4c00a; // string | Unique correlation Id in a GUID format
+$x_correlation_id = 045715ac-dfd3-4f63-ba82-2276c5cb9c7b; // string | Unique correlation Id in a GUID format
 $x_avalara_client = Swagger UI; 22.1.0; // string | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
 $company_request = {"name":"Acme Corporation","dbaName":"","email":"contact@acmecorp.com","address":"123 Business Ave","city":"Phoenix","state":"AZ","zip":"85001","telephone":"602-555-0123","tin":"12-3456789","referenceId":"","doTinMatch":null,"groupName":"","foreignProvince":"","countryCode":"US","resendRequests":null,"resendIntervalDays":null,"maxReminderAttempts":null}; // \Avalara\SDK\Model\A1099\V2\CompanyRequest | The company to create
 
@@ -108,7 +108,7 @@ $apiInstance = new Avalara\SDK\Api\CompaniesW9Api($client);
 
 $id = 'id_example'; // string | The company to delete
 $avalara_version = 2.0.0; // string | API version
-$x_correlation_id = f5ef0c70-61e2-4454-b9ef-8bfde6bc6bb8; // string | Unique correlation Id in a GUID format
+$x_correlation_id = bdfb4c9b-5dd4-45c3-8dad-630ba1d31df1; // string | Unique correlation Id in a GUID format
 $x_avalara_client = Swagger UI; 22.1.0; // string | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
 
 try {
@@ -179,7 +179,7 @@ $skip = 56; // int | If nonzero, skip this number of results before returning da
 $order_by = 'order_by_example'; // string | A comma separated list of sort statements in the format (fieldname) [ASC|DESC], for example id ASC.
 $count = True; // bool | If true, return the global count of elements in the collection.
 $count_only = True; // bool | If true, return ONLY the global count of elements in the collection.  It only applies when count=true.
-$x_correlation_id = aa61595a-1a76-4245-ba16-fd1d202d84a9; // string | Unique correlation Id in a GUID format
+$x_correlation_id = d8c76c7d-ddae-47da-bfde-e696155b0689; // string | Unique correlation Id in a GUID format
 $x_avalara_client = Swagger UI; 22.1.0; // string | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
 
 try {
@@ -251,7 +251,7 @@ $apiInstance = new Avalara\SDK\Api\CompaniesW9Api($client);
 
 $id = 'id_example'; // string | Id of the company
 $avalara_version = 2.0.0; // string | API version
-$x_correlation_id = e2bddbfd-bef8-4dbd-a0b8-db8773b8848e; // string | Unique correlation Id in a GUID format
+$x_correlation_id = e0312268-c9e8-4db6-95bd-99d216095728; // string | Unique correlation Id in a GUID format
 $x_avalara_client = Swagger UI; 22.1.0; // string | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
 
 try {
@@ -318,7 +318,7 @@ $apiInstance = new Avalara\SDK\Api\CompaniesW9Api($client);
 
 $id = 'id_example'; // string | The ID of the company to update
 $avalara_version = 2.0.0; // string | API version
-$x_correlation_id = 8579d504-d27d-495e-8c27-a2ab95610b10; // string | Unique correlation Id in a GUID format
+$x_correlation_id = 715aa1d1-d1b9-4d18-adb3-fffb9e26c197; // string | Unique correlation Id in a GUID format
 $x_avalara_client = Swagger UI; 22.1.0; // string | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
 $company_request = {"name":"Acme Corporation","dbaName":"","email":"contact@acmecorp.com","address":"123 Business Ave","city":"Phoenix","state":"AZ","zip":"85001","telephone":"602-555-0123","tin":"12-3456789","referenceId":"","doTinMatch":null,"groupName":"","foreignProvince":"","countryCode":"US","resendRequests":null,"resendIntervalDays":null,"maxReminderAttempts":null}; // \Avalara\SDK\Model\A1099\V2\CompanyRequest | The updated company data
 
