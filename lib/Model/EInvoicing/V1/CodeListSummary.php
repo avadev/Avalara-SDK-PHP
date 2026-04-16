@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  AvalaraSDK
+ * @package  Avalara\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -23,7 +23,7 @@
  * An API that supports sending data for an E-Invoicing compliance use-case.
  *
  * @category   Avalara client libraries
- * @package    AvalaraSDK\API\EInvoicing\V1
+ * @package    Avalara\SDK\API\EInvoicing\V1
  * @author     Sachin Baijal <sachin.baijal@avalara.com>
  * @author     Jonathan Wenger <jonathan.wenger@avalara.com>
  * @copyright  2004-2025 Avalara, Inc.
@@ -38,17 +38,17 @@
  * Do not edit the class manually.
  */
 
-namespace AvalaraSDK\Model\EInvoicing\V1;
+namespace Avalara\SDK\Model\EInvoicing\V1;
 
 use \ArrayAccess;
-use \AvalaraSDK\ObjectSerializer;
-use \AvalaraSDK\Model\ModelInterface;
+use \Avalara\SDK\ObjectSerializer;
+use \Avalara\SDK\Model\ModelInterface;
 /**
  * CodeListSummary Class Doc Comment
  *
  * @category Class
  * @description Displays a summary of information about a code list
- * @package  AvalaraSDK
+ * @package  Avalara\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -77,7 +77,7 @@ class CodeListSummary implements ModelInterface, ArrayAccess, \JsonSerializable
         'code_list_name' => 'string',
         'description' => 'string',
         'standard' => 'string',
-        'versions' => '\AvalaraSDK\Model\EInvoicing\V1\CodeListVersion[]'
+        'versions' => '\Avalara\SDK\Model\EInvoicing\V1\CodeListVersion[]'
     ];
 
     /**
@@ -371,7 +371,7 @@ class CodeListSummary implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets versions
      *
-     * @return \AvalaraSDK\Model\EInvoicing\V1\CodeListVersion[]|null
+     * @return \Avalara\SDK\Model\EInvoicing\V1\CodeListVersion[]|null
      */
     public function getVersions()
     {
@@ -381,7 +381,7 @@ class CodeListSummary implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets versions
      *
-     * @param \AvalaraSDK\Model\EInvoicing\V1\CodeListVersion[]|null $versions Array of versioned definitions of this code list for the given jurisdiction. Each entry represents a version that is valid for a specific effective/sunset date range, optionally per locale.
+     * @param \Avalara\SDK\Model\EInvoicing\V1\CodeListVersion[]|null $versions Array of versioned definitions of this code list for the given jurisdiction. Each entry represents a version that is valid for a specific effective/sunset date range, optionally per locale.
      *
      * @return self
      */

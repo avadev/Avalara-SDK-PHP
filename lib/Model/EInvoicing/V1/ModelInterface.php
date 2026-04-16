@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  AvalaraSDK\Model\EInvoicing\V1
+ * @package  Avalara\SDK\Model\EInvoicing\V1
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -23,7 +23,7 @@
  * An API that supports sending data for an E-Invoicing compliance use-case.
  *
  * @category   Avalara client libraries
- * @package    AvalaraSDK\API\EInvoicing\V1
+ * @package    Avalara\SDK\API\EInvoicing\V1
  * @author     Sachin Baijal <sachin.baijal@avalara.com>
  * @author     Jonathan Wenger <jonathan.wenger@avalara.com>
  * @copyright  2004-2025 Avalara, Inc.
@@ -38,12 +38,12 @@
  * Do not edit the class manually.
  */
 
-namespace AvalaraSDK\Model\EInvoicing\V1;
+namespace Avalara\SDK\Model\EInvoicing\V1;
 
 /**
  * Interface abstracting model access.
  *
- * @package AvalaraSDK\Model\EInvoicing\V1
+ * @package Avalara\SDK\Model\EInvoicing\V1
  * @author  OpenAPI Generator team
  */
 interface ModelInterface

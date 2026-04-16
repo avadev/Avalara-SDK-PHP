@@ -621,7 +621,7 @@ class JobResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets skipped_invalid
      *
-     * @param int|null $skipped_invalid Number of forms skipped because they would have made a form invalid and the form is already e-filed or scheduled for e-filing. Value can be 0 or another value based on what the job has available
+     * @param int|null $skipped_invalid Number of forms skipped because they would have made a form invalid and the form is already e-filed or scheduled for e-filing, or because you do not have permission to update forms that have been scheduled. Value can be 0 or another value based on what the job has available
      *
      * @return self
      */

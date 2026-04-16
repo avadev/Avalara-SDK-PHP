@@ -19,7 +19,7 @@
  * An API that supports sending data for an E-Invoicing compliance use-case.
  *
  * @category   Avalara client libraries
- * @package    AvalaraSDK\API\EInvoicing\V1
+ * @package    Avalara\SDK\API\EInvoicing\V1
  * @author     Sachin Baijal <sachin.baijal@avalara.com>
  * @author     Jonathan Wenger <jonathan.wenger@avalara.com>
  * @copyright  2004-2025 Avalara, Inc.
@@ -30,7 +30,7 @@
 
 
 
-namespace AvalaraSDK\API\EInvoicing\V1;
+namespace Avalara\SDK\API\EInvoicing\V1;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -39,12 +39,12 @@ use GuzzleHttp\Exception\ConnectException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use AvalaraSDK\ApiClient;
-use AvalaraSDK\ApiException;
-use AvalaraSDK\Configuration;
-use AvalaraSDK\HeaderSelector;
-use AvalaraSDK\ObjectSerializer;
-use AvalaraSDK\Utils\LogObject;
+use Avalara\SDK\ApiClient;
+use Avalara\SDK\ApiException;
+use Avalara\SDK\Configuration;
+use Avalara\SDK\HeaderSelector;
+use Avalara\SDK\ObjectSerializer;
+use Avalara\SDK\Utils\LogObject;
 
 class MandatesApi
 {
@@ -122,9 +122,9 @@ class MandatesApi
      *
      * @param GetMandateDataInputFieldsRequestSdk The request parameters for the API call.
      *
-     * @throws \AvalaraSDK\ApiException on non-2xx response
+     * @throws \Avalara\SDK\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \AvalaraSDK\Model\EInvoicing\V1\MandateDataInputField[]|\AvalaraSDK\Model\EInvoicing\V1\BadRequest|\AvalaraSDK\Model\EInvoicing\V1\ForbiddenError|\AvalaraSDK\Model\EInvoicing\V1\NotFoundError|\AvalaraSDK\Model\EInvoicing\V1\InternalServerError
+     * @return \Avalara\SDK\Model\EInvoicing\V1\MandateDataInputField[]|\Avalara\SDK\Model\EInvoicing\V1\BadRequest|\Avalara\SDK\Model\EInvoicing\V1\ForbiddenError|\Avalara\SDK\Model\EInvoicing\V1\NotFoundError|\Avalara\SDK\Model\EInvoicing\V1\InternalServerError
      */
     public function getMandateDataInputFields($request_parameters)
     {
@@ -139,9 +139,9 @@ class MandatesApi
      *
      * @param GetMandateDataInputFieldsRequestSdk The request parameters for the API call.
      *
-     * @throws \AvalaraSDK\ApiException on non-2xx response
+     * @throws \Avalara\SDK\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \AvalaraSDK\Model\EInvoicing\V1\MandateDataInputField[]|\AvalaraSDK\Model\EInvoicing\V1\BadRequest|\AvalaraSDK\Model\EInvoicing\V1\ForbiddenError|\AvalaraSDK\Model\EInvoicing\V1\NotFoundError|\AvalaraSDK\Model\EInvoicing\V1\InternalServerError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Avalara\SDK\Model\EInvoicing\V1\MandateDataInputField[]|\Avalara\SDK\Model\EInvoicing\V1\BadRequest|\Avalara\SDK\Model\EInvoicing\V1\ForbiddenError|\Avalara\SDK\Model\EInvoicing\V1\NotFoundError|\Avalara\SDK\Model\EInvoicing\V1\InternalServerError, HTTP status code, HTTP response headers (array of strings)
      */
     public function getMandateDataInputFieldsWithHttpInfo($request_parameters, $isRetry = false)
     {
@@ -197,7 +197,7 @@ class MandatesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\AvalaraSDK\Model\EInvoicing\V1\MandateDataInputField[]' === '\SplFileObject') {
+                    if ('\Avalara\SDK\Model\EInvoicing\V1\MandateDataInputField[]' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -205,12 +205,12 @@ class MandatesApi
                     $logObject->populateResponseInfo($content, $response);
                     $this->client->logger->info(json_encode($logObject));
                     return [
-                        ObjectSerializer::deserialize($content, '\AvalaraSDK\Model\EInvoicing\V1\MandateDataInputField[]', []),
+                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\MandateDataInputField[]', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\AvalaraSDK\Model\EInvoicing\V1\BadRequest' === '\SplFileObject') {
+                    if ('\Avalara\SDK\Model\EInvoicing\V1\BadRequest' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -218,12 +218,12 @@ class MandatesApi
                     $logObject->populateResponseInfo($content, $response);
                     $this->client->logger->info(json_encode($logObject));
                     return [
-                        ObjectSerializer::deserialize($content, '\AvalaraSDK\Model\EInvoicing\V1\BadRequest', []),
+                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\BadRequest', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 403:
-                    if ('\AvalaraSDK\Model\EInvoicing\V1\ForbiddenError' === '\SplFileObject') {
+                    if ('\Avalara\SDK\Model\EInvoicing\V1\ForbiddenError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -231,12 +231,12 @@ class MandatesApi
                     $logObject->populateResponseInfo($content, $response);
                     $this->client->logger->info(json_encode($logObject));
                     return [
-                        ObjectSerializer::deserialize($content, '\AvalaraSDK\Model\EInvoicing\V1\ForbiddenError', []),
+                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\ForbiddenError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 404:
-                    if ('\AvalaraSDK\Model\EInvoicing\V1\NotFoundError' === '\SplFileObject') {
+                    if ('\Avalara\SDK\Model\EInvoicing\V1\NotFoundError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -244,12 +244,12 @@ class MandatesApi
                     $logObject->populateResponseInfo($content, $response);
                     $this->client->logger->info(json_encode($logObject));
                     return [
-                        ObjectSerializer::deserialize($content, '\AvalaraSDK\Model\EInvoicing\V1\NotFoundError', []),
+                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\NotFoundError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 500:
-                    if ('\AvalaraSDK\Model\EInvoicing\V1\InternalServerError' === '\SplFileObject') {
+                    if ('\Avalara\SDK\Model\EInvoicing\V1\InternalServerError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -257,13 +257,13 @@ class MandatesApi
                     $logObject->populateResponseInfo($content, $response);
                     $this->client->logger->info(json_encode($logObject));
                     return [
-                        ObjectSerializer::deserialize($content, '\AvalaraSDK\Model\EInvoicing\V1\InternalServerError', []),
+                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\InternalServerError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\AvalaraSDK\Model\EInvoicing\V1\MandateDataInputField[]';
+            $returnType = '\Avalara\SDK\Model\EInvoicing\V1\MandateDataInputField[]';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -282,7 +282,7 @@ class MandatesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\AvalaraSDK\Model\EInvoicing\V1\MandateDataInputField[]',
+                        '\Avalara\SDK\Model\EInvoicing\V1\MandateDataInputField[]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -290,7 +290,7 @@ class MandatesApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\AvalaraSDK\Model\EInvoicing\V1\BadRequest',
+                        '\Avalara\SDK\Model\EInvoicing\V1\BadRequest',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -298,7 +298,7 @@ class MandatesApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\AvalaraSDK\Model\EInvoicing\V1\ForbiddenError',
+                        '\Avalara\SDK\Model\EInvoicing\V1\ForbiddenError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -306,7 +306,7 @@ class MandatesApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\AvalaraSDK\Model\EInvoicing\V1\NotFoundError',
+                        '\Avalara\SDK\Model\EInvoicing\V1\NotFoundError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -314,7 +314,7 @@ class MandatesApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\AvalaraSDK\Model\EInvoicing\V1\InternalServerError',
+                        '\Avalara\SDK\Model\EInvoicing\V1\InternalServerError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -357,7 +357,7 @@ class MandatesApi
     public function getMandateDataInputFieldsAsyncWithHttpInfo($request_parameters, $isRetry = false)
     {
         $logObject = new LogObject($this->client->logRequestAndResponse);
-        $returnType = '\AvalaraSDK\Model\EInvoicing\V1\MandateDataInputField[]';
+        $returnType = '\Avalara\SDK\Model\EInvoicing\V1\MandateDataInputField[]';
         $request = $this->getMandateDataInputFieldsRequest($request_parameters);
         $logObject->populateRequestInfo($request);
         return $this->client
@@ -565,9 +565,9 @@ class MandatesApi
      *
      * @param GetMandatesRequestSdk The request parameters for the API call.
      *
-     * @throws \AvalaraSDK\ApiException on non-2xx response
+     * @throws \Avalara\SDK\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \AvalaraSDK\Model\EInvoicing\V1\MandatesResponse|\AvalaraSDK\Model\EInvoicing\V1\ForbiddenError|\AvalaraSDK\Model\EInvoicing\V1\NotFoundError|\AvalaraSDK\Model\EInvoicing\V1\InternalServerError
+     * @return \Avalara\SDK\Model\EInvoicing\V1\MandatesResponse|\Avalara\SDK\Model\EInvoicing\V1\ForbiddenError|\Avalara\SDK\Model\EInvoicing\V1\NotFoundError|\Avalara\SDK\Model\EInvoicing\V1\InternalServerError
      */
     public function getMandates($request_parameters)
     {
@@ -582,9 +582,9 @@ class MandatesApi
      *
      * @param GetMandatesRequestSdk The request parameters for the API call.
      *
-     * @throws \AvalaraSDK\ApiException on non-2xx response
+     * @throws \Avalara\SDK\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \AvalaraSDK\Model\EInvoicing\V1\MandatesResponse|\AvalaraSDK\Model\EInvoicing\V1\ForbiddenError|\AvalaraSDK\Model\EInvoicing\V1\NotFoundError|\AvalaraSDK\Model\EInvoicing\V1\InternalServerError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Avalara\SDK\Model\EInvoicing\V1\MandatesResponse|\Avalara\SDK\Model\EInvoicing\V1\ForbiddenError|\Avalara\SDK\Model\EInvoicing\V1\NotFoundError|\Avalara\SDK\Model\EInvoicing\V1\InternalServerError, HTTP status code, HTTP response headers (array of strings)
      */
     public function getMandatesWithHttpInfo($request_parameters, $isRetry = false)
     {
@@ -640,7 +640,7 @@ class MandatesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\AvalaraSDK\Model\EInvoicing\V1\MandatesResponse' === '\SplFileObject') {
+                    if ('\Avalara\SDK\Model\EInvoicing\V1\MandatesResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -648,12 +648,12 @@ class MandatesApi
                     $logObject->populateResponseInfo($content, $response);
                     $this->client->logger->info(json_encode($logObject));
                     return [
-                        ObjectSerializer::deserialize($content, '\AvalaraSDK\Model\EInvoicing\V1\MandatesResponse', []),
+                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\MandatesResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 403:
-                    if ('\AvalaraSDK\Model\EInvoicing\V1\ForbiddenError' === '\SplFileObject') {
+                    if ('\Avalara\SDK\Model\EInvoicing\V1\ForbiddenError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -661,12 +661,12 @@ class MandatesApi
                     $logObject->populateResponseInfo($content, $response);
                     $this->client->logger->info(json_encode($logObject));
                     return [
-                        ObjectSerializer::deserialize($content, '\AvalaraSDK\Model\EInvoicing\V1\ForbiddenError', []),
+                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\ForbiddenError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 404:
-                    if ('\AvalaraSDK\Model\EInvoicing\V1\NotFoundError' === '\SplFileObject') {
+                    if ('\Avalara\SDK\Model\EInvoicing\V1\NotFoundError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -674,12 +674,12 @@ class MandatesApi
                     $logObject->populateResponseInfo($content, $response);
                     $this->client->logger->info(json_encode($logObject));
                     return [
-                        ObjectSerializer::deserialize($content, '\AvalaraSDK\Model\EInvoicing\V1\NotFoundError', []),
+                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\NotFoundError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 500:
-                    if ('\AvalaraSDK\Model\EInvoicing\V1\InternalServerError' === '\SplFileObject') {
+                    if ('\Avalara\SDK\Model\EInvoicing\V1\InternalServerError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -687,13 +687,13 @@ class MandatesApi
                     $logObject->populateResponseInfo($content, $response);
                     $this->client->logger->info(json_encode($logObject));
                     return [
-                        ObjectSerializer::deserialize($content, '\AvalaraSDK\Model\EInvoicing\V1\InternalServerError', []),
+                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\InternalServerError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\AvalaraSDK\Model\EInvoicing\V1\MandatesResponse';
+            $returnType = '\Avalara\SDK\Model\EInvoicing\V1\MandatesResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -712,7 +712,7 @@ class MandatesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\AvalaraSDK\Model\EInvoicing\V1\MandatesResponse',
+                        '\Avalara\SDK\Model\EInvoicing\V1\MandatesResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -720,7 +720,7 @@ class MandatesApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\AvalaraSDK\Model\EInvoicing\V1\ForbiddenError',
+                        '\Avalara\SDK\Model\EInvoicing\V1\ForbiddenError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -728,7 +728,7 @@ class MandatesApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\AvalaraSDK\Model\EInvoicing\V1\NotFoundError',
+                        '\Avalara\SDK\Model\EInvoicing\V1\NotFoundError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -736,7 +736,7 @@ class MandatesApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\AvalaraSDK\Model\EInvoicing\V1\InternalServerError',
+                        '\Avalara\SDK\Model\EInvoicing\V1\InternalServerError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -779,7 +779,7 @@ class MandatesApi
     public function getMandatesAsyncWithHttpInfo($request_parameters, $isRetry = false)
     {
         $logObject = new LogObject($this->client->logRequestAndResponse);
-        $returnType = '\AvalaraSDK\Model\EInvoicing\V1\MandatesResponse';
+        $returnType = '\Avalara\SDK\Model\EInvoicing\V1\MandatesResponse';
         $request = $this->getMandatesRequest($request_parameters);
         $logObject->populateRequestInfo($request);
         return $this->client

@@ -19,7 +19,7 @@
  * An API that supports sending data for an E-Invoicing compliance use-case.
  *
  * @category   Avalara client libraries
- * @package    AvalaraSDK\API\EInvoicing\V1
+ * @package    Avalara\SDK\API\EInvoicing\V1
  * @author     Sachin Baijal <sachin.baijal@avalara.com>
  * @author     Jonathan Wenger <jonathan.wenger@avalara.com>
  * @copyright  2004-2025 Avalara, Inc.
@@ -30,7 +30,7 @@
 
 
 
-namespace AvalaraSDK\API\EInvoicing\V1;
+namespace Avalara\SDK\API\EInvoicing\V1;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -39,12 +39,12 @@ use GuzzleHttp\Exception\ConnectException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use AvalaraSDK\ApiClient;
-use AvalaraSDK\ApiException;
-use AvalaraSDK\Configuration;
-use AvalaraSDK\HeaderSelector;
-use AvalaraSDK\ObjectSerializer;
-use AvalaraSDK\Utils\LogObject;
+use Avalara\SDK\ApiClient;
+use Avalara\SDK\ApiException;
+use Avalara\SDK\Configuration;
+use Avalara\SDK\HeaderSelector;
+use Avalara\SDK\ObjectSerializer;
+use Avalara\SDK\Utils\LogObject;
 
 class CodeListsApi
 {
@@ -122,9 +122,9 @@ class CodeListsApi
      *
      * @param GetCodeListRequestSdk The request parameters for the API call.
      *
-     * @throws \AvalaraSDK\ApiException on non-2xx response
+     * @throws \Avalara\SDK\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \AvalaraSDK\Model\EInvoicing\V1\CodeListResponse|\AvalaraSDK\Model\EInvoicing\V1\BadRequest|\AvalaraSDK\Model\EInvoicing\V1\ForbiddenError|\AvalaraSDK\Model\EInvoicing\V1\NotFoundError
+     * @return \Avalara\SDK\Model\EInvoicing\V1\CodeListResponse|\Avalara\SDK\Model\EInvoicing\V1\BadRequest|\Avalara\SDK\Model\EInvoicing\V1\ForbiddenError|\Avalara\SDK\Model\EInvoicing\V1\NotFoundError
      */
     public function getCodeList($request_parameters)
     {
@@ -139,9 +139,9 @@ class CodeListsApi
      *
      * @param GetCodeListRequestSdk The request parameters for the API call.
      *
-     * @throws \AvalaraSDK\ApiException on non-2xx response
+     * @throws \Avalara\SDK\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \AvalaraSDK\Model\EInvoicing\V1\CodeListResponse|\AvalaraSDK\Model\EInvoicing\V1\BadRequest|\AvalaraSDK\Model\EInvoicing\V1\ForbiddenError|\AvalaraSDK\Model\EInvoicing\V1\NotFoundError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Avalara\SDK\Model\EInvoicing\V1\CodeListResponse|\Avalara\SDK\Model\EInvoicing\V1\BadRequest|\Avalara\SDK\Model\EInvoicing\V1\ForbiddenError|\Avalara\SDK\Model\EInvoicing\V1\NotFoundError, HTTP status code, HTTP response headers (array of strings)
      */
     public function getCodeListWithHttpInfo($request_parameters, $isRetry = false)
     {
@@ -197,7 +197,7 @@ class CodeListsApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\AvalaraSDK\Model\EInvoicing\V1\CodeListResponse' === '\SplFileObject') {
+                    if ('\Avalara\SDK\Model\EInvoicing\V1\CodeListResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -205,12 +205,12 @@ class CodeListsApi
                     $logObject->populateResponseInfo($content, $response);
                     $this->client->logger->info(json_encode($logObject));
                     return [
-                        ObjectSerializer::deserialize($content, '\AvalaraSDK\Model\EInvoicing\V1\CodeListResponse', []),
+                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\CodeListResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\AvalaraSDK\Model\EInvoicing\V1\BadRequest' === '\SplFileObject') {
+                    if ('\Avalara\SDK\Model\EInvoicing\V1\BadRequest' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -218,12 +218,12 @@ class CodeListsApi
                     $logObject->populateResponseInfo($content, $response);
                     $this->client->logger->info(json_encode($logObject));
                     return [
-                        ObjectSerializer::deserialize($content, '\AvalaraSDK\Model\EInvoicing\V1\BadRequest', []),
+                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\BadRequest', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 403:
-                    if ('\AvalaraSDK\Model\EInvoicing\V1\ForbiddenError' === '\SplFileObject') {
+                    if ('\Avalara\SDK\Model\EInvoicing\V1\ForbiddenError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -231,12 +231,12 @@ class CodeListsApi
                     $logObject->populateResponseInfo($content, $response);
                     $this->client->logger->info(json_encode($logObject));
                     return [
-                        ObjectSerializer::deserialize($content, '\AvalaraSDK\Model\EInvoicing\V1\ForbiddenError', []),
+                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\ForbiddenError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 404:
-                    if ('\AvalaraSDK\Model\EInvoicing\V1\NotFoundError' === '\SplFileObject') {
+                    if ('\Avalara\SDK\Model\EInvoicing\V1\NotFoundError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -244,13 +244,13 @@ class CodeListsApi
                     $logObject->populateResponseInfo($content, $response);
                     $this->client->logger->info(json_encode($logObject));
                     return [
-                        ObjectSerializer::deserialize($content, '\AvalaraSDK\Model\EInvoicing\V1\NotFoundError', []),
+                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\NotFoundError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\AvalaraSDK\Model\EInvoicing\V1\CodeListResponse';
+            $returnType = '\Avalara\SDK\Model\EInvoicing\V1\CodeListResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -269,7 +269,7 @@ class CodeListsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\AvalaraSDK\Model\EInvoicing\V1\CodeListResponse',
+                        '\Avalara\SDK\Model\EInvoicing\V1\CodeListResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -277,7 +277,7 @@ class CodeListsApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\AvalaraSDK\Model\EInvoicing\V1\BadRequest',
+                        '\Avalara\SDK\Model\EInvoicing\V1\BadRequest',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -285,7 +285,7 @@ class CodeListsApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\AvalaraSDK\Model\EInvoicing\V1\ForbiddenError',
+                        '\Avalara\SDK\Model\EInvoicing\V1\ForbiddenError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -293,7 +293,7 @@ class CodeListsApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\AvalaraSDK\Model\EInvoicing\V1\NotFoundError',
+                        '\Avalara\SDK\Model\EInvoicing\V1\NotFoundError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -336,7 +336,7 @@ class CodeListsApi
     public function getCodeListAsyncWithHttpInfo($request_parameters, $isRetry = false)
     {
         $logObject = new LogObject($this->client->logRequestAndResponse);
-        $returnType = '\AvalaraSDK\Model\EInvoicing\V1\CodeListResponse';
+        $returnType = '\Avalara\SDK\Model\EInvoicing\V1\CodeListResponse';
         $request = $this->getCodeListRequest($request_parameters);
         $logObject->populateRequestInfo($request);
         return $this->client
@@ -550,9 +550,9 @@ class CodeListsApi
      *
      * @param GetCodeListListRequestSdk The request parameters for the API call.
      *
-     * @throws \AvalaraSDK\ApiException on non-2xx response
+     * @throws \Avalara\SDK\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \AvalaraSDK\Model\EInvoicing\V1\CodeListListResponse|\AvalaraSDK\Model\EInvoicing\V1\BadRequest|\AvalaraSDK\Model\EInvoicing\V1\ForbiddenError
+     * @return \Avalara\SDK\Model\EInvoicing\V1\CodeListListResponse|\Avalara\SDK\Model\EInvoicing\V1\BadRequest|\Avalara\SDK\Model\EInvoicing\V1\ForbiddenError
      */
     public function getCodeListList($request_parameters)
     {
@@ -567,9 +567,9 @@ class CodeListsApi
      *
      * @param GetCodeListListRequestSdk The request parameters for the API call.
      *
-     * @throws \AvalaraSDK\ApiException on non-2xx response
+     * @throws \Avalara\SDK\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \AvalaraSDK\Model\EInvoicing\V1\CodeListListResponse|\AvalaraSDK\Model\EInvoicing\V1\BadRequest|\AvalaraSDK\Model\EInvoicing\V1\ForbiddenError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Avalara\SDK\Model\EInvoicing\V1\CodeListListResponse|\Avalara\SDK\Model\EInvoicing\V1\BadRequest|\Avalara\SDK\Model\EInvoicing\V1\ForbiddenError, HTTP status code, HTTP response headers (array of strings)
      */
     public function getCodeListListWithHttpInfo($request_parameters, $isRetry = false)
     {
@@ -625,7 +625,7 @@ class CodeListsApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\AvalaraSDK\Model\EInvoicing\V1\CodeListListResponse' === '\SplFileObject') {
+                    if ('\Avalara\SDK\Model\EInvoicing\V1\CodeListListResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -633,12 +633,12 @@ class CodeListsApi
                     $logObject->populateResponseInfo($content, $response);
                     $this->client->logger->info(json_encode($logObject));
                     return [
-                        ObjectSerializer::deserialize($content, '\AvalaraSDK\Model\EInvoicing\V1\CodeListListResponse', []),
+                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\CodeListListResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\AvalaraSDK\Model\EInvoicing\V1\BadRequest' === '\SplFileObject') {
+                    if ('\Avalara\SDK\Model\EInvoicing\V1\BadRequest' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -646,12 +646,12 @@ class CodeListsApi
                     $logObject->populateResponseInfo($content, $response);
                     $this->client->logger->info(json_encode($logObject));
                     return [
-                        ObjectSerializer::deserialize($content, '\AvalaraSDK\Model\EInvoicing\V1\BadRequest', []),
+                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\BadRequest', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 403:
-                    if ('\AvalaraSDK\Model\EInvoicing\V1\ForbiddenError' === '\SplFileObject') {
+                    if ('\Avalara\SDK\Model\EInvoicing\V1\ForbiddenError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -659,13 +659,13 @@ class CodeListsApi
                     $logObject->populateResponseInfo($content, $response);
                     $this->client->logger->info(json_encode($logObject));
                     return [
-                        ObjectSerializer::deserialize($content, '\AvalaraSDK\Model\EInvoicing\V1\ForbiddenError', []),
+                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\ForbiddenError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\AvalaraSDK\Model\EInvoicing\V1\CodeListListResponse';
+            $returnType = '\Avalara\SDK\Model\EInvoicing\V1\CodeListListResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -684,7 +684,7 @@ class CodeListsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\AvalaraSDK\Model\EInvoicing\V1\CodeListListResponse',
+                        '\Avalara\SDK\Model\EInvoicing\V1\CodeListListResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -692,7 +692,7 @@ class CodeListsApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\AvalaraSDK\Model\EInvoicing\V1\BadRequest',
+                        '\Avalara\SDK\Model\EInvoicing\V1\BadRequest',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -700,7 +700,7 @@ class CodeListsApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\AvalaraSDK\Model\EInvoicing\V1\ForbiddenError',
+                        '\Avalara\SDK\Model\EInvoicing\V1\ForbiddenError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -743,7 +743,7 @@ class CodeListsApi
     public function getCodeListListAsyncWithHttpInfo($request_parameters, $isRetry = false)
     {
         $logObject = new LogObject($this->client->logRequestAndResponse);
-        $returnType = '\AvalaraSDK\Model\EInvoicing\V1\CodeListListResponse';
+        $returnType = '\Avalara\SDK\Model\EInvoicing\V1\CodeListListResponse';
         $request = $this->getCodeListListRequest($request_parameters);
         $logObject->populateRequestInfo($request);
         return $this->client

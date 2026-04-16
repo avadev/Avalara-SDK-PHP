@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  AvalaraSDK
+ * @package  Avalara\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -23,7 +23,7 @@
  * An API that supports sending data for an E-Invoicing compliance use-case.
  *
  * @category   Avalara client libraries
- * @package    AvalaraSDK\API\EInvoicing\V1
+ * @package    Avalara\SDK\API\EInvoicing\V1
  * @author     Sachin Baijal <sachin.baijal@avalara.com>
  * @author     Jonathan Wenger <jonathan.wenger@avalara.com>
  * @copyright  2004-2025 Avalara, Inc.
@@ -38,16 +38,16 @@
  * Do not edit the class manually.
  */
 
-namespace AvalaraSDK\Model\EInvoicing\V1;
+namespace Avalara\SDK\Model\EInvoicing\V1;
 
 use \ArrayAccess;
-use \AvalaraSDK\ObjectSerializer;
-use \AvalaraSDK\Model\ModelInterface;
+use \Avalara\SDK\ObjectSerializer;
+use \Avalara\SDK\Model\ModelInterface;
 /**
  * Mandate Class Doc Comment
  *
  * @category Class
- * @package  AvalaraSDK
+ * @package  Avalara\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -81,10 +81,10 @@ class Mandate implements ModelInterface, ArrayAccess, \JsonSerializable
         'e_invoicing_flow_documentation_link' => 'string',
         'get_invoice_available_media_type' => 'string[]',
         'supports_inbound_digital_document' => 'string',
-        'input_data_formats' => '\AvalaraSDK\Model\EInvoicing\V1\InputDataFormats[]',
-        'output_data_formats' => '\AvalaraSDK\Model\EInvoicing\V1\OutputDataFormats[]',
-        'workflow_ids' => '\AvalaraSDK\Model\EInvoicing\V1\WorkflowIds[]',
-        'supported_document_statuses' => '\AvalaraSDK\Model\EInvoicing\V1\SupportedDocumentStatuses[]'
+        'input_data_formats' => '\Avalara\SDK\Model\EInvoicing\V1\InputDataFormats[]',
+        'output_data_formats' => '\Avalara\SDK\Model\EInvoicing\V1\OutputDataFormats[]',
+        'workflow_ids' => '\Avalara\SDK\Model\EInvoicing\V1\WorkflowIds[]',
+        'supported_document_statuses' => '\Avalara\SDK\Model\EInvoicing\V1\SupportedDocumentStatuses[]'
     ];
 
     /**
@@ -538,7 +538,7 @@ class Mandate implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets input_data_formats
      *
-     * @return \AvalaraSDK\Model\EInvoicing\V1\InputDataFormats[]|null
+     * @return \Avalara\SDK\Model\EInvoicing\V1\InputDataFormats[]|null
      */
     public function getInputDataFormats()
     {
@@ -548,7 +548,7 @@ class Mandate implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets input_data_formats
      *
-     * @param \AvalaraSDK\Model\EInvoicing\V1\InputDataFormats[]|null $input_data_formats Format and version used when inputting the data
+     * @param \Avalara\SDK\Model\EInvoicing\V1\InputDataFormats[]|null $input_data_formats Format and version used when inputting the data
      *
      * @return self
      */
@@ -562,7 +562,7 @@ class Mandate implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets output_data_formats
      *
-     * @return \AvalaraSDK\Model\EInvoicing\V1\OutputDataFormats[]|null
+     * @return \Avalara\SDK\Model\EInvoicing\V1\OutputDataFormats[]|null
      */
     public function getOutputDataFormats()
     {
@@ -572,7 +572,7 @@ class Mandate implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets output_data_formats
      *
-     * @param \AvalaraSDK\Model\EInvoicing\V1\OutputDataFormats[]|null $output_data_formats Lists the supported output document formats for the country mandate. For countries where specifying an output document format is required (e.g., France), this array will contain the applicable formats. For other countries where output format selection is not necessary, the array will be empty.
+     * @param \Avalara\SDK\Model\EInvoicing\V1\OutputDataFormats[]|null $output_data_formats Lists the supported output document formats for the country mandate. For countries where specifying an output document format is required (e.g., France), this array will contain the applicable formats. For other countries where output format selection is not necessary, the array will be empty.
      *
      * @return self
      */
@@ -586,7 +586,7 @@ class Mandate implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets workflow_ids
      *
-     * @return \AvalaraSDK\Model\EInvoicing\V1\WorkflowIds[]|null
+     * @return \Avalara\SDK\Model\EInvoicing\V1\WorkflowIds[]|null
      */
     public function getWorkflowIds()
     {
@@ -596,7 +596,7 @@ class Mandate implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets workflow_ids
      *
-     * @param \AvalaraSDK\Model\EInvoicing\V1\WorkflowIds[]|null $workflow_ids Workflow ID list
+     * @param \Avalara\SDK\Model\EInvoicing\V1\WorkflowIds[]|null $workflow_ids Workflow ID list
      *
      * @return self
      */
@@ -610,7 +610,7 @@ class Mandate implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets supported_document_statuses
      *
-     * @return \AvalaraSDK\Model\EInvoicing\V1\SupportedDocumentStatuses[]|null
+     * @return \Avalara\SDK\Model\EInvoicing\V1\SupportedDocumentStatuses[]|null
      */
     public function getSupportedDocumentStatuses()
     {
@@ -620,7 +620,7 @@ class Mandate implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets supported_document_statuses
      *
-     * @param \AvalaraSDK\Model\EInvoicing\V1\SupportedDocumentStatuses[]|null $supported_document_statuses List of document statuses defined by the mandate.
+     * @param \Avalara\SDK\Model\EInvoicing\V1\SupportedDocumentStatuses[]|null $supported_document_statuses List of document statuses defined by the mandate.
      *
      * @return self
      */

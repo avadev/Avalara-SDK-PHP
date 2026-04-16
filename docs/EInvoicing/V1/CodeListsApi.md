@@ -1,4 +1,4 @@
-# AvalaraSDK\CodeListsApi
+# Avalara\SDK\CodeListsApi
 
 All URIs are relative to https://api.sbx.avalara.com/einvoicing.
 
@@ -11,7 +11,7 @@ Method | HTTP request | Description
 ## `getCodeList()`
 
 ```php
-getCodeList($avalara_version, $codelist_id, $country_code, $x_avalara_client, $effective_date, $sunset_date): \AvalaraSDK\Model\EInvoicing\V1\CodeListResponse
+getCodeList($avalara_version, $codelist_id, $country_code, $x_avalara_client, $effective_date, $sunset_date): \Avalara\SDK\Model\EInvoicing\V1\CodeListResponse
 ```
 
 Retrieves a code list by ID for a specific country
@@ -34,7 +34,7 @@ $config = new \Avalara\SDK\Configuration()
 
 $client = new \Avalara\SDK\ApiClient($config);
 
-$apiInstance = new AvalaraSDK\Api\CodeListsApi($client);
+$apiInstance = new Avalara\SDK\Api\CodeListsApi($client);
 
 $avalara_version = 1.6; // string | Header that specifies the API version to use (for example \"1.6\").
 $codelist_id = ab123343-3432-423c-ac3f-53453scs9999; // string | System-generated unique identifier of the code list definition. Typically a UUID used to reference this code list internally or via APIs.
@@ -64,7 +64,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\AvalaraSDK\Model\EInvoicing\V1\CodeListResponse**](../Model/CodeListResponse.md)
+[**\Avalara\SDK\Model\EInvoicing\V1\CodeListResponse**](../Model/CodeListResponse.md)
 
 ### Authorization
 
@@ -82,7 +82,7 @@ Name | Type | Description  | Notes
 ## `getCodeListList()`
 
 ```php
-getCodeListList($avalara_version, $country_code, $x_avalara_client, $effective_date, $sunset_date, $count, $count_only, $top, $skip): \AvalaraSDK\Model\EInvoicing\V1\CodeListListResponse
+getCodeListList($avalara_version, $country_code, $x_avalara_client, $effective_date, $sunset_date, $count, $count_only, $top, $skip): \Avalara\SDK\Model\EInvoicing\V1\CodeListListResponse
 ```
 
 Returns a list of code lists for a specific country
@@ -105,7 +105,7 @@ $config = new \Avalara\SDK\Configuration()
 
 $client = new \Avalara\SDK\ApiClient($config);
 
-$apiInstance = new AvalaraSDK\Api\CodeListsApi($client);
+$apiInstance = new Avalara\SDK\Api\CodeListsApi($client);
 
 $avalara_version = 1.6; // string | Header that specifies the API version to use (for example \"1.6\").
 $country_code = FR; // string | Two-letter ISO 3166-1 alpha-2 country code indicating the jurisdiction for which code lists should be returned.
@@ -141,7 +141,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\AvalaraSDK\Model\EInvoicing\V1\CodeListListResponse**](../Model/CodeListListResponse.md)
+[**\Avalara\SDK\Model\EInvoicing\V1\CodeListListResponse**](../Model/CodeListListResponse.md)
 
 ### Authorization
 

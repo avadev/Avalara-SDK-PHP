@@ -19,7 +19,7 @@
  * An API that supports sending data for an E-Invoicing compliance use-case.
  *
  * @category   Avalara client libraries
- * @package    AvalaraSDK\API\EInvoicing\V1
+ * @package    Avalara\SDK\API\EInvoicing\V1
  * @author     Sachin Baijal <sachin.baijal@avalara.com>
  * @author     Jonathan Wenger <jonathan.wenger@avalara.com>
  * @copyright  2004-2025 Avalara, Inc.
@@ -30,7 +30,7 @@
 
 
 
-namespace AvalaraSDK\API\EInvoicing\V1;
+namespace Avalara\SDK\API\EInvoicing\V1;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -39,12 +39,12 @@ use GuzzleHttp\Exception\ConnectException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use AvalaraSDK\ApiClient;
-use AvalaraSDK\ApiException;
-use AvalaraSDK\Configuration;
-use AvalaraSDK\HeaderSelector;
-use AvalaraSDK\ObjectSerializer;
-use AvalaraSDK\Utils\LogObject;
+use Avalara\SDK\ApiClient;
+use Avalara\SDK\ApiException;
+use Avalara\SDK\Configuration;
+use Avalara\SDK\HeaderSelector;
+use Avalara\SDK\ObjectSerializer;
+use Avalara\SDK\Utils\LogObject;
 
 class TradingPartnersApi
 {
@@ -122,9 +122,9 @@ class TradingPartnersApi
      *
      * @param BatchSearchParticipantsRequestSdk The request parameters for the API call.
      *
-     * @throws \AvalaraSDK\ApiException on non-2xx response
+     * @throws \Avalara\SDK\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \AvalaraSDK\Model\EInvoicing\V1\BatchSearchParticipants202Response|\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse|\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse|\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse|\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse
+     * @return \Avalara\SDK\Model\EInvoicing\V1\BatchSearchParticipants202Response|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse
      */
     public function batchSearchParticipants($request_parameters)
     {
@@ -139,9 +139,9 @@ class TradingPartnersApi
      *
      * @param BatchSearchParticipantsRequestSdk The request parameters for the API call.
      *
-     * @throws \AvalaraSDK\ApiException on non-2xx response
+     * @throws \Avalara\SDK\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \AvalaraSDK\Model\EInvoicing\V1\BatchSearchParticipants202Response|\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse|\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse|\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse|\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Avalara\SDK\Model\EInvoicing\V1\BatchSearchParticipants202Response|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function batchSearchParticipantsWithHttpInfo($request_parameters, $isRetry = false)
     {
@@ -197,7 +197,7 @@ class TradingPartnersApi
 
             switch($statusCode) {
                 case 202:
-                    if ('\AvalaraSDK\Model\EInvoicing\V1\BatchSearchParticipants202Response' === '\SplFileObject') {
+                    if ('\Avalara\SDK\Model\EInvoicing\V1\BatchSearchParticipants202Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -205,12 +205,12 @@ class TradingPartnersApi
                     $logObject->populateResponseInfo($content, $response);
                     $this->client->logger->info(json_encode($logObject));
                     return [
-                        ObjectSerializer::deserialize($content, '\AvalaraSDK\Model\EInvoicing\V1\BatchSearchParticipants202Response', []),
+                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\BatchSearchParticipants202Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse' === '\SplFileObject') {
+                    if ('\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -218,12 +218,12 @@ class TradingPartnersApi
                     $logObject->populateResponseInfo($content, $response);
                     $this->client->logger->info(json_encode($logObject));
                     return [
-                        ObjectSerializer::deserialize($content, '\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse', []),
+                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 401:
-                    if ('\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse' === '\SplFileObject') {
+                    if ('\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -231,12 +231,12 @@ class TradingPartnersApi
                     $logObject->populateResponseInfo($content, $response);
                     $this->client->logger->info(json_encode($logObject));
                     return [
-                        ObjectSerializer::deserialize($content, '\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse', []),
+                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 403:
-                    if ('\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse' === '\SplFileObject') {
+                    if ('\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -244,12 +244,12 @@ class TradingPartnersApi
                     $logObject->populateResponseInfo($content, $response);
                     $this->client->logger->info(json_encode($logObject));
                     return [
-                        ObjectSerializer::deserialize($content, '\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse', []),
+                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 500:
-                    if ('\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse' === '\SplFileObject') {
+                    if ('\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -257,13 +257,13 @@ class TradingPartnersApi
                     $logObject->populateResponseInfo($content, $response);
                     $this->client->logger->info(json_encode($logObject));
                     return [
-                        ObjectSerializer::deserialize($content, '\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse', []),
+                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\AvalaraSDK\Model\EInvoicing\V1\BatchSearchParticipants202Response';
+            $returnType = '\Avalara\SDK\Model\EInvoicing\V1\BatchSearchParticipants202Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -282,7 +282,7 @@ class TradingPartnersApi
                 case 202:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\AvalaraSDK\Model\EInvoicing\V1\BatchSearchParticipants202Response',
+                        '\Avalara\SDK\Model\EInvoicing\V1\BatchSearchParticipants202Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -290,7 +290,7 @@ class TradingPartnersApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse',
+                        '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -298,7 +298,7 @@ class TradingPartnersApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse',
+                        '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -306,7 +306,7 @@ class TradingPartnersApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse',
+                        '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -314,7 +314,7 @@ class TradingPartnersApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse',
+                        '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -357,7 +357,7 @@ class TradingPartnersApi
     public function batchSearchParticipantsAsyncWithHttpInfo($request_parameters, $isRetry = false)
     {
         $logObject = new LogObject($this->client->logRequestAndResponse);
-        $returnType = '\AvalaraSDK\Model\EInvoicing\V1\BatchSearchParticipants202Response';
+        $returnType = '\Avalara\SDK\Model\EInvoicing\V1\BatchSearchParticipants202Response';
         $request = $this->batchSearchParticipantsRequest($request_parameters);
         $logObject->populateRequestInfo($request);
         return $this->client
@@ -574,9 +574,9 @@ class TradingPartnersApi
      *
      * @param CreateTradingPartnerRequestSdk The request parameters for the API call.
      *
-     * @throws \AvalaraSDK\ApiException on non-2xx response
+     * @throws \Avalara\SDK\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \AvalaraSDK\Model\EInvoicing\V1\CreateTradingPartner201Response|\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse|\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse|\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse|\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse|\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse
+     * @return \Avalara\SDK\Model\EInvoicing\V1\CreateTradingPartner201Response|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse
      */
     public function createTradingPartner($request_parameters)
     {
@@ -591,9 +591,9 @@ class TradingPartnersApi
      *
      * @param CreateTradingPartnerRequestSdk The request parameters for the API call.
      *
-     * @throws \AvalaraSDK\ApiException on non-2xx response
+     * @throws \Avalara\SDK\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \AvalaraSDK\Model\EInvoicing\V1\CreateTradingPartner201Response|\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse|\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse|\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse|\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse|\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Avalara\SDK\Model\EInvoicing\V1\CreateTradingPartner201Response|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function createTradingPartnerWithHttpInfo($request_parameters, $isRetry = false)
     {
@@ -649,7 +649,7 @@ class TradingPartnersApi
 
             switch($statusCode) {
                 case 201:
-                    if ('\AvalaraSDK\Model\EInvoicing\V1\CreateTradingPartner201Response' === '\SplFileObject') {
+                    if ('\Avalara\SDK\Model\EInvoicing\V1\CreateTradingPartner201Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -657,12 +657,12 @@ class TradingPartnersApi
                     $logObject->populateResponseInfo($content, $response);
                     $this->client->logger->info(json_encode($logObject));
                     return [
-                        ObjectSerializer::deserialize($content, '\AvalaraSDK\Model\EInvoicing\V1\CreateTradingPartner201Response', []),
+                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\CreateTradingPartner201Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse' === '\SplFileObject') {
+                    if ('\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -670,12 +670,12 @@ class TradingPartnersApi
                     $logObject->populateResponseInfo($content, $response);
                     $this->client->logger->info(json_encode($logObject));
                     return [
-                        ObjectSerializer::deserialize($content, '\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse', []),
+                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 401:
-                    if ('\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse' === '\SplFileObject') {
+                    if ('\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -683,12 +683,12 @@ class TradingPartnersApi
                     $logObject->populateResponseInfo($content, $response);
                     $this->client->logger->info(json_encode($logObject));
                     return [
-                        ObjectSerializer::deserialize($content, '\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse', []),
+                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 403:
-                    if ('\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse' === '\SplFileObject') {
+                    if ('\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -696,12 +696,12 @@ class TradingPartnersApi
                     $logObject->populateResponseInfo($content, $response);
                     $this->client->logger->info(json_encode($logObject));
                     return [
-                        ObjectSerializer::deserialize($content, '\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse', []),
+                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 409:
-                    if ('\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse' === '\SplFileObject') {
+                    if ('\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -709,12 +709,12 @@ class TradingPartnersApi
                     $logObject->populateResponseInfo($content, $response);
                     $this->client->logger->info(json_encode($logObject));
                     return [
-                        ObjectSerializer::deserialize($content, '\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse', []),
+                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 500:
-                    if ('\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse' === '\SplFileObject') {
+                    if ('\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -722,13 +722,13 @@ class TradingPartnersApi
                     $logObject->populateResponseInfo($content, $response);
                     $this->client->logger->info(json_encode($logObject));
                     return [
-                        ObjectSerializer::deserialize($content, '\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse', []),
+                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\AvalaraSDK\Model\EInvoicing\V1\CreateTradingPartner201Response';
+            $returnType = '\Avalara\SDK\Model\EInvoicing\V1\CreateTradingPartner201Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -747,7 +747,7 @@ class TradingPartnersApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\AvalaraSDK\Model\EInvoicing\V1\CreateTradingPartner201Response',
+                        '\Avalara\SDK\Model\EInvoicing\V1\CreateTradingPartner201Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -755,7 +755,7 @@ class TradingPartnersApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse',
+                        '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -763,7 +763,7 @@ class TradingPartnersApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse',
+                        '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -771,7 +771,7 @@ class TradingPartnersApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse',
+                        '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -779,7 +779,7 @@ class TradingPartnersApi
                 case 409:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse',
+                        '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -787,7 +787,7 @@ class TradingPartnersApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse',
+                        '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -830,7 +830,7 @@ class TradingPartnersApi
     public function createTradingPartnerAsyncWithHttpInfo($request_parameters, $isRetry = false)
     {
         $logObject = new LogObject($this->client->logRequestAndResponse);
-        $returnType = '\AvalaraSDK\Model\EInvoicing\V1\CreateTradingPartner201Response';
+        $returnType = '\Avalara\SDK\Model\EInvoicing\V1\CreateTradingPartner201Response';
         $request = $this->createTradingPartnerRequest($request_parameters);
         $logObject->populateRequestInfo($request);
         return $this->client
@@ -1005,9 +1005,9 @@ class TradingPartnersApi
      *
      * @param CreateTradingPartnersBatchRequestSdk The request parameters for the API call.
      *
-     * @throws \AvalaraSDK\ApiException on non-2xx response
+     * @throws \Avalara\SDK\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \AvalaraSDK\Model\EInvoicing\V1\CreateTradingPartnersBatch200Response|\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse|\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse|\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse|\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse|\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse|\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse
+     * @return \Avalara\SDK\Model\EInvoicing\V1\CreateTradingPartnersBatch200Response|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse
      */
     public function createTradingPartnersBatch($request_parameters)
     {
@@ -1022,9 +1022,9 @@ class TradingPartnersApi
      *
      * @param CreateTradingPartnersBatchRequestSdk The request parameters for the API call.
      *
-     * @throws \AvalaraSDK\ApiException on non-2xx response
+     * @throws \Avalara\SDK\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \AvalaraSDK\Model\EInvoicing\V1\CreateTradingPartnersBatch200Response|\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse|\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse|\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse|\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse|\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse|\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Avalara\SDK\Model\EInvoicing\V1\CreateTradingPartnersBatch200Response|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function createTradingPartnersBatchWithHttpInfo($request_parameters, $isRetry = false)
     {
@@ -1080,7 +1080,7 @@ class TradingPartnersApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\AvalaraSDK\Model\EInvoicing\V1\CreateTradingPartnersBatch200Response' === '\SplFileObject') {
+                    if ('\Avalara\SDK\Model\EInvoicing\V1\CreateTradingPartnersBatch200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -1088,12 +1088,12 @@ class TradingPartnersApi
                     $logObject->populateResponseInfo($content, $response);
                     $this->client->logger->info(json_encode($logObject));
                     return [
-                        ObjectSerializer::deserialize($content, '\AvalaraSDK\Model\EInvoicing\V1\CreateTradingPartnersBatch200Response', []),
+                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\CreateTradingPartnersBatch200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse' === '\SplFileObject') {
+                    if ('\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -1101,12 +1101,12 @@ class TradingPartnersApi
                     $logObject->populateResponseInfo($content, $response);
                     $this->client->logger->info(json_encode($logObject));
                     return [
-                        ObjectSerializer::deserialize($content, '\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse', []),
+                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 401:
-                    if ('\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse' === '\SplFileObject') {
+                    if ('\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -1114,12 +1114,12 @@ class TradingPartnersApi
                     $logObject->populateResponseInfo($content, $response);
                     $this->client->logger->info(json_encode($logObject));
                     return [
-                        ObjectSerializer::deserialize($content, '\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse', []),
+                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 403:
-                    if ('\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse' === '\SplFileObject') {
+                    if ('\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -1127,12 +1127,12 @@ class TradingPartnersApi
                     $logObject->populateResponseInfo($content, $response);
                     $this->client->logger->info(json_encode($logObject));
                     return [
-                        ObjectSerializer::deserialize($content, '\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse', []),
+                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 409:
-                    if ('\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse' === '\SplFileObject') {
+                    if ('\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -1140,12 +1140,12 @@ class TradingPartnersApi
                     $logObject->populateResponseInfo($content, $response);
                     $this->client->logger->info(json_encode($logObject));
                     return [
-                        ObjectSerializer::deserialize($content, '\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse', []),
+                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 413:
-                    if ('\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse' === '\SplFileObject') {
+                    if ('\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -1153,12 +1153,12 @@ class TradingPartnersApi
                     $logObject->populateResponseInfo($content, $response);
                     $this->client->logger->info(json_encode($logObject));
                     return [
-                        ObjectSerializer::deserialize($content, '\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse', []),
+                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 500:
-                    if ('\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse' === '\SplFileObject') {
+                    if ('\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -1166,13 +1166,13 @@ class TradingPartnersApi
                     $logObject->populateResponseInfo($content, $response);
                     $this->client->logger->info(json_encode($logObject));
                     return [
-                        ObjectSerializer::deserialize($content, '\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse', []),
+                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\AvalaraSDK\Model\EInvoicing\V1\CreateTradingPartnersBatch200Response';
+            $returnType = '\Avalara\SDK\Model\EInvoicing\V1\CreateTradingPartnersBatch200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1191,7 +1191,7 @@ class TradingPartnersApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\AvalaraSDK\Model\EInvoicing\V1\CreateTradingPartnersBatch200Response',
+                        '\Avalara\SDK\Model\EInvoicing\V1\CreateTradingPartnersBatch200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1199,7 +1199,7 @@ class TradingPartnersApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse',
+                        '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1207,7 +1207,7 @@ class TradingPartnersApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse',
+                        '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1215,7 +1215,7 @@ class TradingPartnersApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse',
+                        '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1223,7 +1223,7 @@ class TradingPartnersApi
                 case 409:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse',
+                        '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1231,7 +1231,7 @@ class TradingPartnersApi
                 case 413:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse',
+                        '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1239,7 +1239,7 @@ class TradingPartnersApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse',
+                        '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1282,7 +1282,7 @@ class TradingPartnersApi
     public function createTradingPartnersBatchAsyncWithHttpInfo($request_parameters, $isRetry = false)
     {
         $logObject = new LogObject($this->client->logRequestAndResponse);
-        $returnType = '\AvalaraSDK\Model\EInvoicing\V1\CreateTradingPartnersBatch200Response';
+        $returnType = '\Avalara\SDK\Model\EInvoicing\V1\CreateTradingPartnersBatch200Response';
         $request = $this->createTradingPartnersBatchRequest($request_parameters);
         $logObject->populateRequestInfo($request);
         return $this->client
@@ -1457,7 +1457,7 @@ class TradingPartnersApi
      *
      * @param DeleteTradingPartnerRequestSdk The request parameters for the API call.
      *
-     * @throws \AvalaraSDK\ApiException on non-2xx response
+     * @throws \Avalara\SDK\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
@@ -1473,7 +1473,7 @@ class TradingPartnersApi
      *
      * @param DeleteTradingPartnerRequestSdk The request parameters for the API call.
      *
-     * @throws \AvalaraSDK\ApiException on non-2xx response
+     * @throws \Avalara\SDK\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
@@ -1535,7 +1535,7 @@ class TradingPartnersApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse',
+                        '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1543,7 +1543,7 @@ class TradingPartnersApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse',
+                        '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1551,7 +1551,7 @@ class TradingPartnersApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse',
+                        '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1559,7 +1559,7 @@ class TradingPartnersApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse',
+                        '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1769,9 +1769,9 @@ class TradingPartnersApi
      *
      * @param DownloadBatchSearchReportRequestSdk The request parameters for the API call.
      *
-     * @throws \AvalaraSDK\ApiException on non-2xx response
+     * @throws \Avalara\SDK\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \SplFileObject|\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse|\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse|\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse|\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse
+     * @return \SplFileObject|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse
      */
     public function downloadBatchSearchReport($request_parameters)
     {
@@ -1786,9 +1786,9 @@ class TradingPartnersApi
      *
      * @param DownloadBatchSearchReportRequestSdk The request parameters for the API call.
      *
-     * @throws \AvalaraSDK\ApiException on non-2xx response
+     * @throws \Avalara\SDK\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \SplFileObject|\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse|\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse|\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse|\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SplFileObject|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function downloadBatchSearchReportWithHttpInfo($request_parameters, $isRetry = false)
     {
@@ -1857,7 +1857,7 @@ class TradingPartnersApi
                         $response->getHeaders()
                     ];
                 case 401:
-                    if ('\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse' === '\SplFileObject') {
+                    if ('\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -1865,12 +1865,12 @@ class TradingPartnersApi
                     $logObject->populateResponseInfo($content, $response);
                     $this->client->logger->info(json_encode($logObject));
                     return [
-                        ObjectSerializer::deserialize($content, '\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse', []),
+                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 403:
-                    if ('\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse' === '\SplFileObject') {
+                    if ('\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -1878,12 +1878,12 @@ class TradingPartnersApi
                     $logObject->populateResponseInfo($content, $response);
                     $this->client->logger->info(json_encode($logObject));
                     return [
-                        ObjectSerializer::deserialize($content, '\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse', []),
+                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 404:
-                    if ('\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse' === '\SplFileObject') {
+                    if ('\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -1891,12 +1891,12 @@ class TradingPartnersApi
                     $logObject->populateResponseInfo($content, $response);
                     $this->client->logger->info(json_encode($logObject));
                     return [
-                        ObjectSerializer::deserialize($content, '\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse', []),
+                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 500:
-                    if ('\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse' === '\SplFileObject') {
+                    if ('\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -1904,7 +1904,7 @@ class TradingPartnersApi
                     $logObject->populateResponseInfo($content, $response);
                     $this->client->logger->info(json_encode($logObject));
                     return [
-                        ObjectSerializer::deserialize($content, '\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse', []),
+                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -1937,7 +1937,7 @@ class TradingPartnersApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse',
+                        '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1945,7 +1945,7 @@ class TradingPartnersApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse',
+                        '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1953,7 +1953,7 @@ class TradingPartnersApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse',
+                        '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1961,7 +1961,7 @@ class TradingPartnersApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse',
+                        '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2181,9 +2181,9 @@ class TradingPartnersApi
      *
      * @param GetBatchSearchDetailRequestSdk The request parameters for the API call.
      *
-     * @throws \AvalaraSDK\ApiException on non-2xx response
+     * @throws \Avalara\SDK\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \AvalaraSDK\Model\EInvoicing\V1\BatchSearch|\AvalaraSDK\Model\EInvoicing\V1\BatchSearchListResponse|\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse|\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse|\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse
+     * @return \Avalara\SDK\Model\EInvoicing\V1\BatchSearch|\Avalara\SDK\Model\EInvoicing\V1\BatchSearchListResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse
      */
     public function getBatchSearchDetail($request_parameters)
     {
@@ -2198,9 +2198,9 @@ class TradingPartnersApi
      *
      * @param GetBatchSearchDetailRequestSdk The request parameters for the API call.
      *
-     * @throws \AvalaraSDK\ApiException on non-2xx response
+     * @throws \Avalara\SDK\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \AvalaraSDK\Model\EInvoicing\V1\BatchSearch|\AvalaraSDK\Model\EInvoicing\V1\BatchSearchListResponse|\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse|\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse|\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Avalara\SDK\Model\EInvoicing\V1\BatchSearch|\Avalara\SDK\Model\EInvoicing\V1\BatchSearchListResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getBatchSearchDetailWithHttpInfo($request_parameters, $isRetry = false)
     {
@@ -2256,7 +2256,7 @@ class TradingPartnersApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\AvalaraSDK\Model\EInvoicing\V1\BatchSearch' === '\SplFileObject') {
+                    if ('\Avalara\SDK\Model\EInvoicing\V1\BatchSearch' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -2264,12 +2264,12 @@ class TradingPartnersApi
                     $logObject->populateResponseInfo($content, $response);
                     $this->client->logger->info(json_encode($logObject));
                     return [
-                        ObjectSerializer::deserialize($content, '\AvalaraSDK\Model\EInvoicing\V1\BatchSearch', []),
+                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\BatchSearch', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 401:
-                    if ('\AvalaraSDK\Model\EInvoicing\V1\BatchSearchListResponse' === '\SplFileObject') {
+                    if ('\Avalara\SDK\Model\EInvoicing\V1\BatchSearchListResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -2277,12 +2277,12 @@ class TradingPartnersApi
                     $logObject->populateResponseInfo($content, $response);
                     $this->client->logger->info(json_encode($logObject));
                     return [
-                        ObjectSerializer::deserialize($content, '\AvalaraSDK\Model\EInvoicing\V1\BatchSearchListResponse', []),
+                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\BatchSearchListResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 403:
-                    if ('\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse' === '\SplFileObject') {
+                    if ('\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -2290,12 +2290,12 @@ class TradingPartnersApi
                     $logObject->populateResponseInfo($content, $response);
                     $this->client->logger->info(json_encode($logObject));
                     return [
-                        ObjectSerializer::deserialize($content, '\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse', []),
+                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 404:
-                    if ('\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse' === '\SplFileObject') {
+                    if ('\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -2303,12 +2303,12 @@ class TradingPartnersApi
                     $logObject->populateResponseInfo($content, $response);
                     $this->client->logger->info(json_encode($logObject));
                     return [
-                        ObjectSerializer::deserialize($content, '\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse', []),
+                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 500:
-                    if ('\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse' === '\SplFileObject') {
+                    if ('\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -2316,13 +2316,13 @@ class TradingPartnersApi
                     $logObject->populateResponseInfo($content, $response);
                     $this->client->logger->info(json_encode($logObject));
                     return [
-                        ObjectSerializer::deserialize($content, '\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse', []),
+                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\AvalaraSDK\Model\EInvoicing\V1\BatchSearch';
+            $returnType = '\Avalara\SDK\Model\EInvoicing\V1\BatchSearch';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -2341,7 +2341,7 @@ class TradingPartnersApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\AvalaraSDK\Model\EInvoicing\V1\BatchSearch',
+                        '\Avalara\SDK\Model\EInvoicing\V1\BatchSearch',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2349,7 +2349,7 @@ class TradingPartnersApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\AvalaraSDK\Model\EInvoicing\V1\BatchSearchListResponse',
+                        '\Avalara\SDK\Model\EInvoicing\V1\BatchSearchListResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2357,7 +2357,7 @@ class TradingPartnersApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse',
+                        '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2365,7 +2365,7 @@ class TradingPartnersApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse',
+                        '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2373,7 +2373,7 @@ class TradingPartnersApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse',
+                        '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2416,7 +2416,7 @@ class TradingPartnersApi
     public function getBatchSearchDetailAsyncWithHttpInfo($request_parameters, $isRetry = false)
     {
         $logObject = new LogObject($this->client->logRequestAndResponse);
-        $returnType = '\AvalaraSDK\Model\EInvoicing\V1\BatchSearch';
+        $returnType = '\Avalara\SDK\Model\EInvoicing\V1\BatchSearch';
         $request = $this->getBatchSearchDetailRequest($request_parameters);
         $logObject->populateRequestInfo($request);
         return $this->client
@@ -2593,9 +2593,9 @@ class TradingPartnersApi
      *
      * @param ListBatchSearchesRequestSdk The request parameters for the API call.
      *
-     * @throws \AvalaraSDK\ApiException on non-2xx response
+     * @throws \Avalara\SDK\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \AvalaraSDK\Model\EInvoicing\V1\BatchSearchListResponse|\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse|\AvalaraSDK\Model\EInvoicing\V1\BatchSearchListResponse|\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse|\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse
+     * @return \Avalara\SDK\Model\EInvoicing\V1\BatchSearchListResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\BatchSearchListResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse
      */
     public function listBatchSearches($request_parameters)
     {
@@ -2610,9 +2610,9 @@ class TradingPartnersApi
      *
      * @param ListBatchSearchesRequestSdk The request parameters for the API call.
      *
-     * @throws \AvalaraSDK\ApiException on non-2xx response
+     * @throws \Avalara\SDK\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \AvalaraSDK\Model\EInvoicing\V1\BatchSearchListResponse|\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse|\AvalaraSDK\Model\EInvoicing\V1\BatchSearchListResponse|\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse|\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Avalara\SDK\Model\EInvoicing\V1\BatchSearchListResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\BatchSearchListResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function listBatchSearchesWithHttpInfo($request_parameters, $isRetry = false)
     {
@@ -2668,7 +2668,7 @@ class TradingPartnersApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\AvalaraSDK\Model\EInvoicing\V1\BatchSearchListResponse' === '\SplFileObject') {
+                    if ('\Avalara\SDK\Model\EInvoicing\V1\BatchSearchListResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -2676,12 +2676,12 @@ class TradingPartnersApi
                     $logObject->populateResponseInfo($content, $response);
                     $this->client->logger->info(json_encode($logObject));
                     return [
-                        ObjectSerializer::deserialize($content, '\AvalaraSDK\Model\EInvoicing\V1\BatchSearchListResponse', []),
+                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\BatchSearchListResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse' === '\SplFileObject') {
+                    if ('\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -2689,12 +2689,12 @@ class TradingPartnersApi
                     $logObject->populateResponseInfo($content, $response);
                     $this->client->logger->info(json_encode($logObject));
                     return [
-                        ObjectSerializer::deserialize($content, '\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse', []),
+                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 401:
-                    if ('\AvalaraSDK\Model\EInvoicing\V1\BatchSearchListResponse' === '\SplFileObject') {
+                    if ('\Avalara\SDK\Model\EInvoicing\V1\BatchSearchListResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -2702,12 +2702,12 @@ class TradingPartnersApi
                     $logObject->populateResponseInfo($content, $response);
                     $this->client->logger->info(json_encode($logObject));
                     return [
-                        ObjectSerializer::deserialize($content, '\AvalaraSDK\Model\EInvoicing\V1\BatchSearchListResponse', []),
+                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\BatchSearchListResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 403:
-                    if ('\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse' === '\SplFileObject') {
+                    if ('\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -2715,12 +2715,12 @@ class TradingPartnersApi
                     $logObject->populateResponseInfo($content, $response);
                     $this->client->logger->info(json_encode($logObject));
                     return [
-                        ObjectSerializer::deserialize($content, '\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse', []),
+                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 500:
-                    if ('\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse' === '\SplFileObject') {
+                    if ('\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -2728,13 +2728,13 @@ class TradingPartnersApi
                     $logObject->populateResponseInfo($content, $response);
                     $this->client->logger->info(json_encode($logObject));
                     return [
-                        ObjectSerializer::deserialize($content, '\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse', []),
+                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\AvalaraSDK\Model\EInvoicing\V1\BatchSearchListResponse';
+            $returnType = '\Avalara\SDK\Model\EInvoicing\V1\BatchSearchListResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -2753,7 +2753,7 @@ class TradingPartnersApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\AvalaraSDK\Model\EInvoicing\V1\BatchSearchListResponse',
+                        '\Avalara\SDK\Model\EInvoicing\V1\BatchSearchListResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2761,7 +2761,7 @@ class TradingPartnersApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse',
+                        '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2769,7 +2769,7 @@ class TradingPartnersApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\AvalaraSDK\Model\EInvoicing\V1\BatchSearchListResponse',
+                        '\Avalara\SDK\Model\EInvoicing\V1\BatchSearchListResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2777,7 +2777,7 @@ class TradingPartnersApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse',
+                        '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2785,7 +2785,7 @@ class TradingPartnersApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse',
+                        '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2828,7 +2828,7 @@ class TradingPartnersApi
     public function listBatchSearchesAsyncWithHttpInfo($request_parameters, $isRetry = false)
     {
         $logObject = new LogObject($this->client->logRequestAndResponse);
-        $returnType = '\AvalaraSDK\Model\EInvoicing\V1\BatchSearchListResponse';
+        $returnType = '\Avalara\SDK\Model\EInvoicing\V1\BatchSearchListResponse';
         $request = $this->listBatchSearchesRequest($request_parameters);
         $logObject->populateRequestInfo($request);
         return $this->client
@@ -3050,9 +3050,9 @@ class TradingPartnersApi
      *
      * @param SearchParticipantsRequestSdk The request parameters for the API call.
      *
-     * @throws \AvalaraSDK\ApiException on non-2xx response
+     * @throws \Avalara\SDK\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \AvalaraSDK\Model\EInvoicing\V1\SearchParticipants200Response|\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse|\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse|\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse|\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse
+     * @return \Avalara\SDK\Model\EInvoicing\V1\SearchParticipants200Response|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse
      */
     public function searchParticipants($request_parameters)
     {
@@ -3067,9 +3067,9 @@ class TradingPartnersApi
      *
      * @param SearchParticipantsRequestSdk The request parameters for the API call.
      *
-     * @throws \AvalaraSDK\ApiException on non-2xx response
+     * @throws \Avalara\SDK\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \AvalaraSDK\Model\EInvoicing\V1\SearchParticipants200Response|\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse|\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse|\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse|\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Avalara\SDK\Model\EInvoicing\V1\SearchParticipants200Response|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function searchParticipantsWithHttpInfo($request_parameters, $isRetry = false)
     {
@@ -3125,7 +3125,7 @@ class TradingPartnersApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\AvalaraSDK\Model\EInvoicing\V1\SearchParticipants200Response' === '\SplFileObject') {
+                    if ('\Avalara\SDK\Model\EInvoicing\V1\SearchParticipants200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -3133,12 +3133,12 @@ class TradingPartnersApi
                     $logObject->populateResponseInfo($content, $response);
                     $this->client->logger->info(json_encode($logObject));
                     return [
-                        ObjectSerializer::deserialize($content, '\AvalaraSDK\Model\EInvoicing\V1\SearchParticipants200Response', []),
+                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\SearchParticipants200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse' === '\SplFileObject') {
+                    if ('\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -3146,12 +3146,12 @@ class TradingPartnersApi
                     $logObject->populateResponseInfo($content, $response);
                     $this->client->logger->info(json_encode($logObject));
                     return [
-                        ObjectSerializer::deserialize($content, '\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse', []),
+                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 401:
-                    if ('\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse' === '\SplFileObject') {
+                    if ('\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -3159,12 +3159,12 @@ class TradingPartnersApi
                     $logObject->populateResponseInfo($content, $response);
                     $this->client->logger->info(json_encode($logObject));
                     return [
-                        ObjectSerializer::deserialize($content, '\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse', []),
+                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 403:
-                    if ('\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse' === '\SplFileObject') {
+                    if ('\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -3172,12 +3172,12 @@ class TradingPartnersApi
                     $logObject->populateResponseInfo($content, $response);
                     $this->client->logger->info(json_encode($logObject));
                     return [
-                        ObjectSerializer::deserialize($content, '\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse', []),
+                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 500:
-                    if ('\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse' === '\SplFileObject') {
+                    if ('\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -3185,13 +3185,13 @@ class TradingPartnersApi
                     $logObject->populateResponseInfo($content, $response);
                     $this->client->logger->info(json_encode($logObject));
                     return [
-                        ObjectSerializer::deserialize($content, '\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse', []),
+                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\AvalaraSDK\Model\EInvoicing\V1\SearchParticipants200Response';
+            $returnType = '\Avalara\SDK\Model\EInvoicing\V1\SearchParticipants200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -3210,7 +3210,7 @@ class TradingPartnersApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\AvalaraSDK\Model\EInvoicing\V1\SearchParticipants200Response',
+                        '\Avalara\SDK\Model\EInvoicing\V1\SearchParticipants200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3218,7 +3218,7 @@ class TradingPartnersApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse',
+                        '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3226,7 +3226,7 @@ class TradingPartnersApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse',
+                        '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3234,7 +3234,7 @@ class TradingPartnersApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse',
+                        '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3242,7 +3242,7 @@ class TradingPartnersApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse',
+                        '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3285,7 +3285,7 @@ class TradingPartnersApi
     public function searchParticipantsAsyncWithHttpInfo($request_parameters, $isRetry = false)
     {
         $logObject = new LogObject($this->client->logRequestAndResponse);
-        $returnType = '\AvalaraSDK\Model\EInvoicing\V1\SearchParticipants200Response';
+        $returnType = '\Avalara\SDK\Model\EInvoicing\V1\SearchParticipants200Response';
         $request = $this->searchParticipantsRequest($request_parameters);
         $logObject->populateRequestInfo($request);
         return $this->client
@@ -3525,9 +3525,9 @@ class TradingPartnersApi
      *
      * @param UpdateTradingPartnerRequestSdk The request parameters for the API call.
      *
-     * @throws \AvalaraSDK\ApiException on non-2xx response
+     * @throws \Avalara\SDK\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \AvalaraSDK\Model\EInvoicing\V1\UpdateTradingPartner200Response|\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse|\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse|\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse|\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse|\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse|\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse
+     * @return \Avalara\SDK\Model\EInvoicing\V1\UpdateTradingPartner200Response|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse
      */
     public function updateTradingPartner($request_parameters)
     {
@@ -3542,9 +3542,9 @@ class TradingPartnersApi
      *
      * @param UpdateTradingPartnerRequestSdk The request parameters for the API call.
      *
-     * @throws \AvalaraSDK\ApiException on non-2xx response
+     * @throws \Avalara\SDK\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \AvalaraSDK\Model\EInvoicing\V1\UpdateTradingPartner200Response|\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse|\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse|\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse|\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse|\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse|\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Avalara\SDK\Model\EInvoicing\V1\UpdateTradingPartner200Response|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateTradingPartnerWithHttpInfo($request_parameters, $isRetry = false)
     {
@@ -3600,7 +3600,7 @@ class TradingPartnersApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\AvalaraSDK\Model\EInvoicing\V1\UpdateTradingPartner200Response' === '\SplFileObject') {
+                    if ('\Avalara\SDK\Model\EInvoicing\V1\UpdateTradingPartner200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -3608,12 +3608,12 @@ class TradingPartnersApi
                     $logObject->populateResponseInfo($content, $response);
                     $this->client->logger->info(json_encode($logObject));
                     return [
-                        ObjectSerializer::deserialize($content, '\AvalaraSDK\Model\EInvoicing\V1\UpdateTradingPartner200Response', []),
+                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\UpdateTradingPartner200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse' === '\SplFileObject') {
+                    if ('\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -3621,12 +3621,12 @@ class TradingPartnersApi
                     $logObject->populateResponseInfo($content, $response);
                     $this->client->logger->info(json_encode($logObject));
                     return [
-                        ObjectSerializer::deserialize($content, '\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse', []),
+                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 401:
-                    if ('\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse' === '\SplFileObject') {
+                    if ('\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -3634,12 +3634,12 @@ class TradingPartnersApi
                     $logObject->populateResponseInfo($content, $response);
                     $this->client->logger->info(json_encode($logObject));
                     return [
-                        ObjectSerializer::deserialize($content, '\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse', []),
+                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 403:
-                    if ('\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse' === '\SplFileObject') {
+                    if ('\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -3647,12 +3647,12 @@ class TradingPartnersApi
                     $logObject->populateResponseInfo($content, $response);
                     $this->client->logger->info(json_encode($logObject));
                     return [
-                        ObjectSerializer::deserialize($content, '\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse', []),
+                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 404:
-                    if ('\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse' === '\SplFileObject') {
+                    if ('\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -3660,12 +3660,12 @@ class TradingPartnersApi
                     $logObject->populateResponseInfo($content, $response);
                     $this->client->logger->info(json_encode($logObject));
                     return [
-                        ObjectSerializer::deserialize($content, '\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse', []),
+                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 409:
-                    if ('\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse' === '\SplFileObject') {
+                    if ('\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -3673,12 +3673,12 @@ class TradingPartnersApi
                     $logObject->populateResponseInfo($content, $response);
                     $this->client->logger->info(json_encode($logObject));
                     return [
-                        ObjectSerializer::deserialize($content, '\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse', []),
+                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 500:
-                    if ('\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse' === '\SplFileObject') {
+                    if ('\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -3686,13 +3686,13 @@ class TradingPartnersApi
                     $logObject->populateResponseInfo($content, $response);
                     $this->client->logger->info(json_encode($logObject));
                     return [
-                        ObjectSerializer::deserialize($content, '\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse', []),
+                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\AvalaraSDK\Model\EInvoicing\V1\UpdateTradingPartner200Response';
+            $returnType = '\Avalara\SDK\Model\EInvoicing\V1\UpdateTradingPartner200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -3711,7 +3711,7 @@ class TradingPartnersApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\AvalaraSDK\Model\EInvoicing\V1\UpdateTradingPartner200Response',
+                        '\Avalara\SDK\Model\EInvoicing\V1\UpdateTradingPartner200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3719,7 +3719,7 @@ class TradingPartnersApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse',
+                        '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3727,7 +3727,7 @@ class TradingPartnersApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse',
+                        '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3735,7 +3735,7 @@ class TradingPartnersApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse',
+                        '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3743,7 +3743,7 @@ class TradingPartnersApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse',
+                        '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3751,7 +3751,7 @@ class TradingPartnersApi
                 case 409:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse',
+                        '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3759,7 +3759,7 @@ class TradingPartnersApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse',
+                        '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3802,7 +3802,7 @@ class TradingPartnersApi
     public function updateTradingPartnerAsyncWithHttpInfo($request_parameters, $isRetry = false)
     {
         $logObject = new LogObject($this->client->logRequestAndResponse);
-        $returnType = '\AvalaraSDK\Model\EInvoicing\V1\UpdateTradingPartner200Response';
+        $returnType = '\Avalara\SDK\Model\EInvoicing\V1\UpdateTradingPartner200Response';
         $request = $this->updateTradingPartnerRequest($request_parameters);
         $logObject->populateRequestInfo($request);
         return $this->client
@@ -4054,7 +4054,7 @@ class BatchSearchParticipantsRequestSdk {
      * Represents the Request object for the CreateTradingPartner API
      *
      * @param  string $avalara_version Header that specifies the API version to use (for example \&quot;1.6\&quot;). (required)
-     * @param  \AvalaraSDK\Model\EInvoicing\V1\TradingPartner $trading_partner trading_partner (required)
+     * @param  \Avalara\SDK\Model\EInvoicing\V1\TradingPartner $trading_partner trading_partner (required)
      * @param  string $x_avalara_client Optional header for a client identifier string used for diagnostics (for example \&quot;Fingerprint\&quot;). (optional)
      * @param  string $x_correlation_id Optional correlation identifier provided by the caller to trace the call (for example \&quot;f3f0d19a-01a1-4748-8a58-f000d0424f43\&quot;). (optional)
      */
@@ -4100,7 +4100,7 @@ class CreateTradingPartnerRequestSdk {
      * Represents the Request object for the CreateTradingPartnersBatch API
      *
      * @param  string $avalara_version Header that specifies the API version to use (for example \&quot;1.6\&quot;). (required)
-     * @param  \AvalaraSDK\Model\EInvoicing\V1\CreateTradingPartnersBatchRequest $create_trading_partners_batch_request create_trading_partners_batch_request (required)
+     * @param  \Avalara\SDK\Model\EInvoicing\V1\CreateTradingPartnersBatchRequest $create_trading_partners_batch_request create_trading_partners_batch_request (required)
      * @param  string $x_avalara_client Optional header for a client identifier string used for diagnostics (for example \&quot;Fingerprint\&quot;). (optional)
      * @param  string $x_correlation_id Optional correlation identifier provided by the caller to trace the call (for example \&quot;f3f0d19a-01a1-4748-8a58-f000d0424f43\&quot;). (optional)
      */
@@ -4458,7 +4458,7 @@ class SearchParticipantsRequestSdk {
      *
      * @param  string $avalara_version Header that specifies the API version to use (for example \&quot;1.6\&quot;). (required)
      * @param  string $id Unique identifier of the trading partner. (required)
-     * @param  \AvalaraSDK\Model\EInvoicing\V1\TradingPartner $trading_partner trading_partner (required)
+     * @param  \Avalara\SDK\Model\EInvoicing\V1\TradingPartner $trading_partner trading_partner (required)
      * @param  string $x_avalara_client Optional header for a client identifier string used for diagnostics (for example \&quot;Fingerprint\&quot;). (optional)
      * @param  string $x_correlation_id Optional correlation identifier provided by the caller to trace the call (for example \&quot;f3f0d19a-01a1-4748-8a58-f000d0424f43\&quot;). (optional)
      */

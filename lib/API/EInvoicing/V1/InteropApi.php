@@ -19,7 +19,7 @@
  * An API that supports sending data for an E-Invoicing compliance use-case.
  *
  * @category   Avalara client libraries
- * @package    AvalaraSDK\API\EInvoicing\V1
+ * @package    Avalara\SDK\API\EInvoicing\V1
  * @author     Sachin Baijal <sachin.baijal@avalara.com>
  * @author     Jonathan Wenger <jonathan.wenger@avalara.com>
  * @copyright  2004-2025 Avalara, Inc.
@@ -30,7 +30,7 @@
 
 
 
-namespace AvalaraSDK\API\EInvoicing\V1;
+namespace Avalara\SDK\API\EInvoicing\V1;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -39,12 +39,12 @@ use GuzzleHttp\Exception\ConnectException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use AvalaraSDK\ApiClient;
-use AvalaraSDK\ApiException;
-use AvalaraSDK\Configuration;
-use AvalaraSDK\HeaderSelector;
-use AvalaraSDK\ObjectSerializer;
-use AvalaraSDK\Utils\LogObject;
+use Avalara\SDK\ApiClient;
+use Avalara\SDK\ApiException;
+use Avalara\SDK\Configuration;
+use Avalara\SDK\HeaderSelector;
+use Avalara\SDK\ObjectSerializer;
+use Avalara\SDK\Utils\LogObject;
 
 class InteropApi
 {
@@ -122,9 +122,9 @@ class InteropApi
      *
      * @param SubmitInteropDocumentRequestSdk The request parameters for the API call.
      *
-     * @throws \AvalaraSDK\ApiException on non-2xx response
+     * @throws \Avalara\SDK\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \AvalaraSDK\Model\EInvoicing\V1\SubmitInteropDocument202Response|\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse|\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse|\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse|\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse
+     * @return \Avalara\SDK\Model\EInvoicing\V1\SubmitInteropDocument202Response|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse
      */
     public function submitInteropDocument($request_parameters)
     {
@@ -139,9 +139,9 @@ class InteropApi
      *
      * @param SubmitInteropDocumentRequestSdk The request parameters for the API call.
      *
-     * @throws \AvalaraSDK\ApiException on non-2xx response
+     * @throws \Avalara\SDK\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \AvalaraSDK\Model\EInvoicing\V1\SubmitInteropDocument202Response|\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse|\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse|\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse|\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Avalara\SDK\Model\EInvoicing\V1\SubmitInteropDocument202Response|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function submitInteropDocumentWithHttpInfo($request_parameters, $isRetry = false)
     {
@@ -197,7 +197,7 @@ class InteropApi
 
             switch($statusCode) {
                 case 202:
-                    if ('\AvalaraSDK\Model\EInvoicing\V1\SubmitInteropDocument202Response' === '\SplFileObject') {
+                    if ('\Avalara\SDK\Model\EInvoicing\V1\SubmitInteropDocument202Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -205,12 +205,12 @@ class InteropApi
                     $logObject->populateResponseInfo($content, $response);
                     $this->client->logger->info(json_encode($logObject));
                     return [
-                        ObjectSerializer::deserialize($content, '\AvalaraSDK\Model\EInvoicing\V1\SubmitInteropDocument202Response', []),
+                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\SubmitInteropDocument202Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse' === '\SplFileObject') {
+                    if ('\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -218,12 +218,12 @@ class InteropApi
                     $logObject->populateResponseInfo($content, $response);
                     $this->client->logger->info(json_encode($logObject));
                     return [
-                        ObjectSerializer::deserialize($content, '\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse', []),
+                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 401:
-                    if ('\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse' === '\SplFileObject') {
+                    if ('\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -231,12 +231,12 @@ class InteropApi
                     $logObject->populateResponseInfo($content, $response);
                     $this->client->logger->info(json_encode($logObject));
                     return [
-                        ObjectSerializer::deserialize($content, '\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse', []),
+                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 403:
-                    if ('\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse' === '\SplFileObject') {
+                    if ('\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -244,12 +244,12 @@ class InteropApi
                     $logObject->populateResponseInfo($content, $response);
                     $this->client->logger->info(json_encode($logObject));
                     return [
-                        ObjectSerializer::deserialize($content, '\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse', []),
+                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 500:
-                    if ('\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse' === '\SplFileObject') {
+                    if ('\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -257,13 +257,13 @@ class InteropApi
                     $logObject->populateResponseInfo($content, $response);
                     $this->client->logger->info(json_encode($logObject));
                     return [
-                        ObjectSerializer::deserialize($content, '\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse', []),
+                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\AvalaraSDK\Model\EInvoicing\V1\SubmitInteropDocument202Response';
+            $returnType = '\Avalara\SDK\Model\EInvoicing\V1\SubmitInteropDocument202Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -282,7 +282,7 @@ class InteropApi
                 case 202:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\AvalaraSDK\Model\EInvoicing\V1\SubmitInteropDocument202Response',
+                        '\Avalara\SDK\Model\EInvoicing\V1\SubmitInteropDocument202Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -290,7 +290,7 @@ class InteropApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse',
+                        '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -298,7 +298,7 @@ class InteropApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse',
+                        '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -306,7 +306,7 @@ class InteropApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse',
+                        '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -314,7 +314,7 @@ class InteropApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\AvalaraSDK\Model\EInvoicing\V1\ErrorResponse',
+                        '\Avalara\SDK\Model\EInvoicing\V1\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -357,7 +357,7 @@ class InteropApi
     public function submitInteropDocumentAsyncWithHttpInfo($request_parameters, $isRetry = false)
     {
         $logObject = new LogObject($this->client->logRequestAndResponse);
-        $returnType = '\AvalaraSDK\Model\EInvoicing\V1\SubmitInteropDocument202Response';
+        $returnType = '\Avalara\SDK\Model\EInvoicing\V1\SubmitInteropDocument202Response';
         $request = $this->submitInteropDocumentRequest($request_parameters);
         $logObject->populateRequestInfo($request);
         return $this->client

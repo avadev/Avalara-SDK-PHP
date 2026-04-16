@@ -1,4 +1,4 @@
-# AvalaraSDK\ReportsApi
+# Avalara\SDK\ReportsApi
 
 All URIs are relative to https://api.sbx.avalara.com/einvoicing.
 
@@ -12,7 +12,7 @@ Method | HTTP request | Description
 ## `downloadReport()`
 
 ```php
-downloadReport($avalara_version, $report_id, $x_avalara_client, $x_correlation_id): \AvalaraSDK\Model\EInvoicing\V1\ReportDownloadResponse
+downloadReport($avalara_version, $report_id, $x_avalara_client, $x_correlation_id): \Avalara\SDK\Model\EInvoicing\V1\ReportDownloadResponse
 ```
 
 Returns a pre-signed download URL for a report
@@ -35,7 +35,7 @@ $config = new \Avalara\SDK\Configuration()
 
 $client = new \Avalara\SDK\ApiClient($config);
 
-$apiInstance = new AvalaraSDK\Api\ReportsApi($client);
+$apiInstance = new Avalara\SDK\Api\ReportsApi($client);
 
 $avalara_version = 1.6; // string | Header that specifies the API version to use (for example \"1.6\").
 $report_id = 'report_id_example'; // string | The unique ID for this report as returned in a GET /reports response.
@@ -61,7 +61,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\AvalaraSDK\Model\EInvoicing\V1\ReportDownloadResponse**](../Model/ReportDownloadResponse.md)
+[**\Avalara\SDK\Model\EInvoicing\V1\ReportDownloadResponse**](../Model/ReportDownloadResponse.md)
 
 ### Authorization
 
@@ -79,7 +79,7 @@ Name | Type | Description  | Notes
 ## `getReportById()`
 
 ```php
-getReportById($avalara_version, $report_id, $x_avalara_client, $x_correlation_id): \AvalaraSDK\Model\EInvoicing\V1\ReportItem
+getReportById($avalara_version, $report_id, $x_avalara_client, $x_correlation_id): \Avalara\SDK\Model\EInvoicing\V1\ReportItem
 ```
 
 Retrieves a report by its unique ID
@@ -102,7 +102,7 @@ $config = new \Avalara\SDK\Configuration()
 
 $client = new \Avalara\SDK\ApiClient($config);
 
-$apiInstance = new AvalaraSDK\Api\ReportsApi($client);
+$apiInstance = new Avalara\SDK\Api\ReportsApi($client);
 
 $avalara_version = 1.6; // string | Header that specifies the API version to use (for example \"1.6\").
 $report_id = 'report_id_example'; // string | The unique ID for this report as returned in a GET /reports response.
@@ -128,7 +128,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\AvalaraSDK\Model\EInvoicing\V1\ReportItem**](../Model/ReportItem.md)
+[**\Avalara\SDK\Model\EInvoicing\V1\ReportItem**](../Model/ReportItem.md)
 
 ### Authorization
 
@@ -146,7 +146,7 @@ Name | Type | Description  | Notes
 ## `getReports()`
 
 ```php
-getReports($avalara_version, $x_avalara_client, $x_correlation_id, $filter, $top, $skip, $count, $count_only, $orderby): \AvalaraSDK\Model\EInvoicing\V1\ReportListResponse
+getReports($avalara_version, $x_avalara_client, $x_correlation_id, $filter, $top, $skip, $count, $count_only, $orderby): \Avalara\SDK\Model\EInvoicing\V1\ReportListResponse
 ```
 
 Returns a list of reports
@@ -169,7 +169,7 @@ $config = new \Avalara\SDK\Configuration()
 
 $client = new \Avalara\SDK\ApiClient($config);
 
-$apiInstance = new AvalaraSDK\Api\ReportsApi($client);
+$apiInstance = new Avalara\SDK\Api\ReportsApi($client);
 
 $avalara_version = 1.6; // string | Header that specifies the API version to use (for example \"1.6\").
 $x_avalara_client = John's E-Invoicing-API Client; // string | Optional header for a client identifier string used for diagnostics (for example \"Fingerprint\").
@@ -205,7 +205,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\AvalaraSDK\Model\EInvoicing\V1\ReportListResponse**](../Model/ReportListResponse.md)
+[**\Avalara\SDK\Model\EInvoicing\V1\ReportListResponse**](../Model/ReportListResponse.md)
 
 ### Authorization
 

@@ -19,7 +19,7 @@
  * An API that supports sending data for an E-Invoicing compliance use-case.
  *
  * @category   Avalara client libraries
- * @package    AvalaraSDK\API\EInvoicing\V1
+ * @package    Avalara\SDK\API\EInvoicing\V1
  * @author     Sachin Baijal <sachin.baijal@avalara.com>
  * @author     Jonathan Wenger <jonathan.wenger@avalara.com>
  * @copyright  2004-2025 Avalara, Inc.
@@ -30,7 +30,7 @@
 
 
 
-namespace AvalaraSDK\API\EInvoicing\V1;
+namespace Avalara\SDK\API\EInvoicing\V1;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -39,12 +39,12 @@ use GuzzleHttp\Exception\ConnectException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use AvalaraSDK\ApiClient;
-use AvalaraSDK\ApiException;
-use AvalaraSDK\Configuration;
-use AvalaraSDK\HeaderSelector;
-use AvalaraSDK\ObjectSerializer;
-use AvalaraSDK\Utils\LogObject;
+use Avalara\SDK\ApiClient;
+use Avalara\SDK\ApiException;
+use Avalara\SDK\Configuration;
+use Avalara\SDK\HeaderSelector;
+use Avalara\SDK\ObjectSerializer;
+use Avalara\SDK\Utils\LogObject;
 
 class DataInputFieldsApi
 {
@@ -122,9 +122,9 @@ class DataInputFieldsApi
      *
      * @param GetDataInputFieldsRequestSdk The request parameters for the API call.
      *
-     * @throws \AvalaraSDK\ApiException on non-2xx response
+     * @throws \Avalara\SDK\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \AvalaraSDK\Model\EInvoicing\V1\DataInputFieldsResponse|\AvalaraSDK\Model\EInvoicing\V1\ForbiddenError|\AvalaraSDK\Model\EInvoicing\V1\InternalServerError
+     * @return \Avalara\SDK\Model\EInvoicing\V1\DataInputFieldsResponse|\Avalara\SDK\Model\EInvoicing\V1\ForbiddenError|\Avalara\SDK\Model\EInvoicing\V1\InternalServerError
      */
     public function getDataInputFields($request_parameters)
     {
@@ -139,9 +139,9 @@ class DataInputFieldsApi
      *
      * @param GetDataInputFieldsRequestSdk The request parameters for the API call.
      *
-     * @throws \AvalaraSDK\ApiException on non-2xx response
+     * @throws \Avalara\SDK\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \AvalaraSDK\Model\EInvoicing\V1\DataInputFieldsResponse|\AvalaraSDK\Model\EInvoicing\V1\ForbiddenError|\AvalaraSDK\Model\EInvoicing\V1\InternalServerError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Avalara\SDK\Model\EInvoicing\V1\DataInputFieldsResponse|\Avalara\SDK\Model\EInvoicing\V1\ForbiddenError|\Avalara\SDK\Model\EInvoicing\V1\InternalServerError, HTTP status code, HTTP response headers (array of strings)
      */
     public function getDataInputFieldsWithHttpInfo($request_parameters, $isRetry = false)
     {
@@ -197,7 +197,7 @@ class DataInputFieldsApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\AvalaraSDK\Model\EInvoicing\V1\DataInputFieldsResponse' === '\SplFileObject') {
+                    if ('\Avalara\SDK\Model\EInvoicing\V1\DataInputFieldsResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -205,12 +205,12 @@ class DataInputFieldsApi
                     $logObject->populateResponseInfo($content, $response);
                     $this->client->logger->info(json_encode($logObject));
                     return [
-                        ObjectSerializer::deserialize($content, '\AvalaraSDK\Model\EInvoicing\V1\DataInputFieldsResponse', []),
+                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\DataInputFieldsResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 403:
-                    if ('\AvalaraSDK\Model\EInvoicing\V1\ForbiddenError' === '\SplFileObject') {
+                    if ('\Avalara\SDK\Model\EInvoicing\V1\ForbiddenError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -218,12 +218,12 @@ class DataInputFieldsApi
                     $logObject->populateResponseInfo($content, $response);
                     $this->client->logger->info(json_encode($logObject));
                     return [
-                        ObjectSerializer::deserialize($content, '\AvalaraSDK\Model\EInvoicing\V1\ForbiddenError', []),
+                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\ForbiddenError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 500:
-                    if ('\AvalaraSDK\Model\EInvoicing\V1\InternalServerError' === '\SplFileObject') {
+                    if ('\Avalara\SDK\Model\EInvoicing\V1\InternalServerError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -231,13 +231,13 @@ class DataInputFieldsApi
                     $logObject->populateResponseInfo($content, $response);
                     $this->client->logger->info(json_encode($logObject));
                     return [
-                        ObjectSerializer::deserialize($content, '\AvalaraSDK\Model\EInvoicing\V1\InternalServerError', []),
+                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\InternalServerError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\AvalaraSDK\Model\EInvoicing\V1\DataInputFieldsResponse';
+            $returnType = '\Avalara\SDK\Model\EInvoicing\V1\DataInputFieldsResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -256,7 +256,7 @@ class DataInputFieldsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\AvalaraSDK\Model\EInvoicing\V1\DataInputFieldsResponse',
+                        '\Avalara\SDK\Model\EInvoicing\V1\DataInputFieldsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -264,7 +264,7 @@ class DataInputFieldsApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\AvalaraSDK\Model\EInvoicing\V1\ForbiddenError',
+                        '\Avalara\SDK\Model\EInvoicing\V1\ForbiddenError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -272,7 +272,7 @@ class DataInputFieldsApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\AvalaraSDK\Model\EInvoicing\V1\InternalServerError',
+                        '\Avalara\SDK\Model\EInvoicing\V1\InternalServerError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -315,7 +315,7 @@ class DataInputFieldsApi
     public function getDataInputFieldsAsyncWithHttpInfo($request_parameters, $isRetry = false)
     {
         $logObject = new LogObject($this->client->logRequestAndResponse);
-        $returnType = '\AvalaraSDK\Model\EInvoicing\V1\DataInputFieldsResponse';
+        $returnType = '\Avalara\SDK\Model\EInvoicing\V1\DataInputFieldsResponse';
         $request = $this->getDataInputFieldsRequest($request_parameters);
         $logObject->populateRequestInfo($request);
         return $this->client

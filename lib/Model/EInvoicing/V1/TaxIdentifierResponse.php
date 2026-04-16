@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  AvalaraSDK
+ * @package  Avalara\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -23,7 +23,7 @@
  * An API that supports sending data for an E-Invoicing compliance use-case.
  *
  * @category   Avalara client libraries
- * @package    AvalaraSDK\API\EInvoicing\V1
+ * @package    Avalara\SDK\API\EInvoicing\V1
  * @author     Sachin Baijal <sachin.baijal@avalara.com>
  * @author     Jonathan Wenger <jonathan.wenger@avalara.com>
  * @copyright  2004-2025 Avalara, Inc.
@@ -38,17 +38,17 @@
  * Do not edit the class manually.
  */
 
-namespace AvalaraSDK\Model\EInvoicing\V1;
+namespace Avalara\SDK\Model\EInvoicing\V1;
 
 use \ArrayAccess;
-use \AvalaraSDK\ObjectSerializer;
-use \AvalaraSDK\Model\ModelInterface;
+use \Avalara\SDK\ObjectSerializer;
+use \Avalara\SDK\Model\ModelInterface;
 /**
  * TaxIdentifierResponse Class Doc Comment
  *
  * @category Class
  * @description Represents the response for a tax identifier validation request.
- * @package  AvalaraSDK
+ * @package  Avalara\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -73,7 +73,7 @@ class TaxIdentifierResponse implements ModelInterface, ArrayAccess, \JsonSeriali
       */
     protected static $openAPITypes = [
         'country_code' => 'string',
-        'value' => '\AvalaraSDK\Model\EInvoicing\V1\TaxIdentifierResponseValue'
+        'value' => '\Avalara\SDK\Model\EInvoicing\V1\TaxIdentifierResponseValue'
     ];
 
     /**
@@ -254,7 +254,7 @@ class TaxIdentifierResponse implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets value
      *
-     * @return \AvalaraSDK\Model\EInvoicing\V1\TaxIdentifierResponseValue|null
+     * @return \Avalara\SDK\Model\EInvoicing\V1\TaxIdentifierResponseValue|null
      */
     public function getValue()
     {
@@ -264,7 +264,7 @@ class TaxIdentifierResponse implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets value
      *
-     * @param \AvalaraSDK\Model\EInvoicing\V1\TaxIdentifierResponseValue|null $value value
+     * @param \Avalara\SDK\Model\EInvoicing\V1\TaxIdentifierResponseValue|null $value value
      *
      * @return self
      */

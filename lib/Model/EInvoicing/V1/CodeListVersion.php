@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  AvalaraSDK
+ * @package  Avalara\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -23,7 +23,7 @@
  * An API that supports sending data for an E-Invoicing compliance use-case.
  *
  * @category   Avalara client libraries
- * @package    AvalaraSDK\API\EInvoicing\V1
+ * @package    Avalara\SDK\API\EInvoicing\V1
  * @author     Sachin Baijal <sachin.baijal@avalara.com>
  * @author     Jonathan Wenger <jonathan.wenger@avalara.com>
  * @copyright  2004-2025 Avalara, Inc.
@@ -38,17 +38,17 @@
  * Do not edit the class manually.
  */
 
-namespace AvalaraSDK\Model\EInvoicing\V1;
+namespace Avalara\SDK\Model\EInvoicing\V1;
 
 use \ArrayAccess;
-use \AvalaraSDK\ObjectSerializer;
-use \AvalaraSDK\Model\ModelInterface;
+use \Avalara\SDK\ObjectSerializer;
+use \Avalara\SDK\Model\ModelInterface;
 /**
  * CodeListVersion Class Doc Comment
  *
  * @category Class
  * @description Represents a versioned definition of a code list for a specific jurisdiction and date range
- * @package  AvalaraSDK
+ * @package  Avalara\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -76,7 +76,7 @@ class CodeListVersion implements ModelInterface, ArrayAccess, \JsonSerializable
         'juris_effective_date' => '\DateTime',
         'juris_sunset_date' => '\DateTime',
         'locale' => 'string',
-        'values' => '\AvalaraSDK\Model\EInvoicing\V1\CodeListValue[]'
+        'values' => '\Avalara\SDK\Model\EInvoicing\V1\CodeListValue[]'
     ];
 
     /**
@@ -341,7 +341,7 @@ class CodeListVersion implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets values
      *
-     * @return \AvalaraSDK\Model\EInvoicing\V1\CodeListValue[]|null
+     * @return \Avalara\SDK\Model\EInvoicing\V1\CodeListValue[]|null
      */
     public function getValues()
     {
@@ -351,7 +351,7 @@ class CodeListVersion implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets values
      *
-     * @param \AvalaraSDK\Model\EInvoicing\V1\CodeListValue[]|null $values Array of code entries defined in this version of the code list. Each entry contains the machine-readable code value and its human-readable description in the given locale.
+     * @param \Avalara\SDK\Model\EInvoicing\V1\CodeListValue[]|null $values Array of code entries defined in this version of the code list. Each entry contains the machine-readable code value and its human-readable description in the given locale.
      *
      * @return self
      */

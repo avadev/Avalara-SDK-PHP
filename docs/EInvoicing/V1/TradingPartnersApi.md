@@ -1,4 +1,4 @@
-# AvalaraSDK\TradingPartnersApi
+# Avalara\SDK\TradingPartnersApi
 
 All URIs are relative to https://api.sbx.avalara.com/einvoicing.
 
@@ -18,7 +18,7 @@ Method | HTTP request | Description
 ## `batchSearchParticipants()`
 
 ```php
-batchSearchParticipants($avalara_version, $name, $notification_email, $file, $x_avalara_client, $x_correlation_id): \AvalaraSDK\Model\EInvoicing\V1\BatchSearchParticipants202Response
+batchSearchParticipants($avalara_version, $name, $notification_email, $file, $x_avalara_client, $x_correlation_id): \Avalara\SDK\Model\EInvoicing\V1\BatchSearchParticipants202Response
 ```
 
 Handles batch search requests by uploading a file containing search parameters.
@@ -41,7 +41,7 @@ $config = new \Avalara\SDK\Configuration()
 
 $client = new \Avalara\SDK\ApiClient($config);
 
-$apiInstance = new AvalaraSDK\Api\TradingPartnersApi($client);
+$apiInstance = new Avalara\SDK\Api\TradingPartnersApi($client);
 
 $avalara_version = 1.6; // string | Header that specifies the API version to use (for example \"1.6\").
 $name = Automotive Companies in London Search; // string | A human-readable name for the batch search.
@@ -71,7 +71,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\AvalaraSDK\Model\EInvoicing\V1\BatchSearchParticipants202Response**](../Model/BatchSearchParticipants202Response.md)
+[**\Avalara\SDK\Model\EInvoicing\V1\BatchSearchParticipants202Response**](../Model/BatchSearchParticipants202Response.md)
 
 ### Authorization
 
@@ -89,7 +89,7 @@ Name | Type | Description  | Notes
 ## `createTradingPartner()`
 
 ```php
-createTradingPartner($avalara_version, $trading_partner, $x_avalara_client, $x_correlation_id): \AvalaraSDK\Model\EInvoicing\V1\CreateTradingPartner201Response
+createTradingPartner($avalara_version, $trading_partner, $x_avalara_client, $x_correlation_id): \Avalara\SDK\Model\EInvoicing\V1\CreateTradingPartner201Response
 ```
 
 Creates a new trading partner.
@@ -112,10 +112,10 @@ $config = new \Avalara\SDK\Configuration()
 
 $client = new \Avalara\SDK\ApiClient($config);
 
-$apiInstance = new AvalaraSDK\Api\TradingPartnersApi($client);
+$apiInstance = new Avalara\SDK\Api\TradingPartnersApi($client);
 
 $avalara_version = 1.6; // string | Header that specifies the API version to use (for example \"1.6\").
-$trading_partner = {"name":"Pineapple Labs ltd","network":"","registrationDate":"2024-01-01T00:00:00.000Z","identifiers":[{"name":"urn:avalara:systems:des:directory:participant:identifiers:peppolparticipantid","displayName":"","value":"9930:de112233445","extensions":[]}],"addresses":[{"line1":"Line 1","line2":"Line 2","city":"Brisbane","state":"Queensland","country":"Australia","postalCode":"4000"}],"supportedDocumentTypes":[{"name":"","value":"busdox-docid-qns::urn:oasis:names:specification:ubl:schema:xsd:Invoice-2::Invoice##urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0::2.1","supportedByTradingPartner":true,"supportedByAvalara":true,"extensions":[]}],"consents":{"listInAvalaraDirectory":true},"extensions":[]}; // \AvalaraSDK\Model\EInvoicing\V1\TradingPartner
+$trading_partner = {"name":"Pineapple Labs ltd","network":"","registrationDate":"2024-01-01T00:00:00.000Z","identifiers":[{"name":"urn:avalara:systems:des:directory:participant:identifiers:peppolparticipantid","displayName":"","value":"9930:de112233445","extensions":[]}],"addresses":[{"line1":"Line 1","line2":"Line 2","city":"Brisbane","state":"Queensland","country":"Australia","postalCode":"4000"}],"supportedDocumentTypes":[{"name":"","value":"busdox-docid-qns::urn:oasis:names:specification:ubl:schema:xsd:Invoice-2::Invoice##urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0::2.1","supportedByTradingPartner":true,"supportedByAvalara":true,"extensions":[]}],"consents":{"listInAvalaraDirectory":true},"extensions":[]}; // \Avalara\SDK\Model\EInvoicing\V1\TradingPartner
 $x_avalara_client = John's E-Invoicing-API Client; // string | Optional header for a client identifier string used for diagnostics (for example \"Fingerprint\").
 $x_correlation_id = f3f0d19a-01a1-4748-8a58-f000d0424f43; // string | Optional correlation identifier provided by the caller to trace the call (for example \"f3f0d19a-01a1-4748-8a58-f000d0424f43\").
 
@@ -132,13 +132,13 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **avalara_version** | **string**| Header that specifies the API version to use (for example \&quot;1.6\&quot;). |
- **trading_partner** | [**\AvalaraSDK\Model\EInvoicing\V1\TradingPartner**](../Model/TradingPartner.md)|  |
+ **trading_partner** | [**\Avalara\SDK\Model\EInvoicing\V1\TradingPartner**](../Model/TradingPartner.md)|  |
  **x_avalara_client** | **string**| Optional header for a client identifier string used for diagnostics (for example \&quot;Fingerprint\&quot;). | [optional]
  **x_correlation_id** | **string**| Optional correlation identifier provided by the caller to trace the call (for example \&quot;f3f0d19a-01a1-4748-8a58-f000d0424f43\&quot;). | [optional]
 
 ### Return type
 
-[**\AvalaraSDK\Model\EInvoicing\V1\CreateTradingPartner201Response**](../Model/CreateTradingPartner201Response.md)
+[**\Avalara\SDK\Model\EInvoicing\V1\CreateTradingPartner201Response**](../Model/CreateTradingPartner201Response.md)
 
 ### Authorization
 
@@ -156,7 +156,7 @@ Name | Type | Description  | Notes
 ## `createTradingPartnersBatch()`
 
 ```php
-createTradingPartnersBatch($avalara_version, $create_trading_partners_batch_request, $x_avalara_client, $x_correlation_id): \AvalaraSDK\Model\EInvoicing\V1\CreateTradingPartnersBatch200Response
+createTradingPartnersBatch($avalara_version, $create_trading_partners_batch_request, $x_avalara_client, $x_correlation_id): \Avalara\SDK\Model\EInvoicing\V1\CreateTradingPartnersBatch200Response
 ```
 
 Creates a batch of multiple trading partners.
@@ -179,10 +179,10 @@ $config = new \Avalara\SDK\Configuration()
 
 $client = new \Avalara\SDK\ApiClient($config);
 
-$apiInstance = new AvalaraSDK\Api\TradingPartnersApi($client);
+$apiInstance = new Avalara\SDK\Api\TradingPartnersApi($client);
 
 $avalara_version = 1.6; // string | Header that specifies the API version to use (for example \"1.6\").
-$create_trading_partners_batch_request = {"value":[{"name":"Pineapple Labs ltd","network":"","registrationDate":"2024-01-01T00:00:00.000Z","identifiers":[{"name":"urn:avalara:systems:des:directory:participant:identifiers:peppolparticipantid","displayName":"","value":"9930:de112233445","extensions":[]}],"addresses":[{"line1":"Line 1","line2":"Line 2","city":"Brisbane","state":"Queensland","country":"Australia","postalCode":"4000"}],"supportedDocumentTypes":[{"name":"","value":"busdox-docid-qns::urn:oasis:names:specification:ubl:schema:xsd:Invoice-2::Invoice##urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0::2.1","supportedByTradingPartner":true,"supportedByAvalara":true,"extensions":[]}],"consents":{"listInAvalaraDirectory":true},"extensions":[]}]}; // \AvalaraSDK\Model\EInvoicing\V1\CreateTradingPartnersBatchRequest
+$create_trading_partners_batch_request = {"value":[{"name":"Pineapple Labs ltd","network":"","registrationDate":"2024-01-01T00:00:00.000Z","identifiers":[{"name":"urn:avalara:systems:des:directory:participant:identifiers:peppolparticipantid","displayName":"","value":"9930:de112233445","extensions":[]}],"addresses":[{"line1":"Line 1","line2":"Line 2","city":"Brisbane","state":"Queensland","country":"Australia","postalCode":"4000"}],"supportedDocumentTypes":[{"name":"","value":"busdox-docid-qns::urn:oasis:names:specification:ubl:schema:xsd:Invoice-2::Invoice##urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0::2.1","supportedByTradingPartner":true,"supportedByAvalara":true,"extensions":[]}],"consents":{"listInAvalaraDirectory":true},"extensions":[]}]}; // \Avalara\SDK\Model\EInvoicing\V1\CreateTradingPartnersBatchRequest
 $x_avalara_client = John's E-Invoicing-API Client; // string | Optional header for a client identifier string used for diagnostics (for example \"Fingerprint\").
 $x_correlation_id = f3f0d19a-01a1-4748-8a58-f000d0424f43; // string | Optional correlation identifier provided by the caller to trace the call (for example \"f3f0d19a-01a1-4748-8a58-f000d0424f43\").
 
@@ -199,13 +199,13 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **avalara_version** | **string**| Header that specifies the API version to use (for example \&quot;1.6\&quot;). |
- **create_trading_partners_batch_request** | [**\AvalaraSDK\Model\EInvoicing\V1\CreateTradingPartnersBatchRequest**](../Model/CreateTradingPartnersBatchRequest.md)|  |
+ **create_trading_partners_batch_request** | [**\Avalara\SDK\Model\EInvoicing\V1\CreateTradingPartnersBatchRequest**](../Model/CreateTradingPartnersBatchRequest.md)|  |
  **x_avalara_client** | **string**| Optional header for a client identifier string used for diagnostics (for example \&quot;Fingerprint\&quot;). | [optional]
  **x_correlation_id** | **string**| Optional correlation identifier provided by the caller to trace the call (for example \&quot;f3f0d19a-01a1-4748-8a58-f000d0424f43\&quot;). | [optional]
 
 ### Return type
 
-[**\AvalaraSDK\Model\EInvoicing\V1\CreateTradingPartnersBatch200Response**](../Model/CreateTradingPartnersBatch200Response.md)
+[**\Avalara\SDK\Model\EInvoicing\V1\CreateTradingPartnersBatch200Response**](../Model/CreateTradingPartnersBatch200Response.md)
 
 ### Authorization
 
@@ -246,7 +246,7 @@ $config = new \Avalara\SDK\Configuration()
 
 $client = new \Avalara\SDK\ApiClient($config);
 
-$apiInstance = new AvalaraSDK\Api\TradingPartnersApi($client);
+$apiInstance = new Avalara\SDK\Api\TradingPartnersApi($client);
 
 $avalara_version = 1.6; // string | Header that specifies the API version to use (for example \"1.6\").
 $id = 'id_example'; // string | Unique identifier of the trading partner.
@@ -312,7 +312,7 @@ $config = new \Avalara\SDK\Configuration()
 
 $client = new \Avalara\SDK\ApiClient($config);
 
-$apiInstance = new AvalaraSDK\Api\TradingPartnersApi($client);
+$apiInstance = new Avalara\SDK\Api\TradingPartnersApi($client);
 
 $avalara_version = 1.6; // string | Header that specifies the API version to use (for example \"1.6\").
 $id = 2f5ea4b5-4dae-445a-b3e4-9f65a61eaa99; // string | Unique identifier of the batch search for which to download the report.
@@ -356,7 +356,7 @@ Name | Type | Description  | Notes
 ## `getBatchSearchDetail()`
 
 ```php
-getBatchSearchDetail($avalara_version, $id, $x_avalara_client, $x_correlation_id): \AvalaraSDK\Model\EInvoicing\V1\BatchSearch
+getBatchSearchDetail($avalara_version, $id, $x_avalara_client, $x_correlation_id): \Avalara\SDK\Model\EInvoicing\V1\BatchSearch
 ```
 
 Returns the batch search details using ID.
@@ -379,7 +379,7 @@ $config = new \Avalara\SDK\Configuration()
 
 $client = new \Avalara\SDK\ApiClient($config);
 
-$apiInstance = new AvalaraSDK\Api\TradingPartnersApi($client);
+$apiInstance = new Avalara\SDK\Api\TradingPartnersApi($client);
 
 $avalara_version = 1.6; // string | Header that specifies the API version to use (for example \"1.6\").
 $id = 2f5ea4b5-4dae-445a-b3e4-9f65a61eaa99; // string | Unique identifier of the batch search.
@@ -405,7 +405,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\AvalaraSDK\Model\EInvoicing\V1\BatchSearch**](../Model/BatchSearch.md)
+[**\Avalara\SDK\Model\EInvoicing\V1\BatchSearch**](../Model/BatchSearch.md)
 
 ### Authorization
 
@@ -423,7 +423,7 @@ Name | Type | Description  | Notes
 ## `listBatchSearches()`
 
 ```php
-listBatchSearches($avalara_version, $x_avalara_client, $filter, $count, $top, $skip, $order_by, $x_correlation_id): \AvalaraSDK\Model\EInvoicing\V1\BatchSearchListResponse
+listBatchSearches($avalara_version, $x_avalara_client, $filter, $count, $top, $skip, $order_by, $x_correlation_id): \Avalara\SDK\Model\EInvoicing\V1\BatchSearchListResponse
 ```
 
 Lists all batch searches that were previously submitted.
@@ -446,7 +446,7 @@ $config = new \Avalara\SDK\Configuration()
 
 $client = new \Avalara\SDK\ApiClient($config);
 
-$apiInstance = new AvalaraSDK\Api\TradingPartnersApi($client);
+$apiInstance = new Avalara\SDK\Api\TradingPartnersApi($client);
 
 $avalara_version = 1.6; // string | Header that specifies the API version to use (for example \"1.6\").
 $x_avalara_client = John's E-Invoicing-API Client; // string | Optional header for a client identifier string used for diagnostics (for example \"Fingerprint\").
@@ -480,7 +480,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\AvalaraSDK\Model\EInvoicing\V1\BatchSearchListResponse**](../Model/BatchSearchListResponse.md)
+[**\Avalara\SDK\Model\EInvoicing\V1\BatchSearchListResponse**](../Model/BatchSearchListResponse.md)
 
 ### Authorization
 
@@ -498,7 +498,7 @@ Name | Type | Description  | Notes
 ## `searchParticipants()`
 
 ```php
-searchParticipants($avalara_version, $search, $x_avalara_client, $count, $filter, $top, $skip, $order_by, $x_correlation_id): \AvalaraSDK\Model\EInvoicing\V1\SearchParticipants200Response
+searchParticipants($avalara_version, $search, $x_avalara_client, $count, $filter, $top, $skip, $order_by, $x_correlation_id): \Avalara\SDK\Model\EInvoicing\V1\SearchParticipants200Response
 ```
 
 Returns a list of participants matching the input query.
@@ -521,7 +521,7 @@ $config = new \Avalara\SDK\Configuration()
 
 $client = new \Avalara\SDK\ApiClient($config);
 
-$apiInstance = new AvalaraSDK\Api\TradingPartnersApi($client);
+$apiInstance = new Avalara\SDK\Api\TradingPartnersApi($client);
 
 $avalara_version = 1.6; // string | Header that specifies the API version to use (for example \"1.6\").
 $search = Acme AND 7726627177 OR BMW; // string | Search by value supports logical AND and OR operators (case-sensitive). Search is performed only over the name and identifier value fields. For more information, refer to the OData query options overview documentation.
@@ -557,7 +557,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\AvalaraSDK\Model\EInvoicing\V1\SearchParticipants200Response**](../Model/SearchParticipants200Response.md)
+[**\Avalara\SDK\Model\EInvoicing\V1\SearchParticipants200Response**](../Model/SearchParticipants200Response.md)
 
 ### Authorization
 
@@ -575,7 +575,7 @@ Name | Type | Description  | Notes
 ## `updateTradingPartner()`
 
 ```php
-updateTradingPartner($avalara_version, $id, $trading_partner, $x_avalara_client, $x_correlation_id): \AvalaraSDK\Model\EInvoicing\V1\UpdateTradingPartner200Response
+updateTradingPartner($avalara_version, $id, $trading_partner, $x_avalara_client, $x_correlation_id): \Avalara\SDK\Model\EInvoicing\V1\UpdateTradingPartner200Response
 ```
 
 Updates a trading partner using ID.
@@ -598,11 +598,11 @@ $config = new \Avalara\SDK\Configuration()
 
 $client = new \Avalara\SDK\ApiClient($config);
 
-$apiInstance = new AvalaraSDK\Api\TradingPartnersApi($client);
+$apiInstance = new Avalara\SDK\Api\TradingPartnersApi($client);
 
 $avalara_version = 1.6; // string | Header that specifies the API version to use (for example \"1.6\").
 $id = 'id_example'; // string | Unique identifier of the trading partner.
-$trading_partner = {"name":"Pineapple Labs ltd","registrationDate":"2024-01-01T00:00:00.000Z","identifiers":[{"name":"urn:avalara:systems:des:directory:participant:identifiers:peppolparticipantid","displayName":"","value":"9930:de112233445","extensions":[]}],"address":[{"line1":"Line 1","line2":"Line 2","city":"Brisbane","state":"Queensland","country":"Australia","postalCode":"4000"}],"supportedDocumentTypes":[{"name":"","value":"busdox-docid-qns::urn:oasis:names:specification:ubl:schema:xsd:Invoice-2::Invoice##urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0::2.1","supportedByTradingPartner":true,"supportedByAvalara":true,"extensions":[]}],"consents":{"listInAvalaraDirectory":true},"extensions":[]}; // \AvalaraSDK\Model\EInvoicing\V1\TradingPartner
+$trading_partner = {"name":"Pineapple Labs ltd","registrationDate":"2024-01-01T00:00:00.000Z","identifiers":[{"name":"urn:avalara:systems:des:directory:participant:identifiers:peppolparticipantid","displayName":"","value":"9930:de112233445","extensions":[]}],"address":[{"line1":"Line 1","line2":"Line 2","city":"Brisbane","state":"Queensland","country":"Australia","postalCode":"4000"}],"supportedDocumentTypes":[{"name":"","value":"busdox-docid-qns::urn:oasis:names:specification:ubl:schema:xsd:Invoice-2::Invoice##urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0::2.1","supportedByTradingPartner":true,"supportedByAvalara":true,"extensions":[]}],"consents":{"listInAvalaraDirectory":true},"extensions":[]}; // \Avalara\SDK\Model\EInvoicing\V1\TradingPartner
 $x_avalara_client = John's E-Invoicing-API Client; // string | Optional header for a client identifier string used for diagnostics (for example \"Fingerprint\").
 $x_correlation_id = f3f0d19a-01a1-4748-8a58-f000d0424f43; // string | Optional correlation identifier provided by the caller to trace the call (for example \"f3f0d19a-01a1-4748-8a58-f000d0424f43\").
 
@@ -620,13 +620,13 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **avalara_version** | **string**| Header that specifies the API version to use (for example \&quot;1.6\&quot;). |
  **id** | **string**| Unique identifier of the trading partner. |
- **trading_partner** | [**\AvalaraSDK\Model\EInvoicing\V1\TradingPartner**](../Model/TradingPartner.md)|  |
+ **trading_partner** | [**\Avalara\SDK\Model\EInvoicing\V1\TradingPartner**](../Model/TradingPartner.md)|  |
  **x_avalara_client** | **string**| Optional header for a client identifier string used for diagnostics (for example \&quot;Fingerprint\&quot;). | [optional]
  **x_correlation_id** | **string**| Optional correlation identifier provided by the caller to trace the call (for example \&quot;f3f0d19a-01a1-4748-8a58-f000d0424f43\&quot;). | [optional]
 
 ### Return type
 
-[**\AvalaraSDK\Model\EInvoicing\V1\UpdateTradingPartner200Response**](../Model/UpdateTradingPartner200Response.md)
+[**\Avalara\SDK\Model\EInvoicing\V1\UpdateTradingPartner200Response**](../Model/UpdateTradingPartner200Response.md)
 
 ### Authorization
 

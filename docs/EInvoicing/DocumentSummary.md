@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 **country_mandate** | **string** | The e-invoicing mandate for the specified country | [optional]
 **interface** | **string** | The interface where the document is sent | [optional]
 **receiver** | **string** | The document recipient based on the interface | [optional]
-**events** | [**\AvalaraSDK\Model\EInvoicing\V1\StatusEvent[]**](StatusEvent.md) | Array of status events associated with this document. Events are included in each document in the response only when the query parameter $include&#x3D;events is passed; otherwise the events array is not populated. | [optional]
+**events** | [**\Avalara\SDK\Model\EInvoicing\V1\StatusEvent[]**](StatusEvent.md) | Array of status events associated with this document. Events are included in each document in the response only when the query parameter $include&#x3D;events is passed; otherwise the events array is not populated. | [optional]
 **created_at** | **string** | The date and time when the document was created in the system, displayed in ISO 8601 format with timezone | [optional]
 **last_updated_at** | **string** | The date and time when the document was last updated in the system, displayed in ISO 8601 format with timezone | [optional]
 
