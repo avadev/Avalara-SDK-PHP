@@ -36,11 +36,11 @@ $client = new \Avalara\SDK\ApiClient($config);
 
 $apiInstance = new Avalara\SDK\Api\MandatesApi($client);
 
-$avalara_version = 1.4; // string | The HTTP Header meant to specify the version of the API intended to be used
-$mandate_id = AD-B2G-PEPPOL; // string | The unique ID for the mandate that was returned in the GET /einvoicing/mandates response body
+$avalara_version = 1.6; // string | Header that specifies the API version to use (for example \"1.6\").
+$mandate_id = AD-B2G-PEPPOL; // string | Unique identifier of the mandate returned by the GET /mandates endpoint.
 $document_type = ubl-invoice; // string | Select the documentType for which you wish to view the data-input-fields (You may obtain the supported documentTypes from the GET /mandates endpoint)
 $document_version = 2.1; // string | Select the document version of the documentType (You may obtain the supported documentVersion from the GET /mandates endpoint)
-$x_avalara_client = John's E-Invoicing-API Client; // string | You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a fingerprint.
+$x_avalara_client = John's E-Invoicing-API Client; // string | Optional header for a client identifier string used for diagnostics (for example \"Fingerprint\").
 
 try {
     $result = $apiInstance->getMandateDataInputFields($avalara_version, $mandate_id, $document_type, $document_version, $x_avalara_client);
@@ -54,11 +54,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **avalara_version** | **string**| The HTTP Header meant to specify the version of the API intended to be used |
- **mandate_id** | **string**| The unique ID for the mandate that was returned in the GET /einvoicing/mandates response body |
+ **avalara_version** | **string**| Header that specifies the API version to use (for example \&quot;1.6\&quot;). |
+ **mandate_id** | **string**| Unique identifier of the mandate returned by the GET /mandates endpoint. |
  **document_type** | **string**| Select the documentType for which you wish to view the data-input-fields (You may obtain the supported documentTypes from the GET /mandates endpoint) |
  **document_version** | **string**| Select the document version of the documentType (You may obtain the supported documentVersion from the GET /mandates endpoint) |
- **x_avalara_client** | **string**| You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a fingerprint. | [optional]
+ **x_avalara_client** | **string**| Optional header for a client identifier string used for diagnostics (for example \&quot;Fingerprint\&quot;). | [optional]
 
 ### Return type
 
@@ -105,13 +105,13 @@ $client = new \Avalara\SDK\ApiClient($config);
 
 $apiInstance = new Avalara\SDK\Api\MandatesApi($client);
 
-$avalara_version = 1.4; // string | The HTTP Header meant to specify the version of the API intended to be used
-$x_avalara_client = John's E-Invoicing-API Client; // string | You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a fingerprint.
+$avalara_version = 1.6; // string | Header that specifies the API version to use (for example \"1.6\").
+$x_avalara_client = John's E-Invoicing-API Client; // string | Optional header for a client identifier string used for diagnostics (for example \"Fingerprint\").
 $filter = countryMandate eq DE-B2G-PEPPOL; // string | Filter by field name and value. This filter only supports <code>eq</code> and <code>contains</code>. Refer to [https://developer.avalara.com/avatax/filtering-in-rest/](https://developer.avalara.com/avatax/filtering-in-rest/) for more information on filtering.
 $top = 56; // int | The number of items to include in the result.
 $skip = 56; // int | The number of items to skip in the result.
 $count = true; // bool | When set to true, the count of the collection is also returned in the response body.
-$count_only = true; // bool | When set to true, only the count of the collection is returned
+$count_only = true; // bool | When set to true, only the count of the collection is returned.
 
 try {
     $result = $apiInstance->getMandates($avalara_version, $x_avalara_client, $filter, $top, $skip, $count, $count_only);
@@ -125,13 +125,13 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **avalara_version** | **string**| The HTTP Header meant to specify the version of the API intended to be used |
- **x_avalara_client** | **string**| You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a fingerprint. | [optional]
+ **avalara_version** | **string**| Header that specifies the API version to use (for example \&quot;1.6\&quot;). |
+ **x_avalara_client** | **string**| Optional header for a client identifier string used for diagnostics (for example \&quot;Fingerprint\&quot;). | [optional]
  **filter** | **string**| Filter by field name and value. This filter only supports &lt;code&gt;eq&lt;/code&gt; and &lt;code&gt;contains&lt;/code&gt;. Refer to [https://developer.avalara.com/avatax/filtering-in-rest/](https://developer.avalara.com/avatax/filtering-in-rest/) for more information on filtering. | [optional]
  **top** | **int**| The number of items to include in the result. | [optional]
  **skip** | **int**| The number of items to skip in the result. | [optional]
  **count** | **bool**| When set to true, the count of the collection is also returned in the response body. | [optional]
- **count_only** | **bool**| When set to true, only the count of the collection is returned | [optional]
+ **count_only** | **bool**| When set to true, only the count of the collection is returned. | [optional]
 
 ### Return type
 

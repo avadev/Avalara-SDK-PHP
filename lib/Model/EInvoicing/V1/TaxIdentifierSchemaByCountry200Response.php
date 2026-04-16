@@ -72,6 +72,7 @@ class TaxIdentifierSchemaByCountry200Response implements ModelInterface, ArrayAc
       */
     protected static $openAPITypes = [
         'country_code' => 'string',
+        'schema_type' => 'string',
         'schema' => 'object'
     ];
 
@@ -84,6 +85,7 @@ class TaxIdentifierSchemaByCountry200Response implements ModelInterface, ArrayAc
       */
     protected static $openAPIFormats = [
         'country_code' => null,
+        'schema_type' => null,
         'schema' => null
     ];
 
@@ -115,6 +117,7 @@ class TaxIdentifierSchemaByCountry200Response implements ModelInterface, ArrayAc
      */
     protected static $attributeMap = [
         'country_code' => 'countryCode',
+        'schema_type' => 'schemaType',
         'schema' => 'schema'
     ];
 
@@ -125,6 +128,7 @@ class TaxIdentifierSchemaByCountry200Response implements ModelInterface, ArrayAc
      */
     protected static $setters = [
         'country_code' => 'setCountryCode',
+        'schema_type' => 'setSchemaType',
         'schema' => 'setSchema'
     ];
 
@@ -135,6 +139,7 @@ class TaxIdentifierSchemaByCountry200Response implements ModelInterface, ArrayAc
      */
     protected static $getters = [
         'country_code' => 'getCountryCode',
+        'schema_type' => 'getSchemaType',
         'schema' => 'getSchema'
     ];
 
@@ -196,6 +201,7 @@ class TaxIdentifierSchemaByCountry200Response implements ModelInterface, ArrayAc
     public function __construct(array $data = null)
     {
         $this->container['country_code'] = $data['country_code'] ?? null;
+        $this->container['schema_type'] = $data['schema_type'] ?? null;
         $this->container['schema'] = $data['schema'] ?? null;
     }
 
@@ -210,6 +216,9 @@ class TaxIdentifierSchemaByCountry200Response implements ModelInterface, ArrayAc
 
         if ($this->container['country_code'] === null) {
             $invalidProperties[] = "'country_code' can't be null";
+        }
+        if ($this->container['schema_type'] === null) {
+            $invalidProperties[] = "'schema_type' can't be null";
         }
         if ($this->container['schema'] === null) {
             $invalidProperties[] = "'schema' can't be null";
@@ -249,6 +258,30 @@ class TaxIdentifierSchemaByCountry200Response implements ModelInterface, ArrayAc
     public function setCountryCode($country_code)
     {
         $this->container['country_code'] = $country_code;
+
+        return $this;
+    }
+
+    /**
+     * Gets schema_type
+     *
+     * @return string
+     */
+    public function getSchemaType()
+    {
+        return $this->container['schema_type'];
+    }
+
+    /**
+     * Sets schema_type
+     *
+     * @param string $schema_type The type of schema returned: \"request\" or \"response\".
+     *
+     * @return self
+     */
+    public function setSchemaType($schema_type)
+    {
+        $this->container['schema_type'] = $schema_type;
 
         return $this;
     }

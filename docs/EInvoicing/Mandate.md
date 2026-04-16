@@ -17,5 +17,6 @@ Name | Type | Description | Notes
 **input_data_formats** | [**\Avalara\SDK\Model\EInvoicing\V1\InputDataFormats[]**](InputDataFormats.md) | Format and version used when inputting the data | [optional]
 **output_data_formats** | [**\Avalara\SDK\Model\EInvoicing\V1\OutputDataFormats[]**](OutputDataFormats.md) | Lists the supported output document formats for the country mandate. For countries where specifying an output document format is required (e.g., France), this array will contain the applicable formats. For other countries where output format selection is not necessary, the array will be empty. | [optional]
 **workflow_ids** | [**\Avalara\SDK\Model\EInvoicing\V1\WorkflowIds[]**](WorkflowIds.md) | Workflow ID list | [optional]
+**supported_document_statuses** | [**\Avalara\SDK\Model\EInvoicing\V1\SupportedDocumentStatuses[]**](SupportedDocumentStatuses.md) | List of document statuses defined by the mandate. | [optional]
 
 [[Back to Model list]](../../../README.md#models) [[Back to API list]](../../../README.md#endpoints) [[Back to README]](../../../README.md)

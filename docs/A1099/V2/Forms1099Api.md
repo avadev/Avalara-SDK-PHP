@@ -43,7 +43,7 @@ $apiInstance = new Avalara\SDK\Api\Forms1099Api($client);
 
 $avalara_version = 2.0.0; // string | API version
 $dry_run = false; // bool | defaults to false. If true, it will NOT change the DB. It will just return a report of what would've have been changed in the DB
-$x_correlation_id = 6e64cd85-8016-4753-83f5-e78c041e8ab1; // string | Unique correlation Id in a GUID format
+$x_correlation_id = 16597cea-e46f-4db1-a91a-758d08c8a6d9; // string | Unique correlation Id in a GUID format
 $x_avalara_client = Swagger UI; 22.1.0; // string | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
 $form1099_list_request = {"type":"1042-S","forms":[{"type":"1042-S","issuerId":"12345","issuerReferenceId":"issuer-001","issuerTin":"94-2765431","taxYear":2025,"referenceId":"1042S-REF-001","tin":"112233445","recipientName":"Michael Jackson","recipientSecondName":"SuperStart","address":"1234 Corporate Blvd","address2":"Suite 500","city":"Anytown","state":"MA","zip":"12345","email":"email@example.com","accountNumber":"ACC01","nonUsProvince":null,"countryCode":"US","federalEfileDate":"2025-03-15","postalMail":true,"stateEfileDate":null,"recipientEdeliveryDate":"2025-03-25","tinMatch":false,"noTin":false,"addressVerification":true,"stateAndLocalWithholding":{"stateTaxWithheld":50,"state":"CA","stateId":"CA98765432"},"secondTinNotice":true,"uniqueFormId":"1234567890","recipientDateOfBirth":"1990-01-01","recipientGiin":"748291.59302.US.001","recipientForeignTin":"920456.38475.GM.002","lobCode":"06","incomeCode":"16","grossIncome":10000.5,"withholdingIndicator":"3","taxCountryCode":"GM","exemptionCodeChap3":"00","exemptionCodeChap4":"13","taxRateChap3":"30.00","withholdingAllowance":15,"federalTaxWithheld":1500.25,"taxNotDepositedIndicator":true,"academicIndicator":true,"taxWithheldOtherAgents":100,"amountRepaid":200,"taxPaidAgent":50.5,"chap3StatusCode":"06","chap4StatusCode":"02","primaryWithholdingAgent":{"name":"Primary Agent Name","ein":"98-3456789"},"intermediaryOrFlowThrough":{"ein":"98-7654321","chap3StatusCode":"03","chap4StatusCode":"04","name":"Intermediary Name","giin":"748291.59302.US.002","countryCode":"US","foreignTin":"123-45-6789","address":"123 Main St.","city":"Cityville","state":"CA","zip":"98765"}}]}; // \Avalara\SDK\Model\A1099\V2\Form1099ListRequest | 
 
@@ -111,7 +111,7 @@ $client = new \Avalara\SDK\ApiClient($config);
 $apiInstance = new Avalara\SDK\Api\Forms1099Api($client);
 
 $avalara_version = 2.0.0; // string | API version
-$x_correlation_id = 05146ed0-5ef3-4d21-a139-bceaf30183da; // string | Unique correlation Id in a GUID format
+$x_correlation_id = 8aae2aaf-fdeb-4a36-965c-81ba3d884563; // string | Unique correlation Id in a GUID format
 $x_avalara_client = Swagger UI; 22.1.0; // string | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
 $get1099_form200_response = {"type":"1042-S","issuerId":"12345","referenceId":"1042S-REF-001","tin":"112233445","recipientName":"Michael Jackson","recipientSecondName":"SuperStart","address":"1234 Corporate Blvd","address2":"Suite 500","city":"Anytown","state":"MA","zip":"12345","email":"email@example.com","accountNumber":"ACC01","nonUsProvince":null,"countryCode":"US","federalEfileDate":"2025-03-15","postalMail":true,"stateEfileDate":null,"recipientEdeliveryDate":"2025-03-25","tinMatch":false,"noTin":false,"addressVerification":true,"stateAndLocalWithholding":{"stateTaxWithheld":50,"state":"CA","stateId":"CA98765432"},"secondTinNotice":true,"uniqueFormId":"1234567890","recipientDateOfBirth":"1990-01-01","recipientGiin":"748291.59302.US.001","recipientForeignTin":"920456.38475.GM.002","lobCode":"06","incomeCode":"16","grossIncome":10000.5,"withholdingIndicator":"3","taxCountryCode":"GM","exemptionCodeChap3":"00","exemptionCodeChap4":"13","taxRateChap3":"30.00","withholdingAllowance":15,"federalTaxWithheld":1500.25,"taxNotDepositedIndicator":true,"academicIndicator":true,"taxWithheldOtherAgents":100,"amountRepaid":200,"taxPaidAgent":50.5,"chap3StatusCode":"06","chap4StatusCode":"02","primaryWithholdingAgent":{"name":"Primary Agent Name","ein":"98-3456789"},"intermediaryOrFlowThrough":{"ein":"98-7654321","chap3StatusCode":"03","chap4StatusCode":"04","name":"Intermediary Name","giin":"748291.59302.US.002","countryCode":"US","foreignTin":"123-45-6789","address":"123 Main St.","city":"Cityville","state":"CA","zip":"98765"}}; // \Avalara\SDK\Model\A1099\V2\Get1099Form200Response
 
@@ -179,7 +179,7 @@ $apiInstance = new Avalara\SDK\Api\Forms1099Api($client);
 
 $id = 'id_example'; // string | The unique identifier of the desired form to delete.
 $avalara_version = 2.0.0; // string | API version
-$x_correlation_id = dfa0ca1e-71ad-4ea3-b2a0-e33a88ae9418; // string | Unique correlation Id in a GUID format
+$x_correlation_id = 0e5923f5-6d5b-4e68-947c-e4465872098b; // string | Unique correlation Id in a GUID format
 $x_avalara_client = Swagger UI; 22.1.0; // string | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
 
 try {
@@ -245,7 +245,7 @@ $apiInstance = new Avalara\SDK\Api\Forms1099Api($client);
 
 $id = 'id_example'; // string
 $avalara_version = 2.0.0; // string | API version
-$x_correlation_id = 7cee7d23-fb69-4dd0-bbb5-e2afaf72a72e; // string | Unique correlation Id in a GUID format
+$x_correlation_id = 5c29014d-312a-43e6-8cba-1d7ff8bf4823; // string | Unique correlation Id in a GUID format
 $x_avalara_client = Swagger UI; 22.1.0; // string | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
 
 try {
@@ -313,7 +313,7 @@ $apiInstance = new Avalara\SDK\Api\Forms1099Api($client);
 $id = 'id_example'; // string | The ID of the form
 $avalara_version = 2.0.0; // string | API version
 $mark_edelivered = True; // bool | Optional boolean that if set indicates that the form should be marked as having been successfully edelivered
-$x_correlation_id = 751b64d2-bcd9-46d8-a671-cb88f65b2eb7; // string | Unique correlation Id in a GUID format
+$x_correlation_id = a9c3fd5f-7dcc-400b-b490-2575a0676f13; // string | Unique correlation Id in a GUID format
 $x_avalara_client = Swagger UI; 22.1.0; // string | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
 
 try {
@@ -386,7 +386,7 @@ $skip = 56; // int | If nonzero, skip this number of results before returning da
 $order_by = 'order_by_example'; // string | A comma separated list of sort statements in the format (fieldname) [ASC|DESC], for example id ASC.
 $count = True; // bool | If true, return the global count of elements in the collection.
 $count_only = True; // bool | If true, return ONLY the global count of elements in the collection.  It only applies when count=true.
-$x_correlation_id = a5957b23-68b0-4987-b6d8-6f2246d72c27; // string | Unique correlation Id in a GUID format
+$x_correlation_id = f7949787-9b74-49ad-8d7a-272b8130955e; // string | Unique correlation Id in a GUID format
 $x_avalara_client = Swagger UI; 22.1.0; // string | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
 
 try {
@@ -458,7 +458,7 @@ $apiInstance = new Avalara\SDK\Api\Forms1099Api($client);
 
 $id = 'id_example'; // string
 $avalara_version = 2.0.0; // string | API version
-$x_correlation_id = f907e539-ce8b-4d8d-846e-793f9d00ba77; // string | Unique correlation Id in a GUID format
+$x_correlation_id = 0a063fc3-fd55-4b2a-8c61-c80274261cf3; // string | Unique correlation Id in a GUID format
 $x_avalara_client = Swagger UI; 22.1.0; // string | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
 $get1099_form200_response = {"type":"1042-S","issuerId":"12345","referenceId":"1042S-REF-001","tin":"112233445","recipientName":"Michael Jackson","recipientSecondName":"SuperStart","address":"1234 Corporate Blvd","address2":"Suite 500","city":"Anytown","state":"MA","zip":"12345","email":"email@example.com","accountNumber":"ACC01","nonUsProvince":null,"countryCode":"US","federalEfileDate":"2025-03-15","postalMail":true,"stateEfileDate":null,"recipientEdeliveryDate":"2025-03-25","tinMatch":false,"noTin":false,"addressVerification":true,"stateAndLocalWithholding":{"stateTaxWithheld":50,"state":"CA","stateId":"CA98765432"},"secondTinNotice":true,"uniqueFormId":"1234567890","recipientDateOfBirth":"1990-01-01","recipientGiin":"748291.59302.US.001","recipientForeignTin":"920456.38475.GM.002","lobCode":"06","incomeCode":"16","grossIncome":10000.5,"withholdingIndicator":"3","taxCountryCode":"GM","exemptionCodeChap3":"00","exemptionCodeChap4":"13","taxRateChap3":"30.00","withholdingAllowance":15,"federalTaxWithheld":1500.25,"taxNotDepositedIndicator":true,"academicIndicator":true,"taxWithheldOtherAgents":100,"amountRepaid":200,"taxPaidAgent":50.5,"chap3StatusCode":"06","chap4StatusCode":"02","primaryWithholdingAgent":{"name":"Primary Agent Name","ein":"98-3456789"},"intermediaryOrFlowThrough":{"ein":"98-7654321","chap3StatusCode":"03","chap4StatusCode":"04","name":"Intermediary Name","giin":"748291.59302.US.002","countryCode":"US","foreignTin":"123-45-6789","address":"123 Main St.","city":"Cityville","state":"CA","zip":"98765"}}; // \Avalara\SDK\Model\A1099\V2\Get1099Form200Response
 

@@ -4,7 +4,7 @@ All URIs are relative to https://api.sbx.avalara.com/einvoicing.
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**taxIdentifierSchemaByCountry()**](TaxIdentifiersApi.md#taxIdentifierSchemaByCountry) | **GET** /tax-identifiers/schema | Returns the tax identifier request &amp; response schema for a specific country.
+[**taxIdentifierSchemaByCountry()**](TaxIdentifiersApi.md#taxIdentifierSchemaByCountry) | **GET** /tax-identifiers/schema | Returns the tax identifier request and response schema for a specific country.
 [**validateTaxIdentifier()**](TaxIdentifiersApi.md#validateTaxIdentifier) | **POST** /tax-identifiers/validate | Validates a tax identifier.
 
 
@@ -14,9 +14,9 @@ Method | HTTP request | Description
 taxIdentifierSchemaByCountry($avalara_version, $country_code, $x_avalara_client, $x_correlation_id, $type): \Avalara\SDK\Model\EInvoicing\V1\TaxIdentifierSchemaByCountry200Response
 ```
 
-Returns the tax identifier request & response schema for a specific country.
+Returns the tax identifier request and response schema for a specific country.
 
-This endpoint retrieves the request and response schema required to validate tax identifiers based on a specific country's requirements. This can include both standard fields and any additional parameters required by the respective country's tax authority.
+Returns the tax identifier request and response schema for a specific country.
 
 ### Example
 
@@ -36,11 +36,11 @@ $client = new \Avalara\SDK\ApiClient($config);
 
 $apiInstance = new Avalara\SDK\Api\TaxIdentifiersApi($client);
 
-$avalara_version = 1.4; // string | The HTTP Header meant to specify the version of the API intended to be used.
-$country_code = DE; // string | The two-letter ISO-3166 country code for which the schema should be retrieved.
-$x_avalara_client = John's E-Invoicing-API Client; // string | You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a \"Fingerprint\".
-$x_correlation_id = f3f0d19a-01a1-4748-8a58-f000d0424f43; // string | The caller can use this as an identifier to use as a correlation id to trace the call.
-$type = request; // string | Specifies whether to return the request or response schema.
+$avalara_version = 1.6; // string | Header that specifies the API version to use (for example \"1.6\").
+$country_code = DE; // string | Two-letter ISO 3166 country code for which to retrieve the schema (for example \"DE\").
+$x_avalara_client = John's E-Invoicing-API Client; // string | Optional header for a client identifier string used for diagnostics (for example \"Fingerprint\").
+$x_correlation_id = f3f0d19a-01a1-4748-8a58-f000d0424f43; // string | Optional correlation identifier provided by the caller to trace the call (for example \"f3f0d19a-01a1-4748-8a58-f000d0424f43\").
+$type = request; // string | Specifies which schema to return: \"request\" to receive the request validation schema or \"response\" to receive the response validation schema.
 
 try {
     $result = $apiInstance->taxIdentifierSchemaByCountry($avalara_version, $country_code, $x_avalara_client, $x_correlation_id, $type);
@@ -54,11 +54,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **avalara_version** | **string**| The HTTP Header meant to specify the version of the API intended to be used. |
- **country_code** | **string**| The two-letter ISO-3166 country code for which the schema should be retrieved. |
- **x_avalara_client** | **string**| You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a \&quot;Fingerprint\&quot;. | [optional]
- **x_correlation_id** | **string**| The caller can use this as an identifier to use as a correlation id to trace the call. | [optional]
- **type** | **string**| Specifies whether to return the request or response schema. | [optional]
+ **avalara_version** | **string**| Header that specifies the API version to use (for example \&quot;1.6\&quot;). |
+ **country_code** | **string**| Two-letter ISO 3166 country code for which to retrieve the schema (for example \&quot;DE\&quot;). |
+ **x_avalara_client** | **string**| Optional header for a client identifier string used for diagnostics (for example \&quot;Fingerprint\&quot;). | [optional]
+ **x_correlation_id** | **string**| Optional correlation identifier provided by the caller to trace the call (for example \&quot;f3f0d19a-01a1-4748-8a58-f000d0424f43\&quot;). | [optional]
+ **type** | **string**| Specifies which schema to return: \&quot;request\&quot; to receive the request validation schema or \&quot;response\&quot; to receive the response validation schema. | [optional]
 
 ### Return type
 
@@ -105,10 +105,10 @@ $client = new \Avalara\SDK\ApiClient($config);
 
 $apiInstance = new Avalara\SDK\Api\TaxIdentifiersApi($client);
 
-$avalara_version = 1.4; // string | The HTTP Header meant to specify the version of the API intended to be used.
+$avalara_version = 1.6; // string | Header that specifies the API version to use (for example \"1.6\").
 $tax_identifier_request = {"countryCode":"DE","identifierType":"vat","identifier":"123456789"}; // \Avalara\SDK\Model\EInvoicing\V1\TaxIdentifierRequest
-$x_avalara_client = John's E-Invoicing-API Client; // string | You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a \"Fingerprint\".
-$x_correlation_id = f3f0d19a-01a1-4748-8a58-f000d0424f43; // string | The caller can use this as an identifier to use as a correlation id to trace the call.
+$x_avalara_client = John's E-Invoicing-API Client; // string | Optional header for a client identifier string used for diagnostics (for example \"Fingerprint\").
+$x_correlation_id = f3f0d19a-01a1-4748-8a58-f000d0424f43; // string | Optional correlation identifier provided by the caller to trace the call (for example \"f3f0d19a-01a1-4748-8a58-f000d0424f43\").
 
 try {
     $result = $apiInstance->validateTaxIdentifier($avalara_version, $tax_identifier_request, $x_avalara_client, $x_correlation_id);
@@ -122,10 +122,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **avalara_version** | **string**| The HTTP Header meant to specify the version of the API intended to be used. |
+ **avalara_version** | **string**| Header that specifies the API version to use (for example \&quot;1.6\&quot;). |
  **tax_identifier_request** | [**\Avalara\SDK\Model\EInvoicing\V1\TaxIdentifierRequest**](../Model/TaxIdentifierRequest.md)|  |
- **x_avalara_client** | **string**| You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a \&quot;Fingerprint\&quot;. | [optional]
- **x_correlation_id** | **string**| The caller can use this as an identifier to use as a correlation id to trace the call. | [optional]
+ **x_avalara_client** | **string**| Optional header for a client identifier string used for diagnostics (for example \&quot;Fingerprint\&quot;). | [optional]
+ **x_correlation_id** | **string**| Optional correlation identifier provided by the caller to trace the call (for example \&quot;f3f0d19a-01a1-4748-8a58-f000d0424f43\&quot;). | [optional]
 
 ### Return type
 

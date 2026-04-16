@@ -1,6 +1,6 @@
 <?php
 /**
- * DocumentStatusResponse
+ * CodeListVersion
  *
  * PHP version 7.3
  *
@@ -44,10 +44,10 @@ use \ArrayAccess;
 use \Avalara\SDK\ObjectSerializer;
 use \Avalara\SDK\Model\ModelInterface;
 /**
- * DocumentStatusResponse Class Doc Comment
+ * CodeListVersion Class Doc Comment
  *
  * @category Class
- * @description Returns the current document ID and status
+ * @description Represents a versioned definition of a code list for a specific jurisdiction and date range
  * @package  Avalara\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -55,7 +55,7 @@ use \Avalara\SDK\Model\ModelInterface;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class DocumentStatusResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class CodeListVersion implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -64,7 +64,7 @@ class DocumentStatusResponse implements ModelInterface, ArrayAccess, \JsonSerial
       *
       * @var string
       */
-    protected static $openAPIModelName = 'DocumentStatusResponse';
+    protected static $openAPIModelName = 'CodeListVersion';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -72,10 +72,11 @@ class DocumentStatusResponse implements ModelInterface, ArrayAccess, \JsonSerial
       * @var string[]
       */
     protected static $openAPITypes = [
-        'id' => 'string',
-        'status' => 'string',
-        'business_status' => 'string',
-        'events' => '\Avalara\SDK\Model\EInvoicing\V1\StatusEvent[]'
+        'version_reasons' => 'string[]',
+        'juris_effective_date' => '\DateTime',
+        'juris_sunset_date' => '\DateTime',
+        'locale' => 'string',
+        'values' => '\Avalara\SDK\Model\EInvoicing\V1\CodeListValue[]'
     ];
 
     /**
@@ -86,10 +87,11 @@ class DocumentStatusResponse implements ModelInterface, ArrayAccess, \JsonSerial
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'id' => null,
-        'status' => null,
-        'business_status' => null,
-        'events' => null
+        'version_reasons' => null,
+        'juris_effective_date' => 'date',
+        'juris_sunset_date' => 'date',
+        'locale' => null,
+        'values' => null
     ];
 
     /**
@@ -119,10 +121,11 @@ class DocumentStatusResponse implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
-        'status' => 'status',
-        'business_status' => 'businessStatus',
-        'events' => 'events'
+        'version_reasons' => 'versionReasons',
+        'juris_effective_date' => 'jurisEffectiveDate',
+        'juris_sunset_date' => 'jurisSunsetDate',
+        'locale' => 'locale',
+        'values' => 'values'
     ];
 
     /**
@@ -131,10 +134,11 @@ class DocumentStatusResponse implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
-        'status' => 'setStatus',
-        'business_status' => 'setBusinessStatus',
-        'events' => 'setEvents'
+        'version_reasons' => 'setVersionReasons',
+        'juris_effective_date' => 'setJurisEffectiveDate',
+        'juris_sunset_date' => 'setJurisSunsetDate',
+        'locale' => 'setLocale',
+        'values' => 'setValues'
     ];
 
     /**
@@ -143,10 +147,11 @@ class DocumentStatusResponse implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
-        'status' => 'getStatus',
-        'business_status' => 'getBusinessStatus',
-        'events' => 'getEvents'
+        'version_reasons' => 'getVersionReasons',
+        'juris_effective_date' => 'getJurisEffectiveDate',
+        'juris_sunset_date' => 'getJurisSunsetDate',
+        'locale' => 'getLocale',
+        'values' => 'getValues'
     ];
 
     /**
@@ -206,10 +211,11 @@ class DocumentStatusResponse implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function __construct(array $data = null)
     {
-        $this->container['id'] = $data['id'] ?? null;
-        $this->container['status'] = $data['status'] ?? null;
-        $this->container['business_status'] = $data['business_status'] ?? null;
-        $this->container['events'] = $data['events'] ?? null;
+        $this->container['version_reasons'] = $data['version_reasons'] ?? null;
+        $this->container['juris_effective_date'] = $data['juris_effective_date'] ?? null;
+        $this->container['juris_sunset_date'] = $data['juris_sunset_date'] ?? null;
+        $this->container['locale'] = $data['locale'] ?? null;
+        $this->container['values'] = $data['values'] ?? null;
     }
 
     /**
@@ -237,97 +243,121 @@ class DocumentStatusResponse implements ModelInterface, ArrayAccess, \JsonSerial
 
 
     /**
-     * Gets id
+     * Gets version_reasons
      *
-     * @return string|null
+     * @return string[]|null
      */
-    public function getId()
+    public function getVersionReasons()
     {
-        return $this->container['id'];
+        return $this->container['version_reasons'];
     }
 
     /**
-     * Sets id
+     * Sets version_reasons
      *
-     * @param string|null $id The unique ID for this document
+     * @param string[]|null $version_reasons List of free-text reasons explaining why this version of the code list exists (for example, initial introduction, regulatory update, addition/deprecation of codes). Useful for audit and change tracking.
      *
      * @return self
      */
-    public function setId($id)
+    public function setVersionReasons($version_reasons)
     {
-        $this->container['id'] = $id;
+        $this->container['version_reasons'] = $version_reasons;
 
         return $this;
     }
 
     /**
-     * Gets status
+     * Gets juris_effective_date
      *
-     * @return string|null
+     * @return \DateTime|null
      */
-    public function getStatus()
+    public function getJurisEffectiveDate()
     {
-        return $this->container['status'];
+        return $this->container['juris_effective_date'];
     }
 
     /**
-     * Sets status
+     * Sets juris_effective_date
      *
-     * @param string|null $status Document status. See the `supportedDocumentStatuses` field in the GET /mandates response for full status definitions.
+     * @param \DateTime|null $juris_effective_date Date from which this version of the code list becomes legally or operationally effective in the jurisdiction. Typically corresponds to a go-live, mandate, or release date.
      *
      * @return self
      */
-    public function setStatus($status)
+    public function setJurisEffectiveDate($juris_effective_date)
     {
-        $this->container['status'] = $status;
+        $this->container['juris_effective_date'] = $juris_effective_date;
 
         return $this;
     }
 
     /**
-     * Gets business_status
+     * Gets juris_sunset_date
      *
-     * @return string|null
+     * @return \DateTime|null
      */
-    public function getBusinessStatus()
+    public function getJurisSunsetDate()
     {
-        return $this->container['business_status'];
+        return $this->container['juris_sunset_date'];
     }
 
     /**
-     * Sets business_status
+     * Sets juris_sunset_date
      *
-     * @param string|null $business_status Represents the document's business lifecycle state based on responses from external actors (Tax Authority, PDP, or ERP), such as acceptance, rejection, or validation.
+     * @param \DateTime|null $juris_sunset_date Date after which this version of the code list must no longer be used in the jurisdiction. Use a far-future date (e.g., 9999-12-31) when the sunset is not yet known.
      *
      * @return self
      */
-    public function setBusinessStatus($business_status)
+    public function setJurisSunsetDate($juris_sunset_date)
     {
-        $this->container['business_status'] = $business_status;
+        $this->container['juris_sunset_date'] = $juris_sunset_date;
 
         return $this;
     }
 
     /**
-     * Gets events
+     * Gets locale
      *
-     * @return \Avalara\SDK\Model\EInvoicing\V1\StatusEvent[]|null
+     * @return string|null
      */
-    public function getEvents()
+    public function getLocale()
     {
-        return $this->container['events'];
+        return $this->container['locale'];
     }
 
     /**
-     * Sets events
+     * Sets locale
      *
-     * @param \Avalara\SDK\Model\EInvoicing\V1\StatusEvent[]|null $events events
+     * @param string|null $locale Language–region locale identifier indicating the language and regional variant for descriptions in this version of the code list. Follows BCP-47 format such as en-US, fr-FR, de-DE.
      *
      * @return self
      */
-    public function setEvents($events)
+    public function setLocale($locale)
     {
-        $this->container['events'] = $events;
+        $this->container['locale'] = $locale;
+
+        return $this;
+    }
+
+    /**
+     * Gets values
+     *
+     * @return \Avalara\SDK\Model\EInvoicing\V1\CodeListValue[]|null
+     */
+    public function getValues()
+    {
+        return $this->container['values'];
+    }
+
+    /**
+     * Sets values
+     *
+     * @param \Avalara\SDK\Model\EInvoicing\V1\CodeListValue[]|null $values Array of code entries defined in this version of the code list. Each entry contains the machine-readable code value and its human-readable description in the given locale.
+     *
+     * @return self
+     */
+    public function setValues($values)
+    {
+        $this->container['values'] = $values;
 
         return $this;
     }

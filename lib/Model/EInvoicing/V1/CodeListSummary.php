@@ -1,6 +1,6 @@
 <?php
 /**
- * DocumentStatusResponse
+ * CodeListSummary
  *
  * PHP version 7.3
  *
@@ -44,10 +44,10 @@ use \ArrayAccess;
 use \Avalara\SDK\ObjectSerializer;
 use \Avalara\SDK\Model\ModelInterface;
 /**
- * DocumentStatusResponse Class Doc Comment
+ * CodeListSummary Class Doc Comment
  *
  * @category Class
- * @description Returns the current document ID and status
+ * @description Displays a summary of information about a code list
  * @package  Avalara\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -55,7 +55,7 @@ use \Avalara\SDK\Model\ModelInterface;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class DocumentStatusResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class CodeListSummary implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -64,7 +64,7 @@ class DocumentStatusResponse implements ModelInterface, ArrayAccess, \JsonSerial
       *
       * @var string
       */
-    protected static $openAPIModelName = 'DocumentStatusResponse';
+    protected static $openAPIModelName = 'CodeListSummary';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -72,10 +72,12 @@ class DocumentStatusResponse implements ModelInterface, ArrayAccess, \JsonSerial
       * @var string[]
       */
     protected static $openAPITypes = [
-        'id' => 'string',
-        'status' => 'string',
-        'business_status' => 'string',
-        'events' => '\Avalara\SDK\Model\EInvoicing\V1\StatusEvent[]'
+        'country_code' => 'string',
+        'code_list_id' => 'string',
+        'code_list_name' => 'string',
+        'description' => 'string',
+        'standard' => 'string',
+        'versions' => '\Avalara\SDK\Model\EInvoicing\V1\CodeListVersion[]'
     ];
 
     /**
@@ -86,10 +88,12 @@ class DocumentStatusResponse implements ModelInterface, ArrayAccess, \JsonSerial
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'id' => null,
-        'status' => null,
-        'business_status' => null,
-        'events' => null
+        'country_code' => null,
+        'code_list_id' => null,
+        'code_list_name' => null,
+        'description' => null,
+        'standard' => null,
+        'versions' => null
     ];
 
     /**
@@ -119,10 +123,12 @@ class DocumentStatusResponse implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
-        'status' => 'status',
-        'business_status' => 'businessStatus',
-        'events' => 'events'
+        'country_code' => 'countryCode',
+        'code_list_id' => 'codeListId',
+        'code_list_name' => 'codeListName',
+        'description' => 'description',
+        'standard' => 'standard',
+        'versions' => 'versions'
     ];
 
     /**
@@ -131,10 +137,12 @@ class DocumentStatusResponse implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
-        'status' => 'setStatus',
-        'business_status' => 'setBusinessStatus',
-        'events' => 'setEvents'
+        'country_code' => 'setCountryCode',
+        'code_list_id' => 'setCodeListId',
+        'code_list_name' => 'setCodeListName',
+        'description' => 'setDescription',
+        'standard' => 'setStandard',
+        'versions' => 'setVersions'
     ];
 
     /**
@@ -143,10 +151,12 @@ class DocumentStatusResponse implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
-        'status' => 'getStatus',
-        'business_status' => 'getBusinessStatus',
-        'events' => 'getEvents'
+        'country_code' => 'getCountryCode',
+        'code_list_id' => 'getCodeListId',
+        'code_list_name' => 'getCodeListName',
+        'description' => 'getDescription',
+        'standard' => 'getStandard',
+        'versions' => 'getVersions'
     ];
 
     /**
@@ -206,10 +216,12 @@ class DocumentStatusResponse implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function __construct(array $data = null)
     {
-        $this->container['id'] = $data['id'] ?? null;
-        $this->container['status'] = $data['status'] ?? null;
-        $this->container['business_status'] = $data['business_status'] ?? null;
-        $this->container['events'] = $data['events'] ?? null;
+        $this->container['country_code'] = $data['country_code'] ?? null;
+        $this->container['code_list_id'] = $data['code_list_id'] ?? null;
+        $this->container['code_list_name'] = $data['code_list_name'] ?? null;
+        $this->container['description'] = $data['description'] ?? null;
+        $this->container['standard'] = $data['standard'] ?? null;
+        $this->container['versions'] = $data['versions'] ?? null;
     }
 
     /**
@@ -237,97 +249,145 @@ class DocumentStatusResponse implements ModelInterface, ArrayAccess, \JsonSerial
 
 
     /**
-     * Gets id
+     * Gets country_code
      *
      * @return string|null
      */
-    public function getId()
+    public function getCountryCode()
     {
-        return $this->container['id'];
+        return $this->container['country_code'];
     }
 
     /**
-     * Sets id
+     * Sets country_code
      *
-     * @param string|null $id The unique ID for this document
+     * @param string|null $country_code Two-letter ISO 3166-1 alpha-2 country code indicating the jurisdiction this code list applies to.
      *
      * @return self
      */
-    public function setId($id)
+    public function setCountryCode($country_code)
     {
-        $this->container['id'] = $id;
+        $this->container['country_code'] = $country_code;
 
         return $this;
     }
 
     /**
-     * Gets status
+     * Gets code_list_id
      *
      * @return string|null
      */
-    public function getStatus()
+    public function getCodeListId()
     {
-        return $this->container['status'];
+        return $this->container['code_list_id'];
     }
 
     /**
-     * Sets status
+     * Sets code_list_id
      *
-     * @param string|null $status Document status. See the `supportedDocumentStatuses` field in the GET /mandates response for full status definitions.
+     * @param string|null $code_list_id System-generated unique identifier of the code list definition. Typically a UUID used to reference this code list internally or via APIs.
      *
      * @return self
      */
-    public function setStatus($status)
+    public function setCodeListId($code_list_id)
     {
-        $this->container['status'] = $status;
+        $this->container['code_list_id'] = $code_list_id;
 
         return $this;
     }
 
     /**
-     * Gets business_status
+     * Gets code_list_name
      *
      * @return string|null
      */
-    public function getBusinessStatus()
+    public function getCodeListName()
     {
-        return $this->container['business_status'];
+        return $this->container['code_list_name'];
     }
 
     /**
-     * Sets business_status
+     * Sets code_list_name
      *
-     * @param string|null $business_status Represents the document's business lifecycle state based on responses from external actors (Tax Authority, PDP, or ERP), such as acceptance, rejection, or validation.
+     * @param string|null $code_list_name Human-readable name of the code list, usually describing what the codes represent (for example, document types, tax categories, currencies).
      *
      * @return self
      */
-    public function setBusinessStatus($business_status)
+    public function setCodeListName($code_list_name)
     {
-        $this->container['business_status'] = $business_status;
+        $this->container['code_list_name'] = $code_list_name;
 
         return $this;
     }
 
     /**
-     * Gets events
+     * Gets description
      *
-     * @return \Avalara\SDK\Model\EInvoicing\V1\StatusEvent[]|null
+     * @return string|null
      */
-    public function getEvents()
+    public function getDescription()
     {
-        return $this->container['events'];
+        return $this->container['description'];
     }
 
     /**
-     * Sets events
+     * Sets description
      *
-     * @param \Avalara\SDK\Model\EInvoicing\V1\StatusEvent[]|null $events events
+     * @param string|null $description Textual description of the code list, including what it is used for and whether it represents a global standard (e.g., UN/CEFACT, ISO, EN16931) or a jurisdiction-specific/local extension of that standard.
      *
      * @return self
      */
-    public function setEvents($events)
+    public function setDescription($description)
     {
-        $this->container['events'] = $events;
+        $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets standard
+     *
+     * @return string|null
+     */
+    public function getStandard()
+    {
+        return $this->container['standard'];
+    }
+
+    /**
+     * Sets standard
+     *
+     * @param string|null $standard Identifier of the underlying standard or authoritative source for this code list. This may be a formal code list name (e.g., UNCL1001), a standard reference (e.g., EN16931), or an internal standard identifier.
+     *
+     * @return self
+     */
+    public function setStandard($standard)
+    {
+        $this->container['standard'] = $standard;
+
+        return $this;
+    }
+
+    /**
+     * Gets versions
+     *
+     * @return \Avalara\SDK\Model\EInvoicing\V1\CodeListVersion[]|null
+     */
+    public function getVersions()
+    {
+        return $this->container['versions'];
+    }
+
+    /**
+     * Sets versions
+     *
+     * @param \Avalara\SDK\Model\EInvoicing\V1\CodeListVersion[]|null $versions Array of versioned definitions of this code list for the given jurisdiction. Each entry represents a version that is valid for a specific effective/sunset date range, optionally per locale.
+     *
+     * @return self
+     */
+    public function setVersions($versions)
+    {
+        $this->container['versions'] = $versions;
 
         return $this;
     }

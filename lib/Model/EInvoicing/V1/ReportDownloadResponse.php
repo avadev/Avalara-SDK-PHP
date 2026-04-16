@@ -1,6 +1,6 @@
 <?php
 /**
- * DocumentStatusResponse
+ * ReportDownloadResponse
  *
  * PHP version 7.3
  *
@@ -44,10 +44,10 @@ use \ArrayAccess;
 use \Avalara\SDK\ObjectSerializer;
 use \Avalara\SDK\Model\ModelInterface;
 /**
- * DocumentStatusResponse Class Doc Comment
+ * ReportDownloadResponse Class Doc Comment
  *
  * @category Class
- * @description Returns the current document ID and status
+ * @description Returns a pre-signed URL to download the report file.
  * @package  Avalara\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -55,7 +55,7 @@ use \Avalara\SDK\Model\ModelInterface;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class DocumentStatusResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class ReportDownloadResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -64,7 +64,7 @@ class DocumentStatusResponse implements ModelInterface, ArrayAccess, \JsonSerial
       *
       * @var string
       */
-    protected static $openAPIModelName = 'DocumentStatusResponse';
+    protected static $openAPIModelName = 'ReportDownloadResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -72,10 +72,8 @@ class DocumentStatusResponse implements ModelInterface, ArrayAccess, \JsonSerial
       * @var string[]
       */
     protected static $openAPITypes = [
-        'id' => 'string',
-        'status' => 'string',
-        'business_status' => 'string',
-        'events' => '\Avalara\SDK\Model\EInvoicing\V1\StatusEvent[]'
+        'report_id' => 'string',
+        'download_url' => 'string'
     ];
 
     /**
@@ -86,10 +84,8 @@ class DocumentStatusResponse implements ModelInterface, ArrayAccess, \JsonSerial
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'id' => null,
-        'status' => null,
-        'business_status' => null,
-        'events' => null
+        'report_id' => null,
+        'download_url' => 'uri'
     ];
 
     /**
@@ -119,10 +115,8 @@ class DocumentStatusResponse implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
-        'status' => 'status',
-        'business_status' => 'businessStatus',
-        'events' => 'events'
+        'report_id' => 'reportId',
+        'download_url' => 'downloadUrl'
     ];
 
     /**
@@ -131,10 +125,8 @@ class DocumentStatusResponse implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
-        'status' => 'setStatus',
-        'business_status' => 'setBusinessStatus',
-        'events' => 'setEvents'
+        'report_id' => 'setReportId',
+        'download_url' => 'setDownloadUrl'
     ];
 
     /**
@@ -143,10 +135,8 @@ class DocumentStatusResponse implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
-        'status' => 'getStatus',
-        'business_status' => 'getBusinessStatus',
-        'events' => 'getEvents'
+        'report_id' => 'getReportId',
+        'download_url' => 'getDownloadUrl'
     ];
 
     /**
@@ -206,10 +196,8 @@ class DocumentStatusResponse implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function __construct(array $data = null)
     {
-        $this->container['id'] = $data['id'] ?? null;
-        $this->container['status'] = $data['status'] ?? null;
-        $this->container['business_status'] = $data['business_status'] ?? null;
-        $this->container['events'] = $data['events'] ?? null;
+        $this->container['report_id'] = $data['report_id'] ?? null;
+        $this->container['download_url'] = $data['download_url'] ?? null;
     }
 
     /**
@@ -237,97 +225,49 @@ class DocumentStatusResponse implements ModelInterface, ArrayAccess, \JsonSerial
 
 
     /**
-     * Gets id
+     * Gets report_id
      *
      * @return string|null
      */
-    public function getId()
+    public function getReportId()
     {
-        return $this->container['id'];
+        return $this->container['report_id'];
     }
 
     /**
-     * Sets id
+     * Sets report_id
      *
-     * @param string|null $id The unique ID for this document
+     * @param string|null $report_id The unique identifier of the report.
      *
      * @return self
      */
-    public function setId($id)
+    public function setReportId($report_id)
     {
-        $this->container['id'] = $id;
+        $this->container['report_id'] = $report_id;
 
         return $this;
     }
 
     /**
-     * Gets status
+     * Gets download_url
      *
      * @return string|null
      */
-    public function getStatus()
+    public function getDownloadUrl()
     {
-        return $this->container['status'];
+        return $this->container['download_url'];
     }
 
     /**
-     * Sets status
+     * Sets download_url
      *
-     * @param string|null $status Document status. See the `supportedDocumentStatuses` field in the GET /mandates response for full status definitions.
+     * @param string|null $download_url A pre-signed URL to download the report file. This URL is time-limited.
      *
      * @return self
      */
-    public function setStatus($status)
+    public function setDownloadUrl($download_url)
     {
-        $this->container['status'] = $status;
-
-        return $this;
-    }
-
-    /**
-     * Gets business_status
-     *
-     * @return string|null
-     */
-    public function getBusinessStatus()
-    {
-        return $this->container['business_status'];
-    }
-
-    /**
-     * Sets business_status
-     *
-     * @param string|null $business_status Represents the document's business lifecycle state based on responses from external actors (Tax Authority, PDP, or ERP), such as acceptance, rejection, or validation.
-     *
-     * @return self
-     */
-    public function setBusinessStatus($business_status)
-    {
-        $this->container['business_status'] = $business_status;
-
-        return $this;
-    }
-
-    /**
-     * Gets events
-     *
-     * @return \Avalara\SDK\Model\EInvoicing\V1\StatusEvent[]|null
-     */
-    public function getEvents()
-    {
-        return $this->container['events'];
-    }
-
-    /**
-     * Sets events
-     *
-     * @param \Avalara\SDK\Model\EInvoicing\V1\StatusEvent[]|null $events events
-     *
-     * @return self
-     */
-    public function setEvents($events)
-    {
-        $this->container['events'] = $events;
+        $this->container['download_url'] = $download_url;
 
         return $this;
     }

@@ -79,7 +79,7 @@ class InteropApi
     private function setConfiguration($client): void
     {
         $this->verifyAPIClient($client);
-        $client->setSdkVersion("25.11.2");
+        $client->setSdkVersion("26.4.0");
         $this->headerSelector = new HeaderSelector(); 
         $this->client = $client;
     }
@@ -567,9 +567,9 @@ class InteropApi
      *
      * @param  string $document_type Type of the document being uploaded. Partners will be configured in Avalara system to send only certain types of documents. (required)
      * @param  string $interchange_type Type of interchange (codes in Avalara system that uniquely identifies a type of interchange). Partners will be configured in Avalara system to send documents belonging to certain types of interchanges. (required)
-     * @param  string $avalara_version The HTTP Header meant to specify the version of the API intended to be used (required)
-     * @param  string $x_avalara_client You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a \&quot;Fingerprint\&quot; (optional)
-     * @param  string $x_correlation_id The caller can use this as an identifier to use as a correlation id to trace the call. (optional)
+     * @param  string $avalara_version Header that specifies the API version to use (for example \&quot;1.6\&quot;). (required)
+     * @param  string $x_avalara_client Optional header for a client identifier string used for diagnostics (for example \&quot;Fingerprint\&quot;). (optional)
+     * @param  string $x_correlation_id Optional correlation identifier provided by the caller to trace the call (for example \&quot;f3f0d19a-01a1-4748-8a58-f000d0424f43\&quot;). (optional)
      * @param  \SplFileObject $file_name The file to be uploaded (e.g., UBL XML, CII XML). (optional)
      */
 class SubmitInteropDocumentRequestSdk {
@@ -597,7 +597,7 @@ class SubmitInteropDocumentRequestSdk {
         $this->interchange_type = $interchange_type;
     }
     public function getAvalaraVersion() {
-        return $this->avalara_version ?? '1.4';
+        return $this->avalara_version ?? '1.6';
     }
 
     public function setAvalaraVersion($avalara_version) {

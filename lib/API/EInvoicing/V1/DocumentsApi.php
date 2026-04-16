@@ -79,7 +79,7 @@ class DocumentsApi
     private function setConfiguration($client): void
     {
         $this->verifyAPIClient($client);
-        $client->setSdkVersion("25.11.2");
+        $client->setSdkVersion("26.4.0");
         $this->headerSelector = new HeaderSelector(); 
         $this->client = $client;
     }
@@ -1146,6 +1146,7 @@ class DocumentsApi
         $count = $request_parameters->getCount();
         $count_only = $request_parameters->getCountOnly();
         $filter = $request_parameters->getFilter();
+        $include = $request_parameters->get_include();
         $top = $request_parameters->getTop();
         $skip = $request_parameters->getSkip();
 
@@ -1227,6 +1228,17 @@ class DocumentsApi
             }
             else {
                 $queryParams['$filter'] = $filter;
+            }
+        }
+        // query params
+        if ($include !== null) {
+            if('form' === 'form' && is_array($include)) {
+                foreach($include as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['$include'] = $include;
             }
         }
         // query params
@@ -2062,10 +2074,10 @@ class DocumentsApi
     /**
      * Represents the Request object for the DownloadDocument API
      *
-     * @param  string $avalara_version The HTTP Header meant to specify the version of the API intended to be used (required)
-     * @param  string $accept This header indicates the MIME type of the document (required)
-     * @param  string $document_id The unique ID for this document that was returned in the POST /einvoicing/document response body (required)
-     * @param  string $x_avalara_client You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a fingerprint. (optional)
+     * @param  string $avalara_version Header that specifies the API version to use (for example \&quot;1.6\&quot;). (required)
+     * @param  string $accept Header that specifies the MIME type of the returned document. (required)
+     * @param  string $document_id The unique documentId returned in the POST /documents response body. (required)
+     * @param  string $x_avalara_client Optional header for a client identifier string used for diagnostics (for example \&quot;Fingerprint\&quot;). (optional)
      */
 class DownloadDocumentRequestSdk {
     private $avalara_version;
@@ -2076,7 +2088,7 @@ class DownloadDocumentRequestSdk {
     public function __construct() {
     }
     public function getAvalaraVersion() {
-        return $this->avalara_version ?? '1.4';
+        return $this->avalara_version ?? '1.6';
     }
 
     public function setAvalaraVersion($avalara_version) {
@@ -2108,9 +2120,9 @@ class DownloadDocumentRequestSdk {
     /**
      * Represents the Request object for the FetchDocuments API
      *
-     * @param  string $avalara_version The HTTP Header meant to specify the version of the API intended to be used (required)
+     * @param  string $avalara_version Header that specifies the API version to use (for example \&quot;1.6\&quot;). (required)
      * @param  \Avalara\SDK\Model\EInvoicing\V1\FetchDocumentsRequest $fetch_documents_request fetch_documents_request (required)
-     * @param  string $x_avalara_client You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a fingerprint. (optional)
+     * @param  string $x_avalara_client Optional header for a client identifier string used for diagnostics (for example \&quot;Fingerprint\&quot;). (optional)
      */
 class FetchDocumentsRequestSdk {
     private $avalara_version;
@@ -2120,7 +2132,7 @@ class FetchDocumentsRequestSdk {
     public function __construct() {
     }
     public function getAvalaraVersion() {
-        return $this->avalara_version ?? '1.4';
+        return $this->avalara_version ?? '1.6';
     }
 
     public function setAvalaraVersion($avalara_version) {
@@ -2145,14 +2157,15 @@ class FetchDocumentsRequestSdk {
     /**
      * Represents the Request object for the GetDocumentList API
      *
-     * @param  string $avalara_version The HTTP Header meant to specify the version of the API intended to be used (required)
-     * @param  string $x_avalara_client You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a fingerprint. (optional)
-     * @param  \DateTime $start_date Start date of documents to return. This defaults to the previous month. (optional)
-     * @param  \DateTime $end_date End date of documents to return. This defaults to the current date. (optional)
-     * @param  string $flow Optionally filter by document direction, where issued &#x3D; &#x60;out&#x60; and received &#x3D; &#x60;in&#x60; (optional)
-     * @param  string $count When set to true, the count of the collection is also returned in the response body (optional)
-     * @param  string $count_only When set to true, only the count of the collection is returned (optional)
-     * @param  string $filter Filter by field name and value. This filter only supports &lt;code&gt;eq&lt;/code&gt; . Refer to [https://developer.avalara.com/avatax/filtering-in-rest/](https://developer.avalara.com/avatax/filtering-in-rest/) for more information on filtering. Filtering will be done over the provided startDate and endDate. If no startDate or endDate is provided, defaults will be assumed. (optional)
+     * @param  string $avalara_version Header that specifies the API version to use (for example \&quot;1.6\&quot;). (required)
+     * @param  string $x_avalara_client Optional header for a client identifier string used for diagnostics (for example \&quot;Fingerprint\&quot;). (optional)
+     * @param  \DateTime $start_date Start date for documents to return. Defaults to the previous month. Format: \&quot;YYYY-MM-DDThh:mm:ss\&quot;. (optional)
+     * @param  \DateTime $end_date End date for documents to return. Defaults to the current date. Format: \&quot;YYYY-MM-DDThh:mm:ss\&quot;. (optional)
+     * @param  string $flow Optional filter for document direction: issued uses \&quot;out\&quot; and received uses \&quot;in\&quot;. (optional)
+     * @param  string $count When set to true, the response body also includes the count of items in the collection. (optional)
+     * @param  string $count_only When set to true, the response returns only the count of items in the collection. (optional)
+     * @param  string $filter Filter by field name and value. This filter supports only eq. For more information, refer to the Avalara filtering guide. (optional)
+     * @param  string $include When set to &#x60;events&#x60;, each document in the response includes its events array. Omit this parameter or use any other value to exclude events from the response. (optional)
      * @param  int $top The number of items to include in the result. (optional)
      * @param  int $skip The number of items to skip in the result. (optional)
      */
@@ -2165,13 +2178,14 @@ class GetDocumentListRequestSdk {
     private $count;
     private $count_only;
     private $filter;
+    private $include;
     private $top;
     private $skip;
 
     public function __construct() {
     }
     public function getAvalaraVersion() {
-        return $this->avalara_version ?? '1.4';
+        return $this->avalara_version ?? '1.6';
     }
 
     public function setAvalaraVersion($avalara_version) {
@@ -2226,6 +2240,13 @@ class GetDocumentListRequestSdk {
     public function setFilter($filter) {
         $this->filter = $filter;
     }
+    public function get_include() {
+        return $this->include;
+    }
+
+    public function set_include($include) {
+        $this->include = $include;
+    }
     public function getTop() {
         return $this->top;
     }
@@ -2245,9 +2266,9 @@ class GetDocumentListRequestSdk {
     /**
      * Represents the Request object for the GetDocumentStatus API
      *
-     * @param  string $avalara_version The HTTP Header meant to specify the version of the API intended to be used (required)
-     * @param  string $document_id The unique ID for this document that was returned in the POST /einvoicing/documents response body (required)
-     * @param  string $x_avalara_client You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a fingerprint. (optional)
+     * @param  string $avalara_version Header that specifies the API version to use (for example \&quot;1.6\&quot;). (required)
+     * @param  string $document_id The unique documentId returned in the POST /documents response body. (required)
+     * @param  string $x_avalara_client Optional header for a client identifier string used for diagnostics (for example \&quot;Fingerprint\&quot;). (optional)
      */
 class GetDocumentStatusRequestSdk {
     private $avalara_version;
@@ -2257,7 +2278,7 @@ class GetDocumentStatusRequestSdk {
     public function __construct() {
     }
     public function getAvalaraVersion() {
-        return $this->avalara_version ?? '1.4';
+        return $this->avalara_version ?? '1.6';
     }
 
     public function setAvalaraVersion($avalara_version) {
@@ -2282,10 +2303,10 @@ class GetDocumentStatusRequestSdk {
     /**
      * Represents the Request object for the SubmitDocument API
      *
-     * @param  string $avalara_version The HTTP Header meant to specify the version of the API intended to be used (required)
+     * @param  string $avalara_version Header that specifies the API version to use (for example \&quot;1.6\&quot;). (required)
      * @param  \Avalara\SDK\Model\EInvoicing\V1\SubmitDocumentMetadata $metadata metadata (required)
      * @param  object $data The document to be submitted, as indicated by the metadata fields &#39;dataFormat&#39; and &#39;dataFormatVersion&#39; (required)
-     * @param  string $x_avalara_client You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a fingerprint. (optional)
+     * @param  string $x_avalara_client Optional header for a client identifier string used for diagnostics (for example \&quot;Fingerprint\&quot;). (optional)
      */
 class SubmitDocumentRequestSdk {
     private $avalara_version;
@@ -2296,7 +2317,7 @@ class SubmitDocumentRequestSdk {
     public function __construct() {
     }
     public function getAvalaraVersion() {
-        return $this->avalara_version ?? '1.4';
+        return $this->avalara_version ?? '1.6';
     }
 
     public function setAvalaraVersion($avalara_version) {

@@ -75,7 +75,8 @@ class StatusEvent implements ModelInterface, ArrayAccess, \JsonSerializable
         'event_date_time' => 'string',
         'message' => 'string',
         'response_key' => 'string',
-        'response_value' => 'string'
+        'response_value' => 'string',
+        'category' => 'string'
     ];
 
     /**
@@ -89,7 +90,8 @@ class StatusEvent implements ModelInterface, ArrayAccess, \JsonSerializable
         'event_date_time' => null,
         'message' => null,
         'response_key' => null,
-        'response_value' => null
+        'response_value' => null,
+        'category' => null
     ];
 
     /**
@@ -122,7 +124,8 @@ class StatusEvent implements ModelInterface, ArrayAccess, \JsonSerializable
         'event_date_time' => 'eventDateTime',
         'message' => 'message',
         'response_key' => 'responseKey',
-        'response_value' => 'responseValue'
+        'response_value' => 'responseValue',
+        'category' => 'category'
     ];
 
     /**
@@ -134,7 +137,8 @@ class StatusEvent implements ModelInterface, ArrayAccess, \JsonSerializable
         'event_date_time' => 'setEventDateTime',
         'message' => 'setMessage',
         'response_key' => 'setResponseKey',
-        'response_value' => 'setResponseValue'
+        'response_value' => 'setResponseValue',
+        'category' => 'setCategory'
     ];
 
     /**
@@ -146,7 +150,8 @@ class StatusEvent implements ModelInterface, ArrayAccess, \JsonSerializable
         'event_date_time' => 'getEventDateTime',
         'message' => 'getMessage',
         'response_key' => 'getResponseKey',
-        'response_value' => 'getResponseValue'
+        'response_value' => 'getResponseValue',
+        'category' => 'getCategory'
     ];
 
     /**
@@ -210,6 +215,7 @@ class StatusEvent implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['message'] = $data['message'] ?? null;
         $this->container['response_key'] = $data['response_key'] ?? null;
         $this->container['response_value'] = $data['response_value'] ?? null;
+        $this->container['category'] = $data['category'] ?? null;
     }
 
     /**
@@ -249,7 +255,7 @@ class StatusEvent implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets event_date_time
      *
-     * @param string|null $event_date_time The date and time when the status event occured, displayed in the format YYYY-MM-DDThh:mm:ss
+     * @param string|null $event_date_time The date and time when the status event occurred, displayed in the format YYYY-MM-DDThh:mm:ss
      *
      * @return self
      */
@@ -328,6 +334,30 @@ class StatusEvent implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setResponseValue($response_value)
     {
         $this->container['response_value'] = $response_value;
+
+        return $this;
+    }
+
+    /**
+     * Gets category
+     *
+     * @return string|null
+     */
+    public function getCategory()
+    {
+        return $this->container['category'];
+    }
+
+    /**
+     * Sets category
+     *
+     * @param string|null $category Represents the functional area or process stage where the status event occurred. Useful for grouping related events such as document processing, transmission, or validation.
+     *
+     * @return self
+     */
+    public function setCategory($category)
+    {
+        $this->container['category'] = $category;
 
         return $this;
     }

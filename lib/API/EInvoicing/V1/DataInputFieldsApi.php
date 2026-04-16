@@ -79,7 +79,7 @@ class DataInputFieldsApi
     private function setConfiguration($client): void
     {
         $this->verifyAPIClient($client);
-        $client->setSdkVersion("25.11.2");
+        $client->setSdkVersion("26.4.0");
         $this->headerSelector = new HeaderSelector(); 
         $this->client = $client;
     }
@@ -529,13 +529,13 @@ class DataInputFieldsApi
     /**
      * Represents the Request object for the GetDataInputFields API
      *
-     * @param  string $avalara_version The HTTP Header meant to specify the version of the API intended to be used (required)
-     * @param  string $x_avalara_client You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a fingerprint. (optional)
-     * @param  string $filter Filter by field name and value. This filter only supports &lt;code&gt;eq&lt;/code&gt; and &lt;code&gt;contains&lt;/code&gt;. Refer to [https://developer.avalara.com/avatax/filtering-in-rest/](https://developer.avalara.com/avatax/filtering-in-rest/) for more information on filtering. (optional)
+     * @param  string $avalara_version Header that specifies the API version to use (for example \&quot;1.6\&quot;). (required)
+     * @param  string $x_avalara_client Optional header for a client identifier string used for diagnostics (for example \&quot;Fingerprint\&quot;). (optional)
+     * @param  string $filter Filter by field name and value. This filter supports only eq and contains. For more information, refer to the Avalara filtering guide. (optional)
      * @param  int $top The number of items to include in the result. (optional)
      * @param  int $skip The number of items to skip in the result. (optional)
-     * @param  bool $count When set to true, the count of the collection is also returned in the response body (optional)
-     * @param  bool $count_only When set to true, only the count of the collection is returned (optional)
+     * @param  bool $count When set to true, the response body also includes the count of items in the collection. (optional)
+     * @param  bool $count_only When set to true, the response returns only the count of items in the collection. (optional)
      */
 class GetDataInputFieldsRequestSdk {
     private $avalara_version;
@@ -549,7 +549,7 @@ class GetDataInputFieldsRequestSdk {
     public function __construct() {
     }
     public function getAvalaraVersion() {
-        return $this->avalara_version ?? '1.4';
+        return $this->avalara_version ?? '1.6';
     }
 
     public function setAvalaraVersion($avalara_version) {

@@ -73,7 +73,8 @@ class Identifier implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPITypes = [
         'name' => 'string',
         'display_name' => 'string',
-        'value' => 'string'
+        'value' => 'string',
+        'extensions' => '\Avalara\SDK\Model\EInvoicing\V1\Extension[]'
     ];
 
     /**
@@ -86,7 +87,8 @@ class Identifier implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPIFormats = [
         'name' => null,
         'display_name' => null,
-        'value' => null
+        'value' => null,
+        'extensions' => null
     ];
 
     /**
@@ -118,7 +120,8 @@ class Identifier implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $attributeMap = [
         'name' => 'name',
         'display_name' => 'displayName',
-        'value' => 'value'
+        'value' => 'value',
+        'extensions' => 'extensions'
     ];
 
     /**
@@ -129,7 +132,8 @@ class Identifier implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $setters = [
         'name' => 'setName',
         'display_name' => 'setDisplayName',
-        'value' => 'setValue'
+        'value' => 'setValue',
+        'extensions' => 'setExtensions'
     ];
 
     /**
@@ -140,7 +144,8 @@ class Identifier implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $getters = [
         'name' => 'getName',
         'display_name' => 'getDisplayName',
-        'value' => 'getValue'
+        'value' => 'getValue',
+        'extensions' => 'getExtensions'
     ];
 
     /**
@@ -203,6 +208,7 @@ class Identifier implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['name'] = $data['name'] ?? null;
         $this->container['display_name'] = $data['display_name'] ?? null;
         $this->container['value'] = $data['value'] ?? null;
+        $this->container['extensions'] = $data['extensions'] ?? null;
     }
 
     /**
@@ -327,6 +333,30 @@ class Identifier implements ModelInterface, ArrayAccess, \JsonSerializable
         }
 
         $this->container['value'] = $value;
+
+        return $this;
+    }
+
+    /**
+     * Gets extensions
+     *
+     * @return \Avalara\SDK\Model\EInvoicing\V1\Extension[]|null
+     */
+    public function getExtensions()
+    {
+        return $this->container['extensions'];
+    }
+
+    /**
+     * Sets extensions
+     *
+     * @param \Avalara\SDK\Model\EInvoicing\V1\Extension[]|null $extensions Optional array used to carry additional metadata or configuration values for the identifier.
+     *
+     * @return self
+     */
+    public function setExtensions($extensions)
+    {
+        $this->container['extensions'] = $extensions;
 
         return $this;
     }

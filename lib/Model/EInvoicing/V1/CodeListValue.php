@@ -1,6 +1,6 @@
 <?php
 /**
- * DocumentStatusResponse
+ * CodeListValue
  *
  * PHP version 7.3
  *
@@ -44,10 +44,10 @@ use \ArrayAccess;
 use \Avalara\SDK\ObjectSerializer;
 use \Avalara\SDK\Model\ModelInterface;
 /**
- * DocumentStatusResponse Class Doc Comment
+ * CodeListValue Class Doc Comment
  *
  * @category Class
- * @description Returns the current document ID and status
+ * @description Represents a single code entry in a code list version
  * @package  Avalara\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -55,7 +55,7 @@ use \Avalara\SDK\Model\ModelInterface;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class DocumentStatusResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class CodeListValue implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -64,7 +64,7 @@ class DocumentStatusResponse implements ModelInterface, ArrayAccess, \JsonSerial
       *
       * @var string
       */
-    protected static $openAPIModelName = 'DocumentStatusResponse';
+    protected static $openAPIModelName = 'CodeListValue';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -72,10 +72,9 @@ class DocumentStatusResponse implements ModelInterface, ArrayAccess, \JsonSerial
       * @var string[]
       */
     protected static $openAPITypes = [
-        'id' => 'string',
-        'status' => 'string',
-        'business_status' => 'string',
-        'events' => '\Avalara\SDK\Model\EInvoicing\V1\StatusEvent[]'
+        'code' => 'string',
+        'value' => 'string',
+        'description' => 'string'
     ];
 
     /**
@@ -86,10 +85,9 @@ class DocumentStatusResponse implements ModelInterface, ArrayAccess, \JsonSerial
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'id' => null,
-        'status' => null,
-        'business_status' => null,
-        'events' => null
+        'code' => null,
+        'value' => null,
+        'description' => null
     ];
 
     /**
@@ -119,10 +117,9 @@ class DocumentStatusResponse implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
-        'status' => 'status',
-        'business_status' => 'businessStatus',
-        'events' => 'events'
+        'code' => 'code',
+        'value' => 'value',
+        'description' => 'description'
     ];
 
     /**
@@ -131,10 +128,9 @@ class DocumentStatusResponse implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
-        'status' => 'setStatus',
-        'business_status' => 'setBusinessStatus',
-        'events' => 'setEvents'
+        'code' => 'setCode',
+        'value' => 'setValue',
+        'description' => 'setDescription'
     ];
 
     /**
@@ -143,10 +139,9 @@ class DocumentStatusResponse implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
-        'status' => 'getStatus',
-        'business_status' => 'getBusinessStatus',
-        'events' => 'getEvents'
+        'code' => 'getCode',
+        'value' => 'getValue',
+        'description' => 'getDescription'
     ];
 
     /**
@@ -206,10 +201,9 @@ class DocumentStatusResponse implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function __construct(array $data = null)
     {
-        $this->container['id'] = $data['id'] ?? null;
-        $this->container['status'] = $data['status'] ?? null;
-        $this->container['business_status'] = $data['business_status'] ?? null;
-        $this->container['events'] = $data['events'] ?? null;
+        $this->container['code'] = $data['code'] ?? null;
+        $this->container['value'] = $data['value'] ?? null;
+        $this->container['description'] = $data['description'] ?? null;
     }
 
     /**
@@ -237,97 +231,73 @@ class DocumentStatusResponse implements ModelInterface, ArrayAccess, \JsonSerial
 
 
     /**
-     * Gets id
+     * Gets code
      *
      * @return string|null
      */
-    public function getId()
+    public function getCode()
     {
-        return $this->container['id'];
+        return $this->container['code'];
     }
 
     /**
-     * Sets id
+     * Sets code
      *
-     * @param string|null $id The unique ID for this document
+     * @param string|null $code The actual code value used in documents or systems. This is typically what appears in the e-invoice payload, such as a numeric or alphanumeric code from the official code list.
      *
      * @return self
      */
-    public function setId($id)
+    public function setCode($code)
     {
-        $this->container['id'] = $id;
+        $this->container['code'] = $code;
 
         return $this;
     }
 
     /**
-     * Gets status
+     * Gets value
      *
      * @return string|null
      */
-    public function getStatus()
+    public function getValue()
     {
-        return $this->container['status'];
+        return $this->container['value'];
     }
 
     /**
-     * Sets status
+     * Sets value
      *
-     * @param string|null $status Document status. See the `supportedDocumentStatuses` field in the GET /mandates response for full status definitions.
+     * @param string|null $value Human-readable label or name for the code, localized according to the locale field of the version.
      *
      * @return self
      */
-    public function setStatus($status)
+    public function setValue($value)
     {
-        $this->container['status'] = $status;
+        $this->container['value'] = $value;
 
         return $this;
     }
 
     /**
-     * Gets business_status
+     * Gets description
      *
      * @return string|null
      */
-    public function getBusinessStatus()
+    public function getDescription()
     {
-        return $this->container['business_status'];
+        return $this->container['description'];
     }
 
     /**
-     * Sets business_status
+     * Sets description
      *
-     * @param string|null $business_status Represents the document's business lifecycle state based on responses from external actors (Tax Authority, PDP, or ERP), such as acceptance, rejection, or validation.
+     * @param string|null $description Detailed explanation of what the code represents, localized according to the locale field of the version.
      *
      * @return self
      */
-    public function setBusinessStatus($business_status)
+    public function setDescription($description)
     {
-        $this->container['business_status'] = $business_status;
-
-        return $this;
-    }
-
-    /**
-     * Gets events
-     *
-     * @return \Avalara\SDK\Model\EInvoicing\V1\StatusEvent[]|null
-     */
-    public function getEvents()
-    {
-        return $this->container['events'];
-    }
-
-    /**
-     * Sets events
-     *
-     * @param \Avalara\SDK\Model\EInvoicing\V1\StatusEvent[]|null $events events
-     *
-     * @return self
-     */
-    public function setEvents($events)
-    {
-        $this->container['events'] = $events;
+        $this->container['description'] = $description;
 
         return $this;
     }

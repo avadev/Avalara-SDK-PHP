@@ -79,7 +79,7 @@ class TaxIdentifiersApi
     private function setConfiguration($client): void
     {
         $this->verifyAPIClient($client);
-        $client->setSdkVersion("25.11.2");
+        $client->setSdkVersion("26.4.0");
         $this->headerSelector = new HeaderSelector(); 
         $this->client = $client;
     }
@@ -118,7 +118,7 @@ class TaxIdentifiersApi
     /**
      * Operation taxIdentifierSchemaByCountry
      *
-     * Returns the tax identifier request &amp; response schema for a specific country.
+     * Returns the tax identifier request and response schema for a specific country.
      *
      * @param TaxIdentifierSchemaByCountryRequestSdk The request parameters for the API call.
      *
@@ -135,7 +135,7 @@ class TaxIdentifiersApi
     /**
      * Operation taxIdentifierSchemaByCountryWithHttpInfo
      *
-     * Returns the tax identifier request &amp; response schema for a specific country.
+     * Returns the tax identifier request and response schema for a specific country.
      *
      * @param TaxIdentifierSchemaByCountryRequestSdk The request parameters for the API call.
      *
@@ -327,7 +327,7 @@ class TaxIdentifiersApi
     /**
      * Operation taxIdentifierSchemaByCountryAsync
      *
-     * Returns the tax identifier request &amp; response schema for a specific country.
+     * Returns the tax identifier request and response schema for a specific country.
      *
      * @param TaxIdentifierSchemaByCountryRequestSdk The request parameters for the API call.
      *
@@ -347,7 +347,7 @@ class TaxIdentifiersApi
     /**
      * Operation taxIdentifierSchemaByCountryAsyncWithHttpInfo
      *
-     * Returns the tax identifier request &amp; response schema for a specific country.
+     * Returns the tax identifier request and response schema for a specific country.
      *
      * @param TaxIdentifierSchemaByCountryRequestSdk The request parameters for the API call.
      *
@@ -977,11 +977,11 @@ class TaxIdentifiersApi
     /**
      * Represents the Request object for the TaxIdentifierSchemaByCountry API
      *
-     * @param  string $avalara_version The HTTP Header meant to specify the version of the API intended to be used. (required)
-     * @param  string $country_code The two-letter ISO-3166 country code for which the schema should be retrieved. (required)
-     * @param  string $x_avalara_client You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a \&quot;Fingerprint\&quot;. (optional)
-     * @param  string $x_correlation_id The caller can use this as an identifier to use as a correlation id to trace the call. (optional)
-     * @param  string $type Specifies whether to return the request or response schema. (optional)
+     * @param  string $avalara_version Header that specifies the API version to use (for example \&quot;1.6\&quot;). (required)
+     * @param  string $country_code Two-letter ISO 3166 country code for which to retrieve the schema (for example \&quot;DE\&quot;). (required)
+     * @param  string $x_avalara_client Optional header for a client identifier string used for diagnostics (for example \&quot;Fingerprint\&quot;). (optional)
+     * @param  string $x_correlation_id Optional correlation identifier provided by the caller to trace the call (for example \&quot;f3f0d19a-01a1-4748-8a58-f000d0424f43\&quot;). (optional)
+     * @param  string $type Specifies which schema to return: \&quot;request\&quot; to receive the request validation schema or \&quot;response\&quot; to receive the response validation schema. (optional)
      */
 class TaxIdentifierSchemaByCountryRequestSdk {
     private $avalara_version;
@@ -993,7 +993,7 @@ class TaxIdentifierSchemaByCountryRequestSdk {
     public function __construct() {
     }
     public function getAvalaraVersion() {
-        return $this->avalara_version ?? '1.4';
+        return $this->avalara_version ?? '1.6';
     }
 
     public function setAvalaraVersion($avalara_version) {
@@ -1032,10 +1032,10 @@ class TaxIdentifierSchemaByCountryRequestSdk {
     /**
      * Represents the Request object for the ValidateTaxIdentifier API
      *
-     * @param  string $avalara_version The HTTP Header meant to specify the version of the API intended to be used. (required)
+     * @param  string $avalara_version Header that specifies the API version to use (for example \&quot;1.6\&quot;). (required)
      * @param  \Avalara\SDK\Model\EInvoicing\V1\TaxIdentifierRequest $tax_identifier_request tax_identifier_request (required)
-     * @param  string $x_avalara_client You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a \&quot;Fingerprint\&quot;. (optional)
-     * @param  string $x_correlation_id The caller can use this as an identifier to use as a correlation id to trace the call. (optional)
+     * @param  string $x_avalara_client Optional header for a client identifier string used for diagnostics (for example \&quot;Fingerprint\&quot;). (optional)
+     * @param  string $x_correlation_id Optional correlation identifier provided by the caller to trace the call (for example \&quot;f3f0d19a-01a1-4748-8a58-f000d0424f43\&quot;). (optional)
      */
 class ValidateTaxIdentifierRequestSdk {
     private $avalara_version;
@@ -1046,7 +1046,7 @@ class ValidateTaxIdentifierRequestSdk {
     public function __construct() {
     }
     public function getAvalaraVersion() {
-        return $this->avalara_version ?? '1.4';
+        return $this->avalara_version ?? '1.6';
     }
 
     public function setAvalaraVersion($avalara_version) {

@@ -79,7 +79,7 @@ class TradingPartnersApi
     private function setConfiguration($client): void
     {
         $this->verifyAPIClient($client);
-        $client->setSdkVersion("25.11.2");
+        $client->setSdkVersion("26.4.0");
         $this->headerSelector = new HeaderSelector(); 
         $this->client = $client;
     }
@@ -3989,12 +3989,12 @@ class TradingPartnersApi
     /**
      * Represents the Request object for the BatchSearchParticipants API
      *
-     * @param  string $avalara_version The HTTP Header meant to specify the version of the API intended to be used. (required)
-     * @param  string $name A &lt;b&gt;human-readable&lt;/b&gt; name for the batch search. (required)
+     * @param  string $avalara_version Header that specifies the API version to use (for example \&quot;1.6\&quot;). (required)
+     * @param  string $name A human-readable name for the batch search. (required)
      * @param  string $notification_email The email address to which a notification will be sent once the batch search is complete. (required)
      * @param  \SplFileObject $file CSV file containing search parameters.  Input Constraints: - Maximum file size: 1 MB - File Header: Must be less than 500 KB - Total number of lines (including header): Must be 101 or fewer (required)
-     * @param  string $x_avalara_client You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a \&quot;Fingerprint\&quot;. (optional)
-     * @param  string $x_correlation_id The caller can use this as an identifier to use as a correlation id to trace the call. (optional)
+     * @param  string $x_avalara_client Optional header for a client identifier string used for diagnostics (for example \&quot;Fingerprint\&quot;). (optional)
+     * @param  string $x_correlation_id Optional correlation identifier provided by the caller to trace the call (for example \&quot;f3f0d19a-01a1-4748-8a58-f000d0424f43\&quot;). (optional)
      */
 class BatchSearchParticipantsRequestSdk {
     private $avalara_version;
@@ -4007,7 +4007,7 @@ class BatchSearchParticipantsRequestSdk {
     public function __construct() {
     }
     public function getAvalaraVersion() {
-        return $this->avalara_version ?? '1.4';
+        return $this->avalara_version ?? '1.6';
     }
 
     public function setAvalaraVersion($avalara_version) {
@@ -4053,10 +4053,10 @@ class BatchSearchParticipantsRequestSdk {
     /**
      * Represents the Request object for the CreateTradingPartner API
      *
-     * @param  string $avalara_version The HTTP Header meant to specify the version of the API intended to be used. (required)
+     * @param  string $avalara_version Header that specifies the API version to use (for example \&quot;1.6\&quot;). (required)
      * @param  \Avalara\SDK\Model\EInvoicing\V1\TradingPartner $trading_partner trading_partner (required)
-     * @param  string $x_avalara_client You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a \&quot;Fingerprint\&quot;. (optional)
-     * @param  string $x_correlation_id The caller can use this as an identifier to use as a correlation id to trace the call. (optional)
+     * @param  string $x_avalara_client Optional header for a client identifier string used for diagnostics (for example \&quot;Fingerprint\&quot;). (optional)
+     * @param  string $x_correlation_id Optional correlation identifier provided by the caller to trace the call (for example \&quot;f3f0d19a-01a1-4748-8a58-f000d0424f43\&quot;). (optional)
      */
 class CreateTradingPartnerRequestSdk {
     private $avalara_version;
@@ -4067,7 +4067,7 @@ class CreateTradingPartnerRequestSdk {
     public function __construct() {
     }
     public function getAvalaraVersion() {
-        return $this->avalara_version ?? '1.4';
+        return $this->avalara_version ?? '1.6';
     }
 
     public function setAvalaraVersion($avalara_version) {
@@ -4099,10 +4099,10 @@ class CreateTradingPartnerRequestSdk {
     /**
      * Represents the Request object for the CreateTradingPartnersBatch API
      *
-     * @param  string $avalara_version The HTTP Header meant to specify the version of the API intended to be used. (required)
+     * @param  string $avalara_version Header that specifies the API version to use (for example \&quot;1.6\&quot;). (required)
      * @param  \Avalara\SDK\Model\EInvoicing\V1\CreateTradingPartnersBatchRequest $create_trading_partners_batch_request create_trading_partners_batch_request (required)
-     * @param  string $x_avalara_client You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a \&quot;Fingerprint\&quot;. (optional)
-     * @param  string $x_correlation_id The caller can use this as an identifier to use as a correlation id to trace the call. (optional)
+     * @param  string $x_avalara_client Optional header for a client identifier string used for diagnostics (for example \&quot;Fingerprint\&quot;). (optional)
+     * @param  string $x_correlation_id Optional correlation identifier provided by the caller to trace the call (for example \&quot;f3f0d19a-01a1-4748-8a58-f000d0424f43\&quot;). (optional)
      */
 class CreateTradingPartnersBatchRequestSdk {
     private $avalara_version;
@@ -4113,7 +4113,7 @@ class CreateTradingPartnersBatchRequestSdk {
     public function __construct() {
     }
     public function getAvalaraVersion() {
-        return $this->avalara_version ?? '1.4';
+        return $this->avalara_version ?? '1.6';
     }
 
     public function setAvalaraVersion($avalara_version) {
@@ -4145,10 +4145,10 @@ class CreateTradingPartnersBatchRequestSdk {
     /**
      * Represents the Request object for the DeleteTradingPartner API
      *
-     * @param  string $avalara_version The HTTP Header meant to specify the version of the API intended to be used. (required)
-     * @param  string $id The ID of the trading partner which is being deleted. (required)
-     * @param  string $x_avalara_client You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a \&quot;Fingerprint\&quot;. (optional)
-     * @param  string $x_correlation_id The caller can use this as an identifier to use as a correlation id to trace the call. (optional)
+     * @param  string $avalara_version Header that specifies the API version to use (for example \&quot;1.6\&quot;). (required)
+     * @param  string $id Unique identifier of the trading partner. (required)
+     * @param  string $x_avalara_client Optional header for a client identifier string used for diagnostics (for example \&quot;Fingerprint\&quot;). (optional)
+     * @param  string $x_correlation_id Optional correlation identifier provided by the caller to trace the call (for example \&quot;f3f0d19a-01a1-4748-8a58-f000d0424f43\&quot;). (optional)
      */
 class DeleteTradingPartnerRequestSdk {
     private $avalara_version;
@@ -4159,7 +4159,7 @@ class DeleteTradingPartnerRequestSdk {
     public function __construct() {
     }
     public function getAvalaraVersion() {
-        return $this->avalara_version ?? '1.4';
+        return $this->avalara_version ?? '1.6';
     }
 
     public function setAvalaraVersion($avalara_version) {
@@ -4191,10 +4191,10 @@ class DeleteTradingPartnerRequestSdk {
     /**
      * Represents the Request object for the DownloadBatchSearchReport API
      *
-     * @param  string $avalara_version The HTTP Header meant to specify the version of the API intended to be used. (required)
-     * @param  string $id The ID of the batch search for which the report should be downloaded. (required)
-     * @param  string $x_avalara_client You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a \&quot;Fingerprint\&quot;. (optional)
-     * @param  string $x_correlation_id The caller can use this as an identifier to use as a correlation id to trace the call. (optional)
+     * @param  string $avalara_version Header that specifies the API version to use (for example \&quot;1.6\&quot;). (required)
+     * @param  string $id Unique identifier of the batch search for which to download the report. (required)
+     * @param  string $x_avalara_client Optional header for a client identifier string used for diagnostics (for example \&quot;Fingerprint\&quot;). (optional)
+     * @param  string $x_correlation_id Optional correlation identifier provided by the caller to trace the call (for example \&quot;f3f0d19a-01a1-4748-8a58-f000d0424f43\&quot;). (optional)
      */
 class DownloadBatchSearchReportRequestSdk {
     private $avalara_version;
@@ -4205,7 +4205,7 @@ class DownloadBatchSearchReportRequestSdk {
     public function __construct() {
     }
     public function getAvalaraVersion() {
-        return $this->avalara_version ?? '1.4';
+        return $this->avalara_version ?? '1.6';
     }
 
     public function setAvalaraVersion($avalara_version) {
@@ -4237,10 +4237,10 @@ class DownloadBatchSearchReportRequestSdk {
     /**
      * Represents the Request object for the GetBatchSearchDetail API
      *
-     * @param  string $avalara_version The HTTP Header meant to specify the version of the API intended to be used. (required)
-     * @param  string $id The ID of the batch search that was submitted earlier. (required)
-     * @param  string $x_avalara_client You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a \&quot;Fingerprint\&quot;. (optional)
-     * @param  string $x_correlation_id The caller can use this as an identifier to use as a correlation id to trace the call. (optional)
+     * @param  string $avalara_version Header that specifies the API version to use (for example \&quot;1.6\&quot;). (required)
+     * @param  string $id Unique identifier of the batch search. (required)
+     * @param  string $x_avalara_client Optional header for a client identifier string used for diagnostics (for example \&quot;Fingerprint\&quot;). (optional)
+     * @param  string $x_correlation_id Optional correlation identifier provided by the caller to trace the call (for example \&quot;f3f0d19a-01a1-4748-8a58-f000d0424f43\&quot;). (optional)
      */
 class GetBatchSearchDetailRequestSdk {
     private $avalara_version;
@@ -4251,7 +4251,7 @@ class GetBatchSearchDetailRequestSdk {
     public function __construct() {
     }
     public function getAvalaraVersion() {
-        return $this->avalara_version ?? '1.4';
+        return $this->avalara_version ?? '1.6';
     }
 
     public function setAvalaraVersion($avalara_version) {
@@ -4283,14 +4283,14 @@ class GetBatchSearchDetailRequestSdk {
     /**
      * Represents the Request object for the ListBatchSearches API
      *
-     * @param  string $avalara_version The HTTP Header meant to specify the version of the API intended to be used. (required)
-     * @param  string $x_avalara_client You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a \&quot;Fingerprint\&quot;. (optional)
-     * @param  string $filter Filters the results by field name. Only the &lt;code&gt;eq&lt;/code&gt; operator and the name field is supported. For more information, refer to [AvaTax filtering guide](https://developer.avalara.com/avatax/filtering-in-rest/). (optional)
+     * @param  string $avalara_version Header that specifies the API version to use (for example \&quot;1.6\&quot;). (required)
+     * @param  string $x_avalara_client Optional header for a client identifier string used for diagnostics (for example \&quot;Fingerprint\&quot;). (optional)
+     * @param  string $filter Filters the results by field name. Only the eq operator and the name field are supported. For more information, refer to the Avalara filtering guide. (optional)
      * @param  bool $count When set to &lt;code&gt;true&lt;/code&gt;, returns the total count of matching records included as &lt;code&gt;@recordSetCount&lt;/code&gt; in the response body. (optional)
      * @param  int $top The number of items to include in the result. (optional)
      * @param  int $skip The number of items to skip in the result. (optional)
      * @param  string $order_by The &lt;code&gt;$orderBy&lt;/code&gt; query parameter specifies the field and sorting direction for ordering the result set. The value is a string that combines a field name and a sorting direction (asc for ascending or desc for descending), separated by a space. (optional)
-     * @param  string $x_correlation_id The caller can use this as an identifier to use as a correlation id to trace the call. (optional)
+     * @param  string $x_correlation_id Optional correlation identifier provided by the caller to trace the call (for example \&quot;f3f0d19a-01a1-4748-8a58-f000d0424f43\&quot;). (optional)
      */
 class ListBatchSearchesRequestSdk {
     private $avalara_version;
@@ -4305,7 +4305,7 @@ class ListBatchSearchesRequestSdk {
     public function __construct() {
     }
     public function getAvalaraVersion() {
-        return $this->avalara_version ?? '1.4';
+        return $this->avalara_version ?? '1.6';
     }
 
     public function setAvalaraVersion($avalara_version) {
@@ -4365,15 +4365,15 @@ class ListBatchSearchesRequestSdk {
     /**
      * Represents the Request object for the SearchParticipants API
      *
-     * @param  string $avalara_version The HTTP Header meant to specify the version of the API intended to be used. (required)
-     * @param  string $search Search by value supports logical &lt;code&gt;AND&lt;/code&gt; / &lt;code&gt;OR&lt;/code&gt; operators. Search is performed only over the name and identifier value fields. For more information, refer to [Query options overview - OData.](https://learn.microsoft.com/en-us/odata/concepts/queryoptions-overview#search). (required)
-     * @param  string $x_avalara_client You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a \&quot;Fingerprint\&quot;. (optional)
-     * @param  bool $count When set to &lt;code&gt;true&lt;/code&gt;, returns the total count of matching records included as &lt;code&gt;@recordSetCount&lt;/code&gt; in the response body. (optional)
-     * @param  string $filter Filters the results using the &lt;code&gt;eq&lt;/code&gt; operator. Supported fields: &lt;code&gt;network&lt;/code&gt;, &lt;code&gt;country&lt;/code&gt;, &lt;code&gt;documentType&lt;/code&gt;, &lt;code&gt;idType&lt;/code&gt;. For more information, refer to [AvaTax filtering guide](https://developer.avalara.com/avatax/filtering-in-rest/). (optional)
+     * @param  string $avalara_version Header that specifies the API version to use (for example \&quot;1.6\&quot;). (required)
+     * @param  string $search Search by value supports logical AND and OR operators (case-sensitive). Search is performed only over the name and identifier value fields. For more information, refer to the OData query options overview documentation. (required)
+     * @param  string $x_avalara_client Optional header for a client identifier string used for diagnostics (for example \&quot;Fingerprint\&quot;). (optional)
+     * @param  bool $count When set to true, returns the total count of matching records included as @recordSetCount in the response body. (optional)
+     * @param  string $filter Filters the results using the eq operator. Supported fields include network, country, documentType, and idType. For more information, refer to the Avalara filtering guide. (optional)
      * @param  int $top The number of items to include in the result. (optional)
      * @param  int $skip The number of items to skip in the result. (optional)
-     * @param  string $order_by The &lt;code&gt;$orderBy&lt;/code&gt; query parameter specifies the field and sorting direction for ordering the result set. The value is a string that combines a field name and a sorting direction (asc for ascending or desc for descending), separated by a space. (optional)
-     * @param  string $x_correlation_id The caller can use this as an identifier to use as a correlation id to trace the call. (optional)
+     * @param  string $order_by The $orderBy query parameter specifies the field and sorting direction for ordering the result set. The value combines a field name and a sorting direction (asc for ascending or desc for descending), separated by a space. (optional)
+     * @param  string $x_correlation_id Optional correlation identifier provided by the caller to trace the call (for example \&quot;f3f0d19a-01a1-4748-8a58-f000d0424f43\&quot;). (optional)
      */
 class SearchParticipantsRequestSdk {
     private $avalara_version;
@@ -4389,7 +4389,7 @@ class SearchParticipantsRequestSdk {
     public function __construct() {
     }
     public function getAvalaraVersion() {
-        return $this->avalara_version ?? '1.4';
+        return $this->avalara_version ?? '1.6';
     }
 
     public function setAvalaraVersion($avalara_version) {
@@ -4456,11 +4456,11 @@ class SearchParticipantsRequestSdk {
     /**
      * Represents the Request object for the UpdateTradingPartner API
      *
-     * @param  string $avalara_version The HTTP Header meant to specify the version of the API intended to be used. (required)
-     * @param  string $id The ID of the trading partner which is being updated. (required)
+     * @param  string $avalara_version Header that specifies the API version to use (for example \&quot;1.6\&quot;). (required)
+     * @param  string $id Unique identifier of the trading partner. (required)
      * @param  \Avalara\SDK\Model\EInvoicing\V1\TradingPartner $trading_partner trading_partner (required)
-     * @param  string $x_avalara_client You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a \&quot;Fingerprint\&quot;. (optional)
-     * @param  string $x_correlation_id The caller can use this as an identifier to use as a correlation id to trace the call. (optional)
+     * @param  string $x_avalara_client Optional header for a client identifier string used for diagnostics (for example \&quot;Fingerprint\&quot;). (optional)
+     * @param  string $x_correlation_id Optional correlation identifier provided by the caller to trace the call (for example \&quot;f3f0d19a-01a1-4748-8a58-f000d0424f43\&quot;). (optional)
      */
 class UpdateTradingPartnerRequestSdk {
     private $avalara_version;
@@ -4472,7 +4472,7 @@ class UpdateTradingPartnerRequestSdk {
     public function __construct() {
     }
     public function getAvalaraVersion() {
-        return $this->avalara_version ?? '1.4';
+        return $this->avalara_version ?? '1.6';
     }
 
     public function setAvalaraVersion($avalara_version) {

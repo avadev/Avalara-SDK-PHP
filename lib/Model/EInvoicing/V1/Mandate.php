@@ -83,7 +83,8 @@ class Mandate implements ModelInterface, ArrayAccess, \JsonSerializable
         'supports_inbound_digital_document' => 'string',
         'input_data_formats' => '\Avalara\SDK\Model\EInvoicing\V1\InputDataFormats[]',
         'output_data_formats' => '\Avalara\SDK\Model\EInvoicing\V1\OutputDataFormats[]',
-        'workflow_ids' => '\Avalara\SDK\Model\EInvoicing\V1\WorkflowIds[]'
+        'workflow_ids' => '\Avalara\SDK\Model\EInvoicing\V1\WorkflowIds[]',
+        'supported_document_statuses' => '\Avalara\SDK\Model\EInvoicing\V1\SupportedDocumentStatuses[]'
     ];
 
     /**
@@ -106,7 +107,8 @@ class Mandate implements ModelInterface, ArrayAccess, \JsonSerializable
         'supports_inbound_digital_document' => null,
         'input_data_formats' => null,
         'output_data_formats' => null,
-        'workflow_ids' => null
+        'workflow_ids' => null,
+        'supported_document_statuses' => null
     ];
 
     /**
@@ -148,7 +150,8 @@ class Mandate implements ModelInterface, ArrayAccess, \JsonSerializable
         'supports_inbound_digital_document' => 'supportsInboundDigitalDocument',
         'input_data_formats' => 'inputDataFormats',
         'output_data_formats' => 'outputDataFormats',
-        'workflow_ids' => 'workflowIds'
+        'workflow_ids' => 'workflowIds',
+        'supported_document_statuses' => 'supportedDocumentStatuses'
     ];
 
     /**
@@ -169,7 +172,8 @@ class Mandate implements ModelInterface, ArrayAccess, \JsonSerializable
         'supports_inbound_digital_document' => 'setSupportsInboundDigitalDocument',
         'input_data_formats' => 'setInputDataFormats',
         'output_data_formats' => 'setOutputDataFormats',
-        'workflow_ids' => 'setWorkflowIds'
+        'workflow_ids' => 'setWorkflowIds',
+        'supported_document_statuses' => 'setSupportedDocumentStatuses'
     ];
 
     /**
@@ -190,7 +194,8 @@ class Mandate implements ModelInterface, ArrayAccess, \JsonSerializable
         'supports_inbound_digital_document' => 'getSupportsInboundDigitalDocument',
         'input_data_formats' => 'getInputDataFormats',
         'output_data_formats' => 'getOutputDataFormats',
-        'workflow_ids' => 'getWorkflowIds'
+        'workflow_ids' => 'getWorkflowIds',
+        'supported_document_statuses' => 'getSupportedDocumentStatuses'
     ];
 
     /**
@@ -263,6 +268,7 @@ class Mandate implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['input_data_formats'] = $data['input_data_formats'] ?? null;
         $this->container['output_data_formats'] = $data['output_data_formats'] ?? null;
         $this->container['workflow_ids'] = $data['workflow_ids'] ?? null;
+        $this->container['supported_document_statuses'] = $data['supported_document_statuses'] ?? null;
     }
 
     /**
@@ -597,6 +603,30 @@ class Mandate implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setWorkflowIds($workflow_ids)
     {
         $this->container['workflow_ids'] = $workflow_ids;
+
+        return $this;
+    }
+
+    /**
+     * Gets supported_document_statuses
+     *
+     * @return \Avalara\SDK\Model\EInvoicing\V1\SupportedDocumentStatuses[]|null
+     */
+    public function getSupportedDocumentStatuses()
+    {
+        return $this->container['supported_document_statuses'];
+    }
+
+    /**
+     * Sets supported_document_statuses
+     *
+     * @param \Avalara\SDK\Model\EInvoicing\V1\SupportedDocumentStatuses[]|null $supported_document_statuses List of document statuses defined by the mandate.
+     *
+     * @return self
+     */
+    public function setSupportedDocumentStatuses($supported_document_statuses)
+    {
+        $this->container['supported_document_statuses'] = $supported_document_statuses;
 
         return $this;
     }

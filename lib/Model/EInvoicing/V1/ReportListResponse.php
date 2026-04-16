@@ -1,6 +1,6 @@
 <?php
 /**
- * DocumentStatusResponse
+ * ReportListResponse
  *
  * PHP version 7.3
  *
@@ -44,10 +44,10 @@ use \ArrayAccess;
 use \Avalara\SDK\ObjectSerializer;
 use \Avalara\SDK\Model\ModelInterface;
 /**
- * DocumentStatusResponse Class Doc Comment
+ * ReportListResponse Class Doc Comment
  *
  * @category Class
- * @description Returns the current document ID and status
+ * @description Returns the requested list of reports matching the query parameters.
  * @package  Avalara\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -55,7 +55,7 @@ use \Avalara\SDK\Model\ModelInterface;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class DocumentStatusResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class ReportListResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -64,7 +64,7 @@ class DocumentStatusResponse implements ModelInterface, ArrayAccess, \JsonSerial
       *
       * @var string
       */
-    protected static $openAPIModelName = 'DocumentStatusResponse';
+    protected static $openAPIModelName = 'ReportListResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -72,10 +72,9 @@ class DocumentStatusResponse implements ModelInterface, ArrayAccess, \JsonSerial
       * @var string[]
       */
     protected static $openAPITypes = [
-        'id' => 'string',
-        'status' => 'string',
-        'business_status' => 'string',
-        'events' => '\Avalara\SDK\Model\EInvoicing\V1\StatusEvent[]'
+        'at_recordset_count' => 'string',
+        'at_next_link' => 'string',
+        'value' => '\Avalara\SDK\Model\EInvoicing\V1\ReportItem[]'
     ];
 
     /**
@@ -86,10 +85,9 @@ class DocumentStatusResponse implements ModelInterface, ArrayAccess, \JsonSerial
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'id' => null,
-        'status' => null,
-        'business_status' => null,
-        'events' => null
+        'at_recordset_count' => null,
+        'at_next_link' => null,
+        'value' => null
     ];
 
     /**
@@ -119,10 +117,9 @@ class DocumentStatusResponse implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
-        'status' => 'status',
-        'business_status' => 'businessStatus',
-        'events' => 'events'
+        'at_recordset_count' => '@recordsetCount',
+        'at_next_link' => '@nextLink',
+        'value' => 'value'
     ];
 
     /**
@@ -131,10 +128,9 @@ class DocumentStatusResponse implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
-        'status' => 'setStatus',
-        'business_status' => 'setBusinessStatus',
-        'events' => 'setEvents'
+        'at_recordset_count' => 'setAtRecordsetCount',
+        'at_next_link' => 'setAtNextLink',
+        'value' => 'setValue'
     ];
 
     /**
@@ -143,10 +139,9 @@ class DocumentStatusResponse implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
-        'status' => 'getStatus',
-        'business_status' => 'getBusinessStatus',
-        'events' => 'getEvents'
+        'at_recordset_count' => 'getAtRecordsetCount',
+        'at_next_link' => 'getAtNextLink',
+        'value' => 'getValue'
     ];
 
     /**
@@ -206,10 +201,9 @@ class DocumentStatusResponse implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function __construct(array $data = null)
     {
-        $this->container['id'] = $data['id'] ?? null;
-        $this->container['status'] = $data['status'] ?? null;
-        $this->container['business_status'] = $data['business_status'] ?? null;
-        $this->container['events'] = $data['events'] ?? null;
+        $this->container['at_recordset_count'] = $data['at_recordset_count'] ?? null;
+        $this->container['at_next_link'] = $data['at_next_link'] ?? null;
+        $this->container['value'] = $data['value'] ?? null;
     }
 
     /**
@@ -221,6 +215,9 @@ class DocumentStatusResponse implements ModelInterface, ArrayAccess, \JsonSerial
     {
         $invalidProperties = [];
 
+        if ($this->container['value'] === null) {
+            $invalidProperties[] = "'value' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -237,97 +234,73 @@ class DocumentStatusResponse implements ModelInterface, ArrayAccess, \JsonSerial
 
 
     /**
-     * Gets id
+     * Gets at_recordset_count
      *
      * @return string|null
      */
-    public function getId()
+    public function getAtRecordsetCount()
     {
-        return $this->container['id'];
+        return $this->container['at_recordset_count'];
     }
 
     /**
-     * Sets id
+     * Sets at_recordset_count
      *
-     * @param string|null $id The unique ID for this document
+     * @param string|null $at_recordset_count Count of reports matching the filter for the given query. Present when the request includes $count=true.
      *
      * @return self
      */
-    public function setId($id)
+    public function setAtRecordsetCount($at_recordset_count)
     {
-        $this->container['id'] = $id;
+        $this->container['at_recordset_count'] = $at_recordset_count;
 
         return $this;
     }
 
     /**
-     * Gets status
+     * Gets at_next_link
      *
      * @return string|null
      */
-    public function getStatus()
+    public function getAtNextLink()
     {
-        return $this->container['status'];
+        return $this->container['at_next_link'];
     }
 
     /**
-     * Sets status
+     * Sets at_next_link
      *
-     * @param string|null $status Document status. See the `supportedDocumentStatuses` field in the GET /mandates response for full status definitions.
+     * @param string|null $at_next_link URL to retrieve the next page of results when more items match the query. Omitted or null when there is no next page.
      *
      * @return self
      */
-    public function setStatus($status)
+    public function setAtNextLink($at_next_link)
     {
-        $this->container['status'] = $status;
+        $this->container['at_next_link'] = $at_next_link;
 
         return $this;
     }
 
     /**
-     * Gets business_status
+     * Gets value
      *
-     * @return string|null
+     * @return \Avalara\SDK\Model\EInvoicing\V1\ReportItem[]
      */
-    public function getBusinessStatus()
+    public function getValue()
     {
-        return $this->container['business_status'];
+        return $this->container['value'];
     }
 
     /**
-     * Sets business_status
+     * Sets value
      *
-     * @param string|null $business_status Represents the document's business lifecycle state based on responses from external actors (Tax Authority, PDP, or ERP), such as acceptance, rejection, or validation.
+     * @param \Avalara\SDK\Model\EInvoicing\V1\ReportItem[] $value Array of reports matching the query parameters.
      *
      * @return self
      */
-    public function setBusinessStatus($business_status)
+    public function setValue($value)
     {
-        $this->container['business_status'] = $business_status;
-
-        return $this;
-    }
-
-    /**
-     * Gets events
-     *
-     * @return \Avalara\SDK\Model\EInvoicing\V1\StatusEvent[]|null
-     */
-    public function getEvents()
-    {
-        return $this->container['events'];
-    }
-
-    /**
-     * Sets events
-     *
-     * @param \Avalara\SDK\Model\EInvoicing\V1\StatusEvent[]|null $events events
-     *
-     * @return self
-     */
-    public function setEvents($events)
-    {
-        $this->container['events'] = $events;
+        $this->container['value'] = $value;
 
         return $this;
     }
