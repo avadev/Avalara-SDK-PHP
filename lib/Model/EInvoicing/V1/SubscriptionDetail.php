@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  Avalara\SDK
+ * @package  AvalaraSDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -23,7 +23,7 @@
  * An API that supports sending data for an E-Invoicing compliance use-case.
  *
  * @category   Avalara client libraries
- * @package    Avalara\SDK\API\EInvoicing\V1
+ * @package    AvalaraSDK\API\EInvoicing\V1
  * @author     Sachin Baijal <sachin.baijal@avalara.com>
  * @author     Jonathan Wenger <jonathan.wenger@avalara.com>
  * @copyright  2004-2025 Avalara, Inc.
@@ -38,16 +38,16 @@
  * Do not edit the class manually.
  */
 
-namespace Avalara\SDK\Model\EInvoicing\V1;
+namespace AvalaraSDK\Model\EInvoicing\V1;
 
 use \ArrayAccess;
-use \Avalara\SDK\ObjectSerializer;
-use \Avalara\SDK\Model\ModelInterface;
+use \AvalaraSDK\ObjectSerializer;
+use \AvalaraSDK\Model\ModelInterface;
 /**
  * SubscriptionDetail Class Doc Comment
  *
  * @category Class
- * @package  Avalara\SDK
+ * @package  AvalaraSDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -74,8 +74,8 @@ class SubscriptionDetail implements ModelInterface, ArrayAccess, \JsonSerializab
         'id' => 'string',
         'description' => 'string',
         'notification_url' => 'string',
-        'signature' => '\Avalara\SDK\Model\EInvoicing\V1\SignatureSignature',
-        'events' => '\Avalara\SDK\Model\EInvoicing\V1\EventSubscription[]'
+        'signature' => '\AvalaraSDK\Model\EInvoicing\V1\SignatureSignature',
+        'events' => '\AvalaraSDK\Model\EInvoicing\V1\EventSubscription[]'
     ];
 
     /**
@@ -328,7 +328,7 @@ class SubscriptionDetail implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets signature
      *
-     * @return \Avalara\SDK\Model\EInvoicing\V1\SignatureSignature
+     * @return \AvalaraSDK\Model\EInvoicing\V1\SignatureSignature
      */
     public function getSignature()
     {
@@ -338,7 +338,7 @@ class SubscriptionDetail implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets signature
      *
-     * @param \Avalara\SDK\Model\EInvoicing\V1\SignatureSignature $signature signature
+     * @param \AvalaraSDK\Model\EInvoicing\V1\SignatureSignature $signature signature
      *
      * @return self
      */
@@ -352,7 +352,7 @@ class SubscriptionDetail implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets events
      *
-     * @return \Avalara\SDK\Model\EInvoicing\V1\EventSubscription[]
+     * @return \AvalaraSDK\Model\EInvoicing\V1\EventSubscription[]
      */
     public function getEvents()
     {
@@ -362,7 +362,7 @@ class SubscriptionDetail implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets events
      *
-     * @param \Avalara\SDK\Model\EInvoicing\V1\EventSubscription[] $events events
+     * @param \AvalaraSDK\Model\EInvoicing\V1\EventSubscription[] $events events
      *
      * @return self
      */

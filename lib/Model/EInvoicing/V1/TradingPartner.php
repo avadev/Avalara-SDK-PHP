@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  Avalara\SDK
+ * @package  AvalaraSDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -23,7 +23,7 @@
  * An API that supports sending data for an E-Invoicing compliance use-case.
  *
  * @category   Avalara client libraries
- * @package    Avalara\SDK\API\EInvoicing\V1
+ * @package    AvalaraSDK\API\EInvoicing\V1
  * @author     Sachin Baijal <sachin.baijal@avalara.com>
  * @author     Jonathan Wenger <jonathan.wenger@avalara.com>
  * @copyright  2004-2025 Avalara, Inc.
@@ -38,17 +38,17 @@
  * Do not edit the class manually.
  */
 
-namespace Avalara\SDK\Model\EInvoicing\V1;
+namespace AvalaraSDK\Model\EInvoicing\V1;
 
 use \ArrayAccess;
-use \Avalara\SDK\ObjectSerializer;
-use \Avalara\SDK\Model\ModelInterface;
+use \AvalaraSDK\ObjectSerializer;
+use \AvalaraSDK\Model\ModelInterface;
 /**
  * TradingPartner Class Doc Comment
  *
  * @category Class
  * @description Represents a participant in the Avalara directory.
- * @package  Avalara\SDK
+ * @package  AvalaraSDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -76,11 +76,11 @@ class TradingPartner implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => 'string',
         'network' => 'string',
         'registration_date' => 'string',
-        'identifiers' => '\Avalara\SDK\Model\EInvoicing\V1\Identifier[]',
-        'addresses' => '\Avalara\SDK\Model\EInvoicing\V1\Address[]',
-        'supported_document_types' => '\Avalara\SDK\Model\EInvoicing\V1\SupportedDocumentTypes[]',
-        'consents' => '\Avalara\SDK\Model\EInvoicing\V1\Consents',
-        'extensions' => '\Avalara\SDK\Model\EInvoicing\V1\Extension[]'
+        'identifiers' => '\AvalaraSDK\Model\EInvoicing\V1\Identifier[]',
+        'addresses' => '\AvalaraSDK\Model\EInvoicing\V1\Address[]',
+        'supported_document_types' => '\AvalaraSDK\Model\EInvoicing\V1\SupportedDocumentTypes[]',
+        'consents' => '\AvalaraSDK\Model\EInvoicing\V1\Consents',
+        'extensions' => '\AvalaraSDK\Model\EInvoicing\V1\Extension[]'
     ];
 
     /**
@@ -404,7 +404,7 @@ class TradingPartner implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets identifiers
      *
-     * @return \Avalara\SDK\Model\EInvoicing\V1\Identifier[]
+     * @return \AvalaraSDK\Model\EInvoicing\V1\Identifier[]
      */
     public function getIdentifiers()
     {
@@ -414,7 +414,7 @@ class TradingPartner implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets identifiers
      *
-     * @param \Avalara\SDK\Model\EInvoicing\V1\Identifier[] $identifiers A list of identifiers associated with the trading partner. Each identifier should consistently include the fields name, and value to maintain clarity and ensure consistent structure across entries. When creating or updating a trading partner, the attribute 'name' must be agreed upon with Avalara to ensure consistency. Failing to adhere to the agreed values will result in a validation error. Further, when creating or updating a trading partner, the value provided for the attribute 'displayName' will be ignored and instead retrieved from the standard set of display names maintained.
+     * @param \AvalaraSDK\Model\EInvoicing\V1\Identifier[] $identifiers A list of identifiers associated with the trading partner. Each identifier should consistently include the fields name, and value to maintain clarity and ensure consistent structure across entries. When creating or updating a trading partner, the attribute 'name' must be agreed upon with Avalara to ensure consistency. Failing to adhere to the agreed values will result in a validation error. Further, when creating or updating a trading partner, the value provided for the attribute 'displayName' will be ignored and instead retrieved from the standard set of display names maintained.
      *
      * @return self
      */
@@ -433,7 +433,7 @@ class TradingPartner implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets addresses
      *
-     * @return \Avalara\SDK\Model\EInvoicing\V1\Address[]
+     * @return \AvalaraSDK\Model\EInvoicing\V1\Address[]
      */
     public function getAddresses()
     {
@@ -443,7 +443,7 @@ class TradingPartner implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets addresses
      *
-     * @param \Avalara\SDK\Model\EInvoicing\V1\Address[] $addresses addresses
+     * @param \AvalaraSDK\Model\EInvoicing\V1\Address[] $addresses addresses
      *
      * @return self
      */
@@ -462,7 +462,7 @@ class TradingPartner implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets supported_document_types
      *
-     * @return \Avalara\SDK\Model\EInvoicing\V1\SupportedDocumentTypes[]
+     * @return \AvalaraSDK\Model\EInvoicing\V1\SupportedDocumentTypes[]
      */
     public function getSupportedDocumentTypes()
     {
@@ -472,7 +472,7 @@ class TradingPartner implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets supported_document_types
      *
-     * @param \Avalara\SDK\Model\EInvoicing\V1\SupportedDocumentTypes[] $supported_document_types A list of document types supported by the trading partner for exchange. Each document type identifier value must match the standard list maintained by Avalara, which includes Peppol and other public network document type identifier schemes and values, as well as any approved partner-specific identifiers. The 'value' field must exactly match an entry from the provided document identifier list. Any attempt to submit unsupported document types will result in a validation error. Further, when creating or updating a trading partner, the value provided for the attributes 'name' and 'supportedByAvalara' will be ignored.
+     * @param \AvalaraSDK\Model\EInvoicing\V1\SupportedDocumentTypes[] $supported_document_types A list of document types supported by the trading partner for exchange. Each document type identifier value must match the standard list maintained by Avalara, which includes Peppol and other public network document type identifier schemes and values, as well as any approved partner-specific identifiers. The 'value' field must exactly match an entry from the provided document identifier list. Any attempt to submit unsupported document types will result in a validation error. Further, when creating or updating a trading partner, the value provided for the attributes 'name' and 'supportedByAvalara' will be ignored.
      *
      * @return self
      */
@@ -491,7 +491,7 @@ class TradingPartner implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets consents
      *
-     * @return \Avalara\SDK\Model\EInvoicing\V1\Consents|null
+     * @return \AvalaraSDK\Model\EInvoicing\V1\Consents|null
      */
     public function getConsents()
     {
@@ -501,7 +501,7 @@ class TradingPartner implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets consents
      *
-     * @param \Avalara\SDK\Model\EInvoicing\V1\Consents|null $consents consents
+     * @param \AvalaraSDK\Model\EInvoicing\V1\Consents|null $consents consents
      *
      * @return self
      */
@@ -515,7 +515,7 @@ class TradingPartner implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets extensions
      *
-     * @return \Avalara\SDK\Model\EInvoicing\V1\Extension[]|null
+     * @return \AvalaraSDK\Model\EInvoicing\V1\Extension[]|null
      */
     public function getExtensions()
     {
@@ -525,7 +525,7 @@ class TradingPartner implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets extensions
      *
-     * @param \Avalara\SDK\Model\EInvoicing\V1\Extension[]|null $extensions Optional array used to carry additional metadata or configuration values that may be required by specific networks. When creating or updating a trading partner, the keys provided in the 'extensions' attribute must be selected from a predefined list of supported extensions. Using any unsupported keys will result in a validation error.
+     * @param \AvalaraSDK\Model\EInvoicing\V1\Extension[]|null $extensions Optional array used to carry additional metadata or configuration values that may be required by specific networks. When creating or updating a trading partner, the keys provided in the 'extensions' attribute must be selected from a predefined list of supported extensions. Using any unsupported keys will result in a validation error.
      *
      * @return self
      */

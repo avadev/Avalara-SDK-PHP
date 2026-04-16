@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  Avalara\SDK
+ * @package  AvalaraSDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -23,7 +23,7 @@
  * An API that supports sending data for an E-Invoicing compliance use-case.
  *
  * @category   Avalara client libraries
- * @package    Avalara\SDK\API\EInvoicing\V1
+ * @package    AvalaraSDK\API\EInvoicing\V1
  * @author     Sachin Baijal <sachin.baijal@avalara.com>
  * @author     Jonathan Wenger <jonathan.wenger@avalara.com>
  * @copyright  2004-2025 Avalara, Inc.
@@ -38,17 +38,17 @@
  * Do not edit the class manually.
  */
 
-namespace Avalara\SDK\Model\EInvoicing\V1;
+namespace AvalaraSDK\Model\EInvoicing\V1;
 
 use \ArrayAccess;
-use \Avalara\SDK\ObjectSerializer;
-use \Avalara\SDK\Model\ModelInterface;
+use \AvalaraSDK\ObjectSerializer;
+use \AvalaraSDK\Model\ModelInterface;
 /**
  * DocumentStatusResponse Class Doc Comment
  *
  * @category Class
  * @description Returns the current document ID and status
- * @package  Avalara\SDK
+ * @package  AvalaraSDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -74,7 +74,8 @@ class DocumentStatusResponse implements ModelInterface, ArrayAccess, \JsonSerial
     protected static $openAPITypes = [
         'id' => 'string',
         'status' => 'string',
-        'events' => '\Avalara\SDK\Model\EInvoicing\V1\StatusEvent[]'
+        'business_status' => 'string',
+        'events' => '\AvalaraSDK\Model\EInvoicing\V1\StatusEvent[]'
     ];
 
     /**
@@ -87,6 +88,7 @@ class DocumentStatusResponse implements ModelInterface, ArrayAccess, \JsonSerial
     protected static $openAPIFormats = [
         'id' => null,
         'status' => null,
+        'business_status' => null,
         'events' => null
     ];
 
@@ -119,6 +121,7 @@ class DocumentStatusResponse implements ModelInterface, ArrayAccess, \JsonSerial
     protected static $attributeMap = [
         'id' => 'id',
         'status' => 'status',
+        'business_status' => 'businessStatus',
         'events' => 'events'
     ];
 
@@ -130,6 +133,7 @@ class DocumentStatusResponse implements ModelInterface, ArrayAccess, \JsonSerial
     protected static $setters = [
         'id' => 'setId',
         'status' => 'setStatus',
+        'business_status' => 'setBusinessStatus',
         'events' => 'setEvents'
     ];
 
@@ -141,6 +145,7 @@ class DocumentStatusResponse implements ModelInterface, ArrayAccess, \JsonSerial
     protected static $getters = [
         'id' => 'getId',
         'status' => 'getStatus',
+        'business_status' => 'getBusinessStatus',
         'events' => 'getEvents'
     ];
 
@@ -203,6 +208,7 @@ class DocumentStatusResponse implements ModelInterface, ArrayAccess, \JsonSerial
     {
         $this->container['id'] = $data['id'] ?? null;
         $this->container['status'] = $data['status'] ?? null;
+        $this->container['business_status'] = $data['business_status'] ?? null;
         $this->container['events'] = $data['events'] ?? null;
     }
 
@@ -267,7 +273,7 @@ class DocumentStatusResponse implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets status
      *
-     * @param string|null $status Status of the document
+     * @param string|null $status Document status. See the `supportedDocumentStatuses` field in the GET /mandates response for full status definitions.
      *
      * @return self
      */
@@ -279,9 +285,33 @@ class DocumentStatusResponse implements ModelInterface, ArrayAccess, \JsonSerial
     }
 
     /**
+     * Gets business_status
+     *
+     * @return string|null
+     */
+    public function getBusinessStatus()
+    {
+        return $this->container['business_status'];
+    }
+
+    /**
+     * Sets business_status
+     *
+     * @param string|null $business_status Represents the document's business lifecycle state based on responses from external actors (Tax Authority, PDP, or ERP), such as acceptance, rejection, or validation.
+     *
+     * @return self
+     */
+    public function setBusinessStatus($business_status)
+    {
+        $this->container['business_status'] = $business_status;
+
+        return $this;
+    }
+
+    /**
      * Gets events
      *
-     * @return \Avalara\SDK\Model\EInvoicing\V1\StatusEvent[]|null
+     * @return \AvalaraSDK\Model\EInvoicing\V1\StatusEvent[]|null
      */
     public function getEvents()
     {
@@ -291,7 +321,7 @@ class DocumentStatusResponse implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets events
      *
-     * @param \Avalara\SDK\Model\EInvoicing\V1\StatusEvent[]|null $events events
+     * @param \AvalaraSDK\Model\EInvoicing\V1\StatusEvent[]|null $events events
      *
      * @return self
      */

@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  Avalara\SDK
+ * @package  AvalaraSDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -23,7 +23,7 @@
  * An API that supports sending data for an E-Invoicing compliance use-case.
  *
  * @category   Avalara client libraries
- * @package    Avalara\SDK\API\EInvoicing\V1
+ * @package    AvalaraSDK\API\EInvoicing\V1
  * @author     Sachin Baijal <sachin.baijal@avalara.com>
  * @author     Jonathan Wenger <jonathan.wenger@avalara.com>
  * @copyright  2004-2025 Avalara, Inc.
@@ -38,17 +38,17 @@
  * Do not edit the class manually.
  */
 
-namespace Avalara\SDK\Model\EInvoicing\V1;
+namespace AvalaraSDK\Model\EInvoicing\V1;
 
 use \ArrayAccess;
-use \Avalara\SDK\ObjectSerializer;
-use \Avalara\SDK\Model\ModelInterface;
+use \AvalaraSDK\ObjectSerializer;
+use \AvalaraSDK\Model\ModelInterface;
 /**
  * DocumentSummary Class Doc Comment
  *
  * @category Class
  * @description Displays a summary of information about the document
- * @package  Avalara\SDK
+ * @package  AvalaraSDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -76,6 +76,7 @@ class DocumentSummary implements ModelInterface, ArrayAccess, \JsonSerializable
         'company_id' => 'string',
         'process_date_time' => 'string',
         'status' => 'string',
+        'business_status' => 'string',
         'supplier_name' => 'string',
         'customer_name' => 'string',
         'document_type' => 'string',
@@ -86,7 +87,10 @@ class DocumentSummary implements ModelInterface, ArrayAccess, \JsonSerializable
         'country_code' => 'string',
         'country_mandate' => 'string',
         'interface' => 'string',
-        'receiver' => 'string'
+        'receiver' => 'string',
+        'events' => '\AvalaraSDK\Model\EInvoicing\V1\StatusEvent[]',
+        'created_at' => 'string',
+        'last_updated_at' => 'string'
     ];
 
     /**
@@ -101,6 +105,7 @@ class DocumentSummary implements ModelInterface, ArrayAccess, \JsonSerializable
         'company_id' => null,
         'process_date_time' => null,
         'status' => null,
+        'business_status' => null,
         'supplier_name' => null,
         'customer_name' => null,
         'document_type' => null,
@@ -111,7 +116,10 @@ class DocumentSummary implements ModelInterface, ArrayAccess, \JsonSerializable
         'country_code' => null,
         'country_mandate' => null,
         'interface' => null,
-        'receiver' => null
+        'receiver' => null,
+        'events' => null,
+        'created_at' => null,
+        'last_updated_at' => null
     ];
 
     /**
@@ -145,6 +153,7 @@ class DocumentSummary implements ModelInterface, ArrayAccess, \JsonSerializable
         'company_id' => 'companyId',
         'process_date_time' => 'processDateTime',
         'status' => 'status',
+        'business_status' => 'businessStatus',
         'supplier_name' => 'supplierName',
         'customer_name' => 'customerName',
         'document_type' => 'documentType',
@@ -155,7 +164,10 @@ class DocumentSummary implements ModelInterface, ArrayAccess, \JsonSerializable
         'country_code' => 'countryCode',
         'country_mandate' => 'countryMandate',
         'interface' => 'interface',
-        'receiver' => 'receiver'
+        'receiver' => 'receiver',
+        'events' => 'events',
+        'created_at' => 'createdAt',
+        'last_updated_at' => 'lastUpdatedAt'
     ];
 
     /**
@@ -168,6 +180,7 @@ class DocumentSummary implements ModelInterface, ArrayAccess, \JsonSerializable
         'company_id' => 'setCompanyId',
         'process_date_time' => 'setProcessDateTime',
         'status' => 'setStatus',
+        'business_status' => 'setBusinessStatus',
         'supplier_name' => 'setSupplierName',
         'customer_name' => 'setCustomerName',
         'document_type' => 'setDocumentType',
@@ -178,7 +191,10 @@ class DocumentSummary implements ModelInterface, ArrayAccess, \JsonSerializable
         'country_code' => 'setCountryCode',
         'country_mandate' => 'setCountryMandate',
         'interface' => 'setInterface',
-        'receiver' => 'setReceiver'
+        'receiver' => 'setReceiver',
+        'events' => 'setEvents',
+        'created_at' => 'setCreatedAt',
+        'last_updated_at' => 'setLastUpdatedAt'
     ];
 
     /**
@@ -191,6 +207,7 @@ class DocumentSummary implements ModelInterface, ArrayAccess, \JsonSerializable
         'company_id' => 'getCompanyId',
         'process_date_time' => 'getProcessDateTime',
         'status' => 'getStatus',
+        'business_status' => 'getBusinessStatus',
         'supplier_name' => 'getSupplierName',
         'customer_name' => 'getCustomerName',
         'document_type' => 'getDocumentType',
@@ -201,7 +218,10 @@ class DocumentSummary implements ModelInterface, ArrayAccess, \JsonSerializable
         'country_code' => 'getCountryCode',
         'country_mandate' => 'getCountryMandate',
         'interface' => 'getInterface',
-        'receiver' => 'getReceiver'
+        'receiver' => 'getReceiver',
+        'events' => 'getEvents',
+        'created_at' => 'getCreatedAt',
+        'last_updated_at' => 'getLastUpdatedAt'
     ];
 
     /**
@@ -265,6 +285,7 @@ class DocumentSummary implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['company_id'] = $data['company_id'] ?? null;
         $this->container['process_date_time'] = $data['process_date_time'] ?? null;
         $this->container['status'] = $data['status'] ?? null;
+        $this->container['business_status'] = $data['business_status'] ?? null;
         $this->container['supplier_name'] = $data['supplier_name'] ?? null;
         $this->container['customer_name'] = $data['customer_name'] ?? null;
         $this->container['document_type'] = $data['document_type'] ?? null;
@@ -276,6 +297,9 @@ class DocumentSummary implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['country_mandate'] = $data['country_mandate'] ?? null;
         $this->container['interface'] = $data['interface'] ?? null;
         $this->container['receiver'] = $data['receiver'] ?? null;
+        $this->container['events'] = $data['events'] ?? null;
+        $this->container['created_at'] = $data['created_at'] ?? null;
+        $this->container['last_updated_at'] = $data['last_updated_at'] ?? null;
     }
 
     /**
@@ -394,6 +418,30 @@ class DocumentSummary implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setStatus($status)
     {
         $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets business_status
+     *
+     * @return string|null
+     */
+    public function getBusinessStatus()
+    {
+        return $this->container['business_status'];
+    }
+
+    /**
+     * Sets business_status
+     *
+     * @param string|null $business_status Represents the document's business lifecycle state based on responses from external actors (Tax Authority, PDP, or ERP), such as acceptance, rejection, or validation.
+     *
+     * @return self
+     */
+    public function setBusinessStatus($business_status)
+    {
+        $this->container['business_status'] = $business_status;
 
         return $this;
     }
@@ -658,6 +706,78 @@ class DocumentSummary implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setReceiver($receiver)
     {
         $this->container['receiver'] = $receiver;
+
+        return $this;
+    }
+
+    /**
+     * Gets events
+     *
+     * @return \AvalaraSDK\Model\EInvoicing\V1\StatusEvent[]|null
+     */
+    public function getEvents()
+    {
+        return $this->container['events'];
+    }
+
+    /**
+     * Sets events
+     *
+     * @param \AvalaraSDK\Model\EInvoicing\V1\StatusEvent[]|null $events Array of status events associated with this document. Events are included in each document in the response only when the query parameter $include=events is passed; otherwise the events array is not populated.
+     *
+     * @return self
+     */
+    public function setEvents($events)
+    {
+        $this->container['events'] = $events;
+
+        return $this;
+    }
+
+    /**
+     * Gets created_at
+     *
+     * @return string|null
+     */
+    public function getCreatedAt()
+    {
+        return $this->container['created_at'];
+    }
+
+    /**
+     * Sets created_at
+     *
+     * @param string|null $created_at The date and time when the document was created in the system, displayed in ISO 8601 format with timezone
+     *
+     * @return self
+     */
+    public function setCreatedAt($created_at)
+    {
+        $this->container['created_at'] = $created_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets last_updated_at
+     *
+     * @return string|null
+     */
+    public function getLastUpdatedAt()
+    {
+        return $this->container['last_updated_at'];
+    }
+
+    /**
+     * Sets last_updated_at
+     *
+     * @param string|null $last_updated_at The date and time when the document was last updated in the system, displayed in ISO 8601 format with timezone
+     *
+     * @return self
+     */
+    public function setLastUpdatedAt($last_updated_at)
+    {
+        $this->container['last_updated_at'] = $last_updated_at;
 
         return $this;
     }

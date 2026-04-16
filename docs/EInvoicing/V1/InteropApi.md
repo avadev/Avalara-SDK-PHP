@@ -1,4 +1,4 @@
-# Avalara\SDK\InteropApi
+# AvalaraSDK\InteropApi
 
 All URIs are relative to https://api.sbx.avalara.com/einvoicing.
 
@@ -10,12 +10,12 @@ Method | HTTP request | Description
 ## `submitInteropDocument()`
 
 ```php
-submitInteropDocument($document_type, $interchange_type, $avalara_version, $x_avalara_client, $x_correlation_id, $file_name): \Avalara\SDK\Model\EInvoicing\V1\SubmitInteropDocument202Response
+submitInteropDocument($document_type, $interchange_type, $avalara_version, $x_avalara_client, $x_correlation_id, $file_name): \AvalaraSDK\Model\EInvoicing\V1\SubmitInteropDocument202Response
 ```
 
 Submit a document
 
-This API used by the interoperability partners to submit a document to  their trading partners in Avalara on behalf of their customers.
+Upload documents on behalf of interoperability partners and submit them to trading partners through the Avalara platform.
 
 ### Example
 
@@ -33,13 +33,13 @@ $config = new \Avalara\SDK\Configuration()
 
 $client = new \Avalara\SDK\ApiClient($config);
 
-$apiInstance = new Avalara\SDK\Api\InteropApi($client);
+$apiInstance = new AvalaraSDK\Api\InteropApi($client);
 
 $document_type = 'document_type_example'; // string | Type of the document being uploaded. Partners will be configured in Avalara system to send only certain types of documents.
 $interchange_type = 'interchange_type_example'; // string | Type of interchange (codes in Avalara system that uniquely identifies a type of interchange). Partners will be configured in Avalara system to send documents belonging to certain types of interchanges.
-$avalara_version = 1.4; // string | The HTTP Header meant to specify the version of the API intended to be used
-$x_avalara_client = John's E-Invoicing-API Client; // string | You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a \"Fingerprint\"
-$x_correlation_id = f3f0d19a-01a1-4748-8a58-f000d0424f43; // string | The caller can use this as an identifier to use as a correlation id to trace the call.
+$avalara_version = 1.6; // string | Header that specifies the API version to use (for example \"1.6\").
+$x_avalara_client = John's E-Invoicing-API Client; // string | Optional header for a client identifier string used for diagnostics (for example \"Fingerprint\").
+$x_correlation_id = f3f0d19a-01a1-4748-8a58-f000d0424f43; // string | Optional correlation identifier provided by the caller to trace the call (for example \"f3f0d19a-01a1-4748-8a58-f000d0424f43\").
 $file_name = "/path/to/file.txt"; // \SplFileObject | The file to be uploaded (e.g., UBL XML, CII XML).
 
 try {
@@ -56,14 +56,14 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **document_type** | **string**| Type of the document being uploaded. Partners will be configured in Avalara system to send only certain types of documents. |
  **interchange_type** | **string**| Type of interchange (codes in Avalara system that uniquely identifies a type of interchange). Partners will be configured in Avalara system to send documents belonging to certain types of interchanges. |
- **avalara_version** | **string**| The HTTP Header meant to specify the version of the API intended to be used |
- **x_avalara_client** | **string**| You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a \&quot;Fingerprint\&quot; | [optional]
- **x_correlation_id** | **string**| The caller can use this as an identifier to use as a correlation id to trace the call. | [optional]
+ **avalara_version** | **string**| Header that specifies the API version to use (for example \&quot;1.6\&quot;). |
+ **x_avalara_client** | **string**| Optional header for a client identifier string used for diagnostics (for example \&quot;Fingerprint\&quot;). | [optional]
+ **x_correlation_id** | **string**| Optional correlation identifier provided by the caller to trace the call (for example \&quot;f3f0d19a-01a1-4748-8a58-f000d0424f43\&quot;). | [optional]
  **file_name** | **\SplFileObject****\SplFileObject**| The file to be uploaded (e.g., UBL XML, CII XML). | [optional]
 
 ### Return type
 
-[**\Avalara\SDK\Model\EInvoicing\V1\SubmitInteropDocument202Response**](../Model/SubmitInteropDocument202Response.md)
+[**\AvalaraSDK\Model\EInvoicing\V1\SubmitInteropDocument202Response**](../Model/SubmitInteropDocument202Response.md)
 
 ### Authorization
 

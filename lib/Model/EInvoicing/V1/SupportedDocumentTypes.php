@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  Avalara\SDK
+ * @package  AvalaraSDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -23,7 +23,7 @@
  * An API that supports sending data for an E-Invoicing compliance use-case.
  *
  * @category   Avalara client libraries
- * @package    Avalara\SDK\API\EInvoicing\V1
+ * @package    AvalaraSDK\API\EInvoicing\V1
  * @author     Sachin Baijal <sachin.baijal@avalara.com>
  * @author     Jonathan Wenger <jonathan.wenger@avalara.com>
  * @copyright  2004-2025 Avalara, Inc.
@@ -38,16 +38,16 @@
  * Do not edit the class manually.
  */
 
-namespace Avalara\SDK\Model\EInvoicing\V1;
+namespace AvalaraSDK\Model\EInvoicing\V1;
 
 use \ArrayAccess;
-use \Avalara\SDK\ObjectSerializer;
-use \Avalara\SDK\Model\ModelInterface;
+use \AvalaraSDK\ObjectSerializer;
+use \AvalaraSDK\Model\ModelInterface;
 /**
  * SupportedDocumentTypes Class Doc Comment
  *
  * @category Class
- * @package  Avalara\SDK
+ * @package  AvalaraSDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -75,7 +75,7 @@ class SupportedDocumentTypes implements ModelInterface, ArrayAccess, \JsonSerial
         'value' => 'string',
         'supported_by_trading_partner' => 'bool',
         'supported_by_avalara' => 'bool',
-        'extensions' => '\Avalara\SDK\Model\EInvoicing\V1\Extension[]'
+        'extensions' => '\AvalaraSDK\Model\EInvoicing\V1\Extension[]'
     ];
 
     /**
@@ -362,7 +362,7 @@ class SupportedDocumentTypes implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets extensions
      *
-     * @return \Avalara\SDK\Model\EInvoicing\V1\Extension[]|null
+     * @return \AvalaraSDK\Model\EInvoicing\V1\Extension[]|null
      */
     public function getExtensions()
     {
@@ -372,7 +372,7 @@ class SupportedDocumentTypes implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets extensions
      *
-     * @param \Avalara\SDK\Model\EInvoicing\V1\Extension[]|null $extensions Optional array used to carry additional metadata or configuration values that may be required by specific document types. When creating or updating a trading partner, the keys provided in the 'extensions' attribute must be selected from a predefined list of supported extensions. Using any unsupported keys will result in a validation error.
+     * @param \AvalaraSDK\Model\EInvoicing\V1\Extension[]|null $extensions Optional array used to carry additional metadata or configuration values that may be required by specific document types. When creating or updating a trading partner, the keys provided in the 'extensions' attribute must be selected from a predefined list of supported extensions. Using any unsupported keys will result in a validation error.
      *
      * @return self
      */

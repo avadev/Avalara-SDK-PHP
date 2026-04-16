@@ -1,24 +1,24 @@
-# Avalara\SDK\SubscriptionsApi
+# AvalaraSDK\SubscriptionsApi
 
 All URIs are relative to https://api.sbx.avalara.com/einvoicing.
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**createWebhookSubscription()**](SubscriptionsApi.md#createWebhookSubscription) | **POST** /webhooks/subscriptions | Create a subscription to events
-[**deleteWebhookSubscription()**](SubscriptionsApi.md#deleteWebhookSubscription) | **DELETE** /webhooks/subscriptions/{subscription-id} | Unsubscribe from events
-[**getWebhookSubscription()**](SubscriptionsApi.md#getWebhookSubscription) | **GET** /webhooks/subscriptions/{subscription-id} | Get details of a subscription
+[**deleteWebhookSubscription()**](SubscriptionsApi.md#deleteWebhookSubscription) | **DELETE** /webhooks/subscriptions/{subscriptionId} | Unsubscribe from events
+[**getWebhookSubscription()**](SubscriptionsApi.md#getWebhookSubscription) | **GET** /webhooks/subscriptions/{subscriptionId} | Get details of a subscription
 [**listWebhookSubscriptions()**](SubscriptionsApi.md#listWebhookSubscriptions) | **GET** /webhooks/subscriptions | List all subscriptions
 
 
 ## `createWebhookSubscription()`
 
 ```php
-createWebhookSubscription($avalara_version, $subscription_registration, $x_correlation_id, $x_avalara_client): \Avalara\SDK\Model\EInvoicing\V1\SuccessResponse
+createWebhookSubscription($avalara_version, $subscription_registration, $x_correlation_id, $x_avalara_client): \AvalaraSDK\Model\EInvoicing\V1\SuccessResponse
 ```
 
 Create a subscription to events
 
-Create a subscription to events exposed by registered systems.
+Create a new webhook subscription and return the created subscription details.
 
 ### Example
 
@@ -36,10 +36,10 @@ $config = new \Avalara\SDK\Configuration()
 
 $client = new \Avalara\SDK\ApiClient($config);
 
-$apiInstance = new Avalara\SDK\Api\SubscriptionsApi($client);
+$apiInstance = new AvalaraSDK\Api\SubscriptionsApi($client);
 
-$avalara_version = 'avalara_version_example'; // string | The version of the API to use, e.g., \"1.4\".
-$subscription_registration = new \Avalara\SDK\Model\EInvoicing\V1\SubscriptionRegistration(); // \Avalara\SDK\Model\EInvoicing\V1\SubscriptionRegistration
+$avalara_version = 'avalara_version_example'; // string | The version of the API to use, e.g., \"1.6\".
+$subscription_registration = new \AvalaraSDK\Model\EInvoicing\V1\SubscriptionRegistration(); // \AvalaraSDK\Model\EInvoicing\V1\SubscriptionRegistration
 $x_correlation_id = 'x_correlation_id_example'; // string | A unique identifier for tracking the request and its response
 $x_avalara_client = 'x_avalara_client_example'; // string | Client application identification
 
@@ -55,14 +55,14 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **avalara_version** | **string**| The version of the API to use, e.g., \&quot;1.4\&quot;. |
- **subscription_registration** | [**\Avalara\SDK\Model\EInvoicing\V1\SubscriptionRegistration**](../Model/SubscriptionRegistration.md)|  |
+ **avalara_version** | **string**| The version of the API to use, e.g., \&quot;1.6\&quot;. |
+ **subscription_registration** | [**\AvalaraSDK\Model\EInvoicing\V1\SubscriptionRegistration**](../Model/SubscriptionRegistration.md)|  |
  **x_correlation_id** | **string**| A unique identifier for tracking the request and its response | [optional]
  **x_avalara_client** | **string**| Client application identification | [optional]
 
 ### Return type
 
-[**\Avalara\SDK\Model\EInvoicing\V1\SuccessResponse**](../Model/SuccessResponse.md)
+[**\AvalaraSDK\Model\EInvoicing\V1\SuccessResponse**](../Model/SuccessResponse.md)
 
 ### Authorization
 
@@ -85,7 +85,7 @@ deleteWebhookSubscription($subscription_id, $avalara_version, $x_correlation_id,
 
 Unsubscribe from events
 
-Remove a subscription from the webhooks dispatch service. All events and subscriptions are also deleted.
+Delete the specified webhook subscription.
 
 ### Example
 
@@ -103,10 +103,10 @@ $config = new \Avalara\SDK\Configuration()
 
 $client = new \Avalara\SDK\ApiClient($config);
 
-$apiInstance = new Avalara\SDK\Api\SubscriptionsApi($client);
+$apiInstance = new AvalaraSDK\Api\SubscriptionsApi($client);
 
-$subscription_id = 'subscription_id_example'; // string
-$avalara_version = 'avalara_version_example'; // string | The version of the API to use, e.g., \"1.4\".
+$subscription_id = 'subscription_id_example'; // string | Unique identifier of the subscription.
+$avalara_version = 'avalara_version_example'; // string | The version of the API to use, e.g., \"1.6\".
 $x_correlation_id = 'x_correlation_id_example'; // string | A unique identifier for tracking the request and its response
 $x_avalara_client = 'x_avalara_client_example'; // string | Client application identification
 
@@ -121,8 +121,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **subscription_id** | **string**|  |
- **avalara_version** | **string**| The version of the API to use, e.g., \&quot;1.4\&quot;. |
+ **subscription_id** | **string**| Unique identifier of the subscription. |
+ **avalara_version** | **string**| The version of the API to use, e.g., \&quot;1.6\&quot;. |
  **x_correlation_id** | **string**| A unique identifier for tracking the request and its response | [optional]
  **x_avalara_client** | **string**| Client application identification | [optional]
 
@@ -146,7 +146,7 @@ void (empty response body)
 ## `getWebhookSubscription()`
 
 ```php
-getWebhookSubscription($subscription_id, $avalara_version, $x_correlation_id, $x_avalara_client): \Avalara\SDK\Model\EInvoicing\V1\SubscriptionDetail
+getWebhookSubscription($subscription_id, $avalara_version, $x_correlation_id, $x_avalara_client): \AvalaraSDK\Model\EInvoicing\V1\SubscriptionDetail
 ```
 
 Get details of a subscription
@@ -169,10 +169,10 @@ $config = new \Avalara\SDK\Configuration()
 
 $client = new \Avalara\SDK\ApiClient($config);
 
-$apiInstance = new Avalara\SDK\Api\SubscriptionsApi($client);
+$apiInstance = new AvalaraSDK\Api\SubscriptionsApi($client);
 
-$subscription_id = 'subscription_id_example'; // string
-$avalara_version = 'avalara_version_example'; // string | The version of the API to use, e.g., \"1.4\".
+$subscription_id = 'subscription_id_example'; // string | Unique identifier of the subscription.
+$avalara_version = 'avalara_version_example'; // string | The version of the API to use, e.g., \"1.6\".
 $x_correlation_id = 'x_correlation_id_example'; // string | A unique identifier for tracking the request and its response
 $x_avalara_client = 'x_avalara_client_example'; // string | Client application identification
 
@@ -188,14 +188,14 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **subscription_id** | **string**|  |
- **avalara_version** | **string**| The version of the API to use, e.g., \&quot;1.4\&quot;. |
+ **subscription_id** | **string**| Unique identifier of the subscription. |
+ **avalara_version** | **string**| The version of the API to use, e.g., \&quot;1.6\&quot;. |
  **x_correlation_id** | **string**| A unique identifier for tracking the request and its response | [optional]
  **x_avalara_client** | **string**| Client application identification | [optional]
 
 ### Return type
 
-[**\Avalara\SDK\Model\EInvoicing\V1\SubscriptionDetail**](../Model/SubscriptionDetail.md)
+[**\AvalaraSDK\Model\EInvoicing\V1\SubscriptionDetail**](../Model/SubscriptionDetail.md)
 
 ### Authorization
 
@@ -213,12 +213,12 @@ Name | Type | Description  | Notes
 ## `listWebhookSubscriptions()`
 
 ```php
-listWebhookSubscriptions($avalara_version, $x_correlation_id, $x_avalara_client, $top, $skip, $count, $count_only): \Avalara\SDK\Model\EInvoicing\V1\SubscriptionListResponse
+listWebhookSubscriptions($avalara_version, $x_correlation_id, $x_avalara_client, $top, $skip, $count, $count_only): \AvalaraSDK\Model\EInvoicing\V1\SubscriptionListResponse
 ```
 
 List all subscriptions
 
-Retrieve a list of all subscriptions.
+Retrieve a list of webhook subscriptions.
 
 ### Example
 
@@ -236,9 +236,9 @@ $config = new \Avalara\SDK\Configuration()
 
 $client = new \Avalara\SDK\ApiClient($config);
 
-$apiInstance = new Avalara\SDK\Api\SubscriptionsApi($client);
+$apiInstance = new AvalaraSDK\Api\SubscriptionsApi($client);
 
-$avalara_version = 'avalara_version_example'; // string | The version of the API to use, e.g., \"1.4\".
+$avalara_version = 'avalara_version_example'; // string | The version of the API to use, e.g., \"1.6\".
 $x_correlation_id = 'x_correlation_id_example'; // string | A unique identifier for tracking the request and its response
 $x_avalara_client = 'x_avalara_client_example'; // string | Client application identification
 $top = 56; // int | The number of items to include in the result.
@@ -258,7 +258,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **avalara_version** | **string**| The version of the API to use, e.g., \&quot;1.4\&quot;. |
+ **avalara_version** | **string**| The version of the API to use, e.g., \&quot;1.6\&quot;. |
  **x_correlation_id** | **string**| A unique identifier for tracking the request and its response | [optional]
  **x_avalara_client** | **string**| Client application identification | [optional]
  **top** | **int**| The number of items to include in the result. | [optional]
@@ -268,7 +268,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Avalara\SDK\Model\EInvoicing\V1\SubscriptionListResponse**](../Model/SubscriptionListResponse.md)
+[**\AvalaraSDK\Model\EInvoicing\V1\SubscriptionListResponse**](../Model/SubscriptionListResponse.md)
 
 ### Authorization
 

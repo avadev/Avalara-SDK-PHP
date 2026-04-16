@@ -19,7 +19,7 @@
  * An API that supports sending data for an E-Invoicing compliance use-case.
  *
  * @category   Avalara client libraries
- * @package    Avalara\SDK\API\EInvoicing\V1
+ * @package    AvalaraSDK\API\EInvoicing\V1
  * @author     Sachin Baijal <sachin.baijal@avalara.com>
  * @author     Jonathan Wenger <jonathan.wenger@avalara.com>
  * @copyright  2004-2025 Avalara, Inc.
@@ -30,7 +30,7 @@
 
 
 
-namespace Avalara\SDK\API\EInvoicing\V1;
+namespace AvalaraSDK\API\EInvoicing\V1;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -39,12 +39,12 @@ use GuzzleHttp\Exception\ConnectException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use Avalara\SDK\ApiClient;
-use Avalara\SDK\ApiException;
-use Avalara\SDK\Configuration;
-use Avalara\SDK\HeaderSelector;
-use Avalara\SDK\ObjectSerializer;
-use Avalara\SDK\Utils\LogObject;
+use AvalaraSDK\ApiClient;
+use AvalaraSDK\ApiException;
+use AvalaraSDK\Configuration;
+use AvalaraSDK\HeaderSelector;
+use AvalaraSDK\ObjectSerializer;
+use AvalaraSDK\Utils\LogObject;
 
 class SubscriptionsApi
 {
@@ -79,7 +79,7 @@ class SubscriptionsApi
     private function setConfiguration($client): void
     {
         $this->verifyAPIClient($client);
-        $client->setSdkVersion("25.11.2");
+        $client->setSdkVersion("26.4.0");
         $this->headerSelector = new HeaderSelector(); 
         $this->client = $client;
     }
@@ -122,9 +122,9 @@ class SubscriptionsApi
      *
      * @param CreateWebhookSubscriptionRequestSdk The request parameters for the API call.
      *
-     * @throws \Avalara\SDK\ApiException on non-2xx response
+     * @throws \AvalaraSDK\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Avalara\SDK\Model\EInvoicing\V1\SuccessResponse|\Avalara\SDK\Model\EInvoicing\V1\WebhooksErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\WebhooksErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\WebhooksErrorResponse
+     * @return \AvalaraSDK\Model\EInvoicing\V1\SuccessResponse|\AvalaraSDK\Model\EInvoicing\V1\WebhooksErrorResponse|\AvalaraSDK\Model\EInvoicing\V1\WebhooksErrorResponse|\AvalaraSDK\Model\EInvoicing\V1\WebhooksErrorResponse
      */
     public function createWebhookSubscription($request_parameters)
     {
@@ -139,9 +139,9 @@ class SubscriptionsApi
      *
      * @param CreateWebhookSubscriptionRequestSdk The request parameters for the API call.
      *
-     * @throws \Avalara\SDK\ApiException on non-2xx response
+     * @throws \AvalaraSDK\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Avalara\SDK\Model\EInvoicing\V1\SuccessResponse|\Avalara\SDK\Model\EInvoicing\V1\WebhooksErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\WebhooksErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\WebhooksErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \AvalaraSDK\Model\EInvoicing\V1\SuccessResponse|\AvalaraSDK\Model\EInvoicing\V1\WebhooksErrorResponse|\AvalaraSDK\Model\EInvoicing\V1\WebhooksErrorResponse|\AvalaraSDK\Model\EInvoicing\V1\WebhooksErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function createWebhookSubscriptionWithHttpInfo($request_parameters, $isRetry = false)
     {
@@ -197,7 +197,7 @@ class SubscriptionsApi
 
             switch($statusCode) {
                 case 201:
-                    if ('\Avalara\SDK\Model\EInvoicing\V1\SuccessResponse' === '\SplFileObject') {
+                    if ('\AvalaraSDK\Model\EInvoicing\V1\SuccessResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -205,12 +205,12 @@ class SubscriptionsApi
                     $logObject->populateResponseInfo($content, $response);
                     $this->client->logger->info(json_encode($logObject));
                     return [
-                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\SuccessResponse', []),
+                        ObjectSerializer::deserialize($content, '\AvalaraSDK\Model\EInvoicing\V1\SuccessResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\Avalara\SDK\Model\EInvoicing\V1\WebhooksErrorResponse' === '\SplFileObject') {
+                    if ('\AvalaraSDK\Model\EInvoicing\V1\WebhooksErrorResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -218,12 +218,12 @@ class SubscriptionsApi
                     $logObject->populateResponseInfo($content, $response);
                     $this->client->logger->info(json_encode($logObject));
                     return [
-                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\WebhooksErrorResponse', []),
+                        ObjectSerializer::deserialize($content, '\AvalaraSDK\Model\EInvoicing\V1\WebhooksErrorResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 401:
-                    if ('\Avalara\SDK\Model\EInvoicing\V1\WebhooksErrorResponse' === '\SplFileObject') {
+                    if ('\AvalaraSDK\Model\EInvoicing\V1\WebhooksErrorResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -231,12 +231,12 @@ class SubscriptionsApi
                     $logObject->populateResponseInfo($content, $response);
                     $this->client->logger->info(json_encode($logObject));
                     return [
-                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\WebhooksErrorResponse', []),
+                        ObjectSerializer::deserialize($content, '\AvalaraSDK\Model\EInvoicing\V1\WebhooksErrorResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 403:
-                    if ('\Avalara\SDK\Model\EInvoicing\V1\WebhooksErrorResponse' === '\SplFileObject') {
+                    if ('\AvalaraSDK\Model\EInvoicing\V1\WebhooksErrorResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -244,13 +244,13 @@ class SubscriptionsApi
                     $logObject->populateResponseInfo($content, $response);
                     $this->client->logger->info(json_encode($logObject));
                     return [
-                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\WebhooksErrorResponse', []),
+                        ObjectSerializer::deserialize($content, '\AvalaraSDK\Model\EInvoicing\V1\WebhooksErrorResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Avalara\SDK\Model\EInvoicing\V1\SuccessResponse';
+            $returnType = '\AvalaraSDK\Model\EInvoicing\V1\SuccessResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -269,7 +269,7 @@ class SubscriptionsApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Avalara\SDK\Model\EInvoicing\V1\SuccessResponse',
+                        '\AvalaraSDK\Model\EInvoicing\V1\SuccessResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -277,7 +277,7 @@ class SubscriptionsApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Avalara\SDK\Model\EInvoicing\V1\WebhooksErrorResponse',
+                        '\AvalaraSDK\Model\EInvoicing\V1\WebhooksErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -285,7 +285,7 @@ class SubscriptionsApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Avalara\SDK\Model\EInvoicing\V1\WebhooksErrorResponse',
+                        '\AvalaraSDK\Model\EInvoicing\V1\WebhooksErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -293,7 +293,7 @@ class SubscriptionsApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Avalara\SDK\Model\EInvoicing\V1\WebhooksErrorResponse',
+                        '\AvalaraSDK\Model\EInvoicing\V1\WebhooksErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -336,7 +336,7 @@ class SubscriptionsApi
     public function createWebhookSubscriptionAsyncWithHttpInfo($request_parameters, $isRetry = false)
     {
         $logObject = new LogObject($this->client->logRequestAndResponse);
-        $returnType = '\Avalara\SDK\Model\EInvoicing\V1\SuccessResponse';
+        $returnType = '\AvalaraSDK\Model\EInvoicing\V1\SuccessResponse';
         $request = $this->createWebhookSubscriptionRequest($request_parameters);
         $logObject->populateRequestInfo($request);
         return $this->client
@@ -511,7 +511,7 @@ class SubscriptionsApi
      *
      * @param DeleteWebhookSubscriptionRequestSdk The request parameters for the API call.
      *
-     * @throws \Avalara\SDK\ApiException on non-2xx response
+     * @throws \AvalaraSDK\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
@@ -527,7 +527,7 @@ class SubscriptionsApi
      *
      * @param DeleteWebhookSubscriptionRequestSdk The request parameters for the API call.
      *
-     * @throws \Avalara\SDK\ApiException on non-2xx response
+     * @throws \AvalaraSDK\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
@@ -589,7 +589,7 @@ class SubscriptionsApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Avalara\SDK\Model\EInvoicing\V1\WebhooksErrorResponse',
+                        '\AvalaraSDK\Model\EInvoicing\V1\WebhooksErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -597,7 +597,7 @@ class SubscriptionsApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Avalara\SDK\Model\EInvoicing\V1\WebhooksErrorResponse',
+                        '\AvalaraSDK\Model\EInvoicing\V1\WebhooksErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -605,7 +605,7 @@ class SubscriptionsApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Avalara\SDK\Model\EInvoicing\V1\WebhooksErrorResponse',
+                        '\AvalaraSDK\Model\EInvoicing\V1\WebhooksErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -719,7 +719,7 @@ class SubscriptionsApi
             );
         }
 
-        $resourcePath = '/einvoicing/webhooks/subscriptions/{subscription-id}';
+        $resourcePath = '/einvoicing/webhooks/subscriptions/{subscriptionId}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -743,7 +743,7 @@ class SubscriptionsApi
         // path params
         if ($subscription_id !== null) {
             $resourcePath = str_replace(
-                '{' . 'subscription-id' . '}',
+                '{' . 'subscriptionId' . '}',
                 ObjectSerializer::toPathValue($subscription_id),
                 $resourcePath
             );
@@ -815,9 +815,9 @@ class SubscriptionsApi
      *
      * @param GetWebhookSubscriptionRequestSdk The request parameters for the API call.
      *
-     * @throws \Avalara\SDK\ApiException on non-2xx response
+     * @throws \AvalaraSDK\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Avalara\SDK\Model\EInvoicing\V1\SubscriptionDetail|\Avalara\SDK\Model\EInvoicing\V1\WebhooksErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\WebhooksErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\WebhooksErrorResponse
+     * @return \AvalaraSDK\Model\EInvoicing\V1\SubscriptionDetail|\AvalaraSDK\Model\EInvoicing\V1\WebhooksErrorResponse|\AvalaraSDK\Model\EInvoicing\V1\WebhooksErrorResponse|\AvalaraSDK\Model\EInvoicing\V1\WebhooksErrorResponse
      */
     public function getWebhookSubscription($request_parameters)
     {
@@ -832,9 +832,9 @@ class SubscriptionsApi
      *
      * @param GetWebhookSubscriptionRequestSdk The request parameters for the API call.
      *
-     * @throws \Avalara\SDK\ApiException on non-2xx response
+     * @throws \AvalaraSDK\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Avalara\SDK\Model\EInvoicing\V1\SubscriptionDetail|\Avalara\SDK\Model\EInvoicing\V1\WebhooksErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\WebhooksErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\WebhooksErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \AvalaraSDK\Model\EInvoicing\V1\SubscriptionDetail|\AvalaraSDK\Model\EInvoicing\V1\WebhooksErrorResponse|\AvalaraSDK\Model\EInvoicing\V1\WebhooksErrorResponse|\AvalaraSDK\Model\EInvoicing\V1\WebhooksErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getWebhookSubscriptionWithHttpInfo($request_parameters, $isRetry = false)
     {
@@ -890,7 +890,7 @@ class SubscriptionsApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Avalara\SDK\Model\EInvoicing\V1\SubscriptionDetail' === '\SplFileObject') {
+                    if ('\AvalaraSDK\Model\EInvoicing\V1\SubscriptionDetail' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -898,12 +898,12 @@ class SubscriptionsApi
                     $logObject->populateResponseInfo($content, $response);
                     $this->client->logger->info(json_encode($logObject));
                     return [
-                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\SubscriptionDetail', []),
+                        ObjectSerializer::deserialize($content, '\AvalaraSDK\Model\EInvoicing\V1\SubscriptionDetail', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 401:
-                    if ('\Avalara\SDK\Model\EInvoicing\V1\WebhooksErrorResponse' === '\SplFileObject') {
+                    if ('\AvalaraSDK\Model\EInvoicing\V1\WebhooksErrorResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -911,12 +911,12 @@ class SubscriptionsApi
                     $logObject->populateResponseInfo($content, $response);
                     $this->client->logger->info(json_encode($logObject));
                     return [
-                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\WebhooksErrorResponse', []),
+                        ObjectSerializer::deserialize($content, '\AvalaraSDK\Model\EInvoicing\V1\WebhooksErrorResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 403:
-                    if ('\Avalara\SDK\Model\EInvoicing\V1\WebhooksErrorResponse' === '\SplFileObject') {
+                    if ('\AvalaraSDK\Model\EInvoicing\V1\WebhooksErrorResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -924,12 +924,12 @@ class SubscriptionsApi
                     $logObject->populateResponseInfo($content, $response);
                     $this->client->logger->info(json_encode($logObject));
                     return [
-                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\WebhooksErrorResponse', []),
+                        ObjectSerializer::deserialize($content, '\AvalaraSDK\Model\EInvoicing\V1\WebhooksErrorResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 404:
-                    if ('\Avalara\SDK\Model\EInvoicing\V1\WebhooksErrorResponse' === '\SplFileObject') {
+                    if ('\AvalaraSDK\Model\EInvoicing\V1\WebhooksErrorResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -937,13 +937,13 @@ class SubscriptionsApi
                     $logObject->populateResponseInfo($content, $response);
                     $this->client->logger->info(json_encode($logObject));
                     return [
-                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\WebhooksErrorResponse', []),
+                        ObjectSerializer::deserialize($content, '\AvalaraSDK\Model\EInvoicing\V1\WebhooksErrorResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Avalara\SDK\Model\EInvoicing\V1\SubscriptionDetail';
+            $returnType = '\AvalaraSDK\Model\EInvoicing\V1\SubscriptionDetail';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -962,7 +962,7 @@ class SubscriptionsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Avalara\SDK\Model\EInvoicing\V1\SubscriptionDetail',
+                        '\AvalaraSDK\Model\EInvoicing\V1\SubscriptionDetail',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -970,7 +970,7 @@ class SubscriptionsApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Avalara\SDK\Model\EInvoicing\V1\WebhooksErrorResponse',
+                        '\AvalaraSDK\Model\EInvoicing\V1\WebhooksErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -978,7 +978,7 @@ class SubscriptionsApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Avalara\SDK\Model\EInvoicing\V1\WebhooksErrorResponse',
+                        '\AvalaraSDK\Model\EInvoicing\V1\WebhooksErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -986,7 +986,7 @@ class SubscriptionsApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Avalara\SDK\Model\EInvoicing\V1\WebhooksErrorResponse',
+                        '\AvalaraSDK\Model\EInvoicing\V1\WebhooksErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1029,7 +1029,7 @@ class SubscriptionsApi
     public function getWebhookSubscriptionAsyncWithHttpInfo($request_parameters, $isRetry = false)
     {
         $logObject = new LogObject($this->client->logRequestAndResponse);
-        $returnType = '\Avalara\SDK\Model\EInvoicing\V1\SubscriptionDetail';
+        $returnType = '\AvalaraSDK\Model\EInvoicing\V1\SubscriptionDetail';
         $request = $this->getWebhookSubscriptionRequest($request_parameters);
         $logObject->populateRequestInfo($request);
         return $this->client
@@ -1110,7 +1110,7 @@ class SubscriptionsApi
             );
         }
 
-        $resourcePath = '/einvoicing/webhooks/subscriptions/{subscription-id}';
+        $resourcePath = '/einvoicing/webhooks/subscriptions/{subscriptionId}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1134,7 +1134,7 @@ class SubscriptionsApi
         // path params
         if ($subscription_id !== null) {
             $resourcePath = str_replace(
-                '{' . 'subscription-id' . '}',
+                '{' . 'subscriptionId' . '}',
                 ObjectSerializer::toPathValue($subscription_id),
                 $resourcePath
             );
@@ -1206,9 +1206,9 @@ class SubscriptionsApi
      *
      * @param ListWebhookSubscriptionsRequestSdk The request parameters for the API call.
      *
-     * @throws \Avalara\SDK\ApiException on non-2xx response
+     * @throws \AvalaraSDK\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Avalara\SDK\Model\EInvoicing\V1\SubscriptionListResponse|\Avalara\SDK\Model\EInvoicing\V1\WebhooksErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\WebhooksErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\WebhooksErrorResponse
+     * @return \AvalaraSDK\Model\EInvoicing\V1\SubscriptionListResponse|\AvalaraSDK\Model\EInvoicing\V1\WebhooksErrorResponse|\AvalaraSDK\Model\EInvoicing\V1\WebhooksErrorResponse|\AvalaraSDK\Model\EInvoicing\V1\WebhooksErrorResponse
      */
     public function listWebhookSubscriptions($request_parameters)
     {
@@ -1223,9 +1223,9 @@ class SubscriptionsApi
      *
      * @param ListWebhookSubscriptionsRequestSdk The request parameters for the API call.
      *
-     * @throws \Avalara\SDK\ApiException on non-2xx response
+     * @throws \AvalaraSDK\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Avalara\SDK\Model\EInvoicing\V1\SubscriptionListResponse|\Avalara\SDK\Model\EInvoicing\V1\WebhooksErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\WebhooksErrorResponse|\Avalara\SDK\Model\EInvoicing\V1\WebhooksErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \AvalaraSDK\Model\EInvoicing\V1\SubscriptionListResponse|\AvalaraSDK\Model\EInvoicing\V1\WebhooksErrorResponse|\AvalaraSDK\Model\EInvoicing\V1\WebhooksErrorResponse|\AvalaraSDK\Model\EInvoicing\V1\WebhooksErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function listWebhookSubscriptionsWithHttpInfo($request_parameters, $isRetry = false)
     {
@@ -1281,7 +1281,7 @@ class SubscriptionsApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Avalara\SDK\Model\EInvoicing\V1\SubscriptionListResponse' === '\SplFileObject') {
+                    if ('\AvalaraSDK\Model\EInvoicing\V1\SubscriptionListResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -1289,12 +1289,12 @@ class SubscriptionsApi
                     $logObject->populateResponseInfo($content, $response);
                     $this->client->logger->info(json_encode($logObject));
                     return [
-                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\SubscriptionListResponse', []),
+                        ObjectSerializer::deserialize($content, '\AvalaraSDK\Model\EInvoicing\V1\SubscriptionListResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 401:
-                    if ('\Avalara\SDK\Model\EInvoicing\V1\WebhooksErrorResponse' === '\SplFileObject') {
+                    if ('\AvalaraSDK\Model\EInvoicing\V1\WebhooksErrorResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -1302,12 +1302,12 @@ class SubscriptionsApi
                     $logObject->populateResponseInfo($content, $response);
                     $this->client->logger->info(json_encode($logObject));
                     return [
-                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\WebhooksErrorResponse', []),
+                        ObjectSerializer::deserialize($content, '\AvalaraSDK\Model\EInvoicing\V1\WebhooksErrorResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 403:
-                    if ('\Avalara\SDK\Model\EInvoicing\V1\WebhooksErrorResponse' === '\SplFileObject') {
+                    if ('\AvalaraSDK\Model\EInvoicing\V1\WebhooksErrorResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -1315,12 +1315,12 @@ class SubscriptionsApi
                     $logObject->populateResponseInfo($content, $response);
                     $this->client->logger->info(json_encode($logObject));
                     return [
-                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\WebhooksErrorResponse', []),
+                        ObjectSerializer::deserialize($content, '\AvalaraSDK\Model\EInvoicing\V1\WebhooksErrorResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 500:
-                    if ('\Avalara\SDK\Model\EInvoicing\V1\WebhooksErrorResponse' === '\SplFileObject') {
+                    if ('\AvalaraSDK\Model\EInvoicing\V1\WebhooksErrorResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -1328,13 +1328,13 @@ class SubscriptionsApi
                     $logObject->populateResponseInfo($content, $response);
                     $this->client->logger->info(json_encode($logObject));
                     return [
-                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\EInvoicing\V1\WebhooksErrorResponse', []),
+                        ObjectSerializer::deserialize($content, '\AvalaraSDK\Model\EInvoicing\V1\WebhooksErrorResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Avalara\SDK\Model\EInvoicing\V1\SubscriptionListResponse';
+            $returnType = '\AvalaraSDK\Model\EInvoicing\V1\SubscriptionListResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1353,7 +1353,7 @@ class SubscriptionsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Avalara\SDK\Model\EInvoicing\V1\SubscriptionListResponse',
+                        '\AvalaraSDK\Model\EInvoicing\V1\SubscriptionListResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1361,7 +1361,7 @@ class SubscriptionsApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Avalara\SDK\Model\EInvoicing\V1\WebhooksErrorResponse',
+                        '\AvalaraSDK\Model\EInvoicing\V1\WebhooksErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1369,7 +1369,7 @@ class SubscriptionsApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Avalara\SDK\Model\EInvoicing\V1\WebhooksErrorResponse',
+                        '\AvalaraSDK\Model\EInvoicing\V1\WebhooksErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1377,7 +1377,7 @@ class SubscriptionsApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Avalara\SDK\Model\EInvoicing\V1\WebhooksErrorResponse',
+                        '\AvalaraSDK\Model\EInvoicing\V1\WebhooksErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1420,7 +1420,7 @@ class SubscriptionsApi
     public function listWebhookSubscriptionsAsyncWithHttpInfo($request_parameters, $isRetry = false)
     {
         $logObject = new LogObject($this->client->logRequestAndResponse);
-        $returnType = '\Avalara\SDK\Model\EInvoicing\V1\SubscriptionListResponse';
+        $returnType = '\AvalaraSDK\Model\EInvoicing\V1\SubscriptionListResponse';
         $request = $this->listWebhookSubscriptionsRequest($request_parameters);
         $logObject->populateRequestInfo($request);
         return $this->client
@@ -1627,8 +1627,8 @@ class SubscriptionsApi
     /**
      * Represents the Request object for the CreateWebhookSubscription API
      *
-     * @param  string $avalara_version The version of the API to use, e.g., \&quot;1.4\&quot;. (required)
-     * @param  \Avalara\SDK\Model\EInvoicing\V1\SubscriptionRegistration $subscription_registration subscription_registration (required)
+     * @param  string $avalara_version The version of the API to use, e.g., \&quot;1.6\&quot;. (required)
+     * @param  \AvalaraSDK\Model\EInvoicing\V1\SubscriptionRegistration $subscription_registration subscription_registration (required)
      * @param  string $x_correlation_id A unique identifier for tracking the request and its response (optional)
      * @param  string $x_avalara_client Client application identification (optional)
      */
@@ -1641,7 +1641,7 @@ class CreateWebhookSubscriptionRequestSdk {
     public function __construct() {
     }
     public function getAvalaraVersion() {
-        return $this->avalara_version ?? '1.4';
+        return $this->avalara_version ?? '1.6';
     }
 
     public function setAvalaraVersion($avalara_version) {
@@ -1673,8 +1673,8 @@ class CreateWebhookSubscriptionRequestSdk {
     /**
      * Represents the Request object for the DeleteWebhookSubscription API
      *
-     * @param  string $subscription_id subscription_id (required)
-     * @param  string $avalara_version The version of the API to use, e.g., \&quot;1.4\&quot;. (required)
+     * @param  string $subscription_id Unique identifier of the subscription. (required)
+     * @param  string $avalara_version The version of the API to use, e.g., \&quot;1.6\&quot;. (required)
      * @param  string $x_correlation_id A unique identifier for tracking the request and its response (optional)
      * @param  string $x_avalara_client Client application identification (optional)
      */
@@ -1694,7 +1694,7 @@ class DeleteWebhookSubscriptionRequestSdk {
         $this->subscription_id = $subscription_id;
     }
     public function getAvalaraVersion() {
-        return $this->avalara_version ?? '1.4';
+        return $this->avalara_version ?? '1.6';
     }
 
     public function setAvalaraVersion($avalara_version) {
@@ -1719,8 +1719,8 @@ class DeleteWebhookSubscriptionRequestSdk {
     /**
      * Represents the Request object for the GetWebhookSubscription API
      *
-     * @param  string $subscription_id subscription_id (required)
-     * @param  string $avalara_version The version of the API to use, e.g., \&quot;1.4\&quot;. (required)
+     * @param  string $subscription_id Unique identifier of the subscription. (required)
+     * @param  string $avalara_version The version of the API to use, e.g., \&quot;1.6\&quot;. (required)
      * @param  string $x_correlation_id A unique identifier for tracking the request and its response (optional)
      * @param  string $x_avalara_client Client application identification (optional)
      */
@@ -1740,7 +1740,7 @@ class GetWebhookSubscriptionRequestSdk {
         $this->subscription_id = $subscription_id;
     }
     public function getAvalaraVersion() {
-        return $this->avalara_version ?? '1.4';
+        return $this->avalara_version ?? '1.6';
     }
 
     public function setAvalaraVersion($avalara_version) {
@@ -1765,7 +1765,7 @@ class GetWebhookSubscriptionRequestSdk {
     /**
      * Represents the Request object for the ListWebhookSubscriptions API
      *
-     * @param  string $avalara_version The version of the API to use, e.g., \&quot;1.4\&quot;. (required)
+     * @param  string $avalara_version The version of the API to use, e.g., \&quot;1.6\&quot;. (required)
      * @param  string $x_correlation_id A unique identifier for tracking the request and its response (optional)
      * @param  string $x_avalara_client Client application identification (optional)
      * @param  int $top The number of items to include in the result. (optional)
@@ -1785,7 +1785,7 @@ class ListWebhookSubscriptionsRequestSdk {
     public function __construct() {
     }
     public function getAvalaraVersion() {
-        return $this->avalara_version ?? '1.4';
+        return $this->avalara_version ?? '1.6';
     }
 
     public function setAvalaraVersion($avalara_version) {
