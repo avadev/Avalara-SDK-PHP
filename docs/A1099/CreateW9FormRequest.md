@@ -49,7 +49,7 @@ Name | Type | Description | Notes
 **disregarded_entity_fatca_status** | **string** | The FATCA status of disregarded entity or branch receiving payment.  Available values:  - 1: Branch treated as nonparticipating FFI  - 2: U.S. Branch  - 3: Participating FFI  - 4: Reporting Model 1 FFI  - 5: Reporting Model 2 FFI | [optional]
 **disregarded_address** | **string** | The address for disregarded entities. | [optional]
 **disregarded_city** | **string** | The city for disregarded entities. | [optional]
-**disregarded_state** | **string** | The state for disregarded entities. | [optional]
+**disregarded_state** | **string** | The state for disregarded entities.. Allowed values: AA, AE, AK, AL, AP, AR, AS, AZ, CA, CO (and 65 more) | [optional]
 **disregarded_zip** | **string** | The ZIP code for disregarded entities. | [optional]
 **disregarded_country** | **string** | The country for disregarded entities. | [optional]
 **disregarded_entity_giin** | **string** | The GIIN for disregarded entities. | [optional]
@@ -158,7 +158,7 @@ Name | Type | Description | Notes
 **passive_nffe_no_substantial_us_owners_certification** | **bool** | Certifies that the passive NFFE has no substantial U.S. owners or controlling U.S. persons. | [optional]
 **passive_nffe_substantial_us_owners_provided_certification** | **bool** | Certifies that the passive NFFE has provided the name, address, and TIN of each substantial U.S. owner or controlling U.S. person. | [optional]
 **excepted_inter_affiliate_ffi_certification** | **bool** | Certifies that the entity is an inter-affiliate FFI meeting all conditions for exemption,  including limited account activity and payment interactions within its expanded affiliated group. | [optional]
-**substantial_us_owners** | [**\Avalara\SDK\Model\A1099\V2\SubstantialUsOwnerRequest[]**](SubstantialUsOwnerRequest.md) | The list of substantial U.S. owners of passive NFFE. | [optional]
+**substantial_us_owners** | [**\AvalaraSDK\ModelA1099V2\SubstantialUsOwnerRequest[]**](SubstantialUsOwnerRequest.md) | The list of substantial U.S. owners of passive NFFE. | [optional]
 **capacity_to_sign_certification** | **bool** | Certifies signer has the capacity to sign for the beneficial owner. | [optional]
 **birthday** | **\DateTime** | The birthday of the individual associated with the form. | [optional]
 **employee_first_name** | **string** | The first name of the employee. |

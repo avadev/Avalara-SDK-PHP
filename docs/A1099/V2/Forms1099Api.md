@@ -1,4 +1,4 @@
-# Avalara\SDK\Forms1099Api
+# AvalaraSDK\Forms1099Api
 
 All URIs are relative to https://api.sbx.avalara.com/avalara1099.
 
@@ -16,7 +16,7 @@ Method | HTTP request | Description
 ## `bulkUpsert1099Forms()`
 
 ```php
-bulkUpsert1099Forms($avalara_version, $dry_run, $x_correlation_id, $x_avalara_client, $form1099_list_request): \Avalara\SDK\Model\A1099\V2\JobResponse
+bulkUpsert1099Forms($avalara_version, $dry_run, $x_correlation_id, $x_avalara_client, $form1099_list_request): \AvalaraSDK\ModelA1099V2\JobResponse
 ```
 
 Create or update multiple 1099/1095/W2/1042S forms
@@ -39,13 +39,13 @@ $config = new \Avalara\SDK\Configuration()
 
 $client = new \Avalara\SDK\ApiClient($config);
 
-$apiInstance = new Avalara\SDK\Api\Forms1099Api($client);
+$apiInstance = new AvalaraSDK\Api\Forms1099Api($client);
 
 $avalara_version = 2.0.0; // string | API version
 $dry_run = false; // bool | defaults to false. If true, it will NOT change the DB. It will just return a report of what would've have been changed in the DB
-$x_correlation_id = 16597cea-e46f-4db1-a91a-758d08c8a6d9; // string | Unique correlation Id in a GUID format
+$x_correlation_id = fd02f159-f2af-48e4-92b1-8185bcf20f90; // string | Unique correlation Id in a GUID format
 $x_avalara_client = Swagger UI; 22.1.0; // string | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
-$form1099_list_request = {"type":"1042-S","forms":[{"type":"1042-S","issuerId":"12345","issuerReferenceId":"issuer-001","issuerTin":"94-2765431","taxYear":2025,"referenceId":"1042S-REF-001","tin":"112233445","recipientName":"Michael Jackson","recipientSecondName":"SuperStart","address":"1234 Corporate Blvd","address2":"Suite 500","city":"Anytown","state":"MA","zip":"12345","email":"email@example.com","accountNumber":"ACC01","nonUsProvince":null,"countryCode":"US","federalEfileDate":"2025-03-15","postalMail":true,"stateEfileDate":null,"recipientEdeliveryDate":"2025-03-25","tinMatch":false,"noTin":false,"addressVerification":true,"stateAndLocalWithholding":{"stateTaxWithheld":50,"state":"CA","stateId":"CA98765432"},"secondTinNotice":true,"uniqueFormId":"1234567890","recipientDateOfBirth":"1990-01-01","recipientGiin":"748291.59302.US.001","recipientForeignTin":"920456.38475.GM.002","lobCode":"06","incomeCode":"16","grossIncome":10000.5,"withholdingIndicator":"3","taxCountryCode":"GM","exemptionCodeChap3":"00","exemptionCodeChap4":"13","taxRateChap3":"30.00","withholdingAllowance":15,"federalTaxWithheld":1500.25,"taxNotDepositedIndicator":true,"academicIndicator":true,"taxWithheldOtherAgents":100,"amountRepaid":200,"taxPaidAgent":50.5,"chap3StatusCode":"06","chap4StatusCode":"02","primaryWithholdingAgent":{"name":"Primary Agent Name","ein":"98-3456789"},"intermediaryOrFlowThrough":{"ein":"98-7654321","chap3StatusCode":"03","chap4StatusCode":"04","name":"Intermediary Name","giin":"748291.59302.US.002","countryCode":"US","foreignTin":"123-45-6789","address":"123 Main St.","city":"Cityville","state":"CA","zip":"98765"}}]}; // \Avalara\SDK\Model\A1099\V2\Form1099ListRequest | 
+$form1099_list_request = {"type":"1042-S","forms":[{"type":"1042-S","issuerId":"12345","issuerReferenceId":"issuer-001","issuerTin":"94-2765431","taxYear":2025,"referenceId":"1042S-REF-001","tin":"112233445","recipientName":"Michael Jackson","recipientSecondName":"SuperStart","address":"1234 Corporate Blvd","address2":"Suite 500","city":"Anytown","state":"MA","zip":"12345","email":"email@example.com","accountNumber":"ACC01","nonUsProvince":null,"countryCode":"US","federalEfileDate":"2025-03-15","postalMail":true,"stateEfileDate":null,"recipientEdeliveryDate":"2025-03-25","tinMatch":false,"noTin":false,"addressVerification":true,"stateAndLocalWithholding":{"stateTaxWithheld":50,"state":"CA","stateId":"CA98765432"},"secondTinNotice":true,"uniqueFormId":"1234567890","recipientDateOfBirth":"1990-01-01","recipientGiin":"748291.59302.US.001","recipientForeignTin":"920456.38475.GM.002","lobCode":"06","incomeCode":"16","grossIncome":10000.5,"withholdingIndicator":"3","taxCountryCode":"GM","exemptionCodeChap3":"00","exemptionCodeChap4":"13","taxRateChap3":"30.00","withholdingAllowance":15,"federalTaxWithheld":1500.25,"taxNotDepositedIndicator":true,"academicIndicator":true,"withholdingRatePoolIndicator":null,"taxWithheldOtherAgents":100,"amountRepaid":200,"taxPaidAgent":50.5,"chap3StatusCode":"06","chap4StatusCode":"02","primaryWithholdingAgent":{"name":"Primary Agent Name","ein":"98-3456789"},"intermediaryOrFlowThrough":{"ein":"98-7654321","chap3StatusCode":"03","chap4StatusCode":"04","name":"Intermediary Name","giin":"748291.59302.US.002","countryCode":"US","foreignTin":"123-45-6789","address":"123 Main St.","city":"Cityville","state":"CA","zip":"98765"}}]}; // \AvalaraSDK\ModelA1099V2\Form1099ListRequest | 
 
 try {
     $result = $apiInstance->bulkUpsert1099Forms($avalara_version, $dry_run, $x_correlation_id, $x_avalara_client, $form1099_list_request);
@@ -63,11 +63,11 @@ Name | Type | Description  | Notes
  **dry_run** | **bool**| defaults to false. If true, it will NOT change the DB. It will just return a report of what would&#39;ve have been changed in the DB | [optional] [default to false]
  **x_correlation_id** | **string**| Unique correlation Id in a GUID format | [optional]
  **x_avalara_client** | **string**| Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) . | [optional]
- **form1099_list_request** | [**\Avalara\SDK\Model\A1099\V2\Form1099ListRequest**](../Model/Form1099ListRequest.md)|  | [optional]
+ **form1099_list_request** | [**\AvalaraSDK\ModelA1099V2\Form1099ListRequest**](../Model/Form1099ListRequest.md)|  | [optional]
 
 ### Return type
 
-[**\Avalara\SDK\Model\A1099\V2\JobResponse**](../Model/JobResponse.md)
+[**\AvalaraSDK\ModelA1099V2\JobResponse**](../Model/JobResponse.md)
 
 ### Authorization
 
@@ -85,7 +85,7 @@ Name | Type | Description  | Notes
 ## `create1099Form()`
 
 ```php
-create1099Form($avalara_version, $x_correlation_id, $x_avalara_client, $get1099_form200_response): \Avalara\SDK\Model\A1099\V2\Get1099Form200Response
+create1099Form($avalara_version, $x_correlation_id, $x_avalara_client, $get1099_form200_response): \AvalaraSDK\ModelA1099V2\Get1099Form200Response
 ```
 
 Create a 1099/1095/W2/1042S form
@@ -108,12 +108,12 @@ $config = new \Avalara\SDK\Configuration()
 
 $client = new \Avalara\SDK\ApiClient($config);
 
-$apiInstance = new Avalara\SDK\Api\Forms1099Api($client);
+$apiInstance = new AvalaraSDK\Api\Forms1099Api($client);
 
 $avalara_version = 2.0.0; // string | API version
-$x_correlation_id = 8aae2aaf-fdeb-4a36-965c-81ba3d884563; // string | Unique correlation Id in a GUID format
+$x_correlation_id = b5153c6c-b731-4d1d-a3fb-d618e239d65c; // string | Unique correlation Id in a GUID format
 $x_avalara_client = Swagger UI; 22.1.0; // string | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
-$get1099_form200_response = {"type":"1042-S","issuerId":"12345","referenceId":"1042S-REF-001","tin":"112233445","recipientName":"Michael Jackson","recipientSecondName":"SuperStart","address":"1234 Corporate Blvd","address2":"Suite 500","city":"Anytown","state":"MA","zip":"12345","email":"email@example.com","accountNumber":"ACC01","nonUsProvince":null,"countryCode":"US","federalEfileDate":"2025-03-15","postalMail":true,"stateEfileDate":null,"recipientEdeliveryDate":"2025-03-25","tinMatch":false,"noTin":false,"addressVerification":true,"stateAndLocalWithholding":{"stateTaxWithheld":50,"state":"CA","stateId":"CA98765432"},"secondTinNotice":true,"uniqueFormId":"1234567890","recipientDateOfBirth":"1990-01-01","recipientGiin":"748291.59302.US.001","recipientForeignTin":"920456.38475.GM.002","lobCode":"06","incomeCode":"16","grossIncome":10000.5,"withholdingIndicator":"3","taxCountryCode":"GM","exemptionCodeChap3":"00","exemptionCodeChap4":"13","taxRateChap3":"30.00","withholdingAllowance":15,"federalTaxWithheld":1500.25,"taxNotDepositedIndicator":true,"academicIndicator":true,"taxWithheldOtherAgents":100,"amountRepaid":200,"taxPaidAgent":50.5,"chap3StatusCode":"06","chap4StatusCode":"02","primaryWithholdingAgent":{"name":"Primary Agent Name","ein":"98-3456789"},"intermediaryOrFlowThrough":{"ein":"98-7654321","chap3StatusCode":"03","chap4StatusCode":"04","name":"Intermediary Name","giin":"748291.59302.US.002","countryCode":"US","foreignTin":"123-45-6789","address":"123 Main St.","city":"Cityville","state":"CA","zip":"98765"}}; // \Avalara\SDK\Model\A1099\V2\Get1099Form200Response
+$get1099_form200_response = {"type":"1042-S","issuerId":"12345","referenceId":"1042S-REF-001","tin":"112233445","recipientName":"Michael Jackson","recipientSecondName":"SuperStart","address":"1234 Corporate Blvd","address2":"Suite 500","city":"Anytown","state":"MA","zip":"12345","email":"email@example.com","accountNumber":"ACC01","nonUsProvince":null,"countryCode":"US","federalEfileDate":"2025-03-15","postalMail":true,"stateEfileDate":null,"recipientEdeliveryDate":"2025-03-25","tinMatch":false,"noTin":false,"addressVerification":true,"stateAndLocalWithholding":{"stateTaxWithheld":50,"state":"CA","stateId":"CA98765432"},"secondTinNotice":true,"uniqueFormId":"1234567890","recipientDateOfBirth":"1990-01-01","recipientGiin":"748291.59302.US.001","recipientForeignTin":"920456.38475.GM.002","lobCode":"06","incomeCode":"16","grossIncome":10000.5,"withholdingIndicator":"3","taxCountryCode":"GM","exemptionCodeChap3":"00","exemptionCodeChap4":"13","taxRateChap3":"30.00","withholdingAllowance":15,"federalTaxWithheld":1500.25,"taxNotDepositedIndicator":true,"academicIndicator":true,"withholdingRatePoolIndicator":null,"taxWithheldOtherAgents":100,"amountRepaid":200,"taxPaidAgent":50.5,"chap3StatusCode":"06","chap4StatusCode":"02","primaryWithholdingAgent":{"name":"Primary Agent Name","ein":"98-3456789"},"intermediaryOrFlowThrough":{"ein":"98-7654321","chap3StatusCode":"03","chap4StatusCode":"04","name":"Intermediary Name","giin":"748291.59302.US.002","countryCode":"US","foreignTin":"123-45-6789","address":"123 Main St.","city":"Cityville","state":"CA","zip":"98765"}}; // \AvalaraSDK\ModelA1099V2\Get1099Form200Response
 
 try {
     $result = $apiInstance->create1099Form($avalara_version, $x_correlation_id, $x_avalara_client, $get1099_form200_response);
@@ -130,11 +130,11 @@ Name | Type | Description  | Notes
  **avalara_version** | **string**| API version |
  **x_correlation_id** | **string**| Unique correlation Id in a GUID format | [optional]
  **x_avalara_client** | **string**| Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) . | [optional]
- **get1099_form200_response** | [**\Avalara\SDK\Model\A1099\V2\Get1099Form200Response**](../Model/Get1099Form200Response.md)|  | [optional]
+ **get1099_form200_response** | [**\AvalaraSDK\ModelA1099V2\Get1099Form200Response**](../Model/Get1099Form200Response.md)|  | [optional]
 
 ### Return type
 
-[**\Avalara\SDK\Model\A1099\V2\Get1099Form200Response**](../Model/Get1099Form200Response.md)
+[**\AvalaraSDK\ModelA1099V2\Get1099Form200Response**](../Model/Get1099Form200Response.md)
 
 ### Authorization
 
@@ -175,11 +175,11 @@ $config = new \Avalara\SDK\Configuration()
 
 $client = new \Avalara\SDK\ApiClient($config);
 
-$apiInstance = new Avalara\SDK\Api\Forms1099Api($client);
+$apiInstance = new AvalaraSDK\Api\Forms1099Api($client);
 
 $id = 'id_example'; // string | The unique identifier of the desired form to delete.
 $avalara_version = 2.0.0; // string | API version
-$x_correlation_id = 0e5923f5-6d5b-4e68-947c-e4465872098b; // string | Unique correlation Id in a GUID format
+$x_correlation_id = e9de0484-cb5a-4d77-aeb0-06ed67420a2d; // string | Unique correlation Id in a GUID format
 $x_avalara_client = Swagger UI; 22.1.0; // string | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
 
 try {
@@ -218,7 +218,7 @@ void (empty response body)
 ## `get1099Form()`
 
 ```php
-get1099Form($id, $avalara_version, $x_correlation_id, $x_avalara_client): \Avalara\SDK\Model\A1099\V2\Get1099Form200Response
+get1099Form($id, $avalara_version, $x_correlation_id, $x_avalara_client): \AvalaraSDK\ModelA1099V2\Get1099Form200Response
 ```
 
 Retrieve a 1099/1095/W2/1042S form
@@ -241,11 +241,11 @@ $config = new \Avalara\SDK\Configuration()
 
 $client = new \Avalara\SDK\ApiClient($config);
 
-$apiInstance = new Avalara\SDK\Api\Forms1099Api($client);
+$apiInstance = new AvalaraSDK\Api\Forms1099Api($client);
 
 $id = 'id_example'; // string
 $avalara_version = 2.0.0; // string | API version
-$x_correlation_id = 5c29014d-312a-43e6-8cba-1d7ff8bf4823; // string | Unique correlation Id in a GUID format
+$x_correlation_id = f9e45fdc-29d9-456e-b5b6-ce3218225878; // string | Unique correlation Id in a GUID format
 $x_avalara_client = Swagger UI; 22.1.0; // string | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
 
 try {
@@ -267,7 +267,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Avalara\SDK\Model\A1099\V2\Get1099Form200Response**](../Model/Get1099Form200Response.md)
+[**\AvalaraSDK\ModelA1099V2\Get1099Form200Response**](../Model/Get1099Form200Response.md)
 
 ### Authorization
 
@@ -308,12 +308,12 @@ $config = new \Avalara\SDK\Configuration()
 
 $client = new \Avalara\SDK\ApiClient($config);
 
-$apiInstance = new Avalara\SDK\Api\Forms1099Api($client);
+$apiInstance = new AvalaraSDK\Api\Forms1099Api($client);
 
 $id = 'id_example'; // string | The ID of the form
 $avalara_version = 2.0.0; // string | API version
 $mark_edelivered = True; // bool | Optional boolean that if set indicates that the form should be marked as having been successfully edelivered
-$x_correlation_id = a9c3fd5f-7dcc-400b-b490-2575a0676f13; // string | Unique correlation Id in a GUID format
+$x_correlation_id = 8c295caf-1568-4d0d-8e0c-7152a9204c11; // string | Unique correlation Id in a GUID format
 $x_avalara_client = Swagger UI; 22.1.0; // string | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
 
 try {
@@ -354,7 +354,7 @@ Name | Type | Description  | Notes
 ## `list1099Forms()`
 
 ```php
-list1099Forms($avalara_version, $filter, $top, $skip, $order_by, $count, $count_only, $x_correlation_id, $x_avalara_client): \Avalara\SDK\Model\A1099\V2\PaginatedQueryResultModelForm1099Base
+list1099Forms($avalara_version, $filter, $top, $skip, $order_by, $count, $count_only, $x_correlation_id, $x_avalara_client): \AvalaraSDK\ModelA1099V2\PaginatedQueryResultModelForm1099Base
 ```
 
 List 1099/1095/W2/1042S forms
@@ -377,7 +377,7 @@ $config = new \Avalara\SDK\Configuration()
 
 $client = new \Avalara\SDK\ApiClient($config);
 
-$apiInstance = new Avalara\SDK\Api\Forms1099Api($client);
+$apiInstance = new AvalaraSDK\Api\Forms1099Api($client);
 
 $avalara_version = 2.0.0; // string | API version
 $filter = issuerId eq 884781823; // string | A filter statement to identify specific records to retrieve.  For more information on filtering, see <a href=\"https://developer.avalara.com/avatax/filtering-in-rest/\">Filtering in REST</a>.
@@ -386,7 +386,7 @@ $skip = 56; // int | If nonzero, skip this number of results before returning da
 $order_by = 'order_by_example'; // string | A comma separated list of sort statements in the format (fieldname) [ASC|DESC], for example id ASC.
 $count = True; // bool | If true, return the global count of elements in the collection.
 $count_only = True; // bool | If true, return ONLY the global count of elements in the collection.  It only applies when count=true.
-$x_correlation_id = f7949787-9b74-49ad-8d7a-272b8130955e; // string | Unique correlation Id in a GUID format
+$x_correlation_id = 857d60b8-f4d6-4f00-bc39-3bcf1d8d72f6; // string | Unique correlation Id in a GUID format
 $x_avalara_client = Swagger UI; 22.1.0; // string | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
 
 try {
@@ -413,7 +413,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Avalara\SDK\Model\A1099\V2\PaginatedQueryResultModelForm1099Base**](../Model/PaginatedQueryResultModelForm1099Base.md)
+[**\AvalaraSDK\ModelA1099V2\PaginatedQueryResultModelForm1099Base**](../Model/PaginatedQueryResultModelForm1099Base.md)
 
 ### Authorization
 
@@ -431,7 +431,7 @@ Name | Type | Description  | Notes
 ## `update1099Form()`
 
 ```php
-update1099Form($id, $avalara_version, $x_correlation_id, $x_avalara_client, $get1099_form200_response): \Avalara\SDK\Model\A1099\V2\Get1099Form200Response
+update1099Form($id, $avalara_version, $x_correlation_id, $x_avalara_client, $get1099_form200_response): \AvalaraSDK\ModelA1099V2\Get1099Form200Response
 ```
 
 Update a 1099/1095/W2/1042S form
@@ -454,13 +454,13 @@ $config = new \Avalara\SDK\Configuration()
 
 $client = new \Avalara\SDK\ApiClient($config);
 
-$apiInstance = new Avalara\SDK\Api\Forms1099Api($client);
+$apiInstance = new AvalaraSDK\Api\Forms1099Api($client);
 
 $id = 'id_example'; // string
 $avalara_version = 2.0.0; // string | API version
-$x_correlation_id = 0a063fc3-fd55-4b2a-8c61-c80274261cf3; // string | Unique correlation Id in a GUID format
+$x_correlation_id = 0d0b68af-3130-4571-a05e-a21427cbf280; // string | Unique correlation Id in a GUID format
 $x_avalara_client = Swagger UI; 22.1.0; // string | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
-$get1099_form200_response = {"type":"1042-S","issuerId":"12345","referenceId":"1042S-REF-001","tin":"112233445","recipientName":"Michael Jackson","recipientSecondName":"SuperStart","address":"1234 Corporate Blvd","address2":"Suite 500","city":"Anytown","state":"MA","zip":"12345","email":"email@example.com","accountNumber":"ACC01","nonUsProvince":null,"countryCode":"US","federalEfileDate":"2025-03-15","postalMail":true,"stateEfileDate":null,"recipientEdeliveryDate":"2025-03-25","tinMatch":false,"noTin":false,"addressVerification":true,"stateAndLocalWithholding":{"stateTaxWithheld":50,"state":"CA","stateId":"CA98765432"},"secondTinNotice":true,"uniqueFormId":"1234567890","recipientDateOfBirth":"1990-01-01","recipientGiin":"748291.59302.US.001","recipientForeignTin":"920456.38475.GM.002","lobCode":"06","incomeCode":"16","grossIncome":10000.5,"withholdingIndicator":"3","taxCountryCode":"GM","exemptionCodeChap3":"00","exemptionCodeChap4":"13","taxRateChap3":"30.00","withholdingAllowance":15,"federalTaxWithheld":1500.25,"taxNotDepositedIndicator":true,"academicIndicator":true,"taxWithheldOtherAgents":100,"amountRepaid":200,"taxPaidAgent":50.5,"chap3StatusCode":"06","chap4StatusCode":"02","primaryWithholdingAgent":{"name":"Primary Agent Name","ein":"98-3456789"},"intermediaryOrFlowThrough":{"ein":"98-7654321","chap3StatusCode":"03","chap4StatusCode":"04","name":"Intermediary Name","giin":"748291.59302.US.002","countryCode":"US","foreignTin":"123-45-6789","address":"123 Main St.","city":"Cityville","state":"CA","zip":"98765"}}; // \Avalara\SDK\Model\A1099\V2\Get1099Form200Response
+$get1099_form200_response = {"type":"1042-S","issuerId":"12345","referenceId":"1042S-REF-001","tin":"112233445","recipientName":"Michael Jackson","recipientSecondName":"SuperStart","address":"1234 Corporate Blvd","address2":"Suite 500","city":"Anytown","state":"MA","zip":"12345","email":"email@example.com","accountNumber":"ACC01","nonUsProvince":null,"countryCode":"US","federalEfileDate":"2025-03-15","postalMail":true,"stateEfileDate":null,"recipientEdeliveryDate":"2025-03-25","tinMatch":false,"noTin":false,"addressVerification":true,"stateAndLocalWithholding":{"stateTaxWithheld":50,"state":"CA","stateId":"CA98765432"},"secondTinNotice":true,"uniqueFormId":"1234567890","recipientDateOfBirth":"1990-01-01","recipientGiin":"748291.59302.US.001","recipientForeignTin":"920456.38475.GM.002","lobCode":"06","incomeCode":"16","grossIncome":10000.5,"withholdingIndicator":"3","taxCountryCode":"GM","exemptionCodeChap3":"00","exemptionCodeChap4":"13","taxRateChap3":"30.00","withholdingAllowance":15,"federalTaxWithheld":1500.25,"taxNotDepositedIndicator":true,"academicIndicator":true,"withholdingRatePoolIndicator":null,"taxWithheldOtherAgents":100,"amountRepaid":200,"taxPaidAgent":50.5,"chap3StatusCode":"06","chap4StatusCode":"02","primaryWithholdingAgent":{"name":"Primary Agent Name","ein":"98-3456789"},"intermediaryOrFlowThrough":{"ein":"98-7654321","chap3StatusCode":"03","chap4StatusCode":"04","name":"Intermediary Name","giin":"748291.59302.US.002","countryCode":"US","foreignTin":"123-45-6789","address":"123 Main St.","city":"Cityville","state":"CA","zip":"98765"}}; // \AvalaraSDK\ModelA1099V2\Get1099Form200Response
 
 try {
     $result = $apiInstance->update1099Form($id, $avalara_version, $x_correlation_id, $x_avalara_client, $get1099_form200_response);
@@ -478,11 +478,11 @@ Name | Type | Description  | Notes
  **avalara_version** | **string**| API version |
  **x_correlation_id** | **string**| Unique correlation Id in a GUID format | [optional]
  **x_avalara_client** | **string**| Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) . | [optional]
- **get1099_form200_response** | [**\Avalara\SDK\Model\A1099\V2\Get1099Form200Response**](../Model/Get1099Form200Response.md)|  | [optional]
+ **get1099_form200_response** | [**\AvalaraSDK\ModelA1099V2\Get1099Form200Response**](../Model/Get1099Form200Response.md)|  | [optional]
 
 ### Return type
 
-[**\Avalara\SDK\Model\A1099\V2\Get1099Form200Response**](../Model/Get1099Form200Response.md)
+[**\AvalaraSDK\ModelA1099V2\Get1099Form200Response**](../Model/Get1099Form200Response.md)
 
 ### Authorization
 
