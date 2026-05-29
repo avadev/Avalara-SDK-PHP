@@ -20,7 +20,7 @@
  *
  * Avalara 1099 & W-9 API Definition
  *
- * ## 🔐 Authentication  Generate a **license key** from: *[Avalara Portal](https://www.avalara.com/us/en/signin.html) → Settings → License and API Keys*.  [More on authentication methods](https://developer.avalara.com/avatax-dm-combined-erp/common-setup/authentication/authentication-methods/)  [Test your credentials](https://developer.avalara.com/avatax/test-credentials/)  ## 📘 API & SDK Documentation  [Avalara SDK (.NET) on GitHub](https://github.com/avadev/Avalara-SDK-DotNet#avalarasdk--the-unified-c-library-for-next-gen-avalara-services)  [Code Examples – 1099 API](https://github.com/avadev/Avalara-SDK-DotNet/blob/main/docs/A1099/V2/Class1099IssuersApi.md#call1099issuersget)
+ * ## Authentication  #### Step 1: Generate API Credentials  Generate a *client ID* and *client secret* from your [Avalara1099 account](https://sbx.track1099.com/api_tokens): *Your Profile → API*.  #### Step 2: Get an Identity Token  Send a `POST` request to the **Identity Token URL** with your *client ID* and *client secret* from Step 1 as form-encoded parameters:  ```http POST https://identity.avalara.com/connect/token Content-Type: application/x-www-form-urlencoded  grant_type=client_credentials client_id=<your client ID> client_secret=<your client secret> ```  **Body parameters** - `grant_type` — Always `client_credentials` - `client_id` — Your *client ID* from Step 1 - `client_secret` — Your *client secret* from Step 1  **Successful response**  ```json {   \"access_token\": \"eyJhbGci...\",   \"expires_in\": 3600,   \"token_type\": \"Bearer\" } ```  Use the `access_token` as a bearer token in the `Authorization` header on every A1099 API request:  ```http Authorization: Bearer <access_token> ```  ---  For more on authenticating requests, see the [A1099 authentication guide](https://developer.avalara.com/1099-and-w-9/kny2997001535374/).  ---  ## Environments  #### Production - **Avalara 1099 API URL:** [`https://api.avalara.com/avalara1099`](https://api.avalara.com/avalara1099) - **Identity Token URL:** [`https://identity.avalara.com/connect/token`](https://identity.avalara.com/connect/token)  #### Sandbox - **Avalara 1099 API URL:** [`https://api.sbx.avalara.com/avalara1099`](https://api.sbx.avalara.com/avalara1099) - **Identity Token URL:** [`https://ai-sbx.avlr.sh/connect/token`](https://ai-sbx.avlr.sh/connect/token)  ---  ## API & SDK Documentation  [Avalara 1099 API Reference](https://developer.avalara.com/api-reference/avalara1099/avalara1099/)  [Avalara SDKs](https://developer.avalara.com/sdk/)  [Swagger](https://api.avalara.com/avalara1099/swagger/index.html?api-version=2.0)
  *
  * @category   Avalara client libraries
  * @package    Avalara\SDK\API\A1099\V2
@@ -786,6 +786,19 @@ class W8BenEFormRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
     const RESIDENCE_STATE_WI = 'WI';
     const RESIDENCE_STATE_WV = 'WV';
     const RESIDENCE_STATE_WY = 'WY';
+    const RESIDENCE_STATE_AB = 'AB';
+    const RESIDENCE_STATE_BC = 'BC';
+    const RESIDENCE_STATE_MB = 'MB';
+    const RESIDENCE_STATE_NB = 'NB';
+    const RESIDENCE_STATE_NL = 'NL';
+    const RESIDENCE_STATE_NS = 'NS';
+    const RESIDENCE_STATE_NT = 'NT';
+    const RESIDENCE_STATE_NU = 'NU';
+    const RESIDENCE_STATE_ON = 'ON';
+    const RESIDENCE_STATE_PE = 'PE';
+    const RESIDENCE_STATE_QC = 'QC';
+    const RESIDENCE_STATE_SK = 'SK';
+    const RESIDENCE_STATE_YT = 'YT';
     const MAILING_STATE_AA = 'AA';
     const MAILING_STATE_AE = 'AE';
     const MAILING_STATE_AK = 'AK';
@@ -848,6 +861,19 @@ class W8BenEFormRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
     const MAILING_STATE_WI = 'WI';
     const MAILING_STATE_WV = 'WV';
     const MAILING_STATE_WY = 'WY';
+    const MAILING_STATE_AB = 'AB';
+    const MAILING_STATE_BC = 'BC';
+    const MAILING_STATE_MB = 'MB';
+    const MAILING_STATE_NB = 'NB';
+    const MAILING_STATE_NL = 'NL';
+    const MAILING_STATE_NS = 'NS';
+    const MAILING_STATE_NT = 'NT';
+    const MAILING_STATE_NU = 'NU';
+    const MAILING_STATE_ON = 'ON';
+    const MAILING_STATE_PE = 'PE';
+    const MAILING_STATE_QC = 'QC';
+    const MAILING_STATE_SK = 'SK';
+    const MAILING_STATE_YT = 'YT';
     const DISREGARDED_ENTITY_FATCA_STATUS_BRANCH_TREATED_AS_NONPARTICIPATING_FFI = 'BranchTreatedAsNonparticipatingFFI';
     const DISREGARDED_ENTITY_FATCA_STATUS_US_BRANCH = 'USBranch';
     const DISREGARDED_ENTITY_FATCA_STATUS_PARTICIPATING_FFI = 'ParticipatingFFI';
@@ -915,6 +941,19 @@ class W8BenEFormRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
     const DISREGARDED_STATE_WI = 'WI';
     const DISREGARDED_STATE_WV = 'WV';
     const DISREGARDED_STATE_WY = 'WY';
+    const DISREGARDED_STATE_AB = 'AB';
+    const DISREGARDED_STATE_BC = 'BC';
+    const DISREGARDED_STATE_MB = 'MB';
+    const DISREGARDED_STATE_NB = 'NB';
+    const DISREGARDED_STATE_NL = 'NL';
+    const DISREGARDED_STATE_NS = 'NS';
+    const DISREGARDED_STATE_NT = 'NT';
+    const DISREGARDED_STATE_NU = 'NU';
+    const DISREGARDED_STATE_ON = 'ON';
+    const DISREGARDED_STATE_PE = 'PE';
+    const DISREGARDED_STATE_QC = 'QC';
+    const DISREGARDED_STATE_SK = 'SK';
+    const DISREGARDED_STATE_YT = 'YT';
     const BENEFIT_LIMITATION_GOVERNMENT = 'Government';
     const BENEFIT_LIMITATION_TAX_EXEMPT_PENSION_TRUST_OR_PENSION_FUND = 'TaxExemptPensionTrustOrPensionFund';
     const BENEFIT_LIMITATION_OTHER_TAX_EXEMPT_ORGANIZATION = 'OtherTaxExemptOrganization';
@@ -1082,6 +1121,19 @@ class W8BenEFormRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
             self::RESIDENCE_STATE_WI,
             self::RESIDENCE_STATE_WV,
             self::RESIDENCE_STATE_WY,
+            self::RESIDENCE_STATE_AB,
+            self::RESIDENCE_STATE_BC,
+            self::RESIDENCE_STATE_MB,
+            self::RESIDENCE_STATE_NB,
+            self::RESIDENCE_STATE_NL,
+            self::RESIDENCE_STATE_NS,
+            self::RESIDENCE_STATE_NT,
+            self::RESIDENCE_STATE_NU,
+            self::RESIDENCE_STATE_ON,
+            self::RESIDENCE_STATE_PE,
+            self::RESIDENCE_STATE_QC,
+            self::RESIDENCE_STATE_SK,
+            self::RESIDENCE_STATE_YT,
         ];
     }
 
@@ -1155,6 +1207,19 @@ class W8BenEFormRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
             self::MAILING_STATE_WI,
             self::MAILING_STATE_WV,
             self::MAILING_STATE_WY,
+            self::MAILING_STATE_AB,
+            self::MAILING_STATE_BC,
+            self::MAILING_STATE_MB,
+            self::MAILING_STATE_NB,
+            self::MAILING_STATE_NL,
+            self::MAILING_STATE_NS,
+            self::MAILING_STATE_NT,
+            self::MAILING_STATE_NU,
+            self::MAILING_STATE_ON,
+            self::MAILING_STATE_PE,
+            self::MAILING_STATE_QC,
+            self::MAILING_STATE_SK,
+            self::MAILING_STATE_YT,
         ];
     }
 
@@ -1244,6 +1309,19 @@ class W8BenEFormRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
             self::DISREGARDED_STATE_WI,
             self::DISREGARDED_STATE_WV,
             self::DISREGARDED_STATE_WY,
+            self::DISREGARDED_STATE_AB,
+            self::DISREGARDED_STATE_BC,
+            self::DISREGARDED_STATE_MB,
+            self::DISREGARDED_STATE_NB,
+            self::DISREGARDED_STATE_NL,
+            self::DISREGARDED_STATE_NS,
+            self::DISREGARDED_STATE_NT,
+            self::DISREGARDED_STATE_NU,
+            self::DISREGARDED_STATE_ON,
+            self::DISREGARDED_STATE_PE,
+            self::DISREGARDED_STATE_QC,
+            self::DISREGARDED_STATE_SK,
+            self::DISREGARDED_STATE_YT,
         ];
     }
 
@@ -1779,7 +1857,7 @@ class W8BenEFormRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets residence_state
      *
-     * @param string|null $residence_state The state of residence.
+     * @param string|null $residence_state The state of residence.. Allowed values: AA, AE, AK, AL, AP, AR, AS, AZ, CA, CO (and 65 more)
      *
      * @return self
      */
@@ -1933,7 +2011,7 @@ class W8BenEFormRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets mailing_state
      *
-     * @param string|null $mailing_state The state of the mailing address.
+     * @param string|null $mailing_state The state of the mailing address.. Allowed values: AA, AE, AK, AL, AP, AR, AS, AZ, CA, CO (and 65 more)
      *
      * @return self
      */
@@ -2217,7 +2295,7 @@ class W8BenEFormRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets disregarded_state
      *
-     * @param string|null $disregarded_state The state for disregarded entities.
+     * @param string|null $disregarded_state The state for disregarded entities.. Allowed values: AA, AE, AK, AL, AP, AR, AS, AZ, CA, CO (and 65 more)
      *
      * @return self
      */

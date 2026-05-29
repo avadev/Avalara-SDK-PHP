@@ -20,7 +20,7 @@
  *
  * Avalara 1099 & W-9 API Definition
  *
- * ## 🔐 Authentication  Generate a **license key** from: *[Avalara Portal](https://www.avalara.com/us/en/signin.html) → Settings → License and API Keys*.  [More on authentication methods](https://developer.avalara.com/avatax-dm-combined-erp/common-setup/authentication/authentication-methods/)  [Test your credentials](https://developer.avalara.com/avatax/test-credentials/)  ## 📘 API & SDK Documentation  [Avalara SDK (.NET) on GitHub](https://github.com/avadev/Avalara-SDK-DotNet#avalarasdk--the-unified-c-library-for-next-gen-avalara-services)  [Code Examples – 1099 API](https://github.com/avadev/Avalara-SDK-DotNet/blob/main/docs/A1099/V2/Class1099IssuersApi.md#call1099issuersget)
+ * ## Authentication  #### Step 1: Generate API Credentials  Generate a *client ID* and *client secret* from your [Avalara1099 account](https://sbx.track1099.com/api_tokens): *Your Profile → API*.  #### Step 2: Get an Identity Token  Send a `POST` request to the **Identity Token URL** with your *client ID* and *client secret* from Step 1 as form-encoded parameters:  ```http POST https://identity.avalara.com/connect/token Content-Type: application/x-www-form-urlencoded  grant_type=client_credentials client_id=<your client ID> client_secret=<your client secret> ```  **Body parameters** - `grant_type` — Always `client_credentials` - `client_id` — Your *client ID* from Step 1 - `client_secret` — Your *client secret* from Step 1  **Successful response**  ```json {   \"access_token\": \"eyJhbGci...\",   \"expires_in\": 3600,   \"token_type\": \"Bearer\" } ```  Use the `access_token` as a bearer token in the `Authorization` header on every A1099 API request:  ```http Authorization: Bearer <access_token> ```  ---  For more on authenticating requests, see the [A1099 authentication guide](https://developer.avalara.com/1099-and-w-9/kny2997001535374/).  ---  ## Environments  #### Production - **Avalara 1099 API URL:** [`https://api.avalara.com/avalara1099`](https://api.avalara.com/avalara1099) - **Identity Token URL:** [`https://identity.avalara.com/connect/token`](https://identity.avalara.com/connect/token)  #### Sandbox - **Avalara 1099 API URL:** [`https://api.sbx.avalara.com/avalara1099`](https://api.sbx.avalara.com/avalara1099) - **Identity Token URL:** [`https://ai-sbx.avlr.sh/connect/token`](https://ai-sbx.avlr.sh/connect/token)  ---  ## API & SDK Documentation  [Avalara 1099 API Reference](https://developer.avalara.com/api-reference/avalara1099/avalara1099/)  [Avalara SDKs](https://developer.avalara.com/sdk/)  [Swagger](https://api.avalara.com/avalara1099/swagger/index.html?api-version=2.0)
  *
  * @category   Avalara client libraries
  * @package    Avalara\SDK\API\A1099\V2
@@ -1033,68 +1033,6 @@ class CreateW9FormRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     const BUSINESS_CLASSIFICATION_LLC_S = 'LlcS';
     const BUSINESS_CLASSIFICATION_LLC_P = 'LlcP';
     const BUSINESS_CLASSIFICATION_OTHER = 'Other';
-    const STATE_AA = 'AA';
-    const STATE_AE = 'AE';
-    const STATE_AK = 'AK';
-    const STATE_AL = 'AL';
-    const STATE_AP = 'AP';
-    const STATE_AR = 'AR';
-    const STATE__AS = 'AS';
-    const STATE_AZ = 'AZ';
-    const STATE_CA = 'CA';
-    const STATE_CO = 'CO';
-    const STATE_CT = 'CT';
-    const STATE_DC = 'DC';
-    const STATE_DE = 'DE';
-    const STATE_FL = 'FL';
-    const STATE_FM = 'FM';
-    const STATE_GA = 'GA';
-    const STATE_GU = 'GU';
-    const STATE_HI = 'HI';
-    const STATE_IA = 'IA';
-    const STATE_ID = 'ID';
-    const STATE_IL = 'IL';
-    const STATE_IN = 'IN';
-    const STATE_KS = 'KS';
-    const STATE_KY = 'KY';
-    const STATE_LA = 'LA';
-    const STATE_MA = 'MA';
-    const STATE_MD = 'MD';
-    const STATE_ME = 'ME';
-    const STATE_MH = 'MH';
-    const STATE_MI = 'MI';
-    const STATE_MN = 'MN';
-    const STATE_MO = 'MO';
-    const STATE_MP = 'MP';
-    const STATE_MS = 'MS';
-    const STATE_MT = 'MT';
-    const STATE_NC = 'NC';
-    const STATE_ND = 'ND';
-    const STATE_NE = 'NE';
-    const STATE_NH = 'NH';
-    const STATE_NJ = 'NJ';
-    const STATE_NM = 'NM';
-    const STATE_NV = 'NV';
-    const STATE_NY = 'NY';
-    const STATE_OH = 'OH';
-    const STATE_OK = 'OK';
-    const STATE__OR = 'OR';
-    const STATE_PA = 'PA';
-    const STATE_PR = 'PR';
-    const STATE_PW = 'PW';
-    const STATE_RI = 'RI';
-    const STATE_SC = 'SC';
-    const STATE_SD = 'SD';
-    const STATE_TN = 'TN';
-    const STATE_TX = 'TX';
-    const STATE_UT = 'UT';
-    const STATE_VA = 'VA';
-    const STATE_VI = 'VI';
-    const STATE_VT = 'VT';
-    const STATE_WA = 'WA';
-    const STATE_WI = 'WI';
-    const STATE_WV = 'WV';
-    const STATE_WY = 'WY';
     const CITIZENSHIP_COUNTRY_US = 'US';
     const CITIZENSHIP_COUNTRY_AF = 'AF';
     const CITIZENSHIP_COUNTRY_AX = 'AX';
@@ -2131,6 +2069,19 @@ class CreateW9FormRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     const DISREGARDED_STATE_WI = 'WI';
     const DISREGARDED_STATE_WV = 'WV';
     const DISREGARDED_STATE_WY = 'WY';
+    const DISREGARDED_STATE_AB = 'AB';
+    const DISREGARDED_STATE_BC = 'BC';
+    const DISREGARDED_STATE_MB = 'MB';
+    const DISREGARDED_STATE_NB = 'NB';
+    const DISREGARDED_STATE_NL = 'NL';
+    const DISREGARDED_STATE_NS = 'NS';
+    const DISREGARDED_STATE_NT = 'NT';
+    const DISREGARDED_STATE_NU = 'NU';
+    const DISREGARDED_STATE_ON = 'ON';
+    const DISREGARDED_STATE_PE = 'PE';
+    const DISREGARDED_STATE_QC = 'QC';
+    const DISREGARDED_STATE_SK = 'SK';
+    const DISREGARDED_STATE_YT = 'YT';
     const IGA_MODEL_MODEL1_IGA = 'Model1IGA';
     const IGA_MODEL_MODEL2_IGA = 'Model2IGA';
     const TREATY_COUNTRY_US = 'US';
@@ -2450,79 +2401,6 @@ class CreateW9FormRequest implements ModelInterface, ArrayAccess, \JsonSerializa
             self::BUSINESS_CLASSIFICATION_LLC_S,
             self::BUSINESS_CLASSIFICATION_LLC_P,
             self::BUSINESS_CLASSIFICATION_OTHER,
-        ];
-    }
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getStateAllowableValues()
-    {
-        return [
-            self::STATE_AA,
-            self::STATE_AE,
-            self::STATE_AK,
-            self::STATE_AL,
-            self::STATE_AP,
-            self::STATE_AR,
-            self::STATE__AS,
-            self::STATE_AZ,
-            self::STATE_CA,
-            self::STATE_CO,
-            self::STATE_CT,
-            self::STATE_DC,
-            self::STATE_DE,
-            self::STATE_FL,
-            self::STATE_FM,
-            self::STATE_GA,
-            self::STATE_GU,
-            self::STATE_HI,
-            self::STATE_IA,
-            self::STATE_ID,
-            self::STATE_IL,
-            self::STATE_IN,
-            self::STATE_KS,
-            self::STATE_KY,
-            self::STATE_LA,
-            self::STATE_MA,
-            self::STATE_MD,
-            self::STATE_ME,
-            self::STATE_MH,
-            self::STATE_MI,
-            self::STATE_MN,
-            self::STATE_MO,
-            self::STATE_MP,
-            self::STATE_MS,
-            self::STATE_MT,
-            self::STATE_NC,
-            self::STATE_ND,
-            self::STATE_NE,
-            self::STATE_NH,
-            self::STATE_NJ,
-            self::STATE_NM,
-            self::STATE_NV,
-            self::STATE_NY,
-            self::STATE_OH,
-            self::STATE_OK,
-            self::STATE__OR,
-            self::STATE_PA,
-            self::STATE_PR,
-            self::STATE_PW,
-            self::STATE_RI,
-            self::STATE_SC,
-            self::STATE_SD,
-            self::STATE_TN,
-            self::STATE_TX,
-            self::STATE_UT,
-            self::STATE_VA,
-            self::STATE_VI,
-            self::STATE_VT,
-            self::STATE_WA,
-            self::STATE_WI,
-            self::STATE_WV,
-            self::STATE_WY,
         ];
     }
 
@@ -3658,6 +3536,19 @@ class CreateW9FormRequest implements ModelInterface, ArrayAccess, \JsonSerializa
             self::DISREGARDED_STATE_WI,
             self::DISREGARDED_STATE_WV,
             self::DISREGARDED_STATE_WY,
+            self::DISREGARDED_STATE_AB,
+            self::DISREGARDED_STATE_BC,
+            self::DISREGARDED_STATE_MB,
+            self::DISREGARDED_STATE_NB,
+            self::DISREGARDED_STATE_NL,
+            self::DISREGARDED_STATE_NS,
+            self::DISREGARDED_STATE_NT,
+            self::DISREGARDED_STATE_NU,
+            self::DISREGARDED_STATE_ON,
+            self::DISREGARDED_STATE_PE,
+            self::DISREGARDED_STATE_QC,
+            self::DISREGARDED_STATE_SK,
+            self::DISREGARDED_STATE_YT,
         ];
     }
 
@@ -4230,15 +4121,6 @@ class CreateW9FormRequest implements ModelInterface, ArrayAccess, \JsonSerializa
         if ($this->container['state'] === null) {
             $invalidProperties[] = "'state' can't be null";
         }
-        $allowedValues = $this->getStateAllowableValues();
-        if (!is_null($this->container['state']) && !in_array($this->container['state'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'state', must be one of '%s'",
-                $this->container['state'],
-                implode("', '", $allowedValues)
-            );
-        }
-
         if ($this->container['zip'] === null) {
             $invalidProperties[] = "'zip' can't be null";
         }
@@ -4737,16 +4619,6 @@ class CreateW9FormRequest implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function setState($state)
     {
-        $allowedValues = $this->getStateAllowableValues();
-        if (!in_array($state, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'state', must be one of '%s'",
-                    $state,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['state'] = $state;
 
         return $this;
@@ -5613,7 +5485,7 @@ class CreateW9FormRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets disregarded_state
      *
-     * @param string|null $disregarded_state The state for disregarded entities.
+     * @param string|null $disregarded_state The state for disregarded entities.. Allowed values: AA, AE, AK, AL, AP, AR, AS, AZ, CA, CO (and 65 more)
      *
      * @return self
      */

@@ -32,7 +32,7 @@ Name | Type | Description | Notes
 **signer_name** | **string** | The name of the signer of the form. | [optional]
 **signer_capacity** | **string** | The capacity in which the signer is signing the form. | [optional]
 **id** | **string** | The unique identifier for the form. | [optional]
-**entry_status** | [**\AvalaraSDK\ModelA1099V2\EntryStatusResponse**](EntryStatusResponse.md) | The entry status information for the form. | [optional]
+**entry_status** | [**\Avalara\SDK\Model\A1099\V2\EntryStatusResponse**](EntryStatusResponse.md) | The entry status information for the form. | [optional]
 **reference_id** | **string** | A reference identifier for the form. | [optional]
 **company_id** | **string** | The ID of the associated company. | [optional]
 **display_name** | **string** | The display name associated with the form. | [optional]
