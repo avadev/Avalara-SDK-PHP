@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **message** | **object** | Event-specific information |
-**signature** | [**\Avalara\SDK\Model\EInvoicing\V1\SignatureValueSignature**](SignatureValueSignature.md) |  |
+**signature** | [**\AvalaraSDK\ModelEInvoicingV1\SignatureValueSignature**](SignatureValueSignature.md) |  |
 **tenant_id** | **string** | Tenant ID of the event |
 **correlation_id** | **string** | The correlation ID used by Avalara to aid in tracing through to provenance of this event massage. | [optional]
 **system_code** | **string** | The Avalara registered code for the system. See &lt;a href&#x3D;\&quot;https://avalara.atlassian.net/wiki/spaces/AIM/pages/637250338966/Taxonomy+Avalara+Systems\&quot;&gt;Taxonomy&amp;#58; Avalara Systems&lt;/a&gt; |

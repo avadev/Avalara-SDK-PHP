@@ -1,4 +1,4 @@
-# Avalara\SDK\MandatesApi
+# AvalaraSDK\MandatesApi
 
 All URIs are relative to https://api.sbx.avalara.com/einvoicing.
 
@@ -11,7 +11,7 @@ Method | HTTP request | Description
 ## `getMandateDataInputFields()`
 
 ```php
-getMandateDataInputFields($avalara_version, $mandate_id, $document_type, $document_version, $x_avalara_client): \Avalara\SDK\Model\EInvoicing\V1\MandateDataInputField[]
+getMandateDataInputFields($avalara_version, $mandate_id, $document_type, $document_version, $x_avalara_client): \AvalaraSDK\ModelEInvoicingV1\MandateDataInputField[]
 ```
 
 Returns document field information for a country mandate, a selected document type, and its version
@@ -34,7 +34,7 @@ $config = new \Avalara\SDK\Configuration()
 
 $client = new \Avalara\SDK\ApiClient($config);
 
-$apiInstance = new Avalara\SDK\Api\MandatesApi($client);
+$apiInstance = new AvalaraSDK\Api\MandatesApi($client);
 
 $avalara_version = 1.6; // string | Header that specifies the API version to use (for example \"1.6\").
 $mandate_id = AD-B2G-PEPPOL; // string | Unique identifier of the mandate returned by the GET /mandates endpoint.
@@ -62,7 +62,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Avalara\SDK\Model\EInvoicing\V1\MandateDataInputField[]**](../Model/MandateDataInputField.md)
+[**\AvalaraSDK\ModelEInvoicingV1\MandateDataInputField[]**](../Model/MandateDataInputField.md)
 
 ### Authorization
 
@@ -80,7 +80,7 @@ Name | Type | Description  | Notes
 ## `getMandates()`
 
 ```php
-getMandates($avalara_version, $x_avalara_client, $filter, $top, $skip, $count, $count_only): \Avalara\SDK\Model\EInvoicing\V1\MandatesResponse
+getMandates($avalara_version, $x_avalara_client, $filter, $top, $skip, $count, $count_only): \AvalaraSDK\ModelEInvoicingV1\MandatesResponse
 ```
 
 List country mandates that are supported by the Avalara E-Invoicing platform
@@ -103,7 +103,7 @@ $config = new \Avalara\SDK\Configuration()
 
 $client = new \Avalara\SDK\ApiClient($config);
 
-$apiInstance = new Avalara\SDK\Api\MandatesApi($client);
+$apiInstance = new AvalaraSDK\Api\MandatesApi($client);
 
 $avalara_version = 1.6; // string | Header that specifies the API version to use (for example \"1.6\").
 $x_avalara_client = John's E-Invoicing-API Client; // string | Optional header for a client identifier string used for diagnostics (for example \"Fingerprint\").
@@ -135,7 +135,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Avalara\SDK\Model\EInvoicing\V1\MandatesResponse**](../Model/MandatesResponse.md)
+[**\AvalaraSDK\ModelEInvoicingV1\MandatesResponse**](../Model/MandatesResponse.md)
 
 ### Authorization
 

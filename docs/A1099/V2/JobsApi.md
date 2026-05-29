@@ -1,4 +1,4 @@
-# Avalara\SDK\JobsApi
+# AvalaraSDK\JobsApi
 
 All URIs are relative to https://api.sbx.avalara.com/avalara1099.
 
@@ -10,7 +10,7 @@ Method | HTTP request | Description
 ## `getJob()`
 
 ```php
-getJob($id, $avalara_version, $x_correlation_id, $x_avalara_client): \Avalara\SDK\Model\A1099\V2\JobResponse
+getJob($id, $avalara_version, $x_correlation_id, $x_avalara_client): \AvalaraSDK\ModelA1099V2\JobResponse
 ```
 
 Retrieves information about the job
@@ -33,11 +33,11 @@ $config = new \Avalara\SDK\Configuration()
 
 $client = new \Avalara\SDK\ApiClient($config);
 
-$apiInstance = new Avalara\SDK\Api\JobsApi($client);
+$apiInstance = new AvalaraSDK\Api\JobsApi($client);
 
 $id = 'id_example'; // string | Job id obtained from other API responses, like `/1099/bulk-upsert`.
 $avalara_version = 2.0.0; // string | API version
-$x_correlation_id = a944f1ad-48d9-4ff0-b23f-69bf4ceffc12; // string | Unique correlation Id in a GUID format
+$x_correlation_id = 2703d90c-9006-449d-b10d-2cf416cd6a4c; // string | Unique correlation Id in a GUID format
 $x_avalara_client = Swagger UI; 22.1.0; // string | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
 
 try {
@@ -59,7 +59,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Avalara\SDK\Model\A1099\V2\JobResponse**](../Model/JobResponse.md)
+[**\AvalaraSDK\ModelA1099V2\JobResponse**](../Model/JobResponse.md)
 
 ### Authorization
 
