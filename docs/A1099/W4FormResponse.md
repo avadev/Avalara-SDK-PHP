@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 **exempt_from_withholding** | **bool** | Indicates whether the employee is exempt from withholding. | [optional]
 **office_code** | **string** | The office code associated with the form. | [optional]
 **id** | **string** | The unique identifier for the form. | [optional]
-**entry_status** | [**\AvalaraSDK\ModelA1099V2\EntryStatusResponse**](EntryStatusResponse.md) | The entry status information for the form. | [optional]
+**entry_status** | [**\Avalara\SDK\Model\A1099\V2\EntryStatusResponse**](EntryStatusResponse.md) | The entry status information for the form. | [optional]
 **reference_id** | **string** | A reference identifier for the form. | [optional]
 **company_id** | **string** | The ID of the associated company. | [optional]
 **display_name** | **string** | The display name associated with the form. | [optional]

@@ -20,7 +20,7 @@
  *
  * Avalara 1099 & W-9 API Definition
  *
- * ## 🔐 Authentication  Generate a **license key** from: *[Avalara Portal](https://www.avalara.com/us/en/signin.html) → Settings → License and API Keys*.  [More on authentication methods](https://developer.avalara.com/avatax-dm-combined-erp/common-setup/authentication/authentication-methods/)  [Test your credentials](https://developer.avalara.com/avatax/test-credentials/)  ## 📘 API & SDK Documentation  [Avalara SDK (.NET) on GitHub](https://github.com/avadev/Avalara-SDK-DotNet#avalarasdk--the-unified-c-library-for-next-gen-avalara-services)  [Code Examples – 1099 API](https://github.com/avadev/Avalara-SDK-DotNet/blob/main/docs/A1099/V2/Class1099IssuersApi.md#call1099issuersget)
+ * ## Authentication  #### Step 1: Generate API Credentials  Generate a *client ID* and *client secret* from your [Avalara1099 account](https://sbx.track1099.com/api_tokens): *Your Profile → API*.  #### Step 2: Get an Identity Token  Send a `POST` request to the **Identity Token URL** with your *client ID* and *client secret* from Step 1 as form-encoded parameters:  ```http POST https://identity.avalara.com/connect/token Content-Type: application/x-www-form-urlencoded  grant_type=client_credentials client_id=<your client ID> client_secret=<your client secret> ```  **Body parameters** - `grant_type` — Always `client_credentials` - `client_id` — Your *client ID* from Step 1 - `client_secret` — Your *client secret* from Step 1  **Successful response**  ```json {   \"access_token\": \"eyJhbGci...\",   \"expires_in\": 3600,   \"token_type\": \"Bearer\" } ```  Use the `access_token` as a bearer token in the `Authorization` header on every A1099 API request:  ```http Authorization: Bearer <access_token> ```  ---  For more on authenticating requests, see the [A1099 authentication guide](https://developer.avalara.com/1099-and-w-9/kny2997001535374/).  ---  ## Environments  #### Production - **Avalara 1099 API URL:** [`https://api.avalara.com/avalara1099`](https://api.avalara.com/avalara1099) - **Identity Token URL:** [`https://identity.avalara.com/connect/token`](https://identity.avalara.com/connect/token)  #### Sandbox - **Avalara 1099 API URL:** [`https://api.sbx.avalara.com/avalara1099`](https://api.sbx.avalara.com/avalara1099) - **Identity Token URL:** [`https://ai-sbx.avlr.sh/connect/token`](https://ai-sbx.avlr.sh/connect/token)  ---  ## API & SDK Documentation  [Avalara 1099 API Reference](https://developer.avalara.com/api-reference/avalara1099/avalara1099/)  [Avalara SDKs](https://developer.avalara.com/sdk/)  [Swagger](https://api.avalara.com/avalara1099/swagger/index.html?api-version=2.0)
  *
  * @category   Avalara client libraries
  * @package    Avalara\SDK\API\A1099\V2
@@ -89,6 +89,7 @@ class Form1042S implements ModelInterface, ArrayAccess, \JsonSerializable
         'federal_tax_withheld' => 'float',
         'tax_not_deposited_indicator' => 'bool',
         'academic_indicator' => 'bool',
+        'withholding_rate_pool_indicator' => 'bool',
         'tax_withheld_other_agents' => 'float',
         'amount_repaid' => 'float',
         'tax_paid_agent' => 'float',
@@ -161,6 +162,7 @@ class Form1042S implements ModelInterface, ArrayAccess, \JsonSerializable
         'federal_tax_withheld' => 'double',
         'tax_not_deposited_indicator' => null,
         'academic_indicator' => null,
+        'withholding_rate_pool_indicator' => null,
         'tax_withheld_other_agents' => 'double',
         'amount_repaid' => 'double',
         'tax_paid_agent' => 'double',
@@ -252,6 +254,7 @@ class Form1042S implements ModelInterface, ArrayAccess, \JsonSerializable
         'federal_tax_withheld' => 'federalTaxWithheld',
         'tax_not_deposited_indicator' => 'taxNotDepositedIndicator',
         'academic_indicator' => 'academicIndicator',
+        'withholding_rate_pool_indicator' => 'withholdingRatePoolIndicator',
         'tax_withheld_other_agents' => 'taxWithheldOtherAgents',
         'amount_repaid' => 'amountRepaid',
         'tax_paid_agent' => 'taxPaidAgent',
@@ -322,6 +325,7 @@ class Form1042S implements ModelInterface, ArrayAccess, \JsonSerializable
         'federal_tax_withheld' => 'setFederalTaxWithheld',
         'tax_not_deposited_indicator' => 'setTaxNotDepositedIndicator',
         'academic_indicator' => 'setAcademicIndicator',
+        'withholding_rate_pool_indicator' => 'setWithholdingRatePoolIndicator',
         'tax_withheld_other_agents' => 'setTaxWithheldOtherAgents',
         'amount_repaid' => 'setAmountRepaid',
         'tax_paid_agent' => 'setTaxPaidAgent',
@@ -392,6 +396,7 @@ class Form1042S implements ModelInterface, ArrayAccess, \JsonSerializable
         'federal_tax_withheld' => 'getFederalTaxWithheld',
         'tax_not_deposited_indicator' => 'getTaxNotDepositedIndicator',
         'academic_indicator' => 'getAcademicIndicator',
+        'withholding_rate_pool_indicator' => 'getWithholdingRatePoolIndicator',
         'tax_withheld_other_agents' => 'getTaxWithheldOtherAgents',
         'amount_repaid' => 'getAmountRepaid',
         'tax_paid_agent' => 'getTaxPaidAgent',
@@ -548,6 +553,9 @@ class Form1042S implements ModelInterface, ArrayAccess, \JsonSerializable
     const INCOME_CODE__55 = '55';
     const INCOME_CODE__57 = '57';
     const INCOME_CODE__58 = '58';
+    const INCOME_CODE__59 = '59';
+    const INCOME_CODE__60 = '60';
+    const INCOME_CODE__61 = '61';
     const WITHHOLDING_INDICATOR__3 = '3';
     const WITHHOLDING_INDICATOR__4 = '4';
     const EXEMPTION_CODE_CHAP3__00 = '00';
@@ -636,6 +644,8 @@ class Form1042S implements ModelInterface, ArrayAccess, \JsonSerializable
     const CHAP3_STATUS_CODE__37 = '37';
     const CHAP3_STATUS_CODE__38 = '38';
     const CHAP3_STATUS_CODE__39 = '39';
+    const CHAP3_STATUS_CODE__40 = '40';
+    const CHAP3_STATUS_CODE__41 = '41';
     const CHAP4_STATUS_CODE__01 = '01';
     const CHAP4_STATUS_CODE__02 = '02';
     const CHAP4_STATUS_CODE__03 = '03';
@@ -695,6 +705,7 @@ class Form1042S implements ModelInterface, ArrayAccess, \JsonSerializable
     const TYPE__1099_MISC = '1099-MISC';
     const TYPE__1099_NEC = '1099-NEC';
     const TYPE__1099_R = '1099-R';
+    const TYPE_W_2 = 'W-2';
 
     /**
      * Gets allowable values of the enum
@@ -794,6 +805,9 @@ class Form1042S implements ModelInterface, ArrayAccess, \JsonSerializable
             self::INCOME_CODE__55,
             self::INCOME_CODE__57,
             self::INCOME_CODE__58,
+            self::INCOME_CODE__59,
+            self::INCOME_CODE__60,
+            self::INCOME_CODE__61,
         ];
     }
 
@@ -937,6 +951,8 @@ class Form1042S implements ModelInterface, ArrayAccess, \JsonSerializable
             self::CHAP3_STATUS_CODE__37,
             self::CHAP3_STATUS_CODE__38,
             self::CHAP3_STATUS_CODE__39,
+            self::CHAP3_STATUS_CODE__40,
+            self::CHAP3_STATUS_CODE__41,
         ];
     }
 
@@ -1018,6 +1034,7 @@ class Form1042S implements ModelInterface, ArrayAccess, \JsonSerializable
             self::TYPE__1099_MISC,
             self::TYPE__1099_NEC,
             self::TYPE__1099_R,
+            self::TYPE_W_2,
         ];
     }
 
@@ -1053,6 +1070,7 @@ class Form1042S implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['federal_tax_withheld'] = $data['federal_tax_withheld'] ?? null;
         $this->container['tax_not_deposited_indicator'] = $data['tax_not_deposited_indicator'] ?? null;
         $this->container['academic_indicator'] = $data['academic_indicator'] ?? null;
+        $this->container['withholding_rate_pool_indicator'] = $data['withholding_rate_pool_indicator'] ?? null;
         $this->container['tax_withheld_other_agents'] = $data['tax_withheld_other_agents'] ?? null;
         $this->container['amount_repaid'] = $data['amount_repaid'] ?? null;
         $this->container['tax_paid_agent'] = $data['tax_paid_agent'] ?? null;
@@ -1421,7 +1439,7 @@ class Form1042S implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets income_code
      *
-     * @param string $income_code Income code.  Available values:    Interest:  - 01: Interest paid by US obligors - general  - 02: Interest paid on real property mortgages  - 03: Interest paid to controlling foreign corporations  - 04: Interest paid by foreign corporations  - 05: Interest on tax-free covenant bonds  - 22: Interest paid on deposit with a foreign branch of a domestic corporation or partnership  - 29: Deposit interest  - 30: Original issue discount (OID)  - 31: Short-term OID  - 33: Substitute payment - interest  - 51: Interest paid on certain actively traded or publicly offered securities(1)  - 54: Substitute payments - interest from certain actively traded or publicly offered securities(1)    Dividend:  - 06: Dividends paid by U.S. corporations - general  - 07: Dividends qualifying for direct dividend rate  - 08: Dividends paid by foreign corporations  - 34: Substitute payment - dividends  - 40: Other dividend equivalents under IRC section 871(m) (formerly 871(l))  - 52: Dividends paid on certain actively traded or publicly offered securities(1)  - 53: Substitute payments - dividends from certain actively traded or publicly offered securities(1)  - 56: Dividend equivalents under IRC section 871(m) as a result of applying the combined transaction rules    Other:  - 09: Capital gains  - 10: Industrial royalties  - 11: Motion picture or television copyright royalties  - 12: Other royalties (for example, copyright, software, broadcasting, endorsement payments)  - 13: Royalties paid on certain publicly offered securities(1)  - 14: Real property income and natural resources royalties  - 15: Pensions, annuities, alimony, and/or insurance premiums  - 16: Scholarship or fellowship grants  - 17: Compensation for independent personal services(2)  - 18: Compensation for dependent personal services(2)  - 19: Compensation for teaching(2)  - 20: Compensation during studying and training(2)  - 23: Other income  - 24: Qualified investment entity (QIE) distributions of capital gains  - 25: Trust distributions subject to IRC section 1445  - 26: Unsevered growing crops and timber distributions by a trust subject to IRC section 1445  - 27: Publicly traded partnership distributions subject to IRC section 1446  - 28: Gambling winnings(3)  - 32: Notional principal contract income(4)  - 35: Substitute payment - other  - 36: Capital gains distributions  - 37: Return of capital  - 38: Eligible deferred compensation items subject to IRC section 877A(d)(1)  - 39: Distributions from a nongrantor trust subject to IRC section 877A(f)(1)  - 41: Guarantee of indebtedness  - 42: Earnings as an artist or athlete - no central withholding agreement(5)  - 43: Earnings as an artist or athlete - central withholding agreement(5)  - 44: Specified Federal procurement payments  - 50: Income previously reported under escrow procedure(6)  - 55: Taxable death benefits on life insurance contracts  - 57: Amount realized under IRC section 1446(f)  - 58: Publicly traded partnership distributions-undetermined
+     * @param string $income_code Income code.  Available values:    Interest:  - 01: Interest paid by US obligors - general  - 02: Interest paid on real property mortgages  - 03: Interest paid to controlling foreign corporations  - 04: Interest paid by foreign corporations  - 05: Interest on tax-free covenant bonds  - 22: Interest paid on deposit with a foreign branch of a domestic corporation or partnership  - 29: Deposit interest  - 30: Original issue discount (OID)  - 31: Short-term OID  - 33: Substitute payment - interest  - 51: Interest paid on certain actively traded or publicly offered securities(1)  - 54: Substitute payments - interest from certain actively traded or publicly offered securities(1)    Dividend:  - 06: Dividends paid by U.S. corporations - general  - 07: Dividends qualifying for direct dividend rate  - 08: Dividends paid by foreign corporations  - 34: Substitute payment - dividends  - 40: Other dividend equivalents under IRC section 871(m) (formerly 871(l))  - 52: Dividends paid on certain actively traded or publicly offered securities(1)  - 53: Substitute payments - dividends from certain actively traded or publicly offered securities(1)  - 56: Dividend equivalents under IRC section 871(m) as a result of applying the combined transaction rules    Other:  - 09: Capital gains  - 10: Industrial royalties  - 11: Motion picture or television copyright royalties  - 12: Other royalties (for example, copyright, software, broadcasting, endorsement payments)  - 13: Royalties paid on certain publicly offered securities(1)  - 14: Real property income and natural resources royalties  - 15: Pensions, annuities, alimony, and/or insurance premiums  - 16: Scholarship or fellowship grants  - 17: Compensation for independent personal services(2)  - 18: Compensation for dependent personal services(2)  - 19: Compensation for teaching(2)  - 20: Compensation during studying and training(2)  - 23: Other income  - 24: Qualified investment entity (QIE) distributions of capital gains  - 25: Trust distributions subject to IRC section 1445  - 26: Unsevered growing crops and timber distributions by a trust subject to IRC section 1445  - 27: Publicly traded partnership distributions subject to IRC section 1446  - 28: Gambling winnings(3)  - 32: Notional principal contract income(4)  - 35: Substitute payment - other  - 36: Capital gains distributions  - 37: Return of capital  - 38: Eligible deferred compensation items subject to IRC section 877A(d)(1)  - 39: Distributions from a nongrantor trust subject to IRC section 877A(f)(1)  - 41: Guarantee of indebtedness  - 42: Earnings as an artist or athlete - no central withholding agreement(5)  - 43: Earnings as an artist or athlete - central withholding agreement(5)  - 44: Specified Federal procurement payments  - 50: Income previously reported under escrow procedure(6)  - 55: Taxable death benefits on life insurance contracts  - 57: Amount realized under IRC section 1446(f)  - 58: Publicly traded partnership distributions-undetermined  - 59: Consent fees  - 60: Loan syndication fees  - 61: Settlement payments
      *
      * @return self
      */
@@ -1723,6 +1741,30 @@ class Form1042S implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets withholding_rate_pool_indicator
+     *
+     * @return bool|null
+     */
+    public function getWithholdingRatePoolIndicator()
+    {
+        return $this->container['withholding_rate_pool_indicator'];
+    }
+
+    /**
+     * Sets withholding_rate_pool_indicator
+     *
+     * @param bool|null $withholding_rate_pool_indicator Box 7d withholding rate pool indicator
+     *
+     * @return self
+     */
+    public function setWithholdingRatePoolIndicator($withholding_rate_pool_indicator)
+    {
+        $this->container['withholding_rate_pool_indicator'] = $withholding_rate_pool_indicator;
+
+        return $this;
+    }
+
+    /**
      * Gets tax_withheld_other_agents
      *
      * @return float|null
@@ -1807,7 +1849,7 @@ class Form1042S implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets chap3_status_code
      *
-     * @param string|null $chap3_status_code Chapter 3 status code - Required if WithholdingIndicator is 3 (Chapter 3). Available values: - 01: U.S. Withholding Agent - FI (Deprecated - valid only for tax years prior to 2020) - 02: U.S. Withholding Agent - Other (Deprecated - valid only for tax years prior to 2020) - 03: Territory FI - treated as U.S. Person - 04: Territory FI - not treated as U.S. Person - 05: U.S. branch - treated as U.S. Person - 06: U.S. branch - not treated as U.S. Person - 07: U.S. branch - ECI presumption applied - 08: Partnership other than Withholding Foreign Partnership - 09: Withholding Foreign Partnership - 10: Trust other than Withholding Foreign Trust - 11: Withholding Foreign Trust - 12: Qualified Intermediary - 13: Qualified Securities Lender - Qualified Intermediary - 14: Qualified Securities Lender - Other - 15: Corporation - 16: Individual - 17: Estate - 18: Private Foundation - 19: Government or International Organization - 20: Tax Exempt Organization (Section 501(c) entities) - 21: Unknown Recipient - 22: Artist or Athlete - 23: Pension - 24: Foreign Central Bank of Issue - 25: Nonqualified Intermediary - 26: Hybrid entity making Treaty Claim - 27: Withholding Rate Pool - General - 28: Withholding Rate Pool - Exempt Organization - 29: PAI Withholding Rate Pool - General - 30: PAI Withholding Rate Pool - Exempt Organization - 31: Agency Withholding Rate Pool - General - 32: Agency Withholding Rate Pool - Exempt Organization - 34: U.S. Withholding Agent-Foreign branch of FI (Deprecated - valid only for tax years prior to 2020) - 35: Qualified Derivatives Dealer - 36: Foreign Government - Integral Part - 37: Foreign Government - Controlled Entity - 38: Publicly Traded Partnership - 39: Disclosing Qualified Intermediary
+     * @param string|null $chap3_status_code Chapter 3 status code - Required if WithholdingIndicator is 3 (Chapter 3). Available values: - 01: U.S. Withholding Agent - FI (Deprecated - valid only for tax years prior to 2020) - 02: U.S. Withholding Agent - Other (Deprecated - valid only for tax years prior to 2020) - 03: Territory FI - treated as U.S. Person - 04: Territory FI - not treated as U.S. Person - 05: U.S. branch - treated as U.S. Person - 06: U.S. branch - not treated as U.S. Person - 07: U.S. branch - ECI presumption applied - 08: Partnership other than Withholding Foreign Partnership - 09: Withholding Foreign Partnership - 10: Trust other than Withholding Foreign Trust - 11: Withholding Foreign Trust - 12: Qualified Intermediary - 13: Qualified Securities Lender - Qualified Intermediary - 14: Qualified Securities Lender - Other - 15: Corporation - 16: Individual - 17: Estate - 18: Private Foundation - 19: Government or International Organization - 20: Tax Exempt Organization (Section 501(c) entities) - 21: Unknown Recipient - 22: Artist or Athlete - 23: Pension - 24: Foreign Central Bank of Issue - 25: Nonqualified Intermediary - 26: Hybrid entity making Treaty Claim - 27: Withholding Rate Pool - General - 28: Withholding Rate Pool - Exempt Organization - 29: PAI Withholding Rate Pool - General - 30: PAI Withholding Rate Pool - Exempt Organization - 31: Agency Withholding Rate Pool - General - 32: Agency Withholding Rate Pool - Exempt Organization - 34: U.S. Withholding Agent-Foreign branch of FI (Deprecated - valid only for tax years prior to 2020) - 35: Qualified Derivatives Dealer - 36: Foreign Government - Integral Part - 37: Foreign Government - Controlled Entity - 38: Publicly Traded Partnership - 39: Disclosing Qualified Intermediary - 40: Partnership QDD - 41: U.S. government entity or tax exempt entity (other than section 501(c) entities)
      *
      * @return self
      */

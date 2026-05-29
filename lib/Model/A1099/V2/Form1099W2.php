@@ -1,6 +1,6 @@
 <?php
 /**
- * Form1099Int
+ * Form1099W2
  *
  * PHP version 7.3
  *
@@ -44,10 +44,10 @@ use \ArrayAccess;
 use \Avalara\SDK\ObjectSerializer;
 use \Avalara\SDK\Model\ModelInterface;
 /**
- * Form1099Int Class Doc Comment
+ * Form1099W2 Class Doc Comment
  *
  * @category Class
- * @description Form 1099-INT: Interest Imcome                *At least one of the following amounts must be provided:*   Interest Income, Interest on U.S. Savings Bonds and Treasury obligations, or Tax-Exempt Interest.
+ * @description Form W-2: Wage and Tax Statement.
  * @package  Avalara\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -55,7 +55,7 @@ use \Avalara\SDK\Model\ModelInterface;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class Form1099Int implements ModelInterface, ArrayAccess, \JsonSerializable
+class Form1099W2 implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -64,7 +64,7 @@ class Form1099Int implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Form1099Int';
+    protected static $openAPIModelName = 'Form1099W2';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -72,21 +72,37 @@ class Form1099Int implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'interest_income' => 'float',
-        'early_withdrawal_penalty' => 'float',
-        'us_savings_bonds_interest' => 'float',
+        'employee_first_name' => 'string',
+        'employee_middle_name' => 'string',
+        'employee_last_name' => 'string',
+        'employee_name_suffix' => 'string',
+        'wages' => 'float',
         'federal_income_tax_withheld' => 'float',
-        'investment_expenses' => 'float',
-        'foreign_tax_paid' => 'float',
-        'foreign_country' => 'string',
-        'tax_exempt_interest' => 'float',
-        'specified_private_activity_bond_interest' => 'float',
-        'market_discount' => 'float',
-        'bond_premium' => 'float',
-        'bond_premium_on_treasury_obligations' => 'float',
-        'bond_premium_on_tax_exempt_bond' => 'float',
-        'tax_exempt_bond_cusip_number' => 'string',
-        'fatca_filing_requirement' => 'bool',
+        'social_security_wages' => 'float',
+        'social_security_tax_withheld' => 'float',
+        'medicare_wages' => 'float',
+        'medicare_tax_withheld' => 'float',
+        'social_security_tips' => 'float',
+        'allocated_tips' => 'float',
+        'dependent_care_benefits' => 'float',
+        'nonqualified_plans_section457' => 'float',
+        'nonqualified_plans_not_section457' => 'float',
+        'code12a' => 'string',
+        'amount12a' => 'float',
+        'code12b' => 'string',
+        'amount12b' => 'float',
+        'code12c' => 'string',
+        'amount12c' => 'float',
+        'code12d' => 'string',
+        'amount12d' => 'float',
+        'statutory_employee_indicator' => 'bool',
+        'retirement_plan_indicator' => 'bool',
+        'third_party_sick_pay_indicator' => 'bool',
+        'third_party_sick_pay_withholding' => 'float',
+        'other14a' => 'string',
+        'other14b' => 'string',
+        'other14c' => 'string',
+        'state_and_local_withholding_secondary' => '\Avalara\SDK\Model\A1099\V2\StateAndLocalWithholding',
         'type' => 'string',
         'id' => 'string',
         'issuer_id' => 'string',
@@ -136,21 +152,37 @@ class Form1099Int implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'interest_income' => 'double',
-        'early_withdrawal_penalty' => 'double',
-        'us_savings_bonds_interest' => 'double',
+        'employee_first_name' => null,
+        'employee_middle_name' => null,
+        'employee_last_name' => null,
+        'employee_name_suffix' => null,
+        'wages' => 'double',
         'federal_income_tax_withheld' => 'double',
-        'investment_expenses' => 'double',
-        'foreign_tax_paid' => 'double',
-        'foreign_country' => null,
-        'tax_exempt_interest' => 'double',
-        'specified_private_activity_bond_interest' => 'double',
-        'market_discount' => 'double',
-        'bond_premium' => 'double',
-        'bond_premium_on_treasury_obligations' => 'double',
-        'bond_premium_on_tax_exempt_bond' => 'double',
-        'tax_exempt_bond_cusip_number' => null,
-        'fatca_filing_requirement' => null,
+        'social_security_wages' => 'double',
+        'social_security_tax_withheld' => 'double',
+        'medicare_wages' => 'double',
+        'medicare_tax_withheld' => 'double',
+        'social_security_tips' => 'double',
+        'allocated_tips' => 'double',
+        'dependent_care_benefits' => 'double',
+        'nonqualified_plans_section457' => 'double',
+        'nonqualified_plans_not_section457' => 'double',
+        'code12a' => null,
+        'amount12a' => 'double',
+        'code12b' => null,
+        'amount12b' => 'double',
+        'code12c' => null,
+        'amount12c' => 'double',
+        'code12d' => null,
+        'amount12d' => 'double',
+        'statutory_employee_indicator' => null,
+        'retirement_plan_indicator' => null,
+        'third_party_sick_pay_indicator' => null,
+        'third_party_sick_pay_withholding' => 'double',
+        'other14a' => null,
+        'other14b' => null,
+        'other14c' => null,
+        'state_and_local_withholding_secondary' => null,
         'type' => null,
         'id' => null,
         'issuer_id' => null,
@@ -219,21 +251,37 @@ class Form1099Int implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'interest_income' => 'interestIncome',
-        'early_withdrawal_penalty' => 'earlyWithdrawalPenalty',
-        'us_savings_bonds_interest' => 'usSavingsBondsInterest',
+        'employee_first_name' => 'employeeFirstName',
+        'employee_middle_name' => 'employeeMiddleName',
+        'employee_last_name' => 'employeeLastName',
+        'employee_name_suffix' => 'employeeNameSuffix',
+        'wages' => 'wages',
         'federal_income_tax_withheld' => 'federalIncomeTaxWithheld',
-        'investment_expenses' => 'investmentExpenses',
-        'foreign_tax_paid' => 'foreignTaxPaid',
-        'foreign_country' => 'foreignCountry',
-        'tax_exempt_interest' => 'taxExemptInterest',
-        'specified_private_activity_bond_interest' => 'specifiedPrivateActivityBondInterest',
-        'market_discount' => 'marketDiscount',
-        'bond_premium' => 'bondPremium',
-        'bond_premium_on_treasury_obligations' => 'bondPremiumOnTreasuryObligations',
-        'bond_premium_on_tax_exempt_bond' => 'bondPremiumOnTaxExemptBond',
-        'tax_exempt_bond_cusip_number' => 'taxExemptBondCusipNumber',
-        'fatca_filing_requirement' => 'fatcaFilingRequirement',
+        'social_security_wages' => 'socialSecurityWages',
+        'social_security_tax_withheld' => 'socialSecurityTaxWithheld',
+        'medicare_wages' => 'medicareWages',
+        'medicare_tax_withheld' => 'medicareTaxWithheld',
+        'social_security_tips' => 'socialSecurityTips',
+        'allocated_tips' => 'allocatedTips',
+        'dependent_care_benefits' => 'dependentCareBenefits',
+        'nonqualified_plans_section457' => 'nonqualifiedPlansSection457',
+        'nonqualified_plans_not_section457' => 'nonqualifiedPlansNotSection457',
+        'code12a' => 'code12a',
+        'amount12a' => 'amount12a',
+        'code12b' => 'code12b',
+        'amount12b' => 'amount12b',
+        'code12c' => 'code12c',
+        'amount12c' => 'amount12c',
+        'code12d' => 'code12d',
+        'amount12d' => 'amount12d',
+        'statutory_employee_indicator' => 'statutoryEmployeeIndicator',
+        'retirement_plan_indicator' => 'retirementPlanIndicator',
+        'third_party_sick_pay_indicator' => 'thirdPartySickPayIndicator',
+        'third_party_sick_pay_withholding' => 'thirdPartySickPayWithholding',
+        'other14a' => 'other14a',
+        'other14b' => 'other14b',
+        'other14c' => 'other14c',
+        'state_and_local_withholding_secondary' => 'stateAndLocalWithholdingSecondary',
         'type' => 'type',
         'id' => 'id',
         'issuer_id' => 'issuerId',
@@ -281,21 +329,37 @@ class Form1099Int implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'interest_income' => 'setInterestIncome',
-        'early_withdrawal_penalty' => 'setEarlyWithdrawalPenalty',
-        'us_savings_bonds_interest' => 'setUsSavingsBondsInterest',
+        'employee_first_name' => 'setEmployeeFirstName',
+        'employee_middle_name' => 'setEmployeeMiddleName',
+        'employee_last_name' => 'setEmployeeLastName',
+        'employee_name_suffix' => 'setEmployeeNameSuffix',
+        'wages' => 'setWages',
         'federal_income_tax_withheld' => 'setFederalIncomeTaxWithheld',
-        'investment_expenses' => 'setInvestmentExpenses',
-        'foreign_tax_paid' => 'setForeignTaxPaid',
-        'foreign_country' => 'setForeignCountry',
-        'tax_exempt_interest' => 'setTaxExemptInterest',
-        'specified_private_activity_bond_interest' => 'setSpecifiedPrivateActivityBondInterest',
-        'market_discount' => 'setMarketDiscount',
-        'bond_premium' => 'setBondPremium',
-        'bond_premium_on_treasury_obligations' => 'setBondPremiumOnTreasuryObligations',
-        'bond_premium_on_tax_exempt_bond' => 'setBondPremiumOnTaxExemptBond',
-        'tax_exempt_bond_cusip_number' => 'setTaxExemptBondCusipNumber',
-        'fatca_filing_requirement' => 'setFatcaFilingRequirement',
+        'social_security_wages' => 'setSocialSecurityWages',
+        'social_security_tax_withheld' => 'setSocialSecurityTaxWithheld',
+        'medicare_wages' => 'setMedicareWages',
+        'medicare_tax_withheld' => 'setMedicareTaxWithheld',
+        'social_security_tips' => 'setSocialSecurityTips',
+        'allocated_tips' => 'setAllocatedTips',
+        'dependent_care_benefits' => 'setDependentCareBenefits',
+        'nonqualified_plans_section457' => 'setNonqualifiedPlansSection457',
+        'nonqualified_plans_not_section457' => 'setNonqualifiedPlansNotSection457',
+        'code12a' => 'setCode12a',
+        'amount12a' => 'setAmount12a',
+        'code12b' => 'setCode12b',
+        'amount12b' => 'setAmount12b',
+        'code12c' => 'setCode12c',
+        'amount12c' => 'setAmount12c',
+        'code12d' => 'setCode12d',
+        'amount12d' => 'setAmount12d',
+        'statutory_employee_indicator' => 'setStatutoryEmployeeIndicator',
+        'retirement_plan_indicator' => 'setRetirementPlanIndicator',
+        'third_party_sick_pay_indicator' => 'setThirdPartySickPayIndicator',
+        'third_party_sick_pay_withholding' => 'setThirdPartySickPayWithholding',
+        'other14a' => 'setOther14a',
+        'other14b' => 'setOther14b',
+        'other14c' => 'setOther14c',
+        'state_and_local_withholding_secondary' => 'setStateAndLocalWithholdingSecondary',
         'type' => 'setType',
         'id' => 'setId',
         'issuer_id' => 'setIssuerId',
@@ -343,21 +407,37 @@ class Form1099Int implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'interest_income' => 'getInterestIncome',
-        'early_withdrawal_penalty' => 'getEarlyWithdrawalPenalty',
-        'us_savings_bonds_interest' => 'getUsSavingsBondsInterest',
+        'employee_first_name' => 'getEmployeeFirstName',
+        'employee_middle_name' => 'getEmployeeMiddleName',
+        'employee_last_name' => 'getEmployeeLastName',
+        'employee_name_suffix' => 'getEmployeeNameSuffix',
+        'wages' => 'getWages',
         'federal_income_tax_withheld' => 'getFederalIncomeTaxWithheld',
-        'investment_expenses' => 'getInvestmentExpenses',
-        'foreign_tax_paid' => 'getForeignTaxPaid',
-        'foreign_country' => 'getForeignCountry',
-        'tax_exempt_interest' => 'getTaxExemptInterest',
-        'specified_private_activity_bond_interest' => 'getSpecifiedPrivateActivityBondInterest',
-        'market_discount' => 'getMarketDiscount',
-        'bond_premium' => 'getBondPremium',
-        'bond_premium_on_treasury_obligations' => 'getBondPremiumOnTreasuryObligations',
-        'bond_premium_on_tax_exempt_bond' => 'getBondPremiumOnTaxExemptBond',
-        'tax_exempt_bond_cusip_number' => 'getTaxExemptBondCusipNumber',
-        'fatca_filing_requirement' => 'getFatcaFilingRequirement',
+        'social_security_wages' => 'getSocialSecurityWages',
+        'social_security_tax_withheld' => 'getSocialSecurityTaxWithheld',
+        'medicare_wages' => 'getMedicareWages',
+        'medicare_tax_withheld' => 'getMedicareTaxWithheld',
+        'social_security_tips' => 'getSocialSecurityTips',
+        'allocated_tips' => 'getAllocatedTips',
+        'dependent_care_benefits' => 'getDependentCareBenefits',
+        'nonqualified_plans_section457' => 'getNonqualifiedPlansSection457',
+        'nonqualified_plans_not_section457' => 'getNonqualifiedPlansNotSection457',
+        'code12a' => 'getCode12a',
+        'amount12a' => 'getAmount12a',
+        'code12b' => 'getCode12b',
+        'amount12b' => 'getAmount12b',
+        'code12c' => 'getCode12c',
+        'amount12c' => 'getAmount12c',
+        'code12d' => 'getCode12d',
+        'amount12d' => 'getAmount12d',
+        'statutory_employee_indicator' => 'getStatutoryEmployeeIndicator',
+        'retirement_plan_indicator' => 'getRetirementPlanIndicator',
+        'third_party_sick_pay_indicator' => 'getThirdPartySickPayIndicator',
+        'third_party_sick_pay_withholding' => 'getThirdPartySickPayWithholding',
+        'other14a' => 'getOther14a',
+        'other14b' => 'getOther14b',
+        'other14c' => 'getOther14c',
+        'state_and_local_withholding_secondary' => 'getStateAndLocalWithholdingSecondary',
         'type' => 'getType',
         'id' => 'getId',
         'issuer_id' => 'getIssuerId',
@@ -506,21 +586,37 @@ class Form1099Int implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['interest_income'] = $data['interest_income'] ?? null;
-        $this->container['early_withdrawal_penalty'] = $data['early_withdrawal_penalty'] ?? null;
-        $this->container['us_savings_bonds_interest'] = $data['us_savings_bonds_interest'] ?? null;
+        $this->container['employee_first_name'] = $data['employee_first_name'] ?? null;
+        $this->container['employee_middle_name'] = $data['employee_middle_name'] ?? null;
+        $this->container['employee_last_name'] = $data['employee_last_name'] ?? null;
+        $this->container['employee_name_suffix'] = $data['employee_name_suffix'] ?? null;
+        $this->container['wages'] = $data['wages'] ?? null;
         $this->container['federal_income_tax_withheld'] = $data['federal_income_tax_withheld'] ?? null;
-        $this->container['investment_expenses'] = $data['investment_expenses'] ?? null;
-        $this->container['foreign_tax_paid'] = $data['foreign_tax_paid'] ?? null;
-        $this->container['foreign_country'] = $data['foreign_country'] ?? null;
-        $this->container['tax_exempt_interest'] = $data['tax_exempt_interest'] ?? null;
-        $this->container['specified_private_activity_bond_interest'] = $data['specified_private_activity_bond_interest'] ?? null;
-        $this->container['market_discount'] = $data['market_discount'] ?? null;
-        $this->container['bond_premium'] = $data['bond_premium'] ?? null;
-        $this->container['bond_premium_on_treasury_obligations'] = $data['bond_premium_on_treasury_obligations'] ?? null;
-        $this->container['bond_premium_on_tax_exempt_bond'] = $data['bond_premium_on_tax_exempt_bond'] ?? null;
-        $this->container['tax_exempt_bond_cusip_number'] = $data['tax_exempt_bond_cusip_number'] ?? null;
-        $this->container['fatca_filing_requirement'] = $data['fatca_filing_requirement'] ?? null;
+        $this->container['social_security_wages'] = $data['social_security_wages'] ?? null;
+        $this->container['social_security_tax_withheld'] = $data['social_security_tax_withheld'] ?? null;
+        $this->container['medicare_wages'] = $data['medicare_wages'] ?? null;
+        $this->container['medicare_tax_withheld'] = $data['medicare_tax_withheld'] ?? null;
+        $this->container['social_security_tips'] = $data['social_security_tips'] ?? null;
+        $this->container['allocated_tips'] = $data['allocated_tips'] ?? null;
+        $this->container['dependent_care_benefits'] = $data['dependent_care_benefits'] ?? null;
+        $this->container['nonqualified_plans_section457'] = $data['nonqualified_plans_section457'] ?? null;
+        $this->container['nonqualified_plans_not_section457'] = $data['nonqualified_plans_not_section457'] ?? null;
+        $this->container['code12a'] = $data['code12a'] ?? null;
+        $this->container['amount12a'] = $data['amount12a'] ?? null;
+        $this->container['code12b'] = $data['code12b'] ?? null;
+        $this->container['amount12b'] = $data['amount12b'] ?? null;
+        $this->container['code12c'] = $data['code12c'] ?? null;
+        $this->container['amount12c'] = $data['amount12c'] ?? null;
+        $this->container['code12d'] = $data['code12d'] ?? null;
+        $this->container['amount12d'] = $data['amount12d'] ?? null;
+        $this->container['statutory_employee_indicator'] = $data['statutory_employee_indicator'] ?? null;
+        $this->container['retirement_plan_indicator'] = $data['retirement_plan_indicator'] ?? null;
+        $this->container['third_party_sick_pay_indicator'] = $data['third_party_sick_pay_indicator'] ?? null;
+        $this->container['third_party_sick_pay_withholding'] = $data['third_party_sick_pay_withholding'] ?? null;
+        $this->container['other14a'] = $data['other14a'] ?? null;
+        $this->container['other14b'] = $data['other14b'] ?? null;
+        $this->container['other14c'] = $data['other14c'] ?? null;
+        $this->container['state_and_local_withholding_secondary'] = $data['state_and_local_withholding_secondary'] ?? null;
         $this->container['type'] = $data['type'] ?? null;
         $this->container['id'] = $data['id'] ?? null;
         $this->container['issuer_id'] = $data['issuer_id'] ?? null;
@@ -620,73 +716,121 @@ class Form1099Int implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets interest_income
+     * Gets employee_first_name
      *
-     * @return float|null
+     * @return string|null
      */
-    public function getInterestIncome()
+    public function getEmployeeFirstName()
     {
-        return $this->container['interest_income'];
+        return $this->container['employee_first_name'];
     }
 
     /**
-     * Sets interest_income
+     * Sets employee_first_name
      *
-     * @param float|null $interest_income Interest Income
+     * @param string|null $employee_first_name Employee first name (max 15 chars).
      *
      * @return self
      */
-    public function setInterestIncome($interest_income)
+    public function setEmployeeFirstName($employee_first_name)
     {
-        $this->container['interest_income'] = $interest_income;
+        $this->container['employee_first_name'] = $employee_first_name;
 
         return $this;
     }
 
     /**
-     * Gets early_withdrawal_penalty
+     * Gets employee_middle_name
      *
-     * @return float|null
+     * @return string|null
      */
-    public function getEarlyWithdrawalPenalty()
+    public function getEmployeeMiddleName()
     {
-        return $this->container['early_withdrawal_penalty'];
+        return $this->container['employee_middle_name'];
     }
 
     /**
-     * Sets early_withdrawal_penalty
+     * Sets employee_middle_name
      *
-     * @param float|null $early_withdrawal_penalty Early Withdrawal Penalty
+     * @param string|null $employee_middle_name Employee middle name (max 15 chars, optional).
      *
      * @return self
      */
-    public function setEarlyWithdrawalPenalty($early_withdrawal_penalty)
+    public function setEmployeeMiddleName($employee_middle_name)
     {
-        $this->container['early_withdrawal_penalty'] = $early_withdrawal_penalty;
+        $this->container['employee_middle_name'] = $employee_middle_name;
 
         return $this;
     }
 
     /**
-     * Gets us_savings_bonds_interest
+     * Gets employee_last_name
      *
-     * @return float|null
+     * @return string|null
      */
-    public function getUsSavingsBondsInterest()
+    public function getEmployeeLastName()
     {
-        return $this->container['us_savings_bonds_interest'];
+        return $this->container['employee_last_name'];
     }
 
     /**
-     * Sets us_savings_bonds_interest
+     * Sets employee_last_name
      *
-     * @param float|null $us_savings_bonds_interest Interest on U.S. Savings Bonds and Treasury obligations
+     * @param string|null $employee_last_name Employee last name (max 20 chars).
      *
      * @return self
      */
-    public function setUsSavingsBondsInterest($us_savings_bonds_interest)
+    public function setEmployeeLastName($employee_last_name)
     {
-        $this->container['us_savings_bonds_interest'] = $us_savings_bonds_interest;
+        $this->container['employee_last_name'] = $employee_last_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets employee_name_suffix
+     *
+     * @return string|null
+     */
+    public function getEmployeeNameSuffix()
+    {
+        return $this->container['employee_name_suffix'];
+    }
+
+    /**
+     * Sets employee_name_suffix
+     *
+     * @param string|null $employee_name_suffix Employee name suffix (Jr, Sr, III, etc — max 4 chars, optional).
+     *
+     * @return self
+     */
+    public function setEmployeeNameSuffix($employee_name_suffix)
+    {
+        $this->container['employee_name_suffix'] = $employee_name_suffix;
+
+        return $this;
+    }
+
+    /**
+     * Gets wages
+     *
+     * @return float|null
+     */
+    public function getWages()
+    {
+        return $this->container['wages'];
+    }
+
+    /**
+     * Sets wages
+     *
+     * @param float|null $wages Wages, tips, other compensation.
+     *
+     * @return self
+     */
+    public function setWages($wages)
+    {
+        $this->container['wages'] = $wages;
 
         return $this;
     }
@@ -704,7 +848,7 @@ class Form1099Int implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets federal_income_tax_withheld
      *
-     * @param float|null $federal_income_tax_withheld Federal income tax withheld
+     * @param float|null $federal_income_tax_withheld Federal income tax withheld.
      *
      * @return self
      */
@@ -716,265 +860,601 @@ class Form1099Int implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets investment_expenses
+     * Gets social_security_wages
      *
      * @return float|null
      */
-    public function getInvestmentExpenses()
+    public function getSocialSecurityWages()
     {
-        return $this->container['investment_expenses'];
+        return $this->container['social_security_wages'];
     }
 
     /**
-     * Sets investment_expenses
+     * Sets social_security_wages
      *
-     * @param float|null $investment_expenses Investment Expenses
+     * @param float|null $social_security_wages Social security wages.
      *
      * @return self
      */
-    public function setInvestmentExpenses($investment_expenses)
+    public function setSocialSecurityWages($social_security_wages)
     {
-        $this->container['investment_expenses'] = $investment_expenses;
+        $this->container['social_security_wages'] = $social_security_wages;
 
         return $this;
     }
 
     /**
-     * Gets foreign_tax_paid
+     * Gets social_security_tax_withheld
      *
      * @return float|null
      */
-    public function getForeignTaxPaid()
+    public function getSocialSecurityTaxWithheld()
     {
-        return $this->container['foreign_tax_paid'];
+        return $this->container['social_security_tax_withheld'];
     }
 
     /**
-     * Sets foreign_tax_paid
+     * Sets social_security_tax_withheld
      *
-     * @param float|null $foreign_tax_paid Foreign tax paid
+     * @param float|null $social_security_tax_withheld Social security tax withheld.
      *
      * @return self
      */
-    public function setForeignTaxPaid($foreign_tax_paid)
+    public function setSocialSecurityTaxWithheld($social_security_tax_withheld)
     {
-        $this->container['foreign_tax_paid'] = $foreign_tax_paid;
+        $this->container['social_security_tax_withheld'] = $social_security_tax_withheld;
 
         return $this;
     }
 
     /**
-     * Gets foreign_country
+     * Gets medicare_wages
+     *
+     * @return float|null
+     */
+    public function getMedicareWages()
+    {
+        return $this->container['medicare_wages'];
+    }
+
+    /**
+     * Sets medicare_wages
+     *
+     * @param float|null $medicare_wages Medicare wages and tips.
+     *
+     * @return self
+     */
+    public function setMedicareWages($medicare_wages)
+    {
+        $this->container['medicare_wages'] = $medicare_wages;
+
+        return $this;
+    }
+
+    /**
+     * Gets medicare_tax_withheld
+     *
+     * @return float|null
+     */
+    public function getMedicareTaxWithheld()
+    {
+        return $this->container['medicare_tax_withheld'];
+    }
+
+    /**
+     * Sets medicare_tax_withheld
+     *
+     * @param float|null $medicare_tax_withheld Medicare tax withheld.
+     *
+     * @return self
+     */
+    public function setMedicareTaxWithheld($medicare_tax_withheld)
+    {
+        $this->container['medicare_tax_withheld'] = $medicare_tax_withheld;
+
+        return $this;
+    }
+
+    /**
+     * Gets social_security_tips
+     *
+     * @return float|null
+     */
+    public function getSocialSecurityTips()
+    {
+        return $this->container['social_security_tips'];
+    }
+
+    /**
+     * Sets social_security_tips
+     *
+     * @param float|null $social_security_tips Social security tips.
+     *
+     * @return self
+     */
+    public function setSocialSecurityTips($social_security_tips)
+    {
+        $this->container['social_security_tips'] = $social_security_tips;
+
+        return $this;
+    }
+
+    /**
+     * Gets allocated_tips
+     *
+     * @return float|null
+     */
+    public function getAllocatedTips()
+    {
+        return $this->container['allocated_tips'];
+    }
+
+    /**
+     * Sets allocated_tips
+     *
+     * @param float|null $allocated_tips Allocated tips.
+     *
+     * @return self
+     */
+    public function setAllocatedTips($allocated_tips)
+    {
+        $this->container['allocated_tips'] = $allocated_tips;
+
+        return $this;
+    }
+
+    /**
+     * Gets dependent_care_benefits
+     *
+     * @return float|null
+     */
+    public function getDependentCareBenefits()
+    {
+        return $this->container['dependent_care_benefits'];
+    }
+
+    /**
+     * Sets dependent_care_benefits
+     *
+     * @param float|null $dependent_care_benefits Dependent care benefits.
+     *
+     * @return self
+     */
+    public function setDependentCareBenefits($dependent_care_benefits)
+    {
+        $this->container['dependent_care_benefits'] = $dependent_care_benefits;
+
+        return $this;
+    }
+
+    /**
+     * Gets nonqualified_plans_section457
+     *
+     * @return float|null
+     */
+    public function getNonqualifiedPlansSection457()
+    {
+        return $this->container['nonqualified_plans_section457'];
+    }
+
+    /**
+     * Sets nonqualified_plans_section457
+     *
+     * @param float|null $nonqualified_plans_section457 Non-qualified plan Section 457 distributions or contributions.
+     *
+     * @return self
+     */
+    public function setNonqualifiedPlansSection457($nonqualified_plans_section457)
+    {
+        $this->container['nonqualified_plans_section457'] = $nonqualified_plans_section457;
+
+        return $this;
+    }
+
+    /**
+     * Gets nonqualified_plans_not_section457
+     *
+     * @return float|null
+     */
+    public function getNonqualifiedPlansNotSection457()
+    {
+        return $this->container['nonqualified_plans_not_section457'];
+    }
+
+    /**
+     * Sets nonqualified_plans_not_section457
+     *
+     * @param float|null $nonqualified_plans_not_section457 Non-qualified plan NOT Section 457 distributions or contributions.
+     *
+     * @return self
+     */
+    public function setNonqualifiedPlansNotSection457($nonqualified_plans_not_section457)
+    {
+        $this->container['nonqualified_plans_not_section457'] = $nonqualified_plans_not_section457;
+
+        return $this;
+    }
+
+    /**
+     * Gets code12a
      *
      * @return string|null
      */
-    public function getForeignCountry()
+    public function getCode12a()
     {
-        return $this->container['foreign_country'];
+        return $this->container['code12a'];
     }
 
     /**
-     * Sets foreign_country
+     * Sets code12a
      *
-     * @param string|null $foreign_country Foreign country or U.S. possession
+     * @param string|null $code12a Letter code (A-Z, AA, BB, etc) for slot a.
      *
      * @return self
      */
-    public function setForeignCountry($foreign_country)
+    public function setCode12a($code12a)
     {
-        $this->container['foreign_country'] = $foreign_country;
+        $this->container['code12a'] = $code12a;
 
         return $this;
     }
 
     /**
-     * Gets tax_exempt_interest
+     * Gets amount12a
      *
      * @return float|null
      */
-    public function getTaxExemptInterest()
+    public function getAmount12a()
     {
-        return $this->container['tax_exempt_interest'];
+        return $this->container['amount12a'];
     }
 
     /**
-     * Sets tax_exempt_interest
+     * Sets amount12a
      *
-     * @param float|null $tax_exempt_interest Tax-Exempt Interest
+     * @param float|null $amount12a Amount for slot a.
      *
      * @return self
      */
-    public function setTaxExemptInterest($tax_exempt_interest)
+    public function setAmount12a($amount12a)
     {
-        $this->container['tax_exempt_interest'] = $tax_exempt_interest;
+        $this->container['amount12a'] = $amount12a;
 
         return $this;
     }
 
     /**
-     * Gets specified_private_activity_bond_interest
-     *
-     * @return float|null
-     */
-    public function getSpecifiedPrivateActivityBondInterest()
-    {
-        return $this->container['specified_private_activity_bond_interest'];
-    }
-
-    /**
-     * Sets specified_private_activity_bond_interest
-     *
-     * @param float|null $specified_private_activity_bond_interest Specified Private activity
-     *
-     * @return self
-     */
-    public function setSpecifiedPrivateActivityBondInterest($specified_private_activity_bond_interest)
-    {
-        $this->container['specified_private_activity_bond_interest'] = $specified_private_activity_bond_interest;
-
-        return $this;
-    }
-
-    /**
-     * Gets market_discount
-     *
-     * @return float|null
-     */
-    public function getMarketDiscount()
-    {
-        return $this->container['market_discount'];
-    }
-
-    /**
-     * Sets market_discount
-     *
-     * @param float|null $market_discount Market Discount
-     *
-     * @return self
-     */
-    public function setMarketDiscount($market_discount)
-    {
-        $this->container['market_discount'] = $market_discount;
-
-        return $this;
-    }
-
-    /**
-     * Gets bond_premium
-     *
-     * @return float|null
-     */
-    public function getBondPremium()
-    {
-        return $this->container['bond_premium'];
-    }
-
-    /**
-     * Sets bond_premium
-     *
-     * @param float|null $bond_premium Bond Premium
-     *
-     * @return self
-     */
-    public function setBondPremium($bond_premium)
-    {
-        $this->container['bond_premium'] = $bond_premium;
-
-        return $this;
-    }
-
-    /**
-     * Gets bond_premium_on_treasury_obligations
-     *
-     * @return float|null
-     */
-    public function getBondPremiumOnTreasuryObligations()
-    {
-        return $this->container['bond_premium_on_treasury_obligations'];
-    }
-
-    /**
-     * Sets bond_premium_on_treasury_obligations
-     *
-     * @param float|null $bond_premium_on_treasury_obligations Bond Premium on Treasury obligations
-     *
-     * @return self
-     */
-    public function setBondPremiumOnTreasuryObligations($bond_premium_on_treasury_obligations)
-    {
-        $this->container['bond_premium_on_treasury_obligations'] = $bond_premium_on_treasury_obligations;
-
-        return $this;
-    }
-
-    /**
-     * Gets bond_premium_on_tax_exempt_bond
-     *
-     * @return float|null
-     */
-    public function getBondPremiumOnTaxExemptBond()
-    {
-        return $this->container['bond_premium_on_tax_exempt_bond'];
-    }
-
-    /**
-     * Sets bond_premium_on_tax_exempt_bond
-     *
-     * @param float|null $bond_premium_on_tax_exempt_bond Bond Premium on tax exempt bond
-     *
-     * @return self
-     */
-    public function setBondPremiumOnTaxExemptBond($bond_premium_on_tax_exempt_bond)
-    {
-        $this->container['bond_premium_on_tax_exempt_bond'] = $bond_premium_on_tax_exempt_bond;
-
-        return $this;
-    }
-
-    /**
-     * Gets tax_exempt_bond_cusip_number
+     * Gets code12b
      *
      * @return string|null
      */
-    public function getTaxExemptBondCusipNumber()
+    public function getCode12b()
     {
-        return $this->container['tax_exempt_bond_cusip_number'];
+        return $this->container['code12b'];
     }
 
     /**
-     * Sets tax_exempt_bond_cusip_number
+     * Sets code12b
      *
-     * @param string|null $tax_exempt_bond_cusip_number Tax exempt bond CUSIP no.   Enter VARIOUS if the tax-exempt interest is reported in the aggregate for multiple bonds or accounts.
+     * @param string|null $code12b Letter code for slot b.
      *
      * @return self
      */
-    public function setTaxExemptBondCusipNumber($tax_exempt_bond_cusip_number)
+    public function setCode12b($code12b)
     {
-        $this->container['tax_exempt_bond_cusip_number'] = $tax_exempt_bond_cusip_number;
+        $this->container['code12b'] = $code12b;
 
         return $this;
     }
 
     /**
-     * Gets fatca_filing_requirement
+     * Gets amount12b
+     *
+     * @return float|null
+     */
+    public function getAmount12b()
+    {
+        return $this->container['amount12b'];
+    }
+
+    /**
+     * Sets amount12b
+     *
+     * @param float|null $amount12b Amount for slot b.
+     *
+     * @return self
+     */
+    public function setAmount12b($amount12b)
+    {
+        $this->container['amount12b'] = $amount12b;
+
+        return $this;
+    }
+
+    /**
+     * Gets code12c
+     *
+     * @return string|null
+     */
+    public function getCode12c()
+    {
+        return $this->container['code12c'];
+    }
+
+    /**
+     * Sets code12c
+     *
+     * @param string|null $code12c Letter code for slot c.
+     *
+     * @return self
+     */
+    public function setCode12c($code12c)
+    {
+        $this->container['code12c'] = $code12c;
+
+        return $this;
+    }
+
+    /**
+     * Gets amount12c
+     *
+     * @return float|null
+     */
+    public function getAmount12c()
+    {
+        return $this->container['amount12c'];
+    }
+
+    /**
+     * Sets amount12c
+     *
+     * @param float|null $amount12c Amount for slot c.
+     *
+     * @return self
+     */
+    public function setAmount12c($amount12c)
+    {
+        $this->container['amount12c'] = $amount12c;
+
+        return $this;
+    }
+
+    /**
+     * Gets code12d
+     *
+     * @return string|null
+     */
+    public function getCode12d()
+    {
+        return $this->container['code12d'];
+    }
+
+    /**
+     * Sets code12d
+     *
+     * @param string|null $code12d Letter code for slot d.
+     *
+     * @return self
+     */
+    public function setCode12d($code12d)
+    {
+        $this->container['code12d'] = $code12d;
+
+        return $this;
+    }
+
+    /**
+     * Gets amount12d
+     *
+     * @return float|null
+     */
+    public function getAmount12d()
+    {
+        return $this->container['amount12d'];
+    }
+
+    /**
+     * Sets amount12d
+     *
+     * @param float|null $amount12d Amount for slot d.
+     *
+     * @return self
+     */
+    public function setAmount12d($amount12d)
+    {
+        $this->container['amount12d'] = $amount12d;
+
+        return $this;
+    }
+
+    /**
+     * Gets statutory_employee_indicator
      *
      * @return bool|null
      */
-    public function getFatcaFilingRequirement()
+    public function getStatutoryEmployeeIndicator()
     {
-        return $this->container['fatca_filing_requirement'];
+        return $this->container['statutory_employee_indicator'];
     }
 
     /**
-     * Sets fatca_filing_requirement
+     * Sets statutory_employee_indicator
      *
-     * @param bool|null $fatca_filing_requirement FATCA filing requirement.
+     * @param bool|null $statutory_employee_indicator Statutory employee indicator.
      *
      * @return self
      */
-    public function setFatcaFilingRequirement($fatca_filing_requirement)
+    public function setStatutoryEmployeeIndicator($statutory_employee_indicator)
     {
-        $this->container['fatca_filing_requirement'] = $fatca_filing_requirement;
+        $this->container['statutory_employee_indicator'] = $statutory_employee_indicator;
+
+        return $this;
+    }
+
+    /**
+     * Gets retirement_plan_indicator
+     *
+     * @return bool|null
+     */
+    public function getRetirementPlanIndicator()
+    {
+        return $this->container['retirement_plan_indicator'];
+    }
+
+    /**
+     * Sets retirement_plan_indicator
+     *
+     * @param bool|null $retirement_plan_indicator Retirement plan indicator.
+     *
+     * @return self
+     */
+    public function setRetirementPlanIndicator($retirement_plan_indicator)
+    {
+        $this->container['retirement_plan_indicator'] = $retirement_plan_indicator;
+
+        return $this;
+    }
+
+    /**
+     * Gets third_party_sick_pay_indicator
+     *
+     * @return bool|null
+     */
+    public function getThirdPartySickPayIndicator()
+    {
+        return $this->container['third_party_sick_pay_indicator'];
+    }
+
+    /**
+     * Sets third_party_sick_pay_indicator
+     *
+     * @param bool|null $third_party_sick_pay_indicator Third-party sick pay indicator.
+     *
+     * @return self
+     */
+    public function setThirdPartySickPayIndicator($third_party_sick_pay_indicator)
+    {
+        $this->container['third_party_sick_pay_indicator'] = $third_party_sick_pay_indicator;
+
+        return $this;
+    }
+
+    /**
+     * Gets third_party_sick_pay_withholding
+     *
+     * @return float|null
+     */
+    public function getThirdPartySickPayWithholding()
+    {
+        return $this->container['third_party_sick_pay_withholding'];
+    }
+
+    /**
+     * Sets third_party_sick_pay_withholding
+     *
+     * @param float|null $third_party_sick_pay_withholding Third-party sick pay federal income tax withheld  (only effective when Avalara1099.Application.Forms1099.Models.Form1099W2.ThirdPartySickPayIndicator is true).
+     *
+     * @return self
+     */
+    public function setThirdPartySickPayWithholding($third_party_sick_pay_withholding)
+    {
+        $this->container['third_party_sick_pay_withholding'] = $third_party_sick_pay_withholding;
+
+        return $this;
+    }
+
+    /**
+     * Gets other14a
+     *
+     * @return string|null
+     */
+    public function getOther14a()
+    {
+        return $this->container['other14a'];
+    }
+
+    /**
+     * Sets other14a
+     *
+     * @param string|null $other14a Other (max 30 chars) for slot a.
+     *
+     * @return self
+     */
+    public function setOther14a($other14a)
+    {
+        $this->container['other14a'] = $other14a;
+
+        return $this;
+    }
+
+    /**
+     * Gets other14b
+     *
+     * @return string|null
+     */
+    public function getOther14b()
+    {
+        return $this->container['other14b'];
+    }
+
+    /**
+     * Sets other14b
+     *
+     * @param string|null $other14b Other (max 30 chars) for slot b.
+     *
+     * @return self
+     */
+    public function setOther14b($other14b)
+    {
+        $this->container['other14b'] = $other14b;
+
+        return $this;
+    }
+
+    /**
+     * Gets other14c
+     *
+     * @return string|null
+     */
+    public function getOther14c()
+    {
+        return $this->container['other14c'];
+    }
+
+    /**
+     * Sets other14c
+     *
+     * @param string|null $other14c Other (max 30 chars) for slot c.
+     *
+     * @return self
+     */
+    public function setOther14c($other14c)
+    {
+        $this->container['other14c'] = $other14c;
+
+        return $this;
+    }
+
+    /**
+     * Gets state_and_local_withholding_secondary
+     *
+     * @return \Avalara\SDK\Model\A1099\V2\StateAndLocalWithholding|null
+     */
+    public function getStateAndLocalWithholdingSecondary()
+    {
+        return $this->container['state_and_local_withholding_secondary'];
+    }
+
+    /**
+     * Sets state_and_local_withholding_secondary
+     *
+     * @param \Avalara\SDK\Model\A1099\V2\StateAndLocalWithholding|null $state_and_local_withholding_secondary Secondary state and local withholding slot.
+     *
+     * @return self
+     */
+    public function setStateAndLocalWithholdingSecondary($state_and_local_withholding_secondary)
+    {
+        $this->container['state_and_local_withholding_secondary'] = $state_and_local_withholding_secondary;
 
         return $this;
     }

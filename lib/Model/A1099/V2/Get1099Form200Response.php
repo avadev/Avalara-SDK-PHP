@@ -20,7 +20,7 @@
  *
  * Avalara 1099 & W-9 API Definition
  *
- * ## 🔐 Authentication  Generate a **license key** from: *[Avalara Portal](https://www.avalara.com/us/en/signin.html) → Settings → License and API Keys*.  [More on authentication methods](https://developer.avalara.com/avatax-dm-combined-erp/common-setup/authentication/authentication-methods/)  [Test your credentials](https://developer.avalara.com/avatax/test-credentials/)  ## 📘 API & SDK Documentation  [Avalara SDK (.NET) on GitHub](https://github.com/avadev/Avalara-SDK-DotNet#avalarasdk--the-unified-c-library-for-next-gen-avalara-services)  [Code Examples – 1099 API](https://github.com/avadev/Avalara-SDK-DotNet/blob/main/docs/A1099/V2/Class1099IssuersApi.md#call1099issuersget)
+ * ## Authentication  #### Step 1: Generate API Credentials  Generate a *client ID* and *client secret* from your [Avalara1099 account](https://sbx.track1099.com/api_tokens): *Your Profile → API*.  #### Step 2: Get an Identity Token  Send a `POST` request to the **Identity Token URL** with your *client ID* and *client secret* from Step 1 as form-encoded parameters:  ```http POST https://identity.avalara.com/connect/token Content-Type: application/x-www-form-urlencoded  grant_type=client_credentials client_id=<your client ID> client_secret=<your client secret> ```  **Body parameters** - `grant_type` — Always `client_credentials` - `client_id` — Your *client ID* from Step 1 - `client_secret` — Your *client secret* from Step 1  **Successful response**  ```json {   \"access_token\": \"eyJhbGci...\",   \"expires_in\": 3600,   \"token_type\": \"Bearer\" } ```  Use the `access_token` as a bearer token in the `Authorization` header on every A1099 API request:  ```http Authorization: Bearer <access_token> ```  ---  For more on authenticating requests, see the [A1099 authentication guide](https://developer.avalara.com/1099-and-w-9/kny2997001535374/).  ---  ## Environments  #### Production - **Avalara 1099 API URL:** [`https://api.avalara.com/avalara1099`](https://api.avalara.com/avalara1099) - **Identity Token URL:** [`https://identity.avalara.com/connect/token`](https://identity.avalara.com/connect/token)  #### Sandbox - **Avalara 1099 API URL:** [`https://api.sbx.avalara.com/avalara1099`](https://api.sbx.avalara.com/avalara1099) - **Identity Token URL:** [`https://ai-sbx.avlr.sh/connect/token`](https://ai-sbx.avlr.sh/connect/token)  ---  ## API & SDK Documentation  [Avalara 1099 API Reference](https://developer.avalara.com/api-reference/avalara1099/avalara1099/)  [Avalara SDKs](https://developer.avalara.com/sdk/)  [Swagger](https://api.avalara.com/avalara1099/swagger/index.html?api-version=2.0)
  *
  * @category   Avalara client libraries
  * @package    Avalara\SDK\API\A1099\V2
@@ -56,7 +56,7 @@ use \Avalara\SDK\Model\ModelInterface;
  */
 class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    public const DISCRIMINATOR = null;
+    public const DISCRIMINATOR = 'type';
 
     /**
       * The original name of the model.
@@ -88,6 +88,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
         'federal_tax_withheld' => 'float',
         'tax_not_deposited_indicator' => 'bool',
         'academic_indicator' => 'bool',
+        'withholding_rate_pool_indicator' => 'bool',
         'tax_withheld_other_agents' => 'float',
         'amount_repaid' => 'float',
         'tax_paid_agent' => 'float',
@@ -223,7 +224,33 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
         'total_employee_contributions' => 'float',
         'amount_allocable_to_irr_within5_years' => 'float',
         'first_year_of_designated_roth_contribution' => 'string',
-        'date_of_payment' => '\DateTime'
+        'date_of_payment' => '\DateTime',
+        'wages' => 'float',
+        'social_security_wages' => 'float',
+        'social_security_tax_withheld' => 'float',
+        'medicare_wages' => 'float',
+        'medicare_tax_withheld' => 'float',
+        'social_security_tips' => 'float',
+        'allocated_tips' => 'float',
+        'dependent_care_benefits' => 'float',
+        'nonqualified_plans_section457' => 'float',
+        'nonqualified_plans_not_section457' => 'float',
+        'code12a' => 'string',
+        'amount12a' => 'float',
+        'code12b' => 'string',
+        'amount12b' => 'float',
+        'code12c' => 'string',
+        'amount12c' => 'float',
+        'code12d' => 'string',
+        'amount12d' => 'float',
+        'statutory_employee_indicator' => 'bool',
+        'retirement_plan_indicator' => 'bool',
+        'third_party_sick_pay_indicator' => 'bool',
+        'third_party_sick_pay_withholding' => 'float',
+        'other14a' => 'string',
+        'other14b' => 'string',
+        'other14c' => 'string',
+        'state_and_local_withholding_secondary' => '\Avalara\SDK\Model\A1099\V2\StateAndLocalWithholding'
     ];
 
     /**
@@ -251,6 +278,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
         'federal_tax_withheld' => 'double',
         'tax_not_deposited_indicator' => null,
         'academic_indicator' => null,
+        'withholding_rate_pool_indicator' => null,
         'tax_withheld_other_agents' => 'double',
         'amount_repaid' => 'double',
         'tax_paid_agent' => 'double',
@@ -386,7 +414,33 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
         'total_employee_contributions' => 'double',
         'amount_allocable_to_irr_within5_years' => 'double',
         'first_year_of_designated_roth_contribution' => null,
-        'date_of_payment' => 'date'
+        'date_of_payment' => 'date',
+        'wages' => 'double',
+        'social_security_wages' => 'double',
+        'social_security_tax_withheld' => 'double',
+        'medicare_wages' => 'double',
+        'medicare_tax_withheld' => 'double',
+        'social_security_tips' => 'double',
+        'allocated_tips' => 'double',
+        'dependent_care_benefits' => 'double',
+        'nonqualified_plans_section457' => 'double',
+        'nonqualified_plans_not_section457' => 'double',
+        'code12a' => null,
+        'amount12a' => 'double',
+        'code12b' => null,
+        'amount12b' => 'double',
+        'code12c' => null,
+        'amount12c' => 'double',
+        'code12d' => null,
+        'amount12d' => 'double',
+        'statutory_employee_indicator' => null,
+        'retirement_plan_indicator' => null,
+        'third_party_sick_pay_indicator' => null,
+        'third_party_sick_pay_withholding' => 'double',
+        'other14a' => null,
+        'other14b' => null,
+        'other14c' => null,
+        'state_and_local_withholding_secondary' => null
     ];
 
     /**
@@ -433,6 +487,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
         'federal_tax_withheld' => 'federalTaxWithheld',
         'tax_not_deposited_indicator' => 'taxNotDepositedIndicator',
         'academic_indicator' => 'academicIndicator',
+        'withholding_rate_pool_indicator' => 'withholdingRatePoolIndicator',
         'tax_withheld_other_agents' => 'taxWithheldOtherAgents',
         'amount_repaid' => 'amountRepaid',
         'tax_paid_agent' => 'taxPaidAgent',
@@ -568,7 +623,33 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
         'total_employee_contributions' => 'totalEmployeeContributions',
         'amount_allocable_to_irr_within5_years' => 'amountAllocableToIrrWithin5Years',
         'first_year_of_designated_roth_contribution' => 'firstYearOfDesignatedRothContribution',
-        'date_of_payment' => 'dateOfPayment'
+        'date_of_payment' => 'dateOfPayment',
+        'wages' => 'wages',
+        'social_security_wages' => 'socialSecurityWages',
+        'social_security_tax_withheld' => 'socialSecurityTaxWithheld',
+        'medicare_wages' => 'medicareWages',
+        'medicare_tax_withheld' => 'medicareTaxWithheld',
+        'social_security_tips' => 'socialSecurityTips',
+        'allocated_tips' => 'allocatedTips',
+        'dependent_care_benefits' => 'dependentCareBenefits',
+        'nonqualified_plans_section457' => 'nonqualifiedPlansSection457',
+        'nonqualified_plans_not_section457' => 'nonqualifiedPlansNotSection457',
+        'code12a' => 'code12a',
+        'amount12a' => 'amount12a',
+        'code12b' => 'code12b',
+        'amount12b' => 'amount12b',
+        'code12c' => 'code12c',
+        'amount12c' => 'amount12c',
+        'code12d' => 'code12d',
+        'amount12d' => 'amount12d',
+        'statutory_employee_indicator' => 'statutoryEmployeeIndicator',
+        'retirement_plan_indicator' => 'retirementPlanIndicator',
+        'third_party_sick_pay_indicator' => 'thirdPartySickPayIndicator',
+        'third_party_sick_pay_withholding' => 'thirdPartySickPayWithholding',
+        'other14a' => 'other14a',
+        'other14b' => 'other14b',
+        'other14c' => 'other14c',
+        'state_and_local_withholding_secondary' => 'stateAndLocalWithholdingSecondary'
     ];
 
     /**
@@ -594,6 +675,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
         'federal_tax_withheld' => 'setFederalTaxWithheld',
         'tax_not_deposited_indicator' => 'setTaxNotDepositedIndicator',
         'academic_indicator' => 'setAcademicIndicator',
+        'withholding_rate_pool_indicator' => 'setWithholdingRatePoolIndicator',
         'tax_withheld_other_agents' => 'setTaxWithheldOtherAgents',
         'amount_repaid' => 'setAmountRepaid',
         'tax_paid_agent' => 'setTaxPaidAgent',
@@ -729,7 +811,33 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
         'total_employee_contributions' => 'setTotalEmployeeContributions',
         'amount_allocable_to_irr_within5_years' => 'setAmountAllocableToIrrWithin5Years',
         'first_year_of_designated_roth_contribution' => 'setFirstYearOfDesignatedRothContribution',
-        'date_of_payment' => 'setDateOfPayment'
+        'date_of_payment' => 'setDateOfPayment',
+        'wages' => 'setWages',
+        'social_security_wages' => 'setSocialSecurityWages',
+        'social_security_tax_withheld' => 'setSocialSecurityTaxWithheld',
+        'medicare_wages' => 'setMedicareWages',
+        'medicare_tax_withheld' => 'setMedicareTaxWithheld',
+        'social_security_tips' => 'setSocialSecurityTips',
+        'allocated_tips' => 'setAllocatedTips',
+        'dependent_care_benefits' => 'setDependentCareBenefits',
+        'nonqualified_plans_section457' => 'setNonqualifiedPlansSection457',
+        'nonqualified_plans_not_section457' => 'setNonqualifiedPlansNotSection457',
+        'code12a' => 'setCode12a',
+        'amount12a' => 'setAmount12a',
+        'code12b' => 'setCode12b',
+        'amount12b' => 'setAmount12b',
+        'code12c' => 'setCode12c',
+        'amount12c' => 'setAmount12c',
+        'code12d' => 'setCode12d',
+        'amount12d' => 'setAmount12d',
+        'statutory_employee_indicator' => 'setStatutoryEmployeeIndicator',
+        'retirement_plan_indicator' => 'setRetirementPlanIndicator',
+        'third_party_sick_pay_indicator' => 'setThirdPartySickPayIndicator',
+        'third_party_sick_pay_withholding' => 'setThirdPartySickPayWithholding',
+        'other14a' => 'setOther14a',
+        'other14b' => 'setOther14b',
+        'other14c' => 'setOther14c',
+        'state_and_local_withholding_secondary' => 'setStateAndLocalWithholdingSecondary'
     ];
 
     /**
@@ -755,6 +863,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
         'federal_tax_withheld' => 'getFederalTaxWithheld',
         'tax_not_deposited_indicator' => 'getTaxNotDepositedIndicator',
         'academic_indicator' => 'getAcademicIndicator',
+        'withholding_rate_pool_indicator' => 'getWithholdingRatePoolIndicator',
         'tax_withheld_other_agents' => 'getTaxWithheldOtherAgents',
         'amount_repaid' => 'getAmountRepaid',
         'tax_paid_agent' => 'getTaxPaidAgent',
@@ -890,7 +999,33 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
         'total_employee_contributions' => 'getTotalEmployeeContributions',
         'amount_allocable_to_irr_within5_years' => 'getAmountAllocableToIrrWithin5Years',
         'first_year_of_designated_roth_contribution' => 'getFirstYearOfDesignatedRothContribution',
-        'date_of_payment' => 'getDateOfPayment'
+        'date_of_payment' => 'getDateOfPayment',
+        'wages' => 'getWages',
+        'social_security_wages' => 'getSocialSecurityWages',
+        'social_security_tax_withheld' => 'getSocialSecurityTaxWithheld',
+        'medicare_wages' => 'getMedicareWages',
+        'medicare_tax_withheld' => 'getMedicareTaxWithheld',
+        'social_security_tips' => 'getSocialSecurityTips',
+        'allocated_tips' => 'getAllocatedTips',
+        'dependent_care_benefits' => 'getDependentCareBenefits',
+        'nonqualified_plans_section457' => 'getNonqualifiedPlansSection457',
+        'nonqualified_plans_not_section457' => 'getNonqualifiedPlansNotSection457',
+        'code12a' => 'getCode12a',
+        'amount12a' => 'getAmount12a',
+        'code12b' => 'getCode12b',
+        'amount12b' => 'getAmount12b',
+        'code12c' => 'getCode12c',
+        'amount12c' => 'getAmount12c',
+        'code12d' => 'getCode12d',
+        'amount12d' => 'getAmount12d',
+        'statutory_employee_indicator' => 'getStatutoryEmployeeIndicator',
+        'retirement_plan_indicator' => 'getRetirementPlanIndicator',
+        'third_party_sick_pay_indicator' => 'getThirdPartySickPayIndicator',
+        'third_party_sick_pay_withholding' => 'getThirdPartySickPayWithholding',
+        'other14a' => 'getOther14a',
+        'other14b' => 'getOther14b',
+        'other14c' => 'getOther14c',
+        'state_and_local_withholding_secondary' => 'getStateAndLocalWithholdingSecondary'
     ];
 
     /**
@@ -1002,6 +1137,9 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     const INCOME_CODE__55 = '55';
     const INCOME_CODE__57 = '57';
     const INCOME_CODE__58 = '58';
+    const INCOME_CODE__59 = '59';
+    const INCOME_CODE__60 = '60';
+    const INCOME_CODE__61 = '61';
     const WITHHOLDING_INDICATOR__3 = '3';
     const WITHHOLDING_INDICATOR__4 = '4';
     const EXEMPTION_CODE_CHAP3__00 = '00';
@@ -1090,6 +1228,8 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     const CHAP3_STATUS_CODE__37 = '37';
     const CHAP3_STATUS_CODE__38 = '38';
     const CHAP3_STATUS_CODE__39 = '39';
+    const CHAP3_STATUS_CODE__40 = '40';
+    const CHAP3_STATUS_CODE__41 = '41';
     const CHAP4_STATUS_CODE__01 = '01';
     const CHAP4_STATUS_CODE__02 = '02';
     const CHAP4_STATUS_CODE__03 = '03';
@@ -1149,6 +1289,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     const TYPE__1099_MISC = '1099-MISC';
     const TYPE__1099_NEC = '1099-NEC';
     const TYPE__1099_R = '1099-R';
+    const TYPE_W_2 = 'W-2';
     const ORIGIN_OF_HEALTH_COVERAGE_CODE_A = 'A';
     const ORIGIN_OF_HEALTH_COVERAGE_CODE_B = 'B';
     const ORIGIN_OF_HEALTH_COVERAGE_CODE_C = 'C';
@@ -1331,6 +1472,9 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
             self::INCOME_CODE__55,
             self::INCOME_CODE__57,
             self::INCOME_CODE__58,
+            self::INCOME_CODE__59,
+            self::INCOME_CODE__60,
+            self::INCOME_CODE__61,
         ];
     }
 
@@ -1474,6 +1618,8 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
             self::CHAP3_STATUS_CODE__37,
             self::CHAP3_STATUS_CODE__38,
             self::CHAP3_STATUS_CODE__39,
+            self::CHAP3_STATUS_CODE__40,
+            self::CHAP3_STATUS_CODE__41,
         ];
     }
 
@@ -1555,6 +1701,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
             self::TYPE__1099_MISC,
             self::TYPE__1099_NEC,
             self::TYPE__1099_R,
+            self::TYPE_W_2,
         ];
     }
 
@@ -1739,6 +1886,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
         $this->container['federal_tax_withheld'] = $data['federal_tax_withheld'] ?? null;
         $this->container['tax_not_deposited_indicator'] = $data['tax_not_deposited_indicator'] ?? null;
         $this->container['academic_indicator'] = $data['academic_indicator'] ?? null;
+        $this->container['withholding_rate_pool_indicator'] = $data['withholding_rate_pool_indicator'] ?? null;
         $this->container['tax_withheld_other_agents'] = $data['tax_withheld_other_agents'] ?? null;
         $this->container['amount_repaid'] = $data['amount_repaid'] ?? null;
         $this->container['tax_paid_agent'] = $data['tax_paid_agent'] ?? null;
@@ -1875,6 +2023,35 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
         $this->container['amount_allocable_to_irr_within5_years'] = $data['amount_allocable_to_irr_within5_years'] ?? null;
         $this->container['first_year_of_designated_roth_contribution'] = $data['first_year_of_designated_roth_contribution'] ?? null;
         $this->container['date_of_payment'] = $data['date_of_payment'] ?? null;
+        $this->container['wages'] = $data['wages'] ?? null;
+        $this->container['social_security_wages'] = $data['social_security_wages'] ?? null;
+        $this->container['social_security_tax_withheld'] = $data['social_security_tax_withheld'] ?? null;
+        $this->container['medicare_wages'] = $data['medicare_wages'] ?? null;
+        $this->container['medicare_tax_withheld'] = $data['medicare_tax_withheld'] ?? null;
+        $this->container['social_security_tips'] = $data['social_security_tips'] ?? null;
+        $this->container['allocated_tips'] = $data['allocated_tips'] ?? null;
+        $this->container['dependent_care_benefits'] = $data['dependent_care_benefits'] ?? null;
+        $this->container['nonqualified_plans_section457'] = $data['nonqualified_plans_section457'] ?? null;
+        $this->container['nonqualified_plans_not_section457'] = $data['nonqualified_plans_not_section457'] ?? null;
+        $this->container['code12a'] = $data['code12a'] ?? null;
+        $this->container['amount12a'] = $data['amount12a'] ?? null;
+        $this->container['code12b'] = $data['code12b'] ?? null;
+        $this->container['amount12b'] = $data['amount12b'] ?? null;
+        $this->container['code12c'] = $data['code12c'] ?? null;
+        $this->container['amount12c'] = $data['amount12c'] ?? null;
+        $this->container['code12d'] = $data['code12d'] ?? null;
+        $this->container['amount12d'] = $data['amount12d'] ?? null;
+        $this->container['statutory_employee_indicator'] = $data['statutory_employee_indicator'] ?? null;
+        $this->container['retirement_plan_indicator'] = $data['retirement_plan_indicator'] ?? null;
+        $this->container['third_party_sick_pay_indicator'] = $data['third_party_sick_pay_indicator'] ?? null;
+        $this->container['third_party_sick_pay_withholding'] = $data['third_party_sick_pay_withholding'] ?? null;
+        $this->container['other14a'] = $data['other14a'] ?? null;
+        $this->container['other14b'] = $data['other14b'] ?? null;
+        $this->container['other14c'] = $data['other14c'] ?? null;
+        $this->container['state_and_local_withholding_secondary'] = $data['state_and_local_withholding_secondary'] ?? null;
+
+        // Initialize discriminator property with the model name.
+        $this->container['type'] = static::$openAPIModelName;
     }
 
     /**
@@ -2285,7 +2462,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets income_code
      *
-     * @param string $income_code Income code.  Available values:    Interest:  - 01: Interest paid by US obligors - general  - 02: Interest paid on real property mortgages  - 03: Interest paid to controlling foreign corporations  - 04: Interest paid by foreign corporations  - 05: Interest on tax-free covenant bonds  - 22: Interest paid on deposit with a foreign branch of a domestic corporation or partnership  - 29: Deposit interest  - 30: Original issue discount (OID)  - 31: Short-term OID  - 33: Substitute payment - interest  - 51: Interest paid on certain actively traded or publicly offered securities(1)  - 54: Substitute payments - interest from certain actively traded or publicly offered securities(1)    Dividend:  - 06: Dividends paid by U.S. corporations - general  - 07: Dividends qualifying for direct dividend rate  - 08: Dividends paid by foreign corporations  - 34: Substitute payment - dividends  - 40: Other dividend equivalents under IRC section 871(m) (formerly 871(l))  - 52: Dividends paid on certain actively traded or publicly offered securities(1)  - 53: Substitute payments - dividends from certain actively traded or publicly offered securities(1)  - 56: Dividend equivalents under IRC section 871(m) as a result of applying the combined transaction rules    Other:  - 09: Capital gains  - 10: Industrial royalties  - 11: Motion picture or television copyright royalties  - 12: Other royalties (for example, copyright, software, broadcasting, endorsement payments)  - 13: Royalties paid on certain publicly offered securities(1)  - 14: Real property income and natural resources royalties  - 15: Pensions, annuities, alimony, and/or insurance premiums  - 16: Scholarship or fellowship grants  - 17: Compensation for independent personal services(2)  - 18: Compensation for dependent personal services(2)  - 19: Compensation for teaching(2)  - 20: Compensation during studying and training(2)  - 23: Other income  - 24: Qualified investment entity (QIE) distributions of capital gains  - 25: Trust distributions subject to IRC section 1445  - 26: Unsevered growing crops and timber distributions by a trust subject to IRC section 1445  - 27: Publicly traded partnership distributions subject to IRC section 1446  - 28: Gambling winnings(3)  - 32: Notional principal contract income(4)  - 35: Substitute payment - other  - 36: Capital gains distributions  - 37: Return of capital  - 38: Eligible deferred compensation items subject to IRC section 877A(d)(1)  - 39: Distributions from a nongrantor trust subject to IRC section 877A(f)(1)  - 41: Guarantee of indebtedness  - 42: Earnings as an artist or athlete - no central withholding agreement(5)  - 43: Earnings as an artist or athlete - central withholding agreement(5)  - 44: Specified Federal procurement payments  - 50: Income previously reported under escrow procedure(6)  - 55: Taxable death benefits on life insurance contracts  - 57: Amount realized under IRC section 1446(f)  - 58: Publicly traded partnership distributions-undetermined
+     * @param string $income_code Income code.  Available values:    Interest:  - 01: Interest paid by US obligors - general  - 02: Interest paid on real property mortgages  - 03: Interest paid to controlling foreign corporations  - 04: Interest paid by foreign corporations  - 05: Interest on tax-free covenant bonds  - 22: Interest paid on deposit with a foreign branch of a domestic corporation or partnership  - 29: Deposit interest  - 30: Original issue discount (OID)  - 31: Short-term OID  - 33: Substitute payment - interest  - 51: Interest paid on certain actively traded or publicly offered securities(1)  - 54: Substitute payments - interest from certain actively traded or publicly offered securities(1)    Dividend:  - 06: Dividends paid by U.S. corporations - general  - 07: Dividends qualifying for direct dividend rate  - 08: Dividends paid by foreign corporations  - 34: Substitute payment - dividends  - 40: Other dividend equivalents under IRC section 871(m) (formerly 871(l))  - 52: Dividends paid on certain actively traded or publicly offered securities(1)  - 53: Substitute payments - dividends from certain actively traded or publicly offered securities(1)  - 56: Dividend equivalents under IRC section 871(m) as a result of applying the combined transaction rules    Other:  - 09: Capital gains  - 10: Industrial royalties  - 11: Motion picture or television copyright royalties  - 12: Other royalties (for example, copyright, software, broadcasting, endorsement payments)  - 13: Royalties paid on certain publicly offered securities(1)  - 14: Real property income and natural resources royalties  - 15: Pensions, annuities, alimony, and/or insurance premiums  - 16: Scholarship or fellowship grants  - 17: Compensation for independent personal services(2)  - 18: Compensation for dependent personal services(2)  - 19: Compensation for teaching(2)  - 20: Compensation during studying and training(2)  - 23: Other income  - 24: Qualified investment entity (QIE) distributions of capital gains  - 25: Trust distributions subject to IRC section 1445  - 26: Unsevered growing crops and timber distributions by a trust subject to IRC section 1445  - 27: Publicly traded partnership distributions subject to IRC section 1446  - 28: Gambling winnings(3)  - 32: Notional principal contract income(4)  - 35: Substitute payment - other  - 36: Capital gains distributions  - 37: Return of capital  - 38: Eligible deferred compensation items subject to IRC section 877A(d)(1)  - 39: Distributions from a nongrantor trust subject to IRC section 877A(f)(1)  - 41: Guarantee of indebtedness  - 42: Earnings as an artist or athlete - no central withholding agreement(5)  - 43: Earnings as an artist or athlete - central withholding agreement(5)  - 44: Specified Federal procurement payments  - 50: Income previously reported under escrow procedure(6)  - 55: Taxable death benefits on life insurance contracts  - 57: Amount realized under IRC section 1446(f)  - 58: Publicly traded partnership distributions-undetermined  - 59: Consent fees  - 60: Loan syndication fees  - 61: Settlement payments
      *
      * @return self
      */
@@ -2587,6 +2764,30 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     }
 
     /**
+     * Gets withholding_rate_pool_indicator
+     *
+     * @return bool|null
+     */
+    public function getWithholdingRatePoolIndicator()
+    {
+        return $this->container['withholding_rate_pool_indicator'];
+    }
+
+    /**
+     * Sets withholding_rate_pool_indicator
+     *
+     * @param bool|null $withholding_rate_pool_indicator Box 7d withholding rate pool indicator
+     *
+     * @return self
+     */
+    public function setWithholdingRatePoolIndicator($withholding_rate_pool_indicator)
+    {
+        $this->container['withholding_rate_pool_indicator'] = $withholding_rate_pool_indicator;
+
+        return $this;
+    }
+
+    /**
      * Gets tax_withheld_other_agents
      *
      * @return float|null
@@ -2671,7 +2872,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets chap3_status_code
      *
-     * @param string|null $chap3_status_code Chapter 3 status code - Required if WithholdingIndicator is 3 (Chapter 3). Available values: - 01: U.S. Withholding Agent - FI (Deprecated - valid only for tax years prior to 2020) - 02: U.S. Withholding Agent - Other (Deprecated - valid only for tax years prior to 2020) - 03: Territory FI - treated as U.S. Person - 04: Territory FI - not treated as U.S. Person - 05: U.S. branch - treated as U.S. Person - 06: U.S. branch - not treated as U.S. Person - 07: U.S. branch - ECI presumption applied - 08: Partnership other than Withholding Foreign Partnership - 09: Withholding Foreign Partnership - 10: Trust other than Withholding Foreign Trust - 11: Withholding Foreign Trust - 12: Qualified Intermediary - 13: Qualified Securities Lender - Qualified Intermediary - 14: Qualified Securities Lender - Other - 15: Corporation - 16: Individual - 17: Estate - 18: Private Foundation - 19: Government or International Organization - 20: Tax Exempt Organization (Section 501(c) entities) - 21: Unknown Recipient - 22: Artist or Athlete - 23: Pension - 24: Foreign Central Bank of Issue - 25: Nonqualified Intermediary - 26: Hybrid entity making Treaty Claim - 27: Withholding Rate Pool - General - 28: Withholding Rate Pool - Exempt Organization - 29: PAI Withholding Rate Pool - General - 30: PAI Withholding Rate Pool - Exempt Organization - 31: Agency Withholding Rate Pool - General - 32: Agency Withholding Rate Pool - Exempt Organization - 34: U.S. Withholding Agent-Foreign branch of FI (Deprecated - valid only for tax years prior to 2020) - 35: Qualified Derivatives Dealer - 36: Foreign Government - Integral Part - 37: Foreign Government - Controlled Entity - 38: Publicly Traded Partnership - 39: Disclosing Qualified Intermediary
+     * @param string|null $chap3_status_code Chapter 3 status code - Required if WithholdingIndicator is 3 (Chapter 3). Available values: - 01: U.S. Withholding Agent - FI (Deprecated - valid only for tax years prior to 2020) - 02: U.S. Withholding Agent - Other (Deprecated - valid only for tax years prior to 2020) - 03: Territory FI - treated as U.S. Person - 04: Territory FI - not treated as U.S. Person - 05: U.S. branch - treated as U.S. Person - 06: U.S. branch - not treated as U.S. Person - 07: U.S. branch - ECI presumption applied - 08: Partnership other than Withholding Foreign Partnership - 09: Withholding Foreign Partnership - 10: Trust other than Withholding Foreign Trust - 11: Withholding Foreign Trust - 12: Qualified Intermediary - 13: Qualified Securities Lender - Qualified Intermediary - 14: Qualified Securities Lender - Other - 15: Corporation - 16: Individual - 17: Estate - 18: Private Foundation - 19: Government or International Organization - 20: Tax Exempt Organization (Section 501(c) entities) - 21: Unknown Recipient - 22: Artist or Athlete - 23: Pension - 24: Foreign Central Bank of Issue - 25: Nonqualified Intermediary - 26: Hybrid entity making Treaty Claim - 27: Withholding Rate Pool - General - 28: Withholding Rate Pool - Exempt Organization - 29: PAI Withholding Rate Pool - General - 30: PAI Withholding Rate Pool - Exempt Organization - 31: Agency Withholding Rate Pool - General - 32: Agency Withholding Rate Pool - Exempt Organization - 34: U.S. Withholding Agent-Foreign branch of FI (Deprecated - valid only for tax years prior to 2020) - 35: Qualified Derivatives Dealer - 36: Foreign Government - Integral Part - 37: Foreign Government - Controlled Entity - 38: Publicly Traded Partnership - 39: Disclosing Qualified Intermediary - 40: Partnership QDD - 41: U.S. government entity or tax exempt entity (other than section 501(c) entities)
      *
      * @return self
      */
@@ -3709,7 +3910,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets employee_first_name
      *
-     * @param string $employee_first_name Employee's first name
+     * @param string $employee_first_name Employee first name (max 15 chars).
      *
      * @return self
      */
@@ -3733,7 +3934,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets employee_middle_name
      *
-     * @param string|null $employee_middle_name Employee's middle name
+     * @param string|null $employee_middle_name Employee middle name (max 15 chars, optional).
      *
      * @return self
      */
@@ -3757,7 +3958,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets employee_last_name
      *
-     * @param string $employee_last_name Employee's last name
+     * @param string $employee_last_name Employee last name (max 20 chars).
      *
      * @return self
      */
@@ -3781,7 +3982,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets employee_name_suffix
      *
-     * @param string|null $employee_name_suffix Employee's name suffix
+     * @param string|null $employee_name_suffix Employee name suffix (Jr, Sr, III, etc — max 4 chars, optional).
      *
      * @return self
      */
@@ -4185,7 +4386,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets federal_income_tax_withheld
      *
-     * @param float|null $federal_income_tax_withheld Federal income tax withheld
+     * @param float|null $federal_income_tax_withheld Federal income tax withheld.
      *
      * @return self
      */
@@ -5936,6 +6137,630 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     public function setDateOfPayment($date_of_payment)
     {
         $this->container['date_of_payment'] = $date_of_payment;
+
+        return $this;
+    }
+
+    /**
+     * Gets wages
+     *
+     * @return float|null
+     */
+    public function getWages()
+    {
+        return $this->container['wages'];
+    }
+
+    /**
+     * Sets wages
+     *
+     * @param float|null $wages Wages, tips, other compensation.
+     *
+     * @return self
+     */
+    public function setWages($wages)
+    {
+        $this->container['wages'] = $wages;
+
+        return $this;
+    }
+
+    /**
+     * Gets social_security_wages
+     *
+     * @return float|null
+     */
+    public function getSocialSecurityWages()
+    {
+        return $this->container['social_security_wages'];
+    }
+
+    /**
+     * Sets social_security_wages
+     *
+     * @param float|null $social_security_wages Social security wages.
+     *
+     * @return self
+     */
+    public function setSocialSecurityWages($social_security_wages)
+    {
+        $this->container['social_security_wages'] = $social_security_wages;
+
+        return $this;
+    }
+
+    /**
+     * Gets social_security_tax_withheld
+     *
+     * @return float|null
+     */
+    public function getSocialSecurityTaxWithheld()
+    {
+        return $this->container['social_security_tax_withheld'];
+    }
+
+    /**
+     * Sets social_security_tax_withheld
+     *
+     * @param float|null $social_security_tax_withheld Social security tax withheld.
+     *
+     * @return self
+     */
+    public function setSocialSecurityTaxWithheld($social_security_tax_withheld)
+    {
+        $this->container['social_security_tax_withheld'] = $social_security_tax_withheld;
+
+        return $this;
+    }
+
+    /**
+     * Gets medicare_wages
+     *
+     * @return float|null
+     */
+    public function getMedicareWages()
+    {
+        return $this->container['medicare_wages'];
+    }
+
+    /**
+     * Sets medicare_wages
+     *
+     * @param float|null $medicare_wages Medicare wages and tips.
+     *
+     * @return self
+     */
+    public function setMedicareWages($medicare_wages)
+    {
+        $this->container['medicare_wages'] = $medicare_wages;
+
+        return $this;
+    }
+
+    /**
+     * Gets medicare_tax_withheld
+     *
+     * @return float|null
+     */
+    public function getMedicareTaxWithheld()
+    {
+        return $this->container['medicare_tax_withheld'];
+    }
+
+    /**
+     * Sets medicare_tax_withheld
+     *
+     * @param float|null $medicare_tax_withheld Medicare tax withheld.
+     *
+     * @return self
+     */
+    public function setMedicareTaxWithheld($medicare_tax_withheld)
+    {
+        $this->container['medicare_tax_withheld'] = $medicare_tax_withheld;
+
+        return $this;
+    }
+
+    /**
+     * Gets social_security_tips
+     *
+     * @return float|null
+     */
+    public function getSocialSecurityTips()
+    {
+        return $this->container['social_security_tips'];
+    }
+
+    /**
+     * Sets social_security_tips
+     *
+     * @param float|null $social_security_tips Social security tips.
+     *
+     * @return self
+     */
+    public function setSocialSecurityTips($social_security_tips)
+    {
+        $this->container['social_security_tips'] = $social_security_tips;
+
+        return $this;
+    }
+
+    /**
+     * Gets allocated_tips
+     *
+     * @return float|null
+     */
+    public function getAllocatedTips()
+    {
+        return $this->container['allocated_tips'];
+    }
+
+    /**
+     * Sets allocated_tips
+     *
+     * @param float|null $allocated_tips Allocated tips.
+     *
+     * @return self
+     */
+    public function setAllocatedTips($allocated_tips)
+    {
+        $this->container['allocated_tips'] = $allocated_tips;
+
+        return $this;
+    }
+
+    /**
+     * Gets dependent_care_benefits
+     *
+     * @return float|null
+     */
+    public function getDependentCareBenefits()
+    {
+        return $this->container['dependent_care_benefits'];
+    }
+
+    /**
+     * Sets dependent_care_benefits
+     *
+     * @param float|null $dependent_care_benefits Dependent care benefits.
+     *
+     * @return self
+     */
+    public function setDependentCareBenefits($dependent_care_benefits)
+    {
+        $this->container['dependent_care_benefits'] = $dependent_care_benefits;
+
+        return $this;
+    }
+
+    /**
+     * Gets nonqualified_plans_section457
+     *
+     * @return float|null
+     */
+    public function getNonqualifiedPlansSection457()
+    {
+        return $this->container['nonqualified_plans_section457'];
+    }
+
+    /**
+     * Sets nonqualified_plans_section457
+     *
+     * @param float|null $nonqualified_plans_section457 Non-qualified plan Section 457 distributions or contributions.
+     *
+     * @return self
+     */
+    public function setNonqualifiedPlansSection457($nonqualified_plans_section457)
+    {
+        $this->container['nonqualified_plans_section457'] = $nonqualified_plans_section457;
+
+        return $this;
+    }
+
+    /**
+     * Gets nonqualified_plans_not_section457
+     *
+     * @return float|null
+     */
+    public function getNonqualifiedPlansNotSection457()
+    {
+        return $this->container['nonqualified_plans_not_section457'];
+    }
+
+    /**
+     * Sets nonqualified_plans_not_section457
+     *
+     * @param float|null $nonqualified_plans_not_section457 Non-qualified plan NOT Section 457 distributions or contributions.
+     *
+     * @return self
+     */
+    public function setNonqualifiedPlansNotSection457($nonqualified_plans_not_section457)
+    {
+        $this->container['nonqualified_plans_not_section457'] = $nonqualified_plans_not_section457;
+
+        return $this;
+    }
+
+    /**
+     * Gets code12a
+     *
+     * @return string|null
+     */
+    public function getCode12a()
+    {
+        return $this->container['code12a'];
+    }
+
+    /**
+     * Sets code12a
+     *
+     * @param string|null $code12a Letter code (A-Z, AA, BB, etc) for slot a.
+     *
+     * @return self
+     */
+    public function setCode12a($code12a)
+    {
+        $this->container['code12a'] = $code12a;
+
+        return $this;
+    }
+
+    /**
+     * Gets amount12a
+     *
+     * @return float|null
+     */
+    public function getAmount12a()
+    {
+        return $this->container['amount12a'];
+    }
+
+    /**
+     * Sets amount12a
+     *
+     * @param float|null $amount12a Amount for slot a.
+     *
+     * @return self
+     */
+    public function setAmount12a($amount12a)
+    {
+        $this->container['amount12a'] = $amount12a;
+
+        return $this;
+    }
+
+    /**
+     * Gets code12b
+     *
+     * @return string|null
+     */
+    public function getCode12b()
+    {
+        return $this->container['code12b'];
+    }
+
+    /**
+     * Sets code12b
+     *
+     * @param string|null $code12b Letter code for slot b.
+     *
+     * @return self
+     */
+    public function setCode12b($code12b)
+    {
+        $this->container['code12b'] = $code12b;
+
+        return $this;
+    }
+
+    /**
+     * Gets amount12b
+     *
+     * @return float|null
+     */
+    public function getAmount12b()
+    {
+        return $this->container['amount12b'];
+    }
+
+    /**
+     * Sets amount12b
+     *
+     * @param float|null $amount12b Amount for slot b.
+     *
+     * @return self
+     */
+    public function setAmount12b($amount12b)
+    {
+        $this->container['amount12b'] = $amount12b;
+
+        return $this;
+    }
+
+    /**
+     * Gets code12c
+     *
+     * @return string|null
+     */
+    public function getCode12c()
+    {
+        return $this->container['code12c'];
+    }
+
+    /**
+     * Sets code12c
+     *
+     * @param string|null $code12c Letter code for slot c.
+     *
+     * @return self
+     */
+    public function setCode12c($code12c)
+    {
+        $this->container['code12c'] = $code12c;
+
+        return $this;
+    }
+
+    /**
+     * Gets amount12c
+     *
+     * @return float|null
+     */
+    public function getAmount12c()
+    {
+        return $this->container['amount12c'];
+    }
+
+    /**
+     * Sets amount12c
+     *
+     * @param float|null $amount12c Amount for slot c.
+     *
+     * @return self
+     */
+    public function setAmount12c($amount12c)
+    {
+        $this->container['amount12c'] = $amount12c;
+
+        return $this;
+    }
+
+    /**
+     * Gets code12d
+     *
+     * @return string|null
+     */
+    public function getCode12d()
+    {
+        return $this->container['code12d'];
+    }
+
+    /**
+     * Sets code12d
+     *
+     * @param string|null $code12d Letter code for slot d.
+     *
+     * @return self
+     */
+    public function setCode12d($code12d)
+    {
+        $this->container['code12d'] = $code12d;
+
+        return $this;
+    }
+
+    /**
+     * Gets amount12d
+     *
+     * @return float|null
+     */
+    public function getAmount12d()
+    {
+        return $this->container['amount12d'];
+    }
+
+    /**
+     * Sets amount12d
+     *
+     * @param float|null $amount12d Amount for slot d.
+     *
+     * @return self
+     */
+    public function setAmount12d($amount12d)
+    {
+        $this->container['amount12d'] = $amount12d;
+
+        return $this;
+    }
+
+    /**
+     * Gets statutory_employee_indicator
+     *
+     * @return bool|null
+     */
+    public function getStatutoryEmployeeIndicator()
+    {
+        return $this->container['statutory_employee_indicator'];
+    }
+
+    /**
+     * Sets statutory_employee_indicator
+     *
+     * @param bool|null $statutory_employee_indicator Statutory employee indicator.
+     *
+     * @return self
+     */
+    public function setStatutoryEmployeeIndicator($statutory_employee_indicator)
+    {
+        $this->container['statutory_employee_indicator'] = $statutory_employee_indicator;
+
+        return $this;
+    }
+
+    /**
+     * Gets retirement_plan_indicator
+     *
+     * @return bool|null
+     */
+    public function getRetirementPlanIndicator()
+    {
+        return $this->container['retirement_plan_indicator'];
+    }
+
+    /**
+     * Sets retirement_plan_indicator
+     *
+     * @param bool|null $retirement_plan_indicator Retirement plan indicator.
+     *
+     * @return self
+     */
+    public function setRetirementPlanIndicator($retirement_plan_indicator)
+    {
+        $this->container['retirement_plan_indicator'] = $retirement_plan_indicator;
+
+        return $this;
+    }
+
+    /**
+     * Gets third_party_sick_pay_indicator
+     *
+     * @return bool|null
+     */
+    public function getThirdPartySickPayIndicator()
+    {
+        return $this->container['third_party_sick_pay_indicator'];
+    }
+
+    /**
+     * Sets third_party_sick_pay_indicator
+     *
+     * @param bool|null $third_party_sick_pay_indicator Third-party sick pay indicator.
+     *
+     * @return self
+     */
+    public function setThirdPartySickPayIndicator($third_party_sick_pay_indicator)
+    {
+        $this->container['third_party_sick_pay_indicator'] = $third_party_sick_pay_indicator;
+
+        return $this;
+    }
+
+    /**
+     * Gets third_party_sick_pay_withholding
+     *
+     * @return float|null
+     */
+    public function getThirdPartySickPayWithholding()
+    {
+        return $this->container['third_party_sick_pay_withholding'];
+    }
+
+    /**
+     * Sets third_party_sick_pay_withholding
+     *
+     * @param float|null $third_party_sick_pay_withholding Third-party sick pay federal income tax withheld  (only effective when Avalara1099.Application.Forms1099.Models.Form1099W2.ThirdPartySickPayIndicator is true).
+     *
+     * @return self
+     */
+    public function setThirdPartySickPayWithholding($third_party_sick_pay_withholding)
+    {
+        $this->container['third_party_sick_pay_withholding'] = $third_party_sick_pay_withholding;
+
+        return $this;
+    }
+
+    /**
+     * Gets other14a
+     *
+     * @return string|null
+     */
+    public function getOther14a()
+    {
+        return $this->container['other14a'];
+    }
+
+    /**
+     * Sets other14a
+     *
+     * @param string|null $other14a Other (max 30 chars) for slot a.
+     *
+     * @return self
+     */
+    public function setOther14a($other14a)
+    {
+        $this->container['other14a'] = $other14a;
+
+        return $this;
+    }
+
+    /**
+     * Gets other14b
+     *
+     * @return string|null
+     */
+    public function getOther14b()
+    {
+        return $this->container['other14b'];
+    }
+
+    /**
+     * Sets other14b
+     *
+     * @param string|null $other14b Other (max 30 chars) for slot b.
+     *
+     * @return self
+     */
+    public function setOther14b($other14b)
+    {
+        $this->container['other14b'] = $other14b;
+
+        return $this;
+    }
+
+    /**
+     * Gets other14c
+     *
+     * @return string|null
+     */
+    public function getOther14c()
+    {
+        return $this->container['other14c'];
+    }
+
+    /**
+     * Sets other14c
+     *
+     * @param string|null $other14c Other (max 30 chars) for slot c.
+     *
+     * @return self
+     */
+    public function setOther14c($other14c)
+    {
+        $this->container['other14c'] = $other14c;
+
+        return $this;
+    }
+
+    /**
+     * Gets state_and_local_withholding_secondary
+     *
+     * @return \Avalara\SDK\Model\A1099\V2\StateAndLocalWithholding|null
+     */
+    public function getStateAndLocalWithholdingSecondary()
+    {
+        return $this->container['state_and_local_withholding_secondary'];
+    }
+
+    /**
+     * Sets state_and_local_withholding_secondary
+     *
+     * @param \Avalara\SDK\Model\A1099\V2\StateAndLocalWithholding|null $state_and_local_withholding_secondary Secondary state and local withholding slot.
+     *
+     * @return self
+     */
+    public function setStateAndLocalWithholdingSecondary($state_and_local_withholding_secondary)
+    {
+        $this->container['state_and_local_withholding_secondary'] = $state_and_local_withholding_secondary;
 
         return $this;
     }

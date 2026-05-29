@@ -79,7 +79,7 @@ class DocumentsApi
     private function setConfiguration($client): void
     {
         $this->verifyAPIClient($client);
-        $client->setSdkVersion("26.4.0");
+        $client->setSdkVersion("26.5.1");
         $this->headerSelector = new HeaderSelector(); 
         $this->client = $client;
     }

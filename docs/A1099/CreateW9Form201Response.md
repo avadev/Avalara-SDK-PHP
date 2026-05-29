@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 **exempt_from_withholding** | **bool** | Indicates whether the employee is exempt from withholding. | [optional]
 **office_code** | **string** | The office code associated with the form. | [optional]
 **id** | **string** | The unique identifier for the form. | [optional]
-**entry_status** | [**\AvalaraSDK\ModelA1099V2\EntryStatusResponse**](EntryStatusResponse.md) | The entry status information for the form. | [optional]
+**entry_status** | [**\Avalara\SDK\Model\A1099\V2\EntryStatusResponse**](EntryStatusResponse.md) | The entry status information for the form. | [optional]
 **reference_id** | **string** | A reference identifier for the form. | [optional]
 **company_id** | **string** | The ID of the associated company. | [optional]
 **display_name** | **string** | The display name associated with the form. | [optional]
@@ -128,7 +128,7 @@ Name | Type | Description | Notes
 **excepted_inter_affiliate_ffi_certification** | **bool** | Certifies that the entity is an inter-affiliate FFI meeting all conditions for exemption,  including limited account activity and payment interactions within its expanded affiliated group. | [optional]
 **sponsored_direct_reporting_nffe_certification** | **bool** | Certifies that the entity is a sponsored direct reporting NFFE. | [optional]
 **direct_reporting_nffe_sponsoring_entity** | **string** | The name of the entity that sponsors the direct reporting NFFE. | [optional]
-**substantial_us_owners** | [**\AvalaraSDK\ModelA1099V2\SubstantialUsOwnerResponse[]**](SubstantialUsOwnerResponse.md) | The list of substantial U.S. owners of passive NFFE. | [optional]
+**substantial_us_owners** | [**\Avalara\SDK\Model\A1099\V2\SubstantialUsOwnerResponse[]**](SubstantialUsOwnerResponse.md) | The list of substantial U.S. owners of passive NFFE. | [optional]
 **signer_name** | **string** | The name of the signer. | [optional]
 **capacity_to_sign_certification** | **bool** | Certifies signer has the capacity to sign for the beneficial owner. | [optional]
 **birthday** | **\DateTime** | The birthday of the individual associated with the form. | [optional]
@@ -183,6 +183,6 @@ Name | Type | Description | Notes
 **account_number** | **string** | The account number associated with the form. | [optional]
 **backup_withholding** | **bool** | Indicates whether backup withholding applies. | [optional]
 **is1099able** | **bool** | Indicates whether the individual or entity should be issued a 1099 form. | [optional]
-**tin_match_status** | [**\AvalaraSDK\ModelA1099V2\TinMatchStatusResponse**](TinMatchStatusResponse.md) | The TIN Match status from IRS. | [optional]
+**tin_match_status** | [**\Avalara\SDK\Model\A1099\V2\TinMatchStatusResponse**](TinMatchStatusResponse.md) | The TIN Match status from IRS. | [optional]
 
 [[Back to Model list]](../../../README.md#models) [[Back to API list]](../../../README.md#endpoints) [[Back to README]](../../../README.md)
