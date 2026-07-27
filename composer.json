@@ -33,7 +33,7 @@
     "friendsofphp/php-cs-fixer": "^2.12",
     "vlucas/phpdotenv": "^5.4",
     "monolog/monolog": "^3.2",
-    "guzzlehttp/promises": "^1.4"
+    "guzzlehttp/promises": "^1.4 || ^2.0"
   },
   "autoload": {
     "psr-4": {
