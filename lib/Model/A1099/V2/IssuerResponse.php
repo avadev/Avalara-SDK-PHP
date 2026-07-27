@@ -20,7 +20,7 @@
  *
  * Avalara 1099 & W-9 API Definition
  *
- * ## Authentication  #### Step 1: Generate API Credentials  Generate a *client ID* and *client secret* from your [Avalara1099 account](https://sbx.track1099.com/api_tokens): *Your Profile → API*.  #### Step 2: Get an Identity Token  Send a `POST` request to the **Identity Token URL** with your *client ID* and *client secret* from Step 1 as form-encoded parameters:  ```http POST https://identity.avalara.com/connect/token Content-Type: application/x-www-form-urlencoded  grant_type=client_credentials client_id=<your client ID> client_secret=<your client secret> ```  **Body parameters** - `grant_type` — Always `client_credentials` - `client_id` — Your *client ID* from Step 1 - `client_secret` — Your *client secret* from Step 1  **Successful response**  ```json {   \"access_token\": \"eyJhbGci...\",   \"expires_in\": 3600,   \"token_type\": \"Bearer\" } ```  Use the `access_token` as a bearer token in the `Authorization` header on every A1099 API request:  ```http Authorization: Bearer <access_token> ```  ---  For more on authenticating requests, see the [A1099 authentication guide](https://developer.avalara.com/1099-and-w-9/kny2997001535374/).  ---  ## Environments  #### Production - **Avalara 1099 API URL:** [`https://api.avalara.com/avalara1099`](https://api.avalara.com/avalara1099) - **Identity Token URL:** [`https://identity.avalara.com/connect/token`](https://identity.avalara.com/connect/token)  #### Sandbox - **Avalara 1099 API URL:** [`https://api.sbx.avalara.com/avalara1099`](https://api.sbx.avalara.com/avalara1099) - **Identity Token URL:** [`https://ai-sbx.avlr.sh/connect/token`](https://ai-sbx.avlr.sh/connect/token)  ---  ## API & SDK Documentation  [Avalara 1099 API Reference](https://developer.avalara.com/api-reference/avalara1099/avalara1099/)  [Avalara SDKs](https://developer.avalara.com/sdk/)  [Swagger](https://api.avalara.com/avalara1099/swagger/index.html?api-version=2.0)
+ * > **Note:** You must have an active Avalara 1099 & W-9 subscription to authenticate and use these APIs. If you don't have a subscription, please contact our [Sales team](https://www.avalara.com/us/en/products/1099/request-a-demo.html).  ## Authentication  The Avalara 1099 & W-9 API uses **Bearer Token Authentication**. To authenticate, acquire a bearer token using a **Client ID** and **Client Secret** that you generate in the Avalara 1099 & W-9 web application.  The sample cURL commands below use **production** URLs. For **sandbox**, replace them with the sandbox URLs listed in the Sandbox Environment table.  ### Option 1 — Client ID and Client Secret (recommended)  **Step 1: Create API credentials in the Avalara 1099 & W-9 web app**  For a full walkthrough, see the [Avalara 1099 & W-9 integration guide](https://developer.avalara.com/products/avalara-1099-and-w9/integration-guides/1099-and-w-9/siu2796410674799/).  > **Note:** To enable credential creation you must first enter a valid company address in **Account Settings > Account** and enable two-factor authentication in **Account Settings > Security**.  1. In Avalara 1099 & W-9, open **Account Settings** (gear icon, top-right of any page) and select **API**. 2. Click **Create new credentials** (a valid company address and 2FA are required). 3. Copy your **Client Id** and **Client Secret** securely — they will not be shown again after you leave the screen.  **Step 2: Request a bearer token**  ```bash curl -X POST 'https://identity.avalara.com/connect/token' \\   --header 'Content-Type: application/x-www-form-urlencoded' \\   --data-urlencode 'grant_type=client_credentials' \\   --data-urlencode 'client_id={{client_id}}' \\   --data-urlencode 'client_secret={{client_secret}}' ```  ### Option 2 — Account ID and License Key  If your organization already uses other Avalara products (AvaTax, CertCapture) and has access to the logged-in area of Avalara.com, you can generate the bearer token using your **Account ID** and **License Key**.  > **Note:** If you already have a license key for other Avalara products you can reuse it. Generating a new key will reset any previously created key.  1. Log in to Avalara.com. 2. Go to **Settings → License and API Keys**. 3. Click **Generate New Key**. 4. Note your **Account ID** from the Account menu.  ```bash curl -X POST 'https://identity.avalara.com/connect/token' \\   --header 'Content-Type: application/x-www-form-urlencoded' \\   --data-urlencode 'grant_type=client_credentials' \\   --data-urlencode 'client_id={{accountId}}' \\   --data-urlencode 'client_secret={{licenseKey}}' ```  ### Using and renewing the bearer token  Include the token in the `Authorization` header on every request:  ```http Authorization: Bearer {access_token} ```  Tokens expire after the number of seconds in the `expires_in` field of the token response. Your integration must renew the token before it expires.  **Example token response**  ```json {   \"access_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI...\",   \"expires_in\": 3600,   \"token_type\": \"Bearer\",   \"scope\": \"avatax_api iam-ds\" } ```  ### Sandbox Environment  Use the same steps as production, replacing the base URLs:  | Purpose | Production | Sandbox | | --- | --- | --- | | Account & License Key management (web) | `https://www.avalara.com` | `https://sandbox.admin.avalara.com` | | Account & License Key management (API) | `https://rest.avatax.com` | `https://sandbox-rest.avatax.com` | | Token generation | `https://identity.avalara.com` | `https://ai-sbx.avlr.sh` |  ## Environments  #### Production - **Avalara 1099 API URL:** [`https://api.avalara.com/avalara1099`](https://api.avalara.com/avalara1099) - **Identity Token URL:** [`https://identity.avalara.com/connect/token`](https://identity.avalara.com/connect/token)  #### Sandbox - **Avalara 1099 API URL:** [`https://api.sbx.avalara.com/avalara1099`](https://api.sbx.avalara.com/avalara1099) - **Identity Token URL:** [`https://ai-sbx.avlr.sh/connect/token`](https://ai-sbx.avlr.sh/connect/token)  ---  ## API & SDK Documentation  [Avalara 1099 API Reference](https://developer.avalara.com/api-reference/avalara1099/avalara1099/)  [Avalara SDKs](https://developer.avalara.com/sdk/)  [Swagger](https://api.avalara.com/avalara1099/swagger/index.html?api-version=2.0)
  *
  * @category   Avalara client libraries
  * @package    Avalara\SDK\API\A1099\V2
@@ -74,8 +74,15 @@ class IssuerResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         'id' => 'string',
         'created_at' => '\DateTime',
         'updated_at' => '\DateTime',
+        'business_name' => 'string',
+        'business_name2' => 'string',
         'name' => 'string',
         'dba_name' => 'string',
+        'tin_type' => 'string',
+        'first_name' => 'string',
+        'middle_name' => 'string',
+        'last_name' => 'string',
+        'suffix' => 'string',
         'tin' => 'string',
         'reference_id' => 'string',
         'telephone' => 'string',
@@ -102,8 +109,15 @@ class IssuerResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         'id' => null,
         'created_at' => 'date-time',
         'updated_at' => 'date-time',
+        'business_name' => null,
+        'business_name2' => null,
         'name' => null,
         'dba_name' => null,
+        'tin_type' => null,
+        'first_name' => null,
+        'middle_name' => null,
+        'last_name' => null,
+        'suffix' => null,
         'tin' => null,
         'reference_id' => null,
         'telephone' => null,
@@ -149,8 +163,15 @@ class IssuerResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         'id' => 'id',
         'created_at' => 'createdAt',
         'updated_at' => 'updatedAt',
+        'business_name' => 'businessName',
+        'business_name2' => 'businessName2',
         'name' => 'name',
         'dba_name' => 'dbaName',
+        'tin_type' => 'tinType',
+        'first_name' => 'firstName',
+        'middle_name' => 'middleName',
+        'last_name' => 'lastName',
+        'suffix' => 'suffix',
         'tin' => 'tin',
         'reference_id' => 'referenceId',
         'telephone' => 'telephone',
@@ -175,8 +196,15 @@ class IssuerResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         'id' => 'setId',
         'created_at' => 'setCreatedAt',
         'updated_at' => 'setUpdatedAt',
+        'business_name' => 'setBusinessName',
+        'business_name2' => 'setBusinessName2',
         'name' => 'setName',
         'dba_name' => 'setDbaName',
+        'tin_type' => 'setTinType',
+        'first_name' => 'setFirstName',
+        'middle_name' => 'setMiddleName',
+        'last_name' => 'setLastName',
+        'suffix' => 'setSuffix',
         'tin' => 'setTin',
         'reference_id' => 'setReferenceId',
         'telephone' => 'setTelephone',
@@ -201,8 +229,15 @@ class IssuerResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         'id' => 'getId',
         'created_at' => 'getCreatedAt',
         'updated_at' => 'getUpdatedAt',
+        'business_name' => 'getBusinessName',
+        'business_name2' => 'getBusinessName2',
         'name' => 'getName',
         'dba_name' => 'getDbaName',
+        'tin_type' => 'getTinType',
+        'first_name' => 'getFirstName',
+        'middle_name' => 'getMiddleName',
+        'last_name' => 'getLastName',
+        'suffix' => 'getSuffix',
         'tin' => 'getTin',
         'reference_id' => 'getReferenceId',
         'telephone' => 'getTelephone',
@@ -259,6 +294,23 @@ class IssuerResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
+    const TIN_TYPE_UNKNOWN = 'UNKNOWN';
+    const TIN_TYPE_INDIVIDUAL = 'INDIVIDUAL';
+    const TIN_TYPE_BUSINESS = 'BUSINESS';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTinTypeAllowableValues()
+    {
+        return [
+            self::TIN_TYPE_UNKNOWN,
+            self::TIN_TYPE_INDIVIDUAL,
+            self::TIN_TYPE_BUSINESS,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -278,8 +330,15 @@ class IssuerResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['id'] = $data['id'] ?? null;
         $this->container['created_at'] = $data['created_at'] ?? null;
         $this->container['updated_at'] = $data['updated_at'] ?? null;
+        $this->container['business_name'] = $data['business_name'] ?? null;
+        $this->container['business_name2'] = $data['business_name2'] ?? null;
         $this->container['name'] = $data['name'] ?? null;
         $this->container['dba_name'] = $data['dba_name'] ?? null;
+        $this->container['tin_type'] = $data['tin_type'] ?? null;
+        $this->container['first_name'] = $data['first_name'] ?? null;
+        $this->container['middle_name'] = $data['middle_name'] ?? null;
+        $this->container['last_name'] = $data['last_name'] ?? null;
+        $this->container['suffix'] = $data['suffix'] ?? null;
         $this->container['tin'] = $data['tin'] ?? null;
         $this->container['reference_id'] = $data['reference_id'] ?? null;
         $this->container['telephone'] = $data['telephone'] ?? null;
@@ -304,9 +363,18 @@ class IssuerResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['name'] === null) {
-            $invalidProperties[] = "'name' can't be null";
+        if ($this->container['business_name'] === null) {
+            $invalidProperties[] = "'business_name' can't be null";
         }
+        $allowedValues = $this->getTinTypeAllowableValues();
+        if (!is_null($this->container['tin_type']) && !in_array($this->container['tin_type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'tin_type', must be one of '%s'",
+                $this->container['tin_type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['telephone'] === null) {
             $invalidProperties[] = "'telephone' can't be null";
         }
@@ -419,9 +487,58 @@ class IssuerResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets name
+     * Gets business_name
      *
      * @return string
+     */
+    public function getBusinessName()
+    {
+        return $this->container['business_name'];
+    }
+
+    /**
+     * Sets business_name
+     *
+     * @param string $business_name Business name. Required when the recipient of the form is a business; should only be used for businesses.
+     *
+     * @return self
+     */
+    public function setBusinessName($business_name)
+    {
+        $this->container['business_name'] = $business_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets business_name2
+     *
+     * @return string|null
+     */
+    public function getBusinessName2()
+    {
+        return $this->container['business_name2'];
+    }
+
+    /**
+     * Sets business_name2
+     *
+     * @param string|null $business_name2 Business name line 2. Should only be used for businesses. Use either this or 'transferAgentName'.
+     *
+     * @return self
+     */
+    public function setBusinessName2($business_name2)
+    {
+        $this->container['business_name2'] = $business_name2;
+
+        return $this;
+    }
+
+    /**
+     * Gets name
+     *
+     * @return string|null
+     * @deprecated
      */
     public function getName()
     {
@@ -431,9 +548,10 @@ class IssuerResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets name
      *
-     * @param string $name Legal name. Not the DBA name.
+     * @param string|null $name Legal name. Not the DBA name. Deprecated alias for 'businessName'.
      *
      * @return self
+     * @deprecated
      */
     public function setName($name)
     {
@@ -446,6 +564,7 @@ class IssuerResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      * Gets dba_name
      *
      * @return string|null
+     * @deprecated
      */
     public function getDbaName()
     {
@@ -455,13 +574,144 @@ class IssuerResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets dba_name
      *
-     * @param string|null $dba_name Doing Business As (DBA) name or continuation of a long legal name. Use either this or 'transferAgentName'.
+     * @param string|null $dba_name Doing Business As (DBA) name or continuation of a long legal name. Deprecated alias for 'businessName2'. Use either this or 'transferAgentName'.
      *
      * @return self
+     * @deprecated
      */
     public function setDbaName($dba_name)
     {
         $this->container['dba_name'] = $dba_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets tin_type
+     *
+     * @return string|null
+     */
+    public function getTinType()
+    {
+        return $this->container['tin_type'];
+    }
+
+    /**
+     * Sets tin_type
+     *
+     * @param string|null $tin_type Recipient classification.  The platform is transitioning from tax identifier classifications to recipient entity classifications. New values represent recipient entity types and should be preferred. Deprecated values represent identifier formats and remain supported for backward compatibility only.  Available values: - INDIVIDUAL: Recipient is an individual - BUSINESS: Recipient is a business - UNKNOWN: Recipient classification is unknown - EIN: (Deprecated - use BUSINESS) Employer Identification Number - SSN: (Deprecated - use INDIVIDUAL) Social Security Number - ITIN: (Deprecated - use INDIVIDUAL) Individual Taxpayer Identification Number - ATIN: (Deprecated - use INDIVIDUAL) Adoption Taxpayer Identification Number
+     *
+     * @return self
+     */
+    public function setTinType($tin_type)
+    {
+        $allowedValues = $this->getTinTypeAllowableValues();
+        if (!is_null($tin_type) && !in_array($tin_type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'tin_type', must be one of '%s'",
+                    $tin_type,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['tin_type'] = $tin_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets first_name
+     *
+     * @return string|null
+     */
+    public function getFirstName()
+    {
+        return $this->container['first_name'];
+    }
+
+    /**
+     * Sets first_name
+     *
+     * @param string|null $first_name First name. Required when the recipient of the form is an individual; should only be used for individuals.
+     *
+     * @return self
+     */
+    public function setFirstName($first_name)
+    {
+        $this->container['first_name'] = $first_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets middle_name
+     *
+     * @return string|null
+     */
+    public function getMiddleName()
+    {
+        return $this->container['middle_name'];
+    }
+
+    /**
+     * Sets middle_name
+     *
+     * @param string|null $middle_name Middle name. Should only be used for individuals.
+     *
+     * @return self
+     */
+    public function setMiddleName($middle_name)
+    {
+        $this->container['middle_name'] = $middle_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets last_name
+     *
+     * @return string|null
+     */
+    public function getLastName()
+    {
+        return $this->container['last_name'];
+    }
+
+    /**
+     * Sets last_name
+     *
+     * @param string|null $last_name Last name. Required when the recipient of the form is an individual; should only be used for individuals.
+     *
+     * @return self
+     */
+    public function setLastName($last_name)
+    {
+        $this->container['last_name'] = $last_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets suffix
+     *
+     * @return string|null
+     */
+    public function getSuffix()
+    {
+        return $this->container['suffix'];
+    }
+
+    /**
+     * Sets suffix
+     *
+     * @param string|null $suffix Suffix name. Should only be used for individuals.
+     *
+     * @return self
+     */
+    public function setSuffix($suffix)
+    {
+        $this->container['suffix'] = $suffix;
 
         return $this;
     }

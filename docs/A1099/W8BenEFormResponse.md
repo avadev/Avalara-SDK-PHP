@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 **mailing_state** | **string** | The state of the mailing address. | [optional]
 **mailing_zip** | **string** | The ZIP code of the mailing address. | [optional]
 **mailing_country** | **string** | The country of the mailing address. | [optional]
-**tin_type** | **string** | Tax Identification Number (TIN) type. | [optional]
+**tin_type** | **string** | Recipient classification.  The platform is transitioning from tax identifier classifications to recipient entity classifications. New values represent recipient entity types and should be preferred. Deprecated values represent identifier formats and remain supported for backward compatibility only.  Available values: - INDIVIDUAL: Recipient is an individual - BUSINESS: Recipient is a business - UNKNOWN: Recipient classification is unknown - EIN: (Deprecated - use BUSINESS) Employer Identification Number - SSN: (Deprecated - use INDIVIDUAL) Social Security Number - ITIN: (Deprecated - use INDIVIDUAL) Individual Taxpayer Identification Number - ATIN: (Deprecated - use INDIVIDUAL) Adoption Taxpayer Identification Number | [optional]
 **tin** | **string** | The taxpayer identification number (TIN). | [optional]
 **giin** | **string** | The global intermediary identification number (GIIN). | [optional]
 **foreign_tin_not_required** | **bool** | Indicates whether a foreign TIN is not required. | [optional]

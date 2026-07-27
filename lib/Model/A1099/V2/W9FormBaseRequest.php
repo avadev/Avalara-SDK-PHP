@@ -20,7 +20,7 @@
  *
  * Avalara 1099 & W-9 API Definition
  *
- * ## Authentication  #### Step 1: Generate API Credentials  Generate a *client ID* and *client secret* from your [Avalara1099 account](https://sbx.track1099.com/api_tokens): *Your Profile → API*.  #### Step 2: Get an Identity Token  Send a `POST` request to the **Identity Token URL** with your *client ID* and *client secret* from Step 1 as form-encoded parameters:  ```http POST https://identity.avalara.com/connect/token Content-Type: application/x-www-form-urlencoded  grant_type=client_credentials client_id=<your client ID> client_secret=<your client secret> ```  **Body parameters** - `grant_type` — Always `client_credentials` - `client_id` — Your *client ID* from Step 1 - `client_secret` — Your *client secret* from Step 1  **Successful response**  ```json {   \"access_token\": \"eyJhbGci...\",   \"expires_in\": 3600,   \"token_type\": \"Bearer\" } ```  Use the `access_token` as a bearer token in the `Authorization` header on every A1099 API request:  ```http Authorization: Bearer <access_token> ```  ---  For more on authenticating requests, see the [A1099 authentication guide](https://developer.avalara.com/1099-and-w-9/kny2997001535374/).  ---  ## Environments  #### Production - **Avalara 1099 API URL:** [`https://api.avalara.com/avalara1099`](https://api.avalara.com/avalara1099) - **Identity Token URL:** [`https://identity.avalara.com/connect/token`](https://identity.avalara.com/connect/token)  #### Sandbox - **Avalara 1099 API URL:** [`https://api.sbx.avalara.com/avalara1099`](https://api.sbx.avalara.com/avalara1099) - **Identity Token URL:** [`https://ai-sbx.avlr.sh/connect/token`](https://ai-sbx.avlr.sh/connect/token)  ---  ## API & SDK Documentation  [Avalara 1099 API Reference](https://developer.avalara.com/api-reference/avalara1099/avalara1099/)  [Avalara SDKs](https://developer.avalara.com/sdk/)  [Swagger](https://api.avalara.com/avalara1099/swagger/index.html?api-version=2.0)
+ * > **Note:** You must have an active Avalara 1099 & W-9 subscription to authenticate and use these APIs. If you don't have a subscription, please contact our [Sales team](https://www.avalara.com/us/en/products/1099/request-a-demo.html).  ## Authentication  The Avalara 1099 & W-9 API uses **Bearer Token Authentication**. To authenticate, acquire a bearer token using a **Client ID** and **Client Secret** that you generate in the Avalara 1099 & W-9 web application.  The sample cURL commands below use **production** URLs. For **sandbox**, replace them with the sandbox URLs listed in the Sandbox Environment table.  ### Option 1 — Client ID and Client Secret (recommended)  **Step 1: Create API credentials in the Avalara 1099 & W-9 web app**  For a full walkthrough, see the [Avalara 1099 & W-9 integration guide](https://developer.avalara.com/products/avalara-1099-and-w9/integration-guides/1099-and-w-9/siu2796410674799/).  > **Note:** To enable credential creation you must first enter a valid company address in **Account Settings > Account** and enable two-factor authentication in **Account Settings > Security**.  1. In Avalara 1099 & W-9, open **Account Settings** (gear icon, top-right of any page) and select **API**. 2. Click **Create new credentials** (a valid company address and 2FA are required). 3. Copy your **Client Id** and **Client Secret** securely — they will not be shown again after you leave the screen.  **Step 2: Request a bearer token**  ```bash curl -X POST 'https://identity.avalara.com/connect/token' \\   --header 'Content-Type: application/x-www-form-urlencoded' \\   --data-urlencode 'grant_type=client_credentials' \\   --data-urlencode 'client_id={{client_id}}' \\   --data-urlencode 'client_secret={{client_secret}}' ```  ### Option 2 — Account ID and License Key  If your organization already uses other Avalara products (AvaTax, CertCapture) and has access to the logged-in area of Avalara.com, you can generate the bearer token using your **Account ID** and **License Key**.  > **Note:** If you already have a license key for other Avalara products you can reuse it. Generating a new key will reset any previously created key.  1. Log in to Avalara.com. 2. Go to **Settings → License and API Keys**. 3. Click **Generate New Key**. 4. Note your **Account ID** from the Account menu.  ```bash curl -X POST 'https://identity.avalara.com/connect/token' \\   --header 'Content-Type: application/x-www-form-urlencoded' \\   --data-urlencode 'grant_type=client_credentials' \\   --data-urlencode 'client_id={{accountId}}' \\   --data-urlencode 'client_secret={{licenseKey}}' ```  ### Using and renewing the bearer token  Include the token in the `Authorization` header on every request:  ```http Authorization: Bearer {access_token} ```  Tokens expire after the number of seconds in the `expires_in` field of the token response. Your integration must renew the token before it expires.  **Example token response**  ```json {   \"access_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI...\",   \"expires_in\": 3600,   \"token_type\": \"Bearer\",   \"scope\": \"avatax_api iam-ds\" } ```  ### Sandbox Environment  Use the same steps as production, replacing the base URLs:  | Purpose | Production | Sandbox | | --- | --- | --- | | Account & License Key management (web) | `https://www.avalara.com` | `https://sandbox.admin.avalara.com` | | Account & License Key management (API) | `https://rest.avatax.com` | `https://sandbox-rest.avatax.com` | | Token generation | `https://identity.avalara.com` | `https://ai-sbx.avlr.sh` |  ## Environments  #### Production - **Avalara 1099 API URL:** [`https://api.avalara.com/avalara1099`](https://api.avalara.com/avalara1099) - **Identity Token URL:** [`https://identity.avalara.com/connect/token`](https://identity.avalara.com/connect/token)  #### Sandbox - **Avalara 1099 API URL:** [`https://api.sbx.avalara.com/avalara1099`](https://api.sbx.avalara.com/avalara1099) - **Identity Token URL:** [`https://ai-sbx.avlr.sh/connect/token`](https://ai-sbx.avlr.sh/connect/token)  ---  ## API & SDK Documentation  [Avalara 1099 API Reference](https://developer.avalara.com/api-reference/avalara1099/avalara1099/)  [Avalara SDKs](https://developer.avalara.com/sdk/)  [Swagger](https://api.avalara.com/avalara1099/swagger/index.html?api-version=2.0)
  *
  * @category   Avalara client libraries
  * @package    Avalara\SDK\API\A1099\V2
@@ -71,12 +71,12 @@ class W9FormBaseRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @var string[]
       */
     protected static $openAPITypes = [
-        'e_delivery_consented_at' => '\DateTime',
-        'signature' => 'string',
         'type' => 'string',
         'company_id' => 'string',
         'reference_id' => 'string',
-        'email' => 'string'
+        'email' => 'string',
+        'e_delivery_consented_at' => '\DateTime',
+        'signature' => 'string'
     ];
 
     /**
@@ -87,12 +87,12 @@ class W9FormBaseRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'e_delivery_consented_at' => 'date-time',
-        'signature' => null,
         'type' => null,
         'company_id' => null,
         'reference_id' => null,
-        'email' => null
+        'email' => null,
+        'e_delivery_consented_at' => 'date-time',
+        'signature' => null
     ];
 
     /**
@@ -122,12 +122,12 @@ class W9FormBaseRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $attributeMap = [
-        'e_delivery_consented_at' => 'eDeliveryConsentedAt',
-        'signature' => 'signature',
         'type' => 'type',
         'company_id' => 'companyId',
         'reference_id' => 'referenceId',
-        'email' => 'email'
+        'email' => 'email',
+        'e_delivery_consented_at' => 'eDeliveryConsentedAt',
+        'signature' => 'signature'
     ];
 
     /**
@@ -136,12 +136,12 @@ class W9FormBaseRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $setters = [
-        'e_delivery_consented_at' => 'setEDeliveryConsentedAt',
-        'signature' => 'setSignature',
         'type' => 'setType',
         'company_id' => 'setCompanyId',
         'reference_id' => 'setReferenceId',
-        'email' => 'setEmail'
+        'email' => 'setEmail',
+        'e_delivery_consented_at' => 'setEDeliveryConsentedAt',
+        'signature' => 'setSignature'
     ];
 
     /**
@@ -150,12 +150,12 @@ class W9FormBaseRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $getters = [
-        'e_delivery_consented_at' => 'getEDeliveryConsentedAt',
-        'signature' => 'getSignature',
         'type' => 'getType',
         'company_id' => 'getCompanyId',
         'reference_id' => 'getReferenceId',
-        'email' => 'getEmail'
+        'email' => 'getEmail',
+        'e_delivery_consented_at' => 'getEDeliveryConsentedAt',
+        'signature' => 'getSignature'
     ];
 
     /**
@@ -236,12 +236,12 @@ class W9FormBaseRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function __construct(array $data = null)
     {
-        $this->container['e_delivery_consented_at'] = $data['e_delivery_consented_at'] ?? null;
-        $this->container['signature'] = $data['signature'] ?? null;
         $this->container['type'] = $data['type'] ?? null;
         $this->container['company_id'] = $data['company_id'] ?? null;
         $this->container['reference_id'] = $data['reference_id'] ?? null;
         $this->container['email'] = $data['email'] ?? null;
+        $this->container['e_delivery_consented_at'] = $data['e_delivery_consented_at'] ?? null;
+        $this->container['signature'] = $data['signature'] ?? null;
     }
 
     /**
@@ -276,54 +276,6 @@ class W9FormBaseRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets e_delivery_consented_at
-     *
-     * @return \DateTime|null
-     */
-    public function getEDeliveryConsentedAt()
-    {
-        return $this->container['e_delivery_consented_at'];
-    }
-
-    /**
-     * Sets e_delivery_consented_at
-     *
-     * @param \DateTime|null $e_delivery_consented_at The date when e-delivery was consented.
-     *
-     * @return self
-     */
-    public function setEDeliveryConsentedAt($e_delivery_consented_at)
-    {
-        $this->container['e_delivery_consented_at'] = $e_delivery_consented_at;
-
-        return $this;
-    }
-
-    /**
-     * Gets signature
-     *
-     * @return string|null
-     */
-    public function getSignature()
-    {
-        return $this->container['signature'];
-    }
-
-    /**
-     * Sets signature
-     *
-     * @param string|null $signature The signature of the form.
-     *
-     * @return self
-     */
-    public function setSignature($signature)
-    {
-        $this->container['signature'] = $signature;
-
-        return $this;
-    }
 
     /**
      * Gets type
@@ -427,6 +379,54 @@ class W9FormBaseRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
     public function setEmail($email)
     {
         $this->container['email'] = $email;
+
+        return $this;
+    }
+
+    /**
+     * Gets e_delivery_consented_at
+     *
+     * @return \DateTime|null
+     */
+    public function getEDeliveryConsentedAt()
+    {
+        return $this->container['e_delivery_consented_at'];
+    }
+
+    /**
+     * Sets e_delivery_consented_at
+     *
+     * @param \DateTime|null $e_delivery_consented_at The date when e-delivery was consented.
+     *
+     * @return self
+     */
+    public function setEDeliveryConsentedAt($e_delivery_consented_at)
+    {
+        $this->container['e_delivery_consented_at'] = $e_delivery_consented_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets signature
+     *
+     * @return string|null
+     */
+    public function getSignature()
+    {
+        return $this->container['signature'];
+    }
+
+    /**
+     * Sets signature
+     *
+     * @param string|null $signature The signature of the form.
+     *
+     * @return self
+     */
+    public function setSignature($signature)
+    {
+        $this->container['signature'] = $signature;
 
         return $this;
     }
