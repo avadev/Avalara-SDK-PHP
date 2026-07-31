@@ -327,7 +327,6 @@ Class | Method | HTTP request | Description
 <a name="documentation-for-A1099-V2-models"></a>
 ### A1099 V2 Model Documentation
 
- - [Avalara\SDK\Model\A1099\V2\CompanyBase](docs/A1099/V2/CompanyBase.md)
  - [Avalara\SDK\Model\A1099\V2\CompanyRequest](docs/A1099/V2/CompanyRequest.md)
  - [Avalara\SDK\Model\A1099\V2\CompanyResponse](docs/A1099/V2/CompanyResponse.md)
  - [Avalara\SDK\Model\A1099\V2\CoveredIndividual](docs/A1099/V2/CoveredIndividual.md)
@@ -351,11 +350,9 @@ Class | Method | HTTP request | Description
  - [Avalara\SDK\Model\A1099\V2\Form1099StatusDetail](docs/A1099/V2/Form1099StatusDetail.md)
  - [Avalara\SDK\Model\A1099\V2\Form1099W2](docs/A1099/V2/Form1099W2.md)
  - [Avalara\SDK\Model\A1099\V2\Get1099Form200Response](docs/A1099/V2/Get1099Form200Response.md)
- - [Avalara\SDK\Model\A1099\V2\GetIssuer200Response](docs/A1099/V2/GetIssuer200Response.md)
  - [Avalara\SDK\Model\A1099\V2\IntermediaryOrFlowThrough](docs/A1099/V2/IntermediaryOrFlowThrough.md)
  - [Avalara\SDK\Model\A1099\V2\IrisFormBase](docs/A1099/V2/IrisFormBase.md)
  - [Avalara\SDK\Model\A1099\V2\IrsResponse](docs/A1099/V2/IrsResponse.md)
- - [Avalara\SDK\Model\A1099\V2\IssuerBase](docs/A1099/V2/IssuerBase.md)
  - [Avalara\SDK\Model\A1099\V2\IssuerRequest](docs/A1099/V2/IssuerRequest.md)
  - [Avalara\SDK\Model\A1099\V2\IssuerResponse](docs/A1099/V2/IssuerResponse.md)
  - [Avalara\SDK\Model\A1099\V2\IssuerWriteResponse](docs/A1099/V2/IssuerWriteResponse.md)

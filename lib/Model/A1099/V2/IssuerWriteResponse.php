@@ -71,10 +71,6 @@ class IssuerWriteResponse implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
-        'validation_errors' => '\Avalara\SDK\Model\A1099\V2\ValidationError[]',
-        'id' => 'string',
-        'created_at' => '\DateTime',
-        'updated_at' => '\DateTime',
         'business_name' => 'string',
         'business_name2' => 'string',
         'name' => 'string',
@@ -96,7 +92,11 @@ class IssuerWriteResponse implements ModelInterface, ArrayAccess, \JsonSerializa
         'zip' => 'string',
         'foreign_province' => 'string',
         'transfer_agent_name' => 'string',
-        'last_filing' => 'bool'
+        'last_filing' => 'bool',
+        'id' => 'string',
+        'created_at' => '\DateTime',
+        'updated_at' => '\DateTime',
+        'validation_errors' => '\Avalara\SDK\Model\A1099\V2\ValidationError[]'
     ];
 
     /**
@@ -107,10 +107,6 @@ class IssuerWriteResponse implements ModelInterface, ArrayAccess, \JsonSerializa
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'validation_errors' => null,
-        'id' => null,
-        'created_at' => 'date-time',
-        'updated_at' => 'date-time',
         'business_name' => null,
         'business_name2' => null,
         'name' => null,
@@ -132,7 +128,11 @@ class IssuerWriteResponse implements ModelInterface, ArrayAccess, \JsonSerializa
         'zip' => null,
         'foreign_province' => null,
         'transfer_agent_name' => null,
-        'last_filing' => null
+        'last_filing' => null,
+        'id' => null,
+        'created_at' => 'date-time',
+        'updated_at' => 'date-time',
+        'validation_errors' => null
     ];
 
     /**
@@ -162,10 +162,6 @@ class IssuerWriteResponse implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $attributeMap = [
-        'validation_errors' => 'validationErrors',
-        'id' => 'id',
-        'created_at' => 'createdAt',
-        'updated_at' => 'updatedAt',
         'business_name' => 'businessName',
         'business_name2' => 'businessName2',
         'name' => 'name',
@@ -187,7 +183,11 @@ class IssuerWriteResponse implements ModelInterface, ArrayAccess, \JsonSerializa
         'zip' => 'zip',
         'foreign_province' => 'foreignProvince',
         'transfer_agent_name' => 'transferAgentName',
-        'last_filing' => 'lastFiling'
+        'last_filing' => 'lastFiling',
+        'id' => 'id',
+        'created_at' => 'createdAt',
+        'updated_at' => 'updatedAt',
+        'validation_errors' => 'validationErrors'
     ];
 
     /**
@@ -196,10 +196,6 @@ class IssuerWriteResponse implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $setters = [
-        'validation_errors' => 'setValidationErrors',
-        'id' => 'setId',
-        'created_at' => 'setCreatedAt',
-        'updated_at' => 'setUpdatedAt',
         'business_name' => 'setBusinessName',
         'business_name2' => 'setBusinessName2',
         'name' => 'setName',
@@ -221,7 +217,11 @@ class IssuerWriteResponse implements ModelInterface, ArrayAccess, \JsonSerializa
         'zip' => 'setZip',
         'foreign_province' => 'setForeignProvince',
         'transfer_agent_name' => 'setTransferAgentName',
-        'last_filing' => 'setLastFiling'
+        'last_filing' => 'setLastFiling',
+        'id' => 'setId',
+        'created_at' => 'setCreatedAt',
+        'updated_at' => 'setUpdatedAt',
+        'validation_errors' => 'setValidationErrors'
     ];
 
     /**
@@ -230,10 +230,6 @@ class IssuerWriteResponse implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $getters = [
-        'validation_errors' => 'getValidationErrors',
-        'id' => 'getId',
-        'created_at' => 'getCreatedAt',
-        'updated_at' => 'getUpdatedAt',
         'business_name' => 'getBusinessName',
         'business_name2' => 'getBusinessName2',
         'name' => 'getName',
@@ -255,7 +251,11 @@ class IssuerWriteResponse implements ModelInterface, ArrayAccess, \JsonSerializa
         'zip' => 'getZip',
         'foreign_province' => 'getForeignProvince',
         'transfer_agent_name' => 'getTransferAgentName',
-        'last_filing' => 'getLastFiling'
+        'last_filing' => 'getLastFiling',
+        'id' => 'getId',
+        'created_at' => 'getCreatedAt',
+        'updated_at' => 'getUpdatedAt',
+        'validation_errors' => 'getValidationErrors'
     ];
 
     /**
@@ -332,10 +332,6 @@ class IssuerWriteResponse implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function __construct(array $data = null)
     {
-        $this->container['validation_errors'] = $data['validation_errors'] ?? null;
-        $this->container['id'] = $data['id'] ?? null;
-        $this->container['created_at'] = $data['created_at'] ?? null;
-        $this->container['updated_at'] = $data['updated_at'] ?? null;
         $this->container['business_name'] = $data['business_name'] ?? null;
         $this->container['business_name2'] = $data['business_name2'] ?? null;
         $this->container['name'] = $data['name'] ?? null;
@@ -358,6 +354,10 @@ class IssuerWriteResponse implements ModelInterface, ArrayAccess, \JsonSerializa
         $this->container['foreign_province'] = $data['foreign_province'] ?? null;
         $this->container['transfer_agent_name'] = $data['transfer_agent_name'] ?? null;
         $this->container['last_filing'] = $data['last_filing'] ?? null;
+        $this->container['id'] = $data['id'] ?? null;
+        $this->container['created_at'] = $data['created_at'] ?? null;
+        $this->container['updated_at'] = $data['updated_at'] ?? null;
+        $this->container['validation_errors'] = $data['validation_errors'] ?? null;
     }
 
     /**
@@ -419,102 +419,6 @@ class IssuerWriteResponse implements ModelInterface, ArrayAccess, \JsonSerializa
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets validation_errors
-     *
-     * @return \Avalara\SDK\Model\A1099\V2\ValidationError[]|null
-     */
-    public function getValidationErrors()
-    {
-        return $this->container['validation_errors'];
-    }
-
-    /**
-     * Sets validation_errors
-     *
-     * @param \Avalara\SDK\Model\A1099\V2\ValidationError[]|null $validation_errors Field-level validation errors. Populated when a POST or PUT request violated business rules  but the issuer was still persisted. Each entry identifies the affected field and the issue.  Empty array when the payload was fully valid.
-     *
-     * @return self
-     */
-    public function setValidationErrors($validation_errors)
-    {
-        $this->container['validation_errors'] = $validation_errors;
-
-        return $this;
-    }
-
-    /**
-     * Gets id
-     *
-     * @return string|null
-     */
-    public function getId()
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     *
-     * @param string|null $id Unique identifier set when the record is created.
-     *
-     * @return self
-     */
-    public function setId($id)
-    {
-        $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets created_at
-     *
-     * @return \DateTime|null
-     */
-    public function getCreatedAt()
-    {
-        return $this->container['created_at'];
-    }
-
-    /**
-     * Sets created_at
-     *
-     * @param \DateTime|null $created_at Date time when the record was created.
-     *
-     * @return self
-     */
-    public function setCreatedAt($created_at)
-    {
-        $this->container['created_at'] = $created_at;
-
-        return $this;
-    }
-
-    /**
-     * Gets updated_at
-     *
-     * @return \DateTime|null
-     */
-    public function getUpdatedAt()
-    {
-        return $this->container['updated_at'];
-    }
-
-    /**
-     * Sets updated_at
-     *
-     * @param \DateTime|null $updated_at Date time when the record was last updated.
-     *
-     * @return self
-     */
-    public function setUpdatedAt($updated_at)
-    {
-        $this->container['updated_at'] = $updated_at;
-
-        return $this;
-    }
 
     /**
      * Gets business_name
@@ -1054,6 +958,102 @@ class IssuerWriteResponse implements ModelInterface, ArrayAccess, \JsonSerializa
     public function setLastFiling($last_filing)
     {
         $this->container['last_filing'] = $last_filing;
+
+        return $this;
+    }
+
+    /**
+     * Gets id
+     *
+     * @return string|null
+     */
+    public function getId()
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param string|null $id Unique identifier set when the record is created.
+     *
+     * @return self
+     */
+    public function setId($id)
+    {
+        $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets created_at
+     *
+     * @return \DateTime|null
+     */
+    public function getCreatedAt()
+    {
+        return $this->container['created_at'];
+    }
+
+    /**
+     * Sets created_at
+     *
+     * @param \DateTime|null $created_at Date time when the record was created.
+     *
+     * @return self
+     */
+    public function setCreatedAt($created_at)
+    {
+        $this->container['created_at'] = $created_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets updated_at
+     *
+     * @return \DateTime|null
+     */
+    public function getUpdatedAt()
+    {
+        return $this->container['updated_at'];
+    }
+
+    /**
+     * Sets updated_at
+     *
+     * @param \DateTime|null $updated_at Date time when the record was last updated.
+     *
+     * @return self
+     */
+    public function setUpdatedAt($updated_at)
+    {
+        $this->container['updated_at'] = $updated_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets validation_errors
+     *
+     * @return \Avalara\SDK\Model\A1099\V2\ValidationError[]|null
+     */
+    public function getValidationErrors()
+    {
+        return $this->container['validation_errors'];
+    }
+
+    /**
+     * Sets validation_errors
+     *
+     * @param \Avalara\SDK\Model\A1099\V2\ValidationError[]|null $validation_errors Field-level validation errors. Populated when a POST or PUT request violated business rules  but the issuer was still persisted. Each entry identifies the affected field and the issue.  Empty array when the payload was fully valid.
+     *
+     * @return self
+     */
+    public function setValidationErrors($validation_errors)
+    {
+        $this->container['validation_errors'] = $validation_errors;
 
         return $this;
     }

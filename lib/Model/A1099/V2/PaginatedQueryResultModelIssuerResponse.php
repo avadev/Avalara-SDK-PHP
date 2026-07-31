@@ -73,7 +73,7 @@ class PaginatedQueryResultModelIssuerResponse implements ModelInterface, ArrayAc
       */
     protected static $openAPITypes = [
         'at_recordset_count' => 'int',
-        'value' => '\Avalara\SDK\Model\A1099\V2\GetIssuer200Response[]',
+        'value' => '\Avalara\SDK\Model\A1099\V2\IssuerResponse[]',
         'at_next_link' => 'string'
     ];
 
@@ -257,7 +257,7 @@ class PaginatedQueryResultModelIssuerResponse implements ModelInterface, ArrayAc
     /**
      * Gets value
      *
-     * @return \Avalara\SDK\Model\A1099\V2\GetIssuer200Response[]|null
+     * @return \Avalara\SDK\Model\A1099\V2\IssuerResponse[]|null
      */
     public function getValue()
     {
@@ -267,7 +267,7 @@ class PaginatedQueryResultModelIssuerResponse implements ModelInterface, ArrayAc
     /**
      * Sets value
      *
-     * @param \Avalara\SDK\Model\A1099\V2\GetIssuer200Response[]|null $value value
+     * @param \Avalara\SDK\Model\A1099\V2\IssuerResponse[]|null $value value
      *
      * @return self
      */

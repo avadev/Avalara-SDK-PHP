@@ -71,9 +71,6 @@ class CompanyResponse implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'id' => 'string',
-        'created_at' => '\DateTime',
-        'updated_at' => '\DateTime',
         'name' => 'string',
         'dba_name' => 'string',
         'email' => 'string',
@@ -90,7 +87,10 @@ class CompanyResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         'country_code' => 'string',
         'resend_requests' => 'bool',
         'resend_interval_days' => 'int',
-        'max_reminder_attempts' => 'int'
+        'max_reminder_attempts' => 'int',
+        'id' => 'string',
+        'created_at' => '\DateTime',
+        'updated_at' => '\DateTime'
     ];
 
     /**
@@ -101,9 +101,6 @@ class CompanyResponse implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'id' => null,
-        'created_at' => 'date-time',
-        'updated_at' => 'date-time',
         'name' => null,
         'dba_name' => null,
         'email' => null,
@@ -120,7 +117,10 @@ class CompanyResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         'country_code' => null,
         'resend_requests' => null,
         'resend_interval_days' => 'int32',
-        'max_reminder_attempts' => 'int32'
+        'max_reminder_attempts' => 'int32',
+        'id' => null,
+        'created_at' => 'date-time',
+        'updated_at' => 'date-time'
     ];
 
     /**
@@ -150,9 +150,6 @@ class CompanyResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
-        'created_at' => 'createdAt',
-        'updated_at' => 'updatedAt',
         'name' => 'name',
         'dba_name' => 'dbaName',
         'email' => 'email',
@@ -169,7 +166,10 @@ class CompanyResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         'country_code' => 'countryCode',
         'resend_requests' => 'resendRequests',
         'resend_interval_days' => 'resendIntervalDays',
-        'max_reminder_attempts' => 'maxReminderAttempts'
+        'max_reminder_attempts' => 'maxReminderAttempts',
+        'id' => 'id',
+        'created_at' => 'createdAt',
+        'updated_at' => 'updatedAt'
     ];
 
     /**
@@ -178,9 +178,6 @@ class CompanyResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
-        'created_at' => 'setCreatedAt',
-        'updated_at' => 'setUpdatedAt',
         'name' => 'setName',
         'dba_name' => 'setDbaName',
         'email' => 'setEmail',
@@ -197,7 +194,10 @@ class CompanyResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         'country_code' => 'setCountryCode',
         'resend_requests' => 'setResendRequests',
         'resend_interval_days' => 'setResendIntervalDays',
-        'max_reminder_attempts' => 'setMaxReminderAttempts'
+        'max_reminder_attempts' => 'setMaxReminderAttempts',
+        'id' => 'setId',
+        'created_at' => 'setCreatedAt',
+        'updated_at' => 'setUpdatedAt'
     ];
 
     /**
@@ -206,9 +206,6 @@ class CompanyResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
-        'created_at' => 'getCreatedAt',
-        'updated_at' => 'getUpdatedAt',
         'name' => 'getName',
         'dba_name' => 'getDbaName',
         'email' => 'getEmail',
@@ -225,7 +222,10 @@ class CompanyResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         'country_code' => 'getCountryCode',
         'resend_requests' => 'getResendRequests',
         'resend_interval_days' => 'getResendIntervalDays',
-        'max_reminder_attempts' => 'getMaxReminderAttempts'
+        'max_reminder_attempts' => 'getMaxReminderAttempts',
+        'id' => 'getId',
+        'created_at' => 'getCreatedAt',
+        'updated_at' => 'getUpdatedAt'
     ];
 
     /**
@@ -285,9 +285,6 @@ class CompanyResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['id'] = $data['id'] ?? null;
-        $this->container['created_at'] = $data['created_at'] ?? null;
-        $this->container['updated_at'] = $data['updated_at'] ?? null;
         $this->container['name'] = $data['name'] ?? null;
         $this->container['dba_name'] = $data['dba_name'] ?? null;
         $this->container['email'] = $data['email'] ?? null;
@@ -305,6 +302,9 @@ class CompanyResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['resend_requests'] = $data['resend_requests'] ?? null;
         $this->container['resend_interval_days'] = $data['resend_interval_days'] ?? null;
         $this->container['max_reminder_attempts'] = $data['max_reminder_attempts'] ?? null;
+        $this->container['id'] = $data['id'] ?? null;
+        $this->container['created_at'] = $data['created_at'] ?? null;
+        $this->container['updated_at'] = $data['updated_at'] ?? null;
     }
 
     /**
@@ -354,78 +354,6 @@ class CompanyResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets id
-     *
-     * @return string|null
-     */
-    public function getId()
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     *
-     * @param string|null $id Unique identifier set when the record is created.
-     *
-     * @return self
-     */
-    public function setId($id)
-    {
-        $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets created_at
-     *
-     * @return \DateTime|null
-     */
-    public function getCreatedAt()
-    {
-        return $this->container['created_at'];
-    }
-
-    /**
-     * Sets created_at
-     *
-     * @param \DateTime|null $created_at Date time when the record was created.
-     *
-     * @return self
-     */
-    public function setCreatedAt($created_at)
-    {
-        $this->container['created_at'] = $created_at;
-
-        return $this;
-    }
-
-    /**
-     * Gets updated_at
-     *
-     * @return \DateTime|null
-     */
-    public function getUpdatedAt()
-    {
-        return $this->container['updated_at'];
-    }
-
-    /**
-     * Sets updated_at
-     *
-     * @param \DateTime|null $updated_at Date time when the record was last updated.
-     *
-     * @return self
-     */
-    public function setUpdatedAt($updated_at)
-    {
-        $this->container['updated_at'] = $updated_at;
-
-        return $this;
-    }
 
     /**
      * Gets name
@@ -831,6 +759,78 @@ class CompanyResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setMaxReminderAttempts($max_reminder_attempts)
     {
         $this->container['max_reminder_attempts'] = $max_reminder_attempts;
+
+        return $this;
+    }
+
+    /**
+     * Gets id
+     *
+     * @return string|null
+     */
+    public function getId()
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param string|null $id Unique identifier set when the record is created.
+     *
+     * @return self
+     */
+    public function setId($id)
+    {
+        $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets created_at
+     *
+     * @return \DateTime|null
+     */
+    public function getCreatedAt()
+    {
+        return $this->container['created_at'];
+    }
+
+    /**
+     * Sets created_at
+     *
+     * @param \DateTime|null $created_at Date time when the record was created.
+     *
+     * @return self
+     */
+    public function setCreatedAt($created_at)
+    {
+        $this->container['created_at'] = $created_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets updated_at
+     *
+     * @return \DateTime|null
+     */
+    public function getUpdatedAt()
+    {
+        return $this->container['updated_at'];
+    }
+
+    /**
+     * Sets updated_at
+     *
+     * @param \DateTime|null $updated_at Date time when the record was last updated.
+     *
+     * @return self
+     */
+    public function setUpdatedAt($updated_at)
+    {
+        $this->container['updated_at'] = $updated_at;
 
         return $this;
     }

@@ -1,6 +1,6 @@
 # Avalara\SDK\TINMatchesApi
 
-All URIs are relative to https://api.sbx.avalara.com/avalara1099.
+All URIs are relative to https://api-ava1099.edge.qa.us-east-1.aws.avalara.io/avalara1099.
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -36,7 +36,7 @@ $client = new \Avalara\SDK\ApiClient($config);
 $apiInstance = new Avalara\SDK\Api\TINMatchesApi($client);
 
 $avalara_version = 2.0.0; // string | API version
-$x_correlation_id = e4a00bdb-c8bf-4c27-930b-ba75ff3e865f; // string | Unique correlation Id in a GUID format
+$x_correlation_id = 86993e01-0897-4667-b8f3-bac8c0081c4c; // string | Unique correlation Id in a GUID format
 $x_avalara_client = Swagger UI; 22.1.0; // string | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
 $real_time_tin_match_request = {"tinType":"BUSINESS","tin":"94-2765439","name":"Acme Corporation"}; // \Avalara\SDK\Model\A1099\V2\RealTimeTinMatchRequest | Required data to perform TIN match
 

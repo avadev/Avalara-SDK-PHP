@@ -71,9 +71,6 @@ class IssuerResponse implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'id' => 'string',
-        'created_at' => '\DateTime',
-        'updated_at' => '\DateTime',
         'business_name' => 'string',
         'business_name2' => 'string',
         'name' => 'string',
@@ -95,7 +92,10 @@ class IssuerResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         'zip' => 'string',
         'foreign_province' => 'string',
         'transfer_agent_name' => 'string',
-        'last_filing' => 'bool'
+        'last_filing' => 'bool',
+        'id' => 'string',
+        'created_at' => '\DateTime',
+        'updated_at' => '\DateTime'
     ];
 
     /**
@@ -106,9 +106,6 @@ class IssuerResponse implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'id' => null,
-        'created_at' => 'date-time',
-        'updated_at' => 'date-time',
         'business_name' => null,
         'business_name2' => null,
         'name' => null,
@@ -130,7 +127,10 @@ class IssuerResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         'zip' => null,
         'foreign_province' => null,
         'transfer_agent_name' => null,
-        'last_filing' => null
+        'last_filing' => null,
+        'id' => null,
+        'created_at' => 'date-time',
+        'updated_at' => 'date-time'
     ];
 
     /**
@@ -160,9 +160,6 @@ class IssuerResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
-        'created_at' => 'createdAt',
-        'updated_at' => 'updatedAt',
         'business_name' => 'businessName',
         'business_name2' => 'businessName2',
         'name' => 'name',
@@ -184,7 +181,10 @@ class IssuerResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         'zip' => 'zip',
         'foreign_province' => 'foreignProvince',
         'transfer_agent_name' => 'transferAgentName',
-        'last_filing' => 'lastFiling'
+        'last_filing' => 'lastFiling',
+        'id' => 'id',
+        'created_at' => 'createdAt',
+        'updated_at' => 'updatedAt'
     ];
 
     /**
@@ -193,9 +193,6 @@ class IssuerResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
-        'created_at' => 'setCreatedAt',
-        'updated_at' => 'setUpdatedAt',
         'business_name' => 'setBusinessName',
         'business_name2' => 'setBusinessName2',
         'name' => 'setName',
@@ -217,7 +214,10 @@ class IssuerResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         'zip' => 'setZip',
         'foreign_province' => 'setForeignProvince',
         'transfer_agent_name' => 'setTransferAgentName',
-        'last_filing' => 'setLastFiling'
+        'last_filing' => 'setLastFiling',
+        'id' => 'setId',
+        'created_at' => 'setCreatedAt',
+        'updated_at' => 'setUpdatedAt'
     ];
 
     /**
@@ -226,9 +226,6 @@ class IssuerResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
-        'created_at' => 'getCreatedAt',
-        'updated_at' => 'getUpdatedAt',
         'business_name' => 'getBusinessName',
         'business_name2' => 'getBusinessName2',
         'name' => 'getName',
@@ -250,7 +247,10 @@ class IssuerResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         'zip' => 'getZip',
         'foreign_province' => 'getForeignProvince',
         'transfer_agent_name' => 'getTransferAgentName',
-        'last_filing' => 'getLastFiling'
+        'last_filing' => 'getLastFiling',
+        'id' => 'getId',
+        'created_at' => 'getCreatedAt',
+        'updated_at' => 'getUpdatedAt'
     ];
 
     /**
@@ -327,9 +327,6 @@ class IssuerResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['id'] = $data['id'] ?? null;
-        $this->container['created_at'] = $data['created_at'] ?? null;
-        $this->container['updated_at'] = $data['updated_at'] ?? null;
         $this->container['business_name'] = $data['business_name'] ?? null;
         $this->container['business_name2'] = $data['business_name2'] ?? null;
         $this->container['name'] = $data['name'] ?? null;
@@ -352,6 +349,9 @@ class IssuerResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['foreign_province'] = $data['foreign_province'] ?? null;
         $this->container['transfer_agent_name'] = $data['transfer_agent_name'] ?? null;
         $this->container['last_filing'] = $data['last_filing'] ?? null;
+        $this->container['id'] = $data['id'] ?? null;
+        $this->container['created_at'] = $data['created_at'] ?? null;
+        $this->container['updated_at'] = $data['updated_at'] ?? null;
     }
 
     /**
@@ -413,78 +413,6 @@ class IssuerResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets id
-     *
-     * @return string|null
-     */
-    public function getId()
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     *
-     * @param string|null $id Unique identifier set when the record is created.
-     *
-     * @return self
-     */
-    public function setId($id)
-    {
-        $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets created_at
-     *
-     * @return \DateTime|null
-     */
-    public function getCreatedAt()
-    {
-        return $this->container['created_at'];
-    }
-
-    /**
-     * Sets created_at
-     *
-     * @param \DateTime|null $created_at Date time when the record was created.
-     *
-     * @return self
-     */
-    public function setCreatedAt($created_at)
-    {
-        $this->container['created_at'] = $created_at;
-
-        return $this;
-    }
-
-    /**
-     * Gets updated_at
-     *
-     * @return \DateTime|null
-     */
-    public function getUpdatedAt()
-    {
-        return $this->container['updated_at'];
-    }
-
-    /**
-     * Sets updated_at
-     *
-     * @param \DateTime|null $updated_at Date time when the record was last updated.
-     *
-     * @return self
-     */
-    public function setUpdatedAt($updated_at)
-    {
-        $this->container['updated_at'] = $updated_at;
-
-        return $this;
-    }
 
     /**
      * Gets business_name
@@ -1024,6 +952,78 @@ class IssuerResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setLastFiling($last_filing)
     {
         $this->container['last_filing'] = $last_filing;
+
+        return $this;
+    }
+
+    /**
+     * Gets id
+     *
+     * @return string|null
+     */
+    public function getId()
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param string|null $id Unique identifier set when the record is created.
+     *
+     * @return self
+     */
+    public function setId($id)
+    {
+        $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets created_at
+     *
+     * @return \DateTime|null
+     */
+    public function getCreatedAt()
+    {
+        return $this->container['created_at'];
+    }
+
+    /**
+     * Sets created_at
+     *
+     * @param \DateTime|null $created_at Date time when the record was created.
+     *
+     * @return self
+     */
+    public function setCreatedAt($created_at)
+    {
+        $this->container['created_at'] = $created_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets updated_at
+     *
+     * @return \DateTime|null
+     */
+    public function getUpdatedAt()
+    {
+        return $this->container['updated_at'];
+    }
+
+    /**
+     * Sets updated_at
+     *
+     * @param \DateTime|null $updated_at Date time when the record was last updated.
+     *
+     * @return self
+     */
+    public function setUpdatedAt($updated_at)
+    {
+        $this->container['updated_at'] = $updated_at;
 
         return $this;
     }

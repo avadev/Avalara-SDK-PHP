@@ -782,7 +782,7 @@ class Issuers1099Api
      *
      * @throws \Avalara\SDK\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Avalara\SDK\Model\A1099\V2\GetIssuer200Response|\Avalara\SDK\Model\A1099\V2\ErrorResponse|string
+     * @return \Avalara\SDK\Model\A1099\V2\IssuerResponse|\Avalara\SDK\Model\A1099\V2\ErrorResponse|string
      */
     public function getIssuer($request_parameters)
     {
@@ -799,7 +799,7 @@ class Issuers1099Api
      *
      * @throws \Avalara\SDK\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Avalara\SDK\Model\A1099\V2\GetIssuer200Response|\Avalara\SDK\Model\A1099\V2\ErrorResponse|string, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Avalara\SDK\Model\A1099\V2\IssuerResponse|\Avalara\SDK\Model\A1099\V2\ErrorResponse|string, HTTP status code, HTTP response headers (array of strings)
      */
     public function getIssuerWithHttpInfo($request_parameters, $isRetry = false)
     {
@@ -855,7 +855,7 @@ class Issuers1099Api
 
             switch($statusCode) {
                 case 200:
-                    if ('\Avalara\SDK\Model\A1099\V2\GetIssuer200Response' === '\SplFileObject') {
+                    if ('\Avalara\SDK\Model\A1099\V2\IssuerResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -863,7 +863,7 @@ class Issuers1099Api
                     $logObject->populateResponseInfo($content, $response);
                     $this->client->logger->info(json_encode($logObject));
                     return [
-                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\A1099\V2\GetIssuer200Response', []),
+                        ObjectSerializer::deserialize($content, '\Avalara\SDK\Model\A1099\V2\IssuerResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -895,7 +895,7 @@ class Issuers1099Api
                     ];
             }
 
-            $returnType = '\Avalara\SDK\Model\A1099\V2\GetIssuer200Response';
+            $returnType = '\Avalara\SDK\Model\A1099\V2\IssuerResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -914,7 +914,7 @@ class Issuers1099Api
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Avalara\SDK\Model\A1099\V2\GetIssuer200Response',
+                        '\Avalara\SDK\Model\A1099\V2\IssuerResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -973,7 +973,7 @@ class Issuers1099Api
     public function getIssuerAsyncWithHttpInfo($request_parameters, $isRetry = false)
     {
         $logObject = new LogObject($this->client->logRequestAndResponse);
-        $returnType = '\Avalara\SDK\Model\A1099\V2\GetIssuer200Response';
+        $returnType = '\Avalara\SDK\Model\A1099\V2\IssuerResponse';
         $request = $this->getIssuerRequest($request_parameters);
         $logObject->populateRequestInfo($request);
         return $this->client
