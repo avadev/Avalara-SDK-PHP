@@ -7,7 +7,6 @@ use \Avalara\SDK\Test;
 use \Avalara\SDK\Configuration;
 use \Avalara\SDK\ApiClient;
 use PHPUnit\Framework\TestCase;
-use \GuzzleHttp\Promise\queue;
 use Dotenv\Dotenv;
 use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
@@ -58,7 +57,7 @@ class EInvoicingTest extends TestCase
             );
             //  Tick the promise queue to trigger the callback
             $result->wait();
-            \GuzzleHttp\Promise\queue();
+            \GuzzleHttp\Promise\Utils::queue()->run();
         }
         catch (Exception $e) {
             echo $e;
