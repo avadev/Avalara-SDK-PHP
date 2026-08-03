@@ -20,7 +20,7 @@
  *
  * Avalara 1099 & W-9 API Definition
  *
- * ## Authentication  #### Step 1: Generate API Credentials  Generate a *client ID* and *client secret* from your [Avalara1099 account](https://sbx.track1099.com/api_tokens): *Your Profile → API*.  #### Step 2: Get an Identity Token  Send a `POST` request to the **Identity Token URL** with your *client ID* and *client secret* from Step 1 as form-encoded parameters:  ```http POST https://identity.avalara.com/connect/token Content-Type: application/x-www-form-urlencoded  grant_type=client_credentials client_id=<your client ID> client_secret=<your client secret> ```  **Body parameters** - `grant_type` — Always `client_credentials` - `client_id` — Your *client ID* from Step 1 - `client_secret` — Your *client secret* from Step 1  **Successful response**  ```json {   \"access_token\": \"eyJhbGci...\",   \"expires_in\": 3600,   \"token_type\": \"Bearer\" } ```  Use the `access_token` as a bearer token in the `Authorization` header on every A1099 API request:  ```http Authorization: Bearer <access_token> ```  ---  For more on authenticating requests, see the [A1099 authentication guide](https://developer.avalara.com/1099-and-w-9/kny2997001535374/).  ---  ## Environments  #### Production - **Avalara 1099 API URL:** [`https://api.avalara.com/avalara1099`](https://api.avalara.com/avalara1099) - **Identity Token URL:** [`https://identity.avalara.com/connect/token`](https://identity.avalara.com/connect/token)  #### Sandbox - **Avalara 1099 API URL:** [`https://api.sbx.avalara.com/avalara1099`](https://api.sbx.avalara.com/avalara1099) - **Identity Token URL:** [`https://ai-sbx.avlr.sh/connect/token`](https://ai-sbx.avlr.sh/connect/token)  ---  ## API & SDK Documentation  [Avalara 1099 API Reference](https://developer.avalara.com/api-reference/avalara1099/avalara1099/)  [Avalara SDKs](https://developer.avalara.com/sdk/)  [Swagger](https://api.avalara.com/avalara1099/swagger/index.html?api-version=2.0)
+ * > **Note:** You must have an active Avalara 1099 & W-9 subscription to authenticate and use these APIs. If you don't have a subscription, please contact our [Sales team](https://www.avalara.com/us/en/products/1099/request-a-demo.html).  ## Authentication  The Avalara 1099 & W-9 API uses **Bearer Token Authentication**. To authenticate, acquire a bearer token using a **Client ID** and **Client Secret** that you generate in the Avalara 1099 & W-9 web application.  The sample cURL commands below use **production** URLs. For **sandbox**, replace them with the sandbox URLs listed in the Sandbox Environment table.  ### Option 1 — Client ID and Client Secret (recommended)  **Step 1: Create API credentials in the Avalara 1099 & W-9 web app**  For a full walkthrough, see the [Avalara 1099 & W-9 integration guide](https://developer.avalara.com/products/avalara-1099-and-w9/integration-guides/1099-and-w-9/siu2796410674799/).  > **Note:** To enable credential creation you must first enter a valid company address in **Account Settings > Account** and enable two-factor authentication in **Account Settings > Security**.  1. In Avalara 1099 & W-9, open **Account Settings** (gear icon, top-right of any page) and select **API**. 2. Click **Create new credentials** (a valid company address and 2FA are required). 3. Copy your **Client Id** and **Client Secret** securely — they will not be shown again after you leave the screen.  **Step 2: Request a bearer token**  ```bash curl -X POST 'https://identity.avalara.com/connect/token' \\   --header 'Content-Type: application/x-www-form-urlencoded' \\   --data-urlencode 'grant_type=client_credentials' \\   --data-urlencode 'client_id={{client_id}}' \\   --data-urlencode 'client_secret={{client_secret}}' ```  ### Option 2 — Account ID and License Key  If your organization already uses other Avalara products (AvaTax, CertCapture) and has access to the logged-in area of Avalara.com, you can generate the bearer token using your **Account ID** and **License Key**.  > **Note:** If you already have a license key for other Avalara products you can reuse it. Generating a new key will reset any previously created key.  1. Log in to Avalara.com. 2. Go to **Settings → License and API Keys**. 3. Click **Generate New Key**. 4. Note your **Account ID** from the Account menu.  ```bash curl -X POST 'https://identity.avalara.com/connect/token' \\   --header 'Content-Type: application/x-www-form-urlencoded' \\   --data-urlencode 'grant_type=client_credentials' \\   --data-urlencode 'client_id={{accountId}}' \\   --data-urlencode 'client_secret={{licenseKey}}' ```  ### Using and renewing the bearer token  Include the token in the `Authorization` header on every request:  ```http Authorization: Bearer {access_token} ```  Tokens expire after the number of seconds in the `expires_in` field of the token response. Your integration must renew the token before it expires.  **Example token response**  ```json {   \"access_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI...\",   \"expires_in\": 3600,   \"token_type\": \"Bearer\",   \"scope\": \"avatax_api iam-ds\" } ```  ### Sandbox Environment  Use the same steps as production, replacing the base URLs:  | Purpose | Production | Sandbox | | --- | --- | --- | | Account & License Key management (web) | `https://www.avalara.com` | `https://sandbox.admin.avalara.com` | | Account & License Key management (API) | `https://rest.avatax.com` | `https://sandbox-rest.avatax.com` | | Token generation | `https://identity.avalara.com` | `https://ai-sbx.avlr.sh` |  ## Environments  #### Production - **Avalara 1099 API URL:** [`https://api.avalara.com/avalara1099`](https://api.avalara.com/avalara1099) - **Identity Token URL:** [`https://identity.avalara.com/connect/token`](https://identity.avalara.com/connect/token)  #### Sandbox - **Avalara 1099 API URL:** [`https://api.sbx.avalara.com/avalara1099`](https://api.sbx.avalara.com/avalara1099) - **Identity Token URL:** [`https://ai-sbx.avlr.sh/connect/token`](https://ai-sbx.avlr.sh/connect/token)  ---  ## API & SDK Documentation  [Avalara 1099 API Reference](https://developer.avalara.com/api-reference/avalara1099/avalara1099/)  [Avalara SDKs](https://developer.avalara.com/sdk/)  [Swagger](https://api.avalara.com/avalara1099/swagger/index.html?api-version=2.0)
  *
  * @category   Avalara client libraries
  * @package    Avalara\SDK\API\A1099\V2
@@ -88,7 +88,6 @@ class Form1095B implements ModelInterface, ArrayAccess, \JsonSerializable
         'reference_id' => 'string',
         'tin' => 'string',
         'recipient_name' => 'string',
-        'tin_type' => 'string',
         'recipient_second_name' => 'string',
         'address' => 'string',
         'address2' => 'string',
@@ -96,8 +95,6 @@ class Form1095B implements ModelInterface, ArrayAccess, \JsonSerializable
         'state' => 'string',
         'zip' => 'string',
         'email' => 'string',
-        'account_number' => 'string',
-        'office_code' => 'string',
         'non_us_province' => 'string',
         'country_code' => 'string',
         'federal_efile_date' => '\DateTime',
@@ -105,10 +102,8 @@ class Form1095B implements ModelInterface, ArrayAccess, \JsonSerializable
         'state_efile_date' => '\DateTime',
         'recipient_edelivery_date' => '\DateTime',
         'tin_match' => 'bool',
-        'no_tin' => 'bool',
         'address_verification' => 'bool',
         'state_and_local_withholding' => '\Avalara\SDK\Model\A1099\V2\StateAndLocalWithholding',
-        'second_tin_notice' => 'bool',
         'federal_efile_status' => '\Avalara\SDK\Model\A1099\V2\Form1099StatusDetail',
         'state_efile_status' => '\Avalara\SDK\Model\A1099\V2\StateEfileStatusDetail[]',
         'postal_mail_status' => '\Avalara\SDK\Model\A1099\V2\Form1099StatusDetail',
@@ -144,7 +139,6 @@ class Form1095B implements ModelInterface, ArrayAccess, \JsonSerializable
         'reference_id' => null,
         'tin' => null,
         'recipient_name' => null,
-        'tin_type' => null,
         'recipient_second_name' => null,
         'address' => null,
         'address2' => null,
@@ -152,8 +146,6 @@ class Form1095B implements ModelInterface, ArrayAccess, \JsonSerializable
         'state' => null,
         'zip' => null,
         'email' => null,
-        'account_number' => null,
-        'office_code' => null,
         'non_us_province' => null,
         'country_code' => null,
         'federal_efile_date' => 'date',
@@ -161,10 +153,8 @@ class Form1095B implements ModelInterface, ArrayAccess, \JsonSerializable
         'state_efile_date' => 'date',
         'recipient_edelivery_date' => 'date',
         'tin_match' => null,
-        'no_tin' => null,
         'address_verification' => null,
         'state_and_local_withholding' => null,
-        'second_tin_notice' => null,
         'federal_efile_status' => null,
         'state_efile_status' => null,
         'postal_mail_status' => null,
@@ -219,7 +209,6 @@ class Form1095B implements ModelInterface, ArrayAccess, \JsonSerializable
         'reference_id' => 'referenceId',
         'tin' => 'tin',
         'recipient_name' => 'recipientName',
-        'tin_type' => 'tinType',
         'recipient_second_name' => 'recipientSecondName',
         'address' => 'address',
         'address2' => 'address2',
@@ -227,8 +216,6 @@ class Form1095B implements ModelInterface, ArrayAccess, \JsonSerializable
         'state' => 'state',
         'zip' => 'zip',
         'email' => 'email',
-        'account_number' => 'accountNumber',
-        'office_code' => 'officeCode',
         'non_us_province' => 'nonUsProvince',
         'country_code' => 'countryCode',
         'federal_efile_date' => 'federalEfileDate',
@@ -236,10 +223,8 @@ class Form1095B implements ModelInterface, ArrayAccess, \JsonSerializable
         'state_efile_date' => 'stateEfileDate',
         'recipient_edelivery_date' => 'recipientEdeliveryDate',
         'tin_match' => 'tinMatch',
-        'no_tin' => 'noTin',
         'address_verification' => 'addressVerification',
         'state_and_local_withholding' => 'stateAndLocalWithholding',
-        'second_tin_notice' => 'secondTinNotice',
         'federal_efile_status' => 'federalEfileStatus',
         'state_efile_status' => 'stateEfileStatus',
         'postal_mail_status' => 'postalMailStatus',
@@ -273,7 +258,6 @@ class Form1095B implements ModelInterface, ArrayAccess, \JsonSerializable
         'reference_id' => 'setReferenceId',
         'tin' => 'setTin',
         'recipient_name' => 'setRecipientName',
-        'tin_type' => 'setTinType',
         'recipient_second_name' => 'setRecipientSecondName',
         'address' => 'setAddress',
         'address2' => 'setAddress2',
@@ -281,8 +265,6 @@ class Form1095B implements ModelInterface, ArrayAccess, \JsonSerializable
         'state' => 'setState',
         'zip' => 'setZip',
         'email' => 'setEmail',
-        'account_number' => 'setAccountNumber',
-        'office_code' => 'setOfficeCode',
         'non_us_province' => 'setNonUsProvince',
         'country_code' => 'setCountryCode',
         'federal_efile_date' => 'setFederalEfileDate',
@@ -290,10 +272,8 @@ class Form1095B implements ModelInterface, ArrayAccess, \JsonSerializable
         'state_efile_date' => 'setStateEfileDate',
         'recipient_edelivery_date' => 'setRecipientEdeliveryDate',
         'tin_match' => 'setTinMatch',
-        'no_tin' => 'setNoTin',
         'address_verification' => 'setAddressVerification',
         'state_and_local_withholding' => 'setStateAndLocalWithholding',
-        'second_tin_notice' => 'setSecondTinNotice',
         'federal_efile_status' => 'setFederalEfileStatus',
         'state_efile_status' => 'setStateEfileStatus',
         'postal_mail_status' => 'setPostalMailStatus',
@@ -327,7 +307,6 @@ class Form1095B implements ModelInterface, ArrayAccess, \JsonSerializable
         'reference_id' => 'getReferenceId',
         'tin' => 'getTin',
         'recipient_name' => 'getRecipientName',
-        'tin_type' => 'getTinType',
         'recipient_second_name' => 'getRecipientSecondName',
         'address' => 'getAddress',
         'address2' => 'getAddress2',
@@ -335,8 +314,6 @@ class Form1095B implements ModelInterface, ArrayAccess, \JsonSerializable
         'state' => 'getState',
         'zip' => 'getZip',
         'email' => 'getEmail',
-        'account_number' => 'getAccountNumber',
-        'office_code' => 'getOfficeCode',
         'non_us_province' => 'getNonUsProvince',
         'country_code' => 'getCountryCode',
         'federal_efile_date' => 'getFederalEfileDate',
@@ -344,10 +321,8 @@ class Form1095B implements ModelInterface, ArrayAccess, \JsonSerializable
         'state_efile_date' => 'getStateEfileDate',
         'recipient_edelivery_date' => 'getRecipientEdeliveryDate',
         'tin_match' => 'getTinMatch',
-        'no_tin' => 'getNoTin',
         'address_verification' => 'getAddressVerification',
         'state_and_local_withholding' => 'getStateAndLocalWithholding',
-        'second_tin_notice' => 'getSecondTinNotice',
         'federal_efile_status' => 'getFederalEfileStatus',
         'state_efile_status' => 'getStateEfileStatus',
         'postal_mail_status' => 'getPostalMailStatus',
@@ -417,10 +392,6 @@ class Form1095B implements ModelInterface, ArrayAccess, \JsonSerializable
     const TYPE__1099_NEC = '1099-NEC';
     const TYPE__1099_R = '1099-R';
     const TYPE_W_2 = 'W-2';
-    const TIN_TYPE_EIN = 'EIN';
-    const TIN_TYPE_SSN = 'SSN';
-    const TIN_TYPE_ITIN = 'ITIN';
-    const TIN_TYPE_ATIN = 'ATIN';
 
     /**
      * Gets allowable values of the enum
@@ -462,21 +433,6 @@ class Form1095B implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getTinTypeAllowableValues()
-    {
-        return [
-            self::TIN_TYPE_EIN,
-            self::TIN_TYPE_SSN,
-            self::TIN_TYPE_ITIN,
-            self::TIN_TYPE_ATIN,
-        ];
-    }
-
-    /**
      * Associative array for storing property values
      *
      * @var mixed[]
@@ -507,7 +463,6 @@ class Form1095B implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['reference_id'] = $data['reference_id'] ?? null;
         $this->container['tin'] = $data['tin'] ?? null;
         $this->container['recipient_name'] = $data['recipient_name'] ?? null;
-        $this->container['tin_type'] = $data['tin_type'] ?? null;
         $this->container['recipient_second_name'] = $data['recipient_second_name'] ?? null;
         $this->container['address'] = $data['address'] ?? null;
         $this->container['address2'] = $data['address2'] ?? null;
@@ -515,8 +470,6 @@ class Form1095B implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['state'] = $data['state'] ?? null;
         $this->container['zip'] = $data['zip'] ?? null;
         $this->container['email'] = $data['email'] ?? null;
-        $this->container['account_number'] = $data['account_number'] ?? null;
-        $this->container['office_code'] = $data['office_code'] ?? null;
         $this->container['non_us_province'] = $data['non_us_province'] ?? null;
         $this->container['country_code'] = $data['country_code'] ?? null;
         $this->container['federal_efile_date'] = $data['federal_efile_date'] ?? null;
@@ -524,10 +477,8 @@ class Form1095B implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['state_efile_date'] = $data['state_efile_date'] ?? null;
         $this->container['recipient_edelivery_date'] = $data['recipient_edelivery_date'] ?? null;
         $this->container['tin_match'] = $data['tin_match'] ?? null;
-        $this->container['no_tin'] = $data['no_tin'] ?? null;
         $this->container['address_verification'] = $data['address_verification'] ?? null;
         $this->container['state_and_local_withholding'] = $data['state_and_local_withholding'] ?? null;
-        $this->container['second_tin_notice'] = $data['second_tin_notice'] ?? null;
         $this->container['federal_efile_status'] = $data['federal_efile_status'] ?? null;
         $this->container['state_efile_status'] = $data['state_efile_status'] ?? null;
         $this->container['postal_mail_status'] = $data['postal_mail_status'] ?? null;
@@ -574,18 +525,6 @@ class Form1095B implements ModelInterface, ArrayAccess, \JsonSerializable
             $invalidProperties[] = sprintf(
                 "invalid value '%s' for 'type', must be one of '%s'",
                 $this->container['type'],
-                implode("', '", $allowedValues)
-            );
-        }
-
-        if ($this->container['recipient_name'] === null) {
-            $invalidProperties[] = "'recipient_name' can't be null";
-        }
-        $allowedValues = $this->getTinTypeAllowableValues();
-        if (!is_null($this->container['tin_type']) && !in_array($this->container['tin_type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'tin_type', must be one of '%s'",
-                $this->container['tin_type'],
                 implode("', '", $allowedValues)
             );
         }
@@ -997,7 +936,8 @@ class Form1095B implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets recipient_name
      *
-     * @return string
+     * @return string|null
+     * @deprecated
      */
     public function getRecipientName()
     {
@@ -1007,9 +947,10 @@ class Form1095B implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets recipient_name
      *
-     * @param string $recipient_name Recipient name
+     * @param string|null $recipient_name DEPRECATED: Use `businessName` for businesses; use `firstName`, `middleName`, `lastName`, and `suffixName` for individuals.
      *
      * @return self
+     * @deprecated
      */
     public function setRecipientName($recipient_name)
     {
@@ -1019,43 +960,10 @@ class Form1095B implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets tin_type
-     *
-     * @return string|null
-     */
-    public function getTinType()
-    {
-        return $this->container['tin_type'];
-    }
-
-    /**
-     * Sets tin_type
-     *
-     * @param string|null $tin_type Tax Identification Number (TIN) type.  Available values: - EIN: Employer Identification Number - SSN: Social Security Number - ITIN: Individual Taxpayer Identification Number - ATIN: Adoption Taxpayer Identification Number
-     *
-     * @return self
-     */
-    public function setTinType($tin_type)
-    {
-        $allowedValues = $this->getTinTypeAllowableValues();
-        if (!is_null($tin_type) && !in_array($tin_type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'tin_type', must be one of '%s'",
-                    $tin_type,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['tin_type'] = $tin_type;
-
-        return $this;
-    }
-
-    /**
      * Gets recipient_second_name
      *
      * @return string|null
+     * @deprecated
      */
     public function getRecipientSecondName()
     {
@@ -1065,9 +973,10 @@ class Form1095B implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets recipient_second_name
      *
-     * @param string|null $recipient_second_name Recipient second name
+     * @param string|null $recipient_second_name DEPRECATED: Use `businessName2` instead.
      *
      * @return self
+     * @deprecated
      */
     public function setRecipientSecondName($recipient_second_name)
     {
@@ -1216,54 +1125,6 @@ class Form1095B implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setEmail($email)
     {
         $this->container['email'] = $email;
-
-        return $this;
-    }
-
-    /**
-     * Gets account_number
-     *
-     * @return string|null
-     */
-    public function getAccountNumber()
-    {
-        return $this->container['account_number'];
-    }
-
-    /**
-     * Sets account_number
-     *
-     * @param string|null $account_number Account number
-     *
-     * @return self
-     */
-    public function setAccountNumber($account_number)
-    {
-        $this->container['account_number'] = $account_number;
-
-        return $this;
-    }
-
-    /**
-     * Gets office_code
-     *
-     * @return string|null
-     */
-    public function getOfficeCode()
-    {
-        return $this->container['office_code'];
-    }
-
-    /**
-     * Sets office_code
-     *
-     * @param string|null $office_code Office code
-     *
-     * @return self
-     */
-    public function setOfficeCode($office_code)
-    {
-        $this->container['office_code'] = $office_code;
 
         return $this;
     }
@@ -1437,30 +1298,6 @@ class Form1095B implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets no_tin
-     *
-     * @return bool|null
-     */
-    public function getNoTin()
-    {
-        return $this->container['no_tin'];
-    }
-
-    /**
-     * Sets no_tin
-     *
-     * @param bool|null $no_tin No TIN indicator
-     *
-     * @return self
-     */
-    public function setNoTin($no_tin)
-    {
-        $this->container['no_tin'] = $no_tin;
-
-        return $this;
-    }
-
-    /**
      * Gets address_verification
      *
      * @return bool|null
@@ -1504,30 +1341,6 @@ class Form1095B implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setStateAndLocalWithholding($state_and_local_withholding)
     {
         $this->container['state_and_local_withholding'] = $state_and_local_withholding;
-
-        return $this;
-    }
-
-    /**
-     * Gets second_tin_notice
-     *
-     * @return bool|null
-     */
-    public function getSecondTinNotice()
-    {
-        return $this->container['second_tin_notice'];
-    }
-
-    /**
-     * Sets second_tin_notice
-     *
-     * @param bool|null $second_tin_notice Second TIN notice
-     *
-     * @return self
-     */
-    public function setSecondTinNotice($second_tin_notice)
-    {
-        $this->container['second_tin_notice'] = $second_tin_notice;
 
         return $this;
     }

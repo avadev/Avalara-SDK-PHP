@@ -20,7 +20,7 @@
  *
  * Avalara 1099 & W-9 API Definition
  *
- * ## Authentication  #### Step 1: Generate API Credentials  Generate a *client ID* and *client secret* from your [Avalara1099 account](https://sbx.track1099.com/api_tokens): *Your Profile → API*.  #### Step 2: Get an Identity Token  Send a `POST` request to the **Identity Token URL** with your *client ID* and *client secret* from Step 1 as form-encoded parameters:  ```http POST https://identity.avalara.com/connect/token Content-Type: application/x-www-form-urlencoded  grant_type=client_credentials client_id=<your client ID> client_secret=<your client secret> ```  **Body parameters** - `grant_type` — Always `client_credentials` - `client_id` — Your *client ID* from Step 1 - `client_secret` — Your *client secret* from Step 1  **Successful response**  ```json {   \"access_token\": \"eyJhbGci...\",   \"expires_in\": 3600,   \"token_type\": \"Bearer\" } ```  Use the `access_token` as a bearer token in the `Authorization` header on every A1099 API request:  ```http Authorization: Bearer <access_token> ```  ---  For more on authenticating requests, see the [A1099 authentication guide](https://developer.avalara.com/1099-and-w-9/kny2997001535374/).  ---  ## Environments  #### Production - **Avalara 1099 API URL:** [`https://api.avalara.com/avalara1099`](https://api.avalara.com/avalara1099) - **Identity Token URL:** [`https://identity.avalara.com/connect/token`](https://identity.avalara.com/connect/token)  #### Sandbox - **Avalara 1099 API URL:** [`https://api.sbx.avalara.com/avalara1099`](https://api.sbx.avalara.com/avalara1099) - **Identity Token URL:** [`https://ai-sbx.avlr.sh/connect/token`](https://ai-sbx.avlr.sh/connect/token)  ---  ## API & SDK Documentation  [Avalara 1099 API Reference](https://developer.avalara.com/api-reference/avalara1099/avalara1099/)  [Avalara SDKs](https://developer.avalara.com/sdk/)  [Swagger](https://api.avalara.com/avalara1099/swagger/index.html?api-version=2.0)
+ * > **Note:** You must have an active Avalara 1099 & W-9 subscription to authenticate and use these APIs. If you don't have a subscription, please contact our [Sales team](https://www.avalara.com/us/en/products/1099/request-a-demo.html).  ## Authentication  The Avalara 1099 & W-9 API uses **Bearer Token Authentication**. To authenticate, acquire a bearer token using a **Client ID** and **Client Secret** that you generate in the Avalara 1099 & W-9 web application.  The sample cURL commands below use **production** URLs. For **sandbox**, replace them with the sandbox URLs listed in the Sandbox Environment table.  ### Option 1 — Client ID and Client Secret (recommended)  **Step 1: Create API credentials in the Avalara 1099 & W-9 web app**  For a full walkthrough, see the [Avalara 1099 & W-9 integration guide](https://developer.avalara.com/products/avalara-1099-and-w9/integration-guides/1099-and-w-9/siu2796410674799/).  > **Note:** To enable credential creation you must first enter a valid company address in **Account Settings > Account** and enable two-factor authentication in **Account Settings > Security**.  1. In Avalara 1099 & W-9, open **Account Settings** (gear icon, top-right of any page) and select **API**. 2. Click **Create new credentials** (a valid company address and 2FA are required). 3. Copy your **Client Id** and **Client Secret** securely — they will not be shown again after you leave the screen.  **Step 2: Request a bearer token**  ```bash curl -X POST 'https://identity.avalara.com/connect/token' \\   --header 'Content-Type: application/x-www-form-urlencoded' \\   --data-urlencode 'grant_type=client_credentials' \\   --data-urlencode 'client_id={{client_id}}' \\   --data-urlencode 'client_secret={{client_secret}}' ```  ### Option 2 — Account ID and License Key  If your organization already uses other Avalara products (AvaTax, CertCapture) and has access to the logged-in area of Avalara.com, you can generate the bearer token using your **Account ID** and **License Key**.  > **Note:** If you already have a license key for other Avalara products you can reuse it. Generating a new key will reset any previously created key.  1. Log in to Avalara.com. 2. Go to **Settings → License and API Keys**. 3. Click **Generate New Key**. 4. Note your **Account ID** from the Account menu.  ```bash curl -X POST 'https://identity.avalara.com/connect/token' \\   --header 'Content-Type: application/x-www-form-urlencoded' \\   --data-urlencode 'grant_type=client_credentials' \\   --data-urlencode 'client_id={{accountId}}' \\   --data-urlencode 'client_secret={{licenseKey}}' ```  ### Using and renewing the bearer token  Include the token in the `Authorization` header on every request:  ```http Authorization: Bearer {access_token} ```  Tokens expire after the number of seconds in the `expires_in` field of the token response. Your integration must renew the token before it expires.  **Example token response**  ```json {   \"access_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI...\",   \"expires_in\": 3600,   \"token_type\": \"Bearer\",   \"scope\": \"avatax_api iam-ds\" } ```  ### Sandbox Environment  Use the same steps as production, replacing the base URLs:  | Purpose | Production | Sandbox | | --- | --- | --- | | Account & License Key management (web) | `https://www.avalara.com` | `https://sandbox.admin.avalara.com` | | Account & License Key management (API) | `https://rest.avatax.com` | `https://sandbox-rest.avatax.com` | | Token generation | `https://identity.avalara.com` | `https://ai-sbx.avlr.sh` |  ## Environments  #### Production - **Avalara 1099 API URL:** [`https://api.avalara.com/avalara1099`](https://api.avalara.com/avalara1099) - **Identity Token URL:** [`https://identity.avalara.com/connect/token`](https://identity.avalara.com/connect/token)  #### Sandbox - **Avalara 1099 API URL:** [`https://api.sbx.avalara.com/avalara1099`](https://api.sbx.avalara.com/avalara1099) - **Identity Token URL:** [`https://ai-sbx.avlr.sh/connect/token`](https://ai-sbx.avlr.sh/connect/token)  ---  ## API & SDK Documentation  [Avalara 1099 API Reference](https://developer.avalara.com/api-reference/avalara1099/avalara1099/)  [Avalara SDKs](https://developer.avalara.com/sdk/)  [Swagger](https://api.avalara.com/avalara1099/swagger/index.html?api-version=2.0)
  *
  * @category   Avalara client libraries
  * @package    Avalara\SDK\API\A1099\V2
@@ -71,9 +71,6 @@ class CompanyResponse implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'id' => 'string',
-        'created_at' => '\DateTime',
-        'updated_at' => '\DateTime',
         'name' => 'string',
         'dba_name' => 'string',
         'email' => 'string',
@@ -90,7 +87,10 @@ class CompanyResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         'country_code' => 'string',
         'resend_requests' => 'bool',
         'resend_interval_days' => 'int',
-        'max_reminder_attempts' => 'int'
+        'max_reminder_attempts' => 'int',
+        'id' => 'string',
+        'created_at' => '\DateTime',
+        'updated_at' => '\DateTime'
     ];
 
     /**
@@ -101,9 +101,6 @@ class CompanyResponse implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'id' => null,
-        'created_at' => 'date-time',
-        'updated_at' => 'date-time',
         'name' => null,
         'dba_name' => null,
         'email' => null,
@@ -120,7 +117,10 @@ class CompanyResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         'country_code' => null,
         'resend_requests' => null,
         'resend_interval_days' => 'int32',
-        'max_reminder_attempts' => 'int32'
+        'max_reminder_attempts' => 'int32',
+        'id' => null,
+        'created_at' => 'date-time',
+        'updated_at' => 'date-time'
     ];
 
     /**
@@ -150,9 +150,6 @@ class CompanyResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
-        'created_at' => 'createdAt',
-        'updated_at' => 'updatedAt',
         'name' => 'name',
         'dba_name' => 'dbaName',
         'email' => 'email',
@@ -169,7 +166,10 @@ class CompanyResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         'country_code' => 'countryCode',
         'resend_requests' => 'resendRequests',
         'resend_interval_days' => 'resendIntervalDays',
-        'max_reminder_attempts' => 'maxReminderAttempts'
+        'max_reminder_attempts' => 'maxReminderAttempts',
+        'id' => 'id',
+        'created_at' => 'createdAt',
+        'updated_at' => 'updatedAt'
     ];
 
     /**
@@ -178,9 +178,6 @@ class CompanyResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
-        'created_at' => 'setCreatedAt',
-        'updated_at' => 'setUpdatedAt',
         'name' => 'setName',
         'dba_name' => 'setDbaName',
         'email' => 'setEmail',
@@ -197,7 +194,10 @@ class CompanyResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         'country_code' => 'setCountryCode',
         'resend_requests' => 'setResendRequests',
         'resend_interval_days' => 'setResendIntervalDays',
-        'max_reminder_attempts' => 'setMaxReminderAttempts'
+        'max_reminder_attempts' => 'setMaxReminderAttempts',
+        'id' => 'setId',
+        'created_at' => 'setCreatedAt',
+        'updated_at' => 'setUpdatedAt'
     ];
 
     /**
@@ -206,9 +206,6 @@ class CompanyResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
-        'created_at' => 'getCreatedAt',
-        'updated_at' => 'getUpdatedAt',
         'name' => 'getName',
         'dba_name' => 'getDbaName',
         'email' => 'getEmail',
@@ -225,7 +222,10 @@ class CompanyResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         'country_code' => 'getCountryCode',
         'resend_requests' => 'getResendRequests',
         'resend_interval_days' => 'getResendIntervalDays',
-        'max_reminder_attempts' => 'getMaxReminderAttempts'
+        'max_reminder_attempts' => 'getMaxReminderAttempts',
+        'id' => 'getId',
+        'created_at' => 'getCreatedAt',
+        'updated_at' => 'getUpdatedAt'
     ];
 
     /**
@@ -285,9 +285,6 @@ class CompanyResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['id'] = $data['id'] ?? null;
-        $this->container['created_at'] = $data['created_at'] ?? null;
-        $this->container['updated_at'] = $data['updated_at'] ?? null;
         $this->container['name'] = $data['name'] ?? null;
         $this->container['dba_name'] = $data['dba_name'] ?? null;
         $this->container['email'] = $data['email'] ?? null;
@@ -305,6 +302,9 @@ class CompanyResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['resend_requests'] = $data['resend_requests'] ?? null;
         $this->container['resend_interval_days'] = $data['resend_interval_days'] ?? null;
         $this->container['max_reminder_attempts'] = $data['max_reminder_attempts'] ?? null;
+        $this->container['id'] = $data['id'] ?? null;
+        $this->container['created_at'] = $data['created_at'] ?? null;
+        $this->container['updated_at'] = $data['updated_at'] ?? null;
     }
 
     /**
@@ -354,78 +354,6 @@ class CompanyResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets id
-     *
-     * @return string|null
-     */
-    public function getId()
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     *
-     * @param string|null $id Unique identifier set when the record is created.
-     *
-     * @return self
-     */
-    public function setId($id)
-    {
-        $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets created_at
-     *
-     * @return \DateTime|null
-     */
-    public function getCreatedAt()
-    {
-        return $this->container['created_at'];
-    }
-
-    /**
-     * Sets created_at
-     *
-     * @param \DateTime|null $created_at Date time when the record was created.
-     *
-     * @return self
-     */
-    public function setCreatedAt($created_at)
-    {
-        $this->container['created_at'] = $created_at;
-
-        return $this;
-    }
-
-    /**
-     * Gets updated_at
-     *
-     * @return \DateTime|null
-     */
-    public function getUpdatedAt()
-    {
-        return $this->container['updated_at'];
-    }
-
-    /**
-     * Sets updated_at
-     *
-     * @param \DateTime|null $updated_at Date time when the record was last updated.
-     *
-     * @return self
-     */
-    public function setUpdatedAt($updated_at)
-    {
-        $this->container['updated_at'] = $updated_at;
-
-        return $this;
-    }
 
     /**
      * Gets name
@@ -831,6 +759,78 @@ class CompanyResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setMaxReminderAttempts($max_reminder_attempts)
     {
         $this->container['max_reminder_attempts'] = $max_reminder_attempts;
+
+        return $this;
+    }
+
+    /**
+     * Gets id
+     *
+     * @return string|null
+     */
+    public function getId()
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param string|null $id Unique identifier set when the record is created.
+     *
+     * @return self
+     */
+    public function setId($id)
+    {
+        $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets created_at
+     *
+     * @return \DateTime|null
+     */
+    public function getCreatedAt()
+    {
+        return $this->container['created_at'];
+    }
+
+    /**
+     * Sets created_at
+     *
+     * @param \DateTime|null $created_at Date time when the record was created.
+     *
+     * @return self
+     */
+    public function setCreatedAt($created_at)
+    {
+        $this->container['created_at'] = $created_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets updated_at
+     *
+     * @return \DateTime|null
+     */
+    public function getUpdatedAt()
+    {
+        return $this->container['updated_at'];
+    }
+
+    /**
+     * Sets updated_at
+     *
+     * @param \DateTime|null $updated_at Date time when the record was last updated.
+     *
+     * @return self
+     */
+    public function setUpdatedAt($updated_at)
+    {
+        $this->container['updated_at'] = $updated_at;
 
         return $this;
     }

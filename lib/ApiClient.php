@@ -87,6 +87,11 @@ class ApiClient
      * @var bool        The setting for whether the request and response body should be logged or not
      */
     public $logRequestAndResponse;
+
+    /**
+     * @var string      The environment the client is configured against
+     */
+    public $environment;
     
     /**
      * @param Configuration   $config

@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **employee_middle_name** | **string** | The middle name of the employee. | [optional]
 **employee_last_name** | **string** | The last name of the employee. | [optional]
 **employee_name_suffix** | **string** | The name suffix of the employee. | [optional]
-**tin_type** | **string** | Tax Identification Number (TIN) type. | [optional]
+**tin_type** | **string** | Recipient classification.  The platform is transitioning from tax identifier classifications to recipient entity classifications. New values represent recipient entity types and should be preferred. Deprecated values represent identifier formats and remain supported for backward compatibility only.  Available values: - INDIVIDUAL: Recipient is an individual - BUSINESS: Recipient is a business - UNKNOWN: Recipient classification is unknown - EIN: (Deprecated - use BUSINESS) Employer Identification Number - SSN: (Deprecated - use INDIVIDUAL) Social Security Number - ITIN: (Deprecated - use INDIVIDUAL) Individual Taxpayer Identification Number - ATIN: (Deprecated - use INDIVIDUAL) Adoption Taxpayer Identification Number | [optional]
 **tin** | **string** | The taxpayer identification number (TIN). | [optional]
 **address** | **string** | The address of the individual or entity. | [optional]
 **city** | **string** | The city of the address. | [optional]

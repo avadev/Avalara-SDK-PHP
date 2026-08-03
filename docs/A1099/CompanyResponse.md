@@ -4,9 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **string** | Unique identifier set when the record is created. | [optional]
-**created_at** | **\DateTime** | Date time when the record was created. | [optional]
-**updated_at** | **\DateTime** | Date time when the record was last updated. | [optional]
 **name** | **string** | Legal name. Not the DBA name. |
 **dba_name** | **string** | Doing Business As (DBA) name or continuation of a long legal name. | [optional]
 **email** | **string** | Contact email address. For inquiries by vendors/employees. |
@@ -24,5 +21,8 @@ Name | Type | Description | Notes
 **resend_requests** | **bool** | Boolean to enable automatic reminder emails (default: false). | [optional]
 **resend_interval_days** | **int** | Days between reminder emails (7-365, required if resendRequests is true). | [optional]
 **max_reminder_attempts** | **int** | Maximum number of reminder attempts (1-52, required if resendRequests is true). | [optional]
+**id** | **string** | Unique identifier set when the record is created. | [optional]
+**created_at** | **\DateTime** | Date time when the record was created. | [optional]
+**updated_at** | **\DateTime** | Date time when the record was last updated. | [optional]
 
 [[Back to Model list]](../../../README.md#models) [[Back to API list]](../../../README.md#endpoints) [[Back to README]](../../../README.md)

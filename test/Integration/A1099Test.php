@@ -62,7 +62,7 @@ class A1099Test extends TestCase
                 }
             );
             $promise->wait();
-            \GuzzleHttp\Promise\queue();
+            \GuzzleHttp\Promise\Utils::queue()->run();
         } catch (\Exception $e) {
             // If it’s an ApiException, we can drill into the HTTP details
             if ($e instanceof \Avalara\SDK\ApiException) {
@@ -108,7 +108,7 @@ class A1099Test extends TestCase
                 }
             );
             $promise->wait();
-            \GuzzleHttp\Promise\queue();
+            \GuzzleHttp\Promise\Utils::queue()->run();
         } catch (\Exception $e) {
             // If it’s an ApiException, we can drill into the HTTP details
             if ($e instanceof \Avalara\SDK\ApiException) {
@@ -154,7 +154,7 @@ class A1099Test extends TestCase
     //             }
     //         );
     //         $promise->wait();
-    //         \GuzzleHttp\Promise\queue();
+    //         \GuzzleHttp\Promise\Utils::queue()->run();
     //     } catch (\Exception $e) {
     //         // If it’s an ApiException, we can drill into the HTTP details
     //         if ($e instanceof \Avalara\SDK\ApiException) {
