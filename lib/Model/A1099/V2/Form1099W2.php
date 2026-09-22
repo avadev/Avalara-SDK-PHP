@@ -558,6 +558,7 @@ class Form1099W2 implements ModelInterface, ArrayAccess, \JsonSerializable
     const TYPE__1099_K = '1099-K';
     const TYPE__1099_MISC = '1099-MISC';
     const TYPE__1099_NEC = '1099-NEC';
+    const TYPE__1099_PATR = '1099-PATR';
     const TYPE__1099_R = '1099-R';
     const TYPE_W_2 = 'W-2';
     const TIN_TYPE_EIN = 'EIN';
@@ -584,6 +585,7 @@ class Form1099W2 implements ModelInterface, ArrayAccess, \JsonSerializable
             self::TYPE__1099_K,
             self::TYPE__1099_MISC,
             self::TYPE__1099_NEC,
+            self::TYPE__1099_PATR,
             self::TYPE__1099_R,
             self::TYPE_W_2,
         ];

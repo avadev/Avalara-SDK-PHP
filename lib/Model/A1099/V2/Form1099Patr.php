@@ -1,6 +1,6 @@
 <?php
 /**
- * Form1095B
+ * Form1099Patr
  *
  * PHP version 7.3
  *
@@ -44,10 +44,10 @@ use \ArrayAccess;
 use \Avalara\SDK\ObjectSerializer;
 use \Avalara\SDK\Model\ModelInterface;
 /**
- * Form1095B Class Doc Comment
+ * Form1099Patr Class Doc Comment
  *
  * @category Class
- * @description Form 1095-B: Health Coverage
+ * @description Form 1099-PATR: Taxable Distributions Received From Cooperatives                *At least one of the following amounts must be greater than zero:*  Patronage Dividends, Nonpatronage Distributions, Per-Unit Retain Allocations, or Redeemed Nonqualified Notices.                Federal Income Tax Withheld, when provided, must be less than the total of those four amounts.                Specified Cooperative may only be set when at least one of Qualified Payments,  Section 199A(a) Qualified Items, or Section 199A(a) SSTB Items is provided.                Form 1099-PATR has no state or local withholding boxes. &#x60;stateAndLocalWithholding&#x60; is not supported for this  form type on any endpoint: a supplied value is discarded rather than stored, and the field always reads back  as &#x60;null&#x60;.
  * @package  Avalara\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -55,7 +55,7 @@ use \Avalara\SDK\Model\ModelInterface;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class Form1095B implements ModelInterface, ArrayAccess, \JsonSerializable
+class Form1099Patr implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -64,7 +64,7 @@ class Form1095B implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Form1095B';
+    protected static $openAPIModelName = 'Form1099Patr';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -72,13 +72,19 @@ class Form1095B implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'employee_first_name' => 'string',
-        'employee_middle_name' => 'string',
-        'employee_last_name' => 'string',
-        'employee_name_suffix' => 'string',
-        'employee_date_of_birth' => '\DateTime',
-        'origin_of_health_coverage_code' => 'string',
-        'covered_individuals' => '\Avalara\SDK\Model\A1099\V2\CoveredIndividual[]',
+        'patronage_dividends' => 'float',
+        'nonpatronage_distributions' => 'float',
+        'per_unit_retain_allocations' => 'float',
+        'federal_income_tax_withheld' => 'float',
+        'redeemed_nonqualified_notices' => 'float',
+        'section199_ag_deduction' => 'float',
+        'qualified_payments' => 'float',
+        'section199_aa_qualified_items' => 'float',
+        'section199_aa_sstb_items' => 'float',
+        'investment_credit' => 'float',
+        'work_opportunity_credit' => 'float',
+        'other_credits_and_deductions' => 'float',
+        'specified_cooperative_indicator' => 'bool',
         'type' => 'string',
         'id' => 'string',
         'issuer_id' => 'string',
@@ -88,7 +94,6 @@ class Form1095B implements ModelInterface, ArrayAccess, \JsonSerializable
         'reference_id' => 'string',
         'tin' => 'string',
         'recipient_name' => 'string',
-        'recipient_second_name' => 'string',
         'address' => 'string',
         'address2' => 'string',
         'city' => 'string',
@@ -112,7 +117,19 @@ class Form1095B implements ModelInterface, ArrayAccess, \JsonSerializable
         'e_delivery_status' => '\Avalara\SDK\Model\A1099\V2\Form1099StatusDetail',
         'validation_errors' => '\Avalara\SDK\Model\A1099\V2\ValidationError[]',
         'created_at' => '\DateTime',
-        'updated_at' => '\DateTime'
+        'updated_at' => '\DateTime',
+        'tin_type' => 'string',
+        'business_name' => 'string',
+        'business_name2' => 'string',
+        'first_name' => 'string',
+        'middle_name' => 'string',
+        'last_name' => 'string',
+        'suffix_name' => 'string',
+        'recipient_second_name' => 'string',
+        'account_number' => 'string',
+        'office_code' => 'string',
+        'no_tin' => 'bool',
+        'second_tin_notice' => 'bool'
     ];
 
     /**
@@ -123,13 +140,19 @@ class Form1095B implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'employee_first_name' => null,
-        'employee_middle_name' => null,
-        'employee_last_name' => null,
-        'employee_name_suffix' => null,
-        'employee_date_of_birth' => 'date',
-        'origin_of_health_coverage_code' => null,
-        'covered_individuals' => null,
+        'patronage_dividends' => 'double',
+        'nonpatronage_distributions' => 'double',
+        'per_unit_retain_allocations' => 'double',
+        'federal_income_tax_withheld' => 'double',
+        'redeemed_nonqualified_notices' => 'double',
+        'section199_ag_deduction' => 'double',
+        'qualified_payments' => 'double',
+        'section199_aa_qualified_items' => 'double',
+        'section199_aa_sstb_items' => 'double',
+        'investment_credit' => 'double',
+        'work_opportunity_credit' => 'double',
+        'other_credits_and_deductions' => 'double',
+        'specified_cooperative_indicator' => null,
         'type' => null,
         'id' => null,
         'issuer_id' => null,
@@ -139,7 +162,6 @@ class Form1095B implements ModelInterface, ArrayAccess, \JsonSerializable
         'reference_id' => null,
         'tin' => null,
         'recipient_name' => null,
-        'recipient_second_name' => null,
         'address' => null,
         'address2' => null,
         'city' => null,
@@ -163,7 +185,19 @@ class Form1095B implements ModelInterface, ArrayAccess, \JsonSerializable
         'e_delivery_status' => null,
         'validation_errors' => null,
         'created_at' => 'date-time',
-        'updated_at' => 'date-time'
+        'updated_at' => 'date-time',
+        'tin_type' => null,
+        'business_name' => null,
+        'business_name2' => null,
+        'first_name' => null,
+        'middle_name' => null,
+        'last_name' => null,
+        'suffix_name' => null,
+        'recipient_second_name' => null,
+        'account_number' => null,
+        'office_code' => null,
+        'no_tin' => null,
+        'second_tin_notice' => null
     ];
 
     /**
@@ -193,13 +227,19 @@ class Form1095B implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'employee_first_name' => 'employeeFirstName',
-        'employee_middle_name' => 'employeeMiddleName',
-        'employee_last_name' => 'employeeLastName',
-        'employee_name_suffix' => 'employeeNameSuffix',
-        'employee_date_of_birth' => 'employeeDateOfBirth',
-        'origin_of_health_coverage_code' => 'originOfHealthCoverageCode',
-        'covered_individuals' => 'coveredIndividuals',
+        'patronage_dividends' => 'patronageDividends',
+        'nonpatronage_distributions' => 'nonpatronageDistributions',
+        'per_unit_retain_allocations' => 'perUnitRetainAllocations',
+        'federal_income_tax_withheld' => 'federalIncomeTaxWithheld',
+        'redeemed_nonqualified_notices' => 'redeemedNonqualifiedNotices',
+        'section199_ag_deduction' => 'section199AgDeduction',
+        'qualified_payments' => 'qualifiedPayments',
+        'section199_aa_qualified_items' => 'section199AaQualifiedItems',
+        'section199_aa_sstb_items' => 'section199AaSstbItems',
+        'investment_credit' => 'investmentCredit',
+        'work_opportunity_credit' => 'workOpportunityCredit',
+        'other_credits_and_deductions' => 'otherCreditsAndDeductions',
+        'specified_cooperative_indicator' => 'specifiedCooperativeIndicator',
         'type' => 'type',
         'id' => 'id',
         'issuer_id' => 'issuerId',
@@ -209,7 +249,6 @@ class Form1095B implements ModelInterface, ArrayAccess, \JsonSerializable
         'reference_id' => 'referenceId',
         'tin' => 'tin',
         'recipient_name' => 'recipientName',
-        'recipient_second_name' => 'recipientSecondName',
         'address' => 'address',
         'address2' => 'address2',
         'city' => 'city',
@@ -233,7 +272,19 @@ class Form1095B implements ModelInterface, ArrayAccess, \JsonSerializable
         'e_delivery_status' => 'eDeliveryStatus',
         'validation_errors' => 'validationErrors',
         'created_at' => 'createdAt',
-        'updated_at' => 'updatedAt'
+        'updated_at' => 'updatedAt',
+        'tin_type' => 'tinType',
+        'business_name' => 'businessName',
+        'business_name2' => 'businessName2',
+        'first_name' => 'firstName',
+        'middle_name' => 'middleName',
+        'last_name' => 'lastName',
+        'suffix_name' => 'suffixName',
+        'recipient_second_name' => 'recipientSecondName',
+        'account_number' => 'accountNumber',
+        'office_code' => 'officeCode',
+        'no_tin' => 'noTin',
+        'second_tin_notice' => 'secondTinNotice'
     ];
 
     /**
@@ -242,13 +293,19 @@ class Form1095B implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'employee_first_name' => 'setEmployeeFirstName',
-        'employee_middle_name' => 'setEmployeeMiddleName',
-        'employee_last_name' => 'setEmployeeLastName',
-        'employee_name_suffix' => 'setEmployeeNameSuffix',
-        'employee_date_of_birth' => 'setEmployeeDateOfBirth',
-        'origin_of_health_coverage_code' => 'setOriginOfHealthCoverageCode',
-        'covered_individuals' => 'setCoveredIndividuals',
+        'patronage_dividends' => 'setPatronageDividends',
+        'nonpatronage_distributions' => 'setNonpatronageDistributions',
+        'per_unit_retain_allocations' => 'setPerUnitRetainAllocations',
+        'federal_income_tax_withheld' => 'setFederalIncomeTaxWithheld',
+        'redeemed_nonqualified_notices' => 'setRedeemedNonqualifiedNotices',
+        'section199_ag_deduction' => 'setSection199AgDeduction',
+        'qualified_payments' => 'setQualifiedPayments',
+        'section199_aa_qualified_items' => 'setSection199AaQualifiedItems',
+        'section199_aa_sstb_items' => 'setSection199AaSstbItems',
+        'investment_credit' => 'setInvestmentCredit',
+        'work_opportunity_credit' => 'setWorkOpportunityCredit',
+        'other_credits_and_deductions' => 'setOtherCreditsAndDeductions',
+        'specified_cooperative_indicator' => 'setSpecifiedCooperativeIndicator',
         'type' => 'setType',
         'id' => 'setId',
         'issuer_id' => 'setIssuerId',
@@ -258,7 +315,6 @@ class Form1095B implements ModelInterface, ArrayAccess, \JsonSerializable
         'reference_id' => 'setReferenceId',
         'tin' => 'setTin',
         'recipient_name' => 'setRecipientName',
-        'recipient_second_name' => 'setRecipientSecondName',
         'address' => 'setAddress',
         'address2' => 'setAddress2',
         'city' => 'setCity',
@@ -282,7 +338,19 @@ class Form1095B implements ModelInterface, ArrayAccess, \JsonSerializable
         'e_delivery_status' => 'setEDeliveryStatus',
         'validation_errors' => 'setValidationErrors',
         'created_at' => 'setCreatedAt',
-        'updated_at' => 'setUpdatedAt'
+        'updated_at' => 'setUpdatedAt',
+        'tin_type' => 'setTinType',
+        'business_name' => 'setBusinessName',
+        'business_name2' => 'setBusinessName2',
+        'first_name' => 'setFirstName',
+        'middle_name' => 'setMiddleName',
+        'last_name' => 'setLastName',
+        'suffix_name' => 'setSuffixName',
+        'recipient_second_name' => 'setRecipientSecondName',
+        'account_number' => 'setAccountNumber',
+        'office_code' => 'setOfficeCode',
+        'no_tin' => 'setNoTin',
+        'second_tin_notice' => 'setSecondTinNotice'
     ];
 
     /**
@@ -291,13 +359,19 @@ class Form1095B implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'employee_first_name' => 'getEmployeeFirstName',
-        'employee_middle_name' => 'getEmployeeMiddleName',
-        'employee_last_name' => 'getEmployeeLastName',
-        'employee_name_suffix' => 'getEmployeeNameSuffix',
-        'employee_date_of_birth' => 'getEmployeeDateOfBirth',
-        'origin_of_health_coverage_code' => 'getOriginOfHealthCoverageCode',
-        'covered_individuals' => 'getCoveredIndividuals',
+        'patronage_dividends' => 'getPatronageDividends',
+        'nonpatronage_distributions' => 'getNonpatronageDistributions',
+        'per_unit_retain_allocations' => 'getPerUnitRetainAllocations',
+        'federal_income_tax_withheld' => 'getFederalIncomeTaxWithheld',
+        'redeemed_nonqualified_notices' => 'getRedeemedNonqualifiedNotices',
+        'section199_ag_deduction' => 'getSection199AgDeduction',
+        'qualified_payments' => 'getQualifiedPayments',
+        'section199_aa_qualified_items' => 'getSection199AaQualifiedItems',
+        'section199_aa_sstb_items' => 'getSection199AaSstbItems',
+        'investment_credit' => 'getInvestmentCredit',
+        'work_opportunity_credit' => 'getWorkOpportunityCredit',
+        'other_credits_and_deductions' => 'getOtherCreditsAndDeductions',
+        'specified_cooperative_indicator' => 'getSpecifiedCooperativeIndicator',
         'type' => 'getType',
         'id' => 'getId',
         'issuer_id' => 'getIssuerId',
@@ -307,7 +381,6 @@ class Form1095B implements ModelInterface, ArrayAccess, \JsonSerializable
         'reference_id' => 'getReferenceId',
         'tin' => 'getTin',
         'recipient_name' => 'getRecipientName',
-        'recipient_second_name' => 'getRecipientSecondName',
         'address' => 'getAddress',
         'address2' => 'getAddress2',
         'city' => 'getCity',
@@ -331,7 +404,19 @@ class Form1095B implements ModelInterface, ArrayAccess, \JsonSerializable
         'e_delivery_status' => 'getEDeliveryStatus',
         'validation_errors' => 'getValidationErrors',
         'created_at' => 'getCreatedAt',
-        'updated_at' => 'getUpdatedAt'
+        'updated_at' => 'getUpdatedAt',
+        'tin_type' => 'getTinType',
+        'business_name' => 'getBusinessName',
+        'business_name2' => 'getBusinessName2',
+        'first_name' => 'getFirstName',
+        'middle_name' => 'getMiddleName',
+        'last_name' => 'getLastName',
+        'suffix_name' => 'getSuffixName',
+        'recipient_second_name' => 'getRecipientSecondName',
+        'account_number' => 'getAccountNumber',
+        'office_code' => 'getOfficeCode',
+        'no_tin' => 'getNoTin',
+        'second_tin_notice' => 'getSecondTinNotice'
     ];
 
     /**
@@ -375,13 +460,6 @@ class Form1095B implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
-    const ORIGIN_OF_HEALTH_COVERAGE_CODE_A = 'A';
-    const ORIGIN_OF_HEALTH_COVERAGE_CODE_B = 'B';
-    const ORIGIN_OF_HEALTH_COVERAGE_CODE_C = 'C';
-    const ORIGIN_OF_HEALTH_COVERAGE_CODE_D = 'D';
-    const ORIGIN_OF_HEALTH_COVERAGE_CODE_E = 'E';
-    const ORIGIN_OF_HEALTH_COVERAGE_CODE_F = 'F';
-    const ORIGIN_OF_HEALTH_COVERAGE_CODE_G = 'G';
     const TYPE__1042_S = '1042-S';
     const TYPE__1095_B = '1095-B';
     const TYPE__1095_C = '1095-C';
@@ -393,24 +471,13 @@ class Form1095B implements ModelInterface, ArrayAccess, \JsonSerializable
     const TYPE__1099_PATR = '1099-PATR';
     const TYPE__1099_R = '1099-R';
     const TYPE_W_2 = 'W-2';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getOriginOfHealthCoverageCodeAllowableValues()
-    {
-        return [
-            self::ORIGIN_OF_HEALTH_COVERAGE_CODE_A,
-            self::ORIGIN_OF_HEALTH_COVERAGE_CODE_B,
-            self::ORIGIN_OF_HEALTH_COVERAGE_CODE_C,
-            self::ORIGIN_OF_HEALTH_COVERAGE_CODE_D,
-            self::ORIGIN_OF_HEALTH_COVERAGE_CODE_E,
-            self::ORIGIN_OF_HEALTH_COVERAGE_CODE_F,
-            self::ORIGIN_OF_HEALTH_COVERAGE_CODE_G,
-        ];
-    }
+    const TIN_TYPE_EIN = 'EIN';
+    const TIN_TYPE_SSN = 'SSN';
+    const TIN_TYPE_ITIN = 'ITIN';
+    const TIN_TYPE_ATIN = 'ATIN';
+    const TIN_TYPE_INDIVIDUAL = 'INDIVIDUAL';
+    const TIN_TYPE_BUSINESS = 'BUSINESS';
+    const TIN_TYPE_UNKNOWN = 'UNKNOWN';
 
     /**
      * Gets allowable values of the enum
@@ -435,6 +502,24 @@ class Form1095B implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTinTypeAllowableValues()
+    {
+        return [
+            self::TIN_TYPE_EIN,
+            self::TIN_TYPE_SSN,
+            self::TIN_TYPE_ITIN,
+            self::TIN_TYPE_ATIN,
+            self::TIN_TYPE_INDIVIDUAL,
+            self::TIN_TYPE_BUSINESS,
+            self::TIN_TYPE_UNKNOWN,
+        ];
+    }
+
+    /**
      * Associative array for storing property values
      *
      * @var mixed[]
@@ -449,13 +534,19 @@ class Form1095B implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['employee_first_name'] = $data['employee_first_name'] ?? null;
-        $this->container['employee_middle_name'] = $data['employee_middle_name'] ?? null;
-        $this->container['employee_last_name'] = $data['employee_last_name'] ?? null;
-        $this->container['employee_name_suffix'] = $data['employee_name_suffix'] ?? null;
-        $this->container['employee_date_of_birth'] = $data['employee_date_of_birth'] ?? null;
-        $this->container['origin_of_health_coverage_code'] = $data['origin_of_health_coverage_code'] ?? null;
-        $this->container['covered_individuals'] = $data['covered_individuals'] ?? null;
+        $this->container['patronage_dividends'] = $data['patronage_dividends'] ?? null;
+        $this->container['nonpatronage_distributions'] = $data['nonpatronage_distributions'] ?? null;
+        $this->container['per_unit_retain_allocations'] = $data['per_unit_retain_allocations'] ?? null;
+        $this->container['federal_income_tax_withheld'] = $data['federal_income_tax_withheld'] ?? null;
+        $this->container['redeemed_nonqualified_notices'] = $data['redeemed_nonqualified_notices'] ?? null;
+        $this->container['section199_ag_deduction'] = $data['section199_ag_deduction'] ?? null;
+        $this->container['qualified_payments'] = $data['qualified_payments'] ?? null;
+        $this->container['section199_aa_qualified_items'] = $data['section199_aa_qualified_items'] ?? null;
+        $this->container['section199_aa_sstb_items'] = $data['section199_aa_sstb_items'] ?? null;
+        $this->container['investment_credit'] = $data['investment_credit'] ?? null;
+        $this->container['work_opportunity_credit'] = $data['work_opportunity_credit'] ?? null;
+        $this->container['other_credits_and_deductions'] = $data['other_credits_and_deductions'] ?? null;
+        $this->container['specified_cooperative_indicator'] = $data['specified_cooperative_indicator'] ?? null;
         $this->container['type'] = $data['type'] ?? null;
         $this->container['id'] = $data['id'] ?? null;
         $this->container['issuer_id'] = $data['issuer_id'] ?? null;
@@ -465,7 +556,6 @@ class Form1095B implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['reference_id'] = $data['reference_id'] ?? null;
         $this->container['tin'] = $data['tin'] ?? null;
         $this->container['recipient_name'] = $data['recipient_name'] ?? null;
-        $this->container['recipient_second_name'] = $data['recipient_second_name'] ?? null;
         $this->container['address'] = $data['address'] ?? null;
         $this->container['address2'] = $data['address2'] ?? null;
         $this->container['city'] = $data['city'] ?? null;
@@ -490,6 +580,18 @@ class Form1095B implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['validation_errors'] = $data['validation_errors'] ?? null;
         $this->container['created_at'] = $data['created_at'] ?? null;
         $this->container['updated_at'] = $data['updated_at'] ?? null;
+        $this->container['tin_type'] = $data['tin_type'] ?? null;
+        $this->container['business_name'] = $data['business_name'] ?? null;
+        $this->container['business_name2'] = $data['business_name2'] ?? null;
+        $this->container['first_name'] = $data['first_name'] ?? null;
+        $this->container['middle_name'] = $data['middle_name'] ?? null;
+        $this->container['last_name'] = $data['last_name'] ?? null;
+        $this->container['suffix_name'] = $data['suffix_name'] ?? null;
+        $this->container['recipient_second_name'] = $data['recipient_second_name'] ?? null;
+        $this->container['account_number'] = $data['account_number'] ?? null;
+        $this->container['office_code'] = $data['office_code'] ?? null;
+        $this->container['no_tin'] = $data['no_tin'] ?? null;
+        $this->container['second_tin_notice'] = $data['second_tin_notice'] ?? null;
     }
 
     /**
@@ -500,24 +602,6 @@ class Form1095B implements ModelInterface, ArrayAccess, \JsonSerializable
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        if ($this->container['employee_first_name'] === null) {
-            $invalidProperties[] = "'employee_first_name' can't be null";
-        }
-        if ($this->container['employee_last_name'] === null) {
-            $invalidProperties[] = "'employee_last_name' can't be null";
-        }
-        if ($this->container['origin_of_health_coverage_code'] === null) {
-            $invalidProperties[] = "'origin_of_health_coverage_code' can't be null";
-        }
-        $allowedValues = $this->getOriginOfHealthCoverageCodeAllowableValues();
-        if (!is_null($this->container['origin_of_health_coverage_code']) && !in_array($this->container['origin_of_health_coverage_code'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'origin_of_health_coverage_code', must be one of '%s'",
-                $this->container['origin_of_health_coverage_code'],
-                implode("', '", $allowedValues)
-            );
-        }
 
         if ($this->container['type'] === null) {
             $invalidProperties[] = "'type' can't be null";
@@ -540,6 +624,15 @@ class Form1095B implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['country_code'] === null) {
             $invalidProperties[] = "'country_code' can't be null";
         }
+        $allowedValues = $this->getTinTypeAllowableValues();
+        if (!is_null($this->container['tin_type']) && !in_array($this->container['tin_type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'tin_type', must be one of '%s'",
+                $this->container['tin_type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -556,179 +649,313 @@ class Form1095B implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets employee_first_name
+     * Gets patronage_dividends
      *
-     * @return string
+     * @return float|null
      */
-    public function getEmployeeFirstName()
+    public function getPatronageDividends()
     {
-        return $this->container['employee_first_name'];
+        return $this->container['patronage_dividends'];
     }
 
     /**
-     * Sets employee_first_name
+     * Sets patronage_dividends
      *
-     * @param string $employee_first_name Employee's first name
+     * @param float|null $patronage_dividends Patronage dividends
      *
      * @return self
      */
-    public function setEmployeeFirstName($employee_first_name)
+    public function setPatronageDividends($patronage_dividends)
     {
-        $this->container['employee_first_name'] = $employee_first_name;
+        $this->container['patronage_dividends'] = $patronage_dividends;
 
         return $this;
     }
 
     /**
-     * Gets employee_middle_name
+     * Gets nonpatronage_distributions
      *
-     * @return string|null
+     * @return float|null
      */
-    public function getEmployeeMiddleName()
+    public function getNonpatronageDistributions()
     {
-        return $this->container['employee_middle_name'];
+        return $this->container['nonpatronage_distributions'];
     }
 
     /**
-     * Sets employee_middle_name
+     * Sets nonpatronage_distributions
      *
-     * @param string|null $employee_middle_name Employee's middle name
+     * @param float|null $nonpatronage_distributions Nonpatronage distributions
      *
      * @return self
      */
-    public function setEmployeeMiddleName($employee_middle_name)
+    public function setNonpatronageDistributions($nonpatronage_distributions)
     {
-        $this->container['employee_middle_name'] = $employee_middle_name;
+        $this->container['nonpatronage_distributions'] = $nonpatronage_distributions;
 
         return $this;
     }
 
     /**
-     * Gets employee_last_name
+     * Gets per_unit_retain_allocations
      *
-     * @return string
+     * @return float|null
      */
-    public function getEmployeeLastName()
+    public function getPerUnitRetainAllocations()
     {
-        return $this->container['employee_last_name'];
+        return $this->container['per_unit_retain_allocations'];
     }
 
     /**
-     * Sets employee_last_name
+     * Sets per_unit_retain_allocations
      *
-     * @param string $employee_last_name Employee's last name
+     * @param float|null $per_unit_retain_allocations Per-unit retain allocations
      *
      * @return self
      */
-    public function setEmployeeLastName($employee_last_name)
+    public function setPerUnitRetainAllocations($per_unit_retain_allocations)
     {
-        $this->container['employee_last_name'] = $employee_last_name;
+        $this->container['per_unit_retain_allocations'] = $per_unit_retain_allocations;
 
         return $this;
     }
 
     /**
-     * Gets employee_name_suffix
+     * Gets federal_income_tax_withheld
      *
-     * @return string|null
+     * @return float|null
      */
-    public function getEmployeeNameSuffix()
+    public function getFederalIncomeTaxWithheld()
     {
-        return $this->container['employee_name_suffix'];
+        return $this->container['federal_income_tax_withheld'];
     }
 
     /**
-     * Sets employee_name_suffix
+     * Sets federal_income_tax_withheld
      *
-     * @param string|null $employee_name_suffix Employee's name suffix
+     * @param float|null $federal_income_tax_withheld Federal income tax withheld
      *
      * @return self
      */
-    public function setEmployeeNameSuffix($employee_name_suffix)
+    public function setFederalIncomeTaxWithheld($federal_income_tax_withheld)
     {
-        $this->container['employee_name_suffix'] = $employee_name_suffix;
+        $this->container['federal_income_tax_withheld'] = $federal_income_tax_withheld;
 
         return $this;
     }
 
     /**
-     * Gets employee_date_of_birth
+     * Gets redeemed_nonqualified_notices
      *
-     * @return \DateTime|null
+     * @return float|null
      */
-    public function getEmployeeDateOfBirth()
+    public function getRedeemedNonqualifiedNotices()
     {
-        return $this->container['employee_date_of_birth'];
+        return $this->container['redeemed_nonqualified_notices'];
     }
 
     /**
-     * Sets employee_date_of_birth
+     * Sets redeemed_nonqualified_notices
      *
-     * @param \DateTime|null $employee_date_of_birth Employee's date of birth
+     * @param float|null $redeemed_nonqualified_notices Redeemed nonqualified notices
      *
      * @return self
      */
-    public function setEmployeeDateOfBirth($employee_date_of_birth)
+    public function setRedeemedNonqualifiedNotices($redeemed_nonqualified_notices)
     {
-        $this->container['employee_date_of_birth'] = $employee_date_of_birth;
+        $this->container['redeemed_nonqualified_notices'] = $redeemed_nonqualified_notices;
 
         return $this;
     }
 
     /**
-     * Gets origin_of_health_coverage_code
+     * Gets section199_ag_deduction
      *
-     * @return string
+     * @return float|null
      */
-    public function getOriginOfHealthCoverageCode()
+    public function getSection199AgDeduction()
     {
-        return $this->container['origin_of_health_coverage_code'];
+        return $this->container['section199_ag_deduction'];
     }
 
     /**
-     * Sets origin_of_health_coverage_code
+     * Sets section199_ag_deduction
      *
-     * @param string $origin_of_health_coverage_code Origin of health coverage code.    Available values:  - A: Small Business Health Options Program (SHOP)  - B: Employer-sponsored coverage  - C: Government-sponsored program  - D: Individual market insurance  - E: Multiemployer plan  - F: Other designated minimum essential coverage  - G: Employer-sponsored coverage that is an individual coverage HRA (valid for tax years 2020 and later)
+     * @param float|null $section199_ag_deduction Section 199A(g) deduction
      *
      * @return self
      */
-    public function setOriginOfHealthCoverageCode($origin_of_health_coverage_code)
+    public function setSection199AgDeduction($section199_ag_deduction)
     {
-        $allowedValues = $this->getOriginOfHealthCoverageCodeAllowableValues();
-        if (!in_array($origin_of_health_coverage_code, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'origin_of_health_coverage_code', must be one of '%s'",
-                    $origin_of_health_coverage_code,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['origin_of_health_coverage_code'] = $origin_of_health_coverage_code;
+        $this->container['section199_ag_deduction'] = $section199_ag_deduction;
 
         return $this;
     }
 
     /**
-     * Gets covered_individuals
+     * Gets qualified_payments
      *
-     * @return \Avalara\SDK\Model\A1099\V2\CoveredIndividual[]|null
+     * @return float|null
      */
-    public function getCoveredIndividuals()
+    public function getQualifiedPayments()
     {
-        return $this->container['covered_individuals'];
+        return $this->container['qualified_payments'];
     }
 
     /**
-     * Sets covered_individuals
+     * Sets qualified_payments
      *
-     * @param \Avalara\SDK\Model\A1099\V2\CoveredIndividual[]|null $covered_individuals Covered individuals information - At least one month of coverage must be entered if it's not a correction.
+     * @param float|null $qualified_payments Qualified payments (Section 199A(b)(7))
      *
      * @return self
      */
-    public function setCoveredIndividuals($covered_individuals)
+    public function setQualifiedPayments($qualified_payments)
     {
-        $this->container['covered_individuals'] = $covered_individuals;
+        $this->container['qualified_payments'] = $qualified_payments;
+
+        return $this;
+    }
+
+    /**
+     * Gets section199_aa_qualified_items
+     *
+     * @return float|null
+     */
+    public function getSection199AaQualifiedItems()
+    {
+        return $this->container['section199_aa_qualified_items'];
+    }
+
+    /**
+     * Sets section199_aa_qualified_items
+     *
+     * @param float|null $section199_aa_qualified_items Section 199A(a) qualified items
+     *
+     * @return self
+     */
+    public function setSection199AaQualifiedItems($section199_aa_qualified_items)
+    {
+        $this->container['section199_aa_qualified_items'] = $section199_aa_qualified_items;
+
+        return $this;
+    }
+
+    /**
+     * Gets section199_aa_sstb_items
+     *
+     * @return float|null
+     */
+    public function getSection199AaSstbItems()
+    {
+        return $this->container['section199_aa_sstb_items'];
+    }
+
+    /**
+     * Sets section199_aa_sstb_items
+     *
+     * @param float|null $section199_aa_sstb_items Section 199A(a) SSTB items
+     *
+     * @return self
+     */
+    public function setSection199AaSstbItems($section199_aa_sstb_items)
+    {
+        $this->container['section199_aa_sstb_items'] = $section199_aa_sstb_items;
+
+        return $this;
+    }
+
+    /**
+     * Gets investment_credit
+     *
+     * @return float|null
+     */
+    public function getInvestmentCredit()
+    {
+        return $this->container['investment_credit'];
+    }
+
+    /**
+     * Sets investment_credit
+     *
+     * @param float|null $investment_credit Investment credit
+     *
+     * @return self
+     */
+    public function setInvestmentCredit($investment_credit)
+    {
+        $this->container['investment_credit'] = $investment_credit;
+
+        return $this;
+    }
+
+    /**
+     * Gets work_opportunity_credit
+     *
+     * @return float|null
+     */
+    public function getWorkOpportunityCredit()
+    {
+        return $this->container['work_opportunity_credit'];
+    }
+
+    /**
+     * Sets work_opportunity_credit
+     *
+     * @param float|null $work_opportunity_credit Work opportunity credit
+     *
+     * @return self
+     */
+    public function setWorkOpportunityCredit($work_opportunity_credit)
+    {
+        $this->container['work_opportunity_credit'] = $work_opportunity_credit;
+
+        return $this;
+    }
+
+    /**
+     * Gets other_credits_and_deductions
+     *
+     * @return float|null
+     */
+    public function getOtherCreditsAndDeductions()
+    {
+        return $this->container['other_credits_and_deductions'];
+    }
+
+    /**
+     * Sets other_credits_and_deductions
+     *
+     * @param float|null $other_credits_and_deductions Other credits and deductions
+     *
+     * @return self
+     */
+    public function setOtherCreditsAndDeductions($other_credits_and_deductions)
+    {
+        $this->container['other_credits_and_deductions'] = $other_credits_and_deductions;
+
+        return $this;
+    }
+
+    /**
+     * Gets specified_cooperative_indicator
+     *
+     * @return bool|null
+     */
+    public function getSpecifiedCooperativeIndicator()
+    {
+        return $this->container['specified_cooperative_indicator'];
+    }
+
+    /**
+     * Sets specified_cooperative_indicator
+     *
+     * @param bool|null $specified_cooperative_indicator Indicates the payer is a specified agricultural or horticultural cooperative
+     *
+     * @return self
+     */
+    public function setSpecifiedCooperativeIndicator($specified_cooperative_indicator)
+    {
+        $this->container['specified_cooperative_indicator'] = $specified_cooperative_indicator;
 
         return $this;
     }
@@ -957,32 +1184,6 @@ class Form1095B implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setRecipientName($recipient_name)
     {
         $this->container['recipient_name'] = $recipient_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets recipient_second_name
-     *
-     * @return string|null
-     * @deprecated
-     */
-    public function getRecipientSecondName()
-    {
-        return $this->container['recipient_second_name'];
-    }
-
-    /**
-     * Sets recipient_second_name
-     *
-     * @param string|null $recipient_second_name DEPRECATED: Use `businessName2` instead.
-     *
-     * @return self
-     * @deprecated
-     */
-    public function setRecipientSecondName($recipient_second_name)
-    {
-        $this->container['recipient_second_name'] = $recipient_second_name;
 
         return $this;
     }
@@ -1559,6 +1760,306 @@ class Form1095B implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setUpdatedAt($updated_at)
     {
         $this->container['updated_at'] = $updated_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets tin_type
+     *
+     * @return string|null
+     */
+    public function getTinType()
+    {
+        return $this->container['tin_type'];
+    }
+
+    /**
+     * Sets tin_type
+     *
+     * @param string|null $tin_type Recipient classification.  The platform is transitioning from tax identifier classifications to recipient entity classifications. New values represent recipient entity types and should be preferred. Deprecated values represent identifier formats and remain supported for backward compatibility only.  Available values: - INDIVIDUAL: Recipient is an individual - BUSINESS: Recipient is a business - UNKNOWN: Recipient classification is unknown - EIN: (Deprecated - use BUSINESS) Employer Identification Number - SSN: (Deprecated - use INDIVIDUAL) Social Security Number - ITIN: (Deprecated - use INDIVIDUAL) Individual Taxpayer Identification Number - ATIN: (Deprecated - use INDIVIDUAL) Adoption Taxpayer Identification Number
+     *
+     * @return self
+     */
+    public function setTinType($tin_type)
+    {
+        $allowedValues = $this->getTinTypeAllowableValues();
+        if (!is_null($tin_type) && !in_array($tin_type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'tin_type', must be one of '%s'",
+                    $tin_type,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['tin_type'] = $tin_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets business_name
+     *
+     * @return string|null
+     */
+    public function getBusinessName()
+    {
+        return $this->container['business_name'];
+    }
+
+    /**
+     * Sets business_name
+     *
+     * @param string|null $business_name Business name. Required when the recipient of the form is a business; should only be used for businesses.
+     *
+     * @return self
+     */
+    public function setBusinessName($business_name)
+    {
+        $this->container['business_name'] = $business_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets business_name2
+     *
+     * @return string|null
+     */
+    public function getBusinessName2()
+    {
+        return $this->container['business_name2'];
+    }
+
+    /**
+     * Sets business_name2
+     *
+     * @param string|null $business_name2 Business name line 2. Should only be used for businesses.
+     *
+     * @return self
+     */
+    public function setBusinessName2($business_name2)
+    {
+        $this->container['business_name2'] = $business_name2;
+
+        return $this;
+    }
+
+    /**
+     * Gets first_name
+     *
+     * @return string|null
+     */
+    public function getFirstName()
+    {
+        return $this->container['first_name'];
+    }
+
+    /**
+     * Sets first_name
+     *
+     * @param string|null $first_name First name. Required when the recipient of the form is an individual; should only be used for individuals.
+     *
+     * @return self
+     */
+    public function setFirstName($first_name)
+    {
+        $this->container['first_name'] = $first_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets middle_name
+     *
+     * @return string|null
+     */
+    public function getMiddleName()
+    {
+        return $this->container['middle_name'];
+    }
+
+    /**
+     * Sets middle_name
+     *
+     * @param string|null $middle_name Middle name. Should only be used for individuals.
+     *
+     * @return self
+     */
+    public function setMiddleName($middle_name)
+    {
+        $this->container['middle_name'] = $middle_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets last_name
+     *
+     * @return string|null
+     */
+    public function getLastName()
+    {
+        return $this->container['last_name'];
+    }
+
+    /**
+     * Sets last_name
+     *
+     * @param string|null $last_name Last name. Required when the recipient of the form is an individual; should only be used for individuals.
+     *
+     * @return self
+     */
+    public function setLastName($last_name)
+    {
+        $this->container['last_name'] = $last_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets suffix_name
+     *
+     * @return string|null
+     */
+    public function getSuffixName()
+    {
+        return $this->container['suffix_name'];
+    }
+
+    /**
+     * Sets suffix_name
+     *
+     * @param string|null $suffix_name Suffix name. Should only be used for individuals.
+     *
+     * @return self
+     */
+    public function setSuffixName($suffix_name)
+    {
+        $this->container['suffix_name'] = $suffix_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets recipient_second_name
+     *
+     * @return string|null
+     * @deprecated
+     */
+    public function getRecipientSecondName()
+    {
+        return $this->container['recipient_second_name'];
+    }
+
+    /**
+     * Sets recipient_second_name
+     *
+     * @param string|null $recipient_second_name DEPRECATED: Use `businessName2` instead.
+     *
+     * @return self
+     * @deprecated
+     */
+    public function setRecipientSecondName($recipient_second_name)
+    {
+        $this->container['recipient_second_name'] = $recipient_second_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets account_number
+     *
+     * @return string|null
+     */
+    public function getAccountNumber()
+    {
+        return $this->container['account_number'];
+    }
+
+    /**
+     * Sets account_number
+     *
+     * @param string|null $account_number Account number
+     *
+     * @return self
+     */
+    public function setAccountNumber($account_number)
+    {
+        $this->container['account_number'] = $account_number;
+
+        return $this;
+    }
+
+    /**
+     * Gets office_code
+     *
+     * @return string|null
+     */
+    public function getOfficeCode()
+    {
+        return $this->container['office_code'];
+    }
+
+    /**
+     * Sets office_code
+     *
+     * @param string|null $office_code Office code
+     *
+     * @return self
+     */
+    public function setOfficeCode($office_code)
+    {
+        $this->container['office_code'] = $office_code;
+
+        return $this;
+    }
+
+    /**
+     * Gets no_tin
+     *
+     * @return bool|null
+     */
+    public function getNoTin()
+    {
+        return $this->container['no_tin'];
+    }
+
+    /**
+     * Sets no_tin
+     *
+     * @param bool|null $no_tin No TIN indicator
+     *
+     * @return self
+     */
+    public function setNoTin($no_tin)
+    {
+        $this->container['no_tin'] = $no_tin;
+
+        return $this;
+    }
+
+    /**
+     * Gets second_tin_notice
+     *
+     * @return bool|null
+     */
+    public function getSecondTinNotice()
+    {
+        return $this->container['second_tin_notice'];
+    }
+
+    /**
+     * Sets second_tin_notice
+     *
+     * @param bool|null $second_tin_notice Second TIN notice
+     *
+     * @return self
+     */
+    public function setSecondTinNotice($second_tin_notice)
+    {
+        $this->container['second_tin_notice'] = $second_tin_notice;
 
         return $this;
     }

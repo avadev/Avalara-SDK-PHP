@@ -213,6 +213,18 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
         'excess_golden_parachute_payments' => 'float',
         'nonqualified_deferred_compensation' => 'float',
         'nonemployee_compensation' => 'float',
+        'patronage_dividends' => 'float',
+        'nonpatronage_distributions' => 'float',
+        'per_unit_retain_allocations' => 'float',
+        'redeemed_nonqualified_notices' => 'float',
+        'section199_ag_deduction' => 'float',
+        'qualified_payments' => 'float',
+        'section199_aa_qualified_items' => 'float',
+        'section199_aa_sstb_items' => 'float',
+        'investment_credit' => 'float',
+        'work_opportunity_credit' => 'float',
+        'other_credits_and_deductions' => 'float',
+        'specified_cooperative_indicator' => 'bool',
         'gross_distribution' => 'float',
         'taxable_amount' => 'float',
         'taxable_amount_not_determined' => 'bool',
@@ -409,6 +421,18 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
         'excess_golden_parachute_payments' => 'double',
         'nonqualified_deferred_compensation' => 'double',
         'nonemployee_compensation' => 'double',
+        'patronage_dividends' => 'double',
+        'nonpatronage_distributions' => 'double',
+        'per_unit_retain_allocations' => 'double',
+        'redeemed_nonqualified_notices' => 'double',
+        'section199_ag_deduction' => 'double',
+        'qualified_payments' => 'double',
+        'section199_aa_qualified_items' => 'double',
+        'section199_aa_sstb_items' => 'double',
+        'investment_credit' => 'double',
+        'work_opportunity_credit' => 'double',
+        'other_credits_and_deductions' => 'double',
+        'specified_cooperative_indicator' => null,
         'gross_distribution' => 'double',
         'taxable_amount' => 'double',
         'taxable_amount_not_determined' => null,
@@ -624,6 +648,18 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
         'excess_golden_parachute_payments' => 'excessGoldenParachutePayments',
         'nonqualified_deferred_compensation' => 'nonqualifiedDeferredCompensation',
         'nonemployee_compensation' => 'nonemployeeCompensation',
+        'patronage_dividends' => 'patronageDividends',
+        'nonpatronage_distributions' => 'nonpatronageDistributions',
+        'per_unit_retain_allocations' => 'perUnitRetainAllocations',
+        'redeemed_nonqualified_notices' => 'redeemedNonqualifiedNotices',
+        'section199_ag_deduction' => 'section199AgDeduction',
+        'qualified_payments' => 'qualifiedPayments',
+        'section199_aa_qualified_items' => 'section199AaQualifiedItems',
+        'section199_aa_sstb_items' => 'section199AaSstbItems',
+        'investment_credit' => 'investmentCredit',
+        'work_opportunity_credit' => 'workOpportunityCredit',
+        'other_credits_and_deductions' => 'otherCreditsAndDeductions',
+        'specified_cooperative_indicator' => 'specifiedCooperativeIndicator',
         'gross_distribution' => 'grossDistribution',
         'taxable_amount' => 'taxableAmount',
         'taxable_amount_not_determined' => 'taxableAmountNotDetermined',
@@ -818,6 +854,18 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
         'excess_golden_parachute_payments' => 'setExcessGoldenParachutePayments',
         'nonqualified_deferred_compensation' => 'setNonqualifiedDeferredCompensation',
         'nonemployee_compensation' => 'setNonemployeeCompensation',
+        'patronage_dividends' => 'setPatronageDividends',
+        'nonpatronage_distributions' => 'setNonpatronageDistributions',
+        'per_unit_retain_allocations' => 'setPerUnitRetainAllocations',
+        'redeemed_nonqualified_notices' => 'setRedeemedNonqualifiedNotices',
+        'section199_ag_deduction' => 'setSection199AgDeduction',
+        'qualified_payments' => 'setQualifiedPayments',
+        'section199_aa_qualified_items' => 'setSection199AaQualifiedItems',
+        'section199_aa_sstb_items' => 'setSection199AaSstbItems',
+        'investment_credit' => 'setInvestmentCredit',
+        'work_opportunity_credit' => 'setWorkOpportunityCredit',
+        'other_credits_and_deductions' => 'setOtherCreditsAndDeductions',
+        'specified_cooperative_indicator' => 'setSpecifiedCooperativeIndicator',
         'gross_distribution' => 'setGrossDistribution',
         'taxable_amount' => 'setTaxableAmount',
         'taxable_amount_not_determined' => 'setTaxableAmountNotDetermined',
@@ -1012,6 +1060,18 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
         'excess_golden_parachute_payments' => 'getExcessGoldenParachutePayments',
         'nonqualified_deferred_compensation' => 'getNonqualifiedDeferredCompensation',
         'nonemployee_compensation' => 'getNonemployeeCompensation',
+        'patronage_dividends' => 'getPatronageDividends',
+        'nonpatronage_distributions' => 'getNonpatronageDistributions',
+        'per_unit_retain_allocations' => 'getPerUnitRetainAllocations',
+        'redeemed_nonqualified_notices' => 'getRedeemedNonqualifiedNotices',
+        'section199_ag_deduction' => 'getSection199AgDeduction',
+        'qualified_payments' => 'getQualifiedPayments',
+        'section199_aa_qualified_items' => 'getSection199AaQualifiedItems',
+        'section199_aa_sstb_items' => 'getSection199AaSstbItems',
+        'investment_credit' => 'getInvestmentCredit',
+        'work_opportunity_credit' => 'getWorkOpportunityCredit',
+        'other_credits_and_deductions' => 'getOtherCreditsAndDeductions',
+        'specified_cooperative_indicator' => 'getSpecifiedCooperativeIndicator',
         'gross_distribution' => 'getGrossDistribution',
         'taxable_amount' => 'getTaxableAmount',
         'taxable_amount_not_determined' => 'getTaxableAmountNotDetermined',
@@ -1314,6 +1374,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     const TYPE__1099_K = '1099-K';
     const TYPE__1099_MISC = '1099-MISC';
     const TYPE__1099_NEC = '1099-NEC';
+    const TYPE__1099_PATR = '1099-PATR';
     const TYPE__1099_R = '1099-R';
     const TYPE_W_2 = 'W-2';
     const TIN_TYPE_EIN = 'EIN';
@@ -1718,6 +1779,7 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
             self::TYPE__1099_K,
             self::TYPE__1099_MISC,
             self::TYPE__1099_NEC,
+            self::TYPE__1099_PATR,
             self::TYPE__1099_R,
             self::TYPE_W_2,
         ];
@@ -2047,6 +2109,18 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
         $this->container['excess_golden_parachute_payments'] = $data['excess_golden_parachute_payments'] ?? null;
         $this->container['nonqualified_deferred_compensation'] = $data['nonqualified_deferred_compensation'] ?? null;
         $this->container['nonemployee_compensation'] = $data['nonemployee_compensation'] ?? null;
+        $this->container['patronage_dividends'] = $data['patronage_dividends'] ?? null;
+        $this->container['nonpatronage_distributions'] = $data['nonpatronage_distributions'] ?? null;
+        $this->container['per_unit_retain_allocations'] = $data['per_unit_retain_allocations'] ?? null;
+        $this->container['redeemed_nonqualified_notices'] = $data['redeemed_nonqualified_notices'] ?? null;
+        $this->container['section199_ag_deduction'] = $data['section199_ag_deduction'] ?? null;
+        $this->container['qualified_payments'] = $data['qualified_payments'] ?? null;
+        $this->container['section199_aa_qualified_items'] = $data['section199_aa_qualified_items'] ?? null;
+        $this->container['section199_aa_sstb_items'] = $data['section199_aa_sstb_items'] ?? null;
+        $this->container['investment_credit'] = $data['investment_credit'] ?? null;
+        $this->container['work_opportunity_credit'] = $data['work_opportunity_credit'] ?? null;
+        $this->container['other_credits_and_deductions'] = $data['other_credits_and_deductions'] ?? null;
+        $this->container['specified_cooperative_indicator'] = $data['specified_cooperative_indicator'] ?? null;
         $this->container['gross_distribution'] = $data['gross_distribution'] ?? null;
         $this->container['taxable_amount'] = $data['taxable_amount'] ?? null;
         $this->container['taxable_amount_not_determined'] = $data['taxable_amount_not_determined'] ?? null;
@@ -5872,6 +5946,294 @@ class Get1099Form200Response implements ModelInterface, ArrayAccess, \JsonSerial
     public function setNonemployeeCompensation($nonemployee_compensation)
     {
         $this->container['nonemployee_compensation'] = $nonemployee_compensation;
+
+        return $this;
+    }
+
+    /**
+     * Gets patronage_dividends
+     *
+     * @return float|null
+     */
+    public function getPatronageDividends()
+    {
+        return $this->container['patronage_dividends'];
+    }
+
+    /**
+     * Sets patronage_dividends
+     *
+     * @param float|null $patronage_dividends Patronage dividends
+     *
+     * @return self
+     */
+    public function setPatronageDividends($patronage_dividends)
+    {
+        $this->container['patronage_dividends'] = $patronage_dividends;
+
+        return $this;
+    }
+
+    /**
+     * Gets nonpatronage_distributions
+     *
+     * @return float|null
+     */
+    public function getNonpatronageDistributions()
+    {
+        return $this->container['nonpatronage_distributions'];
+    }
+
+    /**
+     * Sets nonpatronage_distributions
+     *
+     * @param float|null $nonpatronage_distributions Nonpatronage distributions
+     *
+     * @return self
+     */
+    public function setNonpatronageDistributions($nonpatronage_distributions)
+    {
+        $this->container['nonpatronage_distributions'] = $nonpatronage_distributions;
+
+        return $this;
+    }
+
+    /**
+     * Gets per_unit_retain_allocations
+     *
+     * @return float|null
+     */
+    public function getPerUnitRetainAllocations()
+    {
+        return $this->container['per_unit_retain_allocations'];
+    }
+
+    /**
+     * Sets per_unit_retain_allocations
+     *
+     * @param float|null $per_unit_retain_allocations Per-unit retain allocations
+     *
+     * @return self
+     */
+    public function setPerUnitRetainAllocations($per_unit_retain_allocations)
+    {
+        $this->container['per_unit_retain_allocations'] = $per_unit_retain_allocations;
+
+        return $this;
+    }
+
+    /**
+     * Gets redeemed_nonqualified_notices
+     *
+     * @return float|null
+     */
+    public function getRedeemedNonqualifiedNotices()
+    {
+        return $this->container['redeemed_nonqualified_notices'];
+    }
+
+    /**
+     * Sets redeemed_nonqualified_notices
+     *
+     * @param float|null $redeemed_nonqualified_notices Redeemed nonqualified notices
+     *
+     * @return self
+     */
+    public function setRedeemedNonqualifiedNotices($redeemed_nonqualified_notices)
+    {
+        $this->container['redeemed_nonqualified_notices'] = $redeemed_nonqualified_notices;
+
+        return $this;
+    }
+
+    /**
+     * Gets section199_ag_deduction
+     *
+     * @return float|null
+     */
+    public function getSection199AgDeduction()
+    {
+        return $this->container['section199_ag_deduction'];
+    }
+
+    /**
+     * Sets section199_ag_deduction
+     *
+     * @param float|null $section199_ag_deduction Section 199A(g) deduction
+     *
+     * @return self
+     */
+    public function setSection199AgDeduction($section199_ag_deduction)
+    {
+        $this->container['section199_ag_deduction'] = $section199_ag_deduction;
+
+        return $this;
+    }
+
+    /**
+     * Gets qualified_payments
+     *
+     * @return float|null
+     */
+    public function getQualifiedPayments()
+    {
+        return $this->container['qualified_payments'];
+    }
+
+    /**
+     * Sets qualified_payments
+     *
+     * @param float|null $qualified_payments Qualified payments (Section 199A(b)(7))
+     *
+     * @return self
+     */
+    public function setQualifiedPayments($qualified_payments)
+    {
+        $this->container['qualified_payments'] = $qualified_payments;
+
+        return $this;
+    }
+
+    /**
+     * Gets section199_aa_qualified_items
+     *
+     * @return float|null
+     */
+    public function getSection199AaQualifiedItems()
+    {
+        return $this->container['section199_aa_qualified_items'];
+    }
+
+    /**
+     * Sets section199_aa_qualified_items
+     *
+     * @param float|null $section199_aa_qualified_items Section 199A(a) qualified items
+     *
+     * @return self
+     */
+    public function setSection199AaQualifiedItems($section199_aa_qualified_items)
+    {
+        $this->container['section199_aa_qualified_items'] = $section199_aa_qualified_items;
+
+        return $this;
+    }
+
+    /**
+     * Gets section199_aa_sstb_items
+     *
+     * @return float|null
+     */
+    public function getSection199AaSstbItems()
+    {
+        return $this->container['section199_aa_sstb_items'];
+    }
+
+    /**
+     * Sets section199_aa_sstb_items
+     *
+     * @param float|null $section199_aa_sstb_items Section 199A(a) SSTB items
+     *
+     * @return self
+     */
+    public function setSection199AaSstbItems($section199_aa_sstb_items)
+    {
+        $this->container['section199_aa_sstb_items'] = $section199_aa_sstb_items;
+
+        return $this;
+    }
+
+    /**
+     * Gets investment_credit
+     *
+     * @return float|null
+     */
+    public function getInvestmentCredit()
+    {
+        return $this->container['investment_credit'];
+    }
+
+    /**
+     * Sets investment_credit
+     *
+     * @param float|null $investment_credit Investment credit
+     *
+     * @return self
+     */
+    public function setInvestmentCredit($investment_credit)
+    {
+        $this->container['investment_credit'] = $investment_credit;
+
+        return $this;
+    }
+
+    /**
+     * Gets work_opportunity_credit
+     *
+     * @return float|null
+     */
+    public function getWorkOpportunityCredit()
+    {
+        return $this->container['work_opportunity_credit'];
+    }
+
+    /**
+     * Sets work_opportunity_credit
+     *
+     * @param float|null $work_opportunity_credit Work opportunity credit
+     *
+     * @return self
+     */
+    public function setWorkOpportunityCredit($work_opportunity_credit)
+    {
+        $this->container['work_opportunity_credit'] = $work_opportunity_credit;
+
+        return $this;
+    }
+
+    /**
+     * Gets other_credits_and_deductions
+     *
+     * @return float|null
+     */
+    public function getOtherCreditsAndDeductions()
+    {
+        return $this->container['other_credits_and_deductions'];
+    }
+
+    /**
+     * Sets other_credits_and_deductions
+     *
+     * @param float|null $other_credits_and_deductions Other credits and deductions
+     *
+     * @return self
+     */
+    public function setOtherCreditsAndDeductions($other_credits_and_deductions)
+    {
+        $this->container['other_credits_and_deductions'] = $other_credits_and_deductions;
+
+        return $this;
+    }
+
+    /**
+     * Gets specified_cooperative_indicator
+     *
+     * @return bool|null
+     */
+    public function getSpecifiedCooperativeIndicator()
+    {
+        return $this->container['specified_cooperative_indicator'];
+    }
+
+    /**
+     * Sets specified_cooperative_indicator
+     *
+     * @param bool|null $specified_cooperative_indicator Indicates the payer is a specified agricultural or horticultural cooperative
+     *
+     * @return self
+     */
+    public function setSpecifiedCooperativeIndicator($specified_cooperative_indicator)
+    {
+        $this->container['specified_cooperative_indicator'] = $specified_cooperative_indicator;
 
         return $this;
     }
