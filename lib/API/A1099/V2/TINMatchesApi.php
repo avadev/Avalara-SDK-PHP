@@ -79,7 +79,7 @@ class TINMatchesApi
     private function setConfiguration($client): void
     {
         $this->verifyAPIClient($client);
-        $client->setSdkVersion("26.7.0");
+        $client->setSdkVersion("26.9.0");
         $this->headerSelector = new HeaderSelector(); 
         $this->client = $client;
     }
