@@ -1,4 +1,4 @@
-# Avalara\SDK\TaxIdentifiersApi
+# AvalaraSDK\TaxIdentifiersApi
 
 All URIs are relative to https://api.sbx.avalara.com/einvoicing.
 
@@ -11,7 +11,7 @@ Method | HTTP request | Description
 ## `taxIdentifierSchemaByCountry()`
 
 ```php
-taxIdentifierSchemaByCountry($avalara_version, $country_code, $x_avalara_client, $x_correlation_id, $type): \Avalara\SDK\Model\EInvoicing\V1\TaxIdentifierSchemaByCountry200Response
+taxIdentifierSchemaByCountry($avalara_version, $country_code, $x_avalara_client, $x_correlation_id, $type): \AvalaraSDK\ModelEInvoicingV1\TaxIdentifierSchemaByCountry200Response
 ```
 
 Returns the tax identifier request and response schema for a specific country.
@@ -34,7 +34,7 @@ $config = new \Avalara\SDK\Configuration()
 
 $client = new \Avalara\SDK\ApiClient($config);
 
-$apiInstance = new Avalara\SDK\Api\TaxIdentifiersApi($client);
+$apiInstance = new AvalaraSDK\Api\TaxIdentifiersApi($client);
 
 $avalara_version = 1.6; // string | Header that specifies the API version to use (for example \"1.6\").
 $country_code = DE; // string | Two-letter ISO 3166 country code for which to retrieve the schema (for example \"DE\").
@@ -62,7 +62,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Avalara\SDK\Model\EInvoicing\V1\TaxIdentifierSchemaByCountry200Response**](../Model/TaxIdentifierSchemaByCountry200Response.md)
+[**\AvalaraSDK\ModelEInvoicingV1\TaxIdentifierSchemaByCountry200Response**](../Model/TaxIdentifierSchemaByCountry200Response.md)
 
 ### Authorization
 
@@ -80,7 +80,7 @@ Name | Type | Description  | Notes
 ## `validateTaxIdentifier()`
 
 ```php
-validateTaxIdentifier($avalara_version, $tax_identifier_request, $x_avalara_client, $x_correlation_id): \Avalara\SDK\Model\EInvoicing\V1\TaxIdentifierResponse
+validateTaxIdentifier($avalara_version, $tax_identifier_request, $x_avalara_client, $x_correlation_id): \AvalaraSDK\ModelEInvoicingV1\TaxIdentifierResponse
 ```
 
 Validates a tax identifier.
@@ -103,10 +103,10 @@ $config = new \Avalara\SDK\Configuration()
 
 $client = new \Avalara\SDK\ApiClient($config);
 
-$apiInstance = new Avalara\SDK\Api\TaxIdentifiersApi($client);
+$apiInstance = new AvalaraSDK\Api\TaxIdentifiersApi($client);
 
 $avalara_version = 1.6; // string | Header that specifies the API version to use (for example \"1.6\").
-$tax_identifier_request = {"countryCode":"DE","identifierType":"vat","identifier":"123456789"}; // \Avalara\SDK\Model\EInvoicing\V1\TaxIdentifierRequest
+$tax_identifier_request = {"countryCode":"DE","identifierType":"vat","identifier":"123456789"}; // \AvalaraSDK\ModelEInvoicingV1\TaxIdentifierRequest
 $x_avalara_client = John's E-Invoicing-API Client; // string | Optional header for a client identifier string used for diagnostics (for example \"Fingerprint\").
 $x_correlation_id = f3f0d19a-01a1-4748-8a58-f000d0424f43; // string | Optional correlation identifier provided by the caller to trace the call (for example \"f3f0d19a-01a1-4748-8a58-f000d0424f43\").
 
@@ -123,13 +123,13 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **avalara_version** | **string**| Header that specifies the API version to use (for example \&quot;1.6\&quot;). |
- **tax_identifier_request** | [**\Avalara\SDK\Model\EInvoicing\V1\TaxIdentifierRequest**](../Model/TaxIdentifierRequest.md)|  |
+ **tax_identifier_request** | [**\AvalaraSDK\ModelEInvoicingV1\TaxIdentifierRequest**](../Model/TaxIdentifierRequest.md)|  |
  **x_avalara_client** | **string**| Optional header for a client identifier string used for diagnostics (for example \&quot;Fingerprint\&quot;). | [optional]
  **x_correlation_id** | **string**| Optional correlation identifier provided by the caller to trace the call (for example \&quot;f3f0d19a-01a1-4748-8a58-f000d0424f43\&quot;). | [optional]
 
 ### Return type
 
-[**\Avalara\SDK\Model\EInvoicing\V1\TaxIdentifierResponse**](../Model/TaxIdentifierResponse.md)
+[**\AvalaraSDK\ModelEInvoicingV1\TaxIdentifierResponse**](../Model/TaxIdentifierResponse.md)
 
 ### Authorization
 

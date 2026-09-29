@@ -1,4 +1,4 @@
-# Avalara\SDK\CodeListsApi
+# AvalaraSDK\CodeListsApi
 
 All URIs are relative to https://api.sbx.avalara.com/einvoicing.
 
@@ -11,7 +11,7 @@ Method | HTTP request | Description
 ## `getCodeList()`
 
 ```php
-getCodeList($avalara_version, $codelist_id, $country_code, $x_avalara_client, $effective_date, $sunset_date): \Avalara\SDK\Model\EInvoicing\V1\CodeListResponse
+getCodeList($avalara_version, $codelist_id, $country_code, $x_avalara_client, $effective_date, $sunset_date): \AvalaraSDK\ModelEInvoicingV1\CodeListResponse
 ```
 
 Retrieves a code list by ID for a specific country
@@ -34,14 +34,14 @@ $config = new \Avalara\SDK\Configuration()
 
 $client = new \Avalara\SDK\ApiClient($config);
 
-$apiInstance = new Avalara\SDK\Api\CodeListsApi($client);
+$apiInstance = new AvalaraSDK\Api\CodeListsApi($client);
 
 $avalara_version = 1.6; // string | Header that specifies the API version to use (for example \"1.6\").
 $codelist_id = ab123343-3432-423c-ac3f-53453scs9999; // string | System-generated unique identifier of the code list definition. Typically a UUID used to reference this code list internally or via APIs.
 $country_code = FR; // string | Two-letter ISO 3166-1 alpha-2 country code indicating the jurisdiction this code list applies to.
 $x_avalara_client = John's E-Invoicing-API Client; // string | Optional header for a client identifier string used for diagnostics (for example \"Fingerprint\").
-$effective_date = Tue Dec 31 16:00:00 PST 2024; // \DateTime | Filter code list versions by effective date. Returns versions that are effective on or before this date. Format: YYYY-MM-DD (ISO 8601). If not specified, defaults to the current date. sunsetDate is required when effectiveDate is provided.
-$sunset_date = Wed Dec 30 16:00:00 PST 2026; // \DateTime | Filter code list versions by sunset date. Returns versions that have not yet sunset on or before this date. Format: YYYY-MM-DD (ISO 8601). If not specified, only non-expired versions are returned.
+$effective_date = Wed Jan 01 00:00:00 UTC 2025; // \DateTime | Filter code list versions by effective date. Returns versions that are effective on or before this date. Format: YYYY-MM-DD (ISO 8601). If not specified, defaults to the current date. sunsetDate is required when effectiveDate is provided.
+$sunset_date = Thu Dec 31 00:00:00 UTC 2026; // \DateTime | Filter code list versions by sunset date. Returns versions that have not yet sunset on or before this date. Format: YYYY-MM-DD (ISO 8601). If not specified, only non-expired versions are returned.
 
 try {
     $result = $apiInstance->getCodeList($avalara_version, $codelist_id, $country_code, $x_avalara_client, $effective_date, $sunset_date);
@@ -64,7 +64,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Avalara\SDK\Model\EInvoicing\V1\CodeListResponse**](../Model/CodeListResponse.md)
+[**\AvalaraSDK\ModelEInvoicingV1\CodeListResponse**](../Model/CodeListResponse.md)
 
 ### Authorization
 
@@ -82,7 +82,7 @@ Name | Type | Description  | Notes
 ## `getCodeListList()`
 
 ```php
-getCodeListList($avalara_version, $country_code, $x_avalara_client, $effective_date, $sunset_date, $count, $count_only, $top, $skip): \Avalara\SDK\Model\EInvoicing\V1\CodeListListResponse
+getCodeListList($avalara_version, $country_code, $x_avalara_client, $effective_date, $sunset_date, $count, $count_only, $top, $skip): \AvalaraSDK\ModelEInvoicingV1\CodeListListResponse
 ```
 
 Returns a list of code lists for a specific country
@@ -105,13 +105,13 @@ $config = new \Avalara\SDK\Configuration()
 
 $client = new \Avalara\SDK\ApiClient($config);
 
-$apiInstance = new Avalara\SDK\Api\CodeListsApi($client);
+$apiInstance = new AvalaraSDK\Api\CodeListsApi($client);
 
 $avalara_version = 1.6; // string | Header that specifies the API version to use (for example \"1.6\").
 $country_code = FR; // string | Two-letter ISO 3166-1 alpha-2 country code indicating the jurisdiction for which code lists should be returned.
 $x_avalara_client = John's E-Invoicing-API Client; // string | Optional header for a client identifier string used for diagnostics (for example \"Fingerprint\").
-$effective_date = Tue Dec 31 16:00:00 PST 2024; // \DateTime | Filter code lists by effective date. Returns code lists that are effective on or before this date. Format: YYYY-MM-DD (ISO 8601). If not specified, defaults to the current date. sunsetDate is required when effectiveDate is provided.
-$sunset_date = Wed Dec 30 16:00:00 PST 2026; // \DateTime | Filter code lists by sunset date. Returns code lists that have not yet sunset on or before this date. Format: YYYY-MM-DD (ISO 8601). If not specified, only non-expired code lists are returned.
+$effective_date = Wed Jan 01 00:00:00 UTC 2025; // \DateTime | Filter code lists by effective date. Returns code lists that are effective on or before this date. Format: YYYY-MM-DD (ISO 8601). If not specified, defaults to the current date. sunsetDate is required when effectiveDate is provided.
+$sunset_date = Thu Dec 31 00:00:00 UTC 2026; // \DateTime | Filter code lists by sunset date. Returns code lists that have not yet sunset on or before this date. Format: YYYY-MM-DD (ISO 8601). If not specified, only non-expired code lists are returned.
 $count = true; // string | When set to true, the response body also includes the count of items in the collection.
 $count_only = false; // string | When set to true, the response returns only the count of items in the collection.
 $top = 56; // int | The number of items to include in the result.
@@ -141,7 +141,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Avalara\SDK\Model\EInvoicing\V1\CodeListListResponse**](../Model/CodeListListResponse.md)
+[**\AvalaraSDK\ModelEInvoicingV1\CodeListListResponse**](../Model/CodeListListResponse.md)
 
 ### Authorization
 
