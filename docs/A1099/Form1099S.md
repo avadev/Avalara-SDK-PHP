@@ -1,9 +1,15 @@
-# # Form1099Base
+# # Form1099S
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**date_of_closing** | **\DateTime** | Date of closing |
+**gross_proceeds** | **float** | Gross proceeds (the total gross proceeds, from tax year 2026 labeled Box 2a) | [optional]
+**property_address_or_legal_description** | **string** | Address or legal description of the property, including city, state and ZIP code (up to 39 characters) |
+**transferor_received_property_or_services_indicator** | **bool** | If checked, the transferor received or will receive property or services as part of the consideration | [optional]
+**transferor_is_foreign_person_indicator** | **bool** | If checked, the transferor is a foreign person (nonresident alien, foreign partnership, foreign estate or foreign trust) | [optional]
+**buyers_part_of_real_estate_tax** | **float** | Buyer&#39;s part of real estate tax | [optional]
 **type** | **string** | Form type. |
 **id** | **string** | Form ID. Unique identifier set when the record is created. | [optional] [readonly]
 **issuer_id** | **string** | Issuer ID - only required when creating forms | [optional]
@@ -13,7 +19,6 @@ Name | Type | Description | Notes
 **reference_id** | **string** | Internal reference ID. Never shown to any agency or recipient. | [optional]
 **tin** | **string** | Recipient&#39;s Federal Tax Identification Number (TIN). | [optional]
 **recipient_name** | **string** | DEPRECATED: Use &#x60;businessName&#x60; for businesses; use &#x60;firstName&#x60;, &#x60;middleName&#x60;, &#x60;lastName&#x60;, and &#x60;suffixName&#x60; for individuals. | [optional]
-**recipient_second_name** | **string** | DEPRECATED: Use &#x60;businessName2&#x60; instead. | [optional]
 **address** | **string** | Address. |
 **address2** | **string** | Address line 2. | [optional]
 **city** | **string** | City. |
@@ -38,5 +43,17 @@ Name | Type | Description | Notes
 **validation_errors** | [**\AvalaraSDK\ModelA1099V2\ValidationError[]**](ValidationError.md) | Validation errors | [optional] [readonly]
 **created_at** | **\DateTime** | Date time when the record was created. | [optional] [readonly]
 **updated_at** | **\DateTime** | Date time when the record was last updated. | [optional] [readonly]
+**tin_type** | **string** | Recipient classification.  The platform is transitioning from tax identifier classifications to recipient entity classifications. New values represent recipient entity types and should be preferred. Deprecated values represent identifier formats and remain supported for backward compatibility only.  Available values: - INDIVIDUAL: Recipient is an individual - BUSINESS: Recipient is a business - UNKNOWN: Recipient classification is unknown - EIN: (Deprecated - use BUSINESS) Employer Identification Number - SSN: (Deprecated - use INDIVIDUAL) Social Security Number - ITIN: (Deprecated - use INDIVIDUAL) Individual Taxpayer Identification Number - ATIN: (Deprecated - use INDIVIDUAL) Adoption Taxpayer Identification Number | [optional]
+**business_name** | **string** | Business name. Required when the recipient of the form is a business; should only be used for businesses. | [optional]
+**business_name2** | **string** | Business name line 2. Should only be used for businesses. | [optional]
+**first_name** | **string** | First name. Required when the recipient of the form is an individual; should only be used for individuals. | [optional]
+**middle_name** | **string** | Middle name. Should only be used for individuals. | [optional]
+**last_name** | **string** | Last name. Required when the recipient of the form is an individual; should only be used for individuals. | [optional]
+**suffix_name** | **string** | Suffix name. Should only be used for individuals. | [optional]
+**recipient_second_name** | **string** | DEPRECATED: Use &#x60;businessName2&#x60; instead. | [optional]
+**account_number** | **string** | Account number | [optional]
+**office_code** | **string** | Office code | [optional]
+**no_tin** | **bool** | No TIN indicator | [optional]
+**second_tin_notice** | **bool** | Second TIN notice | [optional]
 
 [[Back to Model list]](../../../README.md#models) [[Back to API list]](../../../README.md#endpoints) [[Back to README]](../../../README.md)

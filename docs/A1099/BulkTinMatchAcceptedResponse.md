@@ -1,10 +1,9 @@
-# # EventPayload
+# # BulkTinMatchAcceptedResponse
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**signature** | [**\AvalaraSDK\ModelEInvoicingV1\SignatureValueSignature**](SignatureValueSignature.md) |  |
-**message** | **object** | Event-specific information |
+**id** | **string** | The bulk identifier required to get the results. | [optional]
 
 [[Back to Model list]](../../../README.md#models) [[Back to API list]](../../../README.md#endpoints) [[Back to README]](../../../README.md)

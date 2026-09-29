@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **path** | **string** | Path to this field | [optional]
 **path_type** | **string** | The type of path | [optional]
 **field_name** | **string** | Field name | [optional]
-**namespace** | [**\Avalara\SDK\Model\EInvoicing\V1\MandateDataInputFieldNamespace**](MandateDataInputFieldNamespace.md) |  | [optional]
+**namespace** | [**\AvalaraSDK\ModelEInvoicingV1\MandateDataInputFieldNamespace**](MandateDataInputFieldNamespace.md) |  | [optional]
 **example_or_fixed_value** | **string** | An example of the content for this field | [optional]
 **accepted_values** | **string[]** | An Array representing the acceptable values for this field | [optional]
 **documentation_link** | **string** | An example of the content for this field | [optional]
