@@ -43,7 +43,7 @@ $apiInstance = new AvalaraSDK\Api\Forms1099Api($client);
 
 $avalara_version = 2.0.0; // string | API version
 $dry_run = false; // bool | defaults to false. If true, it will NOT change the DB. It will just return a report of what would've have been changed in the DB
-$x_correlation_id = b2de6e01-aadd-47fd-8444-2b3e2e1d5364; // string | Unique correlation Id in a GUID format
+$x_correlation_id = 6ebfbe2e-4ee0-4a66-bd1a-b85f7a231d9f; // string | Unique correlation Id in a GUID format
 $x_avalara_client = Swagger UI; 22.1.0; // string | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
 $form1099_list_request = {"type":"1042-S","forms":[{"type":"1042-S","issuerId":"12345","issuerReferenceId":"issuer-001","issuerTin":"94-2765431","taxYear":2025,"referenceId":"1042S-REF-001","tin":"112233445","recipientName":null,"address":"1234 Corporate Blvd","address2":"Suite 500","city":"Anytown","state":"MA","zip":"12345","email":"email@example.com","nonUsProvince":null,"countryCode":"US","federalEfileDate":"2025-03-15","postalMail":true,"stateEfileDate":null,"recipientEdeliveryDate":"2025-03-25","tinMatch":false,"addressVerification":true,"stateAndLocalWithholding":{"stateTaxWithheld":50,"state":"CA","stateId":"CA98765432"},"tinType":"INDIVIDUAL","businessName":null,"businessName2":null,"firstName":"Michael","middleName":"Joseph","lastName":"Jackson","suffixName":"Jr","recipientSecondName":null,"accountNumber":"ACC01","noTin":false,"secondTinNotice":true,"uniqueFormId":"1234567890","recipientDateOfBirth":"1990-01-01","recipientGiin":"748291.59302.US.001","recipientForeignTin":"920456.38475.GM.002","lobCode":"06","incomeCode":"16","grossIncome":10000.5,"withholdingIndicator":"3","taxCountryCode":"GM","exemptionCodeChap3":"00","exemptionCodeChap4":"13","taxRateChap3":"30.00","withholdingAllowance":15,"federalTaxWithheld":1500.25,"taxNotDepositedIndicator":true,"academicIndicator":true,"withholdingRatePoolIndicator":null,"taxWithheldOtherAgents":100,"amountRepaid":200,"taxPaidAgent":50.5,"chap3StatusCode":"06","chap4StatusCode":"02","primaryWithholdingAgent":{"name":"Primary Agent Name","ein":"98-3456789"},"intermediaryOrFlowThrough":{"ein":"98-7654321","chap3StatusCode":"03","chap4StatusCode":"04","name":"Intermediary Name","giin":"748291.59302.US.002","countryCode":"US","foreignTin":"123-45-6789","address":"123 Main St.","city":"Cityville","state":"CA","zip":"98765"}}]}; // \AvalaraSDK\ModelA1099V2\Form1099ListRequest | 
 
@@ -111,7 +111,7 @@ $client = new \Avalara\SDK\ApiClient($config);
 $apiInstance = new AvalaraSDK\Api\Forms1099Api($client);
 
 $avalara_version = 2.0.0; // string | API version
-$x_correlation_id = d83705fa-e06e-473d-a99b-18e1c24e1ade; // string | Unique correlation Id in a GUID format
+$x_correlation_id = b5b67ba5-a605-40a6-81ba-e67011f5e0e5; // string | Unique correlation Id in a GUID format
 $x_avalara_client = Swagger UI; 22.1.0; // string | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
 $get1099_form200_response = {"type":"1042-S","issuerId":"12345","referenceId":"1042S-REF-001","tin":"112233445","recipientName":null,"address":"1234 Corporate Blvd","address2":"Suite 500","city":"Anytown","state":"MA","zip":"12345","email":"email@example.com","nonUsProvince":null,"countryCode":"US","federalEfileDate":"2025-03-15","postalMail":true,"stateEfileDate":null,"recipientEdeliveryDate":"2025-03-25","tinMatch":false,"addressVerification":true,"stateAndLocalWithholding":{"stateTaxWithheld":50,"state":"CA","stateId":"CA98765432"},"tinType":"INDIVIDUAL","businessName":null,"businessName2":null,"firstName":"Michael","middleName":"Joseph","lastName":"Jackson","suffixName":"Jr","recipientSecondName":null,"accountNumber":"ACC01","noTin":false,"secondTinNotice":true,"uniqueFormId":"1234567890","recipientDateOfBirth":"1990-01-01","recipientGiin":"748291.59302.US.001","recipientForeignTin":"920456.38475.GM.002","lobCode":"06","incomeCode":"16","grossIncome":10000.5,"withholdingIndicator":"3","taxCountryCode":"GM","exemptionCodeChap3":"00","exemptionCodeChap4":"13","taxRateChap3":"30.00","withholdingAllowance":15,"federalTaxWithheld":1500.25,"taxNotDepositedIndicator":true,"academicIndicator":true,"withholdingRatePoolIndicator":null,"taxWithheldOtherAgents":100,"amountRepaid":200,"taxPaidAgent":50.5,"chap3StatusCode":"06","chap4StatusCode":"02","primaryWithholdingAgent":{"name":"Primary Agent Name","ein":"98-3456789"},"intermediaryOrFlowThrough":{"ein":"98-7654321","chap3StatusCode":"03","chap4StatusCode":"04","name":"Intermediary Name","giin":"748291.59302.US.002","countryCode":"US","foreignTin":"123-45-6789","address":"123 Main St.","city":"Cityville","state":"CA","zip":"98765"}}; // \AvalaraSDK\ModelA1099V2\Get1099Form200Response
 
@@ -179,7 +179,7 @@ $apiInstance = new AvalaraSDK\Api\Forms1099Api($client);
 
 $id = 'id_example'; // string | The unique identifier of the desired form to delete.
 $avalara_version = 2.0.0; // string | API version
-$x_correlation_id = 3b67737d-1e33-4b9c-b91a-a346ef3ff731; // string | Unique correlation Id in a GUID format
+$x_correlation_id = f41e7d08-4d01-48e7-8517-e69e88dfeab8; // string | Unique correlation Id in a GUID format
 $x_avalara_client = Swagger UI; 22.1.0; // string | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
 
 try {
@@ -245,7 +245,7 @@ $apiInstance = new AvalaraSDK\Api\Forms1099Api($client);
 
 $id = 'id_example'; // string
 $avalara_version = 2.0.0; // string | API version
-$x_correlation_id = 59489a73-7ddd-4b4c-aa87-e18e1042713f; // string | Unique correlation Id in a GUID format
+$x_correlation_id = 45a8d1d6-6749-49c6-aba7-af26e12032be; // string | Unique correlation Id in a GUID format
 $x_avalara_client = Swagger UI; 22.1.0; // string | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
 
 try {
@@ -313,7 +313,7 @@ $apiInstance = new AvalaraSDK\Api\Forms1099Api($client);
 $id = 'id_example'; // string | The ID of the form
 $avalara_version = 2.0.0; // string | API version
 $mark_edelivered = True; // bool | Optional boolean that if set indicates that the form should be marked as having been successfully edelivered
-$x_correlation_id = 85a9b19b-0ed5-476c-bb11-e365b8b14794; // string | Unique correlation Id in a GUID format
+$x_correlation_id = 937e70b0-33c3-4f2e-966a-2be03048e06e; // string | Unique correlation Id in a GUID format
 $x_avalara_client = Swagger UI; 22.1.0; // string | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
 
 try {
@@ -386,7 +386,7 @@ $skip = 56; // int | If nonzero, skip this number of results before returning da
 $order_by = 'order_by_example'; // string | A comma separated list of sort statements in the format (fieldname) [ASC|DESC], for example id ASC.
 $count = True; // bool | If true, return the global count of elements in the collection.
 $count_only = True; // bool | If true, return ONLY the global count of elements in the collection.  It only applies when count=true.
-$x_correlation_id = 13e97284-a7a9-4e94-92e4-cd3e69c6b967; // string | Unique correlation Id in a GUID format
+$x_correlation_id = 9473fcfd-36c1-4d60-8edf-b8faf6f4765f; // string | Unique correlation Id in a GUID format
 $x_avalara_client = Swagger UI; 22.1.0; // string | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
 
 try {
@@ -458,7 +458,7 @@ $apiInstance = new AvalaraSDK\Api\Forms1099Api($client);
 
 $id = 'id_example'; // string
 $avalara_version = 2.0.0; // string | API version
-$x_correlation_id = d5ff1333-2e20-4ba6-b169-c1bac004c84d; // string | Unique correlation Id in a GUID format
+$x_correlation_id = e4808387-f980-456b-bb19-49c90ce005c9; // string | Unique correlation Id in a GUID format
 $x_avalara_client = Swagger UI; 22.1.0; // string | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
 $get1099_form200_response = {"type":"1042-S","issuerId":"12345","referenceId":"1042S-REF-001","tin":"112233445","recipientName":null,"address":"1234 Corporate Blvd","address2":"Suite 500","city":"Anytown","state":"MA","zip":"12345","email":"email@example.com","nonUsProvince":null,"countryCode":"US","federalEfileDate":"2025-03-15","postalMail":true,"stateEfileDate":null,"recipientEdeliveryDate":"2025-03-25","tinMatch":false,"addressVerification":true,"stateAndLocalWithholding":{"stateTaxWithheld":50,"state":"CA","stateId":"CA98765432"},"tinType":"INDIVIDUAL","businessName":null,"businessName2":null,"firstName":"Michael","middleName":"Joseph","lastName":"Jackson","suffixName":"Jr","recipientSecondName":null,"accountNumber":"ACC01","noTin":false,"secondTinNotice":true,"uniqueFormId":"1234567890","recipientDateOfBirth":"1990-01-01","recipientGiin":"748291.59302.US.001","recipientForeignTin":"920456.38475.GM.002","lobCode":"06","incomeCode":"16","grossIncome":10000.5,"withholdingIndicator":"3","taxCountryCode":"GM","exemptionCodeChap3":"00","exemptionCodeChap4":"13","taxRateChap3":"30.00","withholdingAllowance":15,"federalTaxWithheld":1500.25,"taxNotDepositedIndicator":true,"academicIndicator":true,"withholdingRatePoolIndicator":null,"taxWithheldOtherAgents":100,"amountRepaid":200,"taxPaidAgent":50.5,"chap3StatusCode":"06","chap4StatusCode":"02","primaryWithholdingAgent":{"name":"Primary Agent Name","ein":"98-3456789"},"intermediaryOrFlowThrough":{"ein":"98-7654321","chap3StatusCode":"03","chap4StatusCode":"04","name":"Intermediary Name","giin":"748291.59302.US.002","countryCode":"US","foreignTin":"123-45-6789","address":"123 Main St.","city":"Cityville","state":"CA","zip":"98765"}}; // \AvalaraSDK\ModelA1099V2\Get1099Form200Response
 
