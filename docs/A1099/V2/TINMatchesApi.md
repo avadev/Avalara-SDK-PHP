@@ -38,7 +38,7 @@ $apiInstance = new AvalaraSDK\Api\TINMatchesApi($client);
 
 $id = 'id_example'; // string | The bulk ID
 $avalara_version = 2.0.0; // string | API version
-$x_correlation_id = df30781a-da37-45b3-be01-d835e5d0ad8b; // string | Unique correlation Id in a GUID format
+$x_correlation_id = 77d79db6-e884-4ef0-a76d-0c10c41f5993; // string | Unique correlation Id in a GUID format
 $x_avalara_client = Swagger UI; 22.1.0; // string | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
 
 try {
@@ -109,7 +109,7 @@ $skip = 56; // int | If nonzero, skip this number of results before returning da
 $order_by = 'order_by_example'; // string | A comma separated list of sort statements in the format (fieldname) [ASC|DESC], for example id ASC.
 $count = True; // bool | If true, return the global count of elements in the collection.
 $count_only = True; // bool | If true, return ONLY the global count of elements in the collection.  It only applies when count=true.
-$x_correlation_id = 98367ed4-44bb-4254-a388-ec2e63ac293e; // string | Unique correlation Id in a GUID format
+$x_correlation_id = 8bd78a31-95dc-4091-9f0e-fd0647ecc6f5; // string | Unique correlation Id in a GUID format
 $x_avalara_client = Swagger UI; 22.1.0; // string | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
 
 try {
@@ -181,7 +181,7 @@ $client = new \Avalara\SDK\ApiClient($config);
 $apiInstance = new AvalaraSDK\Api\TINMatchesApi($client);
 
 $avalara_version = 2.0.0; // string | API version
-$x_correlation_id = 7d625954-787a-4153-8365-45cef8288be1; // string | Unique correlation Id in a GUID format
+$x_correlation_id = 7f2a23f6-59ed-4fb9-95fd-7937e99952f5; // string | Unique correlation Id in a GUID format
 $x_avalara_client = Swagger UI; 22.1.0; // string | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
 $real_time_tin_match_request = {"tinType":"BUSINESS","tin":"94-2765439","name":"Acme Corporation"}; // \AvalaraSDK\ModelA1099V2\RealTimeTinMatchRequest | Required data to perform TIN match
 
@@ -246,7 +246,7 @@ $client = new \Avalara\SDK\ApiClient($config);
 $apiInstance = new AvalaraSDK\Api\TINMatchesApi($client);
 
 $avalara_version = 2.0.0; // string | API version
-$x_correlation_id = 3f051c64-117a-46f1-b9b5-324064394c6a; // string | Unique correlation Id in a GUID format
+$x_correlation_id = 88b0e4e3-1fd9-437c-9744-753f89dfef9f; // string | Unique correlation Id in a GUID format
 $x_avalara_client = Swagger UI; 22.1.0; // string | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
 $bulk_tin_match_request = {"items":[{"referenceId":"ACME0001","tinType":"BUSINESS","tin":"94-2765439","name":"Acme Corporation"},{"referenceId":"123JD","tinType":"INDIVIDUAL","tin":"543-45-6789","name":"John Doe"}]}; // \AvalaraSDK\ModelA1099V2\BulkTinMatchRequest | Required TIN collection to perform bulk TIN match
 

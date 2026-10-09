@@ -94,6 +94,14 @@ Name | Type | Description | Notes
 **number_of_properties_securing_mortgage** | **int** | Number of properties securing the mortgage, if more than one | [optional]
 **other_information** | **string** | Other (up to 39 characters), such as real estate taxes or insurance paid from escrow | [optional]
 **mortgage_acquisition_date** | **\DateTime** | Mortgage acquisition date, if the mortgage was acquired during the tax year | [optional]
+**payments_received_for_qualified_tuition_and_related_expenses** | **float** | Payments received for qualified tuition and related expenses | [optional]
+**adjustments_made_for_prior_year** | **float** | Adjustments made for a prior year | [optional]
+**scholarships_or_grants** | **float** | Scholarships or grants | [optional]
+**adjustments_to_scholarships_or_grants_for_prior_year** | **float** | Adjustments to scholarships or grants for a prior year | [optional]
+**includes_amounts_for_academic_period_beginning_next_year_indicator** | **bool** | If checked, the amount in Box 1 includes amounts for an academic period beginning January through March of the  next year | [optional]
+**at_least_half_time_student_indicator** | **bool** | If checked, the student was at least a half-time student during any academic period that began in the tax year | [optional]
+**graduate_student_indicator** | **bool** | If checked, the student was enrolled in a program leading to a graduate degree, certificate or credential | [optional]
+**insurance_contract_reimbursements_or_refunds** | **float** | Insurance contract reimbursements or refunds (insurers only) | [optional]
 **date_of_identifiable_event** | **\DateTime** | Date of identifiable event |
 **amount_of_debt_discharged** | **float** | Amount of debt discharged |
 **interest_included_in_debt_discharged** | **float** | Interest, if included in the amount of debt discharged | [optional]
@@ -176,14 +184,14 @@ Name | Type | Description | Notes
 **work_opportunity_credit** | **float** | Work opportunity credit | [optional]
 **other_credits_and_deductions** | **float** | Other credits and deductions | [optional]
 **specified_cooperative_indicator** | **bool** | Indicates the payer is a specified agricultural or horticultural cooperative | [optional]
-**gross_distribution** | **float** | Gross distribution | [optional]
+**gross_distribution** | **float** | Gross distribution |
 **taxable_amount** | **float** | Taxable amount | [optional]
 **taxable_amount_not_determined** | **bool** | Taxable amount not determined | [optional]
 **total_distribution_determined** | **bool** | Total distribution | [optional]
 **capital_gain** | **float** | Capital gain (included in Box 2a) | [optional]
 **employee_contributions_or_designated_roth_or_insurance_premiums** | **float** | Employee contributions/Designated Roth contributions or insurance premiums | [optional]
 **net_unrealized_appreciation_in_employer_securities** | **float** | Net unrealized appreciation in employer&#39;s securities | [optional]
-**distribution_code** | **string** | Distribution code.    Available values:  - 1: Early distribution, no known exception (in most cases, under age 59½)  - 2: Early distribution, exception applies (under age 59½)  - 3: Disability  - 4: Death  - 5: Prohibited transaction  - 6: Section 1035 exchange (a tax-free exchange of life insurance, annuity, qualified long-term care insurance, or endowment contracts)  - 7: Normal distribution  - 8: Excess contributions plus earnings/excess deferrals (and/or earnings) taxable in payment year  - 9: Cost of current life insurance protection (premiums paid by a trustee or custodian for current insurance protection)  - A: May be eligible for 10-year tax option  - B: Designated Roth account distribution  - C: Reportable Death Benefits Under Section 6050Y(c)  - D: Annuity payments from nonqualified annuity payments and distributions from life insurance contracts that may be subject to tax under section 1411  - E: Distribution under Employee Plans Compliance Resolution System (EPCRS)  - F: Charitable gift annuity  - G: Direct rollover and rollover contribution  - H: Direct rollover of distribution from a designated Roth account to a Roth IRA  - J: Early distribution from a Roth IRA (This code may be used with a Code 8 or P)  - K: Distribution of IRA Assets Not Having A Readily Available FMV  - L: Loans treated as deemed distributions under section 72(p)  - M: Qualified Plan Loan Offsets  - N: Recharacterized IRA contribution made for year following payment year  - P: Excess contributions plus earnings/excess deferrals taxable for year prior to payment year  - Q: Qualified distribution from a Roth IRA (Distribution from a Roth IRA when the 5-year holding period has been met, and the recipient has reached 59½, has died, or is disabled)  - R: Recharacterized IRA contribution made for year prior to payment year  - S: Early distribution from a SIMPLE IRA in first 2 years no known exceptions  - T: Roth IRA distribution exception applies because participant has reached 59½, died or is disabled, but it is unknown if the 5-year period has been met  - U: Distribution from ESOP under Section 404(k)  - W: Charges or payments for purchasing qualified long-term care insurance contracts under combined arrangements  - Y: Qualified charitable distribution (QCD) claimed under section 408(d)(8) (Available for 2025 on) |
+**distribution_code** | **string** | Distribution code.                * &#x60;1&#x60; - Normal distributions  * &#x60;2&#x60; - Excess contributions  * &#x60;3&#x60; - Disability  * &#x60;4&#x60; - Death distribution other than code 6  * &#x60;5&#x60; - Prohibited transaction  * &#x60;6&#x60; - Death distribution after year of death to a nonspouse beneficiary |
 **second_distribution_code** | **string** | Second distribution code. Must be a valid combination with the first distribution code.  See DistributionCode property documentation for code descriptions.    Valid combinations based on first distribution code:  - 1: _, 8, B, D, K, L, M, P  - 2: _, 8, B, D, K, L, M, P  - 3: _, D  - 4: _, 8, A, B, D, G, H, K, L, M, P  - 5: _  - 6: _, W  - 7: _, A, B, D, K, L, M  - 8: _, 1, 2, 4, B, J, K  - 9: _  - A: 4, 7  - B: _, 1, 2, 4, 7, 8, G, L, M, P, U  - C: _, D  - D: 1, 2, 3, 4, 7, C  - E: _  - F: _  - G: _, 4, B, K  - H: _, 4  - J: _, 8, P  - K: 1, 2, 4, 7, 8, G  - L: _, 1, 2, 4, 7, B  - M: _, 1, 2, 4, 7, B  - N: _  - P: _, 1, 2, 4, B, J  - Q: _  - R: _  - S: _  - T: _  - U: _, B  - W: _, 6  - Y: 4, 7, K                (_ indicates no second distribution code)    (format: firstDistributionCode: availableSecondDistributionCodes) | [optional]
 **ira_sep_simple** | **bool** | IRA/SEP/SIMPLE | [optional]
 **traditional_ira_sep_simple_or_roth_conversion_amount** | **float** | Traditional IRA/SEP/SIMPLE or Roth conversion amount | [optional]
@@ -200,6 +208,11 @@ Name | Type | Description | Notes
 **transferor_received_property_or_services_indicator** | **bool** | If checked, the transferor received or will receive property or services as part of the consideration | [optional]
 **transferor_is_foreign_person_indicator** | **bool** | If checked, the transferor is a foreign person (nonresident alien, foreign partnership, foreign estate or foreign trust) | [optional]
 **buyers_part_of_real_estate_tax** | **float** | Buyer&#39;s part of real estate tax | [optional]
+**earnings_on_excess_contributions** | **float** | Earnings on excess contributions | [optional]
+**fair_market_value_on_date_of_death** | **float** | Fair market value (FMV) of the account on the date of death | [optional]
+**hsa_indicator** | **bool** | If checked, the account is a health savings account (HSA). Exactly one account type indicator must be checked. | [optional]
+**archer_msa_indicator** | **bool** | If checked, the account is an Archer medical savings account (MSA). Exactly one account type indicator must be checked. | [optional]
+**medicare_advantage_msa_indicator** | **bool** | If checked, the account is a Medicare Advantage MSA. Exactly one account type indicator must be checked. | [optional]
 **wages** | **float** | Wages, tips, other compensation. | [optional]
 **social_security_wages** | **float** | Social security wages. | [optional]
 **social_security_tax_withheld** | **float** | Social security tax withheld. | [optional]

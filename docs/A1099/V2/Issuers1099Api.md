@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**deleteIssuer()**](Issuers1099Api.md#deleteIssuer) | **DELETE** /1099/issuers/{id} | Delete an issuer
 [**getIssuer()**](Issuers1099Api.md#getIssuer) | **GET** /1099/issuers/{id} | Retrieve an issuer
 [**getIssuers()**](Issuers1099Api.md#getIssuers) | **GET** /1099/issuers | List issuers
+[**resubmitRejectedForms()**](Issuers1099Api.md#resubmitRejectedForms) | **POST** /1099/issuers/{issuerId}/$resubmit-rejected-forms | Request a replacement submission for an issuer&#39;s rejected forms
 [**updateIssuer()**](Issuers1099Api.md#updateIssuer) | **PUT** /1099/issuers/{id} | Update an issuer
 
 
@@ -40,7 +41,7 @@ $client = new \Avalara\SDK\ApiClient($config);
 $apiInstance = new AvalaraSDK\Api\Issuers1099Api($client);
 
 $avalara_version = 2.0.0; // string | API version
-$x_correlation_id = 020085b2-ced8-4d4e-8d8e-aac8901ba664; // string | Unique correlation Id in a GUID format
+$x_correlation_id = 5ae71043-1efc-47f3-931c-194f239999b9; // string | Unique correlation Id in a GUID format
 $x_avalara_client = Swagger UI; 22.1.0; // string | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
 $issuer_request = {"businessName":"Acme Corporation","businessName2":"Acme Widgets","name":"Acme Corporation","dbaName":"Acme Widgets","tinType":"BUSINESS","firstName":null,"middleName":null,"lastName":null,"suffix":null,"tin":"94-2765431","referenceId":"issuer-001","telephone":"+1-555-123-4567","taxYear":2025,"countryCode":"US","email":"support@acmecorp.com","address":"123 Main Street","city":"San Francisco","state":"CA","zip":"94105","foreignProvince":"","transferAgentName":"","lastFiling":false}; // \AvalaraSDK\ModelA1099V2\IssuerRequest | The issuer to create
 
@@ -108,7 +109,7 @@ $apiInstance = new AvalaraSDK\Api\Issuers1099Api($client);
 
 $id = 'id_example'; // string | Id of the issuer to delete
 $avalara_version = 2.0.0; // string | API version
-$x_correlation_id = eeca9729-5b2f-4ba1-a3c7-bf49c3705b52; // string | Unique correlation Id in a GUID format
+$x_correlation_id = f7a15738-d958-4708-aad8-eac25b686d81; // string | Unique correlation Id in a GUID format
 $x_avalara_client = Swagger UI; 22.1.0; // string | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
 
 try {
@@ -174,7 +175,7 @@ $apiInstance = new AvalaraSDK\Api\Issuers1099Api($client);
 
 $id = 'id_example'; // string | Id of the issuer to retrieve
 $avalara_version = 2.0.0; // string | API version
-$x_correlation_id = 1ba68926-014a-4e57-ac33-5120f7d67ad5; // string | Unique correlation Id in a GUID format
+$x_correlation_id = 27ab9711-3475-41e4-b82a-2b7ce52ca884; // string | Unique correlation Id in a GUID format
 $x_avalara_client = Swagger UI; 22.1.0; // string | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
 
 try {
@@ -246,7 +247,7 @@ $skip = 56; // int | If nonzero, skip this number of results before returning da
 $order_by = 'order_by_example'; // string | A comma separated list of sort statements in the format (fieldname) [ASC|DESC], for example id ASC.
 $count = True; // bool | If true, return the global count of elements in the collection.
 $count_only = True; // bool | If true, return ONLY the global count of elements in the collection.  It only applies when count=true.
-$x_correlation_id = 0b7d8a8b-c34a-48e3-bf9e-86c475547496; // string | Unique correlation Id in a GUID format
+$x_correlation_id = 1dbcdaf4-7ea0-46e9-b83c-b663e6178568; // string | Unique correlation Id in a GUID format
 $x_avalara_client = Swagger UI; 22.1.0; // string | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
 
 try {
@@ -274,6 +275,73 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\AvalaraSDK\ModelA1099V2\PaginatedQueryResultModelIssuerResponse**](../Model/PaginatedQueryResultModelIssuerResponse.md)
+
+### Authorization
+
+[bearer](../../../README.md#bearer)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../../README.md#endpoints)
+[[Back to Model list]](../../../README.md#models)
+[[Back to README]](../../../README.md)
+
+## `resubmitRejectedForms()`
+
+```php
+resubmitRejectedForms($issuer_id, $avalara_version, $x_correlation_id, $x_avalara_client): \AvalaraSDK\ModelA1099V2\ResubmitRejectedFormsResponse
+```
+
+Request a replacement submission for an issuer's rejected forms
+
+Mirrors the UI's \"Resubmit Rejected Forms\" action: schedules a replacement submission for every one  of the issuer's forms currently in Rejected or RejectedWithErrors status, in a single action. There  is no per-form or per-submission selection. This call only schedules the resubmission — actual  transmission to the IRS remains asynchronous and batch-driven.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure HTTP OAUTH2 Access Token and other config options
+$config = new \Avalara\SDK\Configuration()
+              ->setBearerToken('YOUR_JWT_ACCESS_TOKEN')
+              ->setAppName('YOUR_APP_NAME')
+              ->setEnvironment('sandbox')
+              ->setMachineName('YOUR_MACHINE_NAME')
+              ->setAppVersion('YOUR_APP_VERSION');
+
+$client = new \Avalara\SDK\ApiClient($config);
+
+$apiInstance = new AvalaraSDK\Api\Issuers1099Api($client);
+
+$issuer_id = 56; // int | Id of the issuer whose rejected forms should be resubmitted
+$avalara_version = 2.0.0; // string | API version
+$x_correlation_id = 0520f85b-11b0-4246-953f-e06f87029486; // string | Unique correlation Id in a GUID format
+$x_avalara_client = Swagger UI; 22.1.0; // string | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
+
+try {
+    $result = $apiInstance->resubmitRejectedForms($issuer_id, $avalara_version, $x_correlation_id, $x_avalara_client);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling Issuers1099Api->resubmitRejectedForms: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **issuer_id** | **int**| Id of the issuer whose rejected forms should be resubmitted |
+ **avalara_version** | **string**| API version |
+ **x_correlation_id** | **string**| Unique correlation Id in a GUID format | [optional]
+ **x_avalara_client** | **string**| Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) . | [optional]
+
+### Return type
+
+[**\AvalaraSDK\ModelA1099V2\ResubmitRejectedFormsResponse**](../Model/ResubmitRejectedFormsResponse.md)
 
 ### Authorization
 
@@ -318,7 +386,7 @@ $apiInstance = new AvalaraSDK\Api\Issuers1099Api($client);
 
 $id = 'id_example'; // string | Id of the issuer to update
 $avalara_version = 2.0.0; // string | API version
-$x_correlation_id = 5dcb2f2c-e12d-4e11-aeaa-dfbd23bbe954; // string | Unique correlation Id in a GUID format
+$x_correlation_id = 542fb8dd-e4ec-49c2-aef5-f9159dd46aaf; // string | Unique correlation Id in a GUID format
 $x_avalara_client = Swagger UI; 22.1.0; // string | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
 $issuer_request = {"businessName":"Acme Corporation","businessName2":"Acme Widgets","name":"Acme Corporation","dbaName":"Acme Widgets","tinType":"BUSINESS","firstName":null,"middleName":null,"lastName":null,"suffix":null,"tin":"94-2765431","referenceId":"issuer-001","telephone":"+1-555-123-4567","taxYear":2025,"countryCode":"US","email":"support@acmecorp.com","address":"123 Main Street","city":"San Francisco","state":"CA","zip":"94105","foreignProvince":"","transferAgentName":"","lastFiling":false}; // \AvalaraSDK\ModelA1099V2\IssuerRequest | The issuer to update
 
