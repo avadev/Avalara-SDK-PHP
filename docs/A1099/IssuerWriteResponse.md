@@ -29,6 +29,7 @@ Name | Type | Description | Notes
 **id** | **string** | Unique identifier set when the record is created. | [optional]
 **created_at** | **\DateTime** | Date time when the record was created. | [optional]
 **updated_at** | **\DateTime** | Date time when the record was last updated. | [optional]
+**federal_efile_errors** | [**\AvalaraSDK\ModelA1099V2\FederalEfileErrorResponse[]**](FederalEfileErrorResponse.md) | Issuer-level IRS/IRIS rejection errors from the federal filing submissions of the issuer&#39;s forms that are still rejected and awaiting resubmission. | [optional] [readonly]
 **validation_errors** | [**\AvalaraSDK\ModelA1099V2\ValidationError[]**](ValidationError.md) | Field-level validation errors. Populated when a POST or PUT request violated business rules  but the issuer was still persisted. Each entry identifies the affected field and the issue.  Empty array when the payload was fully valid. | [optional] [readonly]
 
 [[Back to Model list]](../../../README.md#models) [[Back to API list]](../../../README.md#endpoints) [[Back to README]](../../../README.md)
