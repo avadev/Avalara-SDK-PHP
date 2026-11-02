@@ -6,7 +6,12 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **type** | **string** | The form type (always \&quot;W9\&quot; for this model). | [optional] [readonly]
 **name** | **string** | The name of the individual or entity associated with the form. | [optional]
-**business_name** | **string** | The name of the business associated with the form. | [optional]
+**first_name** | **string** | Individual first name. | [optional]
+**middle_name** | **string** | Individual middle name. | [optional]
+**last_name** | **string** | Individual last name. | [optional]
+**suffix_name** | **string** | Individual name suffix. | [optional]
+**business_name** | **string** | DEPRECATED: The name of the business associated with the form. Use &#x60;name2&#x60; instead. | [optional]
+**name2** | **string** | The name of the business associated with the form. Replaces the deprecated &#x60;businessName&#x60; field. | [optional]
 **business_classification** | **string** | The classification of the business. | [optional]
 **business_other** | **string** | The classification description when \&quot;businessClassification\&quot; is \&quot;Other\&quot;. | [optional]
 **foreign_partner_owner_or_beneficiary** | **bool** | Indicates whether the individual is a foreign partner, owner, or beneficiary. | [optional]
